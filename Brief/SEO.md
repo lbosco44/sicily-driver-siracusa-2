@@ -10,7 +10,7 @@
 ## 0. Premessa operativa
 
 - **Search Console**: non disponibile al momento → tutte le keyword di questo file sono **inferite** da copy attuale + competitive landscape (analisi 8 competitor regionali). Da validare con Search Console reale entro 30 giorni post-go-live (priorità alta).
-- **Estrazione meta tag**: completata per 4 pagine fetchate (home IT/EN, tour-barocco IT, tour-sicilia hub IT, servizi EN, chi-siamo EN). Per le altre 14 URL → procedura di estrazione in §8, da eseguire da Claude Code prima del build delle pagine corrispondenti.
+- **Estrazione meta tag**: completata per 6 pagine fetchate (home IT/EN, tour-barocco IT, tour-sicilia hub IT, servizi EN, chi-siamo EN). Per le altre 14 URL → procedura di estrazione in §8, da eseguire da Claude Code prima del build delle pagine corrispondenti.
 - **Cutover DNS**: tutti i 301 redirect devono essere testati funzionanti **prima** del cambio DNS. Mai 302.
 
 ---
@@ -24,9 +24,9 @@
 | `/index.php` | `Sicily Driver Siracusa` | (non estratta — title troppo brand-only, non keyword-dense) | `[POLISH]` title in fase migration, descrizione `[NEW]` |
 | `/index-en.php` | `Sicily Driver Siracusa` | (idem) | `[POLISH]` title EN, descrizione `[NEW]` |
 | `/tour-barocco.php` | `Sicily Driver Siracusa` | (non estratta) | `[POLISH]` title con keyword "Tour Barocco Noto Modica Ragusa", descrizione `[NEW]` |
-| `/tour-sicilia.php` | `Tour Sicilia con Autista Privato - Sicily Driver Siracusa` | (estratta in §3) | `[PRESERVE]` title già ottimo |
-| `/servizi-en.php` | `Our Services - Sicily Driver Siracusa` | (estratta in §3) | `[PRESERVE]` title |
-| `/chi-siamo-en.php` | `Our Story - Sicily Driver Siracusa` | (estratta in §3) | `[PRESERVE]` title (è il copy interno povero, non il meta) |
+| `/tour-sicilia.php` | `Tour Sicilia con Autista Privato - Sicily Driver Siracusa` | (estratta) | `[PRESERVE]` title già ottimo |
+| `/servizi-en.php` | `Our Services - Sicily Driver Siracusa` | (estratta) | `[PRESERVE]` title |
+| `/chi-siamo-en.php` | `Our Story - Sicily Driver Siracusa` | (estratta) | `[PRESERVE]` title (è il copy interno povero, non il meta) |
 
 ### Pagine da estrarre (procedura in §8)
 - `/chi-siamo.php`, `/servizi.php`, `/contatti.php`, `/contatti-en.php`
@@ -40,7 +40,7 @@
 
 ## 2. Keyword target (Search Console non disponibile)
 
-### 2.1 Keyword primarie (volume alto, intent transazionale, presunto ranking alto)
+### 2.1 Keyword primarie IT (volume alto, intent transazionale, presunto ranking alto)
 
 | Keyword | URL principale | Intent | Note Pattern B |
 |---|---|---|---|
@@ -69,7 +69,7 @@
 
 ### 2.3 Long-tail (presunte 10-15 query/mese ciascuna, da validare)
 
-#### IT
+**IT**
 - `quanto costa transfer aeroporto Catania Siracusa`
 - `prezzo NCC Catania Taormina`
 - `tour Barocco Sicilia in giornata`
@@ -77,14 +77,14 @@
 - `transfer porto Catania crociere`
 - `NCC Marzamemi Noto Siracusa`
 
-#### EN
+**EN**
 - `how much is Catania airport transfer to Taormina`
 - `Sicily wedding chauffeur cost`
 - `Etna wine tour from Taormina private driver`
 - `Catania cruise port shore excursion`
 - `private day tour Noto Modica Ragusa`
 
-### 2.4 Keyword brand (3-5)
+### 2.4 Keyword brand
 - `Sicily Driver Siracusa`
 - `ncctaxisiracusa`
 - `Sicily Driver Syracuse` (EN)
@@ -179,30 +179,9 @@ Per queste pagine i seguenti elementi **non si toccano semanticamente** durante 
   "paymentAccepted": "Cash, Credit Card, Bank Transfer",
   "openingHours": "Mo-Su 00:00-23:59",
   "address": [
-    {
-      "@type": "PostalAddress",
-      "streetAddress": "Via della Maestranza 28",
-      "addressLocality": "Siracusa",
-      "addressRegion": "SR",
-      "postalCode": "96100",
-      "addressCountry": "IT"
-    },
-    {
-      "@type": "PostalAddress",
-      "streetAddress": "Via Alcide De Gasperi 15",
-      "addressLocality": "Noto",
-      "addressRegion": "SR",
-      "postalCode": "96017",
-      "addressCountry": "IT"
-    },
-    {
-      "@type": "PostalAddress",
-      "streetAddress": "Via Marzamemi 23",
-      "addressLocality": "Marzamemi",
-      "addressRegion": "SR",
-      "postalCode": "96018",
-      "addressCountry": "IT"
-    }
+    {"@type": "PostalAddress", "streetAddress": "Via della Maestranza 28", "addressLocality": "Siracusa", "addressRegion": "SR", "postalCode": "96100", "addressCountry": "IT"},
+    {"@type": "PostalAddress", "streetAddress": "Via Alcide De Gasperi 15", "addressLocality": "Noto", "addressRegion": "SR", "postalCode": "96017", "addressCountry": "IT"},
+    {"@type": "PostalAddress", "streetAddress": "Via Marzamemi 23", "addressLocality": "Marzamemi", "addressRegion": "SR", "postalCode": "96018", "addressCountry": "IT"}
   ],
   "areaServed": [
     {"@type": "City", "name": "Siracusa"},
@@ -218,18 +197,14 @@ Per queste pagine i seguenti elementi **non si toccano semanticamente** durante 
   ],
   "serviceArea": {
     "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": 37.0755,
-      "longitude": 15.2866
-    },
+    "geoMidpoint": {"@type": "GeoCoordinates", "latitude": 37.0755, "longitude": 15.2866},
     "geoRadius": "200000"
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Servizi NCC Sicily Driver",
     "itemListElement": [
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Transfer aeroportuali"}, "priceCurrency": "EUR", "price": "80", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "80", "priceCurrency": "EUR"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Transfer aeroportuali"}, "priceCurrency": "EUR", "price": "80"},
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tour privati Sicilia"}},
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Wedding & Eventi"}},
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Business & Aziendale"}}
@@ -287,26 +262,17 @@ Esempio per home `/`:
     {
       "@type": "Question",
       "name": "Quanto costa un transfer aeroporto Catania?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "I prezzi partono da €80 a tratta per il servizio NCC con Mercedes Classe V, variabili in base alla tratta e al numero di passeggeri."
-      }
+      "acceptedAnswer": {"@type": "Answer", "text": "I prezzi partono da €80 a tratta per il servizio NCC con Mercedes Classe V, variabili in base alla tratta e al numero di passeggeri."}
     },
     {
       "@type": "Question",
       "name": "Posso prenotare un tour Barocco in giornata?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sì: offriamo tour di 4–8 ore con guida opzionale; l'itinerario è personalizzabile e include Noto, Modica, Ragusa Ibla."
-      }
+      "acceptedAnswer": {"@type": "Answer", "text": "Sì: offriamo tour di 4–8 ore con guida opzionale; l'itinerario è personalizzabile e include Noto, Modica, Ragusa Ibla."}
     },
     {
       "@type": "Question",
       "name": "Avete un servizio taxi privato notturno?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Certamente: il nostro NCC è attivo 24/7, perfetto anche per transfer serali verso ristoranti, eventi o aeroporti."
-      }
+      "acceptedAnswer": {"@type": "Answer", "text": "Certamente: il nostro NCC è attivo 24/7, perfetto anche per transfer serali verso ristoranti, eventi o aeroporti."}
     }
   ]
 }
@@ -333,3 +299,244 @@ Esempio per home `/`:
 ## 6. Redirect plan 301 (20 URL .php → URL puliti)
 
 **Tutti permanenti (HTTP 301). Mai 302.**
+
+```
+# Italiano
+/index.php              → /                           301
+/chi-siamo.php          → /chi-siamo                  301
+/servizi.php            → /servizi                    301
+/tour-sicilia.php       → /tour-sicilia               301
+/tour-barocco.php       → /tour-barocco               301
+/contatti.php           → /contatti                   301
+/ncc-catania.php        → /ncc-catania                301
+/ncc-noto.php           → /ncc-noto                   301
+/ncc-taormina.php       → /ncc-taormina               301
+/ncc-ragusa.php         → /ncc-ragusa                 301
+
+# Inglese (riorganizzato sotto /en/)
+/index-en.php           → /en                         301
+/chi-siamo-en.php       → /en/about                   301
+/servizi-en.php         → /en/services                301
+/tour-sicilia-en.php    → /en/sicily-tours            301
+/tour-barocco-en.php    → /en/baroque-tour            301
+/contatti-en.php        → /en/contact                 301
+/driver-catania.php     → /en/driver-catania          301
+/driver-noto.php        → /en/driver-noto             301
+/driver-taormina.php    → /en/driver-taormina         301
+/driver-ragusa.php      → /en/driver-ragusa           301
+
+# Fix bug noto (linkato dalla home EN, oggi 404)
+/contact-en.php         → /en/contact                 301
+```
+
+**Implementazione Next.js**: file `next.config.js` array `redirects()` o file `middleware.ts`. Tutti i 21 redirect (20 + 1 fix bug) devono restituire HTTP 301 verificabile con `curl -I` o lighthouse.
+
+**Vincolo go-live**: ogni redirect testato individualmente prima del cutover DNS. Lista di verifica in §10.
+
+---
+
+## 7. Sitemap.xml + robots.txt + hreflang
+
+### 7.1 `sitemap.xml`
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home -->
+  <url>
+    <loc>https://ncctaxisiracusa.com/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ncctaxisiracusa.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ncctaxisiracusa.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ncctaxisiracusa.com/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ncctaxisiracusa.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ncctaxisiracusa.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ncctaxisiracusa.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ncctaxisiracusa.com/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Pagine locali IT (priority 0.9) -->
+  <url><loc>https://ncctaxisiracusa.com/ncc-catania</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncctaxisiracusa.com/ncc-noto</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncctaxisiracusa.com/ncc-taormina</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncctaxisiracusa.com/ncc-ragusa</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
+  <!-- Pagine locali EN (priority 0.9) -->
+  <url><loc>https://ncctaxisiracusa.com/en/driver-catania</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncctaxisiracusa.com/en/driver-noto</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncctaxisiracusa.com/en/driver-taormina</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncctaxisiracusa.com/en/driver-ragusa</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
+  <!-- Tour dedicati (priority 0.9, alta) -->
+  <url><loc>https://ncctaxisiracusa.com/tour-barocco</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncctaxisiracusa.com/tour-etna</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncctaxisiracusa.com/tour-ortigia-taormina</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncctaxisiracusa.com/wedding-eventi</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncctaxisiracusa.com/en/baroque-tour</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncctaxisiracusa.com/en/etna-tour</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncctaxisiracusa.com/en/ortigia-taormina-tour</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncctaxisiracusa.com/en/weddings</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
+  <!-- Hub (priority 0.8) -->
+  <url><loc>https://ncctaxisiracusa.com/tour-sicilia</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncctaxisiracusa.com/servizi</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncctaxisiracusa.com/en/sicily-tours</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncctaxisiracusa.com/en/services</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Trust/conversion (priority 0.6) -->
+  <url><loc>https://ncctaxisiracusa.com/chi-siamo</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ncctaxisiracusa.com/contatti</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ncctaxisiracusa.com/en/about</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ncctaxisiracusa.com/en/contact</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+
+</urlset>
+```
+
+**Nota**: per concisione gli `xhtml:link hreflang` sono mostrati solo sulla home. **Vanno applicati su tutte le 13 coppie IT/EN**: ogni URL deve dichiarare se stesso + il gemello + x-default → IT.
+
+### 7.2 `robots.txt`
+
+```
+User-agent: *
+Allow: /
+
+# Disallow tecnici
+Disallow: /api/
+Disallow: /_next/
+Disallow: /.well-known/
+
+Sitemap: https://ncctaxisiracusa.com/sitemap.xml
+```
+
+### 7.3 hreflang — pattern obbligatorio in ogni `<head>`
+
+Esempio per `/tour-barocco`:
+
+```html
+<link rel="alternate" hreflang="it" href="https://ncctaxisiracusa.com/tour-barocco" />
+<link rel="alternate" hreflang="en" href="https://ncctaxisiracusa.com/en/baroque-tour" />
+<link rel="alternate" hreflang="x-default" href="https://ncctaxisiracusa.com/tour-barocco" />
+```
+
+Coppie complete IT ↔ EN per hreflang:
+
+| IT | EN |
+|---|---|
+| `/` | `/en` |
+| `/chi-siamo` | `/en/about` |
+| `/servizi` | `/en/services` |
+| `/contatti` | `/en/contact` |
+| `/tour-sicilia` | `/en/sicily-tours` |
+| `/tour-barocco` | `/en/baroque-tour` |
+| `/tour-etna` | `/en/etna-tour` |
+| `/tour-ortigia-taormina` | `/en/ortigia-taormina-tour` |
+| `/wedding-eventi` | `/en/weddings` |
+| `/ncc-catania` | `/en/driver-catania` |
+| `/ncc-noto` | `/en/driver-noto` |
+| `/ncc-taormina` | `/en/driver-taormina` |
+| `/ncc-ragusa` | `/en/driver-ragusa` |
+
+---
+
+## 8. Procedura estrazione meta/copy per pagine non estratte
+
+Prima di lanciare il build di una pagina della lista qui sotto, Claude Code deve estrarre i seguenti elementi dal sito attuale e popolare COPY.md + §1 di questo file.
+
+### Pagine da estrarre (14)
+
+```
+/chi-siamo.php
+/servizi.php
+/contatti.php
+/contatti-en.php
+/ncc-catania.php
+/ncc-noto.php
+/ncc-taormina.php
+/ncc-ragusa.php
+/driver-catania.php
+/driver-noto.php
+/driver-taormina.php
+/driver-ragusa.php
+/tour-barocco-en.php
+/tour-sicilia-en.php
+```
+
+### Cosa estrarre (per ogni pagina)
+
+1. `<title>` esatto attuale
+2. `<meta name="description">` esatto attuale (se presente)
+3. `<meta name="keywords">` se presente
+4. `<h1>` esatto attuale
+5. Primo paragrafo body (~150-300 caratteri intorno alla H1)
+6. Lista H2/H3 nell'ordine in cui appaiono
+7. Tutte le FAQ presenti (domanda + risposta letterali)
+8. Prezzi esatti se citati ("da €80", "€80-€120", ecc.)
+9. Eventuali URL interni nel body (per mappa internal linking)
+10. Eventuali immagini con `alt` attribute (mantenere alt SEO-locked)
+
+### Modalità di estrazione
+
+- **Tentativo 1**: `web_fetch` diretto dall'URL `.php` corrente
+- **Tentativo 2**: se 403/blocco, fallback su Wayback Machine `https://web.archive.org/web/*/ncctaxisiracusa.com/{url}.php`
+- **Tentativo 3**: chiedere all'utente di copia-incollare il sorgente HTML della pagina
+
+**Output di ogni estrazione**: aggiunta riga in §1 di questo file + sezione corrispondente in COPY.md con marcatori `[PRESERVE]` / `[POLISH]`.
+
+---
+
+## 9. Performance baseline (Core Web Vitals pre-go-live)
+
+Misurare con PageSpeed Insights + WebPageTest **prima** del cutover DNS sulle seguenti pagine del sito attuale (per avere il "before"):
+
+- `/index.php` (mobile + desktop)
+- `/tour-barocco.php` (mobile + desktop)
+- `/ncc-catania.php` (mobile + desktop)
+
+Salvare i numeri (LCP, FID/INP, CLS, TBT) come baseline. Il sito nuovo Next.js deve **migliorare ogni metrica** (target: tutte verdi mobile + desktop, LCP < 2.5s, INP < 200ms, CLS < 0.1). Specialmente sulle pagine del Cluster Esperienziale con video loop hero, attenzione a non peggiorare LCP a causa del video — usare poster image, `preload="metadata"`, encoding aggressivo (vedi Video Bible §3).
+
+---
+
+## 10. Verifiche cliente (gating cutover DNS)
+
+Checklist obbligatoria prima dello switch del DNS:
+
+### Lato cliente — informazioni da raccogliere
+- [ ] Accesso Google Search Console al sito attuale (read-only basta) → per validare keyword ranking reale post-launch
+- [ ] Accesso Google Business Profile (se esiste) → per sincronizzare NAP + foto + recensioni reali
+- [ ] Lista esatta dei 3 indirizzi sedi (Siracusa, Noto, Marzamemi) con CAP corretti → schema markup
+- [ ] Anno fondazione attività + storia breve fondatore → chi-siamo REFRESH
+- [ ] Lista comuni serviti definitiva (per estendere `areaServed`)
+- [ ] URL social profili (Facebook, Instagram, eventuali altri) → schema `sameAs`
+- [ ] Eventuali recensioni reali raccolte (anche off-Google: TripAdvisor, GetYourGuide) → da decidere se aggiungere `aggregateRating` con fonte verificabile
+- [ ] Portfolio matrimoni reali (foto serviti, eventuali quote wedding planner) → sblocca sezione galleria di `/wedding-eventi`
+- [ ] Prezzi tratte oltre i 2 base (Catania→Siracusa €80, Catania→Taormina €120): listino esteso per home + pagine locali
+
+### Lato tecnico — verifiche pre-cutover
+- [ ] Tutti i 21 redirect 301 testati con `curl -I` su staging Vercel
+- [ ] Sitemap.xml accessibile su staging + submit pronto su Search Console
+- [ ] robots.txt OK su staging
+- [ ] hreflang validati con Search Console tool "Sitemaps" o ahrefs site audit
+- [ ] Schema markup validato con Google Rich Results Test su tutte le 26 pagine
+- [ ] Performance CWV staging tutte verdi mobile + desktop
+- [ ] Test 404 custom + 500 page
+- [ ] Test form contatti + form wedding qualifying (deliverability email)
+- [ ] WhatsApp link `wa.me/393756413379` testato funzionante su mobile iOS + Android
+- [ ] tel:`+393756413379` testato tap-to-call su mobile
+- [ ] Switcher lingua IT↔EN testato su ogni coppia (13 coppie)
+
+### Post-cutover (entro 7 giorni)
+- [ ] Submit nuova sitemap su Search Console
+- [ ] Monitor in Search Console: drop ranking > 30% su qualsiasi keyword preserve → rollback parziale (controllare se H1 o body è cambiato semanticamente)
+- [ ] Verifica indicizzazione delle 6 nuove URL (Etna, Ortigia-Taormina, Wedding × IT/EN)
+- [ ] Google Business Profile aggiornato con nuovo dominio canonico (se applicabile)
+
+---
+
+*SEO.md v1 — Pattern B SEO-Preserving. Aggiornare §1 mano a mano che le pagine `.php` mancanti vengono estratte (§8).*
