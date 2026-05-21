@@ -1,6 +1,7 @@
 {
   "Brand": {
     "name": "Sicily Driver Siracusa",
+    "shortName": "Sicily Driver",
     "tagline": "Eleganza da VIP, prezzi di mercato"
   },
   "Nav": {
@@ -30,5 +31,167 @@
     "vatNumber": "02150600894",
     "phone": "+39 375 641 3379",
     "email": "info@ncctaxisiracusa.com"
+  },
+  "Home": {
+    "meta": {
+      "title": "NCC Siracusa · Transfer Aeroporto Catania e Tour Privati in Sicilia | Sicily Driver",
+      "description": "Transfer aeroportuali e tour privati in tutta la Sicilia con Mercedes e autista bilingue. Da €80 a tratta. NCC 24/7 a Siracusa, Noto, Catania, Taormina."
+    },
+    "hero": {
+      "eyebrow": "NCC privato · Sicilia orientale · 24/7",
+      "h1Pre": "NCC a Siracusa: transfer aeroportuali, tour privati &",
+      "h1Accent": "servizio VIP",
+      "h1Post": "in Sicilia",
+      "taglineAccent": "Eleganza da VIP, prezzi di mercato",
+      "taglinePost": "— il tuo NCC di lusso a tariffe accessibili",
+      "searchFromLabel": "Da",
+      "searchFromPlaceholder": "Catania Aeroporto",
+      "searchToLabel": "A",
+      "searchToPlaceholder": "Siracusa, Ortigia",
+      "searchDateLabel": "Quando",
+      "searchDatePlaceholder": "Data",
+      "searchPaxLabel": "Passeggeri",
+      "searchCta": "Vedi prezzo",
+      "secondaryCta": "Oppure scrivici subito su WhatsApp"
+    },
+    "trust": {
+      "item1Number": "Da €80",
+      "item1Label": "a tratta in Mercedes",
+      "item2Number": "24/7",
+      "item2Label": "prenotabile su WhatsApp",
+      "item3Number": "3 sedi",
+      "item3Label": "Siracusa · Noto · Marzamemi"
+    },
+    "intro": {
+      "eyebrow": "Benvenuto",
+      "h2Pre": "Benvenuto da",
+      "h2Accent": "Sicily Driver",
+      "h2Post": "Siracusa",
+      "body1Bold": "Benvenuto da Sicily Driver Siracusa",
+      "body1Rest": ", il tuo partner per il noleggio con conducente (NCC) in tutta la Sicilia. Offriamo transfer privati da e per tutti gli aeroporti dell'isola — Catania, Comiso, Palermo e Trapani — oltre a collegamenti con i porti di Pozzallo e Augusta. Viaggia in massima comodità a bordo delle nostre Mercedes Classe V, GLB Premium e Classe E, con servizio 24/7.",
+      "body2": "Scopri i nostri tour su misura: esplora il Barocco di Noto, Modica, Ragusa Ibla, ammira i paesaggi lunari dell'Etna, passeggia per l'antica Ortigia e lasciati incantare dalle terrazze di Taormina. Il nostro servizio VIP è perfetto per matrimoni, eventi aziendali e viaggi esclusivi.",
+      "cta": "Prenota ora il tuo NCC"
+    },
+    "servizi": {
+      "eyebrow": "Tre modi di usarci",
+      "h2Pre": "Dove",
+      "h2Accent": "ti portiamo",
+      "card1": {
+        "number": "01",
+        "kicker": "Transfer",
+        "title": "Transfer aeroporti e porti",
+        "body": "Catania, Comiso, Palermo, Trapani. Pozzallo e Augusta per le crociere. Monitoraggio voli, attesa gratuita.",
+        "cta": "Vai ai transfer"
+      },
+      "card2": {
+        "number": "02",
+        "kicker": "Tour del Barocco · NEW",
+        "title": "Tour del Barocco",
+        "body": "Noto, Modica, Ragusa Ibla in giornata. Cattedrali, palazzi, cioccolato di Modica. 6-8 ore con autista bilingue.",
+        "cta": "Scopri il tour"
+      },
+      "card3": {
+        "number": "03",
+        "kicker": "Tour Etna",
+        "title": "Tour Etna",
+        "body": "Crateri Silvestri, cantina con degustazione, panorama della Valle del Bove. Combinabile con Taormina.",
+        "cta": "Vedi l'itinerario"
+      },
+      "card4": {
+        "number": "04",
+        "kicker": "Wedding & Eventi",
+        "title": "Wedding & Eventi",
+        "body": "Una flotta Mercedes per il giorno che ricorderai. Mercedes Classe V per gli ospiti, Classe E per gli sposi.",
+        "cta": "Parliamo del giorno"
+      }
+    },
+    "destinazioni": {
+      "eyebrow": "Dove andiamo più spesso",
+      "h2Pre": "Le destinazioni che",
+      "h2Accent": "conosciamo a memoria",
+      "ortigia": "Ortigia — il cuore di Siracusa",
+      "noto": "Noto — il barocco al tramonto",
+      "modica": "Modica — vicoli e cioccolato di tradizione antica",
+      "ragusa": "Ragusa Ibla — la cattedrale e i panorami",
+      "etna": "Etna — il vulcano sotto le stelle",
+      "taormina": "Taormina — la terrazza sul mare"
+    },
+    "listino": {
+      "eyebrow": "Tariffe trasparenti",
+      "h2Pre": "Quanto",
+      "h2Accent": "costa",
+      "subhead": "Prezzi base per Mercedes Classe V (fino a 7 passeggeri). Tratte personalizzate su preventivo.",
+      "row1From": "Catania Aeroporto",
+      "row1To": "Siracusa",
+      "row1Price": "da €80",
+      "row2From": "Catania Aeroporto",
+      "row2To": "Noto",
+      "row2Price": "da €100",
+      "row3From": "Catania Aeroporto",
+      "row3To": "Taormina",
+      "row3Price": "da €120",
+      "row4From": "Catania Aeroporto",
+      "row4To": "Ragusa Ibla",
+      "row4Price": "da €150",
+      "row5From": "Catania Aeroporto",
+      "row5To": "Marzamemi",
+      "row5Price": "da €130",
+      "row6From": "Porto Catania (crociere)",
+      "row6To": "Ortigia",
+      "row6Price": "da €90",
+      "microcopy": "I prezzi non includono pedaggi autostradali. Bambini fino a 12 anni con seggiolino gratuito su richiesta. Attesa gratuita all'aeroporto fino a 60 minuti.",
+      "cta": "Preventivo personalizzato"
+    },
+    "about": {
+      "eyebrow": "Chi guida",
+      "h2Pre": "Sicily Driver,",
+      "h2Accent": "dal 2018",
+      "body1": "Siamo nati a Siracusa con un'idea semplice: muoversi in Sicilia bene non deve essere un lusso da rotocalco.",
+      "body2": "Da allora abbiamo accompagnato turisti, sposi, ospiti d'albergo e famiglie tra le strade della Sicilia orientale. Tre sedi, una flotta Mercedes mantenuta come fosse di casa, autisti che parlano italiano e inglese — l'inglese vero, non quello di Google Translate.",
+      "body3": "Tutto qui. Niente brochure, niente promesse di «eccellenza». Si vede dal viaggio.",
+      "cta": "Conosci la nostra storia"
+    },
+    "differenziatori": {
+      "eyebrow": "Perché sceglierci",
+      "h2Pre": "Quello che",
+      "h2Accent": "ci distingue",
+      "item1Number": "01",
+      "item1Title": "Prezzi senza sorprese",
+      "item1Body": "Da €80 a tratta, tariffa concordata prima di partire. Niente supplementi nascosti, niente «tariffa notturna» misteriosa.",
+      "item2Number": "02",
+      "item2Title": "Mercedes curate ogni settimana",
+      "item2Body": "Classe V, GLB Premium, Classe E. Controlli meccanici settimanali, sanificazione a ogni servizio. Acqua fresca a bordo, sempre.",
+      "item3Number": "03",
+      "item3Title": "Driver bilingue veri",
+      "item3Body": "I nostri autisti parlano italiano e inglese fluentemente. Conoscono le strade, gli orari delle messe a Modica e dove si mangia davvero bene a Ortigia."
+    },
+    "ctaFinale": {
+      "eyebrow": "Per prima cosa",
+      "h2Accent": "Pronto a partire?",
+      "subhead": "Tre modi per dirci dove ti veniamo a prendere.",
+      "cta1": "Scrivi su WhatsApp",
+      "cta2": "Chiama ora · +39 375 641 3379",
+      "cta3Pre": "O scrivici a",
+      "cta3Email": "info@ncctaxisiracusa.com"
+    },
+    "faq": {
+      "eyebrow": "Dubbi?",
+      "h2Pre": "Le domande che",
+      "h2Accent": "ci fate spesso",
+      "q1": "Quanto costa un transfer aeroporto Catania?",
+      "a1": "I prezzi partono da €80 a tratta per il servizio NCC con Mercedes Classe V, variabili in base alla tratta e al numero di passeggeri.",
+      "q2": "Posso prenotare un tour Barocco in giornata?",
+      "a2": "Sì: offriamo tour di 4–8 ore con guida opzionale; l'itinerario è personalizzabile e include Noto, Modica, Ragusa Ibla.",
+      "q3": "Avete un servizio taxi privato notturno?",
+      "a3": "Certamente: il nostro NCC è attivo 24/7, perfetto anche per transfer serali verso ristoranti, eventi o aeroporti.",
+      "q4": "Quanti passeggeri entrano nella Mercedes Classe V?",
+      "a4": "La Classe V trasporta fino a 7 passeggeri seduti più bagagli da stiva. Per gruppi più piccoli proponiamo Classe E (berlina, fino a 3 passeggeri) o GLB Premium (SUV, fino a 4 passeggeri).",
+      "q5": "Cosa succede se il mio volo è in ritardo?",
+      "a5": "Monitoriamo gli orari di tutti i voli in tempo reale. L'autista aspetta gratuitamente fino a 60 minuti dall'orario di atterraggio, anche in caso di ritardo del volo.",
+      "q6": "Si può pagare con carta?",
+      "a6": "Sì, accettiamo contanti, carta di credito a bordo e bonifico per prenotazioni anticipate (eventi, matrimoni, business).",
+      "q7": "Posso prenotare per un gruppo di 10-15 persone?",
+      "a7": "Sì, coordiniamo più auto della nostra flotta per gruppi più grandi. Scrivici su WhatsApp con data, numero passeggeri e tratta e ti mandiamo un preventivo entro un'ora."
+    }
   }
 }

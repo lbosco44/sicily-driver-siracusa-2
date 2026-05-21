@@ -1,6 +1,7 @@
 {
   "Brand": {
     "name": "Sicily Driver Siracusa",
+    "shortName": "Sicily Driver",
     "tagline": "VIP-style elegance at market prices"
   },
   "Nav": {
@@ -30,5 +31,167 @@
     "vatNumber": "02150600894",
     "phone": "+39 375 641 3379",
     "email": "info@ncctaxisiracusa.com"
+  },
+  "Home": {
+    "meta": {
+      "title": "Sicily NCC · Catania Airport Transfers & Private Tours | Sicily Driver Syracuse",
+      "description": "Private Mercedes transfers and tours across Sicily with bilingual drivers. From €80 per route. 24/7 NCC in Syracuse, Noto, Catania, Taormina."
+    },
+    "hero": {
+      "eyebrow": "Private NCC · Eastern Sicily · 24/7",
+      "h1Pre": "NCC in Syracuse: airport transfers, private tours &",
+      "h1Accent": "VIP service",
+      "h1Post": "in Sicily",
+      "taglineAccent": "VIP-style elegance at market prices",
+      "taglinePost": "— your premium NCC at accessible rates",
+      "searchFromLabel": "From",
+      "searchFromPlaceholder": "Catania Airport",
+      "searchToLabel": "To",
+      "searchToPlaceholder": "Syracuse, Ortigia",
+      "searchDateLabel": "When",
+      "searchDatePlaceholder": "Date",
+      "searchPaxLabel": "Passengers",
+      "searchCta": "Check price",
+      "secondaryCta": "Or message us right away on WhatsApp"
+    },
+    "trust": {
+      "item1Number": "From €80",
+      "item1Label": "per route in Mercedes",
+      "item2Number": "24/7",
+      "item2Label": "book via WhatsApp",
+      "item3Number": "3 locations",
+      "item3Label": "Syracuse · Noto · Marzamemi"
+    },
+    "intro": {
+      "eyebrow": "Welcome",
+      "h2Pre": "Welcome to",
+      "h2Accent": "Sicily Driver",
+      "h2Post": "Syracuse",
+      "body1Bold": "Welcome to Sicily Driver Syracuse",
+      "body1Rest": ", your go-to partner for chauffeur-driven car services (NCC) across Sicily. We provide private transfers to and from all island airports — Catania, Comiso, Palermo, and Trapani — as well as connections to the ports of Pozzallo and Augusta. Travel in utmost comfort aboard our Mercedes Class V, GLB Premium, and Class E, with 24/7 service.",
+      "body2": "Discover our bespoke tours: explore the Baroque treasures of Noto, Modica, Ragusa Ibla, marvel at the lunar landscapes of Etna, stroll through historic Ortigia, and be captivated by the terraces of Taormina. Our VIP service is ideal for weddings, corporate events, and exclusive travel experiences.",
+      "cta": "Book your NCC now"
+    },
+    "servizi": {
+      "eyebrow": "Three ways to use us",
+      "h2Pre": "Where",
+      "h2Accent": "we take you",
+      "card1": {
+        "number": "01",
+        "kicker": "Transfers",
+        "title": "Airport and port transfers",
+        "body": "Catania, Comiso, Palermo, Trapani. Pozzallo and Augusta for cruise ships. Flight tracking, free waiting time.",
+        "cta": "See transfers"
+      },
+      "card2": {
+        "number": "02",
+        "kicker": "Baroque Tour · NEW",
+        "title": "Baroque Tour",
+        "body": "Noto, Modica, Ragusa Ibla in one day. Cathedrals, palazzos, Modica chocolate. 6-8 hours with bilingual driver.",
+        "cta": "Explore the tour"
+      },
+      "card3": {
+        "number": "03",
+        "kicker": "Etna Tour",
+        "title": "Etna Tour",
+        "body": "Silvestri Craters, winery with tasting, Valle del Bove panorama. Can be combined with Taormina.",
+        "cta": "See the itinerary"
+      },
+      "card4": {
+        "number": "04",
+        "kicker": "Weddings & Events",
+        "title": "Weddings & Events",
+        "body": "A Mercedes fleet for the day you'll remember. Class V for guests, Class E for the couple.",
+        "cta": "Let's talk about your day"
+      }
+    },
+    "destinazioni": {
+      "eyebrow": "Where we go most often",
+      "h2Pre": "The destinations",
+      "h2Accent": "we know by heart",
+      "ortigia": "Ortigia — the heart of Syracuse",
+      "noto": "Noto — Baroque at sunset",
+      "modica": "Modica — alleys and chocolate from ancient tradition",
+      "ragusa": "Ragusa Ibla — the cathedral and the views",
+      "etna": "Etna — the volcano under the stars",
+      "taormina": "Taormina — the terrace on the sea"
+    },
+    "listino": {
+      "eyebrow": "Transparent pricing",
+      "h2Pre": "How",
+      "h2Accent": "much",
+      "subhead": "Base prices for Mercedes Class V (up to 7 passengers). Custom routes on quote.",
+      "row1From": "Catania Airport",
+      "row1To": "Syracuse",
+      "row1Price": "from €80",
+      "row2From": "Catania Airport",
+      "row2To": "Noto",
+      "row2Price": "from €100",
+      "row3From": "Catania Airport",
+      "row3To": "Taormina",
+      "row3Price": "from €120",
+      "row4From": "Catania Airport",
+      "row4To": "Ragusa Ibla",
+      "row4Price": "from €150",
+      "row5From": "Catania Airport",
+      "row5To": "Marzamemi",
+      "row5Price": "from €130",
+      "row6From": "Catania Cruise Port",
+      "row6To": "Ortigia",
+      "row6Price": "from €90",
+      "microcopy": "Prices don't include highway tolls. Children up to 12 ride free with safety seat on request. Free waiting time at the airport up to 60 minutes.",
+      "cta": "Custom quote"
+    },
+    "about": {
+      "eyebrow": "Who drives",
+      "h2Pre": "Sicily Driver,",
+      "h2Accent": "since 2018",
+      "body1": "We started in Syracuse with a simple idea: moving around Sicily well shouldn't be a magazine-spread luxury.",
+      "body2": "Since then we've driven tourists, brides and grooms, hotel guests, and families across eastern Sicily. Three locations, a Mercedes fleet kept like it's family, drivers who speak Italian and English — real English, not Google Translate.",
+      "body3": "That's it. No brochure language, no promises of «excellence». The journey tells you.",
+      "cta": "Read our story"
+    },
+    "differenziatori": {
+      "eyebrow": "Why choose us",
+      "h2Pre": "What",
+      "h2Accent": "sets us apart",
+      "item1Number": "01",
+      "item1Title": "No-surprise pricing",
+      "item1Body": "From €80 per route, fare agreed before you board. No hidden fees, no mysterious «night surcharge».",
+      "item2Number": "02",
+      "item2Title": "Mercedes serviced every week",
+      "item2Body": "Class V, GLB Premium, Class E. Weekly mechanical checks, sanitization after every ride. Cold water on board, always.",
+      "item3Number": "03",
+      "item3Title": "Genuinely bilingual drivers",
+      "item3Body": "Our drivers speak Italian and English fluently. They know the roads, the Mass schedules in Modica, and where to actually eat well in Ortigia."
+    },
+    "ctaFinale": {
+      "eyebrow": "First things first",
+      "h2Accent": "Ready to go?",
+      "subhead": "Three ways to tell us where to pick you up.",
+      "cta1": "Message on WhatsApp",
+      "cta2": "Call now · +39 375 641 3379",
+      "cta3Pre": "Or email",
+      "cta3Email": "info@ncctaxisiracusa.com"
+    },
+    "faq": {
+      "eyebrow": "Questions?",
+      "h2Pre": "Questions",
+      "h2Accent": "we get often",
+      "q1": "How much does a Catania airport transfer cost?",
+      "a1": "Prices start at €80 per route for NCC service with Mercedes Class V, depending on the route and number of passengers.",
+      "q2": "Can I book a Baroque tour for one day?",
+      "a2": "Yes: we offer 4–8 hour tours with optional guide; the itinerary is customizable and includes Noto, Modica, Ragusa Ibla.",
+      "q3": "Do you offer a private night taxi service?",
+      "a3": "Of course: our NCC is active 24/7, perfect for evening transfers to restaurants, events, or airports.",
+      "q4": "How many passengers fit in the Mercedes Class V?",
+      "a4": "Class V seats up to 7 passengers plus luggage. For smaller groups we offer Class E (sedan, up to 3 passengers) or GLB Premium (SUV, up to 4 passengers).",
+      "q5": "What if my flight is delayed?",
+      "a5": "We monitor all flight schedules in real time. The driver waits free of charge for up to 60 minutes from your landing time, even with flight delays.",
+      "q6": "Can I pay by card?",
+      "a6": "Yes: we accept cash, credit card on board, and bank transfer for advance bookings (events, weddings, business).",
+      "q7": "Can I book for a group of 10-15 people?",
+      "a7": "Yes: we coordinate multiple cars from our fleet for larger groups. Message us on WhatsApp with the date, passengers, and route and we'll send a quote within the hour."
+    }
   }
 }

@@ -1,5 +1,50 @@
-import {setRequestLocale} from 'next-intl/server';
-import {getTranslations} from 'next-intl/server';
+import {setRequestLocale, getTranslations} from 'next-intl/server';
+import type {Metadata} from 'next';
+import {HeroLaRotta} from '@/components/sections/HeroLaRotta';
+import {TrustStrip} from '@/components/sections/TrustStrip';
+import {IntroParagraph} from '@/components/sections/IntroParagraph';
+import {ServiziCards} from '@/components/sections/ServiziCards';
+import {DestinazioniMosaic} from '@/components/sections/DestinazioniMosaic';
+import {ListinoTratte} from '@/components/sections/ListinoTratte';
+import {DietroAlVolante} from '@/components/sections/DietroAlVolante';
+import {Differenziatori} from '@/components/sections/Differenziatori';
+import {CtaFinale} from '@/components/sections/CtaFinale';
+import {FaqAccordion} from '@/components/sections/FaqAccordion';
+import {localBusinessSchema, faqPageSchema, JsonLd} from '@/lib/schema';
+import {routing} from '@/i18n/routing';
+
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{locale: string}>;
+}): Promise<Metadata> {
+  const {locale} = await params;
+  const t = await getTranslations({locale, namespace: 'Home.meta'});
+  return {
+    title: t('title'),
+    description: t('description'),
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        it: '/it',
+        en: '/en',
+        'x-default': '/it'
+      }
+    },
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      locale: locale === 'it' ? 'it_IT' : 'en_US',
+      type: 'website',
+      url: `https://ncctaxisiracusa.com/${locale}`,
+      siteName: 'Sicily Driver Siracusa'
+    }
+  };
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({locale}));
+}
 
 export default async function HomePage({
   params
@@ -8,24 +53,33 @@ export default async function HomePage({
 }) {
   const {locale} = await params;
   setRequestLocale(locale);
-  const t = await getTranslations('Brand');
+
+  const t = await getTranslations({locale, namespace: 'Home.faq'});
+  const faqItems = [
+    {q: t('q1'), a: t('a1')},
+    {q: t('q2'), a: t('a2')},
+    {q: t('q3'), a: t('a3')},
+    {q: t('q4'), a: t('a4')},
+    {q: t('q5'), a: t('a5')},
+    {q: t('q6'), a: t('a6')},
+    {q: t('q7'), a: t('a7')}
+  ];
 
   return (
-    <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 py-24 sm:py-32">
-      <p className="text-xs uppercase tracking-[0.12em] text-secondary mb-6 font-medium">
-        Setup tecnico globale
-      </p>
-      <h1 className="text-5xl sm:text-7xl font-display font-medium leading-[1.05]">
-        {t('name')}
-      </h1>
-      <p className="font-display italic text-2xl sm:text-3xl text-primary mt-6">
-        {t('tagline')}
-      </p>
-      <p className="mt-12 max-w-prose text-ink/80 leading-relaxed">
-        Placeholder home — la build delle 10 sezioni del WIREFRAME parte dal prossimo step.
-        Palette, tipografia, navbar, footer, WhatsApp persistente e language switcher
-        sono già attivi.
-      </p>
-    </div>
+    <>
+      <JsonLd data={localBusinessSchema(locale as 'it' | 'en')} />
+      <JsonLd data={faqPageSchema(faqItems)} />
+
+      <HeroLaRotta />
+      <TrustStrip />
+      <IntroParagraph />
+      <ServiziCards />
+      <DestinazioniMosaic />
+      <ListinoTratte />
+      <DietroAlVolante />
+      <Differenziatori />
+      <CtaFinale />
+      <FaqAccordion />
+    </>
   );
 }
