@@ -1,0 +1,34 @@
+{
+  "Brand": {
+    "name": "Sicily Driver Siracusa",
+    "tagline": "VIP-style elegance at market prices"
+  },
+  "Nav": {
+    "home": "Home",
+    "services": "Services",
+    "tours": "Tours",
+    "about": "About",
+    "contact": "Contact",
+    "bookNow": "Book now"
+  },
+  "WhatsApp": {
+    "label": "Message us on WhatsApp",
+    "shortLabel": "WhatsApp"
+  },
+  "LanguageSwitcher": {
+    "it": "IT",
+    "en": "EN",
+    "ariaLabel": "Switch language"
+  },
+  "Footer": {
+    "servicesHeading": "Services",
+    "areasHeading": "Areas served",
+    "contactsHeading": "Contact",
+    "officesHeading": "Offices",
+    "rights": "All rights reserved",
+    "vat": "VAT",
+    "vatNumber": "02150600894",
+    "phone": "+39 375 641 3379",
+    "email": "info@ncctaxisiracusa.com"
+  }
+}

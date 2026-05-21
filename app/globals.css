@@ -1,46 +1,133 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
+/* ============================================================
+   Sicily Driver Siracusa — Design Tokens
+   Palette: "Calce e Mare"
+   Font pair: Cormorant Garamond (display/italic) + DM Sans (UI/body)
+   ============================================================ */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Palette tokens */
+  --canvas: #F5EFE4;          /* cream calce — sfondo dominante */
+  --ink: #2A2520;             /* nero seppia — body text */
+  --primary: #1E3A4F;         /* blu mare profondo — H1/H2 strutturali */
+  --primary-hover: #264556;
+  --accent: #E07856;          /* terracotta cotto — CTA + numerazione editoriale */
+  --accent-hover: #C76A4A;
+  --accent-active: #B05E40;
+  --secondary: #8B9B8E;       /* verde ulivo — dettagli decorativi */
+  --border: #E8DFD0;          /* cream scuro — linee divisorie */
+  --muted-bg: #EDE5D6;        /* sfondi sezione alternati */
+  --cream-on-dark: #F5EFE4;   /* testo su superfici scure */
+
+  /* Shadow tokens — sobri editoriali */
+  --shadow-sm: 0 1px 2px rgba(42, 37, 32, 0.04);
+  --shadow-md: 0 4px 12px rgba(42, 37, 32, 0.06);
+  --shadow-lg: 0 12px 32px rgba(42, 37, 32, 0.08);
+
+  /* Easing tokens */
+  --ease-out-soft: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-out-editorial: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Color mapping per Tailwind v4 */
+  --color-canvas: var(--canvas);
+  --color-ink: var(--ink);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-active: var(--accent-active);
+  --color-secondary: var(--secondary);
+  --color-border-soft: var(--border);
+  --color-muted-bg: var(--muted-bg);
+
+  /* Background + foreground per shadcn compat */
+  --color-background: var(--canvas);
+  --color-foreground: var(--ink);
+
+  /* Font families */
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-dm-sans);
+
+  /* Container */
+  --container-editorial: 1280px;
+
+  /* Animations preservate dal template */
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   @keyframes marquee {
-  from {
-    transform: translateX(0);
-    }
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100% - var(--gap))); }
   }
   @keyframes marquee-vertical {
-  from {
-    transform: translateY(0);
-    }
-  to {
-    transform: translateY(calc(-100% - var(--gap)));
-    }
+    from { transform: translateY(0); }
+    to { transform: translateY(calc(-100% - var(--gap))); }
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================================
+   Base styles — body, headings, links
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+h1 { line-height: 1.05; }
+h2 { line-height: 1.1; }
+h3 { line-height: 1.2; }
+
+.font-italic-accent {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Tabular nums per prezzi/tabelle */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Focus ring globale */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--accent);
+  color: var(--cream-on-dark);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
