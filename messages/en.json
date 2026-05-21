@@ -21,6 +21,11 @@
     "en": "EN",
     "ariaLabel": "Switch language"
   },
+  "A11y": {
+    "skipToContent": "Skip to content",
+    "opensNewTab": "(opens in new tab)",
+    "currentPage": "Current page"
+  },
   "Footer": {
     "servicesHeading": "Services",
     "areasHeading": "Areas served",
@@ -34,7 +39,7 @@
   },
   "Home": {
     "meta": {
-      "title": "Sicily NCC · Catania Airport Transfers & Private Tours | Sicily Driver Syracuse",
+      "title": "Sicily NCC · Catania Airport Transfers | Sicily Driver",
       "description": "Private Mercedes transfers and tours across Sicily with bilingual drivers. From €80 per route. 24/7 NCC in Syracuse, Noto, Catania, Taormina."
     },
     "hero": {

@@ -7,7 +7,7 @@ const URL_BASE = 'https://ncctaxisiracusa.com';
 export function localBusinessSchema(locale: 'it' | 'en') {
   return {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': ['LocalBusiness', 'TaxiService'],
     '@id': `${URL_BASE}#localbusiness`,
     name: 'Sicily Driver Siracusa',
     description:
@@ -26,17 +26,32 @@ export function localBusinessSchema(locale: 'it' | 'en') {
     areaServed: [
       {'@type': 'City', name: 'Siracusa'},
       {'@type': 'City', name: 'Noto'},
+      {'@type': 'City', name: 'Avola'},
       {'@type': 'City', name: 'Catania'},
       {'@type': 'City', name: 'Taormina'},
       {'@type': 'City', name: 'Ragusa'},
       {'@type': 'City', name: 'Modica'},
       {'@type': 'City', name: 'Marzamemi'},
+      {'@type': 'AdministrativeArea', name: 'Provincia di Siracusa'},
+      {'@type': 'AdministrativeArea', name: 'Val di Noto'},
       {'@type': 'AdministrativeArea', name: 'Sicilia orientale'}
     ],
+    serviceArea: {
+      '@type': 'GeoCircle',
+      geoMidpoint: {
+        '@type': 'GeoCoordinates',
+        latitude: 37.0755,
+        longitude: 15.2866
+      },
+      geoRadius: 150000
+    },
     priceRange: '€€',
+    currenciesAccepted: 'EUR',
+    paymentAccepted: 'Cash, Credit Card, Bank Transfer',
     openingHours: 'Mo-Su 00:00-23:59',
     image: `${URL_BASE}/og/home-${locale}.jpg`,
-    vatID: 'IT02150600894'
+    vatID: 'IT02150600894',
+    taxID: '02150600894'
   };
 }
 

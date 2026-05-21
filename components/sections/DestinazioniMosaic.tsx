@@ -92,11 +92,13 @@ export async function DestinazioniMosaic() {
             >
               <Image
                 src={item.image}
-                alt={item.caption}
+                alt=""
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 30vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 style={{filter: 'saturate(0.82) brightness(0.96) contrast(1.05)'}}
+                loading="lazy"
+                decoding="async"
               />
               {/* Gradient overlay editoriale */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />

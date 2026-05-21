@@ -45,7 +45,6 @@ export async function WhatsAppFloat() {
           fill="currentColor"
         />
       </svg>
-      <span className="sr-only">{t('label')}</span>
     </a>
   );
 }

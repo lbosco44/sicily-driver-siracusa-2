@@ -1,5 +1,6 @@
 'use client';
 
+import {useId} from 'react';
 import {useTranslations} from 'next-intl';
 import {useState} from 'react';
 
@@ -9,6 +10,11 @@ export function SearchBar() {
   const [to, setTo] = useState('');
   const [date, setDate] = useState('');
   const [pax, setPax] = useState('2');
+
+  const fromId = useId();
+  const toId = useId();
+  const dateId = useId();
+  const paxId = useId();
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -20,6 +26,7 @@ export function SearchBar() {
   return (
     <form
       onSubmit={handleSubmit}
+      aria-label={t('searchCta')}
       className="
         bg-canvas/95 backdrop-blur-md
         border border-[var(--border)]/80
@@ -30,6 +37,7 @@ export function SearchBar() {
       "
     >
       <Field
+        id={fromId}
         label={t('searchFromLabel')}
         placeholder={t('searchFromPlaceholder')}
         value={from}
@@ -37,6 +45,7 @@ export function SearchBar() {
       />
       <div className="hidden sm:block w-px bg-[var(--border)] self-stretch my-2" />
       <Field
+        id={toId}
         label={t('searchToLabel')}
         placeholder={t('searchToPlaceholder')}
         value={to}
@@ -44,6 +53,7 @@ export function SearchBar() {
       />
       <div className="hidden sm:block w-px bg-[var(--border)] self-stretch my-2" />
       <Field
+        id={dateId}
         label={t('searchDateLabel')}
         placeholder={t('searchDatePlaceholder')}
         value={date}
@@ -52,10 +62,14 @@ export function SearchBar() {
       />
       <div className="hidden sm:block w-px bg-[var(--border)] self-stretch my-2" />
       <div className="hidden sm:flex flex-col px-3 py-1.5 min-w-[78px]">
-        <label className="text-[10px] uppercase tracking-[0.12em] font-medium text-ink/55">
+        <label
+          htmlFor={paxId}
+          className="text-[10px] uppercase tracking-[0.12em] font-medium text-ink/70"
+        >
           {t('searchPaxLabel')}
         </label>
         <select
+          id={paxId}
           value={pax}
           onChange={(e) => setPax(e.target.value)}
           className="text-[15px] font-medium bg-transparent text-ink outline-none cursor-pointer"
@@ -71,12 +85,11 @@ export function SearchBar() {
         type="submit"
         className="
           inline-flex items-center justify-center gap-2
-          rounded-full bg-accent text-cream-on-dark
+          rounded-full bg-accent
           px-6 py-3.5
           text-[13px] uppercase tracking-[0.05em] font-medium
           transition-all duration-200 ease-out
           hover:bg-accent-hover
-          focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-3
         "
         style={{color: 'var(--cream-on-dark)'}}
       >
@@ -88,12 +101,14 @@ export function SearchBar() {
 }
 
 function Field({
+  id,
   label,
   placeholder,
   value,
   onChange,
   type = 'text'
 }: {
+  id: string;
   label: string;
   placeholder: string;
   value: string;
@@ -102,15 +117,19 @@ function Field({
 }) {
   return (
     <div className="flex flex-col px-3 py-1.5">
-      <label className="text-[10px] uppercase tracking-[0.12em] font-medium text-ink/55">
+      <label
+        htmlFor={id}
+        className="text-[10px] uppercase tracking-[0.12em] font-medium text-ink/70"
+      >
         {label}
       </label>
       <input
+        id={id}
         type={type}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="text-[15px] font-medium bg-transparent text-ink placeholder-ink/40 outline-none"
+        className="text-[15px] font-medium bg-transparent text-ink placeholder-ink/60 outline-none"
       />
     </div>
   );

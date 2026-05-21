@@ -42,7 +42,10 @@ export async function Differenziatori() {
               key={i}
               className="py-10 sm:py-14 grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 lg:gap-16 items-start"
             >
-              <p className="font-display italic font-medium text-accent text-[96px] sm:text-[140px] leading-[0.85] tabular-nums">
+              <p
+                className="font-display italic font-medium text-[96px] sm:text-[140px] leading-[0.85] tabular-nums"
+                style={{color: 'var(--accent-decorative)'}}
+              >
                 {item.number}
               </p>
               <div className="lg:pt-4">

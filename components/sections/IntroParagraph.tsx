@@ -18,7 +18,7 @@ export async function IntroParagraph() {
           </h2>
 
           <div className="space-y-6 text-[17px] sm:text-[18px] leading-[1.7] text-ink/85">
-            <p className="first-letter:font-display first-letter:italic first-letter:text-[64px] first-letter:leading-[0.85] first-letter:text-accent first-letter:float-left first-letter:mr-3 first-letter:mt-1">
+            <p className="first-letter:font-display first-letter:italic first-letter:text-[64px] first-letter:leading-[0.85] first-letter:text-[color:var(--accent-decorative)] first-letter:float-left first-letter:mr-3 first-letter:mt-1">
               <strong className="font-semibold text-ink">{t('body1Bold')}</strong>
               {t('body1Rest')}
             </p>

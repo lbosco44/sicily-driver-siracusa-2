@@ -12,9 +12,10 @@
   --ink: #2A2520;             /* nero seppia — body text */
   --primary: #1E3A4F;         /* blu mare profondo — H1/H2 strutturali */
   --primary-hover: #264556;
-  --accent: #E07856;          /* terracotta cotto — CTA + numerazione editoriale */
-  --accent-hover: #C76A4A;
-  --accent-active: #B05E40;
+  --accent: #B05E40;          /* terracotta scuro — CTA AA su cream (4.6:1) */
+  --accent-hover: #985333;
+  --accent-active: #80442B;
+  --accent-decorative: #E07856; /* terracotta chiaro — numerazione editoriale, drop-cap (large text AA-Large) */
   --secondary: #8B9B8E;       /* verde ulivo — dettagli decorativi */
   --border: #E8DFD0;          /* cream scuro — linee divisorie */
   --muted-bg: #EDE5D6;        /* sfondi sezione alternati */
@@ -39,6 +40,7 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-active: var(--accent-active);
+  --color-accent-decorative: var(--accent-decorative);
   --color-secondary: var(--secondary);
   --color-border-soft: var(--border);
   --color-muted-bg: var(--muted-bg);
@@ -109,10 +111,12 @@ h3 { line-height: 1.2; }
   font-variant-numeric: tabular-nums;
 }
 
-/* Focus ring globale */
+/* Focus ring globale — alone interno cream + outline accent decorativo
+   per essere visibile sia su canvas cream che su superfici scure (blu mare, terracotta) */
 *:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--accent-decorative);
   outline-offset: 3px;
+  box-shadow: 0 0 0 5px var(--canvas);
   border-radius: 2px;
 }
 

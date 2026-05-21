@@ -21,6 +21,11 @@
     "en": "EN",
     "ariaLabel": "Cambia lingua"
   },
+  "A11y": {
+    "skipToContent": "Vai al contenuto",
+    "opensNewTab": "(apre in nuova scheda)",
+    "currentPage": "Pagina corrente"
+  },
   "Footer": {
     "servicesHeading": "Servizi",
     "areasHeading": "Aree servite",
@@ -34,7 +39,7 @@
   },
   "Home": {
     "meta": {
-      "title": "NCC Siracusa · Transfer Aeroporto Catania e Tour Privati in Sicilia | Sicily Driver",
+      "title": "NCC Siracusa · Transfer Aeroporto Catania | Sicily Driver",
       "description": "Transfer aeroportuali e tour privati in tutta la Sicilia con Mercedes e autista bilingue. Da €80 a tratta. NCC 24/7 a Siracusa, Noto, Catania, Taormina."
     },
     "hero": {

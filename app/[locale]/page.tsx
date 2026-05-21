@@ -37,7 +37,24 @@ export async function generateMetadata({
       locale: locale === 'it' ? 'it_IT' : 'en_US',
       type: 'website',
       url: `https://ncctaxisiracusa.com/${locale}`,
-      siteName: 'Sicily Driver Siracusa'
+      siteName: 'Sicily Driver Siracusa',
+      images: [
+        {
+          url: `/og/home-${locale}.jpg`,
+          width: 1200,
+          height: 630,
+          alt:
+            locale === 'it'
+              ? 'Sicily Driver Siracusa — NCC e tour privati in Sicilia orientale'
+              : 'Sicily Driver Syracuse — Private NCC and tours across eastern Sicily'
+        }
+      ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('title'),
+      description: t('description'),
+      images: [`/og/home-${locale}.jpg`]
     }
   };
 }

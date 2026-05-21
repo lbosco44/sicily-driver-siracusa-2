@@ -39,15 +39,16 @@ export async function DietroAlVolante() {
           {/* Foto editoriale */}
           <div className="relative aspect-[4/5] lg:aspect-[3/4] rounded-lg overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1200&q=80"
-              alt=""
+              src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1200&q=70&auto=format&fm=webp"
+              alt="Interno Mercedes Classe V — sedili in pelle con luce ambient calda"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
               style={{filter: 'saturate(0.82) brightness(0.96) contrast(1.05)'}}
+              loading="lazy"
             />
             {/* Caption marginalia */}
-            <p className="absolute bottom-4 right-4 text-[10px] uppercase tracking-[0.14em] text-cream-on-dark/85 font-medium font-display italic not-italic">
+            <p className="absolute bottom-4 right-4 text-[10px] uppercase tracking-[0.14em] text-[#F5EFE4] font-medium font-display">
               Mercedes Classe V · interni
             </p>
           </div>
