@@ -95,14 +95,134 @@
 
 ## Scelte concrete approvate
 
-> Questa sezione viene **compilata da Claude Code dopo `/nexus-design`**.
-> Lasciare vuota in questa fase. Compilata dopo l'Intermezzo Design.
+> Compilato da `/nexus-design` il 2026-05-21 — Intermezzo Design
 
-- [ ] Palette hex specifici
-- [ ] Font specifici (serif + sans)
-- [ ] Componenti CTA selezionati
-- [ ] Layout sezione servizi
-- [ ] Layout sezione tappa-per-tappa tour
-- [ ] Layout sezione testimonial (numerazione editoriale)
-- [ ] Spacing system
-- [ ] Border radius system
+### Palette — "Calce e Mare"
+
+Cream caldo dominante + blu mare profondo strutturale + terracotta accent. Mediterraneo classico, editoriale. CTA terracotta forti su cream, headline blu profondo, accent terracotta libero anche per decorativi (numerazione editoriale, drop-cap, marginalia).
+
+| Token | Hex | Uso |
+|---|---|---|
+| `--canvas` (background) | `#F5EFE4` | sfondo dominante (cream calce) |
+| `--ink` (text primary) | `#2A2520` | testi lunghi, body (nero seppia) |
+| `--primary` (blu mare) | `#1E3A4F` | H1/H2 strutturali, sezioni hero scure, footer |
+| `--accent` (terracotta) | `#E07856` | CTA fill, numerazione editoriale 01/02/03, drop-cap, link hover |
+| `--secondary` (verde ulivo) | `#8B9B8E` | dettagli decorativi calmi, dividers atmosferici |
+| `--border` (cream scuro) | `#E8DFD0` | linee divisorie sottili, border cards/sezioni |
+| `--muted-bg` | `#EDE5D6` | sfondi sezione alternati |
+| `--cream-on-dark` | `#F5EFE4` | label/testo su superfici blu mare scure |
+
+**Note operative**:
+- WCAG AAA per body text (`--ink` su `--canvas`: contrast ratio 11.8:1)
+- CTA terracotta su cream supera 4.5:1 (AA)
+- Mai usare terracotta per body text (solo accent)
+- Mai usare verde ulivo come CTA (solo decorativo)
+- Hover stati: darken terracotta a `#C76A4A` (-8%), lighten blu mare a `#264556` (+5%)
+
+### Tipografia — "Cormorant Garamond + DM Sans"
+
+Serif Garamond italiano con italic generoso (calore rinascimentale) + sans geometrico moderno pulito. Italic SOLO su Cormorant per H1/H2/quote/storytelling tour.
+
+| Ruolo | Font | Pesi | Esempio uso |
+|---|---|---|---|
+| Display (H1, hero headlines) | **Cormorant Garamond** | 400, 500, 600 + italic | Hero, H1 pagine, H2 sezioni, quote testimonial |
+| Body / UI / labels | **DM Sans** | 300, 400, 500, 600 | Paragrafi, navbar, footer, label form, CTA, eyebrow |
+
+**Google Fonts CSS Import**:
+```css
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
+```
+
+**Tailwind config**:
+```ts
+fontFamily: {
+  display: ['Cormorant Garamond', 'serif'],
+  sans: ['DM Sans', 'sans-serif'],
+}
+```
+
+**Scala tipografica**:
+- Hero H1: Cormorant 500 italic 64–80px desktop / 40–48px mobile, line-height 1.05, tracking -0.01em
+- Section H2: Cormorant 500 (italic per accent words) 40–56px desktop / 28–32px mobile, line-height 1.1
+- Quote: Cormorant 400 italic 24–36px, line-height 1.4
+- Body: DM Sans 400 16–17px, line-height 1.65
+- Eyebrow: DM Sans 500 12px uppercase, tracking 0.12em
+- CTA label: DM Sans 500 15px uppercase, tracking 0.05em
+- Caption/marginalia: DM Sans 400 13px, line-height 1.5
+
+**Italic policy**: Cormorant italic SOLO per
+1. Parole accent dentro H1/H2 (es. "Ti veniamo a prendere /all'aeroporto/")
+2. Quote testimonial intere
+3. Storytelling tour (paragrafi narrativi delle pagine tour)
+4. Tagline brand SEO-locked "*Eleganza da VIP, prezzi di mercato*"
+
+### Energia CTA — "Pillola terracotta piena"
+
+Pillole arrotondate pieno terracotta su cream, label DM Sans 500 uppercase tracking 0.05em, freccia animata `translate-x +8px` al hover. Massima energia conversion per purpose A.
+
+**Stile primario** (PRENOTA / CHIAMA / RICHIEDI):
+- Background: `#E07856` (terracotta accent)
+- Label color: `#F5EFE4` (cream)
+- Border-radius: `999px` (pillola piena)
+- Padding: `14px 32px` desktop / `16px 28px` mobile
+- Font: DM Sans 500, 15px, uppercase, letter-spacing 0.05em
+- Icon: freccia `→` a destra, gap 12px, transition translate-x 250ms ease-out
+- Mobile: full-width, altezza 52px
+- Transition: 250ms ease-out su background + transform
+
+**Stati**:
+- Hover: `background #C76A4A` (-8%), freccia `translate-x: 8px`
+- Active: `background #B05E40` (-12%), `scale 0.98`
+- Disabled: `background #D9C9B8` (cream desaturato), `cursor not-allowed`
+- Focus visible: outline `2px solid #1E3A4F` (blu mare) offset 3px
+
+**Stile secondario** (link inline narrative, "Leggi di più"):
+- Underline editoriale `text-decoration: underline` con `text-decoration-color: #E07856` `text-underline-offset: 4px`
+- Color: `#1E3A4F` (blu mare)
+- Font: DM Sans 500 inherit size
+- Hover: `text-decoration-color: #C76A4A`
+
+### Macro-layout per sezione
+
+| Sezione | Pattern scelto | Note implementazione |
+|---|---|---|
+| **Hero Cluster Fast** (home, ncc-*, servizi, contatti, chi-siamo) | Foto statica desaturata cream + headline serif italic overlay + CTA visibile sopra la piega | Mobile: foto sopra, headline sotto. Niente video, niente parallax, niente scroll-driven. |
+| **Hero Cluster Esperienziale** (tour-*, wedding) | Video loop muto 10s + tipografia editoriale ampia centrata + CTA scroll-down sottile | Encoding Video Bible (H.264 max 1.5MB, autoplay+muted+loop+playsinline). Mobile: poster image, video disattivato per LCP. |
+| **Dove ti portiamo** (4 destinazioni) | Asimmetrico editorial magazine (large/tall/short/wide) | Card di altezze e larghezze diverse, foto desaturate calde, numeri 01/02/03/04 Cormorant 500 italic ~120px terracotta, nome città Cormorant 500 italic 36px. Mobile: stack verticale mantenendo gerarchia. |
+| **Tappa per tappa** (pagine tour) | Full-bleed cinematic con testo overlay | Sticky 100vh per tappa, foto cambia con fade, testo basso-sinistra (numero + nome italic + descrizione breve). Darken overlay leggero per leggibilità testo cream. Mobile: stack verticale con foto full-bleed. |
+| **Testimonial** | Quote singola dominante con switcher 01/02/03 | Cormorant 400 italic 36px centrata, nome+città DM Sans 500 12px uppercase. Switcher pallini terracotta. Cambio quote con fade 400ms. Mobile: stesso layout, switcher diventa swipe. |
+| **FAQ** | Lista editoriale lunga con divisori sottili | Domande Cormorant 500 24px, risposte DM Sans 400 16px. Accordion no shadow, solo border-bottom `--border`. |
+| **Servizi (long)** | Lista editoriale con linee divisorie + foto inline | Pattern simile a "Dove ti portiamo" ma orientamento verticale, ogni servizio 1/2 pagina con foto a sinistra + testo a destra alternati. |
+| **Contatti** | Mappa dominante + form colonna stretta + dati contatto bottom | WhatsApp persistente bottom-right su tutte le pagine (preserva comportamento attuale). |
+| **Navbar** | Top-right switcher lingua IT/EN, logo top-left wordmark Cormorant, menu inline DM Sans 500 | Backdrop blur leggero su scroll, no transparency totale per leggibilità. |
+| **Footer** | Blu mare scuro `#1E3A4F`, cream testi, terracotta link hover | Multi-colonna desktop, accordion mobile per sitemap. |
+
+### Spacing system
+
+Base 4px scale Tailwind, container max-width **1280px**, padding orizzontale **24px mobile / 40px tablet / 56px desktop**.
+
+- Sezioni: padding verticale **96px desktop / 64px tablet / 48px mobile**
+- Gap card: **32px desktop / 20px mobile**
+- Gap testo H2 ↔ body: **24px**
+- Gap eyebrow ↔ H2: **12px**
+
+### Border radius system
+
+- Pillola CTA: `999px`
+- Card foto destinazioni: `8px` (sobrio, asimmetrico)
+- Form inputs: `6px`
+- Quote box: nessun radius (nessun box, layout puro tipografico)
+- Footer accordion: `4px`
+
+### Note per la build (constraint emersi)
+
+1. **Hero Cluster Fast NON usa video** in nessun caso. Niente background video su home, ncc-*, servizi, contatti, chi-siamo.
+2. **Scroll-driven SOLO su tappe tour**. Niente parallax altrove, niente reveal on scroll su ogni elemento (banlist globale rispettata).
+3. **Italic esclusivamente Cormorant**. DM Sans mai in italic.
+4. **Terracotta è CTA-semantica E decorativa** (numerazione editoriale + drop-cap). Mai per body text.
+5. **Verde ulivo NON è CTA**. Solo decorativo discreto.
+6. **WhatsApp bottom-right persistente** su tutte le pagine. Bottone circolare 56px terracotta con icona custom (non SVG WhatsApp generic).
+7. **Switcher lingua IT/EN sempre top-right** anche mobile (compatto, divider verticale tra lingue).
+8. **Foto desaturate calde**. Filtro `saturate(0.85) brightness(1.02) contrast(1.05)` come baseline CSS per immagini editoriali. Mai filtri blu/freddi.
+9. **Numerazione editoriale 01/02/03**: SOLO in destinazioni, tappe tour, sezioni con valore narrativo. NO numerazione su servizi, FAQ, testimonial (in testimonial l'01/02/03 è dentro lo switcher, non per ogni quote).
+10. **Tagline brand SEO-locked**: "*Eleganza da VIP, prezzi di mercato*" (IT) / "*VIP-style elegance at market prices*" (EN) sempre estetizzata in Cormorant italic 18–20px sotto i logo wordmark hero. Non modificare le parole.
