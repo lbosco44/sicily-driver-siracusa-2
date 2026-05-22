@@ -41,8 +41,23 @@ export async function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/tour-barocco" className="hover:text-accent transition-colors">
+                  Tour Barocco
+                </Link>
+              </li>
+              <li>
+                <Link href="/tour-etna" className="hover:text-accent transition-colors">
+                  Tour Etna
+                </Link>
+              </li>
+              <li>
                 <Link href="/wedding-eventi" className="hover:text-accent transition-colors">
                   Wedding &amp; eventi
+                </Link>
+              </li>
+              <li>
+                <Link href="/chi-siamo" className="hover:text-accent transition-colors">
+                  {tNav('about')}
                 </Link>
               </li>
             </ul>
