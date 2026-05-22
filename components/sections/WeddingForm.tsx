@@ -6,10 +6,18 @@ import {useTranslations} from 'next-intl';
 export function WeddingForm() {
   const t = useTranslations('Wedding.form');
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+    setError(null);
+    const form = e.currentTarget;
+    if (!form.checkValidity()) {
+      setError(t('errorRequired'));
+      form.reportValidity();
+      return;
+    }
+    const data = Object.fromEntries(new FormData(form).entries());
     // Phase 1: log + success state. Phase 2 (TODO): POST a /api/wedding-quote.
     // eslint-disable-next-line no-console
     console.log('[WeddingForm] submission', data);
@@ -37,7 +45,16 @@ export function WeddingForm() {
     'w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink placeholder:text-ink/40 focus:outline-none focus:border-accent transition-colors';
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+    <form onSubmit={handleSubmit} className="space-y-6">
+      {error && (
+        <div
+          role="alert"
+          aria-live="assertive"
+          className="rounded-md border border-accent/40 bg-accent/10 px-4 py-3 text-[14px] text-ink"
+        >
+          {error}
+        </div>
+      )}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <label className="block">
           <span className="text-[11px] uppercase tracking-[0.12em] font-medium text-secondary block mb-2">

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import type {TourHubContent} from '@/lib/tours';
+import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
 
 export async function TourHubTemplate({hub}: {hub: TourHubContent}) {
   const tNcc = await getTranslations('NccPage');
@@ -20,8 +21,10 @@ export async function TourHubTemplate({hub}: {hub: TourHubContent}) {
             fill
             priority
             fetchPriority="high"
-            sizes="100vw"
-            quality={75}
+            sizes={HERO_SIZES}
+            quality={70}
+            placeholder="blur"
+            blurDataURL={HERO_BLUR}
             className="object-cover"
           />
           {/* Gradient profondo per atmosfera cinematic */}

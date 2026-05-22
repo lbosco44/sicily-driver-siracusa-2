@@ -124,7 +124,7 @@ const HUB_IT: TourHubContent = {
     'Tour privati in Sicilia con autista bilingue e Mercedes Classe V. Barocco, Etna, Ortigia, Taormina. 6–8 ore con soste su misura. Da €350.',
 
   heroImage:
-    'https://images.unsplash.com/photo-1583435423797-be15ddffe3c2?w=1800&q=70&auto=format&fm=webp',
+    'https://images.unsplash.com/photo-1583435423797-be15ddffe3c2?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'Tour privati · Sicilia orientale',
   h1Pre: 'I tour che facciamo',
   h1Accent: 'di Sicilia',
@@ -244,7 +244,7 @@ const HUB_EN: TourHubContent = {
     'Private Sicily tours with English-speaking driver and Mercedes V-Class. Baroque, Etna, Ortigia, Taormina. 6–8 hours with bespoke stops. From €350.',
 
   heroImage:
-    'https://images.unsplash.com/photo-1583435423797-be15ddffe3c2?w=1800&q=70&auto=format&fm=webp',
+    'https://images.unsplash.com/photo-1583435423797-be15ddffe3c2?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'Private tours · Eastern Sicily',
   h1Pre: 'The tours we make',
   h1Accent: 'of Sicily',
@@ -407,7 +407,7 @@ const BAROCCO_IT: TourContent = {
     'Tour privato di una giornata tra Noto, Modica e Ragusa Ibla. Mercedes Classe V con autista bilingue. 6–8 ore, partenza da Siracusa. Da €350.',
 
   heroImage:
-    'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=1800&q=70&auto=format&fm=webp',
+    'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'Tour privato · 6–8 ore',
   h1: 'Tour del Barocco: Noto, Modica & Ragusa in un Giorno',
   heroSubhead: 'Le tre città simbolo del barocco siciliano, in giornata.',
@@ -513,7 +513,7 @@ const BAROCCO_EN: TourContent = {
     'Private day tour through Noto, Modica and Ragusa Ibla. Mercedes V-Class with English-speaking driver. 6–8 hours, departing from Syracuse. From €350.',
 
   heroImage:
-    'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=1800&q=70&auto=format&fm=webp',
+    'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'Private tour · 6–8 hours',
   h1: 'Baroque Tour: Noto, Modica & Ragusa in One Day',
   heroSubhead: 'The three Sicilian Baroque towns, in one day.',
@@ -623,7 +623,7 @@ const ETNA_IT: TourContent = {
     'Tour privato sull’Etna con Mercedes e autista bilingue. Crateri Silvestri 1900m, cantina con degustazione, Valle del Bove. 5–7 ore, da €320.',
 
   heroImage:
-    'https://images.unsplash.com/photo-1604930571107-7e07e44f31b8?w=1800&q=70&auto=format&fm=webp',
+    'https://images.unsplash.com/photo-1604930571107-7e07e44f31b8?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'Tour privato · 5–7 ore',
   h1: 'Tour Etna: Crateri Silvestri e cantina, in giornata',
   heroSubhead: 'Il vulcano più alto d’Europa, raggiunto comodamente in Mercedes.',
@@ -631,7 +631,7 @@ const ETNA_IT: TourContent = {
   introH2Pre: 'Quello che',
   introH2Accent: 'vivrai',
   introBody: [
-    'Saliamo sull’Etna dal versante sud, fino a Rifugio Sapienza e ai Crateri Silvestri (1900m s.l.m.). Una mattinata fra la pietra lavica, i panorami sulla Valle del Bove e l’aria sottile delle alte quote.',
+    'Il nostro tour Etna da Taormina, Siracusa o Catania ti porta sul versante sud fino a Rifugio Sapienza e ai Crateri Silvestri (1900m s.l.m.). Una mattinata fra la pietra lavica, i panorami sulla Valle del Bove e l’aria sottile delle alte quote.',
     'Dopo i crateri scendiamo per una sosta in cantina, dove la vite vive sulle colate fossili: degustazione di Etna Rosso e Bianco, con prodotti tipici locali. Per i pranzi più lunghi possiamo allungare la sosta o aggiungere una visita guidata.',
     'Il tour è perfetto da combinare con Taormina o Catania nel pomeriggio: a 45 minuti di Mercedes hai il mare ionico e il teatro greco.'
   ],
@@ -738,7 +738,7 @@ const ETNA_EN: TourContent = {
     'Private Etna tour with Mercedes and English-speaking driver. Silvestri Craters 1900m, winery tasting, Valle del Bove. 5–7 hours, from €320.',
 
   heroImage:
-    'https://images.unsplash.com/photo-1604930571107-7e07e44f31b8?w=1800&q=70&auto=format&fm=webp',
+    'https://images.unsplash.com/photo-1604930571107-7e07e44f31b8?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'Private tour · 5–7 hours',
   h1: 'Etna Tour: Silvestri Craters and winery, in a day',
   heroSubhead: 'Europe’s highest volcano, reached comfortably by Mercedes.',
@@ -857,7 +857,7 @@ const ORTIGIA_IT: TourContent = {
     'Tour privato Ortigia (Siracusa) + Taormina in giornata. Mercedes Classe V con autista bilingue. Duomo, Fonte Aretusa, teatro greco. 7–9 ore, da €380.',
 
   heroImage:
-    'https://images.unsplash.com/photo-1568797629192-2e6ce1f5b1d6?w=1800&q=70&auto=format&fm=webp',
+    'https://images.unsplash.com/photo-1568797629192-2e6ce1f5b1d6?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'Tour privato · 7–9 ore',
   h1: 'Ortigia e Taormina: due capolavori in una giornata',
   heroSubhead:
@@ -965,7 +965,7 @@ const ORTIGIA_EN: TourContent = {
     'Private Ortigia (Syracuse) + Taormina full-day tour. Mercedes V-Class with English-speaking driver. Cathedral, Arethusa fountain, Greek theatre. 7–9 hours, from €380.',
 
   heroImage:
-    'https://images.unsplash.com/photo-1568797629192-2e6ce1f5b1d6?w=1800&q=70&auto=format&fm=webp',
+    'https://images.unsplash.com/photo-1568797629192-2e6ce1f5b1d6?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'Private tour · 7–9 hours',
   h1: 'Ortigia and Taormina: two masterpieces in one day',
   heroSubhead:

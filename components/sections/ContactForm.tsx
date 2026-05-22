@@ -6,10 +6,18 @@ import {useTranslations} from 'next-intl';
 export function ContactForm() {
   const t = useTranslations('Contatti.form');
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+    setError(null);
+    const form = e.currentTarget;
+    if (!form.checkValidity()) {
+      setError(t('errorRequired'));
+      form.reportValidity();
+      return;
+    }
+    const data = Object.fromEntries(new FormData(form).entries());
     // Phase 1: no backend reale, log + toast/success message.
     // Phase 2 (TODO): POST a /api/contact con Resend.
     // eslint-disable-next-line no-console
@@ -39,8 +47,16 @@ export function ContactForm() {
       onSubmit={handleSubmit}
       className="space-y-6"
       aria-describedby="form-note"
-      noValidate
     >
+      {error && (
+        <div
+          role="alert"
+          aria-live="assertive"
+          className="rounded-md border border-accent/40 bg-accent/10 px-4 py-3 text-[14px] text-ink"
+        >
+          {error}
+        </div>
+      )}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <label className="block">
           <span className="text-[11px] uppercase tracking-[0.12em] font-medium text-secondary block mb-2">

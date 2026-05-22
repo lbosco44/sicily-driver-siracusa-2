@@ -441,7 +441,8 @@
       "submit": "Receive the quote",
       "submitNote": "Reply within 24 hours with a sized plan. Final quote after a call.",
       "successTitle": "Thanks. We received your wedding details.",
-      "successBody": "We'll reply within 24 hours with a sized plan. For urgent requests, message us on WhatsApp."
+      "successBody": "We'll reply within 24 hours with a sized plan. For urgent requests, message us on WhatsApp.",
+      "errorRequired": "Please check the required fields and try again."
     },
     "ctaFinale": {
       "eyebrow": "Faster?",
@@ -498,7 +499,8 @@
       "submit": "Send",
       "submitNote": "Reply within 1 hour, 24/7 on WhatsApp.",
       "successTitle": "Thanks, we received your request.",
-      "successBody": "We'll reply within an hour. If it's urgent, message us on WhatsApp."
+      "successBody": "We'll reply within an hour. If it's urgent, message us on WhatsApp.",
+      "errorRequired": "Please check the required fields and try again."
     },
     "bases": {
       "eyebrow": "Our bases",

@@ -26,7 +26,7 @@ export async function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 sm:gap-12 mt-12">
           {/* Servizi */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/60 mb-4">
+            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-4">
               {t('servicesHeading')}
             </h4>
             <ul className="space-y-2.5 text-[14px] text-cream-on-dark/85">
@@ -65,7 +65,7 @@ export async function Footer() {
 
           {/* Aree servite */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/60 mb-4">
+            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-4">
               {t('areasHeading')}
             </h4>
             <ul className="space-y-2.5 text-[14px] text-cream-on-dark/85">
@@ -94,7 +94,7 @@ export async function Footer() {
 
           {/* Contatti */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/60 mb-4">
+            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-4">
               {t('contactsHeading')}
             </h4>
             <ul className="space-y-2.5 text-[14px] text-cream-on-dark/85">
@@ -129,7 +129,7 @@ export async function Footer() {
 
           {/* Sedi */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/60 mb-4">
+            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-4">
               {t('officesHeading')}
             </h4>
             <ul className="space-y-2.5 text-[14px] text-cream-on-dark/85 leading-relaxed">
@@ -141,7 +141,7 @@ export async function Footer() {
         </div>
 
         {/* Bottom strip */}
-        <div className="mt-16 pt-6 border-t border-cream-on-dark/15 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4 text-[12px] text-cream-on-dark/55">
+        <div className="mt-16 pt-6 border-t border-cream-on-dark/15 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4 text-[12px] text-cream-on-dark/70">
           <p>
             © {year} {tBrand('name')}. {t('rights')}. {t('vat')} {t('vatNumber')}.
           </p>

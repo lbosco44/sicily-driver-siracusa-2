@@ -2,6 +2,7 @@ import Image from 'next/image';
 import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import type {TourContent} from '@/lib/tours';
+import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
 
 export async function TourDetailTemplate({tour}: {tour: TourContent}) {
   const tNcc = await getTranslations('NccPage');
@@ -20,8 +21,10 @@ export async function TourDetailTemplate({tour}: {tour: TourContent}) {
             fill
             priority
             fetchPriority="high"
-            sizes="100vw"
-            quality={75}
+            sizes={HERO_SIZES}
+            quality={70}
+            placeholder="blur"
+            blurDataURL={HERO_BLUR}
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/30 to-black/80" />

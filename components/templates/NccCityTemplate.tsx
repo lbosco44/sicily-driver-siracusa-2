@@ -2,6 +2,7 @@ import Image from 'next/image';
 import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import type {CityContent} from '@/lib/cities';
+import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
 
 type Props = {
   city: CityContent;
@@ -26,8 +27,10 @@ export async function NccCityTemplate({city}: Props) {
             fill
             priority
             fetchPriority="high"
-            sizes="100vw"
+            sizes={HERO_SIZES}
             quality={70}
+            placeholder="blur"
+            blurDataURL={HERO_BLUR}
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/20" />

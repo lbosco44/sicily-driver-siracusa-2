@@ -2,7 +2,8 @@ import type {Metadata} from 'next';
 import {setRequestLocale} from 'next-intl/server';
 import {NccCityTemplate} from '@/components/templates/NccCityTemplate';
 import {getCity, type Locale} from '@/lib/cities';
-import {faqPageSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
+import {faqPageSchema, breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
+import {getBreadcrumb} from '@/lib/breadcrumbs';
 import {routing} from '@/i18n/routing';
 
 export async function generateMetadata({
@@ -53,6 +54,9 @@ export default async function NccRagusaPage({
     <>
       <JsonLd data={localBusinessSchema(locale as Locale)} />
       <JsonLd data={faqPageSchema(city.faqs)} />
+      <JsonLd
+        data={breadcrumbSchema(getBreadcrumb('ncc-ragusa', locale as Locale, city.h1))}
+      />
       <NccCityTemplate city={city} />
     </>
   );

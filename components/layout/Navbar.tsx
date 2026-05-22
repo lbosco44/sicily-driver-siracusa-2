@@ -19,6 +19,7 @@ export async function Navbar() {
       <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 h-16 sm:h-20 flex items-center justify-between gap-4">
         <Link
           href="/"
+          aria-label={`${tBrand('name')} — ${t('home')}`}
           className="font-display italic font-medium text-xl sm:text-2xl text-primary tracking-tight hover:opacity-80 transition-opacity"
         >
           {tBrand('name')}

@@ -21,6 +21,7 @@ export function LanguageSwitcher({className}: {className?: string}) {
 
   return (
     <div
+      role="group"
       aria-label={t('ariaLabel')}
       className={cn(
         'inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.12em] font-medium',

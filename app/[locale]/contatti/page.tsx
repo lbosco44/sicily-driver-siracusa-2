@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
-import {localBusinessSchema, JsonLd} from '@/lib/schema';
+import {breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
+import {getBreadcrumb} from '@/lib/breadcrumbs';
 import {routing} from '@/i18n/routing';
 import {ContactForm} from '@/components/sections/ContactForm';
 import type {Locale} from '@/lib/cities';
@@ -82,6 +83,15 @@ export default async function ContattiPage({
   return (
     <>
       <JsonLd data={localBusinessSchema(locale as Locale)} />
+      <JsonLd
+        data={breadcrumbSchema(
+          getBreadcrumb(
+            'contatti',
+            locale as Locale,
+            `${t('hero.h1Pre')} ${t('hero.h1Accent')}`
+          )
+        )}
+      />
 
       {/* 1. HERO RIDOTTA */}
       <section className="bg-canvas pt-28 sm:pt-40 pb-16 sm:pb-20 border-b border-[var(--border)]/50">

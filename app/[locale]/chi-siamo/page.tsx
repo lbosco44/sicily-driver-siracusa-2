@@ -2,9 +2,11 @@ import type {Metadata} from 'next';
 import Image from 'next/image';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
-import {localBusinessSchema, JsonLd} from '@/lib/schema';
+import {breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
+import {getBreadcrumb} from '@/lib/breadcrumbs';
 import {routing} from '@/i18n/routing';
 import type {Locale} from '@/lib/cities';
+import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
 
 export async function generateMetadata({
   params
@@ -75,6 +77,15 @@ export default async function ChiSiamoPage({
   return (
     <>
       <JsonLd data={localBusinessSchema(locale as Locale)} />
+      <JsonLd
+        data={breadcrumbSchema(
+          getBreadcrumb(
+            'chi-siamo',
+            locale as Locale,
+            `${t('hero.h1Pre')} ${t('hero.h1Accent')}`
+          )
+        )}
+      />
 
       {/* 1. HERO RIDOTTA */}
       <section className="relative isolate min-h-[min(64vh,520px)] flex items-end overflow-hidden">
@@ -87,8 +98,10 @@ export default async function ChiSiamoPage({
             alt=""
             fill
             priority
-            sizes="100vw"
+            sizes={HERO_SIZES}
             quality={70}
+            placeholder="blur"
+            blurDataURL={HERO_BLUR}
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/15" />

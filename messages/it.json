@@ -211,7 +211,7 @@
   },
   "Servizi": {
     "meta": {
-      "title": "Servizi NCC Sicilia · Transfer, Tour, Wedding e Business | Sicily Driver",
+      "title": "Servizi NCC Sicilia · Transfer, Tour, Wedding | Sicily Driver",
       "description": "I servizi di Sicily Driver Siracusa: transfer aeroportuali, tour privati, wedding & eventi, business. Mercedes con autista bilingue, 24/7 in Sicilia orientale."
     },
     "hero": {
@@ -357,14 +357,14 @@
   },
   "Wedding": {
     "meta": {
-      "title": "Wedding & Eventi · Mercedes con autista per matrimoni in Sicilia | Sicily Driver",
-      "description": "Auto da matrimonio in Sicilia: Mercedes Classe V, Classe E, GLB Premium con autista. Coordinamento ospiti, transfer cerimonia-ricevimento, driver in divisa su richiesta."
+      "title": "Autista Matrimonio Sicilia · Mercedes Wedding | Sicily Driver",
+      "description": "Autista matrimonio Sicilia con Mercedes Classe V, Classe E, GLB Premium. Coordinamento ospiti, transfer cerimonia-ricevimento, driver in divisa su richiesta."
     },
     "hero": {
       "eyebrow": "Wedding & eventi · Sicily Driver",
       "h1Pre": "Per il giorno",
       "h1Accent": "che ricorderai",
-      "subhead": "Una flotta Mercedes che si adatta al tuo sì. Per gli sposi, per gli ospiti, per le persone che ti aspettano alla porta della chiesa."
+      "subhead": "Una flotta Mercedes che si adatta al tuo sì. Autista matrimonio Sicilia: per gli sposi, per gli ospiti, per le persone che ti aspettano alla porta della chiesa."
     },
     "story": {
       "eyebrow": "Come ti accompagniamo",
@@ -441,7 +441,8 @@
       "submit": "Ricevi il preventivo",
       "submitNote": "Risposta entro 24 ore con piano dimensionato. Preventivo definitivo dopo una chiamata.",
       "successTitle": "Grazie. Abbiamo ricevuto i dati del tuo matrimonio.",
-      "successBody": "Ti rispondiamo entro 24 ore con un piano dimensionato. Per urgenze scrivici su WhatsApp."
+      "successBody": "Ti rispondiamo entro 24 ore con un piano dimensionato. Per urgenze scrivici su WhatsApp.",
+      "errorRequired": "Controlla i campi obbligatori e riprova."
     },
     "ctaFinale": {
       "eyebrow": "Più rapido?",
@@ -498,7 +499,8 @@
       "submit": "Invia",
       "submitNote": "Risposta entro 1 ora, 24/7 su WhatsApp.",
       "successTitle": "Grazie, abbiamo ricevuto la tua richiesta.",
-      "successBody": "Ti rispondiamo entro un'ora. Se è urgente, scrivici su WhatsApp."
+      "successBody": "Ti rispondiamo entro un'ora. Se è urgente, scrivici su WhatsApp.",
+      "errorRequired": "Controlla i campi obbligatori e riprova."
     },
     "bases": {
       "eyebrow": "Le sedi",

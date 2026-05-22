@@ -2,10 +2,12 @@ import type {Metadata} from 'next';
 import Image from 'next/image';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
-import {faqPageSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
+import {faqPageSchema, breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
+import {getBreadcrumb} from '@/lib/breadcrumbs';
 import {routing} from '@/i18n/routing';
 import {WeddingForm} from '@/components/sections/WeddingForm';
 import type {Locale} from '@/lib/cities';
+import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
 
 export async function generateMetadata({
   params
@@ -81,6 +83,15 @@ export default async function WeddingPage({
     <>
       <JsonLd data={localBusinessSchema(locale as Locale)} />
       <JsonLd data={faqPageSchema(faqItems)} />
+      <JsonLd
+        data={breadcrumbSchema(
+          getBreadcrumb(
+            'wedding-eventi',
+            locale as Locale,
+            `${t('hero.h1Pre')} ${t('hero.h1Accent')}`
+          )
+        )}
+      />
 
       {/* 1. HERO emotivo */}
       <section className="relative isolate min-h-[min(92vh,780px)] flex items-end overflow-hidden">
@@ -89,12 +100,14 @@ export default async function WeddingPage({
           style={{filter: 'saturate(0.78) brightness(0.82) contrast(1.08)'}}
         >
           <Image
-            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1800&q=70&auto=format&fm=webp"
+            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600&q=70&auto=format&fm=webp"
             alt=""
             fill
             priority
-            sizes="100vw"
-            quality={75}
+            sizes={HERO_SIZES}
+            quality={70}
+            placeholder="blur"
+            blurDataURL={HERO_BLUR}
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/35 to-black/80" />
