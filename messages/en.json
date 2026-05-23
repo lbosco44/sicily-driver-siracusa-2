@@ -41,16 +41,16 @@
   },
   "Home": {
     "meta": {
-      "title": "Sicily NCC · Catania Airport Transfers | Sicily Driver",
-      "description": "Private Mercedes transfers and tours across Sicily with bilingual drivers. From €80 per route. 24/7 NCC in Syracuse, Noto, Catania, Taormina."
+      "title": "Sicily Driver Syracuse — Private NCC, Taxi & Airport Transfers in Sicily",
+      "description": "Private NCC service in Syracuse: airport transfers from Catania, Comiso, Pozzallo. Baroque, Etna and Ortigia tours with English-speaking Mercedes drivers. 24/7 WhatsApp booking."
     },
     "hero": {
-      "eyebrow": "Private NCC · Eastern Sicily · 24/7",
-      "h1Pre": "NCC in Syracuse: airport transfers, private tours &",
-      "h1Accent": "VIP service",
-      "h1Post": "in Sicily",
-      "taglineAccent": "VIP-style elegance at market prices",
-      "taglinePost": "— your premium NCC at accessible rates",
+      "eyebrow": "Sicily · Private tours & transfers",
+      "h1Pre": "Sicily,",
+      "h1Accent": "in a Mercedes,",
+      "h1Post": "at your own pace",
+      "taglineAccent": "Sicily, in a Mercedes, at your own pace.",
+      "taglinePost": "— airport pickup, Val di Noto and Etna day tours, weddings",
       "searchFromLabel": "From",
       "searchFromPlaceholder": "Catania Airport",
       "searchToLabel": "To",
@@ -70,47 +70,59 @@
       "item3Label": "Syracuse · Noto · Marzamemi"
     },
     "intro": {
-      "eyebrow": "Welcome",
-      "h2Pre": "Welcome to",
-      "h2Accent": "Sicily Driver",
-      "h2Post": "Syracuse",
+      "eyebrow": "NCC in Sicily",
+      "h2Pre": "NCC in Syracuse: Airport Transfers, Private Tours",
+      "h2Accent": "& Mercedes Service",
+      "h2Post": "in Sicily",
       "body1Bold": "Welcome to Sicily Driver Syracuse",
       "body1Rest": ", your go-to partner for chauffeur-driven car services (NCC) across Sicily. We provide private transfers to and from all island airports — Catania, Comiso, Palermo, and Trapani — as well as connections to the ports of Pozzallo and Augusta. Travel in utmost comfort aboard our Mercedes Class V, GLB Premium, and Class E, with 24/7 service.",
-      "body2": "Discover our bespoke tours: explore the Baroque treasures of Noto, Modica, Ragusa Ibla, marvel at the lunar landscapes of Etna, stroll through historic Ortigia, and be captivated by the terraces of Taormina. Our VIP service is ideal for weddings, corporate events, and exclusive travel experiences.",
+      "body2": "Discover our bespoke tours: explore the Baroque treasures of Noto, Modica, Ragusa Ibla, marvel at the lunar landscapes of Etna, stroll through historic Ortigia, and be captivated by the terraces of Taormina. Our service is ideal for weddings, corporate events, and exclusive travel experiences.",
       "cta": "Book your NCC now"
     },
-    "servizi": {
-      "eyebrow": "Three ways to use us",
-      "h2Pre": "Where",
-      "h2Accent": "we take you",
-      "card1": {
-        "number": "01",
-        "kicker": "Transfers",
-        "title": "Airport and port transfers",
-        "body": "Catania, Comiso, Palermo, Trapani. Pozzallo and Augusta for cruise ships. Flight tracking, free waiting time.",
-        "cta": "See transfers"
-      },
-      "card2": {
-        "number": "02",
-        "kicker": "Baroque Tour · NEW",
-        "title": "Baroque Tour",
-        "body": "Noto, Modica, Ragusa Ibla in one day. Cathedrals, palazzos, Modica chocolate. 6-8 hours with bilingual driver.",
-        "cta": "Explore the tour"
-      },
-      "card3": {
-        "number": "03",
-        "kicker": "Etna Tour",
-        "title": "Etna Tour",
-        "body": "Silvestri Craters, winery with tasting, Valle del Bove panorama. Can be combined with Taormina.",
-        "cta": "See the itinerary"
-      },
-      "card4": {
-        "number": "04",
-        "kicker": "Weddings & Events",
-        "title": "Weddings & Events",
-        "body": "A Mercedes fleet for the day you'll remember. Class V for guests, Class E for the couple.",
-        "cta": "Let's talk about your day"
-      }
+    "esperienze": {
+      "eyebrow": "The experiences",
+      "h2Pre": "Five ways",
+      "h2Accent": "to see Sicily",
+      "subhead": "Tested itineraries, with the places we've known for years. We start from Syracuse, or wherever you are.",
+      "card1Tag": "3 hours · 2 people · vintage Fiat 500 Spiaggina",
+      "card1Title": "Dolce Vita Syracuse",
+      "card1Body": "Ortigia in a vintage 500, at walking pace.",
+      "card2Tag": "4 hours · max 8 people · sailing",
+      "card2Title": "Silent Sailing",
+      "card2Body": "Private sailing along Ortigia's coast, with Fratelli Burgio platter on board.",
+      "card3Tag": "Full day · south coast · Pura Vida Beach Club",
+      "card3Title": "Isola delle Correnti",
+      "card3Body": "Where Sicily ends and two seas meet. Sunset at Pura Vida.",
+      "card4Tag": "Full day · quad + wineries · Benanti, Palmeri",
+      "card4Title": "Etna Premium",
+      "card4Body": "Silvestri craters at 1,900m, then two wineries who know us.",
+      "card5Tag": "6-8 hours · Noto, Modica, Ragusa Ibla",
+      "card5Title": "Baroque Tour",
+      "card5Body": "Three UNESCO World Heritage cities in one day, with the pauses that count.",
+      "cardCta": "Explore the experience",
+      "customTagline": "Looking for something different? We build custom tours across all Sicily.",
+      "customCta": "Request an itinerary"
+    },
+    "transferRapido": {
+      "h2": "Need a transfer right now?",
+      "body": "Catania, Comiso, Palermo. Port of Pozzallo. From Syracuse we leave straight away.",
+      "ctaCall": "Call · +39 375 641 3379",
+      "ctaPrices": "See all prices"
+    },
+    "partnerSelezionati": {
+      "eyebrow": "Selected partners",
+      "h2Pre": "Who we choose",
+      "h2Accent": "for you",
+      "subhead": "We don't work with everyone. Every partner adds something to what you'll experience.",
+      "card1Name": "Pura Vida Beach Club",
+      "card1Tag": "Isola delle Correnti, sunset experience",
+      "card2Name": "Fratelli Burgio",
+      "card2Tag": "Sicilian gourmet, platter on board the Silent Sailing",
+      "card3Name": "Cantina Benanti",
+      "card3Tag": "Etna, one of the historic wineries",
+      "card4Name": "Cantina Palmeri",
+      "card4Tag": "Etna, terroir wines",
+      "cta": "Meet all the partners"
     },
     "destinazioni": {
       "eyebrow": "Where we go most often",
@@ -355,101 +367,6 @@
       "eyebrow": "Next stop",
       "h2": "Shall we drive together?",
       "subhead": "Three ways to tell us where to pick you up."
-    }
-  },
-  "Wedding": {
-    "meta": {
-      "title": "Weddings & Events · Mercedes Chauffeur for Sicily Weddings | Sicily Driver",
-      "description": "Wedding cars in Sicily: Mercedes V-Class, E-Class, GLB Premium with chauffeur. Guest coordination, ceremony–reception transfer, driver in uniform on request."
-    },
-    "hero": {
-      "eyebrow": "Weddings & events · Sicily Driver",
-      "h1Pre": "For the day",
-      "h1Accent": "you'll remember",
-      "subhead": "A Mercedes fleet that adapts to your I do. For the couple, for the guests, for the people waiting at the church door."
-    },
-    "story": {
-      "eyebrow": "How we accompany you",
-      "h2Pre": "Three",
-      "h2Accent": "moments, one day",
-      "before": "Before the ceremony we pick you up at the time you decide. Driver in dark uniform (if you want), car cleaned inside and out, flowers if you give them to us. We take you where you need to be, on time.",
-      "during": "During the ceremony we coordinate guests arriving from outside: Catania airport, Syracuse station, nearby hotels. Multiple cars in parallel if needed, always the same Mercedes fleet, same standard.",
-      "after": "After the reception we wait for the party's rhythm. If it runs late, we stay. If guests need a late return transfer, we organise it. No surprise on the quote."
-    },
-    "included": {
-      "eyebrow": "In the wedding service",
-      "h2Pre": "What's",
-      "h2Accent": "always included",
-      "items": [
-        "Car cleaned and scented, washed the day before",
-        "Driver in dark uniform (on request, no extra cost)",
-        "Multi-car coordination for guests and logistics",
-        "Extended waiting time until reception ends",
-        "Cold water, ice, tissues for the emotional moments",
-        "Full schedule flexibility, no late penalties",
-        "Discreet interior decoration (ribbon, flower) on request"
-      ]
-    },
-    "fleet": {
-      "eyebrow": "Cars for the day",
-      "h2Pre": "The",
-      "h2Accent": "wedding fleet",
-      "card1Name": "Mercedes E-Class",
-      "card1Pax": "Couple, up to 3 passengers",
-      "card1Note": "The executive sedan. Black or silver. Discreet elegance — ideal for the couple.",
-      "card2Name": "Mercedes V-Class",
-      "card2Pax": "Guests, up to 7 passengers",
-      "card2Note": "The workhorse of the fleet. For witnesses, family, airport transfers for guests.",
-      "card3Name": "Mercedes GLB Premium",
-      "card3Pax": "Families, up to 4 passengers",
-      "card3Note": "Higher SUV ride, comfortable. For children with seats, elderly with mobility needs."
-    },
-    "faq": {
-      "eyebrow": "Wedding FAQ",
-      "h2Pre": "Frequent",
-      "h2Accent": "questions",
-      "q1": "How far in advance should we book?",
-      "a1": "For high-season weddings (June–September) we recommend 3–6 months in advance. For the rest of the year 30–60 days is enough. For specific dates, check with us before anything else.",
-      "q2": "How many cars can you coordinate at once?",
-      "a2": "Up to 5–6 Mercedes in parallel, from our fleet or trusted partners. All to the same standard. We coordinate timing and routes via a WhatsApp group with you.",
-      "q3": "Are decorations included?",
-      "a3": "White ribbon and bonnet flower are included (on request). For more elaborate setups (tulle, floral arrangements, flower walls) we coordinate with the wedding planner.",
-      "q4": "Do you cover all of Sicily?",
-      "a4": "We operate primarily in eastern Sicily (Syracuse, Catania, Ragusa, Taormina). For weddings in central or western Sicily we organise with a small relocation extra.",
-      "q5": "How much does the wedding service cost?",
-      "a5": "It depends on: number of cars, total hours, any relocation. Roughly from €280 for the full day with E-Class for the couple + €180/car for guests. Detailed quote within 24h of request."
-    },
-    "form": {
-      "eyebrow": "Wedding quote",
-      "h2Pre": "Let's talk",
-      "h2Accent": "about the day",
-      "subhead": "Seven inputs to build the quote. We reply with a sized plan within 24 hours.",
-      "fieldNameLabel": "Name",
-      "fieldNamePlaceholder": "Bride/groom or wedding planner",
-      "fieldContactLabel": "Email or WhatsApp",
-      "fieldContactPlaceholder": "Preferred channel for our reply",
-      "fieldDateLabel": "Wedding date",
-      "fieldDatePlaceholder": "dd/mm/yyyy",
-      "fieldCeremonyLabel": "Ceremony location",
-      "fieldCeremonyPlaceholder": "Church / villa / beach, city",
-      "fieldReceptionLabel": "Reception location",
-      "fieldReceptionPlaceholder": "Villa, estate, restaurant",
-      "fieldCarsLabel": "Estimated number of cars",
-      "fieldCarsPlaceholder": "1-7+",
-      "fieldGuestsLabel": "Guests to transport (total)",
-      "fieldGuestsPlaceholder": "E.g. 15 guests via airport + couple",
-      "fieldNotesLabel": "Special notes (optional)",
-      "fieldNotesPlaceholder": "Decorations, driver uniform, setup, late-night transfer…",
-      "submit": "Receive the quote",
-      "submitNote": "Reply within 24 hours with a sized plan. Final quote after a call.",
-      "successTitle": "Thanks. We received your wedding details.",
-      "successBody": "We'll reply within 24 hours with a sized plan. For urgent requests, message us on WhatsApp.",
-      "errorRequired": "Please check the required fields and try again."
-    },
-    "ctaFinale": {
-      "eyebrow": "Faster?",
-      "h2": "Let's talk on WhatsApp.",
-      "subhead": "If you have a date and a few guests in mind, message us: first reply within an hour."
     }
   },
   "Contatti": {

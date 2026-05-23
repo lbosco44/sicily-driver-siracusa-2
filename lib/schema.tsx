@@ -88,7 +88,13 @@ export function localBusinessSchema(locale: 'it' | 'en') {
     openingHours: 'Mo-Su 00:00-23:59',
     image: `${URL_BASE}/og/home-${locale}.jpg`,
     vatID: 'IT02150600894',
-    taxID: '02150600894'
+    taxID: '02150600894',
+    sameAs: [
+      // Google Business Profile (Sicily Driver Syracuse, kgmid /g/11xcdhx7pv)
+      'https://share.google/Lj0QSPY5y9nKanT76'
+      // TODO: aggiungere URL Instagram brand quando cliente fornisce handle
+      // TODO: eventuale Facebook se brand attivo
+    ]
   };
 }
 

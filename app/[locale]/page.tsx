@@ -3,8 +3,10 @@ import type {Metadata} from 'next';
 import {HeroLaRotta} from '@/components/sections/HeroLaRotta';
 import {TrustStrip} from '@/components/sections/TrustStrip';
 import {IntroParagraph} from '@/components/sections/IntroParagraph';
-import {ServiziCards} from '@/components/sections/ServiziCards';
+import {EsperienzeCards} from '@/components/sections/EsperienzeCards';
+import {TransferRapidoLayer} from '@/components/sections/TransferRapidoLayer';
 import {DestinazioniMosaic} from '@/components/sections/DestinazioniMosaic';
+import {PartnerSelezionati} from '@/components/sections/PartnerSelezionati';
 import {ListinoTratte} from '@/components/sections/ListinoTratte';
 import {DietroAlVolante} from '@/components/sections/DietroAlVolante';
 import {Differenziatori} from '@/components/sections/Differenziatori';
@@ -90,8 +92,10 @@ export default async function HomePage({
       <HeroLaRotta />
       <TrustStrip />
       <IntroParagraph />
-      <ServiziCards />
+      <EsperienzeCards />
+      <TransferRapidoLayer />
       <DestinazioniMosaic />
+      <PartnerSelezionati />
       <ListinoTratte />
       <DietroAlVolante />
       <Differenziatori />

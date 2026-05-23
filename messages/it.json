@@ -41,16 +41,16 @@
   },
   "Home": {
     "meta": {
-      "title": "NCC Siracusa · Transfer Aeroporto Catania | Sicily Driver",
-      "description": "Transfer aeroportuali e tour privati in tutta la Sicilia con Mercedes e autista bilingue. Da €80 a tratta. NCC 24/7 a Siracusa, Noto, Catania, Taormina."
+      "title": "NCC Siracusa & Taxi Privato — Transfer Aeroporto, Tour Sicilia con Autista | Sicily Driver",
+      "description": "Servizio NCC a Siracusa: transfer privati da Catania, Comiso e Pozzallo. Tour del Barocco, Etna, Ortigia con autista. Mercedes 24/7, prenotazione WhatsApp."
     },
     "hero": {
-      "eyebrow": "NCC privato · Sicilia orientale · 24/7",
-      "h1Pre": "NCC a Siracusa: transfer aeroportuali, tour privati &",
-      "h1Accent": "servizio VIP",
-      "h1Post": "in Sicilia",
-      "taglineAccent": "Eleganza da VIP, prezzi di mercato",
-      "taglinePost": "— il tuo NCC di lusso a tariffe accessibili",
+      "eyebrow": "Sicilia · Tour & Transfer privati",
+      "h1Pre": "Sicilia,",
+      "h1Accent": "in Mercedes,",
+      "h1Post": "al tuo ritmo",
+      "taglineAccent": "Sicilia, in Mercedes, al tuo ritmo.",
+      "taglinePost": "— transfer aeroporto, tour del Val di Noto e dell'Etna, matrimoni",
       "searchFromLabel": "Da",
       "searchFromPlaceholder": "Catania Aeroporto",
       "searchToLabel": "A",
@@ -70,47 +70,59 @@
       "item3Label": "Siracusa · Noto · Marzamemi"
     },
     "intro": {
-      "eyebrow": "Benvenuto",
-      "h2Pre": "Benvenuto da",
-      "h2Accent": "Sicily Driver",
-      "h2Post": "Siracusa",
+      "eyebrow": "NCC in Sicilia",
+      "h2Pre": "NCC a Siracusa: Transfer Aeroportuali, Tour Privati",
+      "h2Accent": "e Servizio di Lusso",
+      "h2Post": "in Sicilia",
       "body1Bold": "Benvenuto da Sicily Driver Siracusa",
       "body1Rest": ", il tuo partner per il noleggio con conducente (NCC) in tutta la Sicilia. Offriamo transfer privati da e per tutti gli aeroporti dell'isola — Catania, Comiso, Palermo e Trapani — oltre a collegamenti con i porti di Pozzallo e Augusta. Viaggia in massima comodità a bordo delle nostre Mercedes Classe V, GLB Premium e Classe E, con servizio 24/7.",
-      "body2": "Scopri i nostri tour su misura: esplora il Barocco di Noto, Modica, Ragusa Ibla, ammira i paesaggi lunari dell'Etna, passeggia per l'antica Ortigia e lasciati incantare dalle terrazze di Taormina. Il nostro servizio VIP è perfetto per matrimoni, eventi aziendali e viaggi esclusivi.",
+      "body2": "Scopri i nostri tour su misura: esplora il Barocco di Noto, Modica, Ragusa Ibla, ammira i paesaggi lunari dell'Etna, passeggia per l'antica Ortigia e lasciati incantare dalle terrazze di Taormina. Il nostro servizio dedicato è perfetto per matrimoni, eventi aziendali e viaggi su misura.",
       "cta": "Prenota ora il tuo NCC"
     },
-    "servizi": {
-      "eyebrow": "Tre modi di usarci",
-      "h2Pre": "Dove",
-      "h2Accent": "ti portiamo",
-      "card1": {
-        "number": "01",
-        "kicker": "Transfer",
-        "title": "Transfer aeroporti e porti",
-        "body": "Catania, Comiso, Palermo, Trapani. Pozzallo e Augusta per le crociere. Monitoraggio voli, attesa gratuita.",
-        "cta": "Vai ai transfer"
-      },
-      "card2": {
-        "number": "02",
-        "kicker": "Tour del Barocco · NEW",
-        "title": "Tour del Barocco",
-        "body": "Noto, Modica, Ragusa Ibla in giornata. Cattedrali, palazzi, cioccolato di Modica. 6-8 ore con autista bilingue.",
-        "cta": "Scopri il tour"
-      },
-      "card3": {
-        "number": "03",
-        "kicker": "Tour Etna",
-        "title": "Tour Etna",
-        "body": "Crateri Silvestri, cantina con degustazione, panorama della Valle del Bove. Combinabile con Taormina.",
-        "cta": "Vedi l'itinerario"
-      },
-      "card4": {
-        "number": "04",
-        "kicker": "Wedding & Eventi",
-        "title": "Wedding & Eventi",
-        "body": "Una flotta Mercedes per il giorno che ricorderai. Mercedes Classe V per gli ospiti, Classe E per gli sposi.",
-        "cta": "Parliamo del giorno"
-      }
+    "esperienze": {
+      "eyebrow": "Le esperienze",
+      "h2Pre": "Cinque modi",
+      "h2Accent": "di vedere la Sicilia",
+      "subhead": "Itinerari testati, con i posti che frequentiamo da anni. Si parte da Siracusa o da dove sei tu.",
+      "card1Tag": "3 ore · 2 persone · Fiat 500 Spiaggina d'epoca",
+      "card1Title": "Dolce Vita Siracusa",
+      "card1Body": "Ortigia in una 500 d'epoca, al ritmo della passeggiata.",
+      "card2Tag": "4 ore · max 8 persone · in vela",
+      "card2Title": "Silent Sailing",
+      "card2Body": "Vela privata sulla costa di Ortigia, con tagliere Fratelli Burgio a bordo.",
+      "card3Tag": "Giornata intera · costa sud · Pura Vida Beach Club",
+      "card3Title": "Isola delle Correnti",
+      "card3Body": "Dove finisce la Sicilia e iniziano due mari. Sunset al Pura Vida.",
+      "card4Tag": "Giornata intera · quad + cantine · Benanti, Palmeri",
+      "card4Title": "Etna Premium",
+      "card4Body": "I crateri Silvestri a quota 1.900, poi due cantine che ci conoscono.",
+      "card5Tag": "6-8 ore · Noto, Modica, Ragusa Ibla",
+      "card5Title": "Tour del Barocco",
+      "card5Body": "Tre città Patrimonio Unesco in una giornata, con le pause che servono.",
+      "cardCta": "Scopri l'esperienza",
+      "customTagline": "Cerchi qualcosa di diverso? Costruiamo il tour su misura in tutta la Sicilia.",
+      "customCta": "Richiedi un itinerario"
+    },
+    "transferRapido": {
+      "h2": "Ti serve un transfer adesso?",
+      "body": "Catania, Comiso, Palermo. Porto di Pozzallo. Da Siracusa partiamo subito.",
+      "ctaCall": "Chiama · +39 375 641 3379",
+      "ctaPrices": "Vedi tutti i prezzi"
+    },
+    "partnerSelezionati": {
+      "eyebrow": "Partner selezionati",
+      "h2Pre": "Chi scegliamo",
+      "h2Accent": "per te",
+      "subhead": "Non lavoriamo con chiunque. Ogni partner aggiunge qualcosa a quello che vivrai.",
+      "card1Name": "Pura Vida Beach Club",
+      "card1Tag": "Isola delle Correnti, sunset experience",
+      "card2Name": "Fratelli Burgio",
+      "card2Tag": "Gastronomia siciliana, tagliere a bordo del Silent Sailing",
+      "card3Name": "Cantina Benanti",
+      "card3Tag": "Etna, una delle storiche",
+      "card4Name": "Cantina Palmeri",
+      "card4Tag": "Etna, vini di territorio",
+      "cta": "Conosci tutti i partner"
     },
     "destinazioni": {
       "eyebrow": "Dove andiamo più spesso",
@@ -355,101 +367,6 @@
       "eyebrow": "Prossima tappa",
       "h2": "Saliamo insieme?",
       "subhead": "Tre modi per dirci dove ti veniamo a prendere."
-    }
-  },
-  "Wedding": {
-    "meta": {
-      "title": "Autista Matrimonio Sicilia · Mercedes Wedding | Sicily Driver",
-      "description": "Autista matrimonio Sicilia con Mercedes Classe V, Classe E, GLB Premium. Coordinamento ospiti, transfer cerimonia-ricevimento, driver in divisa su richiesta."
-    },
-    "hero": {
-      "eyebrow": "Wedding & eventi · Sicily Driver",
-      "h1Pre": "Per il giorno",
-      "h1Accent": "che ricorderai",
-      "subhead": "Una flotta Mercedes che si adatta al tuo sì. Autista matrimonio Sicilia: per gli sposi, per gli ospiti, per le persone che ti aspettano alla porta della chiesa."
-    },
-    "story": {
-      "eyebrow": "Come ti accompagniamo",
-      "h2Pre": "Tre",
-      "h2Accent": "momenti, una giornata",
-      "before": "Prima della cerimonia ti veniamo a prendere all'orario che decidi tu. Driver in divisa scura (se vuoi), auto pulita dentro e fuori, fiori se ce li dai. Ti portiamo dove devi essere senza ritardi.",
-      "during": "Durante il sì coordiniamo gli ospiti che arrivano da fuori: aeroporto Catania, stazione Siracusa, hotel limitrofi. Più auto in parallelo se serve, sempre la stessa flotta Mercedes, stesso standard.",
-      "after": "Dopo il ricevimento aspettiamo i tempi del party. Se la festa si allunga, restiamo. Se gli ospiti hanno bisogno di un transfer di ritorno tardo, organizziamo. Niente sorprese sul preventivo."
-    },
-    "included": {
-      "eyebrow": "Nel servizio wedding",
-      "h2Pre": "Cosa è",
-      "h2Accent": "sempre incluso",
-      "items": [
-        "Auto pulita e profumata, lavata il giorno prima",
-        "Driver in divisa scura (su richiesta, senza costi)",
-        "Coordinamento più auto per ospiti e logistica",
-        "Attesa estesa fino a fine ricevimento",
-        "Acqua fresca, ghiaccio, fazzoletti per le emozioni",
-        "Flessibilità oraria piena, niente penali per ritardi",
-        "Decorazione interna sobria (nastro, fiore) su accordo"
-      ]
-    },
-    "fleet": {
-      "eyebrow": "Le auto per il giorno",
-      "h2Pre": "La",
-      "h2Accent": "flotta wedding",
-      "card1Name": "Mercedes Classe E",
-      "card1Pax": "Sposi, fino a 3 passeggeri",
-      "card1Note": "La berlina executive. Nera o argento. Eleganza discreta, ideale per gli sposi.",
-      "card2Name": "Mercedes Classe V",
-      "card2Pax": "Ospiti, fino a 7 passeggeri",
-      "card2Note": "Il workhorse della flotta. Per testimoni, parenti, transfer aeroporto degli invitati.",
-      "card3Name": "Mercedes GLB Premium",
-      "card3Pax": "Famiglie, fino a 4 passeggeri",
-      "card3Note": "SUV alto, comodo. Per bambini con seggiolino, anziani con bastone."
-    },
-    "faq": {
-      "eyebrow": "Dubbi wedding",
-      "h2Pre": "Le domande",
-      "h2Accent": "che ci fate",
-      "q1": "Con quanto anticipo bisogna prenotare?",
-      "a1": "Per matrimoni in alta stagione (giugno-settembre) consigliamo 3-6 mesi di anticipo. Per il resto dell'anno 30-60 giorni bastano. Per date specifiche fai un check con noi prima di tutto il resto.",
-      "q2": "Quante auto potete coordinare contemporaneamente?",
-      "a2": "Fino a 5-6 Mercedes in parallelo, della nostra flotta o di partner di fiducia. Tutti dello stesso standard. Coordiniamo orari e percorsi via WhatsApp di gruppo con voi.",
-      "q3": "Le decorazioni sono incluse?",
-      "a3": "Nastro bianco e fiore alla cofano sono inclusi (su accordo). Per allestimenti più elaborati (tulle, composizioni floreali, pareti di fiori) ci diamo una linea con il wedding planner.",
-      "q4": "Coprite tutta la Sicilia?",
-      "a4": "Operiamo principalmente in Sicilia orientale (Siracusa, Catania, Ragusa, Taormina). Per matrimoni in Sicilia centrale o ovest organizziamo con un piccolo extra per la trasferta.",
-      "q5": "Quanto costa il servizio wedding?",
-      "a5": "Dipende da: numero auto, ore totali, eventuali trasferte. Indicativamente da €280 per la giornata con Classe E sposi + €180/auto per gli ospiti. Preventivo dettagliato entro 24h dalla richiesta."
-    },
-    "form": {
-      "eyebrow": "Preventivo wedding",
-      "h2Pre": "Parliamo",
-      "h2Accent": "del giorno",
-      "subhead": "Sette informazioni per costruire il preventivo. Ti rispondiamo con un piano dimensionato entro 24 ore.",
-      "fieldNameLabel": "Nome",
-      "fieldNamePlaceholder": "Sposo/a o wedding planner",
-      "fieldContactLabel": "Email o WhatsApp",
-      "fieldContactPlaceholder": "Come preferisci essere ricontattato",
-      "fieldDateLabel": "Data del matrimonio",
-      "fieldDatePlaceholder": "gg/mm/aaaa",
-      "fieldCeremonyLabel": "Location cerimonia",
-      "fieldCeremonyPlaceholder": "Chiesa / villa / spiaggia, città",
-      "fieldReceptionLabel": "Location ricevimento",
-      "fieldReceptionPlaceholder": "Villa, tenuta, ristorante",
-      "fieldCarsLabel": "Numero auto stimato",
-      "fieldCarsPlaceholder": "1-7+",
-      "fieldGuestsLabel": "Ospiti da trasportare (totale)",
-      "fieldGuestsPlaceholder": "Es. 15 ospiti via aeroporto + sposi",
-      "fieldNotesLabel": "Note speciali (opzionale)",
-      "fieldNotesPlaceholder": "Decorazioni, divisa driver, allestimento, transfer notturno...",
-      "submit": "Ricevi il preventivo",
-      "submitNote": "Risposta entro 24 ore con piano dimensionato. Preventivo definitivo dopo una chiamata.",
-      "successTitle": "Grazie. Abbiamo ricevuto i dati del tuo matrimonio.",
-      "successBody": "Ti rispondiamo entro 24 ore con un piano dimensionato. Per urgenze scrivici su WhatsApp.",
-      "errorRequired": "Controlla i campi obbligatori e riprova."
-    },
-    "ctaFinale": {
-      "eyebrow": "Più rapido?",
-      "h2": "Parliamone su WhatsApp.",
-      "subhead": "Se hai una data e qualche ospite in mente, scrivici: prima riposta entro un'ora."
     }
   },
   "Contatti": {
