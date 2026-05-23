@@ -5,8 +5,8 @@ import {Link} from '@/i18n/navigation';
 import {breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
 import {getBreadcrumb} from '@/lib/breadcrumbs';
 import {routing} from '@/i18n/routing';
-import type {Locale} from '@/lib/cities';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
+import type {Locale} from '@/lib/cities';
 
 export async function generateMetadata({
   params
@@ -51,9 +51,9 @@ export default async function ChiSiamoPage({
   const tNcc = await getTranslations('NccPage');
 
   const beliefs = [
-    {n: '01', title: t('beliefs.item1Title'), body: t('beliefs.item1Body')},
-    {n: '02', title: t('beliefs.item2Title'), body: t('beliefs.item2Body')},
-    {n: '03', title: t('beliefs.item3Title'), body: t('beliefs.item3Body')}
+    {title: t('beliefs.item1Title'), body: t('beliefs.item1Body')},
+    {title: t('beliefs.item2Title'), body: t('beliefs.item2Body')},
+    {title: t('beliefs.item3Title'), body: t('beliefs.item3Body')}
   ];
 
   const bases = [
@@ -87,201 +87,241 @@ export default async function ChiSiamoPage({
         )}
       />
 
-      {/* 1. HERO RIDOTTA */}
-      <section className="relative isolate min-h-[min(64vh,520px)] flex items-end overflow-hidden">
-        <div
-          className="absolute inset-0 -z-10"
-          style={{filter: 'saturate(0.82) brightness(0.88) contrast(1.08)'}}
-        >
+      {/* 01 — HERO ridotta narrativa */}
+      <section className="relative isolate h-[72svh] min-h-[520px] overflow-hidden">
+        <div className="absolute inset-0 -z-10">
           <Image
-            src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1600&q=70&auto=format&fm=webp"
+            src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1800&q=80&auto=format&fm=webp"
             alt=""
             fill
             priority
             sizes={HERO_SIZES}
-            quality={70}
+            quality={80}
             placeholder="blur"
             blurDataURL={HERO_BLUR}
             className="object-cover"
+            style={{filter: 'saturate(0.82) brightness(0.78) contrast(1.08)'}}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/15" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/35 to-black/75" />
         </div>
 
-        <div className="relative w-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 pb-12 sm:pb-16 pt-32 sm:pt-40">
-          <p className="text-[11px] uppercase tracking-[0.18em] font-medium text-[#F5EFE4]/90 mb-6">
-            {t('hero.eyebrow')}
-          </p>
-          <h1 className="font-display font-medium text-[#F5EFE4] text-[44px] sm:text-[64px] lg:text-[80px] leading-[1.03] tracking-tight max-w-[16ch]">
-            {t('hero.h1Pre')} <span className="italic">{t('hero.h1Accent')}</span>
-          </h1>
-          <p className="mt-6 max-w-[56ch] text-[16px] sm:text-[18px] text-[#F5EFE4]/90 leading-relaxed">
-            {t('hero.subhead')}
-          </p>
-        </div>
-      </section>
-
-      {/* 2. STORY — 3 paragrafi */}
-      <section className="bg-canvas py-24 sm:py-32">
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
-            <div className="lg:sticky lg:top-28 lg:self-start">
-              <p className="text-[11px] uppercase tracking-[0.18em] font-medium text-secondary mb-5">
-                {t('story.eyebrow')}
-              </p>
-              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-medium text-primary leading-[1.08]">
-                {t('story.h2Pre')}{' '}
-                <span className="italic">{t('story.h2Accent')}</span>
-              </h2>
-            </div>
-
-            <div className="space-y-7 text-[17px] sm:text-[18px] leading-[1.75] text-ink/85">
-              <p className="first-letter:font-display first-letter:italic first-letter:text-[64px] first-letter:leading-[0.85] first-letter:text-[color:var(--accent-decorative)] first-letter:float-left first-letter:mr-3 first-letter:mt-1">
-                {t('story.body1')}
-              </p>
-              <p>{t('story.body2')}</p>
-              <p>{t('story.body3')}</p>
-            </div>
+        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 grid grid-rows-[1fr_auto] pb-12 sm:pb-16">
+          <div />
+          <div className="max-w-[22ch]">
+            <p className="eyebrow text-cream-on-dark/85 mb-8">{t('hero.eyebrow')}</p>
+            <h1
+              className="font-display text-display-xl font-medium text-cream-on-dark"
+              style={{fontStretch: '95%'}}
+            >
+              {t('hero.h1Pre')}{' '}
+              <span className="text-accent-decorative">{t('hero.h1Accent')}</span>
+            </h1>
+            <p className="mt-8 max-w-[42ch] font-display text-[20px] sm:text-[22px] font-light text-cream-on-dark/95 leading-[1.4]">
+              {t('hero.subhead')}
+            </p>
           </div>
         </div>
       </section>
 
-      {/* 3. GALLERIA EDITORIAL — placeholder asimmetrico */}
-      <section className="bg-muted-bg py-24 sm:py-32">
+      {/* 02 — STORY 3 paragrafi */}
+      <section className="bg-canvas py-32 sm:py-40">
+        <div className="mx-auto max-w-(--container-narrow) px-6 sm:px-10">
+          <p className="eyebrow mb-10">{t('story.eyebrow')}</p>
+          <h2
+            className="font-display text-display-md font-light text-ink max-w-[18ch] mb-14 sm:mb-16"
+            style={{fontStretch: '95%'}}
+          >
+            {t('story.h2Pre')}{' '}
+            <span className="italic text-accent">{t('story.h2Accent')}</span>
+          </h2>
+
+          <div className="space-y-7 text-[19px] sm:text-[20px] leading-[1.7] text-ink-soft">
+            <p className="first-letter:font-display first-letter:text-[80px] first-letter:leading-[0.85] first-letter:text-accent first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-light">
+              {t('story.body1')}
+            </p>
+            <p>{t('story.body2')}</p>
+            <p>{t('story.body3')}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 03 — GALLERIA editorial asimmetrica */}
+      <section className="bg-canvas-deep py-32 sm:py-40">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-5 lg:auto-rows-[220px]">
-            <div className="sm:col-span-7 sm:row-span-2 relative overflow-hidden rounded-xl">
+          <div className="grid grid-cols-12 gap-4 sm:gap-6 grain">
+            <figure className="col-span-12 sm:col-span-7 relative aspect-[5/4] overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200&q=70&auto=format&fm=webp"
+                src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1400&q=80&auto=format&fm=webp"
                 alt=""
                 fill
                 sizes="(max-width: 768px) 100vw, 58vw"
                 className="object-cover"
                 loading="lazy"
+                style={{filter: 'saturate(0.85) brightness(0.94) contrast(1.06)'}}
               />
-            </div>
-            <div className="sm:col-span-5 relative overflow-hidden rounded-xl aspect-[4/3] sm:aspect-auto">
+            </figure>
+            <figure className="col-span-12 sm:col-span-5 relative aspect-[4/3] overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1583435423797-be15ddffe3c2?w=900&q=70&auto=format&fm=webp"
+                src="https://images.unsplash.com/photo-1583435423797-be15ddffe3c2?w=900&q=80&auto=format&fm=webp"
                 alt=""
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"
                 className="object-cover"
                 loading="lazy"
+                style={{filter: 'saturate(0.85) brightness(0.94) contrast(1.06)'}}
               />
-            </div>
-            <div className="sm:col-span-5 relative overflow-hidden rounded-xl aspect-[4/3] sm:aspect-auto">
+            </figure>
+            <figure className="col-span-12 sm:col-span-5 relative aspect-[4/3] overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1571687948252-c4f4d9d57c41?w=900&q=70&auto=format&fm=webp"
+                src="https://images.unsplash.com/photo-1571687948252-c4f4d9d57c41?w=900&q=80&auto=format&fm=webp"
                 alt=""
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"
                 className="object-cover"
                 loading="lazy"
+                style={{filter: 'saturate(0.85) brightness(0.94) contrast(1.06)'}}
               />
-            </div>
+            </figure>
+            <figure className="col-span-12 sm:col-span-7 relative aspect-[5/4] overflow-hidden">
+              <Image
+                src="https://images.unsplash.com/photo-1604930571107-7e07e44f31b8?w=1400&q=80&auto=format&fm=webp"
+                alt=""
+                fill
+                sizes="(max-width: 768px) 100vw, 58vw"
+                className="object-cover"
+                loading="lazy"
+                style={{filter: 'saturate(0.85) brightness(0.94) contrast(1.06)'}}
+              />
+            </figure>
           </div>
         </div>
       </section>
 
-      {/* 4. BELIEFS — 3 colonne */}
-      <section className="bg-canvas py-24 sm:py-32">
+      {/* 04 — BELIEFS — NO numerazione 01/02/03, solo titoli e prose */}
+      <section className="bg-canvas py-32 sm:py-40">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-2xl mb-12 sm:mb-16">
-            <p className="text-[11px] uppercase tracking-[0.18em] font-medium text-secondary mb-5">
-              {t('beliefs.eyebrow')}
-            </p>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-medium text-primary leading-[1.08]">
-              {t('beliefs.h2Pre')}{' '}
-              <span className="italic">{t('beliefs.h2Accent')}</span>
-            </h2>
-          </div>
+          <p className="eyebrow mb-10">{t('beliefs.eyebrow')}</p>
+          <h2
+            className="font-display text-display-md font-light text-ink max-w-[14ch] mb-16 sm:mb-20"
+            style={{fontStretch: '95%'}}
+          >
+            {t('beliefs.h2Pre')}{' '}
+            <span className="italic text-accent">{t('beliefs.h2Accent')}</span>
+          </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14">
+          <ul className="divide-y divide-[var(--border-strong)]">
             {beliefs.map((b, i) => (
-              <article key={i}>
-                <p
-                  className="font-display italic font-medium text-[64px] sm:text-[80px] leading-[0.85] mb-4"
-                  style={{color: 'var(--accent-decorative)'}}
+              <li
+                key={i}
+                className="py-10 sm:py-12 grid grid-cols-1 lg:grid-cols-[1fr_1.8fr] gap-6 lg:gap-16 items-baseline"
+              >
+                <h3
+                  className="font-display italic text-display-sm font-light text-ink leading-[1.05]"
+                  style={{fontStretch: '95%'}}
                 >
-                  {b.n}
-                </p>
-                <h3 className="font-display italic font-medium text-2xl sm:text-[28px] text-primary leading-tight mb-3 max-w-[20ch]">
                   {b.title}
                 </h3>
-                <p className="text-[16px] leading-[1.65] text-ink/80 max-w-[40ch]">
+                <p className="text-[17px] sm:text-[18px] leading-[1.7] text-ink-soft max-w-[58ch]">
                   {b.body}
                 </p>
-              </article>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      {/* 5. SEDI — 3 card con indirizzo */}
-      <section className="bg-muted-bg py-24 sm:py-32">
+      {/* 05 — LE 3 SEDI */}
+      <section className="bg-canvas-warm py-32 sm:py-40">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-2xl mb-12 sm:mb-16">
-            <p className="text-[11px] uppercase tracking-[0.18em] font-medium text-secondary mb-5">
-              {t('bases.eyebrow')}
-            </p>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-medium text-primary leading-[1.08]">
+          <div className="max-w-2xl mb-16 sm:mb-20">
+            <p className="eyebrow mb-7">{t('bases.eyebrow')}</p>
+            <h2
+              className="font-display text-display-md font-light text-ink"
+              style={{fontStretch: '95%'}}
+            >
               {t('bases.h2Pre')}{' '}
-              <span className="italic">{t('bases.h2Accent')}</span>
+              <span className="italic text-accent">{t('bases.h2Accent')}</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-y-0 md:gap-x-12 lg:gap-x-16">
             {bases.map((b, i) => (
               <article
                 key={i}
-                className="bg-canvas rounded-xl p-7 sm:p-8 border border-[var(--border)]/40"
+                className={
+                  i < bases.length - 1
+                    ? 'md:border-r md:border-[var(--border-strong)] md:pr-12 lg:pr-16'
+                    : ''
+                }
               >
-                <p className="text-[10px] uppercase tracking-[0.14em] font-medium text-secondary mb-2">
-                  {String(i + 1).padStart(2, '0')}
-                </p>
-                <h3 className="font-display italic font-medium text-2xl text-primary leading-tight mb-3">
+                <h3
+                  className="font-display text-display-sm font-light text-ink leading-[1.05] mb-5"
+                  style={{fontStretch: '95%'}}
+                >
                   {b.name}
                 </h3>
-                <p className="text-[15px] text-ink/85 font-medium">{b.address}</p>
-                <p className="mt-3 text-[14px] text-ink/60 leading-relaxed">{b.note}</p>
+                <p className="font-display italic text-[18px] text-accent mb-4">
+                  {b.address}
+                </p>
+                <p className="text-[15px] text-ink-soft leading-relaxed max-w-[36ch]">
+                  {b.note}
+                </p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 6. CTA FINALE */}
-      <section className="bg-primary py-24 sm:py-32" style={{color: 'var(--cream-on-dark)'}}>
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-3xl">
-            <p className="text-[11px] uppercase tracking-[0.18em] font-medium text-[#F5EFE4]/65 mb-5">
-              {t('ctaFinale.eyebrow')}
-            </p>
-            <h2 className="font-display italic font-medium text-[#F5EFE4] text-5xl sm:text-6xl lg:text-7xl leading-[1.05]">
-              {t('ctaFinale.h2')}
-            </h2>
-            <p className="mt-6 text-[18px] sm:text-[20px] text-[#F5EFE4]/80 leading-relaxed max-w-prose">
-              {t('ctaFinale.subhead')}
-            </p>
+      {/* 06 — CTA finale */}
+      <section
+        className="relative bg-primary-deep py-32 sm:py-40 overflow-hidden"
+        style={{color: 'var(--cream-on-dark)'}}
+      >
+        <div
+          className="absolute top-[-15%] right-[-10%] w-[50vw] h-[50vw] rounded-full pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(176, 94, 64, 0.15) 0%, transparent 60%)'
+          }}
+          aria-hidden="true"
+        />
 
-            <div className="mt-12 flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-5">
-              <a
-                href="https://wa.me/393756413379"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-8 py-4 text-[13px] uppercase tracking-[0.05em] font-medium transition-all duration-200 hover:bg-accent-hover"
-                style={{color: 'var(--cream-on-dark)'}}
+        <div className="relative mx-auto max-w-(--container-narrow) px-6 sm:px-10">
+          <p className="eyebrow text-cream-on-dark/65 mb-10">
+            {t('ctaFinale.eyebrow')}
+          </p>
+          <h2
+            className="font-display text-display-lg font-light text-cream-on-dark max-w-[22ch] leading-[0.98]"
+            style={{fontStretch: '95%'}}
+          >
+            {t('ctaFinale.h2')}
+          </h2>
+          <p className="mt-9 text-[18px] sm:text-[20px] text-cream-soft leading-[1.65] max-w-[58ch]">
+            {t('ctaFinale.subhead')}
+          </p>
+
+          <div className="mt-12 sm:mt-14 flex flex-col sm:flex-row gap-4 sm:gap-5">
+            <a
+              href="https://wa.me/393756413379"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-3 rounded-full bg-accent px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
+              style={{color: 'var(--cream-on-dark)'}}
+            >
+              {tNcc('ctaWhatsApp')}
+              <span
+                aria-hidden="true"
+                className="transition-transform duration-300 group-hover:translate-x-1.5"
               >
-                {tNcc('ctaWhatsApp')}
-                <span aria-hidden="true">→</span>
-              </a>
-              <Link
-                href="/contatti"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#F5EFE4]/40 px-8 py-4 text-[13px] uppercase tracking-[0.05em] font-medium text-[#F5EFE4] hover:bg-[#F5EFE4]/10 transition-colors"
-              >
-                {tNcc('ctaQuote')}
-              </Link>
-            </div>
+                →
+              </span>
+            </a>
+            <Link
+              href="/contatti"
+              className="inline-flex items-center justify-center gap-3 rounded-full border border-cream-on-dark/35 px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium text-cream-on-dark hover:bg-cream-on-dark/10 transition-colors"
+            >
+              {tNcc('ctaQuote')}
+            </Link>
           </div>
         </div>
       </section>

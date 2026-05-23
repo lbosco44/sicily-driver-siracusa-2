@@ -1,6 +1,6 @@
 import type {Metadata} from 'next';
 import {setRequestLocale} from 'next-intl/server';
-import {TourDetailTemplate} from '@/components/templates/TourDetailTemplate';
+import {TourDetailNarrative} from '@/components/templates/TourDetailNarrative';
 import {getTour} from '@/lib/tours';
 import {faqPageSchema, breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
 import {getBreadcrumb} from '@/lib/breadcrumbs';
@@ -54,7 +54,7 @@ export default async function TourBaroccoPage({
       <JsonLd
         data={breadcrumbSchema(getBreadcrumb('tour-barocco', locale as Locale, tour.h1))}
       />
-      <TourDetailTemplate tour={tour} />
+      <TourDetailNarrative tour={tour} />
     </>
   );
 }

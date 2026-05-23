@@ -1,6 +1,6 @@
 import type {Metadata} from 'next';
 import {setRequestLocale} from 'next-intl/server';
-import {TourHubTemplate} from '@/components/templates/TourHubTemplate';
+import {TourHubNarrative} from '@/components/templates/TourHubNarrative';
 import {getTourHub} from '@/lib/tours';
 import {faqPageSchema, breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
 import {getBreadcrumb} from '@/lib/breadcrumbs';
@@ -56,7 +56,7 @@ export default async function TourSiciliaHubPage({
           getBreadcrumb('tour-sicilia', locale as Locale, `${hub.h1Pre} ${hub.h1Accent}`)
         )}
       />
-      <TourHubTemplate hub={hub} />
+      <TourHubNarrative hub={hub} />
     </>
   );
 }

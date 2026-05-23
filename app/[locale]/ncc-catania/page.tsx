@@ -1,6 +1,6 @@
 import type {Metadata} from 'next';
 import {setRequestLocale} from 'next-intl/server';
-import {NccCityTemplate} from '@/components/templates/NccCityTemplate';
+import {NccCityNarrative} from '@/components/templates/NccCityNarrative';
 import {getCity, type Locale} from '@/lib/cities';
 import {faqPageSchema, breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
 import {getBreadcrumb} from '@/lib/breadcrumbs';
@@ -57,7 +57,7 @@ export default async function NccCataniaPage({
       <JsonLd
         data={breadcrumbSchema(getBreadcrumb('ncc-catania', locale as Locale, city.h1))}
       />
-      <NccCityTemplate city={city} />
+      <NccCityNarrative city={city} />
     </>
   );
 }

@@ -93,82 +93,89 @@ export default async function ContattiPage({
         )}
       />
 
-      {/* 1. HERO RIDOTTA */}
-      <section className="bg-canvas pt-28 sm:pt-40 pb-16 sm:pb-20 border-b border-[var(--border)]/50">
+      {/* 01 — HERO asciutta, cream */}
+      <section className="bg-canvas pt-40 sm:pt-52 pb-24 sm:pb-32">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <p className="text-[11px] uppercase tracking-[0.18em] font-medium text-secondary mb-6">
-            {t('hero.eyebrow')}
-          </p>
-          <h1 className="font-display font-medium text-primary text-[48px] sm:text-[72px] lg:text-[92px] leading-[1.02] tracking-tight max-w-[18ch]">
+          <p className="eyebrow mb-10">{t('hero.eyebrow')}</p>
+          <h1
+            className="font-display text-display-xl font-medium text-ink max-w-[20ch] leading-[0.95]"
+            style={{fontStretch: '95%'}}
+          >
             {t('hero.h1Pre')}{' '}
-            <span className="italic">{t('hero.h1Accent')}</span>
+            <span className="italic text-accent">{t('hero.h1Accent')}</span>
           </h1>
-          <p className="mt-7 max-w-[56ch] text-[16px] sm:text-[18px] text-ink/75 leading-relaxed">
+          <p className="mt-12 max-w-[58ch] font-display text-[22px] sm:text-[26px] font-light text-ink-soft leading-[1.4]">
             {t('hero.subhead')}
           </p>
         </div>
       </section>
 
-      {/* 2. 3 MODI DI RAGGIUNGERCI — card pari grandezza */}
-      <section className="bg-canvas py-20 sm:py-28">
+      {/* 02 — 3 MODI per raggiungerci — editorial restraint */}
+      <section className="bg-canvas-deep py-32 sm:py-40 border-y border-[var(--border)]">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-2xl mb-10 sm:mb-14">
-            <p className="text-[11px] uppercase tracking-[0.18em] font-medium text-secondary mb-5">
-              {t('ways.eyebrow')}
-            </p>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-medium text-primary leading-[1.08]">
+          <div className="max-w-2xl mb-14 sm:mb-16">
+            <p className="eyebrow mb-7">{t('ways.eyebrow')}</p>
+            <h2
+              className="font-display text-display-md font-light text-ink"
+              style={{fontStretch: '95%'}}
+            >
               {t('ways.h2Pre')}{' '}
-              <span className="italic">{t('ways.h2Accent')}</span>
+              <span className="italic text-accent">{t('ways.h2Accent')}</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7">
+          <ul className="divide-y divide-[var(--border-strong)]">
             {ways.map((w, i) => (
-              <article
+              <li
                 key={i}
-                className="bg-muted-bg rounded-xl p-7 sm:p-8 flex flex-col justify-between gap-6 border border-[var(--border)]/40 min-h-[280px]"
+                className="py-10 sm:py-12 grid grid-cols-1 lg:grid-cols-[1fr_1.5fr_auto] gap-6 lg:gap-16 items-baseline"
               >
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.14em] font-medium text-secondary mb-3">
-                    {String(i + 1).padStart(2, '0')} · {w.label}
+                  <p className="text-[11px] uppercase tracking-[0.22em] font-medium text-secondary mb-3">
+                    {w.label}
                   </p>
-                  <p className="font-display italic text-2xl sm:text-3xl text-primary leading-tight tabular-nums">
+                  <p
+                    className="font-display italic text-[28px] sm:text-[36px] font-light text-ink leading-tight tabular-nums"
+                    style={{fontStretch: '95%'}}
+                  >
                     {w.value}
                   </p>
-                  <p className="mt-4 text-[14px] text-ink/70 leading-relaxed">{w.note}</p>
                 </div>
-
+                <p className="text-[16px] leading-[1.65] text-ink-soft max-w-[42ch]">
+                  {w.note}
+                </p>
                 <a
                   href={w.ctaHref}
                   {...(w.external
                     ? {target: '_blank', rel: 'noopener noreferrer'}
                     : {})}
-                  className="inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.08em] font-medium text-primary border-b border-accent/60 pb-1 self-start hover:border-accent transition-colors"
+                  className="inline-flex items-center gap-3 text-[12px] uppercase tracking-[0.2em] font-medium text-primary border-b border-accent pb-1 hover:border-accent-hover transition-colors self-end"
                 >
                   {w.ctaLabel}
                   <span aria-hidden="true">→</span>
                 </a>
-              </article>
+              </li>
             ))}
-          </div>
+          </ul>
 
-          <p className="mt-10 text-[13px] text-ink/55">{t('ways.pec')}</p>
+          <p className="mt-10 text-[13px] italic text-ink/50">{t('ways.pec')}</p>
         </div>
       </section>
 
-      {/* 3. FORM CONTATTI */}
-      <section className="bg-muted-bg py-24 sm:py-32 border-y border-[var(--border)]/50">
+      {/* 03 — FORM */}
+      <section className="bg-canvas py-32 sm:py-40">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20">
             <div className="lg:sticky lg:top-28 lg:self-start">
-              <p className="text-[11px] uppercase tracking-[0.18em] font-medium text-secondary mb-5">
-                {t('form.eyebrow')}
-              </p>
-              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-medium text-primary leading-[1.08]">
+              <p className="eyebrow mb-7">{t('form.eyebrow')}</p>
+              <h2
+                className="font-display text-display-md font-light text-ink max-w-[14ch] mb-7"
+                style={{fontStretch: '95%'}}
+              >
                 {t('form.h2Pre')}{' '}
-                <span className="italic">{t('form.h2Accent')}</span>
+                <span className="italic text-accent">{t('form.h2Accent')}</span>
               </h2>
-              <p className="mt-5 text-[16px] leading-relaxed text-ink/75 max-w-prose">
+              <p className="text-[17px] leading-[1.7] text-ink-soft max-w-[44ch]">
                 {t('form.subhead')}
               </p>
             </div>
@@ -178,54 +185,78 @@ export default async function ContattiPage({
         </div>
       </section>
 
-      {/* 4. SEDI */}
-      <section className="bg-canvas py-24 sm:py-32">
+      {/* 04 — SEDI */}
+      <section className="bg-canvas-warm py-32 sm:py-40">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-2xl mb-10 sm:mb-14">
-            <p className="text-[11px] uppercase tracking-[0.18em] font-medium text-secondary mb-5">
-              {t('bases.eyebrow')}
-            </p>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-medium text-primary leading-[1.08]">
+          <div className="max-w-2xl mb-14 sm:mb-16">
+            <p className="eyebrow mb-7">{t('bases.eyebrow')}</p>
+            <h2
+              className="font-display text-display-md font-light text-ink"
+              style={{fontStretch: '95%'}}
+            >
               {t('bases.h2Pre')}{' '}
-              <span className="italic">{t('bases.h2Accent')}</span>
+              <span className="italic text-accent">{t('bases.h2Accent')}</span>
             </h2>
           </div>
 
-          <ul className="grid grid-cols-1 md:grid-cols-3 gap-7 lg:gap-10">
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-y-0 md:gap-x-12 lg:gap-x-16">
             {bases.map((b, i) => (
-              <li key={i} className="border-l-2 border-accent/50 pl-6">
-                <p className="text-[10px] uppercase tracking-[0.14em] font-medium text-secondary mb-2">
-                  {String(i + 1).padStart(2, '0')}
-                </p>
-                <h3 className="font-display italic font-medium text-2xl text-primary leading-tight">
+              <li
+                key={i}
+                className={
+                  i < bases.length - 1
+                    ? 'md:border-r md:border-[var(--border-strong)] md:pr-12 lg:pr-16'
+                    : ''
+                }
+              >
+                <h3
+                  className="font-display text-display-sm font-light text-ink leading-[1.05] mb-5"
+                  style={{fontStretch: '95%'}}
+                >
                   {b.name}
                 </h3>
-                <p className="mt-3 text-[15px] text-ink/85">{b.address}</p>
+                <p className="font-display italic text-[18px] text-accent">
+                  {b.address}
+                </p>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      {/* 5. TEMPI DI RISPOSTA */}
-      <section className="bg-primary py-24 sm:py-32" style={{color: 'var(--cream-on-dark)'}}>
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-3xl">
-            <p className="text-[11px] uppercase tracking-[0.18em] font-medium text-[#F5EFE4]/65 mb-5">
-              {t('times.eyebrow')}
-            </p>
-            <h2 className="font-display font-medium text-[#F5EFE4] text-5xl sm:text-6xl lg:text-7xl leading-[1.05]">
-              {t('times.h2Pre')}{' '}
-              <span className="italic">{t('times.h2Accent')}</span>
-            </h2>
-            <p className="mt-7 text-[18px] sm:text-[20px] text-[#F5EFE4]/85 leading-relaxed">
-              {t('times.body')}
-            </p>
-            <p className="mt-5 text-[15px] text-[#F5EFE4]/65 leading-relaxed max-w-prose">
-              {t('times.businessNote')}
-            </p>
+      {/* 05 — TEMPI DI RISPOSTA */}
+      <section
+        className="relative bg-primary-deep py-32 sm:py-40 overflow-hidden"
+        style={{color: 'var(--cream-on-dark)'}}
+      >
+        <div
+          className="absolute top-[-15%] right-[-10%] w-[50vw] h-[50vw] rounded-full pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(176, 94, 64, 0.15) 0%, transparent 60%)'
+          }}
+          aria-hidden="true"
+        />
 
-          </div>
+        <div className="relative mx-auto max-w-(--container-narrow) px-6 sm:px-10">
+          <p className="eyebrow text-cream-on-dark/65 mb-10">
+            {t('times.eyebrow')}
+          </p>
+          <h2
+            className="font-display text-display-lg font-light text-cream-on-dark max-w-[20ch] leading-[0.98]"
+            style={{fontStretch: '95%'}}
+          >
+            {t('times.h2Pre')}{' '}
+            <span className="italic text-accent-decorative">
+              {t('times.h2Accent')}
+            </span>
+          </h2>
+          <p className="mt-10 text-[19px] sm:text-[21px] text-cream-soft leading-[1.65] max-w-[58ch]">
+            {t('times.body')}
+          </p>
+          <p className="mt-7 text-[16px] text-cream-on-dark/65 leading-[1.65] max-w-[58ch]">
+            {t('times.businessNote')}
+          </p>
         </div>
       </section>
     </>

@@ -5,8 +5,8 @@ import {Link} from '@/i18n/navigation';
 import {faqPageSchema, breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
 import {getBreadcrumb} from '@/lib/breadcrumbs';
 import {routing} from '@/i18n/routing';
-import type {Locale} from '@/lib/cities';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
+import type {Locale} from '@/lib/cities';
 
 export async function generateMetadata({
   params
@@ -49,6 +49,7 @@ export default async function ServiziPage({
 
   const t = await getTranslations('Servizi');
   const tNcc = await getTranslations('NccPage');
+
   const faqItems = [
     {q: t('faq.q1'), a: t('faq.a1')},
     {q: t('faq.q2'), a: t('faq.a2')},
@@ -56,54 +57,43 @@ export default async function ServiziPage({
     {q: t('faq.q4'), a: t('faq.a4')}
   ];
 
-  const cards = [
+  // 4 servizi come blocchi editorial — niente card-grid, niente 01/02/03
+  const services = [
     {
-      number: t('cards.card1Number'),
+      key: '1',
       kicker: t('cards.card1Kicker'),
       title: t('cards.card1Title'),
       body: t('cards.card1Body'),
       points: [t('cards.card1Point1'), t('cards.card1Point2'), t('cards.card1Point3')],
       cta: t('cards.card1Cta'),
-      href: '/ncc-catania' as const,
-      bg: 'bg-[#EDE5D6]',
-      textColor: 'text-ink',
-      numberColor: 'var(--accent-decorative)'
+      href: '/ncc-catania' as const
     },
     {
-      number: t('cards.card2Number'),
+      key: '2',
       kicker: t('cards.card2Kicker'),
       title: t('cards.card2Title'),
       body: t('cards.card2Body'),
       points: [t('cards.card2Point1'), t('cards.card2Point2'), t('cards.card2Point3')],
       cta: t('cards.card2Cta'),
-      href: '/tour-sicilia' as const,
-      bg: 'bg-primary',
-      textColor: 'text-[#F5EFE4]',
-      numberColor: 'var(--accent-decorative)'
+      href: '/tour-sicilia' as const
     },
     {
-      number: t('cards.card3Number'),
+      key: '3',
       kicker: t('cards.card3Kicker'),
       title: t('cards.card3Title'),
       body: t('cards.card3Body'),
       points: [t('cards.card3Point1'), t('cards.card3Point2'), t('cards.card3Point3')],
       cta: t('cards.card3Cta'),
-      href: '/wedding' as const,
-      bg: 'bg-[#D9C9B8]',
-      textColor: 'text-primary',
-      numberColor: 'var(--primary)'
+      href: '/wedding' as const
     },
     {
-      number: t('cards.card4Number'),
+      key: '4',
       kicker: t('cards.card4Kicker'),
       title: t('cards.card4Title'),
       body: t('cards.card4Body'),
       points: [t('cards.card4Point1'), t('cards.card4Point2'), t('cards.card4Point3')],
       cta: t('cards.card4Cta'),
-      href: '/contatti' as const,
-      bg: 'bg-accent',
-      textColor: 'text-[#F5EFE4]',
-      numberColor: '#F5EFE4'
+      href: '/contatti' as const
     }
   ];
 
@@ -142,102 +132,102 @@ export default async function ServiziPage({
         )}
       />
 
-      {/* 1. HERO */}
-      <section className="relative isolate min-h-[min(68vh,540px)] flex items-end overflow-hidden">
-        <div
-          className="absolute inset-0 -z-10"
-          style={{filter: 'saturate(0.85) brightness(0.88) contrast(1.06)'}}
-        >
+      {/* 01 — HERO ridotta */}
+      <section className="relative isolate h-[72svh] min-h-[520px] overflow-hidden">
+        <div className="absolute inset-0 -z-10">
           <Image
-            src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1600&q=70&auto=format&fm=webp"
+            src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1800&q=80&auto=format&fm=webp"
             alt=""
             fill
             priority
             sizes={HERO_SIZES}
-            quality={70}
+            quality={80}
             placeholder="blur"
             blurDataURL={HERO_BLUR}
             className="object-cover"
+            style={{filter: 'saturate(0.85) brightness(0.78) contrast(1.08)'}}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/15" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/75" />
         </div>
 
-        <div className="relative w-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 pb-12 sm:pb-16 pt-32 sm:pt-40">
-          <p className="text-[11px] uppercase tracking-[0.18em] font-medium text-[#F5EFE4]/90 mb-6">
-            {t('hero.eyebrow')}
-          </p>
-          <h1 className="font-display font-medium text-[#F5EFE4] text-[44px] sm:text-[64px] lg:text-[80px] leading-[1.03] tracking-tight max-w-[14ch]">
-            {t('hero.h1Pre')} <span className="italic">{t('hero.h1Accent')}</span>
-          </h1>
-          <p className="mt-6 max-w-[54ch] text-[16px] sm:text-[18px] text-[#F5EFE4]/90 leading-relaxed">
-            {t('hero.subhead')}
-          </p>
-        </div>
-      </section>
-
-      {/* 2. INTRO */}
-      <section className="bg-canvas py-20 sm:py-28">
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-3xl">
-            <p className="text-[18px] sm:text-[20px] leading-[1.7] text-ink/90">
-              {t('intro.body')}
+        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 grid grid-rows-[1fr_auto] pb-12 sm:pb-16">
+          <div />
+          <div className="max-w-[18ch]">
+            <p className="eyebrow text-cream-on-dark/85 mb-8">{t('hero.eyebrow')}</p>
+            <h1
+              className="font-display text-display-xl font-medium text-cream-on-dark"
+              style={{fontStretch: '95%'}}
+            >
+              {t('hero.h1Pre')}{' '}
+              <span className="text-accent-decorative">{t('hero.h1Accent')}</span>
+            </h1>
+            <p className="mt-8 max-w-[48ch] font-display text-[20px] sm:text-[22px] font-light text-cream-on-dark/95 leading-[1.4]">
+              {t('hero.subhead')}
             </p>
           </div>
         </div>
       </section>
 
-      {/* 3. 4 SERVIZI — color blocking asimmetrico */}
-      <section className="bg-canvas pb-24 sm:pb-32">
+      {/* 02 — INTRO narrativa */}
+      <section className="bg-canvas py-28 sm:py-36">
+        <div className="mx-auto max-w-(--container-narrow) px-6 sm:px-10">
+          <p className="text-[19px] sm:text-[20px] leading-[1.7] text-ink-soft first-letter:font-display first-letter:text-[80px] first-letter:leading-[0.85] first-letter:text-accent first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-light">
+            {t('intro.body')}
+          </p>
+        </div>
+      </section>
+
+      {/* 03 — 4 SERVIZI come blocchi editorial */}
+      <section className="bg-canvas-deep py-32 sm:py-40">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-2xl mb-12 sm:mb-16">
-            <p className="text-[11px] uppercase tracking-[0.18em] font-medium text-secondary mb-5">
-              {t('cards.eyebrow')}
-            </p>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-medium text-primary leading-[1.08]">
+          <div className="max-w-3xl mb-16 sm:mb-20">
+            <p className="eyebrow mb-7">{t('cards.eyebrow')}</p>
+            <h2
+              className="font-display text-display-md font-light text-ink"
+              style={{fontStretch: '95%'}}
+            >
               {t('cards.h2Pre')}{' '}
-              <span className="italic">{t('cards.h2Accent')}</span>
+              <span className="italic text-accent">{t('cards.h2Accent')}</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
-            {cards.map((card, i) => (
-              <Link
-                key={i}
-                href={card.href}
-                className={`group relative overflow-hidden rounded-xl ${card.bg} ${card.textColor} ${
-                  i < 2 ? 'lg:col-span-6' : 'lg:col-span-6'
-                } p-8 sm:p-10 min-h-[360px] flex flex-col justify-between transition-shadow duration-300 hover:shadow-[0_18px_48px_rgba(42,37,32,0.18)]`}
-                style={{color: 'inherit'}}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <p
-                    className="font-display italic font-medium text-[88px] sm:text-[110px] leading-[0.85]"
-                    style={{color: card.numberColor}}
-                  >
-                    {card.number}
-                  </p>
-                  <p className="text-[10px] uppercase tracking-[0.14em] font-medium opacity-90 mt-3 max-w-[14ch] text-right">
-                    {card.kicker}
-                  </p>
-                </div>
+          <ul className="divide-y divide-[var(--border-strong)]">
+            {services.map((s) => (
+              <li key={s.key}>
+                <Link
+                  href={s.href}
+                  className="group block py-12 sm:py-14 grid grid-cols-1 lg:grid-cols-[1fr_2fr_auto] gap-8 lg:gap-16 items-baseline"
+                >
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.22em] font-medium text-secondary mb-5">
+                      {s.kicker}
+                    </p>
+                    <h3
+                      className="font-display text-display-sm font-light text-ink group-hover:text-accent transition-colors leading-[1.05]"
+                      style={{fontStretch: '95%'}}
+                    >
+                      {s.title}
+                    </h3>
+                  </div>
 
-                <div>
-                  <h3 className="font-display italic font-medium text-2xl sm:text-3xl leading-tight max-w-[20ch]">
-                    {card.title}
-                  </h3>
-                  <p className="mt-3 text-[14px] sm:text-[15px] leading-[1.55] opacity-95 max-w-[44ch]">
-                    {card.body}
-                  </p>
-                  <ul className="mt-5 space-y-1.5 text-[13px] opacity-90">
-                    {card.points.map((p, j) => (
-                      <li key={j} className="flex gap-3">
-                        <span aria-hidden="true">—</span>
-                        <span>{p}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="mt-7 text-[12px] uppercase tracking-[0.08em] font-medium opacity-95 inline-flex items-center gap-2">
-                    {card.cta}
+                  <div>
+                    <p className="text-[17px] leading-[1.65] text-ink-soft mb-6 max-w-[58ch]">
+                      {s.body}
+                    </p>
+                    <ul className="space-y-2 text-[15px] text-ink/70">
+                      {s.points.map((p, j) => (
+                        <li key={j} className="flex gap-3">
+                          <span aria-hidden="true" className="text-secondary">
+                            —
+                          </span>
+                          <span>{p}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <p className="text-[12px] uppercase tracking-[0.2em] font-medium text-primary inline-flex items-center gap-3 self-end group-hover:text-accent transition-colors">
+                    {s.cta}
                     <span
                       aria-hidden="true"
                       className="transition-transform duration-300 group-hover:translate-x-1.5"
@@ -245,60 +235,60 @@ export default async function ServiziPage({
                       →
                     </span>
                   </p>
-                </div>
-              </Link>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      {/* 4. FLOTTA — 3 schede dettagliate */}
-      <section className="bg-muted-bg py-24 sm:py-32">
+      {/* 04 — LA FLOTTA */}
+      <section className="bg-canvas py-32 sm:py-40">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-2xl mb-12 sm:mb-16">
-            <p className="text-[11px] uppercase tracking-[0.18em] font-medium text-secondary mb-5">
-              {t('fleet.eyebrow')}
-            </p>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-medium text-primary leading-[1.08]">
+          <div className="max-w-2xl mb-16 sm:mb-20">
+            <p className="eyebrow mb-7">{t('fleet.eyebrow')}</p>
+            <h2
+              className="font-display text-display-md font-light text-ink"
+              style={{fontStretch: '95%'}}
+            >
               {t('fleet.h2Pre')}{' '}
-              <span className="italic">{t('fleet.h2Accent')}</span>
+              <span className="italic text-accent">{t('fleet.h2Accent')}</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-y-0 md:gap-x-12 lg:gap-x-16">
             {fleet.map((f, i) => (
               <article
                 key={i}
-                className="bg-canvas rounded-xl p-7 sm:p-8 flex flex-col gap-5 border border-[var(--border)]/40"
+                className={
+                  i < fleet.length - 1
+                    ? 'md:border-r md:border-[var(--border-strong)] md:pr-12 lg:pr-16'
+                    : ''
+                }
               >
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.14em] font-medium text-secondary">
-                    {String(i + 1).padStart(2, '0')}
-                  </p>
-                  <h3 className="font-display italic font-medium text-2xl sm:text-[28px] text-primary mt-1 leading-tight">
-                    {f.model}
-                  </h3>
-                </div>
-                <dl className="space-y-3 text-[14px] leading-relaxed text-ink/80">
+                <h3
+                  className="font-display italic text-[26px] sm:text-[30px] font-light text-ink leading-tight mb-7"
+                  style={{fontStretch: '95%'}}
+                >
+                  {f.model}
+                </h3>
+                <dl className="space-y-5 text-[15px] leading-[1.6] text-ink-soft">
                   <div>
-                    <dt className="text-[10px] uppercase tracking-[0.12em] text-ink/50 font-medium">
+                    <dt className="eyebrow text-secondary mb-1">
                       {tNcc('fleetTablePax')}
                     </dt>
-                    <dd className="mt-0.5 font-medium text-ink">{f.pax}</dd>
+                    <dd className="text-ink font-medium">{f.pax}</dd>
                   </div>
                   <div>
-                    <dt className="text-[10px] uppercase tracking-[0.12em] text-ink/50 font-medium">
+                    <dt className="eyebrow text-secondary mb-1">
                       {tNcc('fleetTableComfort')}
                     </dt>
-                    <dd className="mt-0.5">{f.comfort}</dd>
+                    <dd>{f.comfort}</dd>
                   </div>
-                  <div>
-                    <dt className="text-[10px] uppercase tracking-[0.12em] text-ink/50 font-medium">
-                      Listino
-                    </dt>
-                    <dd className="mt-0.5 font-display italic text-accent text-lg">
+                  <div className="pt-2 border-t border-[var(--border)]">
+                    <p className="font-display italic text-[22px] text-accent">
                       {f.price}
-                    </dd>
+                    </p>
                   </div>
                 </dl>
               </article>
@@ -307,28 +297,29 @@ export default async function ServiziPage({
         </div>
       </section>
 
-      {/* 5. AREE SERVITE */}
-      <section className="bg-canvas py-24 sm:py-32">
+      {/* 05 — AREE SERVITE */}
+      <section className="bg-canvas-warm py-32 sm:py-40">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20">
-            <div className="lg:sticky lg:top-28 lg:self-start">
-              <p className="text-[11px] uppercase tracking-[0.18em] font-medium text-secondary mb-5">
-                {t('areas.eyebrow')}
-              </p>
-              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-medium text-primary leading-[1.08]">
+            <div>
+              <p className="eyebrow mb-7">{t('areas.eyebrow')}</p>
+              <h2
+                className="font-display text-display-md font-light text-ink leading-[1.05]"
+                style={{fontStretch: '95%'}}
+              >
                 {t('areas.h2Pre')}{' '}
-                <span className="italic">{t('areas.h2Accent')}</span>
+                <span className="italic text-accent">{t('areas.h2Accent')}</span>
               </h2>
             </div>
 
-            <div className="space-y-6 text-[16px] sm:text-[17px] leading-[1.7] text-ink/85">
-              <p className="font-display italic text-primary text-lg">
+            <div className="space-y-6 text-[17px] sm:text-[18px] leading-[1.7] text-ink-soft">
+              <p className="font-display italic text-[20px] text-primary">
                 {t('areas.bases')}
               </p>
               <p>{t('areas.cities')}</p>
-              <p className="text-ink/65 text-[15px]">{t('areas.airports')}</p>
+              <p className="text-[15px] text-ink/60">{t('areas.airports')}</p>
 
-              <div className="pt-4 flex flex-wrap gap-3">
+              <div className="pt-6 flex flex-wrap gap-3">
                 {(
                   [
                     {href: '/ncc-catania', label: 'Catania'},
@@ -336,13 +327,13 @@ export default async function ServiziPage({
                     {href: '/ncc-taormina', label: 'Taormina'},
                     {href: '/ncc-ragusa', label: 'Ragusa'}
                   ] as const
-                ).map((city) => (
+                ).map((c) => (
                   <Link
-                    key={city.href}
-                    href={city.href}
-                    className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-5 py-2.5 text-[13px] uppercase tracking-[0.06em] font-medium text-primary hover:bg-muted-bg transition-colors"
+                    key={c.href}
+                    href={c.href}
+                    className="inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] px-5 py-2.5 text-[12px] uppercase tracking-[0.12em] font-medium text-primary hover:border-accent hover:text-accent transition-colors"
                   >
-                    {city.label}
+                    {c.label}
                     <span aria-hidden="true">→</span>
                   </Link>
                 ))}
@@ -352,78 +343,96 @@ export default async function ServiziPage({
         </div>
       </section>
 
-      {/* 6. FAQ */}
-      <section className="bg-muted-bg py-24 sm:py-32">
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
-            <div className="lg:sticky lg:top-28 lg:self-start">
-              <p className="text-[11px] uppercase tracking-[0.18em] font-medium text-secondary mb-5">
-                {t('faq.eyebrow')}
-              </p>
-              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-medium text-primary leading-[1.08]">
-                {t('faq.h2Pre')}{' '}
-                <span className="italic">{t('faq.h2Accent')}</span>
-              </h2>
-            </div>
+      {/* 06 — FAQ */}
+      <section className="bg-canvas-deep py-32 sm:py-40">
+        <div className="mx-auto max-w-(--container-narrow) px-6 sm:px-10">
+          <p className="eyebrow mb-10">{t('faq.eyebrow')}</p>
+          <h2
+            className="font-display text-display-md font-light text-ink max-w-[18ch] mb-14 sm:mb-16"
+            style={{fontStretch: '95%'}}
+          >
+            {t('faq.h2Pre')}{' '}
+            <span className="italic text-accent">{t('faq.h2Accent')}</span>
+          </h2>
 
-            <ul className="divide-y divide-[var(--border)]">
-              {faqItems.map((item, i) => (
-                <li key={i} className="py-2">
-                  <details className="group">
-                    <summary className="cursor-pointer list-none py-5 sm:py-6 flex items-start justify-between gap-6">
-                      <h3 className="font-display text-xl sm:text-2xl font-medium text-primary leading-snug max-w-[55ch] group-open:italic transition-all">
-                        {item.q}
-                      </h3>
-                      <span
-                        aria-hidden="true"
-                        className="font-display text-2xl text-accent leading-none mt-1 transition-transform duration-300 group-open:rotate-45"
-                      >
-                        +
-                      </span>
-                    </summary>
-                    <div className="pb-6 pr-10 text-[16px] sm:text-[17px] leading-[1.7] text-ink/80 max-w-prose">
-                      {item.a}
-                    </div>
-                  </details>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ul className="divide-y divide-[var(--border-strong)]">
+            {faqItems.map((item, i) => (
+              <li key={i}>
+                <details className="group py-2">
+                  <summary className="cursor-pointer list-none py-7 flex items-start justify-between gap-8">
+                    <h3
+                      className="font-display text-[24px] sm:text-[28px] lg:text-[32px] font-light text-ink leading-[1.2] max-w-[48ch] group-open:text-accent transition-colors"
+                      style={{fontStretch: '95%'}}
+                    >
+                      {item.q}
+                    </h3>
+                    <span
+                      aria-hidden="true"
+                      className="font-display text-3xl text-accent leading-none mt-2 transition-transform duration-300 group-open:rotate-45"
+                    >
+                      +
+                    </span>
+                  </summary>
+                  <div className="pb-8 pr-12 text-[17px] sm:text-[18px] leading-[1.7] text-ink-soft max-w-prose">
+                    {item.a}
+                  </div>
+                </details>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      {/* 7. CTA FINALE */}
-      <section className="bg-primary py-24 sm:py-32" style={{color: 'var(--cream-on-dark)'}}>
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-3xl">
-            <p className="text-[11px] uppercase tracking-[0.18em] font-medium text-[#F5EFE4]/65 mb-5">
-              {t('ctaFinale.eyebrow')}
-            </p>
-            <h2 className="font-display italic font-medium text-[#F5EFE4] text-5xl sm:text-6xl lg:text-7xl leading-[1.05]">
-              {t('ctaFinale.h2')}
-            </h2>
-            <p className="mt-6 text-[18px] sm:text-[20px] text-[#F5EFE4]/80 leading-relaxed max-w-prose">
-              {t('ctaFinale.subhead')}
-            </p>
+      {/* 07 — CTA finale */}
+      <section
+        className="relative bg-primary-deep py-32 sm:py-40 overflow-hidden"
+        style={{color: 'var(--cream-on-dark)'}}
+      >
+        <div
+          className="absolute top-[-15%] right-[-10%] w-[50vw] h-[50vw] rounded-full pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(176, 94, 64, 0.15) 0%, transparent 60%)'
+          }}
+          aria-hidden="true"
+        />
 
-            <div className="mt-12 flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-5">
-              <a
-                href="https://wa.me/393756413379"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-8 py-4 text-[13px] uppercase tracking-[0.05em] font-medium transition-all duration-200 hover:bg-accent-hover"
-                style={{color: 'var(--cream-on-dark)'}}
+        <div className="relative mx-auto max-w-(--container-narrow) px-6 sm:px-10">
+          <p className="eyebrow text-cream-on-dark/65 mb-10">
+            {t('ctaFinale.eyebrow')}
+          </p>
+          <h2
+            className="font-display text-display-lg font-light text-cream-on-dark max-w-[22ch] leading-[0.98]"
+            style={{fontStretch: '95%'}}
+          >
+            {t('ctaFinale.h2')}
+          </h2>
+          <p className="mt-9 text-[18px] sm:text-[20px] text-cream-soft leading-[1.65] max-w-[58ch]">
+            {t('ctaFinale.subhead')}
+          </p>
+
+          <div className="mt-12 sm:mt-14 flex flex-col sm:flex-row gap-4 sm:gap-5">
+            <a
+              href="https://wa.me/393756413379"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-3 rounded-full bg-accent px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
+              style={{color: 'var(--cream-on-dark)'}}
+            >
+              {tNcc('ctaWhatsApp')}
+              <span
+                aria-hidden="true"
+                className="transition-transform duration-300 group-hover:translate-x-1.5"
               >
-                {tNcc('ctaWhatsApp')}
-                <span aria-hidden="true">→</span>
-              </a>
-              <Link
-                href="/contatti"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#F5EFE4]/40 px-8 py-4 text-[13px] uppercase tracking-[0.05em] font-medium text-[#F5EFE4] hover:bg-[#F5EFE4]/10 transition-colors"
-              >
-                {tNcc('ctaQuote')}
-              </Link>
-            </div>
+                →
+              </span>
+            </a>
+            <Link
+              href="/contatti"
+              className="inline-flex items-center justify-center gap-3 rounded-full border border-cream-on-dark/35 px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium text-cream-on-dark hover:bg-cream-on-dark/10 transition-colors"
+            >
+              {tNcc('ctaQuote')}
+            </Link>
           </div>
         </div>
       </section>
