@@ -6,11 +6,11 @@ type Item = {
   number: string;
   caption: string;
   href:
-    | '/tour-ortigia-taormina'
+    | '/tour/dolce-vita-siracusa'
     | '/ncc-noto'
     | '/tour-barocco'
     | '/ncc-ragusa'
-    | '/tour-etna'
+    | '/tour/etna-premium'
     | '/ncc-taormina';
   image: string;
   span: string;
@@ -23,7 +23,7 @@ export async function DestinazioniMosaic() {
     {
       number: '01',
       caption: t('ortigia'),
-      href: '/tour-ortigia-taormina',
+      href: '/tour/dolce-vita-siracusa',
       image:
         'https://images.unsplash.com/photo-1602473922972-1f9c0c7a2dbe?w=1200&q=80',
       span: 'lg:col-span-6 lg:row-span-2 aspect-[4/5] lg:aspect-auto'
@@ -55,7 +55,7 @@ export async function DestinazioniMosaic() {
     {
       number: '05',
       caption: t('etna'),
-      href: '/tour-etna',
+      href: '/tour/etna-premium',
       image:
         'https://images.unsplash.com/photo-1592833167001-5c43d9a6f3a8?w=1000&q=80',
       span: 'lg:col-span-3 lg:row-span-1 aspect-[4/3]'

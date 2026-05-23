@@ -1,16 +1,18 @@
 {
   "Brand": {
-    "name": "Sicily Driver Siracusa",
+    "name": "Sicily Driver Syracuse",
     "shortName": "Sicily Driver",
-    "tagline": "VIP-style elegance at market prices"
+    "tagline": "Sicily, in a Mercedes, at your own pace."
   },
   "Nav": {
     "home": "Home",
     "services": "Services",
-    "tours": "Tours",
+    "tours": "Sicily Tours",
+    "wedding": "Wedding",
+    "partner": "Partners",
     "about": "About",
     "contact": "Contact",
-    "bookNow": "Book now"
+    "bookNow": "Book"
   },
   "WhatsApp": {
     "label": "Message us on WhatsApp",

@@ -28,17 +28,29 @@ export const routing = defineRouting({
       it: '/tour-barocco',
       en: '/baroque-tour'
     },
-    '/tour-etna': {
-      it: '/tour-etna',
-      en: '/etna-tour'
+    '/tour/etna-premium': {
+      it: '/tour/etna-premium',
+      en: '/tour/etna-premium'
     },
-    '/tour-ortigia-taormina': {
-      it: '/tour-ortigia-taormina',
-      en: '/ortigia-taormina-tour'
+    '/tour/isola-delle-correnti': {
+      it: '/tour/isola-delle-correnti',
+      en: '/tour/isola-delle-correnti'
     },
-    '/wedding-eventi': {
-      it: '/wedding-eventi',
+    '/tour/dolce-vita-siracusa': {
+      it: '/tour/dolce-vita-siracusa',
+      en: '/tour/dolce-vita-siracusa'
+    },
+    '/tour/silent-sailing': {
+      it: '/tour/silent-sailing',
+      en: '/tour/silent-sailing'
+    },
+    '/wedding': {
+      it: '/wedding',
       en: '/weddings'
+    },
+    '/partner': {
+      it: '/partner',
+      en: '/partners'
     },
     '/ncc-catania': {
       it: '/ncc-catania',

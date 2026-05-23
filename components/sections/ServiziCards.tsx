@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 type CardCopy = {number: string; kicker: string; title: string; body: string; cta: string};
 type CardData = CardCopy & {
-  href: '/servizi' | '/tour-barocco' | '/tour-etna' | '/wedding-eventi';
+  href: '/servizi' | '/tour-barocco' | '/tour/etna-premium' | '/wedding';
   bg: string;
   textColor: string;
   numberColor: string;
@@ -38,7 +38,7 @@ export async function ServiziCards() {
     },
     {
       ...(t.raw('card3') as CardCopy),
-      href: '/tour-etna',
+      href: '/tour/etna-premium',
       bg: 'bg-accent',
       textColor: 'text-[#F5EFE4]',
       numberColor: '#F5EFE4',
@@ -48,7 +48,7 @@ export async function ServiziCards() {
     },
     {
       ...(t.raw('card4') as CardCopy),
-      href: '/wedding-eventi',
+      href: '/wedding',
       bg: 'bg-[#D9C9B8]',
       textColor: 'text-primary',
       numberColor: 'var(--primary)',

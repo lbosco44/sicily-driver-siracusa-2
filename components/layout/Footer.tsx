@@ -46,12 +46,32 @@ export async function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/tour-etna" className="hover:text-accent transition-colors">
-                  Tour Etna
+                <Link href="/tour/etna-premium" className="hover:text-accent transition-colors">
+                  Tour Etna Premium
                 </Link>
               </li>
               <li>
-                <Link href="/wedding-eventi" className="hover:text-accent transition-colors">
+                <Link href="/tour/dolce-vita-siracusa" className="hover:text-accent transition-colors">
+                  Dolce Vita Siracusa
+                </Link>
+              </li>
+              <li>
+                <Link href="/tour/silent-sailing" className="hover:text-accent transition-colors">
+                  Silent Sailing
+                </Link>
+              </li>
+              <li>
+                <Link href="/tour/isola-delle-correnti" className="hover:text-accent transition-colors">
+                  Isola delle Correnti
+                </Link>
+              </li>
+              <li>
+                <Link href="/partner" className="hover:text-accent transition-colors">
+                  Partner
+                </Link>
+              </li>
+              <li>
+                <Link href="/wedding" className="hover:text-accent transition-colors">
                   Wedding &amp; eventi
                 </Link>
               </li>

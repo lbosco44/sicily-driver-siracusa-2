@@ -88,7 +88,7 @@ export default async function ServiziPage({
       body: t('cards.card3Body'),
       points: [t('cards.card3Point1'), t('cards.card3Point2'), t('cards.card3Point3')],
       cta: t('cards.card3Cta'),
-      href: '/wedding-eventi' as const,
+      href: '/wedding' as const,
       bg: 'bg-[#D9C9B8]',
       textColor: 'text-primary',
       numberColor: 'var(--primary)'

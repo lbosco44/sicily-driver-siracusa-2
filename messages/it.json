@@ -2,12 +2,14 @@
   "Brand": {
     "name": "Sicily Driver Siracusa",
     "shortName": "Sicily Driver",
-    "tagline": "Eleganza da VIP, prezzi di mercato"
+    "tagline": "Sicilia, in Mercedes, al tuo ritmo."
   },
   "Nav": {
     "home": "Home",
     "services": "Servizi",
-    "tours": "Tour",
+    "tours": "Tour Sicilia",
+    "wedding": "Wedding",
+    "partner": "Partner",
     "about": "Chi siamo",
     "contact": "Contatti",
     "bookNow": "Prenota"
