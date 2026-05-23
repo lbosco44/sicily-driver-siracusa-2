@@ -6,7 +6,7 @@
 ---
 
 ## Pattern di progetto
-**B — Migration SEO-preserving** su dominio invariato `ncctaxisiracusa.com`. Cliente acquisito (non prospect), con set SEO locale già funzionante che va preservato integralmente. Search Console non disponibile al momento → tutte le 20 URL esistenti sono trattate come "preserve by default" con redirect 301.
+**B — Migration SEO-preserving** su dominio invariato `ncctaxisiracusa.com`. Cliente acquisito (non prospect). Search Console **ora disponibile**: analisi dati 7 mesi (giu-set 2025 alta stagione + feb-mag 2026 bassa stagione) ha permesso una **preservation chirurgica** invece di "preserve by default" — solo 7 URL portano click reali e vanno preservate integralmente, 4 hanno impressioni ma 0 click (problema metadata, da rifare), 9 sono morte ma si mantengono come placeholder per coerenza struttura. Vedi SITEMAP.md per la stratificazione completa.
 
 ## Purpose primario
 - **Categoria**: A — Conversion
@@ -15,14 +15,14 @@
 
 ## Target principale
 - **Chi**: in ordine di volume previsto, turista internazionale (US/UK/EU del Nord) 35–65 in viaggio in Sicilia orientale (coppie e famiglie); turista italiano in Val di Noto stessa fascia; sotto-segmento wedding/luxury e business
-- **Dispositivo prevalente**: **mobile dominante** (turista che cerca dal telefono in hotel, aeroporto, lounge), desktop in pianificazione pre-partenza
+- **Dispositivo prevalente**: **dual stagionale** (dati GSC). Estate (alta stagione) mobile dominante 58% — turista già in vacanza che cerca taxi/transfer rapido in strada. Inverno-primavera (bassa stagione) desktop dominante 59% — pianificatore che valuta tour da casa, scroll lungo, valutativo. Conseguenza: dual-first nel build, non mobile-first puro. Sticky CTA mobile WhatsApp+telefono obbligatori per pubblico estivo.
 - **Urgenza**: **doppia velocità coesistente**. Transfer aeroporto → alta (booking 2-24h prima). Tour Barocco/Etna → bassa (valutazione 1-3 mesi prima)
 - **Lingua/cultura**: 50/50 IT/EN nativo, sito EN trattato come gemello completo non come fallback
 
 ## Concept scelto
 - **Nome**: Diario Mediterraneo
 - **Mood in 3 parole**: caldo, autentico, editoriale
-- **Tono di voce**: italiano narrativo prima persona ("ti veniamo a prendere all'aeroporto, ti portiamo a Noto"), niente corporate, niente "VIP/luxury/exclusive" come stile di linguaggio (la tagline brand SEO-locked è eccezione preservata)
+- **Tono di voce**: italiano narrativo, **tu** (confermato dal cliente), prima persona ("ti veniamo a prendere all'aeroporto, ti portiamo a Noto"), niente corporate, niente "VIP/luxury/exclusive" come stile di linguaggio. **Nota sulla tagline brand**: GSC 7 mesi non mostra alcuna query VIP/luxury/eleganza/premium con click — la tagline storica "Eleganza da VIP, prezzi di mercato" NON è SEO-locked come pensavamo. Resta decisione cliente se preservarla letterale, modificarla o eliminarla (da decidere in Chat 2 COPY). Se preservata, va estetizzata col serif italico.
 
 ## Direzione estetica (astratta, da raffinare con `/nexus-design`)
 
@@ -30,7 +30,7 @@
   - Cluster Fast (home, pagine locali, servizi, contatti, chi siamo) → hero **informativa con atmosfera**: foto reale statica + headline serif italica overlay + search/CTA visibili sopra la piega
   - Cluster Esperienziale (hub tour, tour dedicati, wedding) → hero **atmosferica cinematica**: video loop muto 10s + tipografia editoriale ampia + CTA scroll-down sottile
 - **Approccio servizi**: **visivo-editoriale con warm color blocking**. Ogni macro-servizio ha personalità cromatica distinta (4 card con tonalità calde diverse, asimmetria editorial, mai grid 2×2 rigido)
-- **Approccio testimonianze**: **statico con numerazione editoriale tipografica grande (01 / 02 / 03)**. Quote brevi + nome + città di provenienza (es. Berlin / Milano / London). Mobile swipe ammesso. **Nota condizionale**: se il cliente non fornisce recensioni utilizzabili, la sezione si trasforma in "Numerazione editoriale dei differenziatori" mantenendo il pattern visivo
+- **Approccio testimonianze**: **statico con numerazione editoriale tipografica grande (01 / 02 / 03)**. Quote brevi + nome + città di provenienza (es. Berlin / Milano / London). Mobile swipe ammesso. **Cliente conferma**: recensioni Google reali disponibili dal proprio Google Business Profile, da ingestire (via API o snapshot statico) in Chat 2.
 - **Approccio fotografico**: realistico fotografico desaturato caldo, dettagli mediterranei autentici (pietra calcarea, calce, mare di Ortigia, ulivo, barocco di Noto al tramonto) + interni Mercedes inquadrati come oggetto di design familiare, mai come prodotto in vetrina. Mai stock photography generica. Mai illustrazioni
 - **Atmosfera tipografica**: **serif italico/editorial per H1/H2/quote/storytelling tour** (è la chiave emotiva del concept) + **sans neutro pulito per UI/body/label/prezzi**. Un solo serif, un solo sans. Nessun terzo font
 - **Atmosfera cromatica**: cream calde + blu mare profondo + accento terracotta/coral. Desaturate, mediterranee, autentiche. **Mai oro metallico, mai dorature, mai colorblocking giocoso playful**
@@ -42,8 +42,8 @@
 
 | Cluster | Archetipo dominante | Pagine |
 |---|---|---|
-| **Cluster Fast** | A 70% + B 30% | `/`, `/en`, 4 pagine `/ncc-*` IT, 4 pagine `/en/driver-*`, `/servizi`, `/en/services`, `/contatti`, `/en/contact`, `/chi-siamo`, `/en/about` |
-| **Cluster Esperienziale** | B 70% + C 30% | `/tour-sicilia`, `/en/sicily-tours`, `/tour-barocco`, `/en/baroque-tour`, `/tour-etna`, `/en/etna-tour`, `/tour-ortigia-taormina`, `/en/ortigia-taormina-tour`, `/wedding-eventi`, `/en/weddings` (la pagina wedding è esperienziale ma con sezione booking Fast) |
+| **Cluster Fast** | A 70% + B 30% | `/`, `/en`, 4 pagine `/ncc-*` IT, 4 pagine `/en/driver-*`, `/servizi`, `/en/services`, `/contatti`, `/en/contact`, `/chi-siamo`, `/en/about`, `/partner`, `/en/partners` |
+| **Cluster Esperienziale** | B 70% + C 30% | `/tour-sicilia`, `/en/sicily-tours`, `/tour-barocco`, `/en/baroque-tour`, `/tour/etna-premium`, `/en/tour/etna-premium`, `/tour/isola-delle-correnti`, `/en/tour/isola-delle-correnti`, `/tour/dolce-vita-siracusa`, `/en/tour/dolce-vita-siracusa`, `/tour/silent-sailing`, `/en/tour/silent-sailing`, `/wedding`, `/en/weddings` (la pagina wedding è esperienziale ma con sezione booking Fast) |
 
 **Implicazioni operative**:
 - **Cluster Fast**: foto statica di altissima qualità in hero, **niente video loop**, **niente scroll-driven**. Atmosfera arriva dalla qualità della foto e dalla quiete tipografica. Performance prioritaria
@@ -63,7 +63,7 @@
 - No cromature, no riflessi shiny sull'auto, no "luxury black on gold"
 - No pelle nera in primo piano come hero
 - No tachimetro/volante/dettaglio meccanico come elemento decorativo
-- No "VIP transfer" come headline (sopravvive solo nella tagline brand SEO-locked, estetizzata col serif italico)
+- No "VIP transfer" come headline (eventuale sopravvivenza nella tagline brand storica — vedi nota tagline in Direzione per Claude Code — viene estetizzata col serif italico)
 
 ### Riferimenti culturali siciliani da evitare
 - No coppola, no cannolo, no pizzo merletto, no ceramiche di Caltagirone come pattern decorativo
@@ -75,15 +75,25 @@
 ### Tono generale del codice
 **Editoriale-calmo con energia conversion alta sui CTA**. Il codice deve produrre un sito che si legge come una rivista di viaggio italiana di qualità, dove però i CTA sono inequivocabilmente cliccabili e prominenti. Non è "Cereal Magazine puro" (perderemmo la conversion), non è "Booking.com" (perderemmo l'anima).
 
+### Vincoli tecnici migrazione (obbligatori, da rispettare nel build)
+
+- **Dominio**: resta `ncctaxisiracusa.com`. **Mai cambiare**. Il brand display "Sicily Driver Siracusa" si gestisce via `<title>`, logo, OG image, schema.org `name`/`alternateName`.
+- **301 perfetti** su tutte le 20 URL esistenti (vedi SITEMAP.md tabella migration). Testati funzionanti prima del cutover DNS. Mai 302.
+- **Sitemap.xml** generata automaticamente e **inviata a Google Search Console il giorno del go-live**. Senza questo step l'indicizzazione delle nuove URL è ritardata di settimane.
+- **Robots.txt**: verificare assenza di `noindex` o `disallow` lasciati in produzione (errore comune in migration). Il template Nexus include `noindex` di default in preview Vercel — va rimosso al cutover.
+- **GA4 nuovo installato al go-live** (assumere che il sito attuale non abbia analytics). Property ID nuovo, eventi obbligatori: `form_submit`, `whatsapp_click`, `tel_click`, `tour_view`.
+- **Schema.org `sameAs`** del Google Business Profile di Enzo collegato in home (`LocalBusiness` schema). Senza questo collegamento, il GBP — che porta la maggior parte dei lead reali — non "irradia" autorevolezza al sito.
+- **Monitor settimanale** delle 5 query top GSC (`ncc siracusa`, `taxi siracusa`, `sicily driver`, `taxi syracuse`, `transfer siracusa`) per le prime 6 settimane post-cutover. Fisiologico calo iniziale 1-2 settimane, stabilizzazione 6-12 settimane.
+
 ### Filtri obbligatori da rispettare
 - **Purpose A → energia CTA dominante** in ogni pagina, anche quelle Esperienziali
 - **Cluster Fast → no video loop, no scroll-driven**, hero statica
 - **Cluster Esperienziale → video loop hero + scroll-driven solo sull'itinerario**
 - **Tipografia: serif italico esclusivamente per H1/H2/quote/storytelling**, mai per UI/label/prezzi
-- **Tagline brand SEO-locked**: "Eleganza da VIP, prezzi di mercato" (IT) / "VIP-style elegance at market prices" (EN) — preservare letterale ma estetizzare col serif italico (NON cambiare le parole)
+- **Tagline brand (decisione cliente Chat 2)**: "Eleganza da VIP, prezzi di mercato" (IT) / "VIP-style elegance at market prices" (EN) — GSC dimostra che NON è SEO-locked. Resta decisione cliente: preservare letterale (estetizzata col serif italico) / modificare / eliminare. Da definire in COPY.md.
 - **EN trattato come gemello dell'IT**, mai come fallback. Switcher lingua sempre top-right, scambia tra URL gemelle
-- **WhatsApp persistente in basso a destra** su tutte le pagine (preserva comportamento sito attuale)
-- **Mobile-first vero**: le decisioni di hierarchy e densità si testano prima sul mobile
+- **WhatsApp persistente in basso a destra** su tutte le pagine (preserva comportamento sito attuale) — su mobile diventa **sticky bottom bar** con WhatsApp + telefono `tel:` affiancati, sempre visibile da scroll > hero (pubblico estivo mobile 58%)
+- **Mobile-first vero**: le decisioni di hierarchy e densità si testano prima sul mobile. **Ma dual-first sul desktop**: il pubblico invernale è desktop-dominante (59%), il sito deve essere ugualmente bello su entrambi i breakpoint
 
 ### Cosa Claude Code DEVE proporre nell'Intermezzo `/nexus-design`
 
@@ -154,7 +164,7 @@ fontFamily: {
 1. Parole accent dentro H1/H2 (es. "Ti veniamo a prendere /all'aeroporto/")
 2. Quote testimonial intere
 3. Storytelling tour (paragrafi narrativi delle pagine tour)
-4. Tagline brand SEO-locked "*Eleganza da VIP, prezzi di mercato*"
+4. Tagline brand (decisione cliente, se preservata: "*Eleganza da VIP, prezzi di mercato*")
 
 ### Energia CTA — "Pillola terracotta piena"
 
@@ -225,4 +235,4 @@ Base 4px scale Tailwind, container max-width **1280px**, padding orizzontale **2
 7. **Switcher lingua IT/EN sempre top-right** anche mobile (compatto, divider verticale tra lingue).
 8. **Foto desaturate calde**. Filtro `saturate(0.85) brightness(1.02) contrast(1.05)` come baseline CSS per immagini editoriali. Mai filtri blu/freddi.
 9. **Numerazione editoriale 01/02/03**: SOLO in destinazioni, tappe tour, sezioni con valore narrativo. NO numerazione su servizi, FAQ, testimonial (in testimonial l'01/02/03 è dentro lo switcher, non per ogni quote).
-10. **Tagline brand SEO-locked**: "*Eleganza da VIP, prezzi di mercato*" (IT) / "*VIP-style elegance at market prices*" (EN) sempre estetizzata in Cormorant italic 18–20px sotto i logo wordmark hero. Non modificare le parole.
+10. **Tagline brand (decisione cliente Chat 2)**: "*Eleganza da VIP, prezzi di mercato*" (IT) / "*VIP-style elegance at market prices*" (EN) — GSC dimostra zero query VIP/luxury/eleganza, NON è SEO-locked. Se preservata: estetizzata in Cormorant italic 18–20px sotto il logo wordmark hero. Se modificata/eliminata: decisione COPY.md.
