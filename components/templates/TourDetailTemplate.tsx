@@ -106,7 +106,7 @@ export async function TourDetailTemplate({tour}: {tour: TourContent}) {
             {tour.numbers.map((n, i) => (
               <div key={i}>
                 <p
-                  className="font-display italic font-medium text-[48px] sm:text-[64px] lg:text-[72px] leading-none text-[color:var(--accent-decorative)] tabular-nums"
+                  className="font-display italic font-medium text-[40px] sm:text-[56px] lg:text-[64px] leading-none text-[color:var(--accent-decorative)] tabular-nums"
                 >
                   {n.value}
                 </p>
@@ -118,6 +118,40 @@ export async function TourDetailTemplate({tour}: {tour: TourContent}) {
           </div>
         </div>
       </section>
+
+      {/* 3-bis. PARTNER DEL TOUR — condizionale */}
+      {tour.partners && tour.partners.length > 0 && (
+        <section className="bg-muted-bg py-20 sm:py-28 border-y border-[var(--border)]/50">
+          <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-16">
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.18em] font-medium text-secondary mb-5">
+                  {tour.partnersEyebrow}
+                </p>
+                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-medium text-primary italic leading-[1.08]">
+                  {tour.partnersH2}
+                </h2>
+              </div>
+
+              <ul className="space-y-7">
+                {tour.partners.map((p, i) => (
+                  <li
+                    key={i}
+                    className="border-l-2 border-accent/60 pl-6 py-1"
+                  >
+                    <p className="font-display italic font-medium text-2xl sm:text-[28px] text-primary leading-tight">
+                      {p.name}
+                    </p>
+                    <p className="mt-3 text-[16px] leading-[1.65] text-ink/80 max-w-[60ch]">
+                      {p.description}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 4. TAPPA PER TAPPA — stacked editorial (fallback per scroll-driven) */}
       <section id="stages" className="bg-canvas py-24 sm:py-32">
