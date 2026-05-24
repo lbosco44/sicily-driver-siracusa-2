@@ -41,12 +41,8 @@ export async function TourDetailNarrative({tour}: {tour: TourContent}) {
           <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/30 to-black/80" />
         </div>
 
-        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 grid grid-rows-[1fr_auto_auto] pb-12 sm:pb-16">
-          <div />
+        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-16 sm:pb-20">
           <div className="max-w-[48ch]">
-            <p className="eyebrow text-cream-on-dark/85 mb-6">
-              {tour.heroEyebrow}
-            </p>
             {(() => {
               // Se l'H1 contiene ":", lo splitto in display grande + subhead piccolo.
               // Mantiene H1 semantico SEO unico ma visivamente respira.
@@ -78,16 +74,6 @@ export async function TourDetailNarrative({tour}: {tour: TourContent}) {
                 </h1>
               );
             })()}
-            <p className="mt-8 sm:mt-10 max-w-[44ch] font-display text-[20px] sm:text-[24px] font-light text-cream-on-dark/95 leading-[1.35] tracking-[-0.005em]">
-              {tour.heroSubhead}
-            </p>
-          </div>
-
-          <div className="justify-self-center mt-12 sm:mt-16 flex flex-col items-center">
-            <p className="text-[10px] uppercase tracking-[0.32em] font-medium text-cream-on-dark/65 mb-3">
-              {tour.stagesEyebrow}
-            </p>
-            <div className="w-px h-12 sm:h-16 bg-cream-on-dark/40" />
           </div>
         </div>
       </section>

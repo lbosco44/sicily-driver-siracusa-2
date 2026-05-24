@@ -49,14 +49,8 @@ export function TourDetailDolceVita({tour}: {tour: TourContent}) {
           />
         </div>
 
-        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-12 sm:pb-16">
+        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-16 sm:pb-20">
           <div className="max-w-[42ch]">
-            <p
-              className="eyebrow text-cream-on-dark/85 mb-6"
-              style={{letterSpacing: '0.28em'}}
-            >
-              {tour.heroEyebrow}
-            </p>
             <h1
               className="hero-headline font-display font-light text-cream-on-dark italic"
               style={{
@@ -69,9 +63,6 @@ export function TourDetailDolceVita({tour}: {tour: TourContent}) {
             >
               {tour.h1}
             </h1>
-            <p className="mt-7 max-w-[42ch] font-display text-[18px] sm:text-[22px] font-light text-cream-on-dark/90 leading-[1.4] italic">
-              {tour.heroSubhead}
-            </p>
           </div>
         </div>
       </section>

@@ -152,6 +152,35 @@ export function EsperienzeScroll() {
 // Subcomponents — ognuno chiama useTransform al top level
 // ============================================================
 
+// Builds strictly-ascending keyframes for scene opacity.
+// First scene (i=0) is fully visible at progress=0 (no fade-in).
+// Last scene (i=total-1) is fully visible at progress=1 (no fade-out).
+// Middle scenes get cross-fade overlap of 2%.
+function sceneOpacityKeyframes(index: number, total: number) {
+  const start = index / total;
+  const end = (index + 1) / total;
+  const FADE = 0.02;
+
+  if (index === 0) {
+    // [progress=0 visible] → hold till end → fade out
+    return {
+      times: [0, end, Math.min(end + FADE, 1)],
+      values: [1, 1, 0]
+    };
+  }
+  if (index === total - 1) {
+    // fade in → hold to progress=1
+    return {
+      times: [Math.max(start - FADE, 0), start, 1],
+      values: [0, 1, 1]
+    };
+  }
+  return {
+    times: [start - FADE, start, end, end + FADE],
+    values: [0, 1, 1, 0]
+  };
+}
+
 function SceneBackground({
   index,
   total,
@@ -163,14 +192,9 @@ function SceneBackground({
   bg: string;
   scrollYProgress: MotionValue<number>;
 }) {
-  const start = index / total;
-  const end = (index + 1) / total;
   const reduce = useReducedMotion();
-  const opacity = useTransform(
-    scrollYProgress,
-    [Math.max(start - 0.02, 0), start, end, Math.min(end + 0.02, 1)],
-    [0, 1, 1, 0]
-  );
+  const {times, values} = sceneOpacityKeyframes(index, total);
+  const opacity = useTransform(scrollYProgress, times, values);
   return (
     <motion.div
       className="absolute inset-0"
@@ -195,11 +219,8 @@ function SceneImage({
   const reduce = useReducedMotion();
   const start = index / total;
   const end = (index + 1) / total;
-  const opacity = useTransform(
-    scrollYProgress,
-    [Math.max(start - 0.02, 0), start, end, Math.min(end + 0.02, 1)],
-    [0, 1, 1, 0]
-  );
+  const {times, values} = sceneOpacityKeyframes(index, total);
+  const opacity = useTransform(scrollYProgress, times, values);
   const scale = useTransform(
     scrollYProgress,
     [start, end],
@@ -244,20 +265,36 @@ function SceneText({
   const t = useTranslations('Home.esperienze');
   const reduce = useReducedMotion();
   const start = index / total;
-  const peakStart = start + 0.05;
-  const peakEnd = (index + 1) / total - 0.05;
   const end = (index + 1) / total;
+  const peakStart = start + 0.05;
+  const peakEnd = end - 0.05;
 
-  const opacity = useTransform(
-    scrollYProgress,
-    [start, peakStart, peakEnd, end],
-    [0, 1, 1, 0]
-  );
-  const y = useTransform(
-    scrollYProgress,
-    [start, peakStart, peakEnd, end],
-    reduce ? ['0%', '0%', '0%', '0%'] : ['8%', '0%', '0%', '-6%']
-  );
+  // Text keyframes mirror the scene's "always-on at edges" rule:
+  // i=0 ⇒ already at peak when entering, i=last ⇒ stay at peak when exiting.
+  let opacityTimes: number[];
+  let opacityValues: number[];
+  let yTimes: number[];
+  let yValues: string[];
+
+  if (index === 0) {
+    opacityTimes = [0, peakEnd, end];
+    opacityValues = [1, 1, 0];
+    yTimes = [0, peakEnd, end];
+    yValues = reduce ? ['0%', '0%', '0%'] : ['0%', '0%', '-6%'];
+  } else if (index === total - 1) {
+    opacityTimes = [start, peakStart, 1];
+    opacityValues = [0, 1, 1];
+    yTimes = [start, peakStart, 1];
+    yValues = reduce ? ['0%', '0%', '0%'] : ['8%', '0%', '0%'];
+  } else {
+    opacityTimes = [start, peakStart, peakEnd, end];
+    opacityValues = [0, 1, 1, 0];
+    yTimes = [start, peakStart, peakEnd, end];
+    yValues = reduce ? ['0%', '0%', '0%', '0%'] : ['8%', '0%', '0%', '-6%'];
+  }
+
+  const opacity = useTransform(scrollYProgress, opacityTimes, opacityValues);
+  const y = useTransform(scrollYProgress, yTimes, yValues);
 
   const alignClass =
     align === 'left' ? 'items-start text-left' : 'items-end text-right';

@@ -154,7 +154,8 @@ export function TourHubNarrative({hub}: {hub: TourHubContent}) {
                 itinerary={it}
                 index={i}
                 total={N}
-                cta={tCommon('ctaWhatsApp')}
+                ctaDiscover={tCommon('ctaDiscoverTour')}
+                ctaWhatsApp={tCommon('ctaWhatsApp')}
                 scrollYProgress={scrollYProgress}
               />
             ))}
@@ -319,6 +320,31 @@ export function TourHubNarrative({hub}: {hub: TourHubContent}) {
 // Subcomponents — scroll-driven layers
 // ============================================================
 
+// Same edge-handling logic as home/EsperienzeScroll: first scene visible at
+// progress=0, last at progress=1, middle cross-fade overlap 2%.
+function sceneOpacityKeyframes(index: number, total: number) {
+  const start = index / total;
+  const end = (index + 1) / total;
+  const FADE = 0.02;
+
+  if (index === 0) {
+    return {
+      times: [0, end, Math.min(end + FADE, 1)],
+      values: [1, 1, 0]
+    };
+  }
+  if (index === total - 1) {
+    return {
+      times: [Math.max(start - FADE, 0), start, 1],
+      values: [0, 1, 1]
+    };
+  }
+  return {
+    times: [start - FADE, start, end, end + FADE],
+    values: [0, 1, 1, 0]
+  };
+}
+
 function ItineraryBackground({
   index,
   total,
@@ -331,13 +357,8 @@ function ItineraryBackground({
   scrollYProgress: MotionValue<number>;
 }) {
   const reduce = useReducedMotion();
-  const start = index / total;
-  const end = (index + 1) / total;
-  const opacity = useTransform(
-    scrollYProgress,
-    [Math.max(start - 0.02, 0), start, end, Math.min(end + 0.02, 1)],
-    [0, 1, 1, 0]
-  );
+  const {times, values} = sceneOpacityKeyframes(index, total);
+  const opacity = useTransform(scrollYProgress, times, values);
   return (
     <motion.div
       className="absolute inset-0"
@@ -362,11 +383,8 @@ function ItineraryImage({
   const reduce = useReducedMotion();
   const start = index / total;
   const end = (index + 1) / total;
-  const opacity = useTransform(
-    scrollYProgress,
-    [Math.max(start - 0.02, 0), start, end, Math.min(end + 0.02, 1)],
-    [0, 1, 1, 0]
-  );
+  const {times, values} = sceneOpacityKeyframes(index, total);
+  const opacity = useTransform(scrollYProgress, times, values);
   const scale = useTransform(
     scrollYProgress,
     [start, end],
@@ -397,34 +415,52 @@ function ItineraryText({
   itinerary,
   index,
   total,
-  cta,
+  ctaDiscover,
+  ctaWhatsApp,
   scrollYProgress
 }: {
   itinerary: TourHubContent['itineraries'][number];
   index: number;
   total: number;
-  cta: string;
+  ctaDiscover: string;
+  ctaWhatsApp: string;
   scrollYProgress: MotionValue<number>;
 }) {
   const reduce = useReducedMotion();
   const start = index / total;
-  const peakStart = start + 0.05;
-  const peakEnd = (index + 1) / total - 0.05;
   const end = (index + 1) / total;
+  const peakStart = start + 0.05;
+  const peakEnd = end - 0.05;
 
-  const opacity = useTransform(
-    scrollYProgress,
-    [start, peakStart, peakEnd, end],
-    [0, 1, 1, 0]
-  );
-  const y = useTransform(
-    scrollYProgress,
-    [start, peakStart, peakEnd, end],
-    reduce ? ['0%', '0%', '0%', '0%'] : ['6%', '0%', '0%', '-4%']
-  );
+  // Same edge-handling as scene opacity: first/last visible at boundaries.
+  let opacityTimes: number[];
+  let opacityValues: number[];
+  let yTimes: number[];
+  let yValues: string[];
+
+  if (index === 0) {
+    opacityTimes = [0, peakEnd, end];
+    opacityValues = [1, 1, 0];
+    yTimes = [0, peakEnd, end];
+    yValues = reduce ? ['0%', '0%', '0%'] : ['0%', '0%', '-4%'];
+  } else if (index === total - 1) {
+    opacityTimes = [start, peakStart, 1];
+    opacityValues = [0, 1, 1];
+    yTimes = [start, peakStart, 1];
+    yValues = reduce ? ['0%', '0%', '0%'] : ['6%', '0%', '0%'];
+  } else {
+    opacityTimes = [start, peakStart, peakEnd, end];
+    opacityValues = [0, 1, 1, 0];
+    yTimes = [start, peakStart, peakEnd, end];
+    yValues = reduce ? ['0%', '0%', '0%', '0%'] : ['6%', '0%', '0%', '-4%'];
+  }
+
+  const opacity = useTransform(scrollYProgress, opacityTimes, opacityValues);
+  const y = useTransform(scrollYProgress, yTimes, yValues);
 
   const alignClass =
     index % 2 === 0 ? 'items-start text-left' : 'items-end text-right';
+  const isCustom = itinerary.href === '/contatti';
 
   return (
     <motion.div
@@ -447,15 +483,31 @@ function ItineraryText({
         <p className="mt-6 max-w-[42ch] text-[18px] sm:text-[20px] text-cream-on-dark/90 leading-[1.55]">
           {itinerary.body}
         </p>
-        {itinerary.href !== '/contatti' && (
-          <Link
-            href={itinerary.href}
-            className="mt-8 inline-flex items-center gap-3 rounded-full border border-cream-on-dark/50 px-7 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-cream-on-dark hover:bg-cream-on-dark/10 hover:border-cream-on-dark transition-colors"
+
+        <div
+          className={`mt-8 flex flex-wrap gap-3 sm:gap-4 ${
+            index % 2 === 0 ? 'justify-start' : 'justify-end'
+          }`}
+        >
+          {!isCustom && (
+            <Link
+              href={itinerary.href}
+              className="inline-flex items-center gap-3 rounded-full bg-cream-on-dark px-7 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-primary-deep hover:bg-cream-soft transition-colors"
+            >
+              {ctaDiscover}
+              <span aria-hidden="true">→</span>
+            </Link>
+          )}
+          <a
+            href="https://wa.me/393756413379"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 rounded-full border border-cream-on-dark/50 px-7 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-cream-on-dark hover:bg-cream-on-dark/10 hover:border-cream-on-dark transition-colors"
           >
-            {cta}
+            {ctaWhatsApp}
             <span aria-hidden="true">→</span>
-          </Link>
-        )}
+          </a>
+        </div>
       </div>
     </motion.div>
   );

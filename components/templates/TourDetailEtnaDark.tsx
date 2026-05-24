@@ -70,12 +70,6 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
 
         <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-16 sm:pb-20">
           <div className="max-w-[44ch]">
-            <p
-              className="eyebrow mb-8"
-              style={{color: LAVA_GLOW, letterSpacing: '0.28em'}}
-            >
-              {tour.heroEyebrow}
-            </p>
             <h1
               className="hero-headline font-display text-display-lg font-light text-cream-on-dark"
               style={{
@@ -85,9 +79,6 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
             >
               {tour.h1}
             </h1>
-            <p className="mt-8 max-w-[44ch] font-display text-[18px] sm:text-[22px] font-light text-cream-on-dark/85 leading-[1.4]">
-              {tour.heroSubhead}
-            </p>
           </div>
         </div>
 

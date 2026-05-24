@@ -61,16 +61,7 @@ export function TourDetailSailing({tour}: {tour: TourContent}) {
         </div>
 
         <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-16 sm:pb-20">
-          <div style={{maxWidth: 'min(520px, 86vw)'}}>
-            <p
-              className="eyebrow mb-8"
-              style={{
-                color: SEA_FOAM,
-                letterSpacing: '0.32em'
-              }}
-            >
-              {tour.heroEyebrow}
-            </p>
+          <div style={{maxWidth: 'min(720px, 90vw)'}}>
             <h1
               className="hero-headline font-display font-light text-cream-on-dark"
               style={{
@@ -83,15 +74,6 @@ export function TourDetailSailing({tour}: {tour: TourContent}) {
             >
               {tour.h1}
             </h1>
-            <p
-              className="mt-9 font-display text-[18px] sm:text-[22px] font-light leading-[1.45]"
-              style={{
-                maxWidth: 'min(440px, 84vw)',
-                color: 'rgba(245, 239, 228, 0.86)'
-              }}
-            >
-              {tour.heroSubhead}
-            </p>
           </div>
         </div>
       </section>
