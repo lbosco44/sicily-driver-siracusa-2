@@ -54,9 +54,9 @@ export function Hero() {
         {/* Top: vuoto, lascia respirare */}
         <div />
 
-        {/* Headline gigante in basso a destra — testo sul mare, non sugli edifici */}
+        {/* Headline gigante centro-destra — testo sul mare, non sugli edifici */}
         <motion.div
-          className="max-w-[20ch] sm:ml-auto"
+          className="max-w-[20ch] sm:max-w-none sm:w-[55%] sm:ml-[40%] lg:ml-[42%]"
           style={{y: headlineY, opacity: headlineOpacity}}
           initial={reduce ? false : {opacity: 0, y: 40}}
           animate={reduce ? false : {opacity: 1, y: 0}}

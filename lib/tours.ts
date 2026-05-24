@@ -137,10 +137,8 @@ export type TourHubContent = {
 // HERO IMAGES — placeholder Unsplash, TODO replace con foto reali cliente
 // ============================================================
 
-const HERO_BAROCCO =
-  'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=1600&q=70&auto=format&fm=webp';
-const HERO_ETNA =
-  'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=1600&q=70&auto=format&fm=webp';
+const HERO_BAROCCO = '/images/tour-barocco/hero.png';
+const HERO_ETNA = '/images/tour-etna/hero.jpeg';
 const HERO_ISOLA =
   'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=70&auto=format&fm=webp';
 const HERO_DOLCE_VITA =
@@ -463,7 +461,7 @@ const BAROCCO_IT: TourContent = {
       duration: '1h 30min',
       body: 'Arriviamo a Noto quando la pietra calcarea è ancora calda dalla notte. La scalinata della Cattedrale di San Nicolò è il primo respiro: 1693, terremoto del Val di Noto, una città intera ricostruita dal nulla. Cammini su Corso Vittorio Emanuele in venti minuti, ti fermi dove ti chiama lo sguardo. Il driver ti dice dove sono i palazzi che non vedrai su nessuna guida.',
       image:
-        'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-barocco/stage-1-noto.png'
     },
     {
       number: '02',
@@ -471,7 +469,7 @@ const BAROCCO_IT: TourContent = {
       duration: '2h (include pranzo)',
       body: 'A Modica, la chiesa di San Pietro è un teatro di sculture seicentesche affacciate sulla strada. Ma il vero motivo per cui ci fermiamo è il cioccolato, lavorato a freddo seguendo una ricetta che gli spagnoli portarono qui dai Maya. Una tavoletta da gustare camminando, una bottega che il driver conosce per nome — un’ora basta.',
       image:
-        'https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-barocco/stage-2-modica.jpeg'
     },
     {
       number: '03',
@@ -479,7 +477,7 @@ const BAROCCO_IT: TourContent = {
       duration: '1h 30min',
       body: 'Ragusa Ibla è la parte vecchia, quella che dopo il terremoto si ricostruì dove era, mentre Ragusa Superiore nasceva sull’altopiano. La Cattedrale di San Giorgio sta in cima a una piazza che si guarda tutto da sola. Qui ti lasciamo il tempo per pranzare con calma, se ti va. Conosciamo un paio di posti dove gli ingredienti vengono dai produttori intorno.',
       image:
-        'https://images.unsplash.com/photo-1581922814484-0b48460b7010?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-barocco/stage-3-ragusa.jpeg'
     },
     {
       number: '04',
@@ -487,7 +485,7 @@ const BAROCCO_IT: TourContent = {
       duration: '1h',
       body: 'Se la giornata è lunga e c’è ancora luce, possiamo aggiungere Scicli — un’altra capitale del barocco meno turistica — oppure scendere a Marzamemi per un aperitivo fronte mare prima di rientrare a Siracusa.',
       image:
-        'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-barocco/stage-4-valle.jpeg'
     }
   ],
 
@@ -579,7 +577,7 @@ const BAROCCO_EN: TourContent = {
       duration: '1h 30min',
       body: 'We reach Noto when the limestone is still warm from the night. The Cathedral of San Nicolò staircase is the first breath: 1693, Val di Noto earthquake, an entire city rebuilt from nothing. You walk Corso Vittorio Emanuele in twenty minutes, stopping where your eye calls you. The driver tells you about the palaces no guidebook mentions.',
       image:
-        'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-barocco/stage-1-noto.png'
     },
     {
       number: '02',
@@ -587,7 +585,7 @@ const BAROCCO_EN: TourContent = {
       duration: '2h (lunch included)',
       body: 'In Modica, the Church of San Pietro is a theater of seventeenth-century sculptures facing the street. But the real reason we stop is the chocolate, cold-processed following a recipe Spaniards brought here from the Aztecs. A bar to taste while walking, a shop the driver knows by name — an hour is enough.',
       image:
-        'https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-barocco/stage-2-modica.jpeg'
     },
     {
       number: '03',
@@ -595,7 +593,7 @@ const BAROCCO_EN: TourContent = {
       duration: '1h 30min',
       body: 'Ragusa Ibla is the old part, the one that rebuilt itself where it stood after the earthquake, while Ragusa Superiore was born on the plateau. The Cathedral of San Giorgio sits at the top of a square that watches itself. Here we leave you the time to lunch in peace, if you wish. We know a couple of places where ingredients come from the producers around.',
       image:
-        'https://images.unsplash.com/photo-1581922814484-0b48460b7010?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-barocco/stage-3-ragusa.jpeg'
     },
     {
       number: '04',
@@ -603,7 +601,7 @@ const BAROCCO_EN: TourContent = {
       duration: '1h',
       body: 'If the day is long and the light is still good, we can add Scicli — another Baroque capital, less touristic — or descend to Marzamemi for a seaside aperitivo before returning to Syracuse.',
       image:
-        'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-barocco/stage-4-valle.jpeg'
     }
   ],
 
@@ -714,7 +712,7 @@ const ETNA_IT: TourContent = {
       duration: '40 min',
       body: 'Partenza alle 7:30 da Siracusa (o 8:30 da Catania, 9:00 da Taormina). Saliamo verso Zafferana Etnea, attraverso il bosco di pini secolari. La temperatura cala di 15 gradi in 40 minuti — porta una giacca anche d’estate. Arrivo al Rifugio Sapienza, quota 1.900.',
       image:
-        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-etna/stage-1-zafferana.jpeg'
     },
     {
       number: '02',
@@ -722,7 +720,7 @@ const ETNA_IT: TourContent = {
       duration: '1h',
       body: 'I quad partono dal piazzale del rifugio. Un’ora di percorso su sabbia lavica nera, intorno ai coni dei crateri Silvestri — quelli formati nell’eruzione del 1892, ancora perfettamente conservati. Il driver-guida ti accompagna sul mezzo davanti, nessuna esperienza richiesta.',
       image:
-        'https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-etna/stage-2-crateri.png'
     },
     {
       number: '03',
@@ -730,7 +728,7 @@ const ETNA_IT: TourContent = {
       duration: '2h',
       body: 'Scendiamo verso una delle cantine partner. Pranzo siciliano nel rifugio della cantina: salumi, formaggi locali, pasta alla Norma, dolci della casa. La degustazione di 4-5 vini è guidata da un sommelier della cantina, in italiano o inglese.',
       image:
-        'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-etna/stage-3-vigneto.jpeg'
     },
     {
       number: '04',
@@ -738,7 +736,7 @@ const ETNA_IT: TourContent = {
       duration: '1h 30min',
       body: 'Rientro lungo la strada panoramica dell’Etna sud. Se la luce è giusta, breve sosta a Catania per un caffè in piazza Duomo. Rientro a Siracusa entro le 19.',
       image:
-        'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-etna/stage-4-tramonto.jpeg'
     }
   ],
 
@@ -841,7 +839,7 @@ const ETNA_EN: TourContent = {
       duration: '40 min',
       body: 'Departure at 7:30 from Syracuse (or 8:30 Catania, 9:00 Taormina). We climb toward Zafferana Etnea through the ancient pine forest. Temperature drops 15 degrees in 40 minutes — bring a jacket even in summer. Arrival at Rifugio Sapienza, 1,900 m.',
       image:
-        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-etna/stage-1-zafferana.jpeg'
     },
     {
       number: '02',
@@ -849,7 +847,7 @@ const ETNA_EN: TourContent = {
       duration: '1h',
       body: 'Quads depart from the refuge square. One hour on black lava sand, around the Silvestri crater cones — those formed in the 1892 eruption, perfectly preserved. The guide-driver leads on the vehicle ahead, no experience required.',
       image:
-        'https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-etna/stage-2-crateri.png'
     },
     {
       number: '03',
@@ -857,7 +855,7 @@ const ETNA_EN: TourContent = {
       duration: '2h',
       body: 'We descend to one of the partner wineries. Sicilian lunch in the winery refuge: cured meats, local cheeses, pasta alla Norma, house desserts. 4-5 wine tasting guided by the winery sommelier, in Italian or English.',
       image:
-        'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-etna/stage-3-vigneto.jpeg'
     },
     {
       number: '04',
@@ -865,7 +863,7 @@ const ETNA_EN: TourContent = {
       duration: '1h 30min',
       body: 'Return along the southern Etna panoramic road. If the light is right, brief stop in Catania for a coffee in Piazza Duomo. Back in Syracuse by 19.',
       image:
-        'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-etna/stage-4-tramonto.jpeg'
     }
   ],
 
@@ -983,7 +981,7 @@ const ISOLA_IT: TourContent = {
       duration: '1h',
       body: 'Verso il tardo pomeriggio ci spostiamo sul lato dell’Isola delle Correnti che guarda ovest. Il sole tramonta tra i due mari — uno dei punti più suggestivi della Sicilia per fotografare il sunset. Prosecco e taglieri serviti dal Pura Vida.',
       image:
-        'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-etna/stage-3-vigneto.jpeg'
     },
     {
       number: '04',
@@ -991,7 +989,7 @@ const ISOLA_IT: TourContent = {
       duration: '1h',
       body: 'Rientro via Marzamemi, il borgo dei pescatori con la piazza affacciata sulla tonnara. Aperitivo nei locali di Piazza Regina Margherita prima di tornare a Siracusa. Arrivo previsto verso le 21.',
       image:
-        'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-barocco/stage-1-noto.png'
     }
   ],
 
@@ -1105,7 +1103,7 @@ const ISOLA_EN: TourContent = {
       duration: '1h',
       body: 'In late afternoon we move to the Isola delle Correnti side facing west. The sun sets between the two seas — one of Sicily’s most beautiful sunset spots. Prosecco and platters served by Pura Vida.',
       image:
-        'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-etna/stage-3-vigneto.jpeg'
     },
     {
       number: '04',
@@ -1113,7 +1111,7 @@ const ISOLA_EN: TourContent = {
       duration: '1h',
       body: 'Return via Marzamemi, the fishermen’s village with the square facing the tonnara. Aperitivo in the bars of Piazza Regina Margherita before returning to Syracuse. Expected arrival around 21:00.',
       image:
-        'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-barocco/stage-1-noto.png'
     }
   ],
 
@@ -1213,7 +1211,7 @@ const DOLCE_VITA_IT: TourContent = {
       duration: '45 min',
       body: 'Imbocchiamo Via XX Settembre, costeggiamo il porto piccolo e arriviamo al Castello Maniace, all’estremità sud di Ortigia. Sosta foto sul belvedere — uno dei punti più Instagrammati dell’isola.',
       image:
-        'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-etna/stage-3-vigneto.jpeg'
     },
     {
       number: '03',
@@ -1221,7 +1219,7 @@ const DOLCE_VITA_IT: TourContent = {
       duration: '1h',
       body: 'Risaliamo verso Piazza Duomo, dove la cattedrale è ancora un tempio dorico inglobato. Sosta breve per camminare nella piazza, poi la Fonte Aretusa con i papiri — l’unica colonia di papiri spontanei d’Europa. Si chiude sul lungomare di Ponente al tramonto.',
       image:
-        'https://images.unsplash.com/photo-1581922814484-0b48460b7010?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-barocco/stage-3-ragusa.jpeg'
     },
     {
       number: '04',
@@ -1229,7 +1227,7 @@ const DOLCE_VITA_IT: TourContent = {
       duration: '1h',
       body: 'Aperitivo in uno dei locali di Lungomare Alfeo o Riva di Levante, vista mare. Spritz o vino bianco siciliano, tagliere di formaggi e salumi locali. Foto finali con la 500 nell’angolo giusto. Restituzione 2h dopo l’inizio.',
       image:
-        'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-barocco/stage-1-noto.png'
     }
   ],
 
@@ -1324,7 +1322,7 @@ const DOLCE_VITA_EN: TourContent = {
       duration: '45 min',
       body: 'We take Via XX Settembre, along the small port, up to Maniace Castle at the southern tip of Ortigia. Photo stop at the belvedere — one of the most Instagrammed spots on the island.',
       image:
-        'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-etna/stage-3-vigneto.jpeg'
     },
     {
       number: '03',
@@ -1332,7 +1330,7 @@ const DOLCE_VITA_EN: TourContent = {
       duration: '1h',
       body: 'We climb back to Piazza Duomo, where the cathedral is still a Doric temple inside. A short stop to walk the square, then the Arethusa Spring with the papyrus — the only spontaneous papyrus colony in Europe. We close on the western seafront at sunset.',
       image:
-        'https://images.unsplash.com/photo-1581922814484-0b48460b7010?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-barocco/stage-3-ragusa.jpeg'
     },
     {
       number: '04',
@@ -1340,7 +1338,7 @@ const DOLCE_VITA_EN: TourContent = {
       duration: '1h',
       body: 'Aperitivo at one of the bars on Lungomare Alfeo or Riva di Levante, sea view. Spritz or Sicilian white wine, board of local cheeses and cured meats. Final photos with the 500 at the right angle. Drop-off 2h after start.',
       image:
-        'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-barocco/stage-1-noto.png'
     }
   ],
 
@@ -1449,7 +1447,7 @@ const SAILING_IT: TourContent = {
       duration: '1h 30min',
       body: 'Risaliamo verso sud lungo la costa, dove le calette si nascondono tra promontori bassi. Niente motore una volta fuori porto — solo il vento, il rumore della vela che si gonfia, qualche gabbiano. Lo skipper ti racconta come si legge il vento, se ti interessa.',
       image:
-        'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-etna/stage-3-vigneto.jpeg'
     },
     {
       number: '03',
@@ -1571,7 +1569,7 @@ const SAILING_EN: TourContent = {
       duration: '1h 30min',
       body: 'We head south along the coast, where coves hide between low promontories. No engine once out of port — just the wind, the sound of the sail filling, a seagull or two. The skipper explains how to read the wind, if you’re curious.',
       image:
-        'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=70&auto=format&fm=webp'
+        '/images/tour-etna/stage-3-vigneto.jpeg'
     },
     {
       number: '03',

@@ -71,8 +71,15 @@ export function EsperienzeScroll() {
 
   return (
     <section aria-label={t('eyebrow')}>
-      {/* ── MOBILE: stack statico 1 immagine per sezione ── */}
-      <div className="md:hidden">
+      {/* ── MOBILE: snap-scroll verticale, 1 swipe = 1 scena (Reels/TikTok style) ── */}
+      <div
+        className="md:hidden h-[100svh] overflow-y-scroll overscroll-contain"
+        style={{
+          scrollSnapType: 'y mandatory',
+          WebkitOverflowScrolling: 'touch',
+          scrollbarWidth: 'none'
+        }}
+      >
         {ESPERIENZE.map((e, i) => (
           <MobileScene
             key={e.key}
@@ -129,7 +136,11 @@ function MobileScene({
   return (
     <div
       className="relative h-[100svh] overflow-hidden"
-      style={{backgroundColor: e.bg}}
+      style={{
+        backgroundColor: e.bg,
+        scrollSnapAlign: 'start',
+        scrollSnapStop: 'always'
+      }}
     >
       <Image
         src={e.image}
