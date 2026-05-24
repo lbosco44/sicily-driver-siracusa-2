@@ -2,16 +2,18 @@ import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import {LanguageSwitcher} from './LanguageSwitcher';
 import {NavLink} from './NavLink';
+import {MobileMenu, type MobileMenuLink} from './MobileMenu';
 
 export async function Navbar() {
   const t = await getTranslations('Nav');
   const tBrand = await getTranslations('Brand');
+  const tNcc = await getTranslations('NccPage');
 
-  const links = [
-    {href: '/servizi' as const, label: t('services')},
-    {href: '/tour-sicilia' as const, label: t('tours')},
-    {href: '/chi-siamo' as const, label: t('about')},
-    {href: '/contatti' as const, label: t('contact')}
+  const links: MobileMenuLink[] = [
+    {href: '/servizi', label: t('services')},
+    {href: '/tour-sicilia', label: t('tours')},
+    {href: '/chi-siamo', label: t('about')},
+    {href: '/contatti', label: t('contact')}
   ];
 
   return (
@@ -19,6 +21,7 @@ export async function Navbar() {
       <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 h-16 sm:h-20 flex items-center justify-between gap-4">
         <Link
           href="/"
+          aria-label={`${tBrand('name')} — ${t('home')}`}
           className="font-display italic font-medium text-xl sm:text-2xl text-primary tracking-tight hover:opacity-80 transition-opacity"
         >
           {tBrand('name')}
@@ -32,7 +35,7 @@ export async function Navbar() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4 sm:gap-6">
+        <div className="flex items-center gap-3 sm:gap-6">
           <LanguageSwitcher />
           <Link
             href="/contatti"
@@ -49,6 +52,14 @@ export async function Navbar() {
             {t('bookNow')}
             <span aria-hidden="true">→</span>
           </Link>
+
+          <MobileMenu
+            links={links}
+            bookLabel={t('bookNow')}
+            whatsappLabel={tNcc('ctaWhatsApp')}
+            callLabel={t('callShort')}
+            callValue="+39 375 641 3379"
+          />
         </div>
       </div>
     </header>

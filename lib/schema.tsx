@@ -1,8 +1,49 @@
 type FaqItem = {q: string; a: string};
+type BreadcrumbItem = {name: string; url: string};
 
 const PHONE = '+39 375 641 3379';
 const EMAIL = 'info@ncctaxisiracusa.com';
 const URL_BASE = 'https://ncctaxisiracusa.com';
+
+// 3 sedi fisiche del cliente (Brief/SEO.md §10 dati raccolti)
+const LOCATIONS = [
+  {
+    '@type': 'Place',
+    name: 'Sicily Driver Siracusa — sede principale',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Via della Maestranza, 28',
+      addressLocality: 'Siracusa',
+      postalCode: '96100',
+      addressRegion: 'SR',
+      addressCountry: 'IT'
+    }
+  },
+  {
+    '@type': 'Place',
+    name: 'Sicily Driver Siracusa — sede Noto',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Via Alcide De Gasperi, 15',
+      addressLocality: 'Noto',
+      postalCode: '96017',
+      addressRegion: 'SR',
+      addressCountry: 'IT'
+    }
+  },
+  {
+    '@type': 'Place',
+    name: 'Sicily Driver Siracusa — sede Marzamemi',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Via Marzamemi, 23',
+      addressLocality: 'Marzamemi',
+      postalCode: '96018',
+      addressRegion: 'SR',
+      addressCountry: 'IT'
+    }
+  }
+];
 
 export function localBusinessSchema(locale: 'it' | 'en') {
   return {
@@ -17,12 +58,8 @@ export function localBusinessSchema(locale: 'it' | 'en') {
     url: locale === 'it' ? `${URL_BASE}/it` : `${URL_BASE}/en`,
     telephone: PHONE,
     email: EMAIL,
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Siracusa',
-      addressRegion: 'SR',
-      addressCountry: 'IT'
-    },
+    address: LOCATIONS[0].address,
+    location: LOCATIONS,
     areaServed: [
       {'@type': 'City', name: 'Siracusa'},
       {'@type': 'City', name: 'Noto'},
@@ -48,10 +85,36 @@ export function localBusinessSchema(locale: 'it' | 'en') {
     priceRange: '€€',
     currenciesAccepted: 'EUR',
     paymentAccepted: 'Cash, Credit Card, Bank Transfer',
-    openingHours: 'Mo-Su 00:00-23:59',
-    image: `${URL_BASE}/og/home-${locale}.jpg`,
+    // 24/7: usiamo openingHoursSpecification con array completo dei giorni
+    // perché 'Mo-Su 00:00-23:59' viene letto da Rich Results come "chiuso 1 min/giorno".
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: [
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+          'Sunday'
+        ],
+        opens: '00:00',
+        closes: '23:59'
+      }
+    ],
+    image: `${URL_BASE}/og?locale=${locale}`,
     vatID: 'IT02150600894',
-    taxID: '02150600894'
+    taxID: '02150600894',
+    sameAs: [
+      // Google Business Profile — shortlink condiviso dal cliente.
+      // TODO post-deploy: sostituire con URL maps.app.goo.gl/... esteso
+      // per knowledge graph linking esplicito.
+      'https://share.google/Lj0QSPY5y9nKanT76',
+      // Facebook brand storico
+      'https://www.facebook.com/nccautoservizisiracusa/'
+      // TODO: aggiungere Instagram quando cliente fornisce handle
+    ]
   };
 }
 
@@ -66,6 +129,19 @@ export function faqPageSchema(items: FaqItem[]) {
         '@type': 'Answer',
         text: item.a
       }
+    }))
+  };
+}
+
+export function breadcrumbSchema(items: BreadcrumbItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: `${URL_BASE}${item.url}`
     }))
   };
 }

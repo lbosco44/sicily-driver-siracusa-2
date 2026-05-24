@@ -1,16 +1,19 @@
 import {setRequestLocale, getTranslations} from 'next-intl/server';
 import type {Metadata} from 'next';
-import {HeroLaRotta} from '@/components/sections/HeroLaRotta';
-import {TrustStrip} from '@/components/sections/TrustStrip';
-import {IntroParagraph} from '@/components/sections/IntroParagraph';
-import {ServiziCards} from '@/components/sections/ServiziCards';
-import {DestinazioniMosaic} from '@/components/sections/DestinazioniMosaic';
-import {ListinoTratte} from '@/components/sections/ListinoTratte';
-import {DietroAlVolante} from '@/components/sections/DietroAlVolante';
-import {Differenziatori} from '@/components/sections/Differenziatori';
-import {CtaFinale} from '@/components/sections/CtaFinale';
-import {FaqAccordion} from '@/components/sections/FaqAccordion';
-import {localBusinessSchema, faqPageSchema, JsonLd} from '@/lib/schema';
+
+import {Hero} from '@/components/sections/home/Hero';
+import {Whisper} from '@/components/sections/home/Whisper';
+import {EsperienzeScroll} from '@/components/sections/home/EsperienzeScroll';
+import {Manifesto} from '@/components/sections/home/Manifesto';
+import {Interni} from '@/components/sections/home/Interni';
+import {PolaroidMosaic} from '@/components/sections/home/PolaroidMosaic';
+import {PartnersQuotes} from '@/components/sections/home/PartnersQuotes';
+import {ListinoProse} from '@/components/sections/home/ListinoProse';
+import {DietroAlVolante} from '@/components/sections/home/DietroAlVolante';
+import {Testimonianza} from '@/components/sections/home/Testimonianza';
+import {CtaFinale} from '@/components/sections/home/CtaFinale';
+
+import {localBusinessSchema, JsonLd} from '@/lib/schema';
 import {routing} from '@/i18n/routing';
 
 export async function generateMetadata({
@@ -25,11 +28,7 @@ export async function generateMetadata({
     description: t('description'),
     alternates: {
       canonical: `/${locale}`,
-      languages: {
-        it: '/it',
-        en: '/en',
-        'x-default': '/it'
-      }
+      languages: {it: '/it', en: '/en', 'x-default': '/it'}
     },
     openGraph: {
       title: t('title'),
@@ -40,7 +39,7 @@ export async function generateMetadata({
       siteName: 'Sicily Driver Siracusa',
       images: [
         {
-          url: `/og/home-${locale}.jpg`,
+          url: `/og?locale=${locale}`,
           width: 1200,
           height: 630,
           alt:
@@ -54,7 +53,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: t('title'),
       description: t('description'),
-      images: [`/og/home-${locale}.jpg`]
+      images: [`/og?locale=${locale}`]
     }
   };
 }
@@ -71,32 +70,44 @@ export default async function HomePage({
   const {locale} = await params;
   setRequestLocale(locale);
 
-  const t = await getTranslations({locale, namespace: 'Home.faq'});
-  const faqItems = [
-    {q: t('q1'), a: t('a1')},
-    {q: t('q2'), a: t('a2')},
-    {q: t('q3'), a: t('a3')},
-    {q: t('q4'), a: t('a4')},
-    {q: t('q5'), a: t('a5')},
-    {q: t('q6'), a: t('a6')},
-    {q: t('q7'), a: t('a7')}
-  ];
+  const t = await getTranslations({locale, namespace: 'Home.whisper1'});
 
   return (
     <>
       <JsonLd data={localBusinessSchema(locale as 'it' | 'en')} />
-      <JsonLd data={faqPageSchema(faqItems)} />
 
-      <HeroLaRotta />
-      <TrustStrip />
-      <IntroParagraph />
-      <ServiziCards />
-      <DestinazioniMosaic />
-      <ListinoTratte />
+      {/* 01 — Hero atmosferica full-bleed */}
+      <Hero />
+
+      {/* 02 — Whisper "Ti veniamo a prendere ovunque tu sia." */}
+      <Whisper text={t('text')} bg="canvas" size="lg" />
+
+      {/* 03 — 5 esperienze scroll-driven sticky (la sezione cuore della home) */}
+      <EsperienzeScroll />
+
+      {/* 04 — Manifesto: paragrafo keyword-dense SEO-locked, reso narrativo */}
+      <Manifesto />
+
+      {/* 05 — Le auto, sotto-screen: 3 dettagli interni */}
+      <Interni />
+
+      {/* 06 — Mosaico polaroid destinazioni */}
+      <PolaroidMosaic />
+
+      {/* 07 — Partner come citazioni */}
+      <PartnersQuotes />
+
+      {/* 08 — Listino come prosa narrativa */}
+      <ListinoProse />
+
+      {/* 09 — Dietro al volante */}
       <DietroAlVolante />
-      <Differenziatori />
+
+      {/* 10 — Una sola testimonianza, dominante */}
+      <Testimonianza />
+
+      {/* 11 — CTA finale immersiva, blu mare profondo */}
       <CtaFinale />
-      <FaqAccordion />
     </>
   );
 }

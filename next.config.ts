@@ -8,7 +8,14 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {protocol: 'https', hostname: 'images.unsplash.com'},
       {protocol: 'https', hostname: 'picsum.photos'}
-    ]
+    ],
+    // AVIF prima di WebP: -30% size vs WebP, ~50% vs JPEG.
+    // Chrome 85+/Safari 16+/Firefox 113+ supportano AVIF.
+    formats: ['image/avif', 'image/webp'],
+    // Dimezziamo i breakpoint generati (default 8): basta coprire
+    // mobile/tablet/desktop/4K, ogni tear extra bloat il proxy.
+    deviceSizes: [640, 828, 1200, 1920],
+    imageSizes: [16, 32, 64, 128, 256, 512]
   },
 
   async redirects() {

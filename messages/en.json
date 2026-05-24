@@ -1,16 +1,19 @@
 {
   "Brand": {
-    "name": "Sicily Driver Siracusa",
+    "name": "Sicily Driver Syracuse",
     "shortName": "Sicily Driver",
-    "tagline": "VIP-style elegance at market prices"
+    "tagline": "Sicily, in a Mercedes, at your own pace."
   },
   "Nav": {
     "home": "Home",
     "services": "Services",
-    "tours": "Tours",
+    "tours": "Sicily Tours",
+    "wedding": "Wedding",
+    "partner": "Partners",
     "about": "About",
     "contact": "Contact",
-    "bookNow": "Book now"
+    "bookNow": "Book",
+    "callShort": "Call"
   },
   "WhatsApp": {
     "label": "Message us on WhatsApp",
@@ -26,6 +29,84 @@
     "opensNewTab": "(opens in new tab)",
     "currentPage": "Current page"
   },
+  "Privacy": {
+    "meta": {
+      "title": "Privacy Policy — Sicily Driver Syracuse",
+      "description": "Personal data processing notice under EU Regulation 2016/679 (GDPR). Sicily Driver Syracuse is the data controller."
+    },
+    "eyebrow": "Data processing",
+    "h1": "Privacy Policy",
+    "updated": "Last updated: 24 May 2026",
+    "intro": "This page describes how the site ncctaxisiracusa.com handles personal data of the users who consult it. The notice is provided pursuant to Art. 13 of EU Regulation 2016/679 (GDPR) and Italian Legislative Decree 196/2003 as amended.",
+    "s1": {
+      "h": "Data controller",
+      "p": "The data controller is Sicily Driver Siracusa (Loris Lo Russo, VAT 02150600894), with operating office in Syracuse, Italy. Email: info@ncctaxisiracusa.com — Phone: +39 375 641 3379."
+    },
+    "s2": {
+      "h": "Types of data processed",
+      "p": "We process data you voluntarily provide by filling in the contact, tour booking or wedding quote forms: first name, last name, email address, phone number, service date, number of passengers and any additional notes. We also process navigation data automatically collected by IT systems (IP addresses, browser type, operating system, URL references, timestamps) for the sole purpose of the site's functioning and aggregated anonymous statistics."
+    },
+    "s3": {
+      "h": "Purposes of processing",
+      "p": "Data is processed to: (a) reply to quote or information requests; (b) manage booking and execution of the NCC service; (c) comply with legal obligations (invoicing, accounting); (d) improve the site through anonymous aggregated analytics, only with your explicit consent via the cookie banner."
+    },
+    "s4": {
+      "h": "Legal basis",
+      "p": "Processing is based on: (a) performance of a contract or pre-contractual measures at your request (Art. 6.1.b GDPR) — for booking and replies; (b) explicit consent (Art. 6.1.a GDPR) — for analytics and marketing cookies; (c) legal obligation (Art. 6.1.c GDPR) — for invoicing and tax compliance; (d) legitimate interest (Art. 6.1.f GDPR) — for technical site functioning."
+    },
+    "s5": {
+      "h": "Cookies",
+      "p": "The site uses technical cookies necessary for functioning, and optional cookies (analytics and marketing) activated only with your explicit consent via the banner that appears on first visit. You can change your preferences at any time from the \"Cookie settings\" link at the bottom of every page. Technical cookies include: session cookie, language preference, storage of the consent itself."
+    },
+    "s6": {
+      "h": "Disclosure and retention",
+      "p": "Data is not disclosed or sold to third parties. It may be communicated only to subjects involved in service delivery (e.g. partners for joint tours — Pura Vida Beach Club, Cantina Benanti, Fratelli Burgio, Palmeri — only as strictly necessary to execute the requested service) and to technical providers (Vercel hosting, email). Data is retained for the time necessary to the purposes (10 years for tax obligations, 24 months from end of relationship for communications)."
+    },
+    "s7": {
+      "h": "Your rights",
+      "p": "Under Articles 15–22 GDPR you have the right to: access your data, request its correction or deletion, restrict processing, object to processing, receive data in a structured format (portability), withdraw consent at any time. To exercise your rights write to info@ncctaxisiracusa.com. You also have the right to lodge a complaint with the Italian Data Protection Authority (www.garanteprivacy.it)."
+    },
+    "s8": {
+      "h": "Changes to this notice",
+      "p": "We may update this notice to reflect regulatory or operational changes. The date of the last update is shown at the top of the page. We invite you to consult it periodically."
+    },
+    "contact": {
+      "eyebrow": "Questions?",
+      "body": "For any request regarding personal data processing write to us at",
+      "cta": "Contact us"
+    }
+  },
+  "Cookie": {
+    "title": "We use cookies to improve your experience.",
+    "body": "Strictly necessary cookies are always on. Analytics and marketing only with your consent.",
+    "privacyLink": "Read the policy",
+    "acceptAll": "Accept all",
+    "rejectAll": "Reject",
+    "customize": "Customize",
+    "alwaysOn": "Always on",
+    "closeAria": "Close",
+    "manageLink": "Cookie settings",
+    "settings": {
+      "eyebrow": "Your preferences",
+      "title": "Choose what to enable.",
+      "body": "You can change your mind anytime from the \"Cookie settings\" link at the bottom of every page.",
+      "save": "Save preferences"
+    },
+    "categories": {
+      "necessary": {
+        "name": "Necessary",
+        "description": "Technical cookies for the site to work (session, language preference, cookie consent). Without these the site doesn't function. You cannot disable them."
+      },
+      "analytics": {
+        "name": "Analytics",
+        "description": "Anonymous cookies to understand how you use the site (page views, device, duration). They help us improve navigation. Data does not identify the person."
+      },
+      "marketing": {
+        "name": "Marketing",
+        "description": "Cookies to measure clicks on our advertising campaigns. Enable only if you arrived from an ad and we'd like to know which one."
+      }
+    }
+  },
   "Footer": {
     "servicesHeading": "Services",
     "areasHeading": "Areas served",
@@ -39,164 +120,398 @@
   },
   "Home": {
     "meta": {
-      "title": "Sicily NCC · Catania Airport Transfers | Sicily Driver",
-      "description": "Private Mercedes transfers and tours across Sicily with bilingual drivers. From €80 per route. 24/7 NCC in Syracuse, Noto, Catania, Taormina."
+      "title": "Sicily Driver Syracuse — Private NCC, Taxi & Airport Transfers in Sicily",
+      "description": "Private NCC service in Syracuse: airport transfers from Catania, Comiso, Pozzallo. Baroque, Etna and Ortigia tours with English-speaking Mercedes drivers. 24/7 WhatsApp booking."
     },
     "hero": {
-      "eyebrow": "Private NCC · Eastern Sicily · 24/7",
-      "h1Pre": "NCC in Syracuse: airport transfers, private tours &",
-      "h1Accent": "VIP service",
-      "h1Post": "in Sicily",
-      "taglineAccent": "VIP-style elegance at market prices",
-      "taglinePost": "— your premium NCC at accessible rates",
-      "searchFromLabel": "From",
-      "searchFromPlaceholder": "Catania Airport",
-      "searchToLabel": "To",
-      "searchToPlaceholder": "Syracuse, Ortigia",
-      "searchDateLabel": "When",
-      "searchDatePlaceholder": "Date",
-      "searchPaxLabel": "Passengers",
-      "searchCta": "Check price",
-      "secondaryCta": "Or message us right away on WhatsApp"
+      "a11yLabel": "Sicily Driver Syracuse — private guide for eastern Sicily",
+      "h1Pre": "Sicily,",
+      "h1Punct": ".",
+      "h1Post": "slowly",
+      "subhead": "A diary from the people who drive it every day. Private tours, transfers and rare moments, from Syracuse to Taormina.",
+      "scrollCue": "Scroll"
     },
-    "trust": {
-      "item1Number": "From €80",
-      "item1Label": "per route in Mercedes",
-      "item2Number": "24/7",
-      "item2Label": "book via WhatsApp",
-      "item3Number": "3 locations",
-      "item3Label": "Syracuse · Noto · Marzamemi"
+    "whisper1": {
+      "eyebrow": "How we work",
+      "text": "We pick you up wherever you are. From there, we decide together where to go."
     },
-    "intro": {
-      "eyebrow": "Welcome",
-      "h2Pre": "Welcome to",
-      "h2Accent": "Sicily Driver",
-      "h2Post": "Syracuse",
-      "body1Bold": "Welcome to Sicily Driver Syracuse",
-      "body1Rest": ", your go-to partner for chauffeur-driven car services (NCC) across Sicily. We provide private transfers to and from all island airports — Catania, Comiso, Palermo, and Trapani — as well as connections to the ports of Pozzallo and Augusta. Travel in utmost comfort aboard our Mercedes Class V, GLB Premium, and Class E, with 24/7 service.",
-      "body2": "Discover our bespoke tours: explore the Baroque treasures of Noto, Modica, Ragusa Ibla, marvel at the lunar landscapes of Etna, stroll through historic Ortigia, and be captivated by the terraces of Taormina. Our VIP service is ideal for weddings, corporate events, and exclusive travel experiences.",
-      "cta": "Book your NCC now"
+    "esperienze": {
+      "eyebrow": "The experiences",
+      "card1Tag": "Ortigia · 3 hours · vintage Fiat 500 Spiaggina",
+      "card1Title": "La dolce vita, slowly.",
+      "card1Body": "A vintage 500, the island of Ortigia, three hours at walking pace. Stops wherever you like, photos if you wish, sunset aperitivo by the sea.",
+      "card2Tag": "Ortigia · 4 hours · private sailing",
+      "card2Title": "Four hours of silence, sailing.",
+      "card2Body": "From the port of Ortigia toward the most beautiful bays of the coast. Wind, sun, a swim stop, Fratelli Burgio platter on board. Engine off when the wind’s there.",
+      "card3Tag": "South coast · full day · Pura Vida Beach Club",
+      "card3Title": "Where Sicily ends.",
+      "card3Body": "The south-eastern tip of the island, where the Ionian meets the Mediterranean. Lunch at Pura Vida, sunset on the sea, aperitivo in Marzamemi before the return.",
+      "card4Tag": "Etna · full day · quad and wineries",
+      "card4Title": "On Etna, at 1,900 metres.",
+      "card4Body": "The Silvestri craters by quad, two partner wineries (Benanti and Palmeri) for the tasting, lunch at the winery with a view of the vineyards that grow on lava.",
+      "card5Tag": "Val di Noto · 6-8 hours · day",
+      "card5Title": "Three UNESCO World Heritage cities.",
+      "card5Body": "Noto, Modica, Ragusa Ibla. Baroque limestone in the morning light, cold-processed chocolate, terraces over the valleys. With the pauses that count.",
+      "cardCta": "Discover",
+      "customTagline": "Looking for something different? We build the itinerary together.",
+      "customCta": "Let’s talk"
     },
-    "servizi": {
-      "eyebrow": "Three ways to use us",
-      "h2Pre": "Where",
-      "h2Accent": "we take you",
-      "card1": {
-        "number": "01",
-        "kicker": "Transfers",
-        "title": "Airport and port transfers",
-        "body": "Catania, Comiso, Palermo, Trapani. Pozzallo and Augusta for cruise ships. Flight tracking, free waiting time.",
-        "cta": "See transfers"
-      },
-      "card2": {
-        "number": "02",
-        "kicker": "Baroque Tour · NEW",
-        "title": "Baroque Tour",
-        "body": "Noto, Modica, Ragusa Ibla in one day. Cathedrals, palazzos, Modica chocolate. 6-8 hours with bilingual driver.",
-        "cta": "Explore the tour"
-      },
-      "card3": {
-        "number": "03",
-        "kicker": "Etna Tour",
-        "title": "Etna Tour",
-        "body": "Silvestri Craters, winery with tasting, Valle del Bove panorama. Can be combined with Taormina.",
-        "cta": "See the itinerary"
-      },
-      "card4": {
-        "number": "04",
-        "kicker": "Weddings & Events",
-        "title": "Weddings & Events",
-        "body": "A Mercedes fleet for the day you'll remember. Class V for guests, Class E for the couple.",
-        "cta": "Let's talk about your day"
-      }
+    "manifesto": {
+      "eyebrow": "What we do",
+      "h2": "Private transfers, tours, events. All across Sicily.",
+      "body1": "Sicily Driver Syracuse is your partner for chauffeur-driven car services (NCC) across the whole of Sicily. We offer private transfers to and from all the island’s airports — Catania, Comiso, Palermo and Trapani — as well as connections to the ports of Pozzallo and Augusta. Travel in maximum comfort aboard our Mercedes V-Class, GLB Premium and E-Class, 24 hours a day.",
+      "body2": "Our bespoke tours reach the Baroque of Noto, Modica and Ragusa Ibla, the lunar landscapes of Etna, ancient Ortigia and the terraces of Taormina. The dedicated service is designed for weddings, corporate events and tailor-made travel."
     },
-    "destinazioni": {
-      "eyebrow": "Where we go most often",
-      "h2Pre": "The destinations",
-      "h2Accent": "we know by heart",
-      "ortigia": "Ortigia — the heart of Syracuse",
-      "noto": "Noto — Baroque at sunset",
-      "modica": "Modica — alleys and chocolate from ancient tradition",
-      "ragusa": "Ragusa Ibla — the cathedral and the views",
-      "etna": "Etna — the volcano under the stars",
-      "taormina": "Taormina — the terrace on the sea"
+    "interni": {
+      "eyebrow": "The cars",
+      "h2": "Serviced every week.",
+      "body": "The cars are Mercedes V-Class, GLB Premium or E-Class. Weekly mechanical checks, sanitised after every service, cold water on board, Wi-Fi on request. People spend hours in the car: we make sure those hours feel quiet.",
+      "waterAlt": "Water bottle in the rear cup holder of the Mercedes V-Class",
+      "leatherAlt": "Detail of Mercedes leather seat",
+      "screenAlt": "Wi-Fi tablet on the headrest of the Mercedes V-Class",
+      "caption": "The journey begins the moment you open the door. Even the long hours, between Catania and Marzamemi, pass lightly."
+    },
+    "mosaico": {
+      "eyebrow": "The places",
+      "h2": "Where we drive you.",
+      "ortigia": "Ortigia",
+      "noto": "Noto",
+      "marzamemi": "Marzamemi",
+      "ragusa": "Ragusa Ibla",
+      "etna": "Etna",
+      "taormina": "Taormina",
+      "ortigiaAlt": "Rooftops of Ortigia at sunset",
+      "notoAlt": "Cathedral steps of Noto",
+      "marzamemiAlt": "Marzamemi tonnara from the sea",
+      "ragusaAlt": "Cupola of San Giorgio Cathedral in Ragusa Ibla",
+      "etnaAlt": "Etna vineyard on volcanic soil",
+      "taorminaAlt": "Greek theatre of Taormina with sea view"
+    },
+    "partners": {
+      "eyebrow": "The places we chose",
+      "h2": "Four collaborations worth the trip.",
+      "subhead": "We don’t work with everyone. Each partner adds something we couldn’t offer alone — a flavour, a wait in the right place, a story.",
+      "puravidaPlace": "Portopalo · Beach club",
+      "puravidaQuote": "They know how to stay quiet when a guest just wants to look at the sea for three hours.",
+      "puravidaBody": "Beach club facing Isola delle Correnti, where the two seas meet. Sicilian cuisine on the sand, light wooden sunbeds, access to crystalline water.",
+      "puravidaName": "Pura Vida Beach Club",
+      "puravidaAlt": "View of Pura Vida Beach Club at sunset",
+      "burgioPlace": "Ortigia · Gourmet shop",
+      "burgioQuote": "Every product has a producer’s name behind it. Not an industrial label.",
+      "burgioBody": "Historic gourmet shop in Ortigia. Cured meats, cheeses, preserves, fresh bread. The platters served on board the Silent Sailing are born here.",
+      "burgioName": "Fratelli Burgio",
+      "burgioAlt": "Platter of Sicilian cured meats and cheeses from Fratelli Burgio",
+      "benantiPlace": "Etna · Historic winery",
+      "benantiQuote": "They have been making wine for four generations on Etna lava. For us they are always the starting point.",
+      "benantiBody": "One of the historic voices in Etna’s renaissance as a high-quality terroir. Nerello Mascalese and Carricante grown between 600 and 900 metres on volcanic soils.",
+      "benantiName": "Cantina Benanti",
+      "benantiAlt": "Glass of Etna red wine from Cantina Benanti",
+      "palmeriPlace": "Etna · Terroir wines",
+      "palmeriQuote": "The other Etna. The one you tell to those who really want to listen.",
+      "palmeriBody": "South-eastern slope of Etna, less touristic than the historic ones to the north. A small family operation, wines that speak of a precise area.",
+      "palmeriName": "Cantina Palmeri",
+      "palmeriAlt": "Oak barrels in the Palmeri winery on Etna",
+      "cta": "Meet all the partners"
     },
     "listino": {
-      "eyebrow": "Transparent pricing",
-      "h2Pre": "How",
-      "h2Accent": "much",
-      "subhead": "Base prices for Mercedes Class V (up to 7 passengers). Custom routes on quote.",
-      "row1From": "Catania Airport",
-      "row1To": "Syracuse",
-      "row1Price": "from €80",
-      "row2From": "Catania Airport",
-      "row2To": "Noto",
-      "row2Price": "from €100",
-      "row3From": "Catania Airport",
-      "row3To": "Taormina",
-      "row3Price": "from €120",
-      "row4From": "Catania Airport",
-      "row4To": "Ragusa Ibla",
-      "row4Price": "from €150",
-      "row5From": "Catania Airport",
-      "row5To": "Marzamemi",
-      "row5Price": "from €130",
-      "row6From": "Catania Cruise Port",
-      "row6To": "Ortigia",
-      "row6Price": "from €90",
-      "microcopy": "Prices don't include highway tolls. Children up to 12 ride free with safety seat on request. Free waiting time at the airport up to 60 minutes.",
+      "eyebrow": "How much it costs",
+      "h2": "The most requested routes.",
+      "cataniaSiracusaLabel": "Catania Airport → Syracuse",
+      "cataniaSiracusaPrice": "from €80",
+      "cataniaSiracusaNote": "One-hour drive, Mercedes V-Class, flight tracking, child seats free.",
+      "cataniaTaorminaLabel": "Catania Airport → Taormina",
+      "cataniaTaorminaPrice": "from €120",
+      "cataniaTaorminaNote": "One hour along the Ionian coast, comfortable even at night.",
+      "cataniaNotoLabel": "Catania Airport → Noto",
+      "cataniaNotoPrice": "from €120",
+      "cataniaNotoNote": "One hour twenty, airport wait included.",
+      "pozzalloSiracusaLabel": "Pozzallo Port → Syracuse",
+      "pozzalloSiracusaPrice": "from €120",
+      "pozzalloSiracusaNote": "One hour, for those landing off the Malta ferry.",
+      "disclaimer": "The rest we tell you on WhatsApp, in five minutes. Prices may vary for time, season and party size. Confirmed at quote, no surprises on return.",
       "cta": "Custom quote"
     },
-    "about": {
+    "dietro": {
       "eyebrow": "Who drives",
-      "h2Pre": "Sicily Driver,",
-      "h2Accent": "since 2018",
-      "body1": "We started in Syracuse with a simple idea: moving around Sicily well shouldn't be a magazine-spread luxury.",
-      "body2": "Since then we've driven tourists, brides and grooms, hotel guests, and families across eastern Sicily. Three locations, a Mercedes fleet kept like it's family, drivers who speak Italian and English — real English, not Google Translate.",
-      "body3": "That's it. No brochure language, no promises of «excellence». The journey tells you.",
-      "cta": "Read our story"
+      "h2": "Three bases. One family.",
+      "body1": "Sicily Driver Syracuse is a family business with three bases in Syracuse, Noto and Marzamemi. A Mercedes fleet that grows step by step, checked every week.",
+      "body2": "The drivers speak fluent Italian and English — most have lived or worked abroad. They know the roads, where the palaces no guidebook mentions are, and where to actually eat well.",
+      "body3": "From Catania to Marzamemi we don’t take shortcuts. We drive you where you need to go, we wait if the flight is late, we know where to stop for the right photos.",
+      "cta": "Read the full story",
+      "alt": "Mercedes driver parked on a Val di Noto road at sunset"
     },
-    "differenziatori": {
-      "eyebrow": "Why choose us",
-      "h2Pre": "What",
-      "h2Accent": "sets us apart",
-      "item1Number": "01",
-      "item1Title": "No-surprise pricing",
-      "item1Body": "From €80 per route, fare agreed before you board. No hidden fees, no mysterious «night surcharge».",
-      "item2Number": "02",
-      "item2Title": "Mercedes serviced every week",
-      "item2Body": "Class V, GLB Premium, Class E. Weekly mechanical checks, sanitization after every ride. Cold water on board, always.",
-      "item3Number": "03",
-      "item3Title": "Genuinely bilingual drivers",
-      "item3Body": "Our drivers speak Italian and English fluently. They know the roads, the Mass schedules in Modica, and where to actually eat well in Ortigia."
+    "testimonianze": {
+      "eyebrow": "From those who’ve ridden",
+      "h2Pre": "The voices",
+      "h2Accent": "we carry with us",
+      "items": [
+        {
+          "quote": "They came on time at four in the morning. They waited for the late flight without a fuss. They recommended a restaurant in Ortigia that wasn’t in any guide. For us it was the first Sicily.",
+          "author": "Marco & Elisa",
+          "place": "Berlin"
+        },
+        {
+          "quote": "Baroque tour with two small kids. The driver brought car seats, water, and infinite patience. He dropped us at the chocolate workshop in Modica without rushing. Never once felt the ‘we have to go’ vibe.",
+          "author": "Sophie Laurent",
+          "place": "Paris"
+        },
+        {
+          "quote": "A full day on Etna for two. Quad on the craters, lunch at the Benanti winery. Salvatore’s English is excellent and he talks about lava like it’s a relative. Worth every euro.",
+          "author": "James Walker",
+          "place": "London"
+        },
+        {
+          "quote": "Booked a sunset in Marzamemi the night before — replied on WhatsApp in twenty minutes. Brand-new Mercedes, beautifully kept, driver in a jacket. Service level worthy of Capri, but with real substance.",
+          "author": "Anna & Pietro",
+          "place": "Milan"
+        },
+        {
+          "quote": "Wedding in Val di Noto, three cars for our guests. Timings respected to the minute, drivers in ties, photos of guests during the journey. Our relatives felt pampered.",
+          "author": "David & Mira",
+          "place": "Singapore"
+        },
+        {
+          "quote": "Silent Sailing at sunset. Professional skipper, the Burgio platter served on a wooden tray, Etna white wine. Four hours where we didn’t touch our phones. That’s rare.",
+          "author": "Federica Ronzano",
+          "place": "Turin"
+        }
+      ]
+    },
+    "ctaFinale": {
+      "eyebrow": "When you arrive",
+      "h2": "Message us when you land.",
+      "body": "WhatsApp is the fastest channel. We reply within an hour, 24 hours a day, even in winter.",
+      "ctaWhatsApp": "Open WhatsApp",
+      "ctaCall": "+39 375 641 3379",
+      "emailPre": "Or write to"
+    }
+  },
+  "NccPage": {
+    "fleetTablePax": "Passengers",
+    "fleetTableLuggage": "Luggage",
+    "fleetTableComfort": "Comfort",
+    "fleetTableIdeal": "Ideal for",
+    "ctaWhatsApp": "Message on WhatsApp",
+    "ctaCall": "Call · +39 375 641 3379",
+    "ctaQuote": "Request a quote",
+    "ctaEmailPre": "Or email",
+    "ctaDiscoverTour": "Discover the tour"
+  },
+  "Servizi": {
+    "meta": {
+      "title": "NCC Services Sicily · Transfers, Tours, Weddings | Sicily Driver",
+      "description": "Our services at Sicily Driver Syracuse: airport transfers, private tours, weddings and events, business. Mercedes with English-speaking driver, 24/7 across eastern Sicily."
+    },
+    "hero": {
+      "eyebrow": "Everything we do",
+      "h1Pre": "Our",
+      "h1Accent": "services",
+      "subhead": "Premium vehicles, professional drivers and tailor-made itineraries to explore Sicily in total comfort."
+    },
+    "intro": {
+      "body": "At Sicily Driver Syracuse we offer four ways of being driven around eastern Sicily, with the same Mercedes fleet and the same chauffeurs throughout: point-to-point airport transfers, private day tours, wedding and event service, business solutions for companies and VIP guests."
+    },
+    "cards": {
+      "eyebrow": "Four ways to use us",
+      "h2Pre": "Four ways",
+      "h2Accent": "we drive you",
+      "card1Number": "01",
+      "card1Kicker": "Airport & port transfers",
+      "card1Title": "Airport & port transfers",
+      "card1Body": "Catania, Comiso, Palermo, Trapani. Pozzallo and Augusta. From €80 per route in Mercedes V-Class.",
+      "card1Point1": "Real-time flight monitoring",
+      "card1Point2": "Free waiting up to 60 minutes",
+      "card1Point3": "Child seats at no extra cost",
+      "card1Cta": "See the routes",
+      "card2Number": "02",
+      "card2Kicker": "Private Sicily tours",
+      "card2Title": "Private Sicily tours",
+      "card2Body": "Baroque, Etna, Ortigia + Taormina. Tours customised on request. 6–9 hours with bespoke stops.",
+      "card2Point1": "Mercedes V-Class with English-speaking driver",
+      "card2Point2": "Photo and food stops",
+      "card2Point3": "Water and flexibility included",
+      "card2Cta": "Explore the tours",
+      "card3Number": "03",
+      "card3Kicker": "Weddings & events",
+      "card3Title": "Weddings and events",
+      "card3Body": "A dedicated fleet for the big day. V-Class for guests, E-Class for the couple.",
+      "card3Point1": "Multi-car coordination",
+      "card3Point2": "Extended waiting, flexible hours",
+      "card3Point3": "Driver in uniform on request",
+      "card3Cta": "Let's talk about the day",
+      "card4Number": "04",
+      "card4Kicker": "Business & corporate",
+      "card4Title": "Business and corporate",
+      "card4Body": "Corporate transfers, conferences, VIP guests. Standard and electronic invoicing.",
+      "card4Point1": "Absolute discretion",
+      "card4Point2": "Deferred payment for companies",
+      "card4Point3": "Driver in jacket for formal occasions",
+      "card4Cta": "Request a proposal"
+    },
+    "fleet": {
+      "eyebrow": "Mercedes",
+      "h2Pre": "The",
+      "h2Accent": "fleet",
+      "card1Model": "V-Class — the workhorse of the fleet",
+      "card1Pax": "Up to 7 passengers + 6 large suitcases",
+      "card1Comfort": "Leather, AC, tinted windows, Wi-Fi on request",
+      "card1Price": "From €80 per route",
+      "card2Model": "GLB Premium — the family SUV",
+      "card2Pax": "Up to 4 passengers + 3 suitcases",
+      "card2Comfort": "High ride, panoramic, ideal for tours",
+      "card2Price": "From €90 per route",
+      "card3Model": "E-Class — the executive sedan",
+      "card3Pax": "Up to 3 passengers + 2 suitcases",
+      "card3Comfort": "Low quiet ride, interior dividers",
+      "card3Price": "From €100 per route"
+    },
+    "areas": {
+      "eyebrow": "Where we operate",
+      "h2Pre": "The cities",
+      "h2Accent": "we know",
+      "cities": "Catania (and Fontanarossa), Taormina and Isola Bella, Ragusa Ibla, Modica, Comiso (and airport), Augusta, Pozzallo (cruise port), Avola, Pachino, Portopalo, the whole Val di Noto.",
+      "airports": "Airports: Catania Fontanarossa, Comiso, Palermo Falcone Borsellino, Trapani Birgi.",
+      "bases": "Bases: Syracuse · Noto · Marzamemi",
+      "cta": "Go to city driver pages"
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "h2Pre": "Frequent",
+      "h2Accent": "questions",
+      "q1": "How much advance notice do you need?",
+      "a1": "For airport transfers, a WhatsApp message even 2 hours before is fine. For tours and weddings we recommend 7–15 days in advance to secure the right fleet.",
+      "q2": "Do you cover all of Sicily or only the east?",
+      "a2": "We operate primarily in eastern Sicily (provinces of Syracuse, Catania, Ragusa, southern Messina). For central or western Sicily we organise with more notice.",
+      "q3": "Only point-to-point transfers or hourly hire as well?",
+      "a3": "Both: point-to-point transfers and hourly hire (half day, full day) with car and driver at your disposal.",
+      "q4": "Can we pay by bank transfer in advance?",
+      "a4": "Yes, this is the preferred method for weddings, events, business and tours booked in advance. Cash and card accepted on board for transfers."
     },
     "ctaFinale": {
       "eyebrow": "First things first",
-      "h2Accent": "Ready to go?",
-      "subhead": "Three ways to tell us where to pick you up.",
-      "cta1": "Message on WhatsApp",
-      "cta2": "Call now · +39 375 641 3379",
-      "cta3Pre": "Or email",
-      "cta3Email": "info@ncctaxisiracusa.com"
+      "h2": "Where do we start?",
+      "subhead": "Three ways to tell us what service you need."
+    }
+  },
+  "ChiSiamo": {
+    "meta": {
+      "title": "About · The story of Sicily Driver Syracuse | NCC Sicily",
+      "description": "Sicily Driver Syracuse was born from a passion for high-quality NCC services. Three bases (Syracuse, Noto, Marzamemi), a curated Mercedes fleet, English-speaking drivers."
     },
-    "faq": {
-      "eyebrow": "Questions?",
-      "h2Pre": "Questions",
-      "h2Accent": "we get often",
-      "q1": "How much does a Catania airport transfer cost?",
-      "a1": "Prices start at €80 per route for NCC service with Mercedes Class V, depending on the route and number of passengers.",
-      "q2": "Can I book a Baroque tour for one day?",
-      "a2": "Yes: we offer 4–8 hour tours with optional guide; the itinerary is customizable and includes Noto, Modica, Ragusa Ibla.",
-      "q3": "Do you offer a private night taxi service?",
-      "a3": "Of course: our NCC is active 24/7, perfect for evening transfers to restaurants, events, or airports.",
-      "q4": "How many passengers fit in the Mercedes Class V?",
-      "a4": "Class V seats up to 7 passengers plus luggage. For smaller groups we offer Class E (sedan, up to 3 passengers) or GLB Premium (SUV, up to 4 passengers).",
-      "q5": "What if my flight is delayed?",
-      "a5": "We monitor all flight schedules in real time. The driver waits free of charge for up to 60 minutes from your landing time, even with flight delays.",
-      "q6": "Can I pay by card?",
-      "a6": "Yes: we accept cash, credit card on board, and bank transfer for advance bookings (events, weddings, business).",
-      "q7": "Can I book for a group of 10-15 people?",
-      "a7": "Yes: we coordinate multiple cars from our fleet for larger groups. Message us on WhatsApp with the date, passengers, and route and we'll send a quote within the hour."
+    "hero": {
+      "eyebrow": "Our story",
+      "h1Pre": "Sicily Driver,",
+      "h1Accent": "a Sicilian story",
+      "subhead": "Three bases, a Mercedes fleet looked after like family, drivers who speak real English — not Google Translate English."
+    },
+    "story": {
+      "eyebrow": "About us",
+      "h2Pre": "A young",
+      "h2Accent": "and dynamic team",
+      "body1": "Sicily Driver Syracuse is a young and dynamic company born from a passion for high-quality NCC and transfer services. With extensive experience in crafting personalised journeys, we provide tailored solutions for individuals and businesses seeking comfort and safety in their travels.",
+      "body2": "Thanks to our carefully selected fleet and attention to detail, we guarantee punctuality and courtesy on every trip. Our team consists of transportation professionals who understand the specific needs of our clients, ready to support you 24/7 throughout your journey.",
+      "body3": "Choosing Sicily Driver Syracuse means trusting a dedicated partner: from airport transfers and NCC services for events to private excursions and tours. We are by your side to make every journey enjoyable and worry-free."
+    },
+    "beliefs": {
+      "eyebrow": "What we believe",
+      "h2Pre": "Three",
+      "h2Accent": "convictions",
+      "item1Title": "No surprise pricing",
+      "item1Body": "From Catania to Marzamemi, fare agreed before departure. No hidden surcharges, no mysterious 'night rate'.",
+      "item2Title": "Mercedes serviced weekly",
+      "item2Body": "V-Class, GLB Premium, E-Class. Weekly mechanical checks, sanitised after every service. Cold water on board, always.",
+      "item3Title": "Real bilingual drivers",
+      "item3Body": "Our chauffeurs speak fluent Italian and English. They know the roads, the mass times in Modica, and where to actually eat well in Ortigia."
+    },
+    "bases": {
+      "eyebrow": "Our bases",
+      "h2Pre": "Where you",
+      "h2Accent": "find us",
+      "base1Name": "Syracuse",
+      "base1Address": "Via della Maestranza, 28",
+      "base1Note": "Main office, operations base",
+      "base2Name": "Noto",
+      "base2Address": "Via Alcide De Gasperi, 15",
+      "base2Note": "Operations base for Val di Noto tours",
+      "base3Name": "Marzamemi",
+      "base3Address": "Via Marzamemi, 23",
+      "base3Note": "Support base for the south-east coast"
+    },
+    "ctaFinale": {
+      "eyebrow": "Next stop",
+      "h2": "Shall we drive together?",
+      "subhead": "Three ways to tell us where to pick you up."
+    }
+  },
+  "Contatti": {
+    "meta": {
+      "title": "Contact · Sicily Driver Syracuse | Phone, WhatsApp, email",
+      "description": "Contact Sicily Driver Syracuse: phone +39 375 641 3379, WhatsApp 24/7, email info@ncctaxisiracusa.com. Bases in Syracuse, Noto, Marzamemi."
+    },
+    "hero": {
+      "eyebrow": "Let's talk",
+      "h1Pre": "Sicily Driver",
+      "h1Accent": "answers",
+      "subhead": "In Italian or English, via WhatsApp, phone or email. We reply within one hour, 24 hours a day."
+    },
+    "ways": {
+      "eyebrow": "Three ways to reach us",
+      "h2Pre": "Pick",
+      "h2Accent": "your channel",
+      "card1Label": "WhatsApp · fastest reply",
+      "card1Value": "+39 375 641 3379",
+      "card1Note": "Send us date, route and passenger count.",
+      "card1CtaLabel": "Open WhatsApp",
+      "card2Label": "Phone",
+      "card2Value": "+39 375 641 3379",
+      "card2Note": "For urgent matters, imminent travel, last-minute confirmations.",
+      "card2CtaLabel": "Call now",
+      "card3Label": "Email",
+      "card3Value": "info@ncctaxisiracusa.com",
+      "card3Note": "For detailed requests, weddings, business, invoicing.",
+      "card3CtaLabel": "Send email",
+      "pec": "PEC: izzo.v@pec.it"
+    },
+    "form": {
+      "eyebrow": "Contact form",
+      "h2Pre": "Or",
+      "h2Accent": "write to us here",
+      "subhead": "Four fields, that's it. We reply within an hour, even at night.",
+      "fieldNameLabel": "Name",
+      "fieldNamePlaceholder": "Jane Smith",
+      "fieldPhoneLabel": "Phone",
+      "fieldPhonePlaceholder": "+44 ...",
+      "fieldTypeLabel": "Request type",
+      "fieldTypeOption1": "Airport / port transfer",
+      "fieldTypeOption2": "Private tour",
+      "fieldTypeOption3": "Wedding and events",
+      "fieldTypeOption4": "Business / Corporate",
+      "fieldTypeOption5": "Other",
+      "fieldMessageLabel": "Message",
+      "fieldMessagePlaceholder": "When, from where, to where, how many people…",
+      "submit": "Send",
+      "submitNote": "Reply within 1 hour, 24/7 on WhatsApp.",
+      "successTitle": "Thanks, we received your request.",
+      "successBody": "We'll reply within an hour. If it's urgent, message us on WhatsApp.",
+      "errorRequired": "Please check the required fields and try again."
+    },
+    "bases": {
+      "eyebrow": "Our bases",
+      "h2Pre": "Where",
+      "h2Accent": "we are",
+      "base1Name": "Syracuse",
+      "base1Address": "Via della Maestranza, 28",
+      "base2Name": "Noto",
+      "base2Address": "Via Alcide De Gasperi, 15",
+      "base3Name": "Marzamemi",
+      "base3Address": "Via Marzamemi, 23"
+    },
+    "times": {
+      "eyebrow": "Response times",
+      "h2Pre": "When",
+      "h2Accent": "we reply",
+      "body": "WhatsApp: within 1 hour, 24/7, including nights and holidays. Email: within 24 hours. Phone: always, around the clock.",
+      "businessNote": "Weddings and events need a detailed quote: the first reply arrives within an hour with initial sizing, the full quote within 24 hours."
     }
   }
 }

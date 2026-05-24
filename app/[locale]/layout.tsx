@@ -1,5 +1,5 @@
 import type {Metadata} from 'next';
-import {Cormorant_Garamond, DM_Sans} from 'next/font/google';
+import {Bricolage_Grotesque, Inter_Tight} from 'next/font/google';
 import {NextIntlClientProvider, hasLocale} from 'next-intl';
 import {setRequestLocale, getTranslations} from 'next-intl/server';
 import {notFound} from 'next/navigation';
@@ -7,20 +7,22 @@ import {routing} from '@/i18n/routing';
 import {Navbar} from '@/components/layout/Navbar';
 import {Footer} from '@/components/layout/Footer';
 import {WhatsAppFloat} from '@/components/layout/WhatsAppFloat';
+import {CookieBanner} from '@/components/layout/CookieBanner';
 import '../globals.css';
 
-const cormorant = Cormorant_Garamond({
-  variable: '--font-cormorant',
+// Display font — Bricolage Grotesque (geometrico, distintivo, ottimo per scritte grandi).
+// Variable weight + opsz axes per scale tipografica fluida.
+const bricolage = Bricolage_Grotesque({
+  variable: '--font-display',
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  style: ['normal', 'italic'],
+  weight: ['200', '300', '400', '500', '600', '700', '800'],
   display: 'swap',
-  fallback: ['Georgia', 'serif']
-  // adjustFontFallback default true: Next.js inietta size-adjust metric-matched fallback
+  fallback: ['Georgia', 'ui-serif', 'serif']
 });
 
-const dmSans = DM_Sans({
-  variable: '--font-dm-sans',
+// Body/UI font — Inter Tight (sans pulito ad alta densità).
+const interTight = Inter_Tight({
+  variable: '--font-sans',
   subsets: ['latin'],
   weight: ['300', '400', '500', '600'],
   display: 'swap',
@@ -55,7 +57,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${cormorant.variable} ${dmSans.variable} antialiased`}
+      className={`${bricolage.variable} ${interTight.variable} antialiased`}
       suppressHydrationWarning
     >
       <head>
@@ -75,11 +77,12 @@ export default async function LocaleLayout({
         </a>
         <NextIntlClientProvider>
           <Navbar />
-          <main id="main" className="flex-1">
+          <main id="main" tabIndex={-1} className="flex-1 focus:outline-none">
             {children}
           </main>
           <Footer />
           <WhatsAppFloat />
+          <CookieBanner />
         </NextIntlClientProvider>
       </body>
     </html>

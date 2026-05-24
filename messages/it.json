@@ -2,15 +2,18 @@
   "Brand": {
     "name": "Sicily Driver Siracusa",
     "shortName": "Sicily Driver",
-    "tagline": "Eleganza da VIP, prezzi di mercato"
+    "tagline": "Sicilia, in Mercedes, al tuo ritmo."
   },
   "Nav": {
     "home": "Home",
     "services": "Servizi",
-    "tours": "Tour",
+    "tours": "Tour Sicilia",
+    "wedding": "Wedding",
+    "partner": "Partner",
     "about": "Chi siamo",
     "contact": "Contatti",
-    "bookNow": "Prenota"
+    "bookNow": "Prenota",
+    "callShort": "Chiama"
   },
   "WhatsApp": {
     "label": "Scrivici su WhatsApp",
@@ -26,6 +29,84 @@
     "opensNewTab": "(apre in nuova scheda)",
     "currentPage": "Pagina corrente"
   },
+  "Privacy": {
+    "meta": {
+      "title": "Privacy Policy — Sicily Driver Siracusa",
+      "description": "Informativa sul trattamento dei dati personali ai sensi del Regolamento UE 2016/679 (GDPR). Sicily Driver Siracusa è il titolare del trattamento."
+    },
+    "eyebrow": "Trattamento dati",
+    "h1": "Privacy Policy",
+    "updated": "Ultimo aggiornamento: 24 maggio 2026",
+    "intro": "Questa pagina descrive le modalità di gestione del sito ncctaxisiracusa.com in riferimento al trattamento dei dati personali degli utenti che lo consultano. L'informativa è resa ai sensi dell'art. 13 del Regolamento UE 2016/679 (GDPR) e del D.Lgs. 196/2003 e successive modifiche.",
+    "s1": {
+      "h": "Titolare del trattamento",
+      "p": "Il titolare del trattamento è Sicily Driver Siracusa (Loris Lo Russo, Partita IVA 02150600894), con sede operativa a Siracusa. Email: info@ncctaxisiracusa.com — Telefono: +39 375 641 3379."
+    },
+    "s2": {
+      "h": "Tipi di dati trattati",
+      "p": "Trattiamo dati che fornisci spontaneamente compilando i moduli di contatto, prenotazione tour o richiesta preventivo wedding: nome, cognome, indirizzo email, numero di telefono, data di servizio, numero di passeggeri ed eventuali note aggiuntive. Trattiamo inoltre dati di navigazione raccolti automaticamente dai sistemi informatici (indirizzi IP, tipo di browser, sistema operativo, riferimenti URL, orari) per il solo funzionamento del sito e statistiche aggregate anonime."
+    },
+    "s3": {
+      "h": "Finalità del trattamento",
+      "p": "I dati sono trattati per: (a) rispondere a richieste di preventivo o informazioni; (b) gestire la prenotazione e l'esecuzione del servizio NCC; (c) adempiere a obblighi di legge (fatturazione, contabilità); (d) migliorare il sito attraverso analisi aggregate anonime, solo previo tuo consenso esplicito al banner cookie."
+    },
+    "s4": {
+      "h": "Base giuridica",
+      "p": "Il trattamento è basato su: (a) esecuzione di un contratto o misure precontrattuali su tua richiesta (art. 6.1.b GDPR) — per la prenotazione e la risposta a richieste; (b) consenso esplicito (art. 6.1.a GDPR) — per cookie di analytics e marketing; (c) obbligo legale (art. 6.1.c GDPR) — per fatturazione e adempimenti fiscali; (d) legittimo interesse (art. 6.1.f GDPR) — per il funzionamento tecnico del sito."
+    },
+    "s5": {
+      "h": "Cookie",
+      "p": "Il sito utilizza cookie tecnici necessari al funzionamento e cookie facoltativi (analytics e marketing) attivati solo previo tuo consenso esplicito tramite il banner che appare alla prima visita. Puoi modificare le preferenze in qualsiasi momento dal link \"Gestisci cookie\" presente in fondo a ogni pagina. I cookie tecnici comprendono: cookie di sessione, preferenza lingua, memorizzazione del consenso stesso."
+    },
+    "s6": {
+      "h": "Comunicazione e conservazione dei dati",
+      "p": "I dati non sono diffusi né venduti a terzi. Possono essere comunicati esclusivamente a soggetti coinvolti nell'erogazione del servizio (es. partner per tour congiunti — Pura Vida Beach Club, Cantina Benanti, Fratelli Burgio, Palmeri — solo per quanto strettamente necessario all'esecuzione del servizio richiesto) e a fornitori tecnici (hosting Vercel, email). I dati sono conservati per il tempo necessario alle finalità (10 anni per obblighi fiscali, 24 mesi dalla cessazione del rapporto per le comunicazioni)."
+    },
+    "s7": {
+      "h": "I tuoi diritti",
+      "p": "Ai sensi degli articoli 15-22 del GDPR hai diritto di: accedere ai tuoi dati, chiederne la rettifica o la cancellazione, limitarne il trattamento, opporti al trattamento, ricevere i dati in formato strutturato (portabilità), revocare il consenso in qualsiasi momento. Per esercitare i diritti scrivici a info@ncctaxisiracusa.com. Hai inoltre diritto di proporre reclamo all'Autorità Garante per la Protezione dei Dati Personali (www.garanteprivacy.it)."
+    },
+    "s8": {
+      "h": "Modifiche all'informativa",
+      "p": "Possiamo aggiornare questa informativa per riflettere modifiche normative o operative. La data di ultimo aggiornamento è indicata in cima alla pagina. Ti invitiamo a consultarla periodicamente."
+    },
+    "contact": {
+      "eyebrow": "Hai domande?",
+      "body": "Per qualsiasi richiesta relativa al trattamento dei dati personali scrivici a",
+      "cta": "Contattaci"
+    }
+  },
+  "Cookie": {
+    "title": "Usiamo i cookie per migliorare la tua esperienza.",
+    "body": "Cookie tecnici necessari sempre attivi. Analytics e marketing solo col tuo consenso.",
+    "privacyLink": "Leggi l'informativa",
+    "acceptAll": "Accetta tutto",
+    "rejectAll": "Rifiuta",
+    "customize": "Personalizza",
+    "alwaysOn": "Sempre attivi",
+    "closeAria": "Chiudi",
+    "manageLink": "Gestisci cookie",
+    "settings": {
+      "eyebrow": "Le tue preferenze",
+      "title": "Scegli cosa attivare.",
+      "body": "Puoi cambiare idea quando vuoi dal link \"Gestisci cookie\" in fondo a ogni pagina.",
+      "save": "Salva preferenze"
+    },
+    "categories": {
+      "necessary": {
+        "name": "Necessari",
+        "description": "Cookie tecnici per il funzionamento del sito (sessione, preferenze lingua, consenso cookie). Senza questi il sito non funziona. Non li puoi disattivare."
+      },
+      "analytics": {
+        "name": "Analytics",
+        "description": "Cookie anonimi per capire come usi il sito (pagine viste, dispositivo, durata). Ci aiutano a migliorare la navigazione. I dati non identificano la persona."
+      },
+      "marketing": {
+        "name": "Marketing",
+        "description": "Cookie per misurare i click sulle nostre campagne pubblicitarie. Attivali solo se sei arrivato qui da un annuncio e ci interessa capire da quale."
+      }
+    }
+  },
   "Footer": {
     "servicesHeading": "Servizi",
     "areasHeading": "Aree servite",
@@ -39,164 +120,398 @@
   },
   "Home": {
     "meta": {
-      "title": "NCC Siracusa · Transfer Aeroporto Catania | Sicily Driver",
-      "description": "Transfer aeroportuali e tour privati in tutta la Sicilia con Mercedes e autista bilingue. Da €80 a tratta. NCC 24/7 a Siracusa, Noto, Catania, Taormina."
+      "title": "NCC Siracusa · Tour Sicilia con Autista | Sicily Driver",
+      "description": "Servizio NCC a Siracusa: transfer privati da Catania, Comiso e Pozzallo. Tour del Barocco, Etna, Ortigia con autista. Mercedes 24/7, prenotazione WhatsApp."
     },
     "hero": {
-      "eyebrow": "NCC privato · Sicilia orientale · 24/7",
-      "h1Pre": "NCC a Siracusa: transfer aeroportuali, tour privati &",
-      "h1Accent": "servizio VIP",
-      "h1Post": "in Sicilia",
-      "taglineAccent": "Eleganza da VIP, prezzi di mercato",
-      "taglinePost": "— il tuo NCC di lusso a tariffe accessibili",
-      "searchFromLabel": "Da",
-      "searchFromPlaceholder": "Catania Aeroporto",
-      "searchToLabel": "A",
-      "searchToPlaceholder": "Siracusa, Ortigia",
-      "searchDateLabel": "Quando",
-      "searchDatePlaceholder": "Data",
-      "searchPaxLabel": "Passeggeri",
-      "searchCta": "Vedi prezzo",
-      "secondaryCta": "Oppure scrivici subito su WhatsApp"
+      "a11yLabel": "Sicily Driver Siracusa — guida privata per la Sicilia orientale",
+      "h1Pre": "La Sicilia,",
+      "h1Punct": ".",
+      "h1Post": "lentamente",
+      "subhead": "Il diario di chi la guida ogni giorno. Tour privati, transfer e momenti rari, da Siracusa fino a Taormina.",
+      "scrollCue": "Scorri"
     },
-    "trust": {
-      "item1Number": "Da €80",
-      "item1Label": "a tratta in Mercedes",
-      "item2Number": "24/7",
-      "item2Label": "prenotabile su WhatsApp",
-      "item3Number": "3 sedi",
-      "item3Label": "Siracusa · Noto · Marzamemi"
+    "whisper1": {
+      "eyebrow": "Come funzioniamo",
+      "text": "Ti veniamo a prendere ovunque tu sia. Da lì, decidiamo insieme dove andare."
     },
-    "intro": {
-      "eyebrow": "Benvenuto",
-      "h2Pre": "Benvenuto da",
-      "h2Accent": "Sicily Driver",
-      "h2Post": "Siracusa",
-      "body1Bold": "Benvenuto da Sicily Driver Siracusa",
-      "body1Rest": ", il tuo partner per il noleggio con conducente (NCC) in tutta la Sicilia. Offriamo transfer privati da e per tutti gli aeroporti dell'isola — Catania, Comiso, Palermo e Trapani — oltre a collegamenti con i porti di Pozzallo e Augusta. Viaggia in massima comodità a bordo delle nostre Mercedes Classe V, GLB Premium e Classe E, con servizio 24/7.",
-      "body2": "Scopri i nostri tour su misura: esplora il Barocco di Noto, Modica, Ragusa Ibla, ammira i paesaggi lunari dell'Etna, passeggia per l'antica Ortigia e lasciati incantare dalle terrazze di Taormina. Il nostro servizio VIP è perfetto per matrimoni, eventi aziendali e viaggi esclusivi.",
-      "cta": "Prenota ora il tuo NCC"
+    "esperienze": {
+      "eyebrow": "Le esperienze",
+      "card1Tag": "Ortigia · 3 ore · Fiat 500 Spiaggina d’epoca",
+      "card1Title": "La dolce vita, lentamente.",
+      "card1Body": "Una 500 d’epoca, l’isolotto di Ortigia, tre ore al ritmo della passeggiata. Soste dove vuoi, foto se ti va, aperitivo finale fronte mare.",
+      "card2Tag": "Ortigia · 4 ore · in vela privata",
+      "card2Title": "Quattro ore di silenzio, in vela.",
+      "card2Body": "Dal porto di Ortigia verso le baie più belle della costa. Vento, sole, una sosta bagno, il tagliere Fratelli Burgio a bordo. Niente motore quando il vento c’è.",
+      "card3Tag": "Costa sud · giornata · Pura Vida Beach Club",
+      "card3Title": "Dove finisce la Sicilia.",
+      "card3Body": "L’estremità sud-est dell’isola, dove il Mar Ionio incontra il Mediterraneo. Lunch al Pura Vida, sunset sul mare, aperitivo a Marzamemi prima del rientro.",
+      "card4Tag": "Etna · giornata · quad e cantine",
+      "card4Title": "Sull’Etna, a quota 1.900.",
+      "card4Body": "I crateri Silvestri in quad, due cantine partner (Benanti e Palmeri) per la degustazione, pranzo nel rifugio con vista sui vigneti che crescono sulla lava.",
+      "card5Tag": "Val di Noto · 6-8 ore · giornata",
+      "card5Title": "Tre città Patrimonio Unesco.",
+      "card5Body": "Noto, Modica, Ragusa Ibla. La pietra calcarea barocca alla luce del mattino, il cioccolato lavorato a freddo, le terrazze sui valloni. Con le pause che servono.",
+      "cardCta": "Scopri",
+      "customTagline": "Cerchi qualcosa di diverso? Costruiamo l’itinerario insieme.",
+      "customCta": "Parliamone"
     },
-    "servizi": {
-      "eyebrow": "Tre modi di usarci",
-      "h2Pre": "Dove",
-      "h2Accent": "ti portiamo",
-      "card1": {
-        "number": "01",
-        "kicker": "Transfer",
-        "title": "Transfer aeroporti e porti",
-        "body": "Catania, Comiso, Palermo, Trapani. Pozzallo e Augusta per le crociere. Monitoraggio voli, attesa gratuita.",
-        "cta": "Vai ai transfer"
-      },
-      "card2": {
-        "number": "02",
-        "kicker": "Tour del Barocco · NEW",
-        "title": "Tour del Barocco",
-        "body": "Noto, Modica, Ragusa Ibla in giornata. Cattedrali, palazzi, cioccolato di Modica. 6-8 ore con autista bilingue.",
-        "cta": "Scopri il tour"
-      },
-      "card3": {
-        "number": "03",
-        "kicker": "Tour Etna",
-        "title": "Tour Etna",
-        "body": "Crateri Silvestri, cantina con degustazione, panorama della Valle del Bove. Combinabile con Taormina.",
-        "cta": "Vedi l'itinerario"
-      },
-      "card4": {
-        "number": "04",
-        "kicker": "Wedding & Eventi",
-        "title": "Wedding & Eventi",
-        "body": "Una flotta Mercedes per il giorno che ricorderai. Mercedes Classe V per gli ospiti, Classe E per gli sposi.",
-        "cta": "Parliamo del giorno"
-      }
+    "manifesto": {
+      "eyebrow": "Cosa facciamo",
+      "h2": "Transfer privati, tour, eventi. In tutta la Sicilia.",
+      "body1": "Sicily Driver Siracusa è il tuo partner per il noleggio con conducente (NCC) in tutta la Sicilia. Offriamo transfer privati da e per tutti gli aeroporti dell’isola — Catania, Comiso, Palermo e Trapani — oltre a collegamenti con i porti di Pozzallo e Augusta. Viaggia in massima comodità a bordo delle nostre Mercedes Classe V, GLB Premium e Classe E, con servizio 24 ore su 24.",
+      "body2": "I nostri tour su misura raggiungono il Barocco di Noto, Modica e Ragusa Ibla, i paesaggi lunari dell’Etna, l’antica Ortigia e le terrazze di Taormina. Il servizio dedicato è pensato per matrimoni, eventi aziendali e viaggi su misura."
     },
-    "destinazioni": {
-      "eyebrow": "Dove andiamo più spesso",
-      "h2Pre": "Le destinazioni che",
-      "h2Accent": "conosciamo a memoria",
-      "ortigia": "Ortigia — il cuore di Siracusa",
-      "noto": "Noto — il barocco al tramonto",
-      "modica": "Modica — vicoli e cioccolato di tradizione antica",
-      "ragusa": "Ragusa Ibla — la cattedrale e i panorami",
-      "etna": "Etna — il vulcano sotto le stelle",
-      "taormina": "Taormina — la terrazza sul mare"
+    "interni": {
+      "eyebrow": "Le auto",
+      "h2": "Curate ogni settimana.",
+      "body": "Le auto sono Mercedes Classe V, GLB Premium o Classe E. Controlli meccanici settimanali, sanificazione a ogni servizio, acqua fresca a bordo, Wi-Fi su richiesta. Le persone passano ore in macchina: pensiamo noi a renderle silenziose.",
+      "waterAlt": "Bottiglia d’acqua nel portabicchiere posteriore della Mercedes Classe V",
+      "leatherAlt": "Dettaglio sedile in pelle Mercedes",
+      "screenAlt": "Tablet Wi-Fi sul poggiatesta della Mercedes Classe V",
+      "caption": "Il viaggio comincia dal momento in cui apri la porta. Anche le ore lunghe, fra Catania e Marzamemi, passano leggere."
+    },
+    "mosaico": {
+      "eyebrow": "Le terre",
+      "h2": "Dove ti portiamo.",
+      "ortigia": "Ortigia",
+      "noto": "Noto",
+      "marzamemi": "Marzamemi",
+      "ragusa": "Ragusa Ibla",
+      "etna": "Etna",
+      "taormina": "Taormina",
+      "ortigiaAlt": "Vista dei tetti di Ortigia al tramonto",
+      "notoAlt": "Scalinata della Cattedrale di Noto",
+      "marzamemiAlt": "Tonnara di Marzamemi vista dal mare",
+      "ragusaAlt": "Cupola della Cattedrale di San Giorgio a Ragusa Ibla",
+      "etnaAlt": "Vigneto etneo su terreno lavico",
+      "taorminaAlt": "Teatro greco di Taormina con vista mare"
+    },
+    "partners": {
+      "eyebrow": "I posti che abbiamo scelto",
+      "h2": "Quattro collaborazioni che valgono il viaggio.",
+      "subhead": "Non lavoriamo con chiunque. Ogni partner aggiunge qualcosa che da soli non potremmo offrirti — un sapore, un’attesa nel posto giusto, una storia.",
+      "puravidaPlace": "Portopalo · Beach club",
+      "puravidaQuote": "Sanno stare in silenzio quando un cliente vuole solo guardare il mare per tre ore.",
+      "puravidaBody": "Beach club affacciato sull’Isola delle Correnti, dove i due mari si incontrano. Cucina siciliana in spiaggia, lettini in legno chiaro, accesso al mare cristallino.",
+      "puravidaName": "Pura Vida Beach Club",
+      "puravidaAlt": "Vista del Pura Vida Beach Club al tramonto",
+      "burgioPlace": "Ortigia · Gastronomia",
+      "burgioQuote": "Ogni prodotto ha il nome di un produttore dietro. Non un’etichetta industriale.",
+      "burgioBody": "Bottega storica in Ortigia. Salumi, formaggi, conserve, pane fresco. I taglieri serviti a bordo del Silent Sailing nascono qui.",
+      "burgioName": "Fratelli Burgio",
+      "burgioAlt": "Tagliere di salumi e formaggi siciliani di Fratelli Burgio",
+      "benantiPlace": "Etna · Cantina storica",
+      "benantiQuote": "Vinificano da quattro generazioni sulla lava dell’Etna. Per noi sono il punto di partenza, sempre.",
+      "benantiBody": "Una delle voci storiche della rinascita dell’Etna come terroir di alta qualità. Nerello Mascalese e Carricante coltivati fra i 600 e i 900 metri, su suoli vulcanici.",
+      "benantiName": "Cantina Benanti",
+      "benantiAlt": "Calice di vino rosso etneo della Cantina Benanti",
+      "palmeriPlace": "Etna · Vini di territorio",
+      "palmeriQuote": "L’altra Etna. Quella che si racconta a chi vuole davvero ascoltare.",
+      "palmeriBody": "Versante sud-orientale dell’Etna, meno turistica delle storiche del nord. Una piccola realtà di famiglia, vini che parlano di una zona precisa.",
+      "palmeriName": "Cantina Palmeri",
+      "palmeriAlt": "Botti di rovere nella cantina Palmeri sull’Etna",
+      "cta": "Conosci tutti i partner"
     },
     "listino": {
-      "eyebrow": "Tariffe trasparenti",
-      "h2Pre": "Quanto",
-      "h2Accent": "costa",
-      "subhead": "Prezzi base per Mercedes Classe V (fino a 7 passeggeri). Tratte personalizzate su preventivo.",
-      "row1From": "Catania Aeroporto",
-      "row1To": "Siracusa",
-      "row1Price": "da €80",
-      "row2From": "Catania Aeroporto",
-      "row2To": "Noto",
-      "row2Price": "da €100",
-      "row3From": "Catania Aeroporto",
-      "row3To": "Taormina",
-      "row3Price": "da €120",
-      "row4From": "Catania Aeroporto",
-      "row4To": "Ragusa Ibla",
-      "row4Price": "da €150",
-      "row5From": "Catania Aeroporto",
-      "row5To": "Marzamemi",
-      "row5Price": "da €130",
-      "row6From": "Porto Catania (crociere)",
-      "row6To": "Ortigia",
-      "row6Price": "da €90",
-      "microcopy": "I prezzi non includono pedaggi autostradali. Bambini fino a 12 anni con seggiolino gratuito su richiesta. Attesa gratuita all'aeroporto fino a 60 minuti.",
+      "eyebrow": "Quanto costa",
+      "h2": "Le tratte più richieste.",
+      "cataniaSiracusaLabel": "Aeroporto Catania → Siracusa",
+      "cataniaSiracusaPrice": "da €80",
+      "cataniaSiracusaNote": "Un’ora di strada, Mercedes Classe V, monitoraggio volo, seggiolini gratis.",
+      "cataniaTaorminaLabel": "Aeroporto Catania → Taormina",
+      "cataniaTaorminaPrice": "da €120",
+      "cataniaTaorminaNote": "Un’ora lungo la costa ionica, comoda anche di sera.",
+      "cataniaNotoLabel": "Aeroporto Catania → Noto",
+      "cataniaNotoPrice": "da €120",
+      "cataniaNotoNote": "Un’ora e venti, attesa aeroporto compresa.",
+      "pozzalloSiracusaLabel": "Porto Pozzallo → Siracusa",
+      "pozzalloSiracusaPrice": "da €120",
+      "pozzalloSiracusaNote": "Un’ora, per chi sbarca dal traghetto da Malta.",
+      "disclaimer": "Il resto te lo diciamo via WhatsApp, in cinque minuti. I prezzi possono variare per orario, stagione e numero di passeggeri. Confermati al preventivo, mai sorprese al ritorno.",
       "cta": "Preventivo personalizzato"
     },
-    "about": {
+    "dietro": {
       "eyebrow": "Chi guida",
-      "h2Pre": "Sicily Driver,",
-      "h2Accent": "dal 2018",
-      "body1": "Siamo nati a Siracusa con un'idea semplice: muoversi in Sicilia bene non deve essere un lusso da rotocalco.",
-      "body2": "Da allora abbiamo accompagnato turisti, sposi, ospiti d'albergo e famiglie tra le strade della Sicilia orientale. Tre sedi, una flotta Mercedes mantenuta come fosse di casa, autisti che parlano italiano e inglese — l'inglese vero, non quello di Google Translate.",
-      "body3": "Tutto qui. Niente brochure, niente promesse di «eccellenza». Si vede dal viaggio.",
-      "cta": "Conosci la nostra storia"
+      "h2": "Tre sedi. Una famiglia.",
+      "body1": "Sicily Driver Siracusa è un’attività di famiglia con tre sedi tra Siracusa, Noto e Marzamemi. Una flotta Mercedes che cresce per gradi, controllata ogni settimana.",
+      "body2": "I driver parlano italiano e inglese fluentemente — la maggior parte ha vissuto o lavorato all’estero. Conoscono le strade, sanno dove sono i palazzi che non vedrai su nessuna guida, e dove si mangia davvero bene.",
+      "body3": "Da Catania a Marzamemi non prendiamo scorciatoie. Ti portiamo dove devi andare, ti aspettiamo se il volo ritarda, sappiamo dove fare le foto giuste.",
+      "cta": "La storia per intero",
+      "alt": "Driver Mercedes parcheggiato in una strada del Val di Noto al tramonto"
     },
-    "differenziatori": {
-      "eyebrow": "Perché sceglierci",
-      "h2Pre": "Quello che",
-      "h2Accent": "ci distingue",
-      "item1Number": "01",
-      "item1Title": "Prezzi senza sorprese",
-      "item1Body": "Da €80 a tratta, tariffa concordata prima di partire. Niente supplementi nascosti, niente «tariffa notturna» misteriosa.",
-      "item2Number": "02",
-      "item2Title": "Mercedes curate ogni settimana",
-      "item2Body": "Classe V, GLB Premium, Classe E. Controlli meccanici settimanali, sanificazione a ogni servizio. Acqua fresca a bordo, sempre.",
-      "item3Number": "03",
-      "item3Title": "Driver bilingue veri",
-      "item3Body": "I nostri autisti parlano italiano e inglese fluentemente. Conoscono le strade, gli orari delle messe a Modica e dove si mangia davvero bene a Ortigia."
+    "testimonianze": {
+      "eyebrow": "Da chi è già salito",
+      "h2Pre": "Le voci",
+      "h2Accent": "che ci portiamo dietro",
+      "items": [
+        {
+          "quote": "Sono venuti puntuali alle quattro di notte. Hanno aspettato il volo in ritardo senza una piega. Ci hanno consigliato un ristorante a Ortigia che non era su nessuna guida. Per noi è stata la prima Sicilia.",
+          "author": "Marco & Elisa",
+          "place": "Berlino"
+        },
+        {
+          "quote": "Tour del Barocco con due bambini piccoli. Il driver ha portato seggiolini, acqua, e una pazienza infinita. A Modica ci ha lasciati al laboratorio del cioccolato senza fretta. Mai sentito un ‘dobbiamo andare’.",
+          "author": "Sophie Laurent",
+          "place": "Parigi"
+        },
+        {
+          "quote": "Giornata sull’Etna in coppia. Quad sui crateri, pranzo in cantina Benanti. Salvatore parla un inglese ottimo e ti racconta la lava come se fosse parente sua. Vale ogni euro.",
+          "author": "James Walker",
+          "place": "Londra"
+        },
+        {
+          "quote": "Sunset a Marzamemi prenotato la sera prima — risposta su WhatsApp in venti minuti. Mercedes nuova, profumata, autista in giacca. Il livello di servizio è quello di Capri, ma con sostanza vera.",
+          "author": "Anna & Pietro",
+          "place": "Milano"
+        },
+        {
+          "quote": "Matrimonio in Val di Noto, tre auto per gli ospiti. Tempi rispettati al minuto, autisti in cravatta, foto degli ospiti durante il tragitto. Hanno fatto sentire i nostri parenti coccolati.",
+          "author": "David & Mira",
+          "place": "Singapore"
+        },
+        {
+          "quote": "Silent Sailing al tramonto. Skipper professionale, tagliere Burgio servito su un vassoio di legno, vino bianco etneo. Quattro ore in cui non abbiamo guardato il telefono. È raro.",
+          "author": "Federica Ronzano",
+          "place": "Torino"
+        }
+      ]
+    },
+    "ctaFinale": {
+      "eyebrow": "Quando arrivi",
+      "h2": "Scrivici quando atterri.",
+      "body": "WhatsApp è il canale più veloce. Ti rispondiamo entro un’ora, 24 ore su 24, anche d’inverno.",
+      "ctaWhatsApp": "Apri WhatsApp",
+      "ctaCall": "+39 375 641 3379",
+      "emailPre": "Oppure scrivi a"
+    }
+  },
+  "NccPage": {
+    "fleetTablePax": "Passeggeri",
+    "fleetTableLuggage": "Bagagli",
+    "fleetTableComfort": "Comfort",
+    "fleetTableIdeal": "Ideale per",
+    "ctaWhatsApp": "Scrivi su WhatsApp",
+    "ctaCall": "Chiama · +39 375 641 3379",
+    "ctaQuote": "Richiedi un preventivo",
+    "ctaEmailPre": "O scrivici a",
+    "ctaDiscoverTour": "Scopri il tour"
+  },
+  "Servizi": {
+    "meta": {
+      "title": "Servizi NCC Sicilia · Transfer, Tour, Wedding | Sicily Driver",
+      "description": "I servizi di Sicily Driver Siracusa: transfer aeroportuali, tour privati, wedding & eventi, business. Mercedes con autista bilingue, 24/7 in Sicilia orientale."
+    },
+    "hero": {
+      "eyebrow": "Tutto quello che facciamo",
+      "h1Pre": "I nostri",
+      "h1Accent": "servizi",
+      "subhead": "Veicoli premium, autisti professionisti e itinerari su misura per scoprire la Sicilia in totale comfort."
+    },
+    "intro": {
+      "body": "Da Sicily Driver Siracusa offriamo quattro modi di accompagnarti in Sicilia, sempre con la stessa flotta Mercedes e gli stessi autisti: transfer aeroportuali punto-a-punto, tour privati in giornata, servizio wedding ed eventi, soluzioni business per aziende e ospiti VIP."
+    },
+    "cards": {
+      "eyebrow": "Quattro modi di usarci",
+      "h2Pre": "Quattro modi",
+      "h2Accent": "di accompagnarti",
+      "card1Number": "01",
+      "card1Kicker": "Transfer aeroporti e porti",
+      "card1Title": "Transfer aeroporti e porti",
+      "card1Body": "Catania, Comiso, Palermo, Trapani. Pozzallo e Augusta. Da €80 a tratta in Mercedes Classe V.",
+      "card1Point1": "Monitoraggio voli in tempo reale",
+      "card1Point2": "Attesa gratuita fino a 60 minuti",
+      "card1Point3": "Seggiolini bambino senza costi extra",
+      "card1Cta": "Vedi le tratte",
+      "card2Number": "02",
+      "card2Kicker": "Tour privati in Sicilia",
+      "card2Title": "Tour privati in Sicilia",
+      "card2Body": "Barocco, Etna, Ortigia + Taormina. Tour personalizzati su richiesta. 6–9 ore con soste su misura.",
+      "card2Point1": "Mercedes Classe V con autista bilingue",
+      "card2Point2": "Soste fotografiche e gastronomiche",
+      "card2Point3": "Acqua e flessibilità inclusi",
+      "card2Cta": "Esplora i tour",
+      "card3Number": "03",
+      "card3Kicker": "Wedding & eventi",
+      "card3Title": "Wedding ed eventi",
+      "card3Body": "Una flotta dedicata per il giorno del sì. Classe V per gli ospiti, Classe E per gli sposi.",
+      "card3Point1": "Coordinamento di più auto",
+      "card3Point2": "Attesa estesa e flessibilità oraria",
+      "card3Point3": "Driver in divisa su richiesta",
+      "card3Cta": "Parliamo del giorno",
+      "card4Number": "04",
+      "card4Kicker": "Business e aziendale",
+      "card4Title": "Business e aziendale",
+      "card4Body": "Trasferimenti aziendali, congressi, ospiti VIP. Fatturazione regolare ed elettronica.",
+      "card4Point1": "Riservatezza assoluta",
+      "card4Point2": "Pagamento posticipato per aziende",
+      "card4Point3": "Driver in giacca per occasioni formali",
+      "card4Cta": "Richiedi una proposta"
+    },
+    "fleet": {
+      "eyebrow": "Mercedes",
+      "h2Pre": "La",
+      "h2Accent": "flotta",
+      "card1Model": "Classe V — il workhorse della flotta",
+      "card1Pax": "Fino a 7 passeggeri + 6 valigie grandi",
+      "card1Comfort": "Pelle, AC, finestrini oscurati, Wi-Fi su richiesta",
+      "card1Price": "Da €80 a tratta",
+      "card2Model": "GLB Premium — il SUV familiare",
+      "card2Pax": "Fino a 4 passeggeri + 3 valigie",
+      "card2Comfort": "Assetto alto, panoramica, ideale per tour",
+      "card2Price": "Da €90 a tratta",
+      "card3Model": "Classe E — la berlina executive",
+      "card3Pax": "Fino a 3 passeggeri + 2 valigie",
+      "card3Comfort": "Assetto basso silenzioso, divisori interni",
+      "card3Price": "Da €100 a tratta"
+    },
+    "areas": {
+      "eyebrow": "Dove operiamo",
+      "h2Pre": "Le città",
+      "h2Accent": "che conosciamo",
+      "cities": "Catania (e Fontanarossa), Taormina e Isola Bella, Ragusa Ibla, Modica, Comiso (e aeroporto), Augusta, Pozzallo (porto crociere), Avola, Pachino, Portopalo, tutto il Val di Noto.",
+      "airports": "Aeroporti: Catania Fontanarossa, Comiso, Palermo Falcone Borsellino, Trapani Birgi.",
+      "bases": "Sedi fisiche: Siracusa · Noto · Marzamemi",
+      "cta": "Vai alle pagine NCC città"
+    },
+    "faq": {
+      "eyebrow": "Dubbi",
+      "h2Pre": "Le domande",
+      "h2Accent": "ricorrenti",
+      "q1": "Quanto preavviso serve per prenotare?",
+      "a1": "Per transfer aeroportuali basta WhatsApp anche 2 ore prima. Per tour e wedding consigliamo 7–15 giorni di anticipo per garantire la flotta giusta.",
+      "q2": "Coprite tutta la Sicilia o solo l'est?",
+      "a2": "Operiamo principalmente in Sicilia orientale (province di Siracusa, Catania, Ragusa, Messina sud). Per Sicilia centrale o ovest organizziamo con preavviso maggiore.",
+      "q3": "Fate solo transfer o anche disposizioni orarie?",
+      "a3": "Entrambi: transfer punto-a-punto e disposizioni a ore (mezza giornata, giornata intera) con auto e autista a disposizione.",
+      "q4": "Si possono pagare con bonifico anticipato?",
+      "a4": "Sì, è la modalità preferita per wedding, eventi, business e tour prenotati con anticipo. Contanti e carta accettati a bordo per i transfer."
     },
     "ctaFinale": {
       "eyebrow": "Per prima cosa",
-      "h2Accent": "Pronto a partire?",
-      "subhead": "Tre modi per dirci dove ti veniamo a prendere.",
-      "cta1": "Scrivi su WhatsApp",
-      "cta2": "Chiama ora · +39 375 641 3379",
-      "cta3Pre": "O scrivici a",
-      "cta3Email": "info@ncctaxisiracusa.com"
+      "h2": "Da dove cominciamo?",
+      "subhead": "Tre modi per dirci che servizio ti serve."
+    }
+  },
+  "ChiSiamo": {
+    "meta": {
+      "title": "Chi siamo · La storia di Sicily Driver Siracusa | NCC Sicilia",
+      "description": "Sicily Driver Siracusa nasce dalla passione per i servizi NCC di qualità. Tre sedi (Siracusa, Noto, Marzamemi), una flotta Mercedes curata, autisti bilingue."
     },
-    "faq": {
-      "eyebrow": "Dubbi?",
-      "h2Pre": "Le domande che",
-      "h2Accent": "ci fate spesso",
-      "q1": "Quanto costa un transfer aeroporto Catania?",
-      "a1": "I prezzi partono da €80 a tratta per il servizio NCC con Mercedes Classe V, variabili in base alla tratta e al numero di passeggeri.",
-      "q2": "Posso prenotare un tour Barocco in giornata?",
-      "a2": "Sì: offriamo tour di 4–8 ore con guida opzionale; l'itinerario è personalizzabile e include Noto, Modica, Ragusa Ibla.",
-      "q3": "Avete un servizio taxi privato notturno?",
-      "a3": "Certamente: il nostro NCC è attivo 24/7, perfetto anche per transfer serali verso ristoranti, eventi o aeroporti.",
-      "q4": "Quanti passeggeri entrano nella Mercedes Classe V?",
-      "a4": "La Classe V trasporta fino a 7 passeggeri seduti più bagagli da stiva. Per gruppi più piccoli proponiamo Classe E (berlina, fino a 3 passeggeri) o GLB Premium (SUV, fino a 4 passeggeri).",
-      "q5": "Cosa succede se il mio volo è in ritardo?",
-      "a5": "Monitoriamo gli orari di tutti i voli in tempo reale. L'autista aspetta gratuitamente fino a 60 minuti dall'orario di atterraggio, anche in caso di ritardo del volo.",
-      "q6": "Si può pagare con carta?",
-      "a6": "Sì, accettiamo contanti, carta di credito a bordo e bonifico per prenotazioni anticipate (eventi, matrimoni, business).",
-      "q7": "Posso prenotare per un gruppo di 10-15 persone?",
-      "a7": "Sì, coordiniamo più auto della nostra flotta per gruppi più grandi. Scrivici su WhatsApp con data, numero passeggeri e tratta e ti mandiamo un preventivo entro un'ora."
+    "hero": {
+      "eyebrow": "La storia",
+      "h1Pre": "Sicily Driver,",
+      "h1Accent": "una storia siciliana",
+      "subhead": "Tre sedi, una flotta Mercedes curata come fosse di casa, autisti che parlano italiano e inglese — l'inglese vero, non quello di Google Translate."
+    },
+    "story": {
+      "eyebrow": "Chi siamo",
+      "h2Pre": "Una realtà",
+      "h2Accent": "giovane e dinamica",
+      "body1": "Sicily Driver Siracusa è una realtà giovane e dinamica, nata dalla passione per i servizi di NCC e transfer di alta qualità. Da Siracusa abbiamo iniziato accompagnando turisti, sposi, ospiti d'albergo e famiglie tra le strade della Sicilia orientale.",
+      "body2": "Grazie al nostro parco auto selezionato e all'attenzione al dettaglio, garantiamo puntualità e cortesia in ogni spostamento. Mercedes Classe V, GLB Premium e Classe E, controlli meccanici settimanali, sanificazione a ogni servizio.",
+      "body3": "Scegliere Sicily Driver Siracusa significa affidarsi a un partner dedicato: dai transfer aeroportuali, ai servizi NCC per eventi, fino alle escursioni e tour privati. Niente brochure, niente promesse di «eccellenza». Si vede dal viaggio."
+    },
+    "beliefs": {
+      "eyebrow": "Quello in cui crediamo",
+      "h2Pre": "Tre",
+      "h2Accent": "convinzioni",
+      "item1Title": "Prezzi senza sorprese",
+      "item1Body": "Da Catania a Marzamemi, tariffa concordata prima di partire. Niente supplementi nascosti, niente «tariffa notturna» misteriosa.",
+      "item2Title": "Mercedes curate ogni settimana",
+      "item2Body": "Classe V, GLB Premium, Classe E. Controlli meccanici settimanali, sanificazione a ogni servizio. Acqua fresca a bordo, sempre.",
+      "item3Title": "Driver bilingue veri",
+      "item3Body": "I nostri autisti parlano italiano e inglese fluentemente. Conoscono le strade, gli orari delle messe a Modica e dove si mangia davvero bene a Ortigia."
+    },
+    "bases": {
+      "eyebrow": "Le sedi",
+      "h2Pre": "Dove ci",
+      "h2Accent": "trovi",
+      "base1Name": "Siracusa",
+      "base1Address": "Via della Maestranza, 28",
+      "base1Note": "Sede principale, ufficio operativo",
+      "base2Name": "Noto",
+      "base2Address": "Via Alcide De Gasperi, 15",
+      "base2Note": "Base operativa per tour del Val di Noto",
+      "base3Name": "Marzamemi",
+      "base3Address": "Via Marzamemi, 23",
+      "base3Note": "Punto di appoggio per la costa sud-est"
+    },
+    "ctaFinale": {
+      "eyebrow": "Prossima tappa",
+      "h2": "Saliamo insieme?",
+      "subhead": "Tre modi per dirci dove ti veniamo a prendere."
+    }
+  },
+  "Contatti": {
+    "meta": {
+      "title": "Contatti · Sicily Driver Siracusa | Telefono, WhatsApp, email",
+      "description": "Contatta Sicily Driver Siracusa: telefono +39 375 641 3379, WhatsApp 24/7, email info@ncctaxisiracusa.com. Sedi a Siracusa, Noto, Marzamemi."
+    },
+    "hero": {
+      "eyebrow": "Parliamo",
+      "h1Pre": "Risponde",
+      "h1Accent": "Sicily Driver",
+      "subhead": "In italiano o in inglese, su WhatsApp, al telefono o via email. Rispondiamo entro un'ora, 24 ore su 24."
+    },
+    "ways": {
+      "eyebrow": "Tre modi di raggiungerci",
+      "h2Pre": "Scegli",
+      "h2Accent": "il canale",
+      "card1Label": "WhatsApp · risposta più rapida",
+      "card1Value": "+39 375 641 3379",
+      "card1Note": "Mandaci data, tratta e numero passeggeri.",
+      "card1CtaLabel": "Apri WhatsApp",
+      "card2Label": "Telefono",
+      "card2Value": "+39 375 641 3379",
+      "card2Note": "Per urgenze, viaggi imminenti, conferme dell'ultimo minuto.",
+      "card2CtaLabel": "Chiama ora",
+      "card3Label": "Email",
+      "card3Value": "info@ncctaxisiracusa.com",
+      "card3Note": "Per richieste articolate, wedding, business, fatturazione.",
+      "card3CtaLabel": "Invia email",
+      "pec": "PEC: izzo.v@pec.it"
+    },
+    "form": {
+      "eyebrow": "Modulo contatti",
+      "h2Pre": "Oppure",
+      "h2Accent": "scrivici qui",
+      "subhead": "Quattro campi, niente di più. Ti rispondiamo entro un'ora, anche di notte.",
+      "fieldNameLabel": "Nome",
+      "fieldNamePlaceholder": "Mario Rossi",
+      "fieldPhoneLabel": "Telefono",
+      "fieldPhonePlaceholder": "+39 ...",
+      "fieldTypeLabel": "Tipo di richiesta",
+      "fieldTypeOption1": "Transfer aeroporto / porto",
+      "fieldTypeOption2": "Tour privato",
+      "fieldTypeOption3": "Wedding ed eventi",
+      "fieldTypeOption4": "Business / Aziendale",
+      "fieldTypeOption5": "Altro",
+      "fieldMessageLabel": "Messaggio",
+      "fieldMessagePlaceholder": "Quando, da dove, a dove, quante persone…",
+      "submit": "Invia",
+      "submitNote": "Risposta entro 1 ora, 24/7 su WhatsApp.",
+      "successTitle": "Grazie, abbiamo ricevuto la tua richiesta.",
+      "successBody": "Ti rispondiamo entro un'ora. Se è urgente, scrivici su WhatsApp.",
+      "errorRequired": "Controlla i campi obbligatori e riprova."
+    },
+    "bases": {
+      "eyebrow": "Le sedi",
+      "h2Pre": "Dove",
+      "h2Accent": "siamo",
+      "base1Name": "Siracusa",
+      "base1Address": "Via della Maestranza, 28",
+      "base2Name": "Noto",
+      "base2Address": "Via Alcide De Gasperi, 15",
+      "base3Name": "Marzamemi",
+      "base3Address": "Via Marzamemi, 23"
+    },
+    "times": {
+      "eyebrow": "Tempi di risposta",
+      "h2Pre": "Quando",
+      "h2Accent": "rispondiamo",
+      "body": "WhatsApp: entro 1 ora, 24 ore su 24, anche notti e festivi. Email: entro 24 ore. Telefono: sempre, h24.",
+      "businessNote": "Per wedding ed eventi serve preventivo articolato: la prima risposta arriva entro un'ora con un primo dimensionamento, il preventivo completo entro 24 ore."
     }
   }
 }

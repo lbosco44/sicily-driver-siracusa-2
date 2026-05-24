@@ -1,6 +1,7 @@
 import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import {LanguageSwitcher} from './LanguageSwitcher';
+import {CookieSettingsLink} from './CookieSettingsLink';
 
 export async function Footer() {
   const t = await getTranslations('Footer');
@@ -10,7 +11,7 @@ export async function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-cream-on-dark mt-24 sm:mt-32" style={{color: 'var(--cream-on-dark)'}}>
+    <footer className="bg-primary text-cream-on-dark" style={{color: 'var(--cream-on-dark)'}}>
       <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 py-16 sm:py-20">
         {/* Top: wordmark + tagline */}
         <div className="border-b border-cream-on-dark/15 pb-12">
@@ -26,7 +27,7 @@ export async function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 sm:gap-12 mt-12">
           {/* Servizi */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/60 mb-4">
+            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-4">
               {t('servicesHeading')}
             </h4>
             <ul className="space-y-2.5 text-[14px] text-cream-on-dark/85">
@@ -41,8 +42,43 @@ export async function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/wedding-eventi" className="hover:text-accent transition-colors">
+                <Link href="/tour-barocco" className="hover:text-accent transition-colors">
+                  Tour Barocco
+                </Link>
+              </li>
+              <li>
+                <Link href="/tour/etna-premium" className="hover:text-accent transition-colors">
+                  Tour Etna Premium
+                </Link>
+              </li>
+              <li>
+                <Link href="/tour/dolce-vita-siracusa" className="hover:text-accent transition-colors">
+                  Dolce Vita Siracusa
+                </Link>
+              </li>
+              <li>
+                <Link href="/tour/silent-sailing" className="hover:text-accent transition-colors">
+                  Silent Sailing
+                </Link>
+              </li>
+              <li>
+                <Link href="/tour/isola-delle-correnti" className="hover:text-accent transition-colors">
+                  Isola delle Correnti
+                </Link>
+              </li>
+              <li>
+                <Link href="/partner" className="hover:text-accent transition-colors">
+                  Partner
+                </Link>
+              </li>
+              <li>
+                <Link href="/wedding" className="hover:text-accent transition-colors">
                   Wedding &amp; eventi
+                </Link>
+              </li>
+              <li>
+                <Link href="/chi-siamo" className="hover:text-accent transition-colors">
+                  {tNav('about')}
                 </Link>
               </li>
             </ul>
@@ -50,7 +86,7 @@ export async function Footer() {
 
           {/* Aree servite */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/60 mb-4">
+            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-4">
               {t('areasHeading')}
             </h4>
             <ul className="space-y-2.5 text-[14px] text-cream-on-dark/85">
@@ -79,7 +115,7 @@ export async function Footer() {
 
           {/* Contatti */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/60 mb-4">
+            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-4">
               {t('contactsHeading')}
             </h4>
             <ul className="space-y-2.5 text-[14px] text-cream-on-dark/85">
@@ -114,7 +150,7 @@ export async function Footer() {
 
           {/* Sedi */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/60 mb-4">
+            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-4">
               {t('officesHeading')}
             </h4>
             <ul className="space-y-2.5 text-[14px] text-cream-on-dark/85 leading-relaxed">
@@ -126,10 +162,21 @@ export async function Footer() {
         </div>
 
         {/* Bottom strip */}
-        <div className="mt-16 pt-6 border-t border-cream-on-dark/15 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4 text-[12px] text-cream-on-dark/55">
-          <p>
-            © {year} {tBrand('name')}. {t('rights')}. {t('vat')} {t('vatNumber')}.
-          </p>
+        <div className="mt-16 pt-6 border-t border-cream-on-dark/15 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4 text-[12px] text-cream-on-dark/70">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5">
+            <p>
+              © {year} {tBrand('name')}. {t('rights')}. {t('vat')} {t('vatNumber')}.
+            </p>
+            <span className="hidden sm:inline text-cream-on-dark/30">·</span>
+            <Link
+              href="/privacy"
+              className="hover:text-accent transition-colors underline-offset-4 hover:underline"
+            >
+              Privacy
+            </Link>
+            <span className="hidden sm:inline text-cream-on-dark/30">·</span>
+            <CookieSettingsLink />
+          </div>
           <LanguageSwitcher className="[&_button]:text-cream-on-dark/55 [&_button[aria-current]]:text-accent [&_span]:text-cream-on-dark/30" />
         </div>
       </div>

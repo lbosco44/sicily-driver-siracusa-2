@@ -1,62 +1,75 @@
 @import "tailwindcss";
 
 /* ============================================================
-   Sicily Driver Siracusa — Design Tokens
-   Palette: "Calce e Mare"
-   Font pair: Cormorant Garamond (display/italic) + DM Sans (UI/body)
+   Sicily Driver Siracusa — Design Tokens v2
+   Concept: Diario Mediterraneo — racconto verticale scroll-driven
+   Palette: "Calce e Mare" (cream/ink/blu mare/terracotta/ulivo)
+   Font: Bricolage Grotesque (display, big bold) + Inter Tight (body)
    ============================================================ */
 
 :root {
-  /* Palette tokens */
+  /* Palette */
   --canvas: #F5EFE4;          /* cream calce — sfondo dominante */
-  --ink: #2A2520;             /* nero seppia — body text */
-  --primary: #1E3A4F;         /* blu mare profondo — H1/H2 strutturali */
-  --primary-hover: #264556;
-  --accent: #B05E40;          /* terracotta scuro — CTA AA su cream (4.6:1) */
+  --canvas-deep: #EDE5D6;     /* cream più caldo per sfondi alternati */
+  --canvas-warm: #E8DBC4;     /* terra cotta-cream per moments narrativi caldi */
+  --ink: #1F1A14;             /* nero seppia profondo — body text */
+  --ink-soft: #4A3E33;        /* ink più morbido per sub-body */
+  --primary: #1E3A4F;         /* blu mare profondo — moments scuri */
+  --primary-deep: #142838;    /* blu notte per CTA finale */
+  --accent: #B05E40;          /* terracotta scuro — CTA AA su cream */
   --accent-hover: #985333;
-  --accent-active: #80442B;
-  --accent-decorative: #E07856; /* terracotta chiaro — numerazione editoriale, drop-cap (large text AA-Large) */
-  --secondary: #8B9B8E;       /* verde ulivo — dettagli decorativi */
-  --border: #E8DFD0;          /* cream scuro — linee divisorie */
-  --muted-bg: #EDE5D6;        /* sfondi sezione alternati */
+  --accent-decorative: #E07856; /* terracotta chiaro — solo per highlight large */
+  --secondary: #5F7367;       /* verde ulivo scuro — AA 4.5:1 su cream */
+  --border: #E8DFD0;          /* cream scuro — divisori sottili */
+  --border-strong: #C9BFA9;   /* divisore più marcato */
+  --muted-bg: #EDE5D6;        /* sfondi alternati */
   --cream-on-dark: #F5EFE4;   /* testo su superfici scure */
+  --cream-soft: #E8DDC9;      /* testo cream più tenue */
 
-  /* Shadow tokens — sobri editoriali */
-  --shadow-sm: 0 1px 2px rgba(42, 37, 32, 0.04);
-  --shadow-md: 0 4px 12px rgba(42, 37, 32, 0.06);
-  --shadow-lg: 0 12px 32px rgba(42, 37, 32, 0.08);
+  /* Shadow tokens */
+  --shadow-sm: 0 1px 2px rgba(31, 26, 20, 0.04);
+  --shadow-md: 0 4px 16px rgba(31, 26, 20, 0.06);
+  --shadow-lg: 0 16px 48px rgba(31, 26, 20, 0.08);
 
-  /* Easing tokens */
+  /* Easing */
   --ease-out-soft: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-out-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-narrative: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 @theme inline {
   /* Color mapping per Tailwind v4 */
   --color-canvas: var(--canvas);
+  --color-canvas-deep: var(--canvas-deep);
+  --color-canvas-warm: var(--canvas-warm);
   --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
   --color-primary: var(--primary);
-  --color-primary-hover: var(--primary-hover);
+  --color-primary-deep: var(--primary-deep);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
-  --color-accent-active: var(--accent-active);
   --color-accent-decorative: var(--accent-decorative);
   --color-secondary: var(--secondary);
   --color-border-soft: var(--border);
+  --color-border-strong: var(--border-strong);
   --color-muted-bg: var(--muted-bg);
+  --color-cream-on-dark: var(--cream-on-dark);
+  --color-cream-soft: var(--cream-soft);
 
-  /* Background + foreground per shadcn compat */
+  /* shadcn compat */
   --color-background: var(--canvas);
   --color-foreground: var(--ink);
 
   /* Font families */
-  --font-display: var(--font-cormorant);
-  --font-sans: var(--font-dm-sans);
+  --font-display: var(--font-display), Georgia, serif;
+  --font-sans: var(--font-sans), system-ui, sans-serif;
 
   /* Container */
-  --container-editorial: 1280px;
+  --container-editorial: 1320px;
+  --container-narrow: 920px;
+  --container-prose: 680px;
 
-  /* Animations preservate dal template */
+  /* Animations preservate */
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   @keyframes marquee {
@@ -70,68 +83,175 @@
 }
 
 /* ============================================================
-   Base styles — body, headings, links
+   Base styles
    ============================================================ */
 
 html {
   scroll-behavior: smooth;
+  /* Smooth scroll personalizzato per scroll-driven sections */
+  scroll-padding-top: 0;
 }
 
 body {
   background: var(--canvas);
   color: var(--ink);
-  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  /* Anti-aliasing su display font con weight bassi */
+  font-feature-settings: 'ss01', 'ss02';
 }
 
 h1, h2, h3, .font-display {
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-display), Georgia, serif;
   font-weight: 500;
-  letter-spacing: -0.01em;
-  text-wrap: balance;
+  letter-spacing: -0.025em;
+  text-wrap: pretty;
+  line-height: 1;
 }
 
-h1 { line-height: 1.05; }
-h2 { line-height: 1.1; }
-h3 { line-height: 1.2; }
+/* Le hero headlines hanno priorità sul natural wrap (no balance che spezza
+   ogni parola su una riga). Da usare insieme a max-w generosa. */
+.hero-headline {
+  text-wrap: wrap;
+  hyphens: manual;
+}
 
-.font-italic-accent {
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-style: italic;
+/* Hero a ratio 16:9 per coerenza editoriale.
+   Desktop: aspect-ratio 16:9 (1920×1080, 1440×810, ecc).
+   Mobile: min-height fallback per non avere hero schiacciate.
+   Max: viewport corrente (svh) per evitare hero giganteschi su monitor ultra-wide.
+   IMPORTANTE: width:100% esplicito perché aspect-ratio da sola non forza il
+   wrapping del block element al 100% del viewport — alcune configurazioni
+   layout cause shrink-to-content. */
+.hero-stage {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 580px;
+  max-height: 100svh;
+}
+
+@media (max-width: 640px) {
+  .hero-stage {
+    aspect-ratio: auto;
+    height: 88svh;
+    min-height: 560px;
+  }
+}
+
+h1 { line-height: 0.95; letter-spacing: -0.035em; }
+h2 { line-height: 1; letter-spacing: -0.03em; }
+h3 { line-height: 1.1; letter-spacing: -0.015em; }
+
+/* Display scale enormi per moments narrativi */
+.text-display-xl  { font-size: clamp(56px, 11vw, 168px); line-height: 0.92; letter-spacing: -0.045em; }
+.text-display-lg  { font-size: clamp(48px, 9vw, 128px);  line-height: 0.94; letter-spacing: -0.04em; }
+.text-display-md  { font-size: clamp(40px, 7vw, 96px);   line-height: 0.98; letter-spacing: -0.035em; }
+.text-display-sm  { font-size: clamp(32px, 5vw, 64px);   line-height: 1.04; letter-spacing: -0.025em; }
+
+/* Eyebrow uniforme */
+.eyebrow {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 11px;
   font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--secondary);
 }
 
-/* Tabular nums per prezzi/tabelle */
-.tabular-nums {
-  font-variant-numeric: tabular-nums;
-}
+/* Tabular nums per prezzi/numeri */
+.tabular-nums { font-variant-numeric: tabular-nums; }
 
-/* Focus ring globale — alone interno cream + outline accent decorativo
-   per essere visibile sia su canvas cream che su superfici scure (blu mare, terracotta) */
+/* Focus ring globale — accent terracotta scuro (#B05E40) per ratio 4.7:1
+   su cream e ≥4:1 su tutte le superfici dark del sito (WCAG 2.4.11) */
 *:focus-visible {
-  outline: 2px solid var(--accent-decorative);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
   box-shadow: 0 0 0 5px var(--canvas);
   border-radius: 2px;
 }
 
-/* Selection */
 ::selection {
   background: var(--accent);
   color: var(--cream-on-dark);
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ============================================================
+   Scroll-driven utilities
+   ============================================================ */
+
+/* Sticky stage (per moments scroll-driven full-screen) */
+.stage {
+  height: 100svh;
+  position: relative;
+  overflow: hidden;
+}
+
+.stage-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Atmospheric gradient overlay per foto full-bleed con testo */
+.atmo-overlay-dark {
+  background: linear-gradient(
+    180deg,
+    rgba(20, 18, 14, 0.10) 0%,
+    rgba(20, 18, 14, 0.35) 60%,
+    rgba(20, 18, 14, 0.78) 100%
+  );
+}
+
+.atmo-overlay-side {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 18, 14, 0.65) 0%,
+    rgba(20, 18, 14, 0.30) 45%,
+    rgba(20, 18, 14, 0.05) 100%
+  );
+}
+
+/* Polaroid effect per mosaico destinazioni */
+.polaroid {
+  background: #fdfaf3;
+  padding: 14px 14px 56px 14px;
+  box-shadow:
+    0 1px 2px rgba(31, 26, 20, 0.06),
+    0 12px 28px rgba(31, 26, 20, 0.10);
+  transform-origin: center;
+  transition: transform 350ms var(--ease-out-soft);
+}
+
+.polaroid:hover {
+  transform: translateY(-4px) scale(1.015);
+}
+
+/* Grain texture leggera per foto editorial */
+.grain {
+  position: relative;
+}
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
