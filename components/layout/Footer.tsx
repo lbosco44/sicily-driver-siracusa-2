@@ -1,6 +1,7 @@
 import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import {LanguageSwitcher} from './LanguageSwitcher';
+import {CookieSettingsLink} from './CookieSettingsLink';
 
 export async function Footer() {
   const t = await getTranslations('Footer');
@@ -162,9 +163,20 @@ export async function Footer() {
 
         {/* Bottom strip */}
         <div className="mt-16 pt-6 border-t border-cream-on-dark/15 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4 text-[12px] text-cream-on-dark/70">
-          <p>
-            © {year} {tBrand('name')}. {t('rights')}. {t('vat')} {t('vatNumber')}.
-          </p>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5">
+            <p>
+              © {year} {tBrand('name')}. {t('rights')}. {t('vat')} {t('vatNumber')}.
+            </p>
+            <span className="hidden sm:inline text-cream-on-dark/30">·</span>
+            <Link
+              href="/privacy"
+              className="hover:text-accent transition-colors underline-offset-4 hover:underline"
+            >
+              Privacy
+            </Link>
+            <span className="hidden sm:inline text-cream-on-dark/30">·</span>
+            <CookieSettingsLink />
+          </div>
           <LanguageSwitcher className="[&_button]:text-cream-on-dark/55 [&_button[aria-current]]:text-accent [&_span]:text-cream-on-dark/30" />
         </div>
       </div>

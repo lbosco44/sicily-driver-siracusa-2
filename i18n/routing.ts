@@ -67,6 +67,10 @@ export const routing = defineRouting({
     '/ncc-ragusa': {
       it: '/ncc-ragusa',
       en: '/driver-ragusa'
+    },
+    '/privacy': {
+      it: '/privacy',
+      en: '/privacy'
     }
   }
 });

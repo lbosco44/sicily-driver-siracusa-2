@@ -28,6 +28,84 @@
     "opensNewTab": "(apre in nuova scheda)",
     "currentPage": "Pagina corrente"
   },
+  "Privacy": {
+    "meta": {
+      "title": "Privacy Policy — Sicily Driver Siracusa",
+      "description": "Informativa sul trattamento dei dati personali ai sensi del Regolamento UE 2016/679 (GDPR). Sicily Driver Siracusa è il titolare del trattamento."
+    },
+    "eyebrow": "Trattamento dati",
+    "h1": "Privacy Policy",
+    "updated": "Ultimo aggiornamento: 24 maggio 2026",
+    "intro": "Questa pagina descrive le modalità di gestione del sito ncctaxisiracusa.com in riferimento al trattamento dei dati personali degli utenti che lo consultano. L'informativa è resa ai sensi dell'art. 13 del Regolamento UE 2016/679 (GDPR) e del D.Lgs. 196/2003 e successive modifiche.",
+    "s1": {
+      "h": "Titolare del trattamento",
+      "p": "Il titolare del trattamento è Sicily Driver Siracusa (Loris Lo Russo, Partita IVA 02150600894), con sede operativa a Siracusa. Email: info@ncctaxisiracusa.com — Telefono: +39 375 641 3379."
+    },
+    "s2": {
+      "h": "Tipi di dati trattati",
+      "p": "Trattiamo dati che fornisci spontaneamente compilando i moduli di contatto, prenotazione tour o richiesta preventivo wedding: nome, cognome, indirizzo email, numero di telefono, data di servizio, numero di passeggeri ed eventuali note aggiuntive. Trattiamo inoltre dati di navigazione raccolti automaticamente dai sistemi informatici (indirizzi IP, tipo di browser, sistema operativo, riferimenti URL, orari) per il solo funzionamento del sito e statistiche aggregate anonime."
+    },
+    "s3": {
+      "h": "Finalità del trattamento",
+      "p": "I dati sono trattati per: (a) rispondere a richieste di preventivo o informazioni; (b) gestire la prenotazione e l'esecuzione del servizio NCC; (c) adempiere a obblighi di legge (fatturazione, contabilità); (d) migliorare il sito attraverso analisi aggregate anonime, solo previo tuo consenso esplicito al banner cookie."
+    },
+    "s4": {
+      "h": "Base giuridica",
+      "p": "Il trattamento è basato su: (a) esecuzione di un contratto o misure precontrattuali su tua richiesta (art. 6.1.b GDPR) — per la prenotazione e la risposta a richieste; (b) consenso esplicito (art. 6.1.a GDPR) — per cookie di analytics e marketing; (c) obbligo legale (art. 6.1.c GDPR) — per fatturazione e adempimenti fiscali; (d) legittimo interesse (art. 6.1.f GDPR) — per il funzionamento tecnico del sito."
+    },
+    "s5": {
+      "h": "Cookie",
+      "p": "Il sito utilizza cookie tecnici necessari al funzionamento e cookie facoltativi (analytics e marketing) attivati solo previo tuo consenso esplicito tramite il banner che appare alla prima visita. Puoi modificare le preferenze in qualsiasi momento dal link \"Gestisci cookie\" presente in fondo a ogni pagina. I cookie tecnici comprendono: cookie di sessione, preferenza lingua, memorizzazione del consenso stesso."
+    },
+    "s6": {
+      "h": "Comunicazione e conservazione dei dati",
+      "p": "I dati non sono diffusi né venduti a terzi. Possono essere comunicati esclusivamente a soggetti coinvolti nell'erogazione del servizio (es. partner per tour congiunti — Pura Vida Beach Club, Cantina Benanti, Fratelli Burgio, Palmeri — solo per quanto strettamente necessario all'esecuzione del servizio richiesto) e a fornitori tecnici (hosting Vercel, email). I dati sono conservati per il tempo necessario alle finalità (10 anni per obblighi fiscali, 24 mesi dalla cessazione del rapporto per le comunicazioni)."
+    },
+    "s7": {
+      "h": "I tuoi diritti",
+      "p": "Ai sensi degli articoli 15-22 del GDPR hai diritto di: accedere ai tuoi dati, chiederne la rettifica o la cancellazione, limitarne il trattamento, opporti al trattamento, ricevere i dati in formato strutturato (portabilità), revocare il consenso in qualsiasi momento. Per esercitare i diritti scrivici a info@ncctaxisiracusa.com. Hai inoltre diritto di proporre reclamo all'Autorità Garante per la Protezione dei Dati Personali (www.garanteprivacy.it)."
+    },
+    "s8": {
+      "h": "Modifiche all'informativa",
+      "p": "Possiamo aggiornare questa informativa per riflettere modifiche normative o operative. La data di ultimo aggiornamento è indicata in cima alla pagina. Ti invitiamo a consultarla periodicamente."
+    },
+    "contact": {
+      "eyebrow": "Hai domande?",
+      "body": "Per qualsiasi richiesta relativa al trattamento dei dati personali scrivici a",
+      "cta": "Contattaci"
+    }
+  },
+  "Cookie": {
+    "title": "Usiamo i cookie per migliorare la tua esperienza.",
+    "body": "Cookie tecnici necessari sempre attivi. Analytics e marketing solo col tuo consenso.",
+    "privacyLink": "Leggi l'informativa",
+    "acceptAll": "Accetta tutto",
+    "rejectAll": "Rifiuta",
+    "customize": "Personalizza",
+    "alwaysOn": "Sempre attivi",
+    "closeAria": "Chiudi",
+    "manageLink": "Gestisci cookie",
+    "settings": {
+      "eyebrow": "Le tue preferenze",
+      "title": "Scegli cosa attivare.",
+      "body": "Puoi cambiare idea quando vuoi dal link \"Gestisci cookie\" in fondo a ogni pagina.",
+      "save": "Salva preferenze"
+    },
+    "categories": {
+      "necessary": {
+        "name": "Necessari",
+        "description": "Cookie tecnici per il funzionamento del sito (sessione, preferenze lingua, consenso cookie). Senza questi il sito non funziona. Non li puoi disattivare."
+      },
+      "analytics": {
+        "name": "Analytics",
+        "description": "Cookie anonimi per capire come usi il sito (pagine viste, dispositivo, durata). Ci aiutano a migliorare la navigazione. I dati non identificano la persona."
+      },
+      "marketing": {
+        "name": "Marketing",
+        "description": "Cookie per misurare i click sulle nostre campagne pubblicitarie. Attivali solo se sei arrivato qui da un annuncio e ci interessa capire da quale."
+      }
+    }
+  },
   "Footer": {
     "servicesHeading": "Servizi",
     "areasHeading": "Aree servite",

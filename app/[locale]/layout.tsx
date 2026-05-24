@@ -7,6 +7,7 @@ import {routing} from '@/i18n/routing';
 import {Navbar} from '@/components/layout/Navbar';
 import {Footer} from '@/components/layout/Footer';
 import {WhatsAppFloat} from '@/components/layout/WhatsAppFloat';
+import {CookieBanner} from '@/components/layout/CookieBanner';
 import '../globals.css';
 
 // Display font — Bricolage Grotesque (geometrico, distintivo, ottimo per scritte grandi).
@@ -81,6 +82,7 @@ export default async function LocaleLayout({
           </main>
           <Footer />
           <WhatsAppFloat />
+          <CookieBanner />
         </NextIntlClientProvider>
       </body>
     </html>

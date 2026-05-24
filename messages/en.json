@@ -28,6 +28,84 @@
     "opensNewTab": "(opens in new tab)",
     "currentPage": "Current page"
   },
+  "Privacy": {
+    "meta": {
+      "title": "Privacy Policy — Sicily Driver Syracuse",
+      "description": "Personal data processing notice under EU Regulation 2016/679 (GDPR). Sicily Driver Syracuse is the data controller."
+    },
+    "eyebrow": "Data processing",
+    "h1": "Privacy Policy",
+    "updated": "Last updated: 24 May 2026",
+    "intro": "This page describes how the site ncctaxisiracusa.com handles personal data of the users who consult it. The notice is provided pursuant to Art. 13 of EU Regulation 2016/679 (GDPR) and Italian Legislative Decree 196/2003 as amended.",
+    "s1": {
+      "h": "Data controller",
+      "p": "The data controller is Sicily Driver Siracusa (Loris Lo Russo, VAT 02150600894), with operating office in Syracuse, Italy. Email: info@ncctaxisiracusa.com — Phone: +39 375 641 3379."
+    },
+    "s2": {
+      "h": "Types of data processed",
+      "p": "We process data you voluntarily provide by filling in the contact, tour booking or wedding quote forms: first name, last name, email address, phone number, service date, number of passengers and any additional notes. We also process navigation data automatically collected by IT systems (IP addresses, browser type, operating system, URL references, timestamps) for the sole purpose of the site's functioning and aggregated anonymous statistics."
+    },
+    "s3": {
+      "h": "Purposes of processing",
+      "p": "Data is processed to: (a) reply to quote or information requests; (b) manage booking and execution of the NCC service; (c) comply with legal obligations (invoicing, accounting); (d) improve the site through anonymous aggregated analytics, only with your explicit consent via the cookie banner."
+    },
+    "s4": {
+      "h": "Legal basis",
+      "p": "Processing is based on: (a) performance of a contract or pre-contractual measures at your request (Art. 6.1.b GDPR) — for booking and replies; (b) explicit consent (Art. 6.1.a GDPR) — for analytics and marketing cookies; (c) legal obligation (Art. 6.1.c GDPR) — for invoicing and tax compliance; (d) legitimate interest (Art. 6.1.f GDPR) — for technical site functioning."
+    },
+    "s5": {
+      "h": "Cookies",
+      "p": "The site uses technical cookies necessary for functioning, and optional cookies (analytics and marketing) activated only with your explicit consent via the banner that appears on first visit. You can change your preferences at any time from the \"Cookie settings\" link at the bottom of every page. Technical cookies include: session cookie, language preference, storage of the consent itself."
+    },
+    "s6": {
+      "h": "Disclosure and retention",
+      "p": "Data is not disclosed or sold to third parties. It may be communicated only to subjects involved in service delivery (e.g. partners for joint tours — Pura Vida Beach Club, Cantina Benanti, Fratelli Burgio, Palmeri — only as strictly necessary to execute the requested service) and to technical providers (Vercel hosting, email). Data is retained for the time necessary to the purposes (10 years for tax obligations, 24 months from end of relationship for communications)."
+    },
+    "s7": {
+      "h": "Your rights",
+      "p": "Under Articles 15–22 GDPR you have the right to: access your data, request its correction or deletion, restrict processing, object to processing, receive data in a structured format (portability), withdraw consent at any time. To exercise your rights write to info@ncctaxisiracusa.com. You also have the right to lodge a complaint with the Italian Data Protection Authority (www.garanteprivacy.it)."
+    },
+    "s8": {
+      "h": "Changes to this notice",
+      "p": "We may update this notice to reflect regulatory or operational changes. The date of the last update is shown at the top of the page. We invite you to consult it periodically."
+    },
+    "contact": {
+      "eyebrow": "Questions?",
+      "body": "For any request regarding personal data processing write to us at",
+      "cta": "Contact us"
+    }
+  },
+  "Cookie": {
+    "title": "We use cookies to improve your experience.",
+    "body": "Strictly necessary cookies are always on. Analytics and marketing only with your consent.",
+    "privacyLink": "Read the policy",
+    "acceptAll": "Accept all",
+    "rejectAll": "Reject",
+    "customize": "Customize",
+    "alwaysOn": "Always on",
+    "closeAria": "Close",
+    "manageLink": "Cookie settings",
+    "settings": {
+      "eyebrow": "Your preferences",
+      "title": "Choose what to enable.",
+      "body": "You can change your mind anytime from the \"Cookie settings\" link at the bottom of every page.",
+      "save": "Save preferences"
+    },
+    "categories": {
+      "necessary": {
+        "name": "Necessary",
+        "description": "Technical cookies for the site to work (session, language preference, cookie consent). Without these the site doesn't function. You cannot disable them."
+      },
+      "analytics": {
+        "name": "Analytics",
+        "description": "Anonymous cookies to understand how you use the site (page views, device, duration). They help us improve navigation. Data does not identify the person."
+      },
+      "marketing": {
+        "name": "Marketing",
+        "description": "Cookies to measure clicks on our advertising campaigns. Enable only if you arrived from an ad and we'd like to know which one."
+      }
+    }
+  },
   "Footer": {
     "servicesHeading": "Services",
     "areasHeading": "Areas served",
