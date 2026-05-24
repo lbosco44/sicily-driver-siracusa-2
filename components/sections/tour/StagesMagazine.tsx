@@ -104,8 +104,8 @@ export function StagesMagazine({
 
                   {/* Titolo grande Bricolage */}
                   <h3
-                    className="font-display text-display-md font-light text-ink leading-[1.02] mb-8"
-                    style={{fontStretch: '95%'}}
+                    className="hero-headline font-display text-display-md font-light text-ink leading-[1.02] mb-8"
+                    style={{fontStretch: '92%'}}
                   >
                     {stage.title}
                   </h3>

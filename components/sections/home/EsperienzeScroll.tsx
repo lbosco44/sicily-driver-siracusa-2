@@ -272,9 +272,9 @@ function SceneText({
           {t(`card${esperienzaKey}Tag`)}
         </p>
         <h2
-          className="font-display text-display-lg font-medium text-cream-on-dark"
+          className="hero-headline font-display text-display-lg font-medium text-cream-on-dark"
           style={{
-            fontStretch: '95%',
+            fontStretch: '92%',
             textShadow: '0 2px 18px rgba(0,0,0,0.3)'
           }}
         >

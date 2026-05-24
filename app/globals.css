@@ -124,8 +124,12 @@ h1, h2, h3, .font-display {
 /* Hero a ratio 16:9 per coerenza editoriale.
    Desktop: aspect-ratio 16:9 (1920×1080, 1440×810, ecc).
    Mobile: min-height fallback per non avere hero schiacciate.
-   Max: viewport corrente (svh) per evitare hero giganteschi su monitor ultra-wide. */
+   Max: viewport corrente (svh) per evitare hero giganteschi su monitor ultra-wide.
+   IMPORTANTE: width:100% esplicito perché aspect-ratio da sola non forza il
+   wrapping del block element al 100% del viewport — alcune configurazioni
+   layout cause shrink-to-content. */
 .hero-stage {
+  width: 100%;
   aspect-ratio: 16 / 9;
   min-height: 580px;
   max-height: 100svh;
