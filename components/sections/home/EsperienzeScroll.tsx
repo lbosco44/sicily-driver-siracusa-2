@@ -163,9 +163,9 @@ function DesktopSticky() {
 
 const SCENE_COOLDOWN_MS = 450;
 const TOUCH_SWIPE_THRESHOLD = 30;
-const LOCK_INTERSECTION_THRESHOLD = 0.9;
+const LOCK_INTERSECTION_THRESHOLD = 0.85;
 const UNLOCK_INTERSECTION_THRESHOLD = 0.3;
-const LOCK_SETTLE_MS = 250; // grace period dopo l'attivazione del lock
+const LOCK_SETTLE_MS = 600; // grace per smooth-scroll snap dopo lock activation
 
 function MobileScrollLock() {
   const t = useTranslations('Home.esperienze');
@@ -225,7 +225,12 @@ function MobileScrollLock() {
     [releaseAndScroll]
   );
 
-  // IntersectionObserver: lock quando >=90% visibile (sezione quasi fullscreen)
+  // IntersectionObserver: quando sezione raggiunge ~fullscreen,
+  // 1. determina direzione di entrata via rect.top sign:
+  //    - rect.top > 0  → utente scrolla giu', entra da sotto → scene 0
+  //    - rect.top < 0  → utente scrolla su, entra da sopra → scene N-1
+  // 2. attiva lock
+  // 3. smooth-scroll per allineare PRECISAMENTE section.top a viewport.top
   useEffect(() => {
     if (reduce || !ref.current) return;
     const observer = new IntersectionObserver(
@@ -233,14 +238,36 @@ function MobileScrollLock() {
         const entry = entries[0];
         if (entry.intersectionRatio >= LOCK_INTERSECTION_THRESHOLD) {
           if (!isLockedRef.current) {
+            const rect = entry.boundingClientRect;
+
+            // Reset activeIndex in base alla direzione di entrata
+            if (rect.top < -1) {
+              // section.top sopra viewport.top → utente scrolla SU
+              activeIndexRef.current = N - 1;
+              setActiveIndex(N - 1);
+            } else if (rect.top > 1) {
+              // section.top sotto viewport.top → utente scrolla GIU'
+              activeIndexRef.current = 0;
+              setActiveIndex(0);
+            }
+            // (se gia' allineato, mantieni activeIndex corrente)
+
             isLockedRef.current = true;
             lockSettleAtRef.current = Date.now();
+
+            // Snap-align: allinea section.top a viewport.top con smooth-scroll
+            if (Math.abs(rect.top) > 1) {
+              window.scrollTo({
+                top: window.scrollY + rect.top,
+                behavior: 'smooth'
+              });
+            }
           }
         } else if (entry.intersectionRatio < UNLOCK_INTERSECTION_THRESHOLD) {
           isLockedRef.current = false;
         }
       },
-      {threshold: [0, 0.3, 0.5, 0.7, 0.9, 0.95, 1]}
+      {threshold: [0, 0.3, 0.5, 0.7, 0.85, 0.95, 1]}
     );
     observer.observe(ref.current);
     return () => observer.disconnect();
