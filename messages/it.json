@@ -13,7 +13,21 @@
     "about": "Chi siamo",
     "contact": "Contatti",
     "bookNow": "Contattaci",
-    "callShort": "Chiama"
+    "callShort": "Chiama",
+    "toursList": {
+      "overview": "Tutti i tour",
+      "overviewDesc": "Panoramica delle 5 esperienze",
+      "barocco": "Tour del Barocco",
+      "baroccoDesc": "Noto, Modica, Ragusa Ibla",
+      "etna": "Etna Premium",
+      "etnaDesc": "Crateri Silvestri + cantine",
+      "isola": "Isola delle Correnti",
+      "isolaDesc": "Sud estremo, Marzamemi",
+      "dolceVita": "Dolce Vita Ortigia",
+      "dolceVitaDesc": "Fiat 500 spiaggina d'epoca",
+      "sailing": "Silent Sailing",
+      "sailingDesc": "Tramonto a vela, costa Ortigia"
+    }
   },
   "WhatsApp": {
     "label": "Scrivici su WhatsApp",

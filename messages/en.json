@@ -13,7 +13,21 @@
     "about": "About",
     "contact": "Contact",
     "bookNow": "Contact us",
-    "callShort": "Call"
+    "callShort": "Call",
+    "toursList": {
+      "overview": "All tours",
+      "overviewDesc": "Overview of the 5 experiences",
+      "barocco": "Baroque Tour",
+      "baroccoDesc": "Noto, Modica, Ragusa Ibla",
+      "etna": "Etna Premium",
+      "etnaDesc": "Silvestri craters + wineries",
+      "isola": "Isola delle Correnti",
+      "isolaDesc": "Sicily's southern tip, Marzamemi",
+      "dolceVita": "Dolce Vita Ortigia",
+      "dolceVitaDesc": "Vintage Fiat 500 Spiaggina",
+      "sailing": "Silent Sailing",
+      "sailingDesc": "Sailing sunset, Ortigia coast"
+    }
   },
   "WhatsApp": {
     "label": "Message us on WhatsApp",

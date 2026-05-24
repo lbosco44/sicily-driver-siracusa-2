@@ -2,13 +2,14 @@ import Image from 'next/image';
 import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import {LanguageSwitcher} from './LanguageSwitcher';
-import {NavLink} from './NavLink';
+import {DesktopNav} from './DesktopNav';
 import {MobileMenu, type MobileMenuLink} from './MobileMenu';
 
 export async function Navbar() {
   const t = await getTranslations('Nav');
   const tBrand = await getTranslations('Brand');
   const tNcc = await getTranslations('NccPage');
+  const tTours = await getTranslations('Nav.toursList');
 
   const links: MobileMenuLink[] = [
     {href: '/', label: t('home')},
@@ -17,6 +18,28 @@ export async function Navbar() {
     {href: '/chi-siamo', label: t('about')},
     {href: '/contatti', label: t('contact')}
   ];
+
+  const navLabels = {
+    home: t('home'),
+    services: t('services'),
+    tours: t('tours'),
+    about: t('about'),
+    contact: t('contact'),
+    toursList: {
+      overview: tTours('overview'),
+      overviewDesc: tTours('overviewDesc'),
+      barocco: tTours('barocco'),
+      baroccoDesc: tTours('baroccoDesc'),
+      etna: tTours('etna'),
+      etnaDesc: tTours('etnaDesc'),
+      isola: tTours('isola'),
+      isolaDesc: tTours('isolaDesc'),
+      dolceVita: tTours('dolceVita'),
+      dolceVitaDesc: tTours('dolceVitaDesc'),
+      sailing: tTours('sailing'),
+      sailingDesc: tTours('sailingDesc')
+    }
+  };
 
   return (
     <header className="sticky top-0 z-40 bg-canvas/85 backdrop-blur-md border-b border-[var(--border)]/60">
@@ -36,13 +59,7 @@ export async function Navbar() {
           />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8" aria-label="Primary">
-          {links.map((link) => (
-            <NavLink key={link.href} href={link.href}>
-              {link.label}
-            </NavLink>
-          ))}
-        </nav>
+        <DesktopNav labels={navLabels} />
 
         <div className="flex items-center gap-3 sm:gap-6">
           <LanguageSwitcher />
@@ -64,6 +81,7 @@ export async function Navbar() {
 
           <MobileMenu
             links={links}
+            toursList={navLabels.toursList}
             bookLabel={t('bookNow')}
             whatsappLabel={tNcc('ctaWhatsApp')}
             callLabel={t('callShort')}

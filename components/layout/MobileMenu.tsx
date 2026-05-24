@@ -2,6 +2,7 @@
 
 import {useEffect, useState} from 'react';
 import Image from 'next/image';
+import {ChevronDownIcon} from 'lucide-react';
 import {Link, usePathname} from '@/i18n/navigation';
 import {
   Sheet,
@@ -19,20 +20,47 @@ export type MobileMenuLink = {
   label: string;
 };
 
+type ToursList = {
+  overview: string;
+  overviewDesc: string;
+  barocco: string;
+  baroccoDesc: string;
+  etna: string;
+  etnaDesc: string;
+  isola: string;
+  isolaDesc: string;
+  dolceVita: string;
+  dolceVitaDesc: string;
+  sailing: string;
+  sailingDesc: string;
+};
+
+const TOUR_LINKS = [
+  {href: '/tour-sicilia', key: 'overview'},
+  {href: '/tour-barocco', key: 'barocco'},
+  {href: '/tour/etna-premium', key: 'etna'},
+  {href: '/tour/isola-delle-correnti', key: 'isola'},
+  {href: '/tour/dolce-vita-siracusa', key: 'dolceVita'},
+  {href: '/tour/silent-sailing', key: 'sailing'}
+] as const;
+
 export function MobileMenu({
   links,
+  toursList,
   bookLabel,
   whatsappLabel,
   callLabel,
   callValue
 }: {
   links: MobileMenuLink[];
+  toursList: ToursList;
   bookLabel: string;
   whatsappLabel: string;
   callLabel: string;
   callValue: string;
 }) {
   const [open, setOpen] = useState(false);
+  const [tourExpanded, setTourExpanded] = useState(false);
   const pathname = usePathname();
 
   // Chiudi al cambio rotta
@@ -94,18 +122,73 @@ export function MobileMenu({
           className="flex-1 overflow-y-auto px-6 py-7"
         >
           <ul>
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="block py-4 font-display text-[26px] font-light text-ink leading-[1.1] tracking-tight border-b border-[var(--border)] hover:text-accent transition-colors"
-                  style={{fontStretch: '95%'}}
-                  onClick={() => setOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {links.map((link) => {
+              // Tour Sicilia: espandibile con sub-link ai tour
+              if (link.href === '/tour-sicilia') {
+                return (
+                  <li key={link.href} className="border-b border-[var(--border)]">
+                    <button
+                      type="button"
+                      onClick={() => setTourExpanded((v) => !v)}
+                      aria-expanded={tourExpanded}
+                      className="w-full flex items-center justify-between py-4 font-display text-[26px] font-light text-ink leading-[1.1] tracking-tight hover:text-accent transition-colors"
+                      style={{fontStretch: '95%'}}
+                    >
+                      <span>{link.label}</span>
+                      <ChevronDownIcon
+                        className={`size-5 text-ink/60 transition-transform duration-300 ${
+                          tourExpanded ? 'rotate-180' : ''
+                        }`}
+                        aria-hidden="true"
+                      />
+                    </button>
+                    {/* Sub-list espandibile con max-height transition */}
+                    <div
+                      className={`grid transition-all duration-300 ease-out ${
+                        tourExpanded
+                          ? 'grid-rows-[1fr] opacity-100 pb-2'
+                          : 'grid-rows-[0fr] opacity-0'
+                      }`}
+                    >
+                      <ul className="overflow-hidden">
+                        {TOUR_LINKS.map((tour) => (
+                          <li key={tour.href}>
+                            <Link
+                              href={tour.href}
+                              onClick={() => setOpen(false)}
+                              className="block py-2.5 pl-4 border-l-2 border-[var(--border)] hover:border-accent transition-colors group"
+                            >
+                              <p
+                                className="font-display text-[18px] text-ink/85 group-hover:text-accent transition-colors leading-tight"
+                                style={{fontStretch: '95%'}}
+                              >
+                                {toursList[tour.key]}
+                              </p>
+                              <p className="mt-0.5 text-[12px] text-ink/55 leading-snug">
+                                {toursList[`${tour.key}Desc` as keyof ToursList]}
+                              </p>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </li>
+                );
+              }
+              // Altri link: normali
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="block py-4 font-display text-[26px] font-light text-ink leading-[1.1] tracking-tight border-b border-[var(--border)] hover:text-accent transition-colors"
+                    style={{fontStretch: '95%'}}
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           {/* CTAs in fondo */}
