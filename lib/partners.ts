@@ -46,11 +46,11 @@ const IMG_PURAVIDA =
 const IMG_BURGIO =
   'https://images.unsplash.com/photo-1565299543923-37dd37887442?w=1200&q=70&auto=format&fm=webp';
 const IMG_BENANTI =
-  'https://images.unsplash.com/photo-1568797629192-2e6ce1f5b1d6?w=1200&q=70&auto=format&fm=webp';
+  'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=70&auto=format&fm=webp';
 const IMG_PALMERI =
   'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1200&q=70&auto=format&fm=webp';
 const HERO_PARTNER =
-  'https://images.unsplash.com/photo-1502780402662-acc01917298e?w=1600&q=70&auto=format&fm=webp';
+  'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1600&q=70&auto=format&fm=webp';
 
 // ============================================================
 // IT

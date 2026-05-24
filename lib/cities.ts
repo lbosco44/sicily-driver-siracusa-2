@@ -147,7 +147,7 @@ const CATANIA_IT: CityContent = {
     'Servizio NCC professionale da e per Catania, inclusi transfer dall’Aeroporto di Catania verso Siracusa, Noto, Ragusa e Taormina. Veicoli Mercedes, autisti professionisti, servizio 24/7.',
 
   heroImage:
-    'https://images.unsplash.com/photo-1592457629949-9075c3d05a89?w=1600&q=70&auto=format&fm=webp',
+    'https://images.unsplash.com/photo-1532509774891-141d37f25ae9?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'NCC Catania · Aeroporto Fontanarossa · 24/7',
   heroSubhead:
     'Mercedes con autista bilingue, monitoraggio volo, attesa gratuita 60 minuti. Dal terminal arrivi alla tua destinazione, senza pensieri.',
@@ -209,13 +209,13 @@ const CATANIA_IT: CityContent = {
     {
       title: 'Tour Etna',
       image:
-        'https://images.unsplash.com/photo-1604930571107-7e07e44f31b8?w=800&q=70&auto=format&fm=webp',
+        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
       href: '/tour/etna-premium'
     },
     {
       title: 'Ortigia + Taormina',
       image:
-        'https://images.unsplash.com/photo-1583435423797-be15ddffe3c2?w=800&q=70&auto=format&fm=webp',
+        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
       href: '/tour/dolce-vita-siracusa'
     }
   ],
@@ -235,7 +235,7 @@ const NOTO_IT: CityContent = {
     'Servizio NCC a Noto per transfer da/per aeroporti (Catania, Comiso) e tour nel Val di Noto: Noto, Modica, Ragusa Ibla e Marzamemi. Autista dedicato e comfort premium.',
 
   heroImage:
-    'https://images.unsplash.com/photo-1571687948252-c4f4d9d57c41?w=1600&q=70&auto=format&fm=webp',
+    'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'NCC Noto · Val di Noto · 24/7',
   heroSubhead:
     'La capitale del Barocco siciliano come punto di partenza. Da Noto verso Siracusa, Marzamemi o Modica con Mercedes e autista dedicato.',
@@ -295,13 +295,13 @@ const NOTO_IT: CityContent = {
     {
       title: 'Tour Etna',
       image:
-        'https://images.unsplash.com/photo-1604930571107-7e07e44f31b8?w=800&q=70&auto=format&fm=webp',
+        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
       href: '/tour/etna-premium'
     },
     {
       title: 'Ortigia + Taormina',
       image:
-        'https://images.unsplash.com/photo-1583435423797-be15ddffe3c2?w=800&q=70&auto=format&fm=webp',
+        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
       href: '/tour/dolce-vita-siracusa'
     }
   ],
@@ -320,7 +320,7 @@ const TAORMINA_IT: CityContent = {
     'NCC per Taormina con transfer da/per Aeroporto di Catania, Siracusa e tutta la costa ionica. Opzione Tour Etna con degustazione in cantina e soste panoramiche.',
 
   heroImage:
-    'https://images.unsplash.com/photo-1568797629192-2e6ce1f5b1d6?w=1600&q=70&auto=format&fm=webp',
+    'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'NCC Taormina · Costa Ionica · 24/7',
   heroSubhead:
     'Dal teatro greco a Isola Bella, da Catania Fontanarossa al cratere dell’Etna. Mercedes con autista bilingue, orari flessibili, tariffa concordata.',
@@ -373,13 +373,13 @@ const TAORMINA_IT: CityContent = {
     {
       title: 'Tour Etna',
       image:
-        'https://images.unsplash.com/photo-1604930571107-7e07e44f31b8?w=800&q=70&auto=format&fm=webp',
+        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
       href: '/tour/etna-premium'
     },
     {
       title: 'Ortigia + Taormina',
       image:
-        'https://images.unsplash.com/photo-1583435423797-be15ddffe3c2?w=800&q=70&auto=format&fm=webp',
+        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
       href: '/tour/dolce-vita-siracusa'
     },
     {
@@ -405,7 +405,7 @@ const RAGUSA_IT: CityContent = {
     'Servizio NCC a Ragusa e Ragusa Ibla per transfer privati da/per Aeroporto di Catania e Comiso, tour del Barocco e collegamenti per Siracusa e Noto.',
 
   heroImage:
-    'https://images.unsplash.com/photo-1612965103229-d8e0d2c9dafd?w=1600&q=70&auto=format&fm=webp',
+    'https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'NCC Ragusa Ibla · Val di Noto · 24/7',
   heroSubhead:
     'Dalla cattedrale di San Giorgio agli aeroporti di Comiso e Catania. Mercedes con autista per Ragusa, Modica, Scicli e tutta la provincia.',
@@ -465,13 +465,13 @@ const RAGUSA_IT: CityContent = {
     {
       title: 'Ortigia + Taormina',
       image:
-        'https://images.unsplash.com/photo-1583435423797-be15ddffe3c2?w=800&q=70&auto=format&fm=webp',
+        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
       href: '/tour/dolce-vita-siracusa'
     },
     {
       title: 'Tour Etna',
       image:
-        'https://images.unsplash.com/photo-1604930571107-7e07e44f31b8?w=800&q=70&auto=format&fm=webp',
+        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
       href: '/tour/etna-premium'
     }
   ],
@@ -495,7 +495,7 @@ const CATANIA_EN: CityContent = {
     'Private driver in Catania for airport transfers (CTA) and custom trips to Siracusa, Noto, Taormina and Ragusa. Mercedes vehicles, English-speaking chauffeurs, 24/7 service.',
 
   heroImage:
-    'https://images.unsplash.com/photo-1592457629949-9075c3d05a89?w=1600&q=70&auto=format&fm=webp',
+    'https://images.unsplash.com/photo-1532509774891-141d37f25ae9?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'Private driver Catania · Fontanarossa · 24/7',
   heroSubhead:
     'Mercedes chauffeur, real-time flight tracking, free 60-minute waiting time. From the arrivals gate to your destination, hassle-free.',
@@ -556,13 +556,13 @@ const CATANIA_EN: CityContent = {
     {
       title: 'Etna Tour',
       image:
-        'https://images.unsplash.com/photo-1604930571107-7e07e44f31b8?w=800&q=70&auto=format&fm=webp',
+        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
       href: '/tour/etna-premium'
     },
     {
       title: 'Ortigia + Taormina',
       image:
-        'https://images.unsplash.com/photo-1583435423797-be15ddffe3c2?w=800&q=70&auto=format&fm=webp',
+        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
       href: '/tour/dolce-vita-siracusa'
     }
   ],
@@ -582,7 +582,7 @@ const NOTO_EN: CityContent = {
     'Private driver in Noto for transfers from Catania or Comiso airport and Baroque Valley tours: Noto, Modica, Ragusa Ibla and Marzamemi.',
 
   heroImage:
-    'https://images.unsplash.com/photo-1571687948252-c4f4d9d57c41?w=1600&q=70&auto=format&fm=webp',
+    'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'Private driver Noto · Val di Noto · 24/7',
   heroSubhead:
     'The capital of Sicilian Baroque as a base. From Noto to Syracuse, Marzamemi or Modica with a Mercedes and dedicated chauffeur.',
@@ -641,13 +641,13 @@ const NOTO_EN: CityContent = {
     {
       title: 'Etna Tour',
       image:
-        'https://images.unsplash.com/photo-1604930571107-7e07e44f31b8?w=800&q=70&auto=format&fm=webp',
+        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
       href: '/tour/etna-premium'
     },
     {
       title: 'Ortigia + Taormina',
       image:
-        'https://images.unsplash.com/photo-1583435423797-be15ddffe3c2?w=800&q=70&auto=format&fm=webp',
+        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
       href: '/tour/dolce-vita-siracusa'
     }
   ],
@@ -666,7 +666,7 @@ const TAORMINA_EN: CityContent = {
     'Private driver to/from Taormina with transfers from Catania Airport, Siracusa and the Ionian coast. Add an Etna wine-tasting tour with scenic stops.',
 
   heroImage:
-    'https://images.unsplash.com/photo-1568797629192-2e6ce1f5b1d6?w=1600&q=70&auto=format&fm=webp',
+    'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'Private driver Taormina · Ionian Coast · 24/7',
   heroSubhead:
     'From the Greek theatre to Isola Bella, from Catania Fontanarossa to the Etna craters. Mercedes chauffeur, flexible hours, agreed flat rate.',
@@ -719,13 +719,13 @@ const TAORMINA_EN: CityContent = {
     {
       title: 'Etna Tour',
       image:
-        'https://images.unsplash.com/photo-1604930571107-7e07e44f31b8?w=800&q=70&auto=format&fm=webp',
+        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
       href: '/tour/etna-premium'
     },
     {
       title: 'Ortigia + Taormina',
       image:
-        'https://images.unsplash.com/photo-1583435423797-be15ddffe3c2?w=800&q=70&auto=format&fm=webp',
+        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
       href: '/tour/dolce-vita-siracusa'
     },
     {
@@ -751,7 +751,7 @@ const RAGUSA_EN: CityContent = {
     'Private driver in Ragusa and Ragusa Ibla for transfers to/from Catania and Comiso Airport, Baroque tours and connections to Siracusa and Noto.',
 
   heroImage:
-    'https://images.unsplash.com/photo-1612965103229-d8e0d2c9dafd?w=1600&q=70&auto=format&fm=webp',
+    'https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'Private driver Ragusa Ibla · Val di Noto · 24/7',
   heroSubhead:
     'From San Giorgio Cathedral to Comiso and Catania airports. Mercedes chauffeur across Ragusa, Modica, Scicli and the whole province.',
@@ -811,13 +811,13 @@ const RAGUSA_EN: CityContent = {
     {
       title: 'Ortigia + Taormina',
       image:
-        'https://images.unsplash.com/photo-1583435423797-be15ddffe3c2?w=800&q=70&auto=format&fm=webp',
+        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
       href: '/tour/dolce-vita-siracusa'
     },
     {
       title: 'Etna Tour',
       image:
-        'https://images.unsplash.com/photo-1604930571107-7e07e44f31b8?w=800&q=70&auto=format&fm=webp',
+        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
       href: '/tour/etna-premium'
     }
   ],

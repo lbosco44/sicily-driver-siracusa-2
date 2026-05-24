@@ -110,7 +110,7 @@ export type WeddingContent = {
 // ============================================================
 
 const CAR_FIAT500 =
-  'https://images.unsplash.com/photo-1583435423797-be15ddffe3c2?w=900&q=70&auto=format&fm=webp';
+  'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=900&q=70&auto=format&fm=webp';
 const CAR_PAGODA =
   'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=900&q=70&auto=format&fm=webp';
 const CAR_SPIDER =

@@ -12,7 +12,8 @@
     "partner": "Partners",
     "about": "About",
     "contact": "Contact",
-    "bookNow": "Book"
+    "bookNow": "Book",
+    "callShort": "Call"
   },
   "WhatsApp": {
     "label": "Message us on WhatsApp",

@@ -159,7 +159,7 @@ export default async function ChiSiamoPage({
             </figure>
             <figure className="col-span-12 sm:col-span-5 relative aspect-[4/3] overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1583435423797-be15ddffe3c2?w=900&q=80&auto=format&fm=webp"
+                src="https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=900&q=80&auto=format&fm=webp"
                 alt=""
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"
@@ -170,7 +170,7 @@ export default async function ChiSiamoPage({
             </figure>
             <figure className="col-span-12 sm:col-span-5 relative aspect-[4/3] overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1571687948252-c4f4d9d57c41?w=900&q=80&auto=format&fm=webp"
+                src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=900&q=80&auto=format&fm=webp"
                 alt=""
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"
@@ -181,7 +181,7 @@ export default async function ChiSiamoPage({
             </figure>
             <figure className="col-span-12 sm:col-span-7 relative aspect-[5/4] overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1604930571107-7e07e44f31b8?w=1400&q=80&auto=format&fm=webp"
+                src="https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=1400&q=80&auto=format&fm=webp"
                 alt=""
                 fill
                 sizes="(max-width: 768px) 100vw, 58vw"

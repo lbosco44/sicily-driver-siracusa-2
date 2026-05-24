@@ -81,7 +81,7 @@ export default async function PrivacyPage({
             {sections.map((s, i) => (
               <section key={i}>
                 <h2
-                  className="font-display text-[28px] sm:text-[34px] lg:text-[40px] font-light text-ink leading-[1.1] mb-6"
+                  className="font-display text-[24px] sm:text-[32px] lg:text-[40px] font-light text-ink leading-[1.15] mb-6 hyphens-auto break-words"
                   style={{fontStretch: '95%'}}
                 >
                   {s.h}

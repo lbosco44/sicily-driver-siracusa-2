@@ -11,14 +11,14 @@ const PLACES = [
   {
     key: 'ortigia',
     image:
-      'https://images.unsplash.com/photo-1583435423797-be15ddffe3c2?w=900&q=80&auto=format&fm=webp',
+      'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=900&q=80&auto=format&fm=webp',
     rotate: -2.5,
     span: 'sm:col-span-5'
   },
   {
     key: 'noto',
     image:
-      'https://images.unsplash.com/photo-1571687948252-c4f4d9d57c41?w=900&q=80&auto=format&fm=webp',
+      'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=900&q=80&auto=format&fm=webp',
     rotate: 1.5,
     span: 'sm:col-span-4'
   },
@@ -32,21 +32,21 @@ const PLACES = [
   {
     key: 'ragusa',
     image:
-      'https://images.unsplash.com/photo-1604501748863-22a0e6f63a4f?w=900&q=80&auto=format&fm=webp',
+      'https://images.unsplash.com/photo-1581922814484-0b48460b7010?w=900&q=80&auto=format&fm=webp',
     rotate: 2.2,
     span: 'sm:col-span-3'
   },
   {
     key: 'etna',
     image:
-      'https://images.unsplash.com/photo-1604930571107-7e07e44f31b8?w=900&q=80&auto=format&fm=webp',
+      'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=900&q=80&auto=format&fm=webp',
     rotate: -1.8,
     span: 'sm:col-span-4'
   },
   {
     key: 'taormina',
     image:
-      'https://images.unsplash.com/photo-1568797629192-2e6ce1f5b1d6?w=900&q=80&auto=format&fm=webp',
+      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=900&q=80&auto=format&fm=webp',
     rotate: 1.3,
     span: 'sm:col-span-5'
   }

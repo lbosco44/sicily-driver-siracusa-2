@@ -29,7 +29,7 @@ const ESPERIENZE: Esperienza[] = [
     key: '1',
     href: '/tour/dolce-vita-siracusa',
     image:
-      'https://images.unsplash.com/photo-1583435423797-be15ddffe3c2?w=2000&q=80&auto=format&fm=webp',
+      'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=2000&q=80&auto=format&fm=webp',
     bg: '#E8DBC4',
     align: 'left'
   },
@@ -37,7 +37,7 @@ const ESPERIENZE: Esperienza[] = [
     key: '2',
     href: '/tour/silent-sailing',
     image:
-      'https://images.unsplash.com/photo-1502780402662-acc01917298e?w=2000&q=80&auto=format&fm=webp',
+      'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=2000&q=80&auto=format&fm=webp',
     bg: '#1E3A4F',
     align: 'right'
   },
@@ -53,7 +53,7 @@ const ESPERIENZE: Esperienza[] = [
     key: '4',
     href: '/tour/etna-premium',
     image:
-      'https://images.unsplash.com/photo-1604930571107-7e07e44f31b8?w=2000&q=80&auto=format&fm=webp',
+      'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=2000&q=80&auto=format&fm=webp',
     bg: '#B05E40',
     align: 'right'
   },

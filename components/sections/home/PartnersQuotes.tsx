@@ -12,7 +12,7 @@ const PARTNERS = [
   {
     key: 'puravida',
     image:
-      'https://images.unsplash.com/photo-1502780402662-acc01917298e?w=1400&q=80&auto=format&fm=webp',
+      'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1400&q=80&auto=format&fm=webp',
     side: 'right' as const
   },
   {
@@ -24,7 +24,7 @@ const PARTNERS = [
   {
     key: 'benanti',
     image:
-      'https://images.unsplash.com/photo-1568797629192-2e6ce1f5b1d6?w=1400&q=80&auto=format&fm=webp',
+      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1400&q=80&auto=format&fm=webp',
     side: 'right' as const
   },
   {

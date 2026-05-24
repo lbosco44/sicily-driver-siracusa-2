@@ -59,11 +59,11 @@ export default async function WeddingPage({
   // Gallery placeholders — TODO replace with portfolio reale cliente
   const GALLERY = [
     'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1400&q=80&auto=format&fm=webp',
-    'https://images.unsplash.com/photo-1583435423797-be15ddffe3c2?w=900&q=80&auto=format&fm=webp',
+    'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=900&q=80&auto=format&fm=webp',
     'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=900&q=80&auto=format&fm=webp',
-    'https://images.unsplash.com/photo-1604930571107-7e07e44f31b8?w=1400&q=80&auto=format&fm=webp',
+    'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=1400&q=80&auto=format&fm=webp',
     'https://images.unsplash.com/photo-1493238792000-8113da705763?w=900&q=80&auto=format&fm=webp',
-    'https://images.unsplash.com/photo-1571687948252-c4f4d9d57c41?w=900&q=80&auto=format&fm=webp'
+    'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=900&q=80&auto=format&fm=webp'
   ];
 
   return (
