@@ -1,6 +1,6 @@
 'use client';
 
-import {useRef} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {useTranslations, useLocale} from 'next-intl';
@@ -10,7 +10,8 @@ import {
   useScroll,
   useTransform,
   useReducedMotion,
-  type MotionValue
+  type MotionValue,
+  type PanInfo
 } from 'motion/react';
 
 // EsperienzeScroll — 5 esperienze come capitoli scroll-driven.
@@ -71,16 +72,9 @@ export function EsperienzeScroll() {
 
   return (
     <section aria-label={t('eyebrow')}>
-      {/* ── MOBILE: stack in flusso pagina con snap CSS (no scroll trap) ── */}
+      {/* ── MOBILE: swipe Reels-style via motion drag ── */}
       <div className="md:hidden">
-        {ESPERIENZE.map((e, i) => (
-          <MobileScene
-            key={e.key}
-            e={e}
-            index={i}
-            locale={locale}
-          />
-        ))}
+        <MobileSwipeReels locale={locale} />
       </div>
 
       {/* ── DESKTOP: sticky scroll-driven ── */}
@@ -110,46 +104,101 @@ export function EsperienzeScroll() {
   );
 }
 
-// ── Mobile: una scena full-height statica ──────────────────────────────────
+// ── Mobile: swipe Reels-style via motion drag ──────────────────────────────
+// Section h-[100svh] in flusso pagina. Dentro, motion.div con drag="y" che
+// contiene le 5 scene stackate. Snap su drag-end via velocity+offset.
+// Boundary force-exit: swipe forte oltre la prima/ultima scena scrolla la
+// pagina fuori dalla sezione (niente trap).
 
-function MobileScene({
-  e,
-  index,
-  locale
-}: {
-  e: Esperienza;
-  index: number;
-  locale: string;
-}) {
+function MobileSwipeReels({locale}: {locale: string}) {
   const t = useTranslations('Home.esperienze');
   const tCommon = useTranslations('NccPage');
-  const alignClass =
-    e.align === 'left' ? 'items-start text-left' : 'items-end text-right';
+  const sectionRef = useRef<HTMLElement>(null);
+  const [index, setIndex] = useState(0);
+  const [vh, setVh] = useState(0);
+
+  // Misuro l'altezza reale del container (svh varia con address bar mobile)
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    const measure = () => {
+      if (sectionRef.current) setVh(sectionRef.current.clientHeight);
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    window.addEventListener('orientationchange', measure);
+    return () => {
+      window.removeEventListener('resize', measure);
+      window.removeEventListener('orientationchange', measure);
+    };
+  }, []);
+
+  const handleDragEnd = (_e: PointerEvent | MouseEvent | TouchEvent, info: PanInfo) => {
+    const {offset, velocity} = info;
+    const SCENE_THRESHOLD = vh / 5; // 20% di scena = cambio
+    const VEL_THRESHOLD = 350;
+    const EXIT_OFFSET = vh / 2.5;
+    const EXIT_VELOCITY = 900;
+
+    // Exit forward: ultima scena, swipe forte verso l'alto → scroll page giù
+    if (
+      index === N - 1 &&
+      (offset.y < -EXIT_OFFSET || velocity.y < -EXIT_VELOCITY) &&
+      sectionRef.current
+    ) {
+      const rect = sectionRef.current.getBoundingClientRect();
+      const targetY = window.scrollY + rect.bottom + 1;
+      window.scrollTo({top: targetY, behavior: 'smooth'});
+      return;
+    }
+    // Exit backward: prima scena, swipe forte verso il basso → scroll page su
+    if (
+      index === 0 &&
+      (offset.y > EXIT_OFFSET || velocity.y > EXIT_VELOCITY) &&
+      sectionRef.current
+    ) {
+      const rect = sectionRef.current.getBoundingClientRect();
+      const targetY = window.scrollY + rect.top - vh + 1;
+      window.scrollTo({top: Math.max(0, targetY), behavior: 'smooth'});
+      return;
+    }
+
+    // Snap a scena vicina
+    let target = index;
+    if (offset.y < -SCENE_THRESHOLD || velocity.y < -VEL_THRESHOLD) {
+      target = Math.min(index + 1, N - 1);
+    } else if (offset.y > SCENE_THRESHOLD || velocity.y > VEL_THRESHOLD) {
+      target = Math.max(index - 1, 0);
+    }
+    setIndex(target);
+  };
 
   return (
-    <div
-      className="relative h-[100svh] overflow-hidden esperienza-scene"
-      style={{backgroundColor: e.bg}}
+    <section
+      ref={sectionRef}
+      className="relative h-[100svh] overflow-hidden bg-canvas touch-none"
+      aria-label="Esperienze — swipe per navigare"
     >
-      <Image
-        src={e.image}
-        alt=""
-        fill
-        sizes="100vw"
-        quality={75}
-        className="object-cover"
-        placeholder="blur"
-        blurDataURL={HERO_BLUR}
-        priority={index === 0}
-        style={{filter: 'saturate(0.88) brightness(0.82) contrast(1.06)'}}
-      />
-      <div className="absolute inset-0 bg-black/40" />
+      <motion.div
+        drag={vh > 0 ? 'y' : false}
+        dragConstraints={{top: -(N - 1) * vh, bottom: 0}}
+        dragElastic={0.15}
+        dragMomentum={false}
+        animate={{y: -index * vh}}
+        transition={{type: 'spring', stiffness: 280, damping: 32, mass: 0.6}}
+        onDragEnd={handleDragEnd}
+        className="will-change-transform"
+        style={{height: vh > 0 ? `${N * vh}px` : `${N * 100}svh`}}
+      >
+        {ESPERIENZE.map((e, i) => (
+          <ReelsScene key={e.key} e={e} index={i} locale={locale} t={t} tCommon={tCommon} />
+        ))}
+      </motion.div>
 
-      {/* Counter top */}
-      <div className="absolute top-0 inset-x-0 z-10 pt-6">
+      {/* Counter + dots overlay (fuori dal drag, fissi sulla viewport) */}
+      <div className="pointer-events-none absolute top-0 inset-x-0 z-20 pt-6">
         <div className="px-6 flex items-baseline justify-between">
-          <p className="eyebrow text-cream-on-dark/80">{t('eyebrow')}</p>
-          <div className="flex items-baseline gap-2 text-cream-on-dark/80 tabular-nums">
+          <p className="eyebrow text-cream-on-dark/85">{t('eyebrow')}</p>
+          <div className="flex items-baseline gap-2 text-cream-on-dark/85 tabular-nums">
             <span className="font-display text-2xl">
               {String(index + 1).padStart(2, '0')}
             </span>
@@ -160,21 +209,74 @@ function MobileScene({
         </div>
       </div>
 
+      {/* Dots indicator + hint */}
+      <div className="pointer-events-none absolute bottom-6 inset-x-0 z-20 flex flex-col items-center gap-3">
+        <div className="flex gap-2">
+          {ESPERIENZE.map((_, i) => (
+            <span
+              key={i}
+              className={`block w-1.5 h-1.5 rounded-full transition-all ${
+                i === index ? 'bg-cream-on-dark w-6' : 'bg-cream-on-dark/40'
+              }`}
+            />
+          ))}
+        </div>
+        <p className="text-[10px] uppercase tracking-[0.22em] font-medium text-cream-on-dark/55">
+          {index === N - 1 ? t('swipeExit') : t('swipeHint')}
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function ReelsScene({
+  e,
+  index,
+  locale,
+  t,
+  tCommon
+}: {
+  e: Esperienza;
+  index: number;
+  locale: string;
+  t: ReturnType<typeof useTranslations>;
+  tCommon: ReturnType<typeof useTranslations>;
+}) {
+  const alignClass =
+    e.align === 'left' ? 'items-start text-left' : 'items-end text-right';
+  return (
+    <div className="relative h-[100svh] overflow-hidden" style={{backgroundColor: e.bg}}>
+      <Image
+        src={e.image}
+        alt=""
+        fill
+        sizes="100vw"
+        quality={75}
+        className="object-cover pointer-events-none select-none"
+        placeholder="blur"
+        blurDataURL={HERO_BLUR}
+        priority={index === 0}
+        draggable={false}
+        style={{filter: 'saturate(0.88) brightness(0.78) contrast(1.06)'}}
+      />
+      <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+
       {/* Testo in basso */}
       <div
-        className={`absolute inset-0 z-10 flex flex-col justify-end ${alignClass} px-6 pb-20`}
+        className={`absolute inset-0 z-10 flex flex-col justify-end ${alignClass} px-6 pb-24`}
       >
         <div style={{maxWidth: 'min(480px, 90vw)'}}>
           <h2
-            className="hero-headline font-display text-display-md font-medium text-cream-on-dark"
+            className="font-display text-[44px] font-medium text-cream-on-dark"
             style={{
               fontStretch: '92%',
-              textShadow: '0 2px 18px rgba(0,0,0,0.3)'
+              textShadow: '0 2px 18px rgba(0,0,0,0.4)',
+              lineHeight: '1.05'
             }}
           >
             {t(`card${e.key}Title`)}
           </h2>
-          <p className="mt-4 text-[17px] text-cream-on-dark/90 leading-[1.55] max-w-[36ch]">
+          <p className="mt-4 text-[16px] text-cream-on-dark/90 leading-[1.55] max-w-[36ch]">
             {t(`card${e.key}Body`)}
           </p>
           <div
@@ -184,7 +286,7 @@ function MobileScene({
           >
             <Link
               href={`/${locale}${e.href}`}
-              className="inline-flex items-center gap-3 rounded-full bg-cream-on-dark px-6 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-primary-deep hover:bg-cream-soft transition-colors"
+              className="inline-flex items-center gap-3 rounded-full bg-cream-on-dark px-6 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-primary-deep"
             >
               {tCommon('ctaDiscoverTour')}
               <span aria-hidden="true">→</span>

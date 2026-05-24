@@ -154,7 +154,9 @@
       "card5Body": "Noto, Modica, Ragusa Ibla. La pietra calcarea barocca alla luce del mattino, il cioccolato lavorato a freddo, le terrazze sui valloni. Con le pause che servono.",
       "cardCta": "Scopri",
       "customTagline": "Cerchi qualcosa di diverso? Costruiamo l’itinerario insieme.",
-      "customCta": "Parliamone"
+      "customCta": "Parliamone",
+      "swipeHint": "Scorri ↑",
+      "swipeExit": "Continua ↑"
     },
     "manifesto": {
       "eyebrow": "Cosa facciamo",

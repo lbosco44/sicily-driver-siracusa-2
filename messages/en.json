@@ -154,7 +154,9 @@
       "card5Body": "Noto, Modica, Ragusa Ibla. Baroque limestone in the morning light, cold-processed chocolate, terraces over the valleys. With the pauses that count.",
       "cardCta": "Discover",
       "customTagline": "Looking for something different? We build the itinerary together.",
-      "customCta": "Let’s talk"
+      "customCta": "Let’s talk",
+      "swipeHint": "Swipe ↑",
+      "swipeExit": "Continue ↑"
     },
     "manifesto": {
       "eyebrow": "What we do",
