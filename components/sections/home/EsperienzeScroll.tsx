@@ -71,11 +71,11 @@ export function EsperienzeScroll() {
 
   return (
     <section aria-label={t('eyebrow')}>
-      {/* ── MOBILE: horizontal carousel native CSS scroll-snap-x mandatory.
-            Gesture clean: vertical=page scroll, horizontal=scene change.
-            Niente JS drag, niente conflitti. ── */}
+      {/* ── MOBILE: scrollytelling verticale. Outer 5×80svh, inner sticky.
+            Lo scroll della pagina rivela una scena alla volta. Niente
+            swipe, niente hint da leggere — la scoperta è automatica. ── */}
       <div className="md:hidden">
-        <MobileHorizontalCarousel locale={locale} />
+        <MobileVerticalScrollytelling locale={locale} />
       </div>
 
       {/* ── DESKTOP: sticky scroll-driven ── */}
@@ -105,121 +105,95 @@ export function EsperienzeScroll() {
   );
 }
 
-// ── Mobile: horizontal carousel native scroll-snap-x ──────────────────────
-// Pattern collaudato (Apple, Airbnb, Instagram): 5 scene side-by-side dentro
-// un container overflow-x-auto con scroll-snap-type: x mandatory + ogni scena
-// scroll-snap-align: start. Gesture clean per natura:
-// - swipe verticale  → page scroll
-// - swipe orizzontale → cambio scena
-// Zero JS scroll listener, zero drag, zero overhead. Browser fa tutto.
+// ── Mobile: scrollytelling verticale ──────────────────────────────────────
+// Outer section h = N * 80svh in flusso pagina. Inner sticky h-[100svh] mostra
+// 5 scene layered con crossfade. IntersectionObserver tracks current scene
+// via markers a 1px piazzati al centro di ogni "fascia" di scroll.
+// Nessuna gesture custom: l'utente scrolla la pagina come al solito; la
+// sezione esperienze cambia scena durante lo scroll (scrollytelling pattern).
 
-function MobileHorizontalCarousel({locale}: {locale: string}) {
+function MobileVerticalScrollytelling({locale}: {locale: string}) {
   const t = useTranslations('Home.esperienze');
   const tCommon = useTranslations('NccPage');
-  const scrollerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Aggiorna activeIndex in base allo scrollLeft, throttled via rAF.
-  useEffect(() => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    let raf = 0;
-    const onScroll = () => {
-      if (raf) return;
-      raf = requestAnimationFrame(() => {
-        const idx = Math.round(el.scrollLeft / Math.max(1, el.clientWidth));
-        setActiveIndex(Math.max(0, Math.min(N - 1, idx)));
-        raf = 0;
-      });
-    };
-    el.addEventListener('scroll', onScroll, {passive: true});
-    return () => {
-      if (raf) cancelAnimationFrame(raf);
-      el.removeEventListener('scroll', onScroll);
-    };
-  }, []);
-
-  const goTo = (i: number) => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    el.scrollTo({left: i * el.clientWidth, behavior: 'smooth'});
-  };
+  // ogni scena occupa SCENE_HEIGHT_VH di scroll verticale
+  const SCENE_HEIGHT_VH = 80;
 
   return (
     <section
-      className="relative h-[100svh] overflow-hidden bg-canvas"
-      aria-label="Esperienze — swipe orizzontale per navigare"
+      className="relative"
+      style={{height: `${N * SCENE_HEIGHT_VH}svh`}}
+      aria-label="Esperienze — scorri per scoprirle"
     >
-      {/* Horizontal scroller */}
-      <div
-        ref={scrollerRef}
-        className="esperienze-scroller flex h-full overflow-x-auto overflow-y-hidden"
-        style={{
-          scrollSnapType: 'x mandatory',
-          scrollSnapStop: 'always',
-          WebkitOverflowScrolling: 'touch',
-          touchAction: 'pan-x pan-y'
-        }}
-      >
+      {/* Sticky stage — mostra la scena attiva */}
+      <div className="sticky top-0 h-[100svh] overflow-hidden bg-canvas">
         {ESPERIENZE.map((e, i) => (
-          <CarouselScene
+          <SceneLayer
             key={e.key}
             e={e}
             index={i}
+            active={activeIndex === i}
             locale={locale}
             t={t}
             tCommon={tCommon}
           />
         ))}
-      </div>
 
-      {/* Counter + eyebrow top — fissi sulla viewport, sopra al carosello */}
-      <div className="pointer-events-none absolute top-0 inset-x-0 z-20 pt-6">
-        <div className="px-6 flex items-baseline justify-between">
-          <p className="eyebrow text-cream-on-dark/85">{t('eyebrow')}</p>
-          <div className="flex items-baseline gap-2 text-cream-on-dark/85 tabular-nums">
-            <span className="font-display text-2xl">
-              {String(activeIndex + 1).padStart(2, '0')}
-            </span>
-            <span className="text-[11px] uppercase tracking-[0.18em]">
-              / {String(N).padStart(2, '0')}
-            </span>
+        {/* Counter + eyebrow top */}
+        <div className="pointer-events-none absolute top-0 inset-x-0 z-30 pt-6">
+          <div className="px-6 flex items-baseline justify-between">
+            <p className="eyebrow text-cream-on-dark/85">{t('eyebrow')}</p>
+            <div className="flex items-baseline gap-2 text-cream-on-dark/85 tabular-nums">
+              <span className="font-display text-2xl">
+                {String(activeIndex + 1).padStart(2, '0')}
+              </span>
+              <span className="text-[11px] uppercase tracking-[0.18em]">
+                / {String(N).padStart(2, '0')}
+              </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Dots indicator + hint orizzontale */}
-      <div className="pointer-events-none absolute bottom-6 inset-x-0 z-20 flex flex-col items-center gap-3">
-        <div className="pointer-events-auto flex gap-2">
+        {/* Dots indicator verticale a destra */}
+        <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-2">
           {ESPERIENZE.map((_, i) => (
-            <button
+            <span
               key={i}
-              type="button"
-              onClick={() => goTo(i)}
-              className={`block h-1.5 rounded-full transition-all ${
-                i === activeIndex ? 'bg-cream-on-dark w-6' : 'bg-cream-on-dark/40 w-1.5'
+              className={`block w-1.5 rounded-full transition-all ${
+                i === activeIndex ? 'bg-cream-on-dark h-6' : 'bg-cream-on-dark/40 h-1.5'
               }`}
-              aria-label={`Vai a esperienza ${i + 1}`}
             />
           ))}
         </div>
-        <p className="text-[10px] uppercase tracking-[0.22em] font-medium text-cream-on-dark/55">
-          {activeIndex === N - 1 ? t('swipeExit') : t('swipeHint')}
-        </p>
       </div>
+
+      {/* Triggers — markers a 1px piazzati al CENTRO della fascia di scroll
+          di ogni scena. IntersectionObserver fa fire quando il marker
+          attraversa il middle line del viewport (rootMargin -50% top+bot). */}
+      {ESPERIENZE.map((_, i) => (
+        <SceneTrigger
+          key={`t-${i}`}
+          index={i}
+          sceneHeightVh={SCENE_HEIGHT_VH}
+          onActive={setActiveIndex}
+        />
+      ))}
     </section>
   );
 }
 
-function CarouselScene({
+function SceneLayer({
   e,
   index,
+  active,
   locale,
   t,
   tCommon
 }: {
   e: Esperienza;
   index: number;
+  active: boolean;
   locale: string;
   t: ReturnType<typeof useTranslations>;
   tCommon: ReturnType<typeof useTranslations>;
@@ -227,9 +201,14 @@ function CarouselScene({
   const alignClass =
     e.align === 'left' ? 'items-start text-left' : 'items-end text-right';
   return (
-    <article
-      className="shrink-0 w-screen h-full relative overflow-hidden"
-      style={{scrollSnapAlign: 'start', backgroundColor: e.bg}}
+    <div
+      className="absolute inset-0 transition-opacity duration-500 ease-out"
+      style={{
+        opacity: active ? 1 : 0,
+        pointerEvents: active ? 'auto' : 'none',
+        backgroundColor: e.bg
+      }}
+      aria-hidden={!active}
     >
       <Image
         src={e.image}
@@ -248,7 +227,7 @@ function CarouselScene({
 
       {/* Testo in basso */}
       <div
-        className={`absolute inset-0 z-10 flex flex-col justify-end ${alignClass} px-6 pb-28`}
+        className={`absolute inset-0 z-10 flex flex-col justify-end ${alignClass} px-6 pb-24`}
       >
         <div style={{maxWidth: 'min(480px, 90vw)'}}>
           <h2
@@ -279,7 +258,48 @@ function CarouselScene({
           </div>
         </div>
       </div>
-    </article>
+    </div>
+  );
+}
+
+function SceneTrigger({
+  index,
+  sceneHeightVh,
+  onActive
+}: {
+  index: number;
+  sceneHeightVh: number;
+  onActive: (i: number) => void;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!ref.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) onActive(index);
+      },
+      {
+        // root viewport ridotta a una linea orizzontale al centro:
+        // -50% top + -50% bottom = altezza effettiva 0 al middle.
+        rootMargin: '-50% 0px -50% 0px',
+        threshold: 0
+      }
+    );
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [index, onActive]);
+
+  return (
+    <div
+      ref={ref}
+      className="absolute left-0 right-0 pointer-events-none"
+      style={{
+        // marker al CENTRO della fascia di scroll della scena i
+        top: `${index * sceneHeightVh + sceneHeightVh / 2}svh`,
+        height: '1px'
+      }}
+      aria-hidden="true"
+    />
   );
 }
 

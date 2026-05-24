@@ -101,15 +101,9 @@ body:has(.tour-etna-page) footer {
   background-color: #141210 !important;
 }
 
-/* EsperienzeScroll mobile: horizontal carousel native scroll-snap-x.
-   Nascondi scrollbar (visiva, lo scroll resta funzionale). */
-.esperienze-scroller {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.esperienze-scroller::-webkit-scrollbar {
-  display: none;
-}
+/* EsperienzeScroll mobile: scrollytelling verticale, niente CSS speciale
+   necessaria. La logica (sticky inner + IntersectionObserver triggers)
+   vive interamente in EsperienzeScroll.tsx. */
 
 body {
   background: var(--canvas);
