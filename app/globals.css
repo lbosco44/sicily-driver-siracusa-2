@@ -95,6 +95,12 @@ html {
   overflow-x: clip;
 }
 
+/* Footer su pagina Tour Etna: grigio scuro per non spezzare i colori
+   (blu mare → grigio etna). Usa :has() per detectare la pagina. */
+body:has(.tour-etna-page) footer {
+  background-color: #141210 !important;
+}
+
 body {
   background: var(--canvas);
   color: var(--ink);

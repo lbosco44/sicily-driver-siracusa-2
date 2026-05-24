@@ -39,7 +39,7 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
   const N = tour.stages.length;
 
   return (
-    <div style={{backgroundColor: ETNA_BLACK, color: 'var(--cream-on-dark)'}}>
+    <div className="tour-etna-page" style={{backgroundColor: ETNA_BLACK, color: 'var(--cream-on-dark)'}}>
       {/* 01 — HERO cinematic ultra-dark */}
       <section className="hero-stage relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
@@ -54,17 +54,10 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
             placeholder="blur"
             blurDataURL={HERO_BLUR}
             className="object-cover"
-            style={{filter: 'saturate(0.7) brightness(0.55) contrast(1.18)'}}
+            style={{filter: 'saturate(0.85) brightness(0.65) contrast(1.1)'}}
           />
-          {/* Doppio overlay per drama */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black" />
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                'radial-gradient(circle at 70% 30%, rgba(232, 75, 54, 0.18) 0%, transparent 50%)'
-            }}
-          />
+          {/* Overlay neutro per leggibilità testo — niente più sfumatura rossa */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/85" />
         </div>
 
         <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-[18vh] sm:pb-[22vh]">
@@ -81,14 +74,6 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
           </div>
         </div>
 
-        {/* Glow bottom — fa "fumare" il bordo */}
-        <div
-          className="absolute bottom-0 inset-x-0 h-px pointer-events-none"
-          style={{
-            boxShadow: `0 0 60px 12px ${LAVA_GLOW}30`
-          }}
-          aria-hidden="true"
-        />
       </section>
 
       {/* 02 — INTRO dark drop-cap lava */}
@@ -501,19 +486,12 @@ function EtnaStageImage({
         placeholder="blur"
         blurDataURL={HERO_BLUR}
         className="object-cover"
-        style={{filter: 'saturate(0.75) brightness(0.55) contrast(1.18)'}}
+        style={{filter: 'saturate(0.9) brightness(0.7) contrast(1.08)'}}
         priority={priority}
         {...(priority ? {fetchPriority: 'high' as const} : {})}
       />
-      {/* Doppio overlay dark + radial lava glow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/85" />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            'radial-gradient(circle at 30% 70%, rgba(192, 57, 43, 0.15) 0%, transparent 60%)'
-        }}
-      />
+      {/* Overlay dark uniforme — niente più sfumatura rossa */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/75" />
     </motion.div>
   );
 }

@@ -138,8 +138,7 @@ function MobileScene({
       className="relative h-[100svh] overflow-hidden"
       style={{
         backgroundColor: e.bg,
-        scrollSnapAlign: 'start',
-        scrollSnapStop: 'always'
+        scrollSnapAlign: 'start'
       }}
     >
       <Image

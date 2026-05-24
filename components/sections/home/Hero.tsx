@@ -49,26 +49,25 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/15 to-black/70" />
       </motion.div>
 
-      {/* Headline + scroll cue */}
-      <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 grid grid-rows-[1fr_auto_auto] pb-12 sm:pb-16">
-        {/* Top: vuoto, lascia respirare */}
-        <div />
-
-        {/* Headline gigante centro-destra — testo sul mare, non sugli edifici */}
+      {/* Headline + scroll cue
+          Mobile: H1 in alto a sinistra, no subtitle, scroll cue in basso
+          Desktop: H1 in basso center-right + subtitle piccolo su 2 righe */}
+      <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex flex-col pt-24 sm:pt-0 pb-12 sm:pb-16">
+        {/* HEADLINE — order 1 mobile (top), order 2 desktop (bottom via flex-1 spacer) */}
         <motion.div
-          className="max-w-[20ch] sm:max-w-none sm:w-[55%] sm:ml-[40%] lg:ml-[42%]"
+          className="order-1 sm:order-2 sm:w-[55%] sm:ml-[40%] lg:ml-[42%]"
           style={{y: headlineY, opacity: headlineOpacity}}
           initial={reduce ? false : {opacity: 0, y: 40}}
           animate={reduce ? false : {opacity: 1, y: 0}}
           transition={{duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.15}}
         >
           <h1
-            className="font-display text-display-xl font-medium text-cream-on-dark"
+            className="font-display text-[44px] sm:text-display-xl font-medium text-cream-on-dark"
             style={{
               fontStretch: '95%',
               textShadow: '0 2px 24px rgba(0,0,0,0.25)',
+              lineHeight: '1.05',
               overflowWrap: 'break-word',
-              wordBreak: 'normal',
               hyphens: 'auto'
             }}
           >
@@ -78,14 +77,18 @@ export function Hero() {
             <span className="text-accent-decorative">{t('h1Punct')}</span>
           </h1>
 
-          <p className="mt-7 sm:mt-9 max-w-[42ch] font-display text-[20px] sm:text-[24px] font-light text-cream-soft/95 leading-[1.35] tracking-[-0.005em]">
+          {/* Subhead: solo desktop, piccolo, 2 righe */}
+          <p className="hidden sm:block mt-5 sm:mt-6 max-w-[55ch] text-[14px] sm:text-[15px] font-light text-cream-soft/90 leading-[1.55]">
             {t('subhead')}
           </p>
         </motion.div>
 
-        {/* Scroll cue in basso al centro */}
+        {/* SPACER — mobile sotto headline, desktop sopra (per spingere headline in basso) */}
+        <div className="order-2 sm:order-1 flex-1" />
+
+        {/* SCROLL CUE — sempre in basso centrato */}
         <motion.div
-          className="flex flex-col items-center justify-self-center mt-12 sm:mt-16"
+          className="order-3 flex flex-col items-center self-center mt-12 sm:mt-16"
           initial={reduce ? false : {opacity: 0}}
           animate={reduce ? false : {opacity: 1}}
           transition={{duration: 0.8, delay: 1.4}}
