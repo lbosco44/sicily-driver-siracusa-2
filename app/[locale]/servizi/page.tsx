@@ -133,7 +133,7 @@ export default async function ServiziPage({
       />
 
       {/* 01 — HERO ridotta */}
-      <section className="relative isolate h-[72svh] min-h-[520px] overflow-hidden">
+      <section className="hero-stage relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <Image
             src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1800&q=80&auto=format&fm=webp"

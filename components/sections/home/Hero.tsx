@@ -26,7 +26,7 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative isolate h-[100svh] min-h-[640px] overflow-hidden"
+      className="hero-stage relative isolate overflow-hidden"
       aria-label={t('a11yLabel')}
     >
       {/* Foto background con parallax sottile */}

@@ -14,7 +14,7 @@ export async function NccCityNarrative({city}: {city: CityContent}) {
   return (
     <>
       {/* 01 — HERO locale full-bleed con foto + H1 SEO-locked */}
-      <section className="relative isolate h-[88svh] min-h-[560px] overflow-hidden">
+      <section className="hero-stage relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <Image
             src={city.heroImage}

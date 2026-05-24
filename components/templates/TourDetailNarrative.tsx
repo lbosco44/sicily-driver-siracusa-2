@@ -23,7 +23,7 @@ export async function TourDetailNarrative({tour}: {tour: TourContent}) {
   return (
     <>
       {/* 01 — HERO cinematic */}
-      <section className="relative isolate h-[100svh] min-h-[640px] overflow-hidden">
+      <section className="hero-stage relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <Image
             src={tour.heroImage}
@@ -43,19 +43,41 @@ export async function TourDetailNarrative({tour}: {tour: TourContent}) {
 
         <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 grid grid-rows-[1fr_auto_auto] pb-12 sm:pb-16">
           <div />
-          <div className="max-w-[34ch]">
-            <p className="eyebrow text-cream-on-dark/85 mb-8">
+          <div className="max-w-[48ch]">
+            <p className="eyebrow text-cream-on-dark/85 mb-6">
               {tour.heroEyebrow}
             </p>
-            <h1
-              className="font-display text-display-md font-medium text-cream-on-dark"
-              style={{
-                fontStretch: '92%',
-                textShadow: '0 2px 24px rgba(0,0,0,0.3)'
-              }}
-            >
-              {tour.h1}
-            </h1>
+            {(() => {
+              // Se l'H1 contiene ":", lo splitto in display grande + subhead piccolo.
+              // Mantiene H1 semantico SEO unico ma visivamente respira.
+              const parts = tour.h1.split(/:\s*/);
+              const main = parts[0];
+              const sub = parts.length > 1 ? parts.slice(1).join(': ') : null;
+              return (
+                <h1
+                  className="hero-headline font-display font-medium text-cream-on-dark"
+                  style={{textShadow: '0 2px 24px rgba(0,0,0,0.3)'}}
+                >
+                  <span
+                    className="block text-display-lg"
+                    style={{fontStretch: '92%'}}
+                  >
+                    {main}
+                  </span>
+                  {sub && (
+                    <span
+                      className="block mt-5 sm:mt-6 font-light text-cream-on-dark/85 leading-[1.1]"
+                      style={{
+                        fontSize: 'clamp(22px, 2.6vw, 38px)',
+                        fontStretch: '94%'
+                      }}
+                    >
+                      {sub}
+                    </span>
+                  )}
+                </h1>
+              );
+            })()}
             <p className="mt-8 sm:mt-10 max-w-[44ch] font-display text-[20px] sm:text-[24px] font-light text-cream-on-dark/95 leading-[1.35] tracking-[-0.005em]">
               {tour.heroSubhead}
             </p>

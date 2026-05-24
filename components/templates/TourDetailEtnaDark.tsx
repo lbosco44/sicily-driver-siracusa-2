@@ -42,7 +42,7 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
   return (
     <div style={{backgroundColor: ETNA_BLACK, color: 'var(--cream-on-dark)'}}>
       {/* 01 — HERO cinematic ultra-dark */}
-      <section className="relative isolate h-[100svh] min-h-[640px] overflow-hidden">
+      <section className="hero-stage relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <Image
             src={tour.heroImage}
@@ -115,26 +115,26 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
             {tour.introBody.map((p, i) => (
               <p
                 key={i}
-                className={
-                  i === 0
-                    ? 'first-letter:font-display first-letter:text-[96px] first-letter:leading-[0.82] first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-light'
-                    : ''
-                }
-                style={
-                  i === 0
-                    ? ({
-                        ['--tw-first-letter-color' as string]: LAVA_GLOW
-                      } as React.CSSProperties)
-                    : undefined
-                }
+                className={i === 0 ? 'etna-dropcap' : ''}
               >
                 {p}
               </p>
             ))}
           </div>
         </div>
-        {/* Override drop-cap color con regola CSS-in-JSX */}
-        <style>{`section > div p:first-of-type::first-letter { color: ${LAVA_GLOW}; }`}</style>
+        {/* Drop-cap targetato SOLO al paragrafo intro, non a cascata */}
+        <style>{`
+          .etna-dropcap::first-letter {
+            font-family: var(--font-display), Georgia, serif;
+            font-size: 96px;
+            line-height: 0.82;
+            color: ${LAVA_GLOW};
+            float: left;
+            margin-right: 12px;
+            margin-top: 4px;
+            font-weight: 300;
+          }
+        `}</style>
       </section>
 
       {/* 03 — IL TOUR IN NUMERI — riga orizzontale, dark */}

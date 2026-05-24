@@ -43,7 +43,7 @@ export function TourHubNarrative({hub}: {hub: TourHubContent}) {
   return (
     <>
       {/* 01 — HERO atmosferica */}
-      <section className="relative isolate h-[100svh] min-h-[640px] overflow-hidden">
+      <section className="hero-stage relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <Image
             src={hub.heroImage}

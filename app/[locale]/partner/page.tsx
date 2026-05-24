@@ -59,7 +59,7 @@ export default async function PartnerPage({
       />
 
       {/* 01 — HERO ridotto editoriale */}
-      <section className="relative isolate h-[70svh] min-h-[520px] overflow-hidden">
+      <section className="hero-stage relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <Image
             src={p.heroImage}

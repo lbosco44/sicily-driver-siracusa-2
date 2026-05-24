@@ -121,6 +121,24 @@ h1, h2, h3, .font-display {
   hyphens: manual;
 }
 
+/* Hero a ratio 16:9 per coerenza editoriale.
+   Desktop: aspect-ratio 16:9 (1920×1080, 1440×810, ecc).
+   Mobile: min-height fallback per non avere hero schiacciate.
+   Max: viewport corrente (svh) per evitare hero giganteschi su monitor ultra-wide. */
+.hero-stage {
+  aspect-ratio: 16 / 9;
+  min-height: 580px;
+  max-height: 100svh;
+}
+
+@media (max-width: 640px) {
+  .hero-stage {
+    aspect-ratio: auto;
+    height: 88svh;
+    min-height: 560px;
+  }
+}
+
 h1 { line-height: 0.95; letter-spacing: -0.035em; }
 h2 { line-height: 1; letter-spacing: -0.03em; }
 h3 { line-height: 1.1; letter-spacing: -0.015em; }
