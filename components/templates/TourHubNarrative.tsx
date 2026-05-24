@@ -13,6 +13,7 @@ import {
 } from 'motion/react';
 import type {TourHubContent} from '@/lib/tours';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
+import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
 
 // TourHubNarrative — pagina /tour-sicilia + /en/sicily-tours.
 // Stesso linguaggio della home: hero atmosferica, scroll-driven sticky per
@@ -268,12 +269,12 @@ export function TourHubNarrative({hub}: {hub: TourHubContent}) {
 
         <div className="relative mx-auto max-w-(--container-narrow) px-6 sm:px-10">
           <p className="eyebrow text-cream-on-dark/65 mb-10">{hub.ctaEyebrow}</p>
-          <h2
+          <AnimatedHeading
+            as="h2"
+            text={hub.ctaH2}
             className="font-display text-display-xl font-light text-cream-on-dark max-w-[18ch] leading-[0.95]"
             style={{fontStretch: '95%'}}
-          >
-            {hub.ctaH2}
-          </h2>
+          />
           <p className="mt-10 text-[19px] sm:text-[21px] text-cream-soft leading-[1.6] max-w-[52ch]">
             {hub.ctaSubhead}
           </p>

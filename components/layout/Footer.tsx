@@ -10,7 +10,7 @@ export async function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-cream-on-dark mt-24 sm:mt-32" style={{color: 'var(--cream-on-dark)'}}>
+    <footer className="bg-primary text-cream-on-dark" style={{color: 'var(--cream-on-dark)'}}>
       <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 py-16 sm:py-20">
         {/* Top: wordmark + tagline */}
         <div className="border-b border-cream-on-dark/15 pb-12">

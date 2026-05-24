@@ -150,10 +150,8 @@ export default async function ServiziPage({
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/75" />
         </div>
 
-        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 grid grid-rows-[1fr_auto] pb-12 sm:pb-16">
-          <div />
+        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-[18vh] sm:pb-[22vh]">
           <div className="max-w-[24ch]">
-            <p className="eyebrow text-cream-on-dark/85 mb-8">{t('hero.eyebrow')}</p>
             <h1
               className="font-display text-display-lg font-medium text-cream-on-dark"
               style={{fontStretch: '92%'}}
@@ -161,9 +159,6 @@ export default async function ServiziPage({
               {t('hero.h1Pre')}{' '}
               <span className="text-accent-decorative">{t('hero.h1Accent')}</span>
             </h1>
-            <p className="mt-8 max-w-[48ch] font-display text-[20px] sm:text-[22px] font-light text-cream-on-dark/95 leading-[1.4]">
-              {t('hero.subhead')}
-            </p>
           </div>
         </div>
       </section>

@@ -32,7 +32,7 @@ export async function NccCityNarrative({city}: {city: CityContent}) {
           <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/35 to-black/75" />
         </div>
 
-        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 grid grid-rows-[1fr_auto_auto] pb-12 sm:pb-16">
+        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 grid grid-rows-[1fr_auto_auto] pb-[16vh] sm:pb-[20vh]">
           <div />
           <div className="max-w-[60ch]">
             <p className="eyebrow text-cream-on-dark/85 mb-6">{city.heroEyebrow}</p>

@@ -2,6 +2,7 @@
 
 import {useTranslations} from 'next-intl';
 import {motion, useReducedMotion} from 'motion/react';
+import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
 
 // CTA finale: schermo intero blu mare profondo. Headline grande + 2 CTA grandi
 // (WhatsApp + telefono). Nessun form, niente "form 4 campi" in fondo.
@@ -36,16 +37,12 @@ export function CtaFinale() {
           {t('eyebrow')}
         </motion.p>
 
-        <motion.h2
+        <AnimatedHeading
+          as="h2"
+          text={t('h2')}
           className="font-display text-display-xl font-light text-cream-on-dark max-w-[16ch] leading-[0.95]"
           style={{fontStretch: '95%'}}
-          initial={reduce ? false : {opacity: 0, y: 32}}
-          whileInView={reduce ? undefined : {opacity: 1, y: 0}}
-          viewport={{once: true, margin: '-15%'}}
-          transition={{duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1]}}
-        >
-          {t('h2')}
-        </motion.h2>
+        />
 
         <motion.p
           className="mt-10 text-[19px] sm:text-[21px] text-cream-soft leading-[1.6] max-w-[52ch]"
