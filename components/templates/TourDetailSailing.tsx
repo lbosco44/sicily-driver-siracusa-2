@@ -6,6 +6,7 @@ import {useTranslations} from 'next-intl';
 import {motion, useReducedMotion} from 'motion/react';
 import type {TourContent} from '@/lib/tours';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
+import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
 
 // TourDetailSailing — variante mood contemplativo blu mare per Silent Sailing.
 // Reference: "respiro lento, mare aperto, niente fretta".
@@ -457,7 +458,9 @@ export function TourDetailSailing({tour}: {tour: TourContent}) {
           >
             {tour.ctaEyebrow}
           </p>
-          <h2
+          <AnimatedHeading
+            as="h2"
+            text={tour.ctaH2}
             className="hero-headline font-display font-light text-cream-on-dark leading-[0.95]"
             style={{
               fontSize: 'clamp(48px, 8.5vw, 128px)',
@@ -465,9 +468,7 @@ export function TourDetailSailing({tour}: {tour: TourContent}) {
               letterSpacing: '-0.035em',
               maxWidth: 'min(680px, 90vw)'
             }}
-          >
-            {tour.ctaH2}
-          </h2>
+          />
           <p
             className="mt-12 text-[19px] sm:text-[21px] leading-[1.6] max-w-[52ch]"
             style={{color: 'rgba(245, 239, 228, 0.78)'}}

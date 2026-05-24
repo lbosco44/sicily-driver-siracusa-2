@@ -6,6 +6,7 @@ import {useTranslations} from 'next-intl';
 import {motion, useReducedMotion} from 'motion/react';
 import type {TourContent} from '@/lib/tours';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
+import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
 
 // TourDetailDolceVita — variante mood vintage/diario per Dolce Vita Siracusa.
 // Reference: pagina fotoalbum di viaggio anni '60. Foto polaroid stile diario,
@@ -301,12 +302,12 @@ export function TourDetailDolceVita({tour}: {tour: TourContent}) {
 
         <div className="relative mx-auto max-w-(--container-narrow) px-6 sm:px-10">
           <p className="eyebrow text-cream-on-dark/65 mb-10">{tour.ctaEyebrow}</p>
-          <h2
+          <AnimatedHeading
+            as="h2"
+            text={tour.ctaH2}
             className="hero-headline font-display text-display-xl font-light text-cream-on-dark max-w-[18ch] leading-[0.95] italic"
             style={{fontStretch: '95%'}}
-          >
-            {tour.ctaH2}
-          </h2>
+          />
           <p className="mt-10 text-[19px] sm:text-[21px] text-cream-soft leading-[1.6] max-w-[52ch]">
             {tour.ctaSubhead}
           </p>

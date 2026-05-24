@@ -5,6 +5,7 @@ import {getBreadcrumb} from '@/lib/breadcrumbs';
 import {routing} from '@/i18n/routing';
 import {ContactForm} from '@/components/sections/ContactForm';
 import type {Locale} from '@/lib/cities';
+import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
 
 export async function generateMetadata({
   params
@@ -242,15 +243,12 @@ export default async function ContattiPage({
           <p className="eyebrow text-cream-on-dark/65 mb-10">
             {t('times.eyebrow')}
           </p>
-          <h2
+          <AnimatedHeading
+            as="h2"
+            text={`${t('times.h2Pre')} ${t('times.h2Accent')}`}
             className="font-display text-display-lg font-light text-cream-on-dark max-w-[20ch] leading-[0.98]"
             style={{fontStretch: '95%'}}
-          >
-            {t('times.h2Pre')}{' '}
-            <span className="italic text-accent-decorative">
-              {t('times.h2Accent')}
-            </span>
-          </h2>
+          />
           <p className="mt-10 text-[19px] sm:text-[21px] text-cream-soft leading-[1.65] max-w-[58ch]">
             {t('times.body')}
           </p>

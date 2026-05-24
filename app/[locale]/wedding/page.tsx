@@ -9,6 +9,7 @@ import {WeddingForm} from '@/components/sections/WeddingForm';
 import {getWedding} from '@/lib/wedding';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
 import type {Locale} from '@/lib/cities';
+import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
 
 // Wedding narrative restructure — design language Diario Mediterraneo.
 // Hero atmosferico → 3 momenti (before/during/after) → 6 auto d'epoca
@@ -76,7 +77,7 @@ export default async function WeddingPage({
       />
 
       {/* 01 — HERO emotivo */}
-      <section className="relative isolate min-h-[88svh] sm:min-h-[92svh] overflow-hidden flex items-end pt-32 pb-16 sm:pb-20">
+      <section className="relative isolate min-h-[88svh] sm:min-h-[92svh] overflow-hidden flex items-end pt-32 pb-[18vh] sm:pb-[22vh]">
         <div className="absolute inset-0 -z-10">
           <Image
             src={w.heroImage}
@@ -96,7 +97,6 @@ export default async function WeddingPage({
 
         <div className="relative w-full mx-auto max-w-(--container-editorial) px-6 sm:px-10">
           <div className="max-w-[40ch]">
-            <p className="eyebrow text-cream-on-dark/85 mb-6">{w.heroEyebrow}</p>
             <h1
               className="hero-headline font-display text-display-lg font-medium text-cream-on-dark"
               style={{
@@ -107,9 +107,6 @@ export default async function WeddingPage({
               {w.h1Pre}{' '}
               <span className="text-accent-decorative">{w.h1Accent}</span>
             </h1>
-            <p className="mt-6 sm:mt-8 max-w-[44ch] font-display text-[18px] sm:text-[22px] font-light text-cream-on-dark/95 leading-[1.35]">
-              {w.heroSubhead}
-            </p>
             <a
               href="#form"
               className="mt-8 inline-flex items-center gap-3 rounded-full bg-accent px-7 py-3.5 text-[13px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
@@ -420,12 +417,12 @@ export default async function WeddingPage({
 
         <div className="relative mx-auto max-w-(--container-narrow) px-6 sm:px-10">
           <p className="eyebrow text-cream-on-dark/65 mb-10">{w.ctaEyebrow}</p>
-          <h2
+          <AnimatedHeading
+            as="h2"
+            text={w.ctaH2}
             className="font-display text-display-xl font-light text-cream-on-dark max-w-[18ch] leading-[0.95]"
             style={{fontStretch: '95%'}}
-          >
-            {w.ctaH2}
-          </h2>
+          />
           <p className="mt-10 text-[19px] sm:text-[21px] text-cream-soft leading-[1.6] max-w-[52ch]">
             {w.ctaSubhead}
           </p>

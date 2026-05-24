@@ -13,6 +13,7 @@ import {
 } from 'motion/react';
 import type {TourContent} from '@/lib/tours';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
+import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
 
 // TourDetailEtnaDark — variante mood dark/cinematic dedicata all'Etna.
 // Mood: pietra lavica, notte sul vulcano, fuoco discreto.
@@ -403,16 +404,16 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
           >
             {tour.ctaEyebrow}
           </p>
-          <h2
+          <AnimatedHeading
+            as="h2"
+            text={tour.ctaH2}
             className="hero-headline font-display text-display-xl font-light max-w-[18ch] leading-[0.95]"
             style={{
               color: 'var(--cream-on-dark)',
               fontStretch: '92%',
               textShadow: `0 4px 32px ${LAVA_RED}20`
             }}
-          >
-            {tour.ctaH2}
-          </h2>
+          />
           <p
             className="mt-10 text-[19px] sm:text-[21px] leading-[1.6] max-w-[52ch]"
             style={{color: 'rgba(245, 239, 228, 0.7)'}}

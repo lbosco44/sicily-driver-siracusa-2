@@ -3,6 +3,7 @@ import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import type {CityContent} from '@/lib/cities';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
+import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
 
 // NccCityNarrative — pagina locale SEO (cluster Fast).
 // Design language Diario Mediterraneo, ma SENZA scroll-driven sticky:
@@ -347,12 +348,12 @@ export async function NccCityNarrative({city}: {city: CityContent}) {
 
         <div className="relative mx-auto max-w-(--container-narrow) px-6 sm:px-10">
           <p className="eyebrow text-cream-on-dark/65 mb-10">{city.ctaEyebrow}</p>
-          <h2
+          <AnimatedHeading
+            as="h2"
+            text={city.ctaH2}
             className="font-display text-display-lg font-light text-cream-on-dark max-w-[22ch] leading-[0.98]"
             style={{fontStretch: '95%'}}
-          >
-            {city.ctaH2}
-          </h2>
+          />
           <p className="mt-9 text-[18px] sm:text-[20px] text-cream-soft leading-[1.65] max-w-[58ch]">
             {city.ctaSubhead}
           </p>

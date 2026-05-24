@@ -7,6 +7,7 @@ import {getBreadcrumb} from '@/lib/breadcrumbs';
 import {routing} from '@/i18n/routing';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
 import type {Locale} from '@/lib/cities';
+import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
 
 export async function generateMetadata({
   params
@@ -105,20 +106,18 @@ export default async function ChiSiamoPage({
           <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/35 to-black/75" />
         </div>
 
-        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 grid grid-rows-[1fr_auto] pb-12 sm:pb-16">
-          <div />
+        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-[18vh] sm:pb-[22vh]">
           <div className="max-w-[28ch]">
-            <p className="eyebrow text-cream-on-dark/85 mb-8">{t('hero.eyebrow')}</p>
             <h1
-              className="font-display text-display-lg font-medium text-cream-on-dark"
-              style={{fontStretch: '92%'}}
+              className="hero-headline font-display text-display-lg font-medium text-cream-on-dark"
+              style={{
+                fontStretch: '92%',
+                textShadow: '0 2px 24px rgba(0,0,0,0.3)'
+              }}
             >
               {t('hero.h1Pre')}{' '}
               <span className="text-accent-decorative">{t('hero.h1Accent')}</span>
             </h1>
-            <p className="mt-8 max-w-[42ch] font-display text-[20px] sm:text-[22px] font-light text-cream-on-dark/95 leading-[1.4]">
-              {t('hero.subhead')}
-            </p>
           </div>
         </div>
       </section>
@@ -288,12 +287,12 @@ export default async function ChiSiamoPage({
           <p className="eyebrow text-cream-on-dark/65 mb-10">
             {t('ctaFinale.eyebrow')}
           </p>
-          <h2
+          <AnimatedHeading
+            as="h2"
+            text={t('ctaFinale.h2')}
             className="font-display text-display-lg font-light text-cream-on-dark max-w-[22ch] leading-[0.98]"
             style={{fontStretch: '95%'}}
-          >
-            {t('ctaFinale.h2')}
-          </h2>
+          />
           <p className="mt-9 text-[18px] sm:text-[20px] text-cream-soft leading-[1.65] max-w-[58ch]">
             {t('ctaFinale.subhead')}
           </p>

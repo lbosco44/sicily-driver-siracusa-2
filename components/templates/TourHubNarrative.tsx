@@ -62,14 +62,10 @@ export function TourHubNarrative({hub}: {hub: TourHubContent}) {
           <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/35 to-black/80" />
         </div>
 
-        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 grid grid-rows-[1fr_auto_auto] pb-12 sm:pb-16">
-          <div />
+        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-[18vh] sm:pb-[22vh]">
           <div className="max-w-[28ch]">
-            <p className="eyebrow text-cream-on-dark/85 mb-8">
-              {hub.heroEyebrow}
-            </p>
             <h1
-              className="font-display text-display-lg font-medium text-cream-on-dark"
+              className="hero-headline font-display text-display-lg font-medium text-cream-on-dark"
               style={{
                 fontStretch: '92%',
                 textShadow: '0 2px 24px rgba(0,0,0,0.3)'
@@ -80,16 +76,6 @@ export function TourHubNarrative({hub}: {hub: TourHubContent}) {
                 {hub.h1Accent}
               </span>
             </h1>
-            <p className="mt-8 sm:mt-10 max-w-[42ch] font-display text-[20px] sm:text-[24px] font-light text-cream-on-dark/95 leading-[1.35]">
-              {hub.heroSubhead}
-            </p>
-          </div>
-
-          <div className="justify-self-center mt-12 sm:mt-16 flex flex-col items-center">
-            <p className="text-[10px] uppercase tracking-[0.32em] font-medium text-cream-on-dark/65 mb-3">
-              {hub.itinerariesEyebrow}
-            </p>
-            <div className="w-px h-12 sm:h-16 bg-cream-on-dark/40" />
           </div>
         </div>
       </section>

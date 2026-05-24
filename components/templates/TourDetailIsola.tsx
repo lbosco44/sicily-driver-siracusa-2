@@ -6,6 +6,7 @@ import {useTranslations} from 'next-intl';
 import {motion, useReducedMotion} from 'motion/react';
 import type {TourContent} from '@/lib/tours';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
+import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
 
 // TourDetailIsola — variante mood "vacanza luminosa kodachrome" per Isola
 // delle Correnti. Reference: foto vacanza anni '70 — Kodak Gold, sun-baked.
@@ -467,7 +468,9 @@ export function TourDetailIsola({tour}: {tour: TourContent}) {
           >
             {tour.ctaEyebrow}
           </p>
-          <h2
+          <AnimatedHeading
+            as="h2"
+            text={tour.ctaH2}
             className="hero-headline font-display font-light text-ink leading-[0.96]"
             style={{
               fontSize: 'clamp(48px, 8.5vw, 132px)',
@@ -475,9 +478,7 @@ export function TourDetailIsola({tour}: {tour: TourContent}) {
               letterSpacing: '-0.035em',
               maxWidth: 'min(640px, 90vw)'
             }}
-          >
-            {tour.ctaH2}
-          </h2>
+          />
           <p
             className="mt-10 text-[19px] sm:text-[21px] text-ink-soft leading-[1.6] max-w-[52ch]"
           >
