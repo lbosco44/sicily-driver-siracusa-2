@@ -1,13 +1,14 @@
 'use client';
 
 import {useEffect, useState} from 'react';
+import Image from 'next/image';
 import {Link, usePathname} from '@/i18n/navigation';
 import {motion, AnimatePresence, useReducedMotion} from 'motion/react';
 import {useFocusTrap} from '@/lib/useFocusTrap';
 
-// Mobile menu drawer slide-down. Triggered da hamburger button.
-// Server component Navbar passa i link e i label (già tradotti server-side).
-// Su md+ il toggle è hidden (lì c'è il menu inline).
+// Mobile menu — drawer full-screen solid, slide-from-right.
+// Background cream pieno (niente trasparenza), header dedicato con logo + X,
+// tutti i link visibili. Niente backdrop perché copre tutto.
 
 export type MobileMenuLink = {
   href: '/' | '/servizi' | '/tour-sicilia' | '/chi-siamo' | '/contatti';
@@ -59,30 +60,26 @@ export function MobileMenu({
 
   return (
     <>
-      {/* Hamburger toggle — visibile solo mobile */}
+      {/* Hamburger toggle — visibile solo mobile, dietro al drawer quando aperto */}
       <button
         type="button"
-        aria-label={open ? 'Chiudi menu' : 'Apri menu'}
+        aria-label="Apri menu"
         aria-expanded={open}
         aria-controls="mobile-menu-drawer"
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => setOpen(true)}
         className="md:hidden inline-flex flex-col items-center justify-center w-10 h-10 -mr-2 text-ink hover:text-primary transition-colors"
       >
         <span
           aria-hidden="true"
-          className={`block w-6 h-px bg-current transition-transform duration-300 origin-center ${
-            open ? 'translate-y-[3px] rotate-45' : '-translate-y-[3px]'
-          }`}
+          className="block w-6 h-px bg-current -translate-y-[3px]"
         />
         <span
           aria-hidden="true"
-          className={`block w-6 h-px bg-current transition-transform duration-300 origin-center ${
-            open ? '-translate-y-[1px] -rotate-45' : 'translate-y-[3px]'
-          }`}
+          className="block w-6 h-px bg-current translate-y-[3px]"
         />
       </button>
 
-      {/* Drawer fullscreen */}
+      {/* Drawer full-screen solid */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -91,31 +88,69 @@ export function MobileMenu({
             role="dialog"
             aria-modal="true"
             aria-label="Menu di navigazione"
-            className="md:hidden fixed inset-0 top-16 z-30 bg-canvas flex flex-col"
-            initial={reduce ? false : {opacity: 0, y: -8}}
-            animate={{opacity: 1, y: 0}}
-            exit={reduce ? {opacity: 0} : {opacity: 0, y: -8}}
-            transition={{duration: 0.3, ease: [0.16, 1, 0.3, 1]}}
+            className="md:hidden fixed inset-0 z-50 bg-canvas flex flex-col"
+            initial={reduce ? {opacity: 0} : {x: '100%'}}
+            animate={reduce ? {opacity: 1} : {x: 0}}
+            exit={reduce ? {opacity: 0} : {x: '100%'}}
+            transition={{duration: 0.35, ease: [0.16, 1, 0.3, 1]}}
           >
+            {/* Header del drawer: logo + X */}
+            <div className="h-16 sm:h-20 flex items-center justify-between px-6 border-b border-[var(--border)] shrink-0">
+              <Link
+                href="/"
+                onClick={() => setOpen(false)}
+                aria-label="Home"
+                className="hover:opacity-80 transition-opacity"
+              >
+                <Image
+                  src="/logo-nero.png"
+                  alt="Sicily Driver Siracusa"
+                  width={180}
+                  height={40}
+                  className="h-8 w-auto"
+                  priority
+                />
+              </Link>
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                aria-label="Chiudi menu"
+                className="w-10 h-10 -mr-2 flex items-center justify-center text-ink hover:text-accent transition-colors"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  aria-hidden="true"
+                >
+                  <path d="M6 6L18 18M6 18L18 6" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Nav links + CTAs */}
             <nav
               aria-label="Mobile primary"
-              className="flex-1 overflow-y-auto px-6 py-8"
+              className="flex-1 overflow-y-auto px-6 py-6 sm:py-8"
             >
               <ul>
                 {links.map((link, i) => (
                   <motion.li
                     key={link.href}
-                    initial={reduce ? false : {opacity: 0, y: 8}}
-                    animate={{opacity: 1, y: 0}}
+                    initial={reduce ? false : {opacity: 0, x: 12}}
+                    animate={{opacity: 1, x: 0}}
                     transition={{
-                      duration: 0.4,
+                      duration: 0.35,
                       delay: 0.05 + i * 0.04,
                       ease: [0.16, 1, 0.3, 1]
                     }}
                   >
                     <Link
                       href={link.href}
-                      className="block py-5 font-display text-[28px] font-light text-ink leading-[1.1] tracking-tight border-b border-[var(--border)] hover:text-accent transition-colors"
+                      className="block py-4 font-display text-[24px] font-light text-ink leading-[1.1] tracking-tight border-b border-[var(--border)] hover:text-accent transition-colors"
                       style={{fontStretch: '95%'}}
                       onClick={() => setOpen(false)}
                     >
