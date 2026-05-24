@@ -7,6 +7,7 @@ export const config = {
   // Match all pathnames except for
   // - API routes
   // - Next.js internals (_next, _vercel)
+  // - /og — OG image route handler dinamico, NON da localizzare
   // - File system assets (favicon, sitemap, robots, image extensions)
-  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
+  matcher: ['/((?!api|_next|_vercel|og|.*\\..*).*)']
 };
