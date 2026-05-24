@@ -62,11 +62,12 @@ export function Hero() {
           transition={{duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.15}}
         >
           <h1
-            className="font-display text-[44px] sm:text-display-xl font-medium text-cream-on-dark"
+            className="font-display text-[44px] sm:text-[80px] md:text-[100px] lg:text-[128px] xl:text-[148px] font-medium text-cream-on-dark"
             style={{
               fontStretch: '95%',
               textShadow: '0 2px 24px rgba(0,0,0,0.25)',
               lineHeight: '1.05',
+              letterSpacing: '-0.035em',
               overflowWrap: 'break-word',
               hyphens: 'auto'
             }}

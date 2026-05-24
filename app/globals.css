@@ -101,6 +101,26 @@ body:has(.tour-etna-page) footer {
   background-color: #141210 !important;
 }
 
+/* ============================================================
+   EsperienzeScroll mobile snap — Reels/TikTok style
+   Solo mobile (max-width 767px): scroll a livello pagina con snap su ogni
+   scena e sulla band terracotta. Niente nested scroll container che causava
+   il bug di entry/exit. mandatory + snap-stop always = fast swipe non bypassa.
+   ============================================================ */
+@media (max-width: 767px) {
+  html {
+    scroll-snap-type: y mandatory;
+  }
+  .esperienza-scene {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  /* La band-accent dopo le esperienze: snap target forward per uscire dal trap */
+  .esperienze-band-snap {
+    scroll-snap-align: start;
+  }
+}
+
 body {
   background: var(--canvas);
   color: var(--ink);

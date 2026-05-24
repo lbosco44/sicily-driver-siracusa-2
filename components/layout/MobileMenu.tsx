@@ -99,9 +99,9 @@ export function MobileMenu({
           >
             <nav
               aria-label="Mobile primary"
-              className="flex-1 overflow-y-auto px-6 py-10"
+              className="flex-1 overflow-y-auto px-6 py-8"
             >
-              <ul className="space-y-2">
+              <ul>
                 {links.map((link, i) => (
                   <motion.li
                     key={link.href}
@@ -115,7 +115,7 @@ export function MobileMenu({
                   >
                     <Link
                       href={link.href}
-                      className="block py-4 font-display text-[36px] sm:text-[44px] font-light text-ink leading-[1] tracking-tight border-b border-[var(--border)] hover:text-accent transition-colors"
+                      className="block py-5 font-display text-[28px] font-light text-ink leading-[1.1] tracking-tight border-b border-[var(--border)] hover:text-accent transition-colors"
                       style={{fontStretch: '95%'}}
                       onClick={() => setOpen(false)}
                     >
@@ -127,7 +127,7 @@ export function MobileMenu({
 
               {/* CTAs in fondo */}
               <motion.div
-                className="mt-10 flex flex-col gap-3"
+                className="mt-8 flex flex-col gap-3"
                 initial={reduce ? false : {opacity: 0, y: 8}}
                 animate={{opacity: 1, y: 0}}
                 transition={{

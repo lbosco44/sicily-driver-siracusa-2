@@ -71,15 +71,8 @@ export function EsperienzeScroll() {
 
   return (
     <section aria-label={t('eyebrow')}>
-      {/* ── MOBILE: snap-scroll verticale, 1 swipe = 1 scena (Reels/TikTok style) ── */}
-      <div
-        className="md:hidden h-[100svh] overflow-y-scroll overscroll-contain"
-        style={{
-          scrollSnapType: 'y mandatory',
-          WebkitOverflowScrolling: 'touch',
-          scrollbarWidth: 'none'
-        }}
-      >
+      {/* ── MOBILE: stack in flusso pagina con snap CSS (no scroll trap) ── */}
+      <div className="md:hidden">
         {ESPERIENZE.map((e, i) => (
           <MobileScene
             key={e.key}
@@ -95,8 +88,8 @@ export function EsperienzeScroll() {
         <DesktopScroll locale={locale} />
       </div>
 
-      {/* Band terracotta finale — comune a entrambi */}
-      <div className="bg-accent py-20 sm:py-24">
+      {/* Band terracotta finale — anche snap target su mobile per uscire pulito */}
+      <div className="bg-accent py-20 sm:py-24 esperienze-band-snap">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-7">
           <p
             className="font-display text-display-sm font-light text-cream-on-dark max-w-[28ch]"
@@ -135,11 +128,8 @@ function MobileScene({
 
   return (
     <div
-      className="relative h-[100svh] overflow-hidden"
-      style={{
-        backgroundColor: e.bg,
-        scrollSnapAlign: 'start'
-      }}
+      className="relative h-[100svh] overflow-hidden esperienza-scene"
+      style={{backgroundColor: e.bg}}
     >
       <Image
         src={e.image}

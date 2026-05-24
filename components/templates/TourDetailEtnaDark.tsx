@@ -461,11 +461,25 @@ function EtnaStageImage({
   const reduce = useReducedMotion();
   const start = index / total;
   const end = (index + 1) / total;
-  const opacity = useTransform(
-    scrollYProgress,
-    [Math.max(start - 0.02, 0), start, end, Math.min(end + 0.02, 1)],
-    [0, 1, 1, 0]
-  );
+
+  // Bulletproof keyframes: hard-anchor a 0 e 1 per evitare che la prima
+  // immagine "rispunti" dopo l'ultima tappa (era duplicate keyframes con start=0).
+  const FADE = 0.02;
+  const fadeInStart = Math.max(start - FADE, 0);
+  const fadeOutEnd = Math.min(end + FADE, 1);
+  let times: number[];
+  let values: number[];
+  if (index === 0) {
+    times = [0, end, fadeOutEnd, 1];
+    values = [1, 1, 0, 0];
+  } else if (index === total - 1) {
+    times = [0, fadeInStart, start, 1];
+    values = [0, 0, 1, 1];
+  } else {
+    times = [0, fadeInStart, start, end, fadeOutEnd, 1];
+    values = [0, 0, 1, 1, 0, 0];
+  }
+  const opacity = useTransform(scrollYProgress, times, values);
   const scale = useTransform(
     scrollYProgress,
     [start, end],

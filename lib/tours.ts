@@ -728,7 +728,7 @@ const ETNA_IT: TourContent = {
       duration: '2h',
       body: 'Scendiamo verso una delle cantine partner. Pranzo siciliano nel rifugio della cantina: salumi, formaggi locali, pasta alla Norma, dolci della casa. La degustazione di 4-5 vini è guidata da un sommelier della cantina, in italiano o inglese.',
       image:
-        '/images/tour-etna/stage-3-vigneto.jpeg'
+        '/images/tour-etna/stage-3-cantina.jpeg'
     },
     {
       number: '04',
@@ -855,7 +855,7 @@ const ETNA_EN: TourContent = {
       duration: '2h',
       body: 'We descend to one of the partner wineries. Sicilian lunch in the winery refuge: cured meats, local cheeses, pasta alla Norma, house desserts. 4-5 wine tasting guided by the winery sommelier, in Italian or English.',
       image:
-        '/images/tour-etna/stage-3-vigneto.jpeg'
+        '/images/tour-etna/stage-3-cantina.jpeg'
     },
     {
       number: '04',
@@ -981,7 +981,7 @@ const ISOLA_IT: TourContent = {
       duration: '1h',
       body: 'Verso il tardo pomeriggio ci spostiamo sul lato dell’Isola delle Correnti che guarda ovest. Il sole tramonta tra i due mari — uno dei punti più suggestivi della Sicilia per fotografare il sunset. Prosecco e taglieri serviti dal Pura Vida.',
       image:
-        '/images/tour-etna/stage-3-vigneto.jpeg'
+        '/images/tour-etna/stage-3-cantina.jpeg'
     },
     {
       number: '04',
@@ -1103,7 +1103,7 @@ const ISOLA_EN: TourContent = {
       duration: '1h',
       body: 'In late afternoon we move to the Isola delle Correnti side facing west. The sun sets between the two seas — one of Sicily’s most beautiful sunset spots. Prosecco and platters served by Pura Vida.',
       image:
-        '/images/tour-etna/stage-3-vigneto.jpeg'
+        '/images/tour-etna/stage-3-cantina.jpeg'
     },
     {
       number: '04',
@@ -1211,7 +1211,7 @@ const DOLCE_VITA_IT: TourContent = {
       duration: '45 min',
       body: 'Imbocchiamo Via XX Settembre, costeggiamo il porto piccolo e arriviamo al Castello Maniace, all’estremità sud di Ortigia. Sosta foto sul belvedere — uno dei punti più Instagrammati dell’isola.',
       image:
-        '/images/tour-etna/stage-3-vigneto.jpeg'
+        '/images/tour-etna/stage-3-cantina.jpeg'
     },
     {
       number: '03',
@@ -1322,7 +1322,7 @@ const DOLCE_VITA_EN: TourContent = {
       duration: '45 min',
       body: 'We take Via XX Settembre, along the small port, up to Maniace Castle at the southern tip of Ortigia. Photo stop at the belvedere — one of the most Instagrammed spots on the island.',
       image:
-        '/images/tour-etna/stage-3-vigneto.jpeg'
+        '/images/tour-etna/stage-3-cantina.jpeg'
     },
     {
       number: '03',
@@ -1447,7 +1447,7 @@ const SAILING_IT: TourContent = {
       duration: '1h 30min',
       body: 'Risaliamo verso sud lungo la costa, dove le calette si nascondono tra promontori bassi. Niente motore una volta fuori porto — solo il vento, il rumore della vela che si gonfia, qualche gabbiano. Lo skipper ti racconta come si legge il vento, se ti interessa.',
       image:
-        '/images/tour-etna/stage-3-vigneto.jpeg'
+        '/images/tour-etna/stage-3-cantina.jpeg'
     },
     {
       number: '03',
@@ -1569,7 +1569,7 @@ const SAILING_EN: TourContent = {
       duration: '1h 30min',
       body: 'We head south along the coast, where coves hide between low promontories. No engine once out of port — just the wind, the sound of the sail filling, a seagull or two. The skipper explains how to read the wind, if you’re curious.',
       image:
-        '/images/tour-etna/stage-3-vigneto.jpeg'
+        '/images/tour-etna/stage-3-cantina.jpeg'
     },
     {
       number: '03',
