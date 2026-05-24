@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {motion, useReducedMotion} from 'motion/react';
+import {useEffect, useRef} from 'react';
 import {Link} from '@/i18n/navigation';
 import {HERO_BLUR} from '@/lib/blur';
 import {GoogleReviewsBadge} from '@/components/ui/GoogleReviewsBadge';
@@ -14,18 +15,42 @@ import {GoogleReviewsBadge} from '@/components/ui/GoogleReviewsBadge';
 export function Hero() {
   const t = useTranslations('Home.hero');
   const reduce = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
 
-  // Hero statica: niente piu' scroll-driven transforms (parallax foto +
-  // fade/translate headline). Su mobile causavano "zoom" e salti col
-  // resize del viewport (address bar). Solo l'animazione di ingresso resta.
+  // iOS Safari ha update DISCRETI di svh durante il collapse dell'address
+  // bar — ogni scatto rifa' il crop di object-cover dell'immagine = zoom
+  // percepito. Locko l'altezza section in pixel al primo mount.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (!window.matchMedia('(max-width: 640px)').matches) return;
+    if (!sectionRef.current) return;
+
+    const lockHeight = () => {
+      if (sectionRef.current) {
+        sectionRef.current.style.height = `${window.innerHeight}px`;
+      }
+    };
+    lockHeight();
+    // Solo orientationchange ri-misura (non resize, perche' su mobile
+    // resize fa rumore con l'address bar)
+    const handler = () => setTimeout(lockHeight, 200);
+    window.addEventListener('orientationchange', handler);
+    return () => window.removeEventListener('orientationchange', handler);
+  }, []);
 
   return (
     <section
+      ref={sectionRef}
       className="hero-stage relative isolate overflow-hidden"
       aria-label={t('a11yLabel')}
     >
-      {/* Foto background statica — niente parallax (causava glitch mobile) */}
-      <div className="absolute inset-0 -z-10">
+      {/* Foto background ancorata a 100lvh (large viewport, stabile su iOS).
+          Il section ha overflow-hidden e clipa l'eccesso. L'immagine NON
+          si rescala mai durante il collapse dell'address bar mobile. */}
+      <div
+        className="absolute top-0 left-0 right-0 -z-10"
+        style={{height: '100lvh'}}
+      >
         <Image
           src="/images/home/hero.jpeg"
           alt=""
