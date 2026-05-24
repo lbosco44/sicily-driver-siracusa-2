@@ -3,6 +3,7 @@
 import {useRef} from 'react';
 import {useTranslations} from 'next-intl';
 import {motion, useReducedMotion} from 'motion/react';
+import {GoogleReviewsBadge} from '@/components/ui/GoogleReviewsBadge';
 
 // Testimonianza — scroll orizzontale di N recensioni (snap, mouse drag su
 // desktop, swipe su mobile). Frecce navigazione discrete a destra del titolo.
@@ -45,6 +46,10 @@ export function Testimonianza() {
               {t('h2Pre')}{' '}
               <span className="italic text-accent">{t('h2Accent')}</span>
             </h2>
+            {/* Badge Google Reviews — visibile sotto il titolo, mobile + desktop */}
+            <div className="mt-7">
+              <GoogleReviewsBadge />
+            </div>
           </div>
 
           {/* Frecce nav */}

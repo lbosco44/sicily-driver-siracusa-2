@@ -280,7 +280,8 @@
           "author": "Giulia Magnano",
           "place": "May 2025"
         }
-      ]
+      ],
+      "googleAria": "See our Google reviews ({rating} out of 5)"
     },
     "ctaFinale": {
       "eyebrow": "When you arrive",
