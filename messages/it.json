@@ -155,8 +155,8 @@
       "cardCta": "Scopri",
       "customTagline": "Cerchi qualcosa di diverso? Costruiamo l’itinerario insieme.",
       "customCta": "Parliamone",
-      "swipeHint": "Scorri ↑",
-      "swipeExit": "Continua ↑"
+      "swipeHint": "Scorri lateralmente →",
+      "swipeExit": "Scorri giu per continuare ↓"
     },
     "manifesto": {
       "eyebrow": "Cosa facciamo",

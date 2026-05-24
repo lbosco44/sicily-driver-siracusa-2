@@ -155,8 +155,8 @@
       "cardCta": "Discover",
       "customTagline": "Looking for something different? We build the itinerary together.",
       "customCta": "Let’s talk",
-      "swipeHint": "Swipe ↑",
-      "swipeExit": "Continue ↑"
+      "swipeHint": "Swipe sideways →",
+      "swipeExit": "Scroll down to continue ↓"
     },
     "manifesto": {
       "eyebrow": "What we do",

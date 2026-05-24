@@ -10,8 +10,7 @@ import {
   useScroll,
   useTransform,
   useReducedMotion,
-  type MotionValue,
-  type PanInfo
+  type MotionValue
 } from 'motion/react';
 
 // EsperienzeScroll — 5 esperienze come capitoli scroll-driven.
@@ -72,9 +71,11 @@ export function EsperienzeScroll() {
 
   return (
     <section aria-label={t('eyebrow')}>
-      {/* ── MOBILE: swipe Reels-style via motion drag ── */}
+      {/* ── MOBILE: horizontal carousel native CSS scroll-snap-x mandatory.
+            Gesture clean: vertical=page scroll, horizontal=scene change.
+            Niente JS drag, niente conflitti. ── */}
       <div className="md:hidden">
-        <MobileSwipeReels locale={locale} />
+        <MobileHorizontalCarousel locale={locale} />
       </div>
 
       {/* ── DESKTOP: sticky scroll-driven ── */}
@@ -104,169 +105,81 @@ export function EsperienzeScroll() {
   );
 }
 
-// ── Mobile: swipe Reels-style via motion drag ──────────────────────────────
-// Section h-[100svh] in flusso pagina. Dentro, motion.div con drag="y" che
-// contiene le 5 scene stackate. Snap su drag-end via velocity+offset.
-// Boundary force-exit: swipe forte oltre la prima/ultima scena scrolla la
-// pagina fuori dalla sezione (niente trap).
+// ── Mobile: horizontal carousel native scroll-snap-x ──────────────────────
+// Pattern collaudato (Apple, Airbnb, Instagram): 5 scene side-by-side dentro
+// un container overflow-x-auto con scroll-snap-type: x mandatory + ogni scena
+// scroll-snap-align: start. Gesture clean per natura:
+// - swipe verticale  → page scroll
+// - swipe orizzontale → cambio scena
+// Zero JS scroll listener, zero drag, zero overhead. Browser fa tutto.
 
-function MobileSwipeReels({locale}: {locale: string}) {
+function MobileHorizontalCarousel({locale}: {locale: string}) {
   const t = useTranslations('Home.esperienze');
   const tCommon = useTranslations('NccPage');
-  const sectionRef = useRef<HTMLElement>(null);
-  const [index, setIndex] = useState(0);
-  const [vh, setVh] = useState(0);
-  // active = sezione a schermo intero (>=90% visibile). Solo quando active
-  // catturiamo lo swipe; altrimenti il dito scrolla la pagina normalmente.
-  const [active, setActive] = useState(false);
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  // Misuro l'altezza reale del container (svh varia con address bar mobile)
+  // Aggiorna activeIndex in base allo scrollLeft, throttled via rAF.
   useEffect(() => {
-    if (!sectionRef.current) return;
-    const measure = () => {
-      if (sectionRef.current) setVh(sectionRef.current.clientHeight);
-    };
-    measure();
-    window.addEventListener('resize', measure);
-    window.addEventListener('orientationchange', measure);
-    return () => {
-      window.removeEventListener('resize', measure);
-      window.removeEventListener('orientationchange', measure);
-    };
-  }, []);
-
-  // IntersectionObserver: attiva drag solo a fullscreen (>=92%).
-  useEffect(() => {
-    if (!sectionRef.current) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        setActive(entry.intersectionRatio >= 0.92);
-      },
-      {threshold: [0, 0.5, 0.92, 1]}
-    );
-    observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  // Magnete entry in JS: quando lo scroll si ferma (debounce 130ms) e la
-  // sezione è 25-90% visibile + il suo top è entro ±75% di vh dal viewport
-  // top, fa smooth-scroll per allinearla a fullscreen.
-  // didSnap one-shot per evitare loop infiniti. Reset quando esce <10%.
-  useEffect(() => {
-    if (!sectionRef.current) return;
-    let didSnap = false;
-    let scrollEndTimer: ReturnType<typeof setTimeout> | undefined;
-
-    const checkSnap = () => {
-      if (!sectionRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-      const winH = window.innerHeight;
-      const visibleTop = Math.max(0, rect.top);
-      const visibleBottom = Math.min(winH, rect.bottom);
-      const visibleHeight = Math.max(0, visibleBottom - visibleTop);
-      const ratio = visibleHeight / Math.max(1, rect.height);
-
-      if (ratio < 0.1) {
-        didSnap = false;
-        return;
-      }
-      if (
-        !didSnap &&
-        ratio > 0.25 &&
-        ratio < 0.9 &&
-        Math.abs(rect.top) < winH * 0.75
-      ) {
-        didSnap = true;
-        window.scrollTo({
-          top: window.scrollY + rect.top,
-          behavior: 'smooth'
-        });
-      }
-    };
-
+    const el = scrollerRef.current;
+    if (!el) return;
+    let raf = 0;
     const onScroll = () => {
-      if (scrollEndTimer) clearTimeout(scrollEndTimer);
-      scrollEndTimer = setTimeout(checkSnap, 130);
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        const idx = Math.round(el.scrollLeft / Math.max(1, el.clientWidth));
+        setActiveIndex(Math.max(0, Math.min(N - 1, idx)));
+        raf = 0;
+      });
     };
-
-    window.addEventListener('scroll', onScroll, {passive: true});
+    el.addEventListener('scroll', onScroll, {passive: true});
     return () => {
-      window.removeEventListener('scroll', onScroll);
-      if (scrollEndTimer) clearTimeout(scrollEndTimer);
+      if (raf) cancelAnimationFrame(raf);
+      el.removeEventListener('scroll', onScroll);
     };
   }, []);
 
-  const handleDragEnd = (_e: PointerEvent | MouseEvent | TouchEvent, info: PanInfo) => {
-    const {offset, velocity} = info;
-    const SCENE_THRESHOLD = vh / 5; // 20% di scena = cambio
-    const VEL_THRESHOLD = 350;
-    const EXIT_OFFSET = vh / 2.5;
-    const EXIT_VELOCITY = 900;
-
-    // Exit forward: ultima scena, swipe forte verso l'alto → scroll page giù
-    if (
-      index === N - 1 &&
-      (offset.y < -EXIT_OFFSET || velocity.y < -EXIT_VELOCITY) &&
-      sectionRef.current
-    ) {
-      const rect = sectionRef.current.getBoundingClientRect();
-      const targetY = window.scrollY + rect.bottom + 1;
-      window.scrollTo({top: targetY, behavior: 'smooth'});
-      return;
-    }
-    // Exit backward: prima scena, swipe forte verso il basso → scroll page su
-    if (
-      index === 0 &&
-      (offset.y > EXIT_OFFSET || velocity.y > EXIT_VELOCITY) &&
-      sectionRef.current
-    ) {
-      const rect = sectionRef.current.getBoundingClientRect();
-      const targetY = window.scrollY + rect.top - vh + 1;
-      window.scrollTo({top: Math.max(0, targetY), behavior: 'smooth'});
-      return;
-    }
-
-    // Snap a scena vicina
-    let target = index;
-    if (offset.y < -SCENE_THRESHOLD || velocity.y < -VEL_THRESHOLD) {
-      target = Math.min(index + 1, N - 1);
-    } else if (offset.y > SCENE_THRESHOLD || velocity.y > VEL_THRESHOLD) {
-      target = Math.max(index - 1, 0);
-    }
-    setIndex(target);
+  const goTo = (i: number) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    el.scrollTo({left: i * el.clientWidth, behavior: 'smooth'});
   };
 
   return (
     <section
-      ref={sectionRef}
       className="relative h-[100svh] overflow-hidden bg-canvas"
-      style={{touchAction: active ? 'none' : 'pan-y'}}
-      aria-label="Esperienze — swipe per navigare"
+      aria-label="Esperienze — swipe orizzontale per navigare"
     >
-      <motion.div
-        drag={active && vh > 0 ? 'y' : false}
-        dragConstraints={{top: -(N - 1) * vh, bottom: 0}}
-        dragElastic={0.12}
-        dragMomentum={false}
-        animate={{y: -index * vh}}
-        transition={{type: 'tween', duration: 0.32, ease: [0.2, 0.85, 0.25, 1]}}
-        onDragEnd={handleDragEnd}
-        className="will-change-transform"
-        style={{height: vh > 0 ? `${N * vh}px` : `${N * 100}svh`}}
+      {/* Horizontal scroller */}
+      <div
+        ref={scrollerRef}
+        className="esperienze-scroller flex h-full overflow-x-auto overflow-y-hidden"
+        style={{
+          scrollSnapType: 'x mandatory',
+          scrollSnapStop: 'always',
+          WebkitOverflowScrolling: 'touch',
+          touchAction: 'pan-x pan-y'
+        }}
       >
         {ESPERIENZE.map((e, i) => (
-          <ReelsScene key={e.key} e={e} index={i} locale={locale} t={t} tCommon={tCommon} />
+          <CarouselScene
+            key={e.key}
+            e={e}
+            index={i}
+            locale={locale}
+            t={t}
+            tCommon={tCommon}
+          />
         ))}
-      </motion.div>
+      </div>
 
-      {/* Counter + dots overlay (fuori dal drag, fissi sulla viewport) */}
+      {/* Counter + eyebrow top — fissi sulla viewport, sopra al carosello */}
       <div className="pointer-events-none absolute top-0 inset-x-0 z-20 pt-6">
         <div className="px-6 flex items-baseline justify-between">
           <p className="eyebrow text-cream-on-dark/85">{t('eyebrow')}</p>
           <div className="flex items-baseline gap-2 text-cream-on-dark/85 tabular-nums">
             <span className="font-display text-2xl">
-              {String(index + 1).padStart(2, '0')}
+              {String(activeIndex + 1).padStart(2, '0')}
             </span>
             <span className="text-[11px] uppercase tracking-[0.18em]">
               / {String(N).padStart(2, '0')}
@@ -275,27 +188,30 @@ function MobileSwipeReels({locale}: {locale: string}) {
         </div>
       </div>
 
-      {/* Dots indicator + hint */}
+      {/* Dots indicator + hint orizzontale */}
       <div className="pointer-events-none absolute bottom-6 inset-x-0 z-20 flex flex-col items-center gap-3">
-        <div className="flex gap-2">
+        <div className="pointer-events-auto flex gap-2">
           {ESPERIENZE.map((_, i) => (
-            <span
+            <button
               key={i}
-              className={`block w-1.5 h-1.5 rounded-full transition-all ${
-                i === index ? 'bg-cream-on-dark w-6' : 'bg-cream-on-dark/40'
+              type="button"
+              onClick={() => goTo(i)}
+              className={`block h-1.5 rounded-full transition-all ${
+                i === activeIndex ? 'bg-cream-on-dark w-6' : 'bg-cream-on-dark/40 w-1.5'
               }`}
+              aria-label={`Vai a esperienza ${i + 1}`}
             />
           ))}
         </div>
         <p className="text-[10px] uppercase tracking-[0.22em] font-medium text-cream-on-dark/55">
-          {index === N - 1 ? t('swipeExit') : t('swipeHint')}
+          {activeIndex === N - 1 ? t('swipeExit') : t('swipeHint')}
         </p>
       </div>
     </section>
   );
 }
 
-function ReelsScene({
+function CarouselScene({
   e,
   index,
   locale,
@@ -311,7 +227,10 @@ function ReelsScene({
   const alignClass =
     e.align === 'left' ? 'items-start text-left' : 'items-end text-right';
   return (
-    <div className="relative h-[100svh] overflow-hidden" style={{backgroundColor: e.bg}}>
+    <article
+      className="shrink-0 w-screen h-full relative overflow-hidden"
+      style={{scrollSnapAlign: 'start', backgroundColor: e.bg}}
+    >
       <Image
         src={e.image}
         alt=""
@@ -329,7 +248,7 @@ function ReelsScene({
 
       {/* Testo in basso */}
       <div
-        className={`absolute inset-0 z-10 flex flex-col justify-end ${alignClass} px-6 pb-24`}
+        className={`absolute inset-0 z-10 flex flex-col justify-end ${alignClass} px-6 pb-28`}
       >
         <div style={{maxWidth: 'min(480px, 90vw)'}}>
           <h2
@@ -360,7 +279,7 @@ function ReelsScene({
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 
