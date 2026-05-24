@@ -101,10 +101,19 @@ body:has(.tour-etna-page) footer {
   background-color: #141210 !important;
 }
 
-/* EsperienzeScroll mobile: sezioni in flusso naturale, senza scroll-snap.
-   Scroll-snap-type su html rompeva il page load (saltava hero+whisper) e
-   il nested scroll container aveva entry/exit bug. Soluzione: niente snap,
-   ogni scena è un'h-[100svh] in flusso normale. Predicibile e robusto. */
+/* EsperienzeScroll mobile: la sezione swipe è UN solo h-[100svh] container.
+   Scroll-snap proximity sulla sola sezione = il browser allinea fullscreen
+   QUANDO l'utente rilascia il dito vicino al snap point, senza forzare
+   altrove. Niente snap-back perché non c'è mandatory mode. */
+@media (max-width: 767px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+  .esperienze-reels-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
 
 body {
   background: var(--canvas);

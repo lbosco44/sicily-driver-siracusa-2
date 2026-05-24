@@ -116,6 +116,9 @@ function MobileSwipeReels({locale}: {locale: string}) {
   const sectionRef = useRef<HTMLElement>(null);
   const [index, setIndex] = useState(0);
   const [vh, setVh] = useState(0);
+  // active = sezione a schermo intero (>=90% visibile). Solo quando active
+  // catturiamo lo swipe; altrimenti il dito scrolla la pagina normalmente.
+  const [active, setActive] = useState(false);
 
   // Misuro l'altezza reale del container (svh varia con address bar mobile)
   useEffect(() => {
@@ -130,6 +133,23 @@ function MobileSwipeReels({locale}: {locale: string}) {
       window.removeEventListener('resize', measure);
       window.removeEventListener('orientationchange', measure);
     };
+  }, []);
+
+  // IntersectionObserver: attiva drag solo quando la sezione riempie il
+  // viewport (>=95%). L'allineamento fullscreen è gestito da CSS scroll-snap
+  // proximity su .esperienze-reels-section (vedi globals.css), che lavora
+  // con la momentum nativa del browser.
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        setActive(entry.intersectionRatio >= 0.95);
+      },
+      {threshold: [0, 0.5, 0.95, 1]}
+    );
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
   }, []);
 
   const handleDragEnd = (_e: PointerEvent | MouseEvent | TouchEvent, info: PanInfo) => {
@@ -175,11 +195,12 @@ function MobileSwipeReels({locale}: {locale: string}) {
   return (
     <section
       ref={sectionRef}
-      className="relative h-[100svh] overflow-hidden bg-canvas touch-none"
+      className="esperienze-reels-section relative h-[100svh] overflow-hidden bg-canvas"
+      style={{touchAction: active ? 'none' : 'pan-y'}}
       aria-label="Esperienze — swipe per navigare"
     >
       <motion.div
-        drag={vh > 0 ? 'y' : false}
+        drag={active && vh > 0 ? 'y' : false}
         dragConstraints={{top: -(N - 1) * vh, bottom: 0}}
         dragElastic={0.15}
         dragMomentum={false}
