@@ -2,8 +2,7 @@
 
 import Image from 'next/image';
 import {useTranslations} from 'next-intl';
-import {motion, useScroll, useTransform, useReducedMotion} from 'motion/react';
-import {useRef} from 'react';
+import {motion, useReducedMotion} from 'motion/react';
 import {Link} from '@/i18n/navigation';
 import {HERO_BLUR} from '@/lib/blur';
 import {GoogleReviewsBadge} from '@/components/ui/GoogleReviewsBadge';
@@ -14,21 +13,14 @@ import {GoogleReviewsBadge} from '@/components/ui/GoogleReviewsBadge';
 
 export function Hero() {
   const t = useTranslations('Home.hero');
-  const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
 
-  // Parallax rimosso: su mobile l'address bar che cambia viewport
-  // causava glitch di zoom; su desktop teniamo solo il fade headline.
-  const {scrollYProgress} = useScroll({
-    target: ref,
-    offset: ['start start', 'end start']
-  });
-  const headlineY = useTransform(scrollYProgress, [0, 1], reduce ? ['0%', '0%'] : ['0%', '-12%']);
-  const headlineOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
+  // Hero statica: niente piu' scroll-driven transforms (parallax foto +
+  // fade/translate headline). Su mobile causavano "zoom" e salti col
+  // resize del viewport (address bar). Solo l'animazione di ingresso resta.
 
   return (
     <section
-      ref={ref}
       className="hero-stage relative isolate overflow-hidden"
       aria-label={t('a11yLabel')}
     >
@@ -57,7 +49,6 @@ export function Hero() {
         {/* HEADLINE + subhead + bottoni — tutti centrati in alto */}
         <motion.div
           className="text-center w-full"
-          style={{y: headlineY, opacity: headlineOpacity}}
           initial={reduce ? false : {opacity: 0, y: 40}}
           animate={reduce ? false : {opacity: 1, y: 0}}
           transition={{duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.15}}
