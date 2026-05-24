@@ -87,23 +87,15 @@ export function ContactForm() {
 
       <label className="block">
         <span className="text-[11px] uppercase tracking-[0.12em] font-medium text-secondary block mb-2">
-          {t('fieldTypeLabel')}
+          {t('fieldSubjectLabel')}
         </span>
-        <select
-          name="type"
+        <input
+          name="subject"
+          type="text"
           required
-          defaultValue=""
-          className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink focus:outline-none focus:border-accent transition-colors"
-        >
-          <option value="" disabled>
-            —
-          </option>
-          <option value="transfer">{t('fieldTypeOption1')}</option>
-          <option value="tour">{t('fieldTypeOption2')}</option>
-          <option value="wedding">{t('fieldTypeOption3')}</option>
-          <option value="business">{t('fieldTypeOption4')}</option>
-          <option value="other">{t('fieldTypeOption5')}</option>
-        </select>
+          placeholder={t('fieldSubjectPlaceholder')}
+          className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent transition-colors"
+        />
       </label>
 
       <label className="block">

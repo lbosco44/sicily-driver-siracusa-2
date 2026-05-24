@@ -11,6 +11,7 @@ export async function Navbar() {
   const tNcc = await getTranslations('NccPage');
 
   const links: MobileMenuLink[] = [
+    {href: '/', label: t('home')},
     {href: '/servizi', label: t('services')},
     {href: '/tour-sicilia', label: t('tours')},
     {href: '/chi-siamo', label: t('about')},

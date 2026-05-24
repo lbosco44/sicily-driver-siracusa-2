@@ -12,7 +12,7 @@
     "partner": "Partners",
     "about": "About",
     "contact": "Contact",
-    "bookNow": "Book",
+    "bookNow": "Contact us",
     "callShort": "Call"
   },
   "WhatsApp": {
@@ -125,11 +125,12 @@
     },
     "hero": {
       "a11yLabel": "Sicily Driver Syracuse — private guide for eastern Sicily",
-      "h1Pre": "Sicily,",
+      "h1Pre": "Your driver",
       "h1Punct": ".",
-      "h1Post": "slowly",
-      "subhead": "A diary from the people who drive it every day. Private tours, transfers and rare moments, from Syracuse to Taormina.",
-      "scrollCue": "Scroll"
+      "h1Post": "in Sicily",
+      "subhead": "Airport transfers, private tours and chauffeur services. Mercedes V-Class and tailor-made fleet, in English or Italian, 24/7.",
+      "scrollCue": "Scroll",
+      "ctaPrimary": "Contact us"
     },
     "whisper1": {
       "eyebrow": "How we work",
@@ -137,9 +138,9 @@
     },
     "esperienze": {
       "eyebrow": "The experiences",
-      "card1Tag": "Ortigia · 3 hours · vintage Fiat 500 Spiaggina",
-      "card1Title": "La dolce vita, slowly.",
-      "card1Body": "A vintage 500, the island of Ortigia, three hours at walking pace. Stops wherever you like, photos if you wish, sunset aperitivo by the sea.",
+      "card1Tag": "Ortigia · 3 hours · Vintage Fiat 500 Spiaggina",
+      "card1Title": "Tour\nLa Dolce Vita",
+      "card1Body": "An exclusive vintage Fiat 500 Spiaggina, a tour around Ortigia island, stops at the most iconic monuments, scenic photos and a seaside aperitif.",
       "card2Tag": "Ortigia · 4 hours · private sailing",
       "card2Title": "Four hours of silence, sailing.",
       "card2Body": "From the port of Ortigia toward the most beautiful bays of the coast. Wind, sun, a swim stop, Fratelli Burgio platter on board. Engine off when the wind’s there.",
@@ -156,7 +157,9 @@
       "customTagline": "Looking for something different? We build the itinerary together.",
       "customCta": "Let’s talk",
       "swipeHint": "Swipe sideways →",
-      "swipeExit": "Scroll down to continue ↓"
+      "swipeExit": "Scroll down to continue ↓",
+      "card1TitleLine1": "Tour",
+      "card1TitleLine2": "La Dolce Vita"
     },
     "manifesto": {
       "eyebrow": "What we do",
@@ -475,10 +478,10 @@
       "pec": "PEC: izzo.v@pec.it"
     },
     "form": {
-      "eyebrow": "Contact form",
-      "h2Pre": "Or",
-      "h2Accent": "write to us here",
-      "subhead": "Four fields, that's it. We reply within an hour, even at night.",
+      "eyebrow": "Write to us",
+      "h2Pre": "Tell us",
+      "h2Accent": "what you need",
+      "subhead": "Write in your own language: English, Italian or any other. We reply within 24-36 hours. For urgencies, WhatsApp 24/7.",
       "fieldNameLabel": "Name",
       "fieldNamePlaceholder": "Jane Smith",
       "fieldPhoneLabel": "Phone",
@@ -490,12 +493,14 @@
       "fieldTypeOption4": "Business / Corporate",
       "fieldTypeOption5": "Other",
       "fieldMessageLabel": "Message",
-      "fieldMessagePlaceholder": "When, from where, to where, how many people…",
+      "fieldMessagePlaceholder": "When, from where, to where, how many people, any specific needs...",
       "submit": "Send",
-      "submitNote": "Reply within 1 hour, 24/7 on WhatsApp.",
+      "submitNote": "We reply within 24-36 hours. For urgent requests, message us on WhatsApp.",
       "successTitle": "Thanks, we received your request.",
-      "successBody": "We'll reply within an hour. If it's urgent, message us on WhatsApp.",
-      "errorRequired": "Please check the required fields and try again."
+      "successBody": "We will reply within 24-36 hours. If it is urgent, message us on WhatsApp.",
+      "errorRequired": "Please check the required fields and try again.",
+      "fieldSubjectLabel": "Subject",
+      "fieldSubjectPlaceholder": "E.g. Catania-Syracuse transfer, Etna Tour, Wedding..."
     },
     "bases": {
       "eyebrow": "Our bases",

@@ -6,7 +6,7 @@ export function NavLink({
   href,
   children
 }: {
-  href: '/servizi' | '/tour-sicilia' | '/chi-siamo' | '/contatti';
+  href: '/' | '/servizi' | '/tour-sicilia' | '/chi-siamo' | '/contatti';
   children: React.ReactNode;
 }) {
   const pathname = usePathname();

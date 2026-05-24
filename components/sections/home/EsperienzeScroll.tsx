@@ -284,7 +284,7 @@ function SceneText({
     >
       <div style={{maxWidth: 'min(560px, 84vw)'}}>
         <h2
-          className="hero-headline font-display text-display-lg font-medium text-cream-on-dark"
+          className="hero-headline font-display text-display-lg font-medium text-cream-on-dark whitespace-pre-line"
           style={{fontStretch: '92%', textShadow: '0 2px 18px rgba(0,0,0,0.3)'}}
         >
           {t(`card${esperienzaKey}Title`)}

@@ -8,6 +8,7 @@ import {Navbar} from '@/components/layout/Navbar';
 import {Footer} from '@/components/layout/Footer';
 import {WhatsAppFloat} from '@/components/layout/WhatsAppFloat';
 import {CookieBanner} from '@/components/layout/CookieBanner';
+import {ScrollToTop} from '@/components/layout/ScrollToTop';
 import '../globals.css';
 
 // Display font — Bricolage Grotesque (geometrico, distintivo, ottimo per scritte grandi).
@@ -76,6 +77,7 @@ export default async function LocaleLayout({
           {tA11y('skipToContent')}
         </a>
         <NextIntlClientProvider>
+          <ScrollToTop />
           <Navbar />
           <main id="main" tabIndex={-1} className="flex-1 focus:outline-none">
             {children}

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {motion, useScroll, useTransform, useReducedMotion} from 'motion/react';
 import {useRef} from 'react';
+import {Link} from '@/i18n/navigation';
 import {HERO_BLUR} from '@/lib/blur';
 
 // Stop 01 — Hero atmosferica
@@ -82,6 +83,16 @@ export function Hero() {
           <p className="hidden sm:block mt-5 sm:mt-6 max-w-[55ch] text-[14px] sm:text-[15px] font-light text-cream-soft/90 leading-[1.55]">
             {t('subhead')}
           </p>
+
+          {/* CTA Contattaci — visibile sia mobile (sotto headline) che desktop (sotto subhead) */}
+          <Link
+            href="/contatti"
+            className="mt-7 sm:mt-8 inline-flex items-center gap-3 rounded-full bg-accent px-8 py-4 text-[13px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
+            style={{color: 'var(--cream-on-dark)'}}
+          >
+            {t('ctaPrimary')}
+            <span aria-hidden="true">→</span>
+          </Link>
         </motion.div>
 
         {/* SPACER — mobile sotto headline, desktop sopra (per spingere headline in basso) */}

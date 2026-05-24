@@ -12,7 +12,7 @@
     "partner": "Partner",
     "about": "Chi siamo",
     "contact": "Contatti",
-    "bookNow": "Prenota",
+    "bookNow": "Contattaci",
     "callShort": "Chiama"
   },
   "WhatsApp": {
@@ -125,11 +125,12 @@
     },
     "hero": {
       "a11yLabel": "Sicily Driver Siracusa — guida privata per la Sicilia orientale",
-      "h1Pre": "La Sicilia,",
+      "h1Pre": "Il tuo NCC",
       "h1Punct": ".",
-      "h1Post": "lentamente",
-      "subhead": "Il diario di chi la guida ogni giorno. Tour privati, transfer e momenti rari, da Siracusa fino a Taormina.",
-      "scrollCue": "Scorri"
+      "h1Post": "in Sicilia",
+      "subhead": "Transfer aeroportuali, tour privati e servizi con autista. Mercedes Classe V e flotta su misura, in italiano o in inglese, 24/7.",
+      "scrollCue": "Scorri",
+      "ctaPrimary": "Contattaci"
     },
     "whisper1": {
       "eyebrow": "Come funzioniamo",
@@ -138,8 +139,8 @@
     "esperienze": {
       "eyebrow": "Le esperienze",
       "card1Tag": "Ortigia · 3 ore · Fiat 500 Spiaggina d’epoca",
-      "card1Title": "La dolce vita, lentamente.",
-      "card1Body": "Una 500 d’epoca, l’isolotto di Ortigia, tre ore al ritmo della passeggiata. Soste dove vuoi, foto se ti va, aperitivo finale fronte mare.",
+      "card1Title": "Tour\nLa Dolce Vita",
+      "card1Body": "Una 500 spiaggina d’epoca esclusiva, giro dell’isola di Ortigia, soste tra i monumenti più caratteristici, foto panoramiche e aperitivo fronte mare.",
       "card2Tag": "Ortigia · 4 ore · in vela privata",
       "card2Title": "Quattro ore di silenzio, in vela.",
       "card2Body": "Dal porto di Ortigia verso le baie più belle della costa. Vento, sole, una sosta bagno, il tagliere Fratelli Burgio a bordo. Niente motore quando il vento c’è.",
@@ -156,7 +157,9 @@
       "customTagline": "Cerchi qualcosa di diverso? Costruiamo l’itinerario insieme.",
       "customCta": "Parliamone",
       "swipeHint": "Scorri lateralmente →",
-      "swipeExit": "Scorri giu per continuare ↓"
+      "swipeExit": "Scorri giu per continuare ↓",
+      "card1TitleLine1": "Tour",
+      "card1TitleLine2": "La Dolce Vita"
     },
     "manifesto": {
       "eyebrow": "Cosa facciamo",
@@ -475,10 +478,10 @@
       "pec": "PEC: izzo.v@pec.it"
     },
     "form": {
-      "eyebrow": "Modulo contatti",
-      "h2Pre": "Oppure",
-      "h2Accent": "scrivici qui",
-      "subhead": "Quattro campi, niente di più. Ti rispondiamo entro un'ora, anche di notte.",
+      "eyebrow": "Scrivici",
+      "h2Pre": "Raccontaci",
+      "h2Accent": "cosa ti serve",
+      "subhead": "Scrivici nella tua lingua: italiano, inglese o qualsiasi altra. Rispondiamo entro 24-36 ore. Per urgenze, WhatsApp 24/7.",
       "fieldNameLabel": "Nome",
       "fieldNamePlaceholder": "Mario Rossi",
       "fieldPhoneLabel": "Telefono",
@@ -490,12 +493,14 @@
       "fieldTypeOption4": "Business / Aziendale",
       "fieldTypeOption5": "Altro",
       "fieldMessageLabel": "Messaggio",
-      "fieldMessagePlaceholder": "Quando, da dove, a dove, quante persone…",
+      "fieldMessagePlaceholder": "Quando, da dove, a dove, quante persone, eventuali esigenze...",
       "submit": "Invia",
-      "submitNote": "Risposta entro 1 ora, 24/7 su WhatsApp.",
+      "submitNote": "Rispondiamo entro 24-36 ore. Per richieste urgenti, scrivici su WhatsApp.",
       "successTitle": "Grazie, abbiamo ricevuto la tua richiesta.",
-      "successBody": "Ti rispondiamo entro un'ora. Se è urgente, scrivici su WhatsApp.",
-      "errorRequired": "Controlla i campi obbligatori e riprova."
+      "successBody": "Ti rispondiamo entro 24-36 ore. Se è urgente, scrivici su WhatsApp.",
+      "errorRequired": "Controlla i campi obbligatori e riprova.",
+      "fieldSubjectLabel": "Oggetto",
+      "fieldSubjectPlaceholder": "Es. Transfer Catania-Siracusa, Tour Etna, Wedding..."
     },
     "bases": {
       "eyebrow": "Le sedi",

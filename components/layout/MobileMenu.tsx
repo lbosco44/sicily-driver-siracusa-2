@@ -10,7 +10,7 @@ import {useFocusTrap} from '@/lib/useFocusTrap';
 // Su md+ il toggle è hidden (lì c'è il menu inline).
 
 export type MobileMenuLink = {
-  href: '/servizi' | '/tour-sicilia' | '/chi-siamo' | '/contatti';
+  href: '/' | '/servizi' | '/tour-sicilia' | '/chi-siamo' | '/contatti';
   label: string;
 };
 

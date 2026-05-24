@@ -111,8 +111,33 @@ export default async function ContattiPage({
         </div>
       </section>
 
-      {/* 02 — 3 MODI per raggiungerci — editorial restraint */}
+      {/* 02 — FORM PRIMA (priorità cliente: la maggior parte delle richieste
+            arriva dal form, il cliente preferisce gestire per iscritto per
+            barriere linguistiche al telefono) */}
       <section className="bg-canvas-deep py-32 sm:py-40 border-y border-[var(--border)]">
+        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20">
+            <div className="lg:sticky lg:top-28 lg:self-start">
+              <p className="eyebrow mb-7">{t('form.eyebrow')}</p>
+              <h2
+                className="font-display text-display-md font-light text-ink max-w-[14ch] mb-7"
+                style={{fontStretch: '95%'}}
+              >
+                {t('form.h2Pre')}{' '}
+                <span className="italic text-accent">{t('form.h2Accent')}</span>
+              </h2>
+              <p className="text-[17px] leading-[1.7] text-ink-soft max-w-[44ch]">
+                {t('form.subhead')}
+              </p>
+            </div>
+
+            <ContactForm />
+          </div>
+        </div>
+      </section>
+
+      {/* 03 — ALTRI MODI per raggiungerci (dopo il form) */}
+      <section className="bg-canvas py-32 sm:py-40">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
           <div className="max-w-2xl mb-14 sm:mb-16">
             <p className="eyebrow mb-7">{t('ways.eyebrow')}</p>
@@ -160,29 +185,6 @@ export default async function ContattiPage({
           </ul>
 
           <p className="mt-10 text-[13px] italic text-ink/50">{t('ways.pec')}</p>
-        </div>
-      </section>
-
-      {/* 03 — FORM */}
-      <section className="bg-canvas py-32 sm:py-40">
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20">
-            <div className="lg:sticky lg:top-28 lg:self-start">
-              <p className="eyebrow mb-7">{t('form.eyebrow')}</p>
-              <h2
-                className="font-display text-display-md font-light text-ink max-w-[14ch] mb-7"
-                style={{fontStretch: '95%'}}
-              >
-                {t('form.h2Pre')}{' '}
-                <span className="italic text-accent">{t('form.h2Accent')}</span>
-              </h2>
-              <p className="text-[17px] leading-[1.7] text-ink-soft max-w-[44ch]">
-                {t('form.subhead')}
-              </p>
-            </div>
-
-            <ContactForm />
-          </div>
         </div>
       </section>
 
