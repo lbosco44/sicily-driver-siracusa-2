@@ -32,7 +32,7 @@ export function Hero() {
       {/* Foto background con parallax sottile */}
       <motion.div className="absolute inset-0 -z-10" style={{y: photoY}}>
         <Image
-          src="https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=2400&q=80&auto=format&fm=webp"
+          src="https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=1920&q=80&auto=format&fm=webp"
           alt=""
           fill
           priority

@@ -140,6 +140,7 @@ export default async function ServiziPage({
             alt=""
             fill
             priority
+            fetchPriority="high"
             sizes={HERO_SIZES}
             quality={80}
             placeholder="blur"

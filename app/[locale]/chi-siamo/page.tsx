@@ -96,6 +96,7 @@ export default async function ChiSiamoPage({
             alt=""
             fill
             priority
+            fetchPriority="high"
             sizes={HERO_SIZES}
             quality={80}
             placeholder="blur"

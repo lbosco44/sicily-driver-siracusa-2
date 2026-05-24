@@ -68,12 +68,12 @@ export function WeddingForm({fields}: {fields: WeddingFormFields}) {
   }
 
   const inputClass =
-    'w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink placeholder:text-ink/40 focus:outline-none focus:border-accent transition-colors';
+    'w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent transition-colors';
   const labelClass =
     'text-[11px] uppercase tracking-[0.12em] font-medium text-secondary block mb-2';
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+    <form onSubmit={handleSubmit} className="space-y-6">
       {error && (
         <div
           role="alert"

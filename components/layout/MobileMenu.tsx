@@ -3,6 +3,7 @@
 import {useEffect, useState} from 'react';
 import {Link, usePathname} from '@/i18n/navigation';
 import {motion, AnimatePresence, useReducedMotion} from 'motion/react';
+import {useFocusTrap} from '@/lib/useFocusTrap';
 
 // Mobile menu drawer slide-down. Triggered da hamburger button.
 // Server component Navbar passa i link e i label (già tradotti server-side).
@@ -29,6 +30,7 @@ export function MobileMenu({
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const reduce = useReducedMotion();
+  const drawerRef = useFocusTrap<HTMLDivElement>(open);
 
   // Lock body scroll quando drawer aperto
   useEffect(() => {
@@ -84,6 +86,7 @@ export function MobileMenu({
       <AnimatePresence>
         {open && (
           <motion.div
+            ref={drawerRef}
             id="mobile-menu-drawer"
             role="dialog"
             aria-modal="true"

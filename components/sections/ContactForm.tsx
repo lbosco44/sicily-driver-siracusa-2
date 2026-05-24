@@ -67,7 +67,7 @@ export function ContactForm() {
             type="text"
             required
             placeholder={t('fieldNamePlaceholder')}
-            className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink placeholder:text-ink/40 focus:outline-none focus:border-accent transition-colors"
+            className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent transition-colors"
           />
         </label>
 
@@ -80,7 +80,7 @@ export function ContactForm() {
             type="tel"
             required
             placeholder={t('fieldPhonePlaceholder')}
-            className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink placeholder:text-ink/40 focus:outline-none focus:border-accent transition-colors"
+            className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent transition-colors"
           />
         </label>
       </div>
@@ -115,7 +115,7 @@ export function ContactForm() {
           rows={5}
           required
           placeholder={t('fieldMessagePlaceholder')}
-          className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink placeholder:text-ink/40 focus:outline-none focus:border-accent transition-colors resize-y"
+          className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent transition-colors resize-y"
         />
       </label>
 

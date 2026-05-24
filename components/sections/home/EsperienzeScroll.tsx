@@ -4,6 +4,7 @@ import {useRef} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {useTranslations, useLocale} from 'next-intl';
+import {HERO_BLUR} from '@/lib/blur';
 import {
   motion,
   useScroll,
@@ -29,7 +30,7 @@ const ESPERIENZE: Esperienza[] = [
     key: '1',
     href: '/tour/dolce-vita-siracusa',
     image:
-      'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=2000&q=80&auto=format&fm=webp',
+      'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=1600&q=80&auto=format&fm=webp',
     bg: '#E8DBC4',
     align: 'left'
   },
@@ -37,7 +38,7 @@ const ESPERIENZE: Esperienza[] = [
     key: '2',
     href: '/tour/silent-sailing',
     image:
-      'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=2000&q=80&auto=format&fm=webp',
+      'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1600&q=80&auto=format&fm=webp',
     bg: '#1E3A4F',
     align: 'right'
   },
@@ -45,7 +46,7 @@ const ESPERIENZE: Esperienza[] = [
     key: '3',
     href: '/tour/isola-delle-correnti',
     image:
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=2000&q=80&auto=format&fm=webp',
+      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80&auto=format&fm=webp',
     bg: '#EDE5D6',
     align: 'left'
   },
@@ -53,7 +54,7 @@ const ESPERIENZE: Esperienza[] = [
     key: '4',
     href: '/tour/etna-premium',
     image:
-      'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=2000&q=80&auto=format&fm=webp',
+      'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=1600&q=80&auto=format&fm=webp',
     bg: '#B05E40',
     align: 'right'
   },
@@ -61,7 +62,7 @@ const ESPERIENZE: Esperienza[] = [
     key: '5',
     href: '/tour-barocco',
     image:
-      'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=2000&q=80&auto=format&fm=webp',
+      'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=1600&q=80&auto=format&fm=webp',
     bg: '#5F7367',
     align: 'left'
   }
@@ -241,9 +242,12 @@ function SceneImage({
         fill
         sizes="100vw"
         quality={80}
+        placeholder="blur"
+        blurDataURL={HERO_BLUR}
         className="object-cover"
         style={{filter: 'saturate(0.88) brightness(0.82) contrast(1.06)'}}
         priority={priority}
+        {...(priority ? {fetchPriority: 'high' as const} : {})}
       />
       <div className="absolute inset-0 atmo-overlay-dark" />
     </motion.div>

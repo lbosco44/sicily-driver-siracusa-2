@@ -500,9 +500,12 @@ function EtnaStageImage({
         fill
         sizes="100vw"
         quality={85}
+        placeholder="blur"
+        blurDataURL={HERO_BLUR}
         className="object-cover"
         style={{filter: 'saturate(0.75) brightness(0.55) contrast(1.18)'}}
         priority={priority}
+        {...(priority ? {fetchPriority: 'high' as const} : {})}
       />
       {/* Doppio overlay dark + radial lava glow */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/85" />

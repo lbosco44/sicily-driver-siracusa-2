@@ -382,9 +382,12 @@ function ItineraryImage({
         fill
         sizes="100vw"
         quality={80}
+        placeholder="blur"
+        blurDataURL={HERO_BLUR}
         className="object-cover"
         style={{filter: 'saturate(0.88) brightness(0.78) contrast(1.06)'}}
         priority={priority}
+        {...(priority ? {fetchPriority: 'high' as const} : {})}
       />
       <div className="absolute inset-0 atmo-overlay-dark" />
     </motion.div>

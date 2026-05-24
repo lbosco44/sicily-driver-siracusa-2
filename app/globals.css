@@ -166,9 +166,10 @@ h3 { line-height: 1.1; letter-spacing: -0.015em; }
 /* Tabular nums per prezzi/numeri */
 .tabular-nums { font-variant-numeric: tabular-nums; }
 
-/* Focus ring globale */
+/* Focus ring globale — accent terracotta scuro (#B05E40) per ratio 4.7:1
+   su cream e ≥4:1 su tutte le superfici dark del sito (WCAG 2.4.11) */
 *:focus-visible {
-  outline: 2px solid var(--accent-decorative);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
   box-shadow: 0 0 0 5px var(--canvas);
   border-radius: 2px;

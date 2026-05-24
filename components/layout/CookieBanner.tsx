@@ -5,6 +5,7 @@ import {useTranslations} from 'next-intl';
 import {Link} from '@/i18n/navigation';
 import {motion, AnimatePresence, useReducedMotion} from 'motion/react';
 import {useCookieConsent} from '@/lib/cookie-consent';
+import {useFocusTrap} from '@/lib/useFocusTrap';
 
 // GDPR cookie banner: prima visita → banner sticky-bottom con 3 azioni
 // (Accetta tutto / Rifiuta tutto / Personalizza). Customize apre modale
@@ -28,6 +29,16 @@ export function CookieBanner() {
   const [analytics, setAnalytics] = useState(false);
   const [marketing, setMarketing] = useState(false);
 
+  // ESC per chiudere settings modal
+  useEffect(() => {
+    if (!showSettings) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setShowSettings(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [showSettings]);
+
   // Riapri banner se trigger esterno (es. footer)
   useEffect(() => {
     const open = () => {
@@ -43,10 +54,13 @@ export function CookieBanner() {
   }, [consent]);
 
   // Non renderizzare nulla finché lo stato non è idratato (evita flash SSR/hydration mismatch)
-  if (!hydrated) return null;
-
-  // Banner principale: visibile solo se NON c'è consenso E settings non aperti
+  // (chiamato dopo gli hook per non violare le regole React)
   const showBanner = consent === null && !showSettings;
+  // Focus trap refs — gli hook devono essere chiamati incondizionatamente
+  const bannerRef = useFocusTrap<HTMLDivElement>(hydrated && showBanner);
+  const modalRef = useFocusTrap<HTMLDivElement>(hydrated && showSettings);
+
+  if (!hydrated) return null;
 
   return (
     <>
@@ -54,7 +68,9 @@ export function CookieBanner() {
       <AnimatePresence>
         {showBanner && (
           <motion.div
+            ref={bannerRef}
             role="dialog"
+            aria-modal="true"
             aria-labelledby="cookie-banner-title"
             aria-describedby="cookie-banner-desc"
             className="fixed bottom-0 inset-x-0 z-[80] px-4 sm:px-6 pb-4 sm:pb-6 pointer-events-none"
@@ -145,6 +161,7 @@ export function CookieBanner() {
 
             {/* Panel */}
             <motion.div
+              ref={modalRef}
               className="relative w-full max-w-[640px] max-h-[88vh] overflow-y-auto bg-canvas text-ink border border-[var(--border-strong)]"
               style={{boxShadow: '0 32px 80px rgba(0,0,0,0.35)'}}
               initial={reduce ? false : {opacity: 0, y: 32, scale: 0.98}}
