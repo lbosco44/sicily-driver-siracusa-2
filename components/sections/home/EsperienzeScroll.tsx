@@ -1,6 +1,6 @@
 'use client';
 
-import {useEffect, useRef, useState} from 'react';
+import {useRef} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {useTranslations, useLocale} from 'next-intl';
@@ -71,20 +71,12 @@ export function EsperienzeScroll() {
 
   return (
     <section aria-label={t('eyebrow')}>
-      {/* ── MOBILE: scrollytelling verticale. Outer 5×80svh, inner sticky.
-            Lo scroll della pagina rivela una scena alla volta. Niente
-            swipe, niente hint da leggere — la scoperta è automatica. ── */}
-      <div className="md:hidden">
-        <MobileVerticalScrollytelling locale={locale} />
-      </div>
+      {/* Sticky scroll-driven — stesso pattern di /tour-sicilia, attivo su
+          tutti i breakpoint. Da iterare su mobile in futuro. */}
+      <ExperienceStickyScroll locale={locale} />
 
-      {/* ── DESKTOP: sticky scroll-driven ── */}
-      <div className="hidden md:block">
-        <DesktopScroll locale={locale} />
-      </div>
-
-      {/* Band terracotta finale — anche snap target su mobile per uscire pulito */}
-      <div className="bg-accent py-20 sm:py-24 esperienze-band-snap">
+      {/* Band terracotta finale */}
+      <div className="bg-accent py-20 sm:py-24">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-7">
           <p
             className="font-display text-display-sm font-light text-cream-on-dark max-w-[28ch]"
@@ -105,207 +97,9 @@ export function EsperienzeScroll() {
   );
 }
 
-// ── Mobile: scrollytelling verticale ──────────────────────────────────────
-// Outer section h = N * 80svh in flusso pagina. Inner sticky h-[100svh] mostra
-// 5 scene layered con crossfade. IntersectionObserver tracks current scene
-// via markers a 1px piazzati al centro di ogni "fascia" di scroll.
-// Nessuna gesture custom: l'utente scrolla la pagina come al solito; la
-// sezione esperienze cambia scena durante lo scroll (scrollytelling pattern).
+// ── Sticky scroll-driven (mobile + desktop) ────────────────────────────────
 
-function MobileVerticalScrollytelling({locale}: {locale: string}) {
-  const t = useTranslations('Home.esperienze');
-  const tCommon = useTranslations('NccPage');
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  // ogni scena occupa SCENE_HEIGHT_VH di scroll verticale
-  const SCENE_HEIGHT_VH = 80;
-
-  return (
-    <section
-      className="relative"
-      style={{height: `${N * SCENE_HEIGHT_VH}svh`}}
-      aria-label="Esperienze — scorri per scoprirle"
-    >
-      {/* Sticky stage — mostra la scena attiva */}
-      <div className="sticky top-0 h-[100svh] overflow-hidden bg-canvas">
-        {ESPERIENZE.map((e, i) => (
-          <SceneLayer
-            key={e.key}
-            e={e}
-            index={i}
-            active={activeIndex === i}
-            locale={locale}
-            t={t}
-            tCommon={tCommon}
-          />
-        ))}
-
-        {/* Counter + eyebrow top */}
-        <div className="pointer-events-none absolute top-0 inset-x-0 z-30 pt-6">
-          <div className="px-6 flex items-baseline justify-between">
-            <p className="eyebrow text-cream-on-dark/85">{t('eyebrow')}</p>
-            <div className="flex items-baseline gap-2 text-cream-on-dark/85 tabular-nums">
-              <span className="font-display text-2xl">
-                {String(activeIndex + 1).padStart(2, '0')}
-              </span>
-              <span className="text-[11px] uppercase tracking-[0.18em]">
-                / {String(N).padStart(2, '0')}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Dots indicator verticale a destra */}
-        <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-2">
-          {ESPERIENZE.map((_, i) => (
-            <span
-              key={i}
-              className={`block w-1.5 rounded-full transition-all ${
-                i === activeIndex ? 'bg-cream-on-dark h-6' : 'bg-cream-on-dark/40 h-1.5'
-              }`}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Triggers — markers a 1px piazzati al CENTRO della fascia di scroll
-          di ogni scena. IntersectionObserver fa fire quando il marker
-          attraversa il middle line del viewport (rootMargin -50% top+bot). */}
-      {ESPERIENZE.map((_, i) => (
-        <SceneTrigger
-          key={`t-${i}`}
-          index={i}
-          sceneHeightVh={SCENE_HEIGHT_VH}
-          onActive={setActiveIndex}
-        />
-      ))}
-    </section>
-  );
-}
-
-function SceneLayer({
-  e,
-  index,
-  active,
-  locale,
-  t,
-  tCommon
-}: {
-  e: Esperienza;
-  index: number;
-  active: boolean;
-  locale: string;
-  t: ReturnType<typeof useTranslations>;
-  tCommon: ReturnType<typeof useTranslations>;
-}) {
-  const alignClass =
-    e.align === 'left' ? 'items-start text-left' : 'items-end text-right';
-  return (
-    <div
-      className="absolute inset-0 transition-opacity duration-500 ease-out"
-      style={{
-        opacity: active ? 1 : 0,
-        pointerEvents: active ? 'auto' : 'none',
-        backgroundColor: e.bg
-      }}
-      aria-hidden={!active}
-    >
-      <Image
-        src={e.image}
-        alt=""
-        fill
-        sizes="100vw"
-        quality={75}
-        className="object-cover pointer-events-none select-none"
-        placeholder="blur"
-        blurDataURL={HERO_BLUR}
-        priority={index === 0}
-        draggable={false}
-        style={{filter: 'saturate(0.88) brightness(0.78) contrast(1.06)'}}
-      />
-      <div className="absolute inset-0 bg-black/40 pointer-events-none" />
-
-      {/* Testo in basso */}
-      <div
-        className={`absolute inset-0 z-10 flex flex-col justify-end ${alignClass} px-6 pb-24`}
-      >
-        <div style={{maxWidth: 'min(480px, 90vw)'}}>
-          <h2
-            className="font-display text-[44px] font-medium text-cream-on-dark"
-            style={{
-              fontStretch: '92%',
-              textShadow: '0 2px 18px rgba(0,0,0,0.4)',
-              lineHeight: '1.05'
-            }}
-          >
-            {t(`card${e.key}Title`)}
-          </h2>
-          <p className="mt-4 text-[16px] text-cream-on-dark/90 leading-[1.55] max-w-[36ch]">
-            {t(`card${e.key}Body`)}
-          </p>
-          <div
-            className={`mt-6 flex flex-wrap gap-3 ${
-              e.align === 'left' ? 'justify-start' : 'justify-end'
-            }`}
-          >
-            <Link
-              href={`/${locale}${e.href}`}
-              className="inline-flex items-center gap-3 rounded-full bg-cream-on-dark px-6 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-primary-deep"
-            >
-              {tCommon('ctaDiscoverTour')}
-              <span aria-hidden="true">→</span>
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function SceneTrigger({
-  index,
-  sceneHeightVh,
-  onActive
-}: {
-  index: number;
-  sceneHeightVh: number;
-  onActive: (i: number) => void;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (!ref.current) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) onActive(index);
-      },
-      {
-        // root viewport ridotta a una linea orizzontale al centro:
-        // -50% top + -50% bottom = altezza effettiva 0 al middle.
-        rootMargin: '-50% 0px -50% 0px',
-        threshold: 0
-      }
-    );
-    observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [index, onActive]);
-
-  return (
-    <div
-      ref={ref}
-      className="absolute left-0 right-0 pointer-events-none"
-      style={{
-        // marker al CENTRO della fascia di scroll della scena i
-        top: `${index * sceneHeightVh + sceneHeightVh / 2}svh`,
-        height: '1px'
-      }}
-      aria-hidden="true"
-    />
-  );
-}
-
-// ── Desktop: sticky scroll-driven ─────────────────────────────────────────
-
-function DesktopScroll({locale}: {locale: string}) {
+function ExperienceStickyScroll({locale}: {locale: string}) {
   const t = useTranslations('Home.esperienze');
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
