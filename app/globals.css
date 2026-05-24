@@ -101,19 +101,9 @@ body:has(.tour-etna-page) footer {
   background-color: #141210 !important;
 }
 
-/* EsperienzeScroll mobile: la sezione swipe è UN solo h-[100svh] container.
-   Scroll-snap proximity sulla sola sezione = il browser allinea fullscreen
-   QUANDO l'utente rilascia il dito vicino al snap point, senza forzare
-   altrove. Niente snap-back perché non c'è mandatory mode. */
-@media (max-width: 767px) {
-  html {
-    scroll-snap-type: y proximity;
-  }
-  .esperienze-reels-section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
-}
+/* EsperienzeScroll mobile: niente scroll-snap CSS. Il "magnete" all'entrata
+   è gestito interamente in JS (scroll listener con debounce in
+   EsperienzeScroll.tsx). Lasciar scroll nativo libero = niente frenata. */
 
 body {
   background: var(--canvas);

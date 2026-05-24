@@ -135,21 +135,66 @@ function MobileSwipeReels({locale}: {locale: string}) {
     };
   }, []);
 
-  // IntersectionObserver: attiva drag solo quando la sezione riempie il
-  // viewport (>=95%). L'allineamento fullscreen è gestito da CSS scroll-snap
-  // proximity su .esperienze-reels-section (vedi globals.css), che lavora
-  // con la momentum nativa del browser.
+  // IntersectionObserver: attiva drag solo a fullscreen (>=92%).
   useEffect(() => {
     if (!sectionRef.current) return;
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        setActive(entry.intersectionRatio >= 0.95);
+        setActive(entry.intersectionRatio >= 0.92);
       },
-      {threshold: [0, 0.5, 0.95, 1]}
+      {threshold: [0, 0.5, 0.92, 1]}
     );
     observer.observe(sectionRef.current);
     return () => observer.disconnect();
+  }, []);
+
+  // Magnete entry in JS: quando lo scroll si ferma (debounce 130ms) e la
+  // sezione è 25-90% visibile + il suo top è entro ±75% di vh dal viewport
+  // top, fa smooth-scroll per allinearla a fullscreen.
+  // didSnap one-shot per evitare loop infiniti. Reset quando esce <10%.
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    let didSnap = false;
+    let scrollEndTimer: ReturnType<typeof setTimeout> | undefined;
+
+    const checkSnap = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const winH = window.innerHeight;
+      const visibleTop = Math.max(0, rect.top);
+      const visibleBottom = Math.min(winH, rect.bottom);
+      const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+      const ratio = visibleHeight / Math.max(1, rect.height);
+
+      if (ratio < 0.1) {
+        didSnap = false;
+        return;
+      }
+      if (
+        !didSnap &&
+        ratio > 0.25 &&
+        ratio < 0.9 &&
+        Math.abs(rect.top) < winH * 0.75
+      ) {
+        didSnap = true;
+        window.scrollTo({
+          top: window.scrollY + rect.top,
+          behavior: 'smooth'
+        });
+      }
+    };
+
+    const onScroll = () => {
+      if (scrollEndTimer) clearTimeout(scrollEndTimer);
+      scrollEndTimer = setTimeout(checkSnap, 130);
+    };
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (scrollEndTimer) clearTimeout(scrollEndTimer);
+    };
   }, []);
 
   const handleDragEnd = (_e: PointerEvent | MouseEvent | TouchEvent, info: PanInfo) => {
@@ -195,17 +240,17 @@ function MobileSwipeReels({locale}: {locale: string}) {
   return (
     <section
       ref={sectionRef}
-      className="esperienze-reels-section relative h-[100svh] overflow-hidden bg-canvas"
+      className="relative h-[100svh] overflow-hidden bg-canvas"
       style={{touchAction: active ? 'none' : 'pan-y'}}
       aria-label="Esperienze — swipe per navigare"
     >
       <motion.div
         drag={active && vh > 0 ? 'y' : false}
         dragConstraints={{top: -(N - 1) * vh, bottom: 0}}
-        dragElastic={0.15}
+        dragElastic={0.12}
         dragMomentum={false}
         animate={{y: -index * vh}}
-        transition={{type: 'spring', stiffness: 280, damping: 32, mass: 0.6}}
+        transition={{type: 'tween', duration: 0.32, ease: [0.2, 0.85, 0.25, 1]}}
         onDragEnd={handleDragEnd}
         className="will-change-transform"
         style={{height: vh > 0 ? `${N * vh}px` : `${N * 100}svh`}}
