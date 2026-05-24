@@ -320,28 +320,30 @@ export function TourHubNarrative({hub}: {hub: TourHubContent}) {
 // Subcomponents — scroll-driven layers
 // ============================================================
 
-// Same edge-handling logic as home/EsperienzeScroll: first scene visible at
-// progress=0, last at progress=1, middle cross-fade overlap 2%.
+// Bulletproof keyframes: explicit full-range coverage of [0, 1] — every
+// scene has hard anchors at progress=0 AND 1, so Motion never extrapolates.
 function sceneOpacityKeyframes(index: number, total: number) {
   const start = index / total;
   const end = (index + 1) / total;
   const FADE = 0.02;
+  const fadeInStart = Math.max(start - FADE, 0);
+  const fadeOutEnd = Math.min(end + FADE, 1);
 
   if (index === 0) {
     return {
-      times: [0, end, Math.min(end + FADE, 1)],
-      values: [1, 1, 0]
+      times: [0, end, fadeOutEnd, 1],
+      values: [1, 1, 0, 0]
     };
   }
   if (index === total - 1) {
     return {
-      times: [Math.max(start - FADE, 0), start, 1],
-      values: [0, 1, 1]
+      times: [0, fadeInStart, start, 1],
+      values: [0, 0, 1, 1]
     };
   }
   return {
-    times: [start - FADE, start, end, end + FADE],
-    values: [0, 1, 1, 0]
+    times: [0, fadeInStart, start, end, fadeOutEnd, 1],
+    values: [0, 0, 1, 1, 0, 0]
   };
 }
 
@@ -432,31 +434,42 @@ function ItineraryText({
   const peakStart = start + 0.05;
   const peakEnd = end - 0.05;
 
-  // Same edge-handling as scene opacity: first/last visible at boundaries.
+  // Same full-range strategy: explicit keyframes covering [0, 1].
   let opacityTimes: number[];
   let opacityValues: number[];
   let yTimes: number[];
   let yValues: string[];
 
   if (index === 0) {
-    opacityTimes = [0, peakEnd, end];
-    opacityValues = [1, 1, 0];
-    yTimes = [0, peakEnd, end];
-    yValues = reduce ? ['0%', '0%', '0%'] : ['0%', '0%', '-4%'];
+    opacityTimes = [0, peakEnd, end, 1];
+    opacityValues = [1, 1, 0, 0];
+    yTimes = [0, peakEnd, end, 1];
+    yValues = reduce
+      ? ['0%', '0%', '0%', '0%']
+      : ['0%', '0%', '-4%', '-4%'];
   } else if (index === total - 1) {
-    opacityTimes = [start, peakStart, 1];
-    opacityValues = [0, 1, 1];
-    yTimes = [start, peakStart, 1];
-    yValues = reduce ? ['0%', '0%', '0%'] : ['6%', '0%', '0%'];
+    opacityTimes = [0, start, peakStart, 1];
+    opacityValues = [0, 0, 1, 1];
+    yTimes = [0, start, peakStart, 1];
+    yValues = reduce
+      ? ['0%', '0%', '0%', '0%']
+      : ['6%', '6%', '0%', '0%'];
   } else {
-    opacityTimes = [start, peakStart, peakEnd, end];
-    opacityValues = [0, 1, 1, 0];
-    yTimes = [start, peakStart, peakEnd, end];
-    yValues = reduce ? ['0%', '0%', '0%', '0%'] : ['6%', '0%', '0%', '-4%'];
+    opacityTimes = [0, start, peakStart, peakEnd, end, 1];
+    opacityValues = [0, 0, 1, 1, 0, 0];
+    yTimes = [0, start, peakStart, peakEnd, end, 1];
+    yValues = reduce
+      ? ['0%', '0%', '0%', '0%', '0%', '0%']
+      : ['6%', '6%', '0%', '0%', '-4%', '-4%'];
   }
 
   const opacity = useTransform(scrollYProgress, opacityTimes, opacityValues);
   const y = useTransform(scrollYProgress, yTimes, yValues);
+  // Only the visible itinerary catches clicks; without this, the topmost
+  // stacked motion.div eats every pointer event regardless of opacity.
+  const pointerEvents = useTransform(opacity, (v: number) =>
+    v > 0.15 ? 'auto' : 'none'
+  );
 
   const alignClass =
     index % 2 === 0 ? 'items-start text-left' : 'items-end text-right';
@@ -465,7 +478,7 @@ function ItineraryText({
   return (
     <motion.div
       className={`absolute inset-0 z-10 flex flex-col justify-end ${alignClass} px-6 sm:px-12 lg:px-20 pb-24 sm:pb-32`}
-      style={{opacity: reduce ? 1 : opacity, y}}
+      style={{opacity: reduce ? 1 : opacity, y, pointerEvents}}
     >
       <div style={{maxWidth: 'min(560px, 84vw)'}}>
         <p className="eyebrow text-cream-on-dark/85 mb-5">

@@ -41,7 +41,7 @@ export async function TourDetailNarrative({tour}: {tour: TourContent}) {
           <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/30 to-black/80" />
         </div>
 
-        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-16 sm:pb-20">
+        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-[18vh] sm:pb-[22vh]">
           <div className="max-w-[48ch]">
             {(() => {
               // Se l'H1 contiene ":", lo splitto in display grande + subhead piccolo.

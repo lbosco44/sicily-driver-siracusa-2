@@ -152,32 +152,31 @@ export function EsperienzeScroll() {
 // Subcomponents — ognuno chiama useTransform al top level
 // ============================================================
 
-// Builds strictly-ascending keyframes for scene opacity.
-// First scene (i=0) is fully visible at progress=0 (no fade-in).
-// Last scene (i=total-1) is fully visible at progress=1 (no fade-out).
-// Middle scenes get cross-fade overlap of 2%.
+// Bulletproof keyframes: EXPLICITLY cover the full [0, 1] range so Motion
+// never has to extrapolate. Every scene gets a "0 before, peak during,
+// 0 after" envelope with hard anchors at progress=0 and progress=1.
 function sceneOpacityKeyframes(index: number, total: number) {
   const start = index / total;
   const end = (index + 1) / total;
   const FADE = 0.02;
+  const fadeInStart = Math.max(start - FADE, 0);
+  const fadeOutEnd = Math.min(end + FADE, 1);
 
   if (index === 0) {
-    // [progress=0 visible] → hold till end → fade out
     return {
-      times: [0, end, Math.min(end + FADE, 1)],
-      values: [1, 1, 0]
+      times: [0, end, fadeOutEnd, 1],
+      values: [1, 1, 0, 0]
     };
   }
   if (index === total - 1) {
-    // fade in → hold to progress=1
     return {
-      times: [Math.max(start - FADE, 0), start, 1],
-      values: [0, 1, 1]
+      times: [0, fadeInStart, start, 1],
+      values: [0, 0, 1, 1]
     };
   }
   return {
-    times: [start - FADE, start, end, end + FADE],
-    values: [0, 1, 1, 0]
+    times: [0, fadeInStart, start, end, fadeOutEnd, 1],
+    values: [0, 0, 1, 1, 0, 0]
   };
 }
 
@@ -269,32 +268,43 @@ function SceneText({
   const peakStart = start + 0.05;
   const peakEnd = end - 0.05;
 
-  // Text keyframes mirror the scene's "always-on at edges" rule:
-  // i=0 ⇒ already at peak when entering, i=last ⇒ stay at peak when exiting.
+  // Same full-range strategy as scene bg/img — explicit 4-6 point keyframes
+  // that hard-anchor progress=0 AND progress=1, no extrapolation guesswork.
   let opacityTimes: number[];
   let opacityValues: number[];
   let yTimes: number[];
   let yValues: string[];
 
   if (index === 0) {
-    opacityTimes = [0, peakEnd, end];
-    opacityValues = [1, 1, 0];
-    yTimes = [0, peakEnd, end];
-    yValues = reduce ? ['0%', '0%', '0%'] : ['0%', '0%', '-6%'];
+    opacityTimes = [0, peakEnd, end, 1];
+    opacityValues = [1, 1, 0, 0];
+    yTimes = [0, peakEnd, end, 1];
+    yValues = reduce
+      ? ['0%', '0%', '0%', '0%']
+      : ['0%', '0%', '-6%', '-6%'];
   } else if (index === total - 1) {
-    opacityTimes = [start, peakStart, 1];
-    opacityValues = [0, 1, 1];
-    yTimes = [start, peakStart, 1];
-    yValues = reduce ? ['0%', '0%', '0%'] : ['8%', '0%', '0%'];
+    opacityTimes = [0, start, peakStart, 1];
+    opacityValues = [0, 0, 1, 1];
+    yTimes = [0, start, peakStart, 1];
+    yValues = reduce
+      ? ['0%', '0%', '0%', '0%']
+      : ['8%', '8%', '0%', '0%'];
   } else {
-    opacityTimes = [start, peakStart, peakEnd, end];
-    opacityValues = [0, 1, 1, 0];
-    yTimes = [start, peakStart, peakEnd, end];
-    yValues = reduce ? ['0%', '0%', '0%', '0%'] : ['8%', '0%', '0%', '-6%'];
+    opacityTimes = [0, start, peakStart, peakEnd, end, 1];
+    opacityValues = [0, 0, 1, 1, 0, 0];
+    yTimes = [0, start, peakStart, peakEnd, end, 1];
+    yValues = reduce
+      ? ['0%', '0%', '0%', '0%', '0%', '0%']
+      : ['8%', '8%', '0%', '0%', '-6%', '-6%'];
   }
 
   const opacity = useTransform(scrollYProgress, opacityTimes, opacityValues);
   const y = useTransform(scrollYProgress, yTimes, yValues);
+  // Only the visible scene catches clicks — without this, all 5 stacked
+  // motion.divs (z-10 absolute inset-0) block pointer even when invisible.
+  const pointerEvents = useTransform(opacity, (v: number) =>
+    v > 0.15 ? 'auto' : 'none'
+  );
 
   const alignClass =
     align === 'left' ? 'items-start text-left' : 'items-end text-right';
@@ -302,7 +312,7 @@ function SceneText({
   return (
     <motion.div
       className={`absolute inset-0 z-10 flex flex-col justify-end ${alignClass} px-6 sm:px-12 lg:px-20 pb-24 sm:pb-32`}
-      style={{opacity: reduce ? 1 : opacity, y}}
+      style={{opacity: reduce ? 1 : opacity, y, pointerEvents}}
     >
       <div style={{maxWidth: 'min(560px, 84vw)'}}>
         <p className="eyebrow text-cream-on-dark/85 mb-5">

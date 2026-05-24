@@ -68,7 +68,7 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
           />
         </div>
 
-        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-16 sm:pb-20">
+        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-[18vh] sm:pb-[22vh]">
           <div className="max-w-[44ch]">
             <h1
               className="hero-headline font-display text-display-lg font-light text-cream-on-dark"

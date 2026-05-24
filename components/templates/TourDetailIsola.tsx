@@ -54,7 +54,7 @@ export function TourDetailIsola({tour}: {tour: TourContent}) {
           />
         </div>
 
-        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-16 sm:pb-20">
+        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-[18vh] sm:pb-[22vh]">
           <div style={{maxWidth: 'min(680px, 90vw)'}}>
             <h1
               className="hero-headline font-display font-light text-cream-on-dark"
