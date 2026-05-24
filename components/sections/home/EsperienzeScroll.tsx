@@ -29,40 +29,35 @@ const ESPERIENZE: Esperienza[] = [
   {
     key: '1',
     href: '/tour/dolce-vita-siracusa',
-    image:
-      'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=1600&q=80&auto=format&fm=webp',
+    image: '/images/home/dolce-vita.png',
     bg: '#E8DBC4',
     align: 'left'
   },
   {
     key: '2',
     href: '/tour/silent-sailing',
-    image:
-      'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1600&q=80&auto=format&fm=webp',
+    image: '/images/home/sailing.png',
     bg: '#1E3A4F',
     align: 'right'
   },
   {
     key: '3',
     href: '/tour/isola-delle-correnti',
-    image:
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80&auto=format&fm=webp',
+    image: '/images/home/isola.png',
     bg: '#EDE5D6',
     align: 'left'
   },
   {
     key: '4',
     href: '/tour/etna-premium',
-    image:
-      'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=1600&q=80&auto=format&fm=webp',
+    image: '/images/home/etna.png',
     bg: '#B05E40',
     align: 'right'
   },
   {
     key: '5',
     href: '/tour-barocco',
-    image:
-      'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=1600&q=80&auto=format&fm=webp',
+    image: '/images/home/barocco.png',
     bg: '#5F7367',
     align: 'left'
   }

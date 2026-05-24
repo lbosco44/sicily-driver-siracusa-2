@@ -4,6 +4,7 @@ import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {motion, useScroll, useTransform, useReducedMotion} from 'motion/react';
 import {useRef} from 'react';
+import {HERO_BLUR} from '@/lib/blur';
 
 // Stop 01 — Hero atmosferica
 // Foto Sicily golden hour full-bleed + headline Bricolage gigante + cue scroll discreta.
@@ -32,15 +33,15 @@ export function Hero() {
       {/* Foto background con parallax sottile */}
       <motion.div className="absolute inset-0 -z-10" style={{y: photoY}}>
         <Image
-          src="https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=1920&q=80&auto=format&fm=webp"
+          src="/images/home/hero.jpeg"
           alt=""
           fill
           priority
           fetchPriority="high"
           sizes="100vw"
-          quality={80}
+          quality={85}
           placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/2wCEAAkGBxAQEBAQEBAQEA8QDxAQDw8PDw8PDw8PFRUWFhURFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OFRAQGi0lHR8tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAAoAFAMBIgACEQEDEQH/xAAVAAEBAQAAAAAAAAAAAAAAAAACAAH/xAAYEAEAAwEAAAAAAAAAAAAAAAAAAQIDEf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AzhfElQ2H/9k="
+          blurDataURL={HERO_BLUR}
           className="object-cover"
           style={{filter: 'saturate(0.85) brightness(0.78) contrast(1.08)'}}
         />

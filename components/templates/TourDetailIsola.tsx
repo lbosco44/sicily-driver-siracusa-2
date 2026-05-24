@@ -490,10 +490,9 @@ export function TourDetailIsola({tour}: {tour: TourContent}) {
               href="https://wa.me/393756413379"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-3 rounded-full px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-[#3D2A0B]"
+              className="group inline-flex items-center justify-center gap-3 rounded-full bg-accent px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
               style={{
-                backgroundColor: 'var(--ink)',
-                color: CREAM_HOT
+                color: 'var(--cream-on-dark)'
               }}
             >
               {tCommon('ctaWhatsApp')}

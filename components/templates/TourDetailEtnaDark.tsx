@@ -2,8 +2,8 @@
 
 import {useRef} from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import {useTranslations, useLocale} from 'next-intl';
+import {Link} from '@/i18n/navigation';
+import {useTranslations} from 'next-intl';
 import {
   motion,
   useScroll,
@@ -30,8 +30,6 @@ const LAVA_GLOW = '#E84B36';
 
 export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
   const tCommon = useTranslations('NccPage');
-  const locale = useLocale();
-
   const stagesRef = useRef<HTMLDivElement>(null);
   const {scrollYProgress} = useScroll({
     target: stagesRef,
@@ -426,7 +424,7 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
               href="https://wa.me/393756413379"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-3 rounded-full px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium transition-all duration-200"
+              className="group inline-flex items-center justify-center gap-3 rounded-full px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:brightness-90"
               style={{
                 backgroundColor: LAVA_RED,
                 color: 'var(--cream-on-dark)',
@@ -442,7 +440,7 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
               </span>
             </a>
             <Link
-              href={`/${locale}/contatti`}
+              href="/contatti"
               className="inline-flex items-center justify-center gap-3 rounded-full px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium transition-colors"
               style={{
                 color: 'var(--cream-on-dark)',

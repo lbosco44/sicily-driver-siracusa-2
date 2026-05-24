@@ -10,43 +10,37 @@ import {motion, useReducedMotion} from 'motion/react';
 const PLACES = [
   {
     key: 'ortigia',
-    image:
-      'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=900&q=80&auto=format&fm=webp',
+    image: '/images/home/polaroid-ortigia.png',
     rotate: -2.5,
     span: 'sm:col-span-5'
   },
   {
     key: 'noto',
-    image:
-      'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=900&q=80&auto=format&fm=webp',
+    image: '/images/home/polaroid-noto.jpeg',
     rotate: 1.5,
     span: 'sm:col-span-4'
   },
   {
     key: 'marzamemi',
-    image:
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=80&auto=format&fm=webp',
+    image: '/images/home/polaroid-marzamemi.jpeg',
     rotate: -1.2,
     span: 'sm:col-span-3'
   },
   {
     key: 'ragusa',
-    image:
-      'https://images.unsplash.com/photo-1581922814484-0b48460b7010?w=900&q=80&auto=format&fm=webp',
+    image: '/images/home/polaroid-ragusa.png',
     rotate: 2.2,
     span: 'sm:col-span-3'
   },
   {
     key: 'etna',
-    image:
-      'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=900&q=80&auto=format&fm=webp',
+    image: '/images/home/polaroid-etna.jpeg',
     rotate: -1.8,
     span: 'sm:col-span-4'
   },
   {
     key: 'taormina',
-    image:
-      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=900&q=80&auto=format&fm=webp',
+    image: '/images/home/polaroid-taormina.png',
     rotate: 1.3,
     span: 'sm:col-span-5'
   }

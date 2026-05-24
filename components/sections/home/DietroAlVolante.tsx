@@ -24,7 +24,7 @@ export function DietroAlVolante() {
             transition={{duration: 1.1, ease: [0.16, 1, 0.3, 1]}}
           >
             <Image
-              src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1800&q=80&auto=format&fm=webp"
+              src="/images/home/driver.png"
               alt={t('alt')}
               fill
               sizes="(max-width: 1024px) 100vw, 58vw"

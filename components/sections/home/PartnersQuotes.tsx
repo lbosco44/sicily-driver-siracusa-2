@@ -23,8 +23,7 @@ const PARTNERS = [
   },
   {
     key: 'benanti',
-    image:
-      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1400&q=80&auto=format&fm=webp',
+    image: '/images/home/partner-benanti.png',
     side: 'right' as const
   },
   {
