@@ -124,7 +124,7 @@ function ExperienceStickyScroll() {
   });
 
   return (
-    <div ref={ref} style={{height: `${N * 100}svh`}} className="relative bg-canvas">
+    <div ref={ref} style={{height: `${N * 60}svh`}} className="relative bg-canvas">
       <div className="sticky top-0 h-[100svh] overflow-hidden">
         {ESPERIENZE.map((e, i) => (
           <SceneLayer
@@ -183,7 +183,7 @@ function SceneLayer({
       style={{
         backgroundColor: e.bg,
         opacity: reduce ? (active ? 1 : 0) : active ? 1 : 0,
-        transition: reduce ? 'none' : 'opacity 700ms cubic-bezier(0.16, 1, 0.3, 1)',
+        transition: reduce ? 'none' : 'opacity 400ms cubic-bezier(0.16, 1, 0.3, 1)',
         willChange: 'opacity',
         pointerEvents: active ? 'auto' : 'none'
       }}
@@ -212,7 +212,7 @@ function SceneLayer({
           transform: active ? 'translateY(0)' : 'translateY(2%)',
           transition: reduce
             ? 'none'
-            : 'transform 700ms cubic-bezier(0.16, 1, 0.3, 1)',
+            : 'transform 400ms cubic-bezier(0.16, 1, 0.3, 1)',
           willChange: 'transform'
         }}
       >

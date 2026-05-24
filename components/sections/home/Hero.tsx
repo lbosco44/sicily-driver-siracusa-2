@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {motion, useScroll, useTransform, useReducedMotion} from 'motion/react';
-import {useRef} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {Link} from '@/i18n/navigation';
 import {HERO_BLUR} from '@/lib/blur';
 import {GoogleReviewsBadge} from '@/components/ui/GoogleReviewsBadge';
@@ -17,7 +17,17 @@ export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
 
-  // Parallax leggero della foto (max 8% per non disorientare)
+  // Su mobile l'address bar che appare/scompare fa cambiare l'altezza viewport
+  // e il parallax si glitcha (sembra uno zoom o un salto). Lo disabilito.
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
   const {scrollYProgress} = useScroll({
     target: ref,
     offset: ['start start', 'end start']
@@ -32,8 +42,9 @@ export function Hero() {
       className="hero-stage relative isolate overflow-hidden"
       aria-label={t('a11yLabel')}
     >
-      {/* Foto background con parallax sottile */}
-      <motion.div className="absolute inset-0 -z-10" style={{y: photoY}}>
+      {/* Foto background con parallax sottile — disabilitato su mobile per
+          evitare glitch con address bar che cambia altezza viewport */}
+      <motion.div className="absolute inset-0 -z-10" style={{y: isMobile ? 0 : photoY}}>
         <Image
           src="/images/home/hero.jpeg"
           alt=""
