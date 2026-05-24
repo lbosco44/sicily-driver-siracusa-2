@@ -321,7 +321,7 @@ export default async function WeddingPage({
               >
                 <Image
                   src={src}
-                  alt=""
+                  alt={`Wedding Sicilia ${i + 1}`}
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"
                   className="object-cover"

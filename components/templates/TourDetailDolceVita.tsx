@@ -154,7 +154,7 @@ export function TourDetailDolceVita({tour}: {tour: TourContent}) {
                     <div className="relative aspect-[5/4] overflow-hidden">
                       <Image
                         src={stage.image}
-                        alt=""
+                        alt={stage.title}
                         fill
                         sizes="(max-width: 1024px) 100vw, 58vw"
                         className="object-cover"

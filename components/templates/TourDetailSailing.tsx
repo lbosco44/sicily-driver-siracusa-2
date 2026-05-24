@@ -290,7 +290,7 @@ export function TourDetailSailing({tour}: {tour: TourContent}) {
                 >
                   <Image
                     src={stage.image}
-                    alt=""
+                    alt={stage.title}
                     fill
                     sizes="(max-width: 1024px) 92vw, 880px"
                     className="object-cover"

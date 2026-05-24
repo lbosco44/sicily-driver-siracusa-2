@@ -85,15 +85,35 @@ export function localBusinessSchema(locale: 'it' | 'en') {
     priceRange: '€€',
     currenciesAccepted: 'EUR',
     paymentAccepted: 'Cash, Credit Card, Bank Transfer',
-    openingHours: 'Mo-Su 00:00-23:59',
-    image: `${URL_BASE}/og/home-${locale}.jpg`,
+    // 24/7: usiamo openingHoursSpecification con array completo dei giorni
+    // perché 'Mo-Su 00:00-23:59' viene letto da Rich Results come "chiuso 1 min/giorno".
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: [
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+          'Sunday'
+        ],
+        opens: '00:00',
+        closes: '23:59'
+      }
+    ],
+    image: `${URL_BASE}/og?locale=${locale}`,
     vatID: 'IT02150600894',
     taxID: '02150600894',
     sameAs: [
-      // Google Business Profile (Sicily Driver Syracuse, kgmid /g/11xcdhx7pv)
-      'https://share.google/Lj0QSPY5y9nKanT76'
-      // TODO: aggiungere URL Instagram brand quando cliente fornisce handle
-      // TODO: eventuale Facebook se brand attivo
+      // Google Business Profile — shortlink condiviso dal cliente.
+      // TODO post-deploy: sostituire con URL maps.app.goo.gl/... esteso
+      // per knowledge graph linking esplicito.
+      'https://share.google/Lj0QSPY5y9nKanT76',
+      // Facebook brand storico
+      'https://www.facebook.com/nccautoservizisiracusa/'
+      // TODO: aggiungere Instagram quando cliente fornisce handle
     ]
   };
 }

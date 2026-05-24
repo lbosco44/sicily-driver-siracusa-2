@@ -16,8 +16,8 @@ export async function generateMetadata({
     title: t('title'),
     description: t('description'),
     alternates: {
-      canonical: path,
-      languages: {it: '/it/privacy', en: '/en/privacy', 'x-default': '/it/privacy'}
+      canonical: path
+      // No hreflang languages: pagina noindex, hreflang su noindex genera GSC warning
     },
     robots: {index: false, follow: true}
   };

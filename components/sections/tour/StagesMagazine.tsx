@@ -70,7 +70,7 @@ export function StagesMagazine({
                 >
                   <Image
                     src={stage.image}
-                    alt=""
+                    alt={stage.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 58vw"
                     className="object-cover"

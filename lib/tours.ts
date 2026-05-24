@@ -154,7 +154,7 @@ const HERO_SAILING =
 
 const HUB_IT: TourHubContent = {
   metaTitle:
-    'Tour Sicilia con Autista Privato — Itinerari su Misura da Siracusa, Catania, Noto | Sicily Driver',
+    'Tour Sicilia con Autista · Itinerari su Misura | Sicily Driver',
   metaDescription:
     'Tour Sicilia con driver dedicato: Barocco, Etna, Ortigia, Isola delle Correnti, Silent Sailing. Mercedes, autisti professionisti, itinerari personalizzabili. 5 esperienze + tour su misura.',
 
@@ -275,7 +275,7 @@ const HUB_IT: TourHubContent = {
 
 const HUB_EN: TourHubContent = {
   metaTitle:
-    'Sicily Tours with Private Driver — Custom Itineraries from Syracuse, Catania | Sicily Driver',
+    'Sicily Tours with Private Driver · Custom Itineraries | Sicily Driver',
   metaDescription:
     'Sicily tours with a dedicated driver: Baroque, Etna, Ortigia, Isola delle Correnti, Silent Sailing. Mercedes, English-speaking chauffeurs, fully customizable. 5 experiences + custom tours.',
 
@@ -661,7 +661,7 @@ const BAROCCO_EN: TourContent = {
 
 const ETNA_IT: TourContent = {
   metaTitle:
-    'Etna Premium Escape — Crateri Silvestri e Cantine Benanti, Palmeri | Sicily Driver',
+    'Tour Etna Premium · Quad e Cantine Benanti | Sicily Driver',
   metaDescription:
     'Etna tour da Siracusa: crateri Silvestri a 1.900m con quad, degustazione in cantina (Benanti, Palmeri), pranzo con vista. Mercedes con autista, giornata intera.',
 
@@ -788,7 +788,7 @@ const ETNA_IT: TourContent = {
 
 const ETNA_EN: TourContent = {
   metaTitle:
-    'Etna Premium Escape — Silvestri Craters & Benanti/Palmeri Wineries | Sicily Driver',
+    'Etna Premium Tour · Quad & Benanti Winery | Sicily Driver',
   metaDescription:
     'Etna tour from Syracuse: Silvestri craters at 1,900m by quad, winery tasting (Benanti, Palmeri), lunch with a view. Mercedes with private driver, full day.',
 
@@ -919,7 +919,7 @@ const ETNA_EN: TourContent = {
 
 const ISOLA_IT: TourContent = {
   metaTitle:
-    'Isola delle Correnti & Pura Vida Beach Club — Giornata Sud Sicilia | Sicily Driver',
+    'Isola delle Correnti & Pura Vida · Sud Sicilia | Sicily Driver',
   metaDescription:
     'Tour giornaliero all’Isola delle Correnti (l’estremità sud della Sicilia) con Pura Vida Beach Club e Marzamemi al tramonto. Mercedes con autista, sosta lunch, sunset experience.',
 
@@ -1041,7 +1041,7 @@ const ISOLA_IT: TourContent = {
 
 const ISOLA_EN: TourContent = {
   metaTitle:
-    'Isola delle Correnti & Pura Vida Beach Club — South Sicily Day Tour | Sicily Driver',
+    'Isola delle Correnti · South Sicily Day Tour | Sicily Driver',
   metaDescription:
     'Day tour to Isola delle Correnti (the southernmost point of Sicily) with Pura Vida Beach Club and sunset in Marzamemi. Mercedes with driver, beach lunch, sunset experience.',
 
@@ -1167,7 +1167,7 @@ const ISOLA_EN: TourContent = {
 
 const DOLCE_VITA_IT: TourContent = {
   metaTitle:
-    'Dolce Vita Siracusa — Ortigia in Fiat 500 Spiaggina d’Epoca | Sicily Driver',
+    'Dolce Vita Siracusa · Ortigia in Fiat 500 | Sicily Driver',
   metaDescription:
     'Tour Ortigia in Fiat 500 Spiaggina d’epoca: 3 ore tra Duomo, Fonte Aretusa, lungomare, aperitivo finale fronte mare. La Dolce Vita siciliana, per coppie e amici.',
 
@@ -1278,7 +1278,7 @@ const DOLCE_VITA_IT: TourContent = {
 
 const DOLCE_VITA_EN: TourContent = {
   metaTitle:
-    'Dolce Vita Syracuse — Ortigia in a Vintage Fiat 500 Spiaggina | Sicily Driver',
+    'Dolce Vita Syracuse · Ortigia in Vintage Fiat 500 | Sicily Driver',
   metaDescription:
     'Ortigia tour in a vintage Fiat 500 Spiaggina: 3 hours between the Cathedral, Arethusa Spring, seafront, sunset aperitivo. Sicilian Dolce Vita, for couples and friends.',
 
@@ -1393,7 +1393,7 @@ const DOLCE_VITA_EN: TourContent = {
 
 const SAILING_IT: TourContent = {
   metaTitle:
-    'Silent Sailing — Vela Privata Ortigia con Tagliere Fratelli Burgio | Sicily Driver',
+    'Silent Sailing · Vela Privata da Ortigia | Sicily Driver',
   metaDescription:
     'Tour in vela privata da Ortigia: 4 ore lungo la costa siracusana, soste bagno nelle baie più belle, tagliere Fratelli Burgio a bordo, prosecco. Max 8 persone.',
 
@@ -1515,7 +1515,7 @@ const SAILING_IT: TourContent = {
 
 const SAILING_EN: TourContent = {
   metaTitle:
-    'Silent Sailing — Private Sailing from Ortigia with Fratelli Burgio Platter | Sicily Driver',
+    'Silent Sailing · Private Sailing from Ortigia | Sicily Driver',
   metaDescription:
     'Private sailing tour from Ortigia: 4 hours along Syracuse coast, swim stops in hidden bays, Fratelli Burgio platter on board, prosecco. Max 8 people.',
 

@@ -39,7 +39,7 @@ export async function generateMetadata({
       siteName: 'Sicily Driver Siracusa',
       images: [
         {
-          url: `/og/home-${locale}.jpg`,
+          url: `/og?locale=${locale}`,
           width: 1200,
           height: 630,
           alt:
@@ -53,7 +53,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: t('title'),
       description: t('description'),
-      images: [`/og/home-${locale}.jpg`]
+      images: [`/og?locale=${locale}`]
     }
   };
 }

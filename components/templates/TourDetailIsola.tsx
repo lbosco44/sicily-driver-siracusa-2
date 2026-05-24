@@ -289,7 +289,7 @@ export function TourDetailIsola({tour}: {tour: TourContent}) {
                     <div className="relative w-full h-full overflow-hidden">
                       <Image
                         src={stage.image}
-                        alt=""
+                        alt={stage.title}
                         fill
                         sizes="(max-width: 768px) 92vw, 44vw"
                         className="object-cover"
