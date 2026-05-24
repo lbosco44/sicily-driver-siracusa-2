@@ -267,7 +267,10 @@ function SceneText({
       className={`absolute inset-0 z-10 flex flex-col justify-end ${alignClass} px-6 sm:px-12 lg:px-20 pb-24 sm:pb-32`}
       style={{opacity: reduce ? 1 : opacity, y}}
     >
-      <div className="max-w-[28ch]">
+      <div
+        className="max-w-[28ch]"
+        style={{maxWidth: 'min(28ch, 44vw)'}}
+      >
         <p className="eyebrow text-cream-on-dark/85 mb-5">
           {t(`card${esperienzaKey}Tag`)}
         </p>
