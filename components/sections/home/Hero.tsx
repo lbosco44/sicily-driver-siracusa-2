@@ -51,8 +51,9 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/15 to-black/70" />
       </motion.div>
 
-      {/* Headline centrata in alto + subhead + bottoni + scroll cue in basso */}
-      <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex flex-col items-center pt-28 sm:pt-32 pb-12 sm:pb-16">
+      {/* Headline centrata in alto + subhead + bottoni + scroll cue in basso.
+          Mobile: alta (pt-20), spazi stretti. Desktop: pt-32, spazi più ariosi. */}
+      <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex flex-col items-center justify-start pt-20 sm:pt-32 pb-12 sm:pb-16">
         {/* HEADLINE + subhead + bottoni — tutti centrati in alto */}
         <motion.div
           className="text-center w-full"
@@ -75,9 +76,9 @@ export function Hero() {
             <span className="text-accent-decorative">{t('h1Punct')}</span>
           </h1>
 
-          {/* Subhead: una riga sotto headline */}
+          {/* Subhead: una riga sotto headline (mt stretto su mobile) */}
           <p
-            className="mt-5 sm:mt-6 font-light text-cream-soft/95 whitespace-nowrap"
+            className="mt-3 sm:mt-6 font-light text-cream-soft/95 whitespace-nowrap"
             style={{
               fontSize: 'clamp(12px, 1.5vw, 18px)',
               textShadow: '0 1px 12px rgba(0,0,0,0.35)'
@@ -87,7 +88,7 @@ export function Hero() {
           </p>
 
           {/* Bottoni: CTA Contattaci + Badge Google — centrati */}
-          <div className="mt-7 sm:mt-9 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          <div className="mt-5 sm:mt-9 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <Link
               href="/contatti"
               className="inline-flex items-center gap-3 rounded-full bg-accent px-8 py-4 text-[13px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
