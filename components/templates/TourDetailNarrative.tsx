@@ -2,7 +2,7 @@ import Image from 'next/image';
 import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import type {TourContent} from '@/lib/tours';
-import {StagesScroll} from '@/components/sections/tour/StagesScroll';
+import {StagesMagazine} from '@/components/sections/tour/StagesMagazine';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
 
 // TourDetailNarrative — template pagina tour, design language Diario Mediterraneo.
@@ -104,16 +104,20 @@ export async function TourDetailNarrative({tour}: {tour: TourContent}) {
             {tour.numbersEyebrow}
           </p>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-14 gap-x-10 sm:gap-x-14">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-14 gap-x-8 sm:gap-x-10 lg:gap-x-14">
             {tour.numbers.map((n) => (
-              <div key={n.label}>
+              <div key={n.label} className="min-w-0">
                 <p
-                  className="font-display text-display-md font-light text-cream-on-dark tabular-nums leading-none"
-                  style={{fontStretch: '95%'}}
+                  className="font-display font-light text-cream-on-dark tabular-nums leading-[0.95] break-words"
+                  style={{
+                    fontStretch: '88%',
+                    fontSize: 'clamp(26px, 3.6vw, 56px)',
+                    letterSpacing: '-0.025em'
+                  }}
                 >
                   {n.value}
                 </p>
-                <p className="mt-5 text-[14px] sm:text-[15px] text-cream-on-dark/75 leading-relaxed max-w-[26ch]">
+                <p className="mt-5 text-[13px] sm:text-[14px] text-cream-on-dark/75 leading-relaxed max-w-[24ch]">
                   {n.label}
                 </p>
               </div>
@@ -156,8 +160,9 @@ export async function TourDetailNarrative({tour}: {tour: TourContent}) {
         </section>
       )}
 
-      {/* 05 — TAPPE scroll-driven sticky (la sezione cuore) */}
-      <StagesScroll
+      {/* 05 — TAPPE come scene editorial magazine alternate (no sticky scroll,
+              distingue dalla home + tour hub che usano sticky) */}
+      <StagesMagazine
         stages={tour.stages}
         eyebrow={tour.stagesEyebrow}
         h2Pre={tour.stagesH2Pre}

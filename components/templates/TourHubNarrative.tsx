@@ -451,7 +451,7 @@ function ItineraryText({
         {itinerary.href !== '/contatti' && (
           <Link
             href={itinerary.href}
-            className="mt-8 inline-flex items-center gap-3 text-[12px] uppercase tracking-[0.18em] font-medium text-cream-on-dark border-b border-cream-on-dark/40 pb-1 hover:border-cream-on-dark transition-colors"
+            className="mt-8 inline-flex items-center gap-3 rounded-full border border-cream-on-dark/50 px-7 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-cream-on-dark hover:bg-cream-on-dark/10 hover:border-cream-on-dark transition-colors"
           >
             {cta}
             <span aria-hidden="true">→</span>
