@@ -63,19 +63,18 @@ export function TourHubNarrative({hub}: {hub: TourHubContent}) {
 
         <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 grid grid-rows-[1fr_auto_auto] pb-12 sm:pb-16">
           <div />
-          <div className="max-w-[22ch]">
+          <div className="max-w-[28ch]">
             <p className="eyebrow text-cream-on-dark/85 mb-8">
               {hub.heroEyebrow}
             </p>
             <h1
-              className="font-display text-display-xl font-medium text-cream-on-dark"
+              className="font-display text-display-lg font-medium text-cream-on-dark"
               style={{
-                fontStretch: '95%',
+                fontStretch: '92%',
                 textShadow: '0 2px 24px rgba(0,0,0,0.3)'
               }}
             >
-              {hub.h1Pre}
-              <br />
+              {hub.h1Pre}{' '}
               <span className="text-accent-decorative">
                 {hub.h1Accent}
               </span>

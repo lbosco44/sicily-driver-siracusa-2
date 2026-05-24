@@ -107,11 +107,11 @@ export default async function ChiSiamoPage({
 
         <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 grid grid-rows-[1fr_auto] pb-12 sm:pb-16">
           <div />
-          <div className="max-w-[22ch]">
+          <div className="max-w-[28ch]">
             <p className="eyebrow text-cream-on-dark/85 mb-8">{t('hero.eyebrow')}</p>
             <h1
-              className="font-display text-display-xl font-medium text-cream-on-dark"
-              style={{fontStretch: '95%'}}
+              className="font-display text-display-lg font-medium text-cream-on-dark"
+              style={{fontStretch: '92%'}}
             >
               {t('hero.h1Pre')}{' '}
               <span className="text-accent-decorative">{t('hero.h1Accent')}</span>

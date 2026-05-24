@@ -98,8 +98,8 @@ export default async function ContattiPage({
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
           <p className="eyebrow mb-10">{t('hero.eyebrow')}</p>
           <h1
-            className="font-display text-display-xl font-medium text-ink max-w-[20ch] leading-[0.95]"
-            style={{fontStretch: '95%'}}
+            className="font-display text-display-lg font-medium text-ink max-w-[24ch] leading-[0.95]"
+            style={{fontStretch: '92%'}}
           >
             {t('hero.h1Pre')}{' '}
             <span className="italic text-accent">{t('hero.h1Accent')}</span>

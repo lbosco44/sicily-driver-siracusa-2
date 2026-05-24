@@ -43,14 +43,14 @@ export async function TourDetailNarrative({tour}: {tour: TourContent}) {
 
         <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 grid grid-rows-[1fr_auto_auto] pb-12 sm:pb-16">
           <div />
-          <div className="max-w-[24ch]">
+          <div className="max-w-[34ch]">
             <p className="eyebrow text-cream-on-dark/85 mb-8">
               {tour.heroEyebrow}
             </p>
             <h1
-              className="font-display text-display-xl font-medium text-cream-on-dark"
+              className="font-display text-display-md font-medium text-cream-on-dark"
               style={{
-                fontStretch: '95%',
+                fontStretch: '92%',
                 textShadow: '0 2px 24px rgba(0,0,0,0.3)'
               }}
             >
