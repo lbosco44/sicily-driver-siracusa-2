@@ -1,6 +1,6 @@
 import type {Metadata} from 'next';
 import {setRequestLocale} from 'next-intl/server';
-import {TourDetailNarrative} from '@/components/templates/TourDetailNarrative';
+import {TourDetailIsola} from '@/components/templates/TourDetailIsola';
 import {getTour} from '@/lib/tours';
 import {faqPageSchema, breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
 import {getBreadcrumb} from '@/lib/breadcrumbs';
@@ -59,7 +59,7 @@ export default async function TourIsolaDelleCorrentiPage({
           getBreadcrumb('tour/isola-delle-correnti', locale as Locale, tour.h1)
         )}
       />
-      <TourDetailNarrative tour={tour} />
+      <TourDetailIsola tour={tour} />
     </>
   );
 }
