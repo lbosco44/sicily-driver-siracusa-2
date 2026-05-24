@@ -90,6 +90,9 @@ html {
   scroll-behavior: smooth;
   /* Smooth scroll personalizzato per scroll-driven sections */
   scroll-padding-top: 0;
+  /* No horizontal scroll anywhere — previene la "stria bianca" su mobile
+     causata da elementi con rotate/scale o testi non-breakable che escono dal viewport */
+  overflow-x: clip;
 }
 
 body {
@@ -104,6 +107,8 @@ body {
   text-rendering: optimizeLegibility;
   /* Anti-aliasing su display font con weight bassi */
   font-feature-settings: 'ss01', 'ss02';
+  overflow-x: clip;
+  width: 100%;
 }
 
 h1, h2, h3, .font-display {

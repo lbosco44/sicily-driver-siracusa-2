@@ -66,7 +66,10 @@ export function Hero() {
             className="font-display text-display-xl font-medium text-cream-on-dark"
             style={{
               fontStretch: '95%',
-              textShadow: '0 2px 24px rgba(0,0,0,0.25)'
+              textShadow: '0 2px 24px rgba(0,0,0,0.25)',
+              overflowWrap: 'break-word',
+              wordBreak: 'normal',
+              hyphens: 'auto'
             }}
           >
             {t('h1Pre')}
