@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:ncctaxisiracusa.com)",
-      "Bash(pnpm tsc *)"
+      "Bash(pnpm tsc *)",
+      "Bash(git push:*)"
     ]
   }
 }

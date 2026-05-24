@@ -405,35 +405,6 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
           </p>
 
           <div className="mt-14 sm:mt-16 flex flex-col sm:flex-row gap-4 sm:gap-5">
-            <a
-              href="https://wa.me/393756413379"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-3 rounded-full px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:brightness-90"
-              style={{
-                backgroundColor: LAVA_RED,
-                color: 'var(--cream-on-dark)',
-                boxShadow: `0 8px 32px ${LAVA_RED}40`
-              }}
-            >
-              {tCommon('ctaWhatsApp')}
-              <span
-                aria-hidden="true"
-                className="transition-transform duration-300 group-hover:translate-x-1.5"
-              >
-                →
-              </span>
-            </a>
-            <Link
-              href="/contatti"
-              className="inline-flex items-center justify-center gap-3 rounded-full px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium transition-colors"
-              style={{
-                color: 'var(--cream-on-dark)',
-                border: `1px solid rgba(245, 239, 228, 0.3)`
-              }}
-            >
-              {tCommon('ctaQuote')}
-            </Link>
           </div>
         </div>
       </section>

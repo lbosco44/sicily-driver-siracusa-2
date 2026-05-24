@@ -54,105 +54,6 @@ export async function NccCityNarrative({city}: {city: CityContent}) {
           </div>
 
           <div className="mt-12 flex flex-col sm:flex-row gap-4">
-            <a
-              href="https://wa.me/393756413379"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 rounded-full bg-accent px-8 py-4 text-[13px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
-              style={{color: 'var(--cream-on-dark)'}}
-            >
-              {tCommon('ctaWhatsApp')}
-              <span aria-hidden="true">→</span>
-            </a>
-            <a
-              href="tel:+393756413379"
-              className="inline-flex items-center justify-center gap-3 rounded-full border border-cream-on-dark/35 px-8 py-4 text-[13px] uppercase tracking-[0.08em] font-medium text-cream-on-dark tabular-nums hover:bg-cream-on-dark/10 transition-colors"
-            >
-              {tCommon('ctaCall')}
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* 02 — INTRO keyword-dense SEO PRESERVE */}
-      <section className="bg-canvas py-28 sm:py-36">
-        <div className="mx-auto max-w-(--container-narrow) px-6 sm:px-10">
-          <p className="text-[20px] sm:text-[22px] leading-[1.7] text-ink/90">
-            {city.intro}
-          </p>
-        </div>
-      </section>
-
-      {/* 03 — TRUST STRIP locale: 3 numeri editorial */}
-      <section className="bg-canvas-deep py-20 sm:py-24 border-y border-[var(--border)]">
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <ul className="grid grid-cols-1 sm:grid-cols-3 gap-y-10 sm:gap-y-0 sm:gap-x-12 lg:gap-x-20">
-            {city.trust.map((item, i) => (
-              <li key={i}>
-                <p
-                  className="font-display text-display-sm font-light text-primary leading-[0.95]"
-                  style={{fontStretch: '95%'}}
-                >
-                  {item.number}
-                </p>
-                <p className="mt-4 text-[15px] sm:text-[16px] text-ink-soft leading-relaxed max-w-[28ch]">
-                  {item.label}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* 04 — TRATTE come prosa narrativa, no tabella */}
-      <section className="bg-canvas py-32 sm:py-40">
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20 mb-16 sm:mb-20">
-            <div>
-              <p className="eyebrow mb-7">{city.routesEyebrow}</p>
-              <h2
-                className="font-display text-display-md font-light text-ink max-w-[14ch]"
-                style={{fontStretch: '95%'}}
-              >
-                {city.routesH2Pre}{' '}
-                <span className="italic text-accent">{city.routesH2Accent}</span>
-              </h2>
-            </div>
-            <p className="text-[17px] sm:text-[18px] leading-[1.7] text-ink-soft max-w-[58ch] lg:self-end">
-              {city.routesMicrocopy}
-            </p>
-          </div>
-
-          <ul className="divide-y divide-[var(--border-strong)]">
-            {city.routes.map((row, i) => (
-              <li
-                key={i}
-                className="py-7 sm:py-8 grid grid-cols-1 sm:grid-cols-[2.5fr_2.5fr_1fr] gap-y-2 gap-x-8 items-baseline"
-              >
-                <p className="font-display text-[20px] sm:text-[24px] font-light text-ink-soft leading-tight">
-                  {row.from}
-                </p>
-                <p
-                  className="font-display text-[22px] sm:text-[28px] font-medium text-ink leading-tight"
-                  style={{fontStretch: '95%'}}
-                >
-                  {row.to}
-                </p>
-                <p className="font-display text-[22px] sm:text-[26px] font-medium text-accent tabular-nums whitespace-nowrap sm:text-right">
-                  {row.price}
-                </p>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-14 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-6">
-            <Link
-              href="/contatti"
-              className="inline-flex items-center gap-3 text-[12px] uppercase tracking-[0.2em] font-medium text-primary border-b border-accent pb-1 hover:border-accent-hover transition-colors self-start"
-            >
-              {tCommon('ctaQuote')}
-              <span aria-hidden="true">→</span>
-            </Link>
           </div>
         </div>
       </section>
@@ -359,10 +260,7 @@ export async function NccCityNarrative({city}: {city: CityContent}) {
           </p>
 
           <div className="mt-12 sm:mt-14 flex flex-col sm:flex-row gap-4 sm:gap-5">
-            <a
-              href="https://wa.me/393756413379"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link href="/contatti"
               className="group inline-flex items-center justify-center gap-3 rounded-full bg-accent px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
               style={{color: 'var(--cream-on-dark)'}}
             >
@@ -373,7 +271,7 @@ export async function NccCityNarrative({city}: {city: CityContent}) {
               >
                 →
               </span>
-            </a>
+            </Link>
             <a
               href="tel:+393756413379"
               className="inline-flex items-center justify-center gap-3 rounded-full border border-cream-on-dark/35 px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium text-cream-on-dark tabular-nums hover:bg-cream-on-dark/10 transition-colors"

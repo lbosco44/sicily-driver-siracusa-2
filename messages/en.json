@@ -251,34 +251,34 @@
       "h2Accent": "we carry with us",
       "items": [
         {
-          "quote": "They came on time at four in the morning. They waited for the late flight without a fuss. They recommended a restaurant in Ortigia that wasn’t in any guide. For us it was the first Sicily.",
-          "author": "Marco & Elisa",
-          "place": "Berlin"
+          "quote": "Sicily Driver Syracuse for all our travel needs. Punctuality and hospitality blew us away — always arrived early, pristinely clean vehicle, extremely helpful. Patient with our teething infant. Recommended for tours and transfers.",
+          "author": "Evan Long",
+          "place": "May 2026"
         },
         {
-          "quote": "Baroque tour with two small kids. The driver brought car seats, water, and infinite patience. He dropped us at the chocolate workshop in Modica without rushing. Never once felt the ‘we have to go’ vibe.",
-          "author": "Sophie Laurent",
-          "place": "Paris"
+          "quote": "Vincenzo was prompt, courteous, and professional. The vehicles are spotless and he speaks impeccable English. We plan to be in Syracuse again and will definitely hire Sicily Driver Siracusa.",
+          "author": "Jenni Wilson",
+          "place": "February 2026"
         },
         {
-          "quote": "A full day on Etna for two. Quad on the craters, lunch at the Benanti winery. Salvatore’s English is excellent and he talks about lava like it’s a relative. Worth every euro.",
-          "author": "James Walker",
-          "place": "London"
+          "quote": "Great experience — reliable, punctual, very professional. Arranged the ride a day in advance and he responded immediately. Excellent car, fair price, good English. Highly recommended!",
+          "author": "Marina Karaklic",
+          "place": "May 2025"
         },
         {
-          "quote": "Booked a sunset in Marzamemi the night before — replied on WhatsApp in twenty minutes. Brand-new Mercedes, beautifully kept, driver in a jacket. Service level worthy of Capri, but with real substance.",
-          "author": "Anna & Pietro",
-          "place": "Milan"
+          "quote": "We booked Vincenzo on short notice to drive guests back from our wedding venue to their accommodations. Very helpful and great communication. I recommend his services!",
+          "author": "Raphaël Bismut",
+          "place": "September 2025"
         },
         {
-          "quote": "Wedding in Val di Noto, three cars for our guests. Timings respected to the minute, drivers in ties, photos of guests during the journey. Our relatives felt pampered.",
-          "author": "David & Mira",
-          "place": "Singapore"
+          "quote": "First-class NCC. I needed an airport transfer and contacted this NCC recommended by a colleague. Maximum cleanliness, courtesy and comfort. Super spacious car. I will definitely call them again. HIGHLY RECOMMENDED.",
+          "author": "Alberto Scamacca",
+          "place": "May 2025"
         },
         {
-          "quote": "Silent Sailing at sunset. Professional skipper, the Burgio platter served on a wooden tray, Etna white wine. Four hours where we didn’t touch our phones. That’s rare.",
-          "author": "Federica Ronzano",
-          "place": "Turin"
+          "quote": "My wife and I did the Baroque tour visiting Noto, Modica and Ragusa. It was beautiful and the driver was very friendly! The car was very clean.",
+          "author": "Giulia Magnano",
+          "place": "May 2025"
         }
       ]
     },
@@ -296,7 +296,7 @@
     "fleetTableLuggage": "Luggage",
     "fleetTableComfort": "Comfort",
     "fleetTableIdeal": "Ideal for",
-    "ctaWhatsApp": "Message on WhatsApp",
+    "ctaWhatsApp": "Contact us",
     "ctaCall": "Call · +39 375 641 3379",
     "ctaQuote": "Request a quote",
     "ctaEmailPre": "Or email",
@@ -495,9 +495,9 @@
       "fieldMessageLabel": "Message",
       "fieldMessagePlaceholder": "When, from where, to where, how many people, any specific needs...",
       "submit": "Send",
-      "submitNote": "We reply within 24-36 hours. For urgent requests, message us on WhatsApp.",
+      "submitNote": "We reply within 24-36 hours.",
       "successTitle": "Thanks, we received your request.",
-      "successBody": "We will reply within 24-36 hours. If it is urgent, message us on WhatsApp.",
+      "successBody": "We will reply within 24-36 hours.",
       "errorRequired": "Please check the required fields and try again.",
       "fieldSubjectLabel": "Subject",
       "fieldSubjectPlaceholder": "E.g. Catania-Syracuse transfer, Etna Tour, Wedding..."

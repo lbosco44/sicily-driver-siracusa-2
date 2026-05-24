@@ -1,9 +1,9 @@
 'use client';
 
+import {Link} from '@/i18n/navigation';
 import {useRef} from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import {useTranslations, useLocale} from 'next-intl';
+import {useTranslations} from 'next-intl';
 import {HERO_BLUR} from '@/lib/blur';
 import {
   motion,
@@ -17,9 +17,16 @@ import {
 // Desktop: sticky scroll-driven (foto cambia con scroll wheel).
 // Mobile: stack verticale statico, 1 immagine per sezione, niente scroll-control.
 
+type EsperienzaHref =
+  | '/tour/dolce-vita-siracusa'
+  | '/tour/silent-sailing'
+  | '/tour/isola-delle-correnti'
+  | '/tour/etna-premium'
+  | '/tour-barocco';
+
 type Esperienza = {
   key: '1' | '2' | '3' | '4' | '5';
-  href: string;
+  href: EsperienzaHref;
   image: string;
   bg: string;
   align: 'left' | 'right';
@@ -67,13 +74,12 @@ const N = ESPERIENZE.length;
 
 export function EsperienzeScroll() {
   const t = useTranslations('Home.esperienze');
-  const locale = useLocale();
 
   return (
     <section aria-label={t('eyebrow')}>
       {/* Sticky scroll-driven — stesso pattern di /tour-sicilia, attivo su
           tutti i breakpoint. Da iterare su mobile in futuro. */}
-      <ExperienceStickyScroll locale={locale} />
+      <ExperienceStickyScroll />
 
       {/* Band terracotta finale */}
       <div className="bg-accent py-20 sm:py-24">
@@ -85,7 +91,7 @@ export function EsperienzeScroll() {
             {t('customTagline')}
           </p>
           <Link
-            href={`/${locale}/contatti`}
+            href="/contatti"
             className="inline-flex items-center gap-3 rounded-full bg-cream-on-dark px-7 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-accent hover:bg-cream-soft transition-colors self-start"
           >
             {t('customCta')}
@@ -99,7 +105,7 @@ export function EsperienzeScroll() {
 
 // ── Sticky scroll-driven (mobile + desktop) ────────────────────────────────
 
-function ExperienceStickyScroll({locale}: {locale: string}) {
+function ExperienceStickyScroll() {
   const t = useTranslations('Home.esperienze');
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
@@ -149,7 +155,7 @@ function ExperienceStickyScroll({locale}: {locale: string}) {
             total={N}
             esperienzaKey={e.key}
             align={e.align}
-            href={`/${locale}${e.href}`}
+            href={e.href}
             scrollYProgress={scrollYProgress}
             reduce={!!reduce}
           />
@@ -237,7 +243,7 @@ function SceneText({
   index, total, esperienzaKey, align, href, scrollYProgress, reduce
 }: {
   index: number; total: number; esperienzaKey: '1' | '2' | '3' | '4' | '5';
-  align: 'left' | 'right'; href: string;
+  align: 'left' | 'right'; href: EsperienzaHref;
   scrollYProgress: MotionValue<number>; reduce: boolean;
 }) {
   const t = useTranslations('Home.esperienze');
@@ -305,15 +311,12 @@ function SceneText({
             {tCommon('ctaDiscoverTour')}
             <span aria-hidden="true">→</span>
           </Link>
-          <a
-            href="https://wa.me/393756413379"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link href="/contatti"
             className="inline-flex items-center gap-3 rounded-full border border-cream-on-dark/50 px-7 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-cream-on-dark hover:bg-cream-on-dark/10 hover:border-cream-on-dark transition-colors"
           >
             {tCommon('ctaWhatsApp')}
             <span aria-hidden="true">→</span>
-          </a>
+          </Link>
         </div>
       </div>
     </motion.div>

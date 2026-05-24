@@ -1,5 +1,6 @@
 'use client';
 
+import {Link} from '@/i18n/navigation';
 import {useTranslations} from 'next-intl';
 import {motion, useReducedMotion} from 'motion/react';
 import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
@@ -61,10 +62,7 @@ export function CtaFinale() {
           viewport={{once: true, margin: '-15%'}}
           transition={{duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1]}}
         >
-          <a
-            href="https://wa.me/393756413379"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link href="/contatti"
             className="group inline-flex items-center justify-center gap-3 rounded-full bg-accent px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
             style={{color: 'var(--cream-on-dark)'}}
           >
@@ -75,7 +73,7 @@ export function CtaFinale() {
             >
               →
             </span>
-          </a>
+          </Link>
           <a
             href="tel:+393756413379"
             className="inline-flex items-center justify-center gap-3 rounded-full border border-cream-on-dark/35 px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium text-cream-on-dark tabular-nums hover:bg-cream-on-dark/8 transition-colors"

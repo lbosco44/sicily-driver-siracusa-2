@@ -266,27 +266,6 @@ export function TourHubNarrative({hub}: {hub: TourHubContent}) {
           </p>
 
           <div className="mt-14 sm:mt-16 flex flex-col sm:flex-row gap-4 sm:gap-5">
-            <a
-              href="https://wa.me/393756413379"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-3 rounded-full bg-accent px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
-              style={{color: 'var(--cream-on-dark)'}}
-            >
-              {tCommon('ctaWhatsApp')}
-              <span
-                aria-hidden="true"
-                className="transition-transform duration-300 group-hover:translate-x-1.5"
-              >
-                →
-              </span>
-            </a>
-            <Link
-              href="/contatti"
-              className="inline-flex items-center justify-center gap-3 rounded-full border border-cream-on-dark/35 px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium text-cream-on-dark hover:bg-cream-on-dark/8 transition-colors"
-            >
-              {tCommon('ctaQuote')}
-            </Link>
           </div>
         </div>
       </section>
@@ -492,15 +471,12 @@ function ItineraryText({
               <span aria-hidden="true">→</span>
             </Link>
           )}
-          <a
-            href="https://wa.me/393756413379"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link href="/contatti"
             className="inline-flex items-center gap-3 rounded-full border border-cream-on-dark/50 px-7 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-cream-on-dark hover:bg-cream-on-dark/10 hover:border-cream-on-dark transition-colors"
           >
             {ctaWhatsApp}
             <span aria-hidden="true">→</span>
-          </a>
+          </Link>
         </div>
       </div>
     </motion.div>
