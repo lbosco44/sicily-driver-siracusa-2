@@ -10,6 +10,7 @@ import {
   SheetTitle,
   SheetDescription
 } from '@/components/ui/sheet';
+import {HomeLink} from './HomeLink';
 
 // Mobile menu — drawer side-from-right via shadcn/ui Sheet (Radix-based).
 // Focus trap, ESC to close, click-outside, body-scroll-lock, ARIA: tutto
@@ -172,6 +173,20 @@ export function MobileMenu({
                         ))}
                       </ul>
                     </div>
+                  </li>
+                );
+              }
+              // Home: usa HomeLink che gestisce scroll-to-top anche se gia' su /
+              if (link.href === '/') {
+                return (
+                  <li key={link.href}>
+                    <HomeLink
+                      className="block py-4 font-display text-[26px] font-light text-ink leading-[1.1] tracking-tight border-b border-[var(--border)] hover:text-accent transition-colors"
+                      style={{fontStretch: '95%'}}
+                      onNavigate={() => setOpen(false)}
+                    >
+                      {link.label}
+                    </HomeLink>
                   </li>
                 );
               }

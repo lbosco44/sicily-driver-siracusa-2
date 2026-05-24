@@ -3,6 +3,7 @@
 import {Link, usePathname} from '@/i18n/navigation';
 import {ChevronDownIcon} from 'lucide-react';
 import {useState} from 'react';
+import {HomeLink} from './HomeLink';
 
 // Desktop nav con dropdown elegante per Tour Sicilia.
 // Implementazione custom hover-aware con CSS transitions (no libreria pesante).
@@ -89,7 +90,15 @@ export function DesktopNav({labels}: {labels: DesktopNavLabels}) {
       className="hidden md:flex items-center gap-8"
       aria-label="Primary"
     >
-      <NavItem href="/" label={labels.home} pathname={pathname} />
+      <HomeLink
+        className={`text-[13px] uppercase tracking-[0.08em] font-medium transition-colors ${
+          pathname === '/'
+            ? 'text-primary'
+            : 'text-ink/75 hover:text-primary'
+        }`}
+      >
+        {labels.home}
+      </HomeLink>
       <NavItem href="/servizi" label={labels.services} pathname={pathname} />
 
       {/* Tour Sicilia con dropdown */}

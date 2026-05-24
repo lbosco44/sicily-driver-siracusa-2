@@ -3,6 +3,7 @@ import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import {LanguageSwitcher} from './LanguageSwitcher';
 import {DesktopNav} from './DesktopNav';
+import {HomeLink} from './HomeLink';
 import {MobileMenu, type MobileMenuLink} from './MobileMenu';
 
 export async function Navbar() {
@@ -44,9 +45,8 @@ export async function Navbar() {
   return (
     <header className="sticky top-0 z-40 bg-canvas/85 backdrop-blur-md border-b border-[var(--border)]/60">
       <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 h-16 sm:h-20 flex items-center justify-between gap-4">
-        <Link
-          href="/"
-          aria-label={`${tBrand('name')} — ${t('home')}`}
+        <HomeLink
+          ariaLabel={`${tBrand('name')} — ${t('home')}`}
           className="hover:opacity-80 transition-opacity shrink-0"
         >
           <Image
@@ -57,7 +57,7 @@ export async function Navbar() {
             className="h-8 sm:h-9 w-auto"
             priority
           />
-        </Link>
+        </HomeLink>
 
         <DesktopNav labels={navLabels} />
 
