@@ -76,7 +76,7 @@ export default async function WeddingPage({
       />
 
       {/* 01 — HERO emotivo */}
-      <section className="relative isolate h-[100svh] min-h-[640px] overflow-hidden">
+      <section className="relative isolate min-h-[88svh] sm:min-h-[92svh] overflow-hidden flex items-end pt-32 pb-16 sm:pb-20">
         <div className="absolute inset-0 -z-10">
           <Image
             src={w.heroImage}
@@ -94,12 +94,11 @@ export default async function WeddingPage({
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/80" />
         </div>
 
-        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 grid grid-rows-[1fr_auto_auto] pb-12 sm:pb-16">
-          <div />
-          <div className="max-w-[32ch]">
-            <p className="eyebrow text-cream-on-dark/85 mb-8">{w.heroEyebrow}</p>
+        <div className="relative w-full mx-auto max-w-(--container-editorial) px-6 sm:px-10">
+          <div className="max-w-[40ch]">
+            <p className="eyebrow text-cream-on-dark/85 mb-6">{w.heroEyebrow}</p>
             <h1
-              className="font-display text-display-lg font-medium text-cream-on-dark"
+              className="hero-headline font-display text-display-lg font-medium text-cream-on-dark"
               style={{
                 fontStretch: '92%',
                 textShadow: '0 2px 24px rgba(0,0,0,0.3)'
@@ -108,15 +107,12 @@ export default async function WeddingPage({
               {w.h1Pre}{' '}
               <span className="text-accent-decorative">{w.h1Accent}</span>
             </h1>
-            <p className="mt-8 sm:mt-10 max-w-[44ch] font-display text-[20px] sm:text-[24px] font-light text-cream-on-dark/95 leading-[1.35]">
+            <p className="mt-6 sm:mt-8 max-w-[44ch] font-display text-[18px] sm:text-[22px] font-light text-cream-on-dark/95 leading-[1.35]">
               {w.heroSubhead}
             </p>
-          </div>
-
-          <div className="mt-12">
             <a
               href="#form"
-              className="inline-flex items-center gap-3 rounded-full bg-accent px-8 py-4 text-[13px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
+              className="mt-8 inline-flex items-center gap-3 rounded-full bg-accent px-7 py-3.5 text-[13px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
               style={{color: 'var(--cream-on-dark)'}}
             >
               {w.ctaHero}

@@ -94,35 +94,40 @@ export async function TourDetailNarrative({tour}: {tour: TourContent}) {
         </div>
       </section>
 
-      {/* 03 — TOUR IN 4 NUMERI — banda blu mare scuro */}
+      {/* 03 — TOUR IN 4 NUMERI — riga orizzontale ordinata con divisori */}
       <section
-        className="bg-primary-deep py-28 sm:py-36"
+        className="bg-primary-deep py-20 sm:py-28"
         style={{color: 'var(--cream-on-dark)'}}
       >
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <p className="eyebrow text-cream-on-dark/65 mb-12">
+          <p className="eyebrow text-cream-on-dark/65 mb-10 sm:mb-12">
             {tour.numbersEyebrow}
           </p>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-14 gap-x-8 sm:gap-x-10 lg:gap-x-14">
-            {tour.numbers.map((n) => (
-              <div key={n.label} className="min-w-0">
+          <ul className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 lg:gap-y-0 lg:divide-x lg:divide-cream-on-dark/15">
+            {tour.numbers.map((n, i) => (
+              <li
+                key={n.label}
+                className={`${
+                  i > 0 ? 'lg:pl-8 xl:pl-10' : ''
+                } ${i < tour.numbers.length - 1 ? 'lg:pr-8 xl:pr-10' : ''} min-w-0`}
+              >
                 <p
-                  className="font-display font-light text-cream-on-dark tabular-nums leading-[0.95] break-words"
+                  className="font-display font-light text-cream-on-dark tabular-nums leading-[1] break-words"
                   style={{
                     fontStretch: '88%',
-                    fontSize: 'clamp(26px, 3.6vw, 56px)',
-                    letterSpacing: '-0.025em'
+                    fontSize: 'clamp(24px, 2.8vw, 44px)',
+                    letterSpacing: '-0.02em'
                   }}
                 >
                   {n.value}
                 </p>
-                <p className="mt-5 text-[13px] sm:text-[14px] text-cream-on-dark/75 leading-relaxed max-w-[24ch]">
+                <p className="mt-4 text-[12px] sm:text-[13px] uppercase tracking-[0.14em] font-medium text-cream-on-dark/65 leading-relaxed max-w-[28ch]">
                   {n.label}
                 </p>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 

@@ -78,10 +78,10 @@ export default async function PartnerPage({
 
         <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 grid grid-rows-[1fr_auto] pb-12 sm:pb-16">
           <div />
-          <div className="max-w-[28ch]">
-            <p className="eyebrow text-cream-on-dark/85 mb-8">{p.heroEyebrow}</p>
+          <div className="max-w-[40ch]">
+            <p className="eyebrow text-cream-on-dark/85 mb-6">{p.heroEyebrow}</p>
             <h1
-              className="font-display text-display-lg font-medium text-cream-on-dark"
+              className="hero-headline font-display text-display-lg font-medium text-cream-on-dark"
               style={{
                 fontStretch: '92%',
                 textShadow: '0 2px 24px rgba(0,0,0,0.3)'
@@ -90,7 +90,7 @@ export default async function PartnerPage({
               {p.h1Pre}{' '}
               <span className="text-accent-decorative">{p.h1Accent}</span>
             </h1>
-            <p className="mt-8 max-w-[44ch] font-display text-[20px] sm:text-[22px] font-light text-cream-on-dark/95 leading-[1.4]">
+            <p className="mt-7 max-w-[48ch] font-display text-[18px] sm:text-[22px] font-light text-cream-on-dark/95 leading-[1.4]">
               {p.heroSubhead}
             </p>
           </div>

@@ -34,12 +34,14 @@ export async function NccCityNarrative({city}: {city: CityContent}) {
 
         <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 grid grid-rows-[1fr_auto_auto] pb-12 sm:pb-16">
           <div />
-          <div className="max-w-[36ch]">
-            <p className="eyebrow text-cream-on-dark/85 mb-8">{city.heroEyebrow}</p>
+          <div className="max-w-[60ch]">
+            <p className="eyebrow text-cream-on-dark/85 mb-6">{city.heroEyebrow}</p>
             <h1
-              className="font-display text-display-md font-medium text-cream-on-dark"
+              className="hero-headline font-display font-medium text-cream-on-dark leading-[1.05]"
               style={{
+                fontSize: 'clamp(32px, 4.4vw, 64px)',
                 fontStretch: '90%',
+                letterSpacing: '-0.025em',
                 textShadow: '0 2px 24px rgba(0,0,0,0.3)'
               }}
             >

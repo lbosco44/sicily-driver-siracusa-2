@@ -110,8 +110,15 @@ h1, h2, h3, .font-display {
   font-family: var(--font-display), Georgia, serif;
   font-weight: 500;
   letter-spacing: -0.025em;
-  text-wrap: balance;
+  text-wrap: pretty;
   line-height: 1;
+}
+
+/* Le hero headlines hanno priorità sul natural wrap (no balance che spezza
+   ogni parola su una riga). Da usare insieme a max-w generosa. */
+.hero-headline {
+  text-wrap: wrap;
+  hyphens: manual;
 }
 
 h1 { line-height: 0.95; letter-spacing: -0.035em; }
