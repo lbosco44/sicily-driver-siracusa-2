@@ -6,6 +6,7 @@ import {motion, useScroll, useTransform, useReducedMotion} from 'motion/react';
 import {useRef} from 'react';
 import {Link} from '@/i18n/navigation';
 import {HERO_BLUR} from '@/lib/blur';
+import {GoogleReviewsBadge} from '@/components/ui/GoogleReviewsBadge';
 
 // Stop 01 — Hero atmosferica
 // Foto Sicily golden hour full-bleed + headline Bricolage gigante + cue scroll discreta.
@@ -84,15 +85,18 @@ export function Hero() {
             {t('subhead')}
           </p>
 
-          {/* CTA Contattaci — visibile sia mobile (sotto headline) che desktop (sotto subhead) */}
-          <Link
-            href="/contatti"
-            className="mt-7 sm:mt-8 inline-flex items-center gap-3 rounded-full bg-accent px-8 py-4 text-[13px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
-            style={{color: 'var(--cream-on-dark)'}}
-          >
-            {t('ctaPrimary')}
-            <span aria-hidden="true">→</span>
-          </Link>
+          {/* CTA Contattaci + Badge Google Reviews — affiancati */}
+          <div className="mt-7 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
+            <Link
+              href="/contatti"
+              className="inline-flex items-center gap-3 rounded-full bg-accent px-8 py-4 text-[13px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
+              style={{color: 'var(--cream-on-dark)'}}
+            >
+              {t('ctaPrimary')}
+              <span aria-hidden="true">→</span>
+            </Link>
+            <GoogleReviewsBadge size="sm" />
+          </div>
         </motion.div>
 
         {/* SPACER — mobile sotto headline, desktop sopra (per spingere headline in basso) */}
