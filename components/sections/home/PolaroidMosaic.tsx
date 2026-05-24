@@ -8,42 +8,12 @@ import {motion, useReducedMotion} from 'motion/react';
 // e disposte in modo organico. Hover lift sottile. No griglia rigida.
 
 const PLACES = [
-  {
-    key: 'ortigia',
-    image: '/images/home/polaroid-ortigia.png',
-    rotate: -2.5,
-    span: 'sm:col-span-5'
-  },
-  {
-    key: 'noto',
-    image: '/images/home/polaroid-noto.jpeg',
-    rotate: 1.5,
-    span: 'sm:col-span-4'
-  },
-  {
-    key: 'marzamemi',
-    image: '/images/home/polaroid-marzamemi.jpeg',
-    rotate: -1.2,
-    span: 'sm:col-span-3'
-  },
-  {
-    key: 'ragusa',
-    image: '/images/home/polaroid-ragusa.png',
-    rotate: 2.2,
-    span: 'sm:col-span-3'
-  },
-  {
-    key: 'etna',
-    image: '/images/home/polaroid-etna.jpeg',
-    rotate: -1.8,
-    span: 'sm:col-span-4'
-  },
-  {
-    key: 'taormina',
-    image: '/images/home/polaroid-taormina.png',
-    rotate: 1.3,
-    span: 'sm:col-span-5'
-  }
+  {key: 'ortigia',   image: '/images/home/polaroid-ortigia.png',   rotate: -2.5, offset: false},
+  {key: 'noto',      image: '/images/home/polaroid-noto.jpeg',      rotate: 1.5,  offset: true},
+  {key: 'marzamemi', image: '/images/home/polaroid-marzamemi.jpeg', rotate: -1.2, offset: false},
+  {key: 'ragusa',    image: '/images/home/polaroid-ragusa.png',      rotate: 2.2,  offset: true},
+  {key: 'etna',      image: '/images/home/polaroid-etna.jpeg',       rotate: -1.8, offset: false},
+  {key: 'taormina',  image: '/images/home/polaroid-taormina.png',   rotate: 1.3,  offset: true}
 ];
 
 export function PolaroidMosaic() {
@@ -69,15 +39,15 @@ export function PolaroidMosaic() {
           </h2>
         </motion.div>
 
-        {/* Griglia polaroid asimmetrica: 2 righe, ognuna 12-col con span variabili */}
-        <div className="grid grid-cols-12 gap-y-12 sm:gap-y-16 gap-x-4 sm:gap-x-8">
+        {/* Griglia polaroid: 1 col su mobile (perfetto), 3 col uniformi su desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-10">
           {PLACES.map((p, i) => (
             <motion.figure
               key={p.key}
-              className={`col-span-12 ${p.span} polaroid grain`}
+              className="polaroid grain"
               style={{
                 transform: reduce ? 'none' : `rotate(${p.rotate}deg)`,
-                marginTop: i % 2 === 1 ? '2rem' : '0'
+                marginTop: p.offset && !reduce ? '2.5rem' : '0'
               }}
               initial={reduce ? false : {opacity: 0, y: 36, rotate: 0}}
               whileInView={
@@ -97,7 +67,7 @@ export function PolaroidMosaic() {
                   src={p.image}
                   alt={t(`${p.key}Alt`)}
                   fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  sizes="(max-width: 640px) 100vw, 33vw"
                   className="object-cover"
                   loading="lazy"
                   style={{filter: 'saturate(0.82) brightness(0.96) contrast(1.06)'}}

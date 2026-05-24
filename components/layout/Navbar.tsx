@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import {LanguageSwitcher} from './LanguageSwitcher';
@@ -22,9 +23,16 @@ export async function Navbar() {
         <Link
           href="/"
           aria-label={`${tBrand('name')} — ${t('home')}`}
-          className="font-display italic font-medium text-xl sm:text-2xl text-primary tracking-tight hover:opacity-80 transition-opacity"
+          className="hover:opacity-80 transition-opacity shrink-0"
         >
-          {tBrand('name')}
+          <Image
+            src="/logo-nero.png"
+            alt={tBrand('name')}
+            width={180}
+            height={40}
+            className="h-8 sm:h-9 w-auto"
+            priority
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8" aria-label="Primary">
