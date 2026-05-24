@@ -89,6 +89,7 @@ export function DesktopNav({labels}: {labels: DesktopNavLabels}) {
       className="hidden md:flex items-center gap-8"
       aria-label="Primary"
     >
+      <NavItem href="/" label={labels.home} pathname={pathname} />
       <NavItem href="/servizi" label={labels.services} pathname={pathname} />
 
       {/* Tour Sicilia con dropdown */}
@@ -177,7 +178,10 @@ function NavItem({
   label: string;
   pathname: string;
 }) {
-  const isActive = pathname === href || pathname.startsWith(`${href}/`);
+  // Per Home (/), match esatto (altrimenti matcherebbe ogni pagina).
+  // Per le altre, prefix match per supportare sub-pagine.
+  const isActive =
+    href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`);
   return (
     <Link
       href={href}
