@@ -51,42 +51,43 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/15 to-black/70" />
       </motion.div>
 
-      {/* Headline + scroll cue
-          Mobile: H1 in alto a sinistra, no subtitle, scroll cue in basso
-          Desktop: H1 in basso center-right + subtitle piccolo su 2 righe */}
-      <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex flex-col pt-24 sm:pt-0 pb-12 sm:pb-16">
-        {/* HEADLINE — order 1 mobile (top), order 2 desktop (bottom via flex-1 spacer) */}
+      {/* Headline centrata in alto + subhead + bottoni + scroll cue in basso */}
+      <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex flex-col items-center pt-28 sm:pt-32 pb-12 sm:pb-16">
+        {/* HEADLINE + subhead + bottoni — tutti centrati in alto */}
         <motion.div
-          className="order-1 sm:order-2 sm:w-[55%] sm:ml-[40%] lg:ml-[42%]"
+          className="text-center w-full"
           style={{y: headlineY, opacity: headlineOpacity}}
           initial={reduce ? false : {opacity: 0, y: 40}}
           animate={reduce ? false : {opacity: 1, y: 0}}
           transition={{duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.15}}
         >
           <h1
-            className="font-display text-[44px] sm:text-[80px] md:text-[100px] lg:text-[128px] xl:text-[148px] font-medium text-cream-on-dark"
+            className="font-display font-medium text-cream-on-dark whitespace-nowrap"
             style={{
+              fontSize: 'clamp(28px, 7vw, 104px)',
               fontStretch: '95%',
-              textShadow: '0 2px 24px rgba(0,0,0,0.25)',
-              lineHeight: '1.05',
-              letterSpacing: '-0.035em',
-              overflowWrap: 'break-word',
-              hyphens: 'auto'
+              letterSpacing: '-0.025em',
+              lineHeight: '1',
+              textShadow: '0 2px 24px rgba(0,0,0,0.3)'
             }}
           >
-            {t('h1Pre')}
-            <br />
-            {t('h1Post')}
+            {t('h1Pre')} {t('h1Post')}
             <span className="text-accent-decorative">{t('h1Punct')}</span>
           </h1>
 
-          {/* Subhead: solo desktop, piccolo, 2 righe */}
-          <p className="hidden sm:block mt-5 sm:mt-6 max-w-[55ch] text-[14px] sm:text-[15px] font-light text-cream-soft/90 leading-[1.55]">
+          {/* Subhead: una riga sotto headline */}
+          <p
+            className="mt-5 sm:mt-6 font-light text-cream-soft/95 whitespace-nowrap"
+            style={{
+              fontSize: 'clamp(12px, 1.5vw, 18px)',
+              textShadow: '0 1px 12px rgba(0,0,0,0.35)'
+            }}
+          >
             {t('subhead')}
           </p>
 
-          {/* CTA Contattaci + Badge Google Reviews — affiancati */}
-          <div className="mt-7 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
+          {/* Bottoni: CTA Contattaci + Badge Google — centrati */}
+          <div className="mt-7 sm:mt-9 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <Link
               href="/contatti"
               className="inline-flex items-center gap-3 rounded-full bg-accent px-8 py-4 text-[13px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
@@ -99,12 +100,12 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* SPACER — mobile sotto headline, desktop sopra (per spingere headline in basso) */}
-        <div className="order-2 sm:order-1 flex-1" />
+        {/* Spacer — spinge la scroll cue in fondo */}
+        <div className="flex-1" />
 
         {/* SCROLL CUE — sempre in basso centrato */}
         <motion.div
-          className="order-3 flex flex-col items-center self-center mt-12 sm:mt-16"
+          className="flex flex-col items-center"
           initial={reduce ? false : {opacity: 0}}
           animate={reduce ? false : {opacity: 1}}
           transition={{duration: 0.8, delay: 1.4}}
