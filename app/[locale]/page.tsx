@@ -80,7 +80,7 @@ export default async function HomePage({
       <Hero />
 
       {/* 02 — Whisper "Ti veniamo a prendere ovunque tu sia." */}
-      <Whisper eyebrow={t('eyebrow')} text={t('text')} bg="canvas" size="lg" />
+      <Whisper text={t('text')} bg="canvas" size="lg" />
 
       {/* 03 — 5 esperienze scroll-driven sticky (la sezione cuore della home) */}
       <EsperienzeScroll />

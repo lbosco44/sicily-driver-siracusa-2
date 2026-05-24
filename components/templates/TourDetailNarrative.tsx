@@ -87,16 +87,7 @@ export async function TourDetailNarrative({tour}: {tour: TourContent}) {
           </p>
           <div className="space-y-7 sm:space-y-8 text-[19px] sm:text-[20px] leading-[1.7] text-ink-soft">
             {tour.introBody.map((p, i) => (
-              <p
-                key={i}
-                className={
-                  i === 0
-                    ? 'first-letter:font-display first-letter:text-[88px] first-letter:leading-[0.85] first-letter:text-accent first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-light'
-                    : ''
-                }
-              >
-                {p}
-              </p>
+              <p key={i}>{p}</p>
             ))}
           </div>
         </div>

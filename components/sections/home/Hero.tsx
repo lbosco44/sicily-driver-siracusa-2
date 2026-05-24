@@ -69,7 +69,6 @@ export function Hero() {
             }}
           >
             {t('h1Pre')}
-            <span className="text-accent-decorative">{t('h1Punct')}</span>
             <br />
             {t('h1Post')}
             <span className="text-accent-decorative">{t('h1Punct')}</span>

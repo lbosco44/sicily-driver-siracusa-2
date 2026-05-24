@@ -171,7 +171,7 @@ export default async function ServiziPage({
       {/* 02 — INTRO narrativa */}
       <section className="bg-canvas py-28 sm:py-36">
         <div className="mx-auto max-w-(--container-narrow) px-6 sm:px-10">
-          <p className="text-[19px] sm:text-[20px] leading-[1.7] text-ink-soft first-letter:font-display first-letter:text-[80px] first-letter:leading-[0.85] first-letter:text-accent first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-light">
+          <p className="text-[19px] sm:text-[20px] leading-[1.7] text-ink-soft">
             {t('intro.body')}
           </p>
         </div>

@@ -42,9 +42,7 @@ export function Manifesto() {
           viewport={{once: true, margin: '-10%'}}
           transition={{duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1]}}
         >
-          <p className="first-letter:font-display first-letter:text-[88px] first-letter:leading-[0.85] first-letter:text-accent first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-light">
-            {t('body1')}
-          </p>
+          <p>{t('body1')}</p>
           <p>{t('body2')}</p>
         </motion.div>
       </div>

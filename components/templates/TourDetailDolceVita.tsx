@@ -76,16 +76,7 @@ export function TourDetailDolceVita({tour}: {tour: TourContent}) {
           </p>
           <div className="space-y-7 text-[19px] sm:text-[20px] leading-[1.75] text-ink-soft">
             {tour.introBody.map((p, i) => (
-              <p
-                key={i}
-                className={
-                  i === 0
-                    ? 'first-letter:font-display first-letter:text-[96px] first-letter:leading-[0.82] first-letter:text-accent first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-light first-letter:italic'
-                    : ''
-                }
-              >
-                {p}
-              </p>
+              <p key={i}>{p}</p>
             ))}
           </div>
         </div>

@@ -136,9 +136,7 @@ export default async function ChiSiamoPage({
           </h2>
 
           <div className="space-y-7 text-[19px] sm:text-[20px] leading-[1.7] text-ink-soft">
-            <p className="first-letter:font-display first-letter:text-[80px] first-letter:leading-[0.85] first-letter:text-accent first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-light">
-              {t('story.body1')}
-            </p>
+            <p>{t('story.body1')}</p>
             <p>{t('story.body2')}</p>
             <p>{t('story.body3')}</p>
           </div>

@@ -129,15 +129,19 @@ export function EsperienzeScroll() {
         </div>
       </div>
 
-      {/* Riga finale "tour su misura" */}
-      <div className="bg-canvas py-16 sm:py-20 border-t border-[var(--border)]">
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-5">
-          <p className="font-display text-display-sm font-light text-ink/80 max-w-[28ch]">
+      {/* Riga finale "tour su misura" — band accent terracotta per spiccare
+          rispetto alle sezioni cream sopra/sotto */}
+      <div className="bg-accent py-20 sm:py-24">
+        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-7">
+          <p
+            className="font-display text-display-sm font-light text-cream-on-dark max-w-[28ch]"
+            style={{fontStretch: '95%'}}
+          >
             {t('customTagline')}
           </p>
           <Link
             href={`/${locale}/contatti`}
-            className="inline-flex items-center gap-3 text-[12px] uppercase tracking-[0.18em] font-medium text-primary border-b border-accent pb-1 hover:border-accent-hover transition-colors self-start"
+            className="inline-flex items-center gap-3 rounded-full bg-cream-on-dark px-7 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-accent hover:bg-cream-soft transition-colors self-start"
           >
             {t('customCta')}
             <span aria-hidden="true">→</span>
@@ -262,6 +266,7 @@ function SceneText({
   scrollYProgress: MotionValue<number>;
 }) {
   const t = useTranslations('Home.esperienze');
+  const tCommon = useTranslations('NccPage');
   const reduce = useReducedMotion();
   const start = index / total;
   const end = (index + 1) / total;
@@ -330,13 +335,29 @@ function SceneText({
         <p className="mt-6 max-w-[40ch] text-[18px] sm:text-[20px] text-cream-on-dark/90 leading-[1.55]">
           {t(`card${esperienzaKey}Body`)}
         </p>
-        <Link
-          href={href}
-          className="mt-8 inline-flex items-center gap-3 text-[12px] uppercase tracking-[0.18em] font-medium text-cream-on-dark border-b border-cream-on-dark/40 pb-1 hover:border-cream-on-dark transition-colors"
+
+        <div
+          className={`mt-8 flex flex-wrap gap-3 sm:gap-4 ${
+            align === 'left' ? 'justify-start' : 'justify-end'
+          }`}
         >
-          {t('cardCta')}
-          <span aria-hidden="true">→</span>
-        </Link>
+          <Link
+            href={href}
+            className="inline-flex items-center gap-3 rounded-full bg-cream-on-dark px-7 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-primary-deep hover:bg-cream-soft transition-colors"
+          >
+            {tCommon('ctaDiscoverTour')}
+            <span aria-hidden="true">→</span>
+          </Link>
+          <a
+            href="https://wa.me/393756413379"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 rounded-full border border-cream-on-dark/50 px-7 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-cream-on-dark hover:bg-cream-on-dark/10 hover:border-cream-on-dark transition-colors"
+          >
+            {tCommon('ctaWhatsApp')}
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
     </motion.div>
   );

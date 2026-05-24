@@ -161,11 +161,42 @@
       "cta": "Read the full story",
       "alt": "Mercedes driver parked on a Val di Noto road at sunset"
     },
-    "testimonianza": {
+    "testimonianze": {
       "eyebrow": "From those who’ve ridden",
-      "quote": "They came on time at four in the morning. They waited for the late flight without a fuss. They recommended a restaurant in Ortigia that wasn’t in any guide. For us it was the first Sicily.",
-      "author": "Marco & Elisa",
-      "place": "Berlin"
+      "h2Pre": "The voices",
+      "h2Accent": "we carry with us",
+      "items": [
+        {
+          "quote": "They came on time at four in the morning. They waited for the late flight without a fuss. They recommended a restaurant in Ortigia that wasn’t in any guide. For us it was the first Sicily.",
+          "author": "Marco & Elisa",
+          "place": "Berlin"
+        },
+        {
+          "quote": "Baroque tour with two small kids. The driver brought car seats, water, and infinite patience. He dropped us at the chocolate workshop in Modica without rushing. Never once felt the ‘we have to go’ vibe.",
+          "author": "Sophie Laurent",
+          "place": "Paris"
+        },
+        {
+          "quote": "A full day on Etna for two. Quad on the craters, lunch at the Benanti winery. Salvatore’s English is excellent and he talks about lava like it’s a relative. Worth every euro.",
+          "author": "James Walker",
+          "place": "London"
+        },
+        {
+          "quote": "Booked a sunset in Marzamemi the night before — replied on WhatsApp in twenty minutes. Brand-new Mercedes, beautifully kept, driver in a jacket. Service level worthy of Capri, but with real substance.",
+          "author": "Anna & Pietro",
+          "place": "Milan"
+        },
+        {
+          "quote": "Wedding in Val di Noto, three cars for our guests. Timings respected to the minute, drivers in ties, photos of guests during the journey. Our relatives felt pampered.",
+          "author": "David & Mira",
+          "place": "Singapore"
+        },
+        {
+          "quote": "Silent Sailing at sunset. Professional skipper, the Burgio platter served on a wooden tray, Etna white wine. Four hours where we didn’t touch our phones. That’s rare.",
+          "author": "Federica Ronzano",
+          "place": "Turin"
+        }
+      ]
     },
     "ctaFinale": {
       "eyebrow": "When you arrive",

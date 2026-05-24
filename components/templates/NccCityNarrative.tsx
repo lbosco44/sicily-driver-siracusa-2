@@ -76,7 +76,7 @@ export async function NccCityNarrative({city}: {city: CityContent}) {
       {/* 02 — INTRO keyword-dense SEO PRESERVE */}
       <section className="bg-canvas py-28 sm:py-36">
         <div className="mx-auto max-w-(--container-narrow) px-6 sm:px-10">
-          <p className="text-[20px] sm:text-[22px] leading-[1.7] text-ink/90 first-letter:font-display first-letter:text-[80px] first-letter:leading-[0.85] first-letter:text-accent first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-light">
+          <p className="text-[20px] sm:text-[22px] leading-[1.7] text-ink/90">
             {city.intro}
           </p>
         </div>

@@ -177,16 +177,7 @@ export function TourHubNarrative({hub}: {hub: TourHubContent}) {
 
           <div className="space-y-7 text-[19px] sm:text-[20px] leading-[1.7] text-ink-soft">
             {hub.storyParagraphs.map((p, i) => (
-              <p
-                key={i}
-                className={
-                  i === 0
-                    ? 'first-letter:font-display first-letter:text-[88px] first-letter:leading-[0.85] first-letter:text-accent first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-light'
-                    : ''
-                }
-              >
-                {p}
-              </p>
+              <p key={i}>{p}</p>
             ))}
           </div>
         </div>
