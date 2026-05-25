@@ -4,6 +4,7 @@ import {Link} from '@/i18n/navigation';
 import {useTranslations} from 'next-intl';
 import {motion, useReducedMotion} from 'motion/react';
 import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
+import {PHONE_TEL_HREF} from '@/lib/contact';
 
 // CTA finale: schermo intero blu mare profondo. Headline grande + 2 CTA grandi
 // (WhatsApp + telefono). Nessun form, niente "form 4 campi" in fondo.
@@ -75,7 +76,7 @@ export function CtaFinale() {
             </span>
           </Link>
           <a
-            href="tel:+393756413379"
+            href={PHONE_TEL_HREF}
             className="inline-flex items-center justify-center gap-3 rounded-full border border-cream-on-dark/35 px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium text-cream-on-dark tabular-nums hover:bg-cream-on-dark/8 transition-colors"
           >
             {t('ctaCall')}

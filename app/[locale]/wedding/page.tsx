@@ -10,6 +10,7 @@ import {getWedding} from '@/lib/wedding';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
 import type {Locale} from '@/lib/cities';
 import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
+import {PHONE_DISPLAY, PHONE_TEL_HREF, WHATSAPP_HREF} from '@/lib/contact';
 
 // Wedding narrative restructure — design language Diario Mediterraneo.
 // Hero atmosferico → 3 momenti (before/during/after) → 6 auto d'epoca
@@ -429,7 +430,7 @@ export default async function WeddingPage({
 
           <div className="mt-14 sm:mt-16 flex flex-col sm:flex-row gap-4 sm:gap-5">
             <a
-              href="https://wa.me/393756413379"
+              href={WHATSAPP_HREF}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-3 rounded-full bg-accent px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
@@ -444,10 +445,10 @@ export default async function WeddingPage({
               </span>
             </a>
             <a
-              href="tel:+393756413379"
+              href={PHONE_TEL_HREF}
               className="inline-flex items-center justify-center gap-3 rounded-full border border-cream-on-dark/35 px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium text-cream-on-dark tabular-nums hover:bg-cream-on-dark/8 transition-colors"
             >
-              +39 375 641 3379
+              {PHONE_DISPLAY}
             </a>
             <Link
               href="/contatti"

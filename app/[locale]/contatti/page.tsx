@@ -6,6 +6,7 @@ import {routing} from '@/i18n/routing';
 import {ContactForm} from '@/components/sections/ContactForm';
 import type {Locale} from '@/lib/cities';
 import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
+import {PHONE_TEL_HREF, WHATSAPP_HREF, EMAIL_HREF} from '@/lib/contact';
 
 export async function generateMetadata({
   params
@@ -54,7 +55,7 @@ export default async function ContattiPage({
       value: t('ways.card1Value'),
       note: t('ways.card1Note'),
       ctaLabel: t('ways.card1CtaLabel'),
-      ctaHref: 'https://wa.me/393756413379',
+      ctaHref: WHATSAPP_HREF,
       external: true
     },
     {
@@ -62,7 +63,7 @@ export default async function ContattiPage({
       value: t('ways.card2Value'),
       note: t('ways.card2Note'),
       ctaLabel: t('ways.card2CtaLabel'),
-      ctaHref: 'tel:+393756413379',
+      ctaHref: PHONE_TEL_HREF,
       external: false
     },
     {
@@ -70,7 +71,7 @@ export default async function ContattiPage({
       value: t('ways.card3Value'),
       note: t('ways.card3Note'),
       ctaLabel: t('ways.card3CtaLabel'),
-      ctaHref: 'mailto:info@ncctaxisiracusa.com',
+      ctaHref: EMAIL_HREF,
       external: false
     }
   ];

@@ -1,8 +1,9 @@
+import {PHONE_DISPLAY, EMAIL} from './contact';
+
 type FaqItem = {q: string; a: string};
 type BreadcrumbItem = {name: string; url: string};
 
-const PHONE = '+39 375 641 3379';
-const EMAIL = 'info@ncctaxisiracusa.com';
+const PHONE = PHONE_DISPLAY;
 const URL_BASE = 'https://ncctaxisiracusa.com';
 
 // 3 sedi fisiche del cliente (Brief/SEO.md §10 dati raccolti)

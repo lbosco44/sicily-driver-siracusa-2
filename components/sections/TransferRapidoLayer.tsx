@@ -1,5 +1,6 @@
 import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
+import {PHONE_TEL_HREF} from '@/lib/contact';
 
 export async function TransferRapidoLayer() {
   const t = await getTranslations('Home.transferRapido');
@@ -22,7 +23,7 @@ export async function TransferRapidoLayer() {
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:shrink-0">
             <a
-              href="tel:+393756413379"
+              href={PHONE_TEL_HREF}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#F5EFE4] text-accent px-7 py-3.5 text-[13px] uppercase tracking-[0.05em] font-medium tabular-nums transition-all duration-200 hover:bg-[#F5EFE4]/90"
             >
               {t('ctaCall')}

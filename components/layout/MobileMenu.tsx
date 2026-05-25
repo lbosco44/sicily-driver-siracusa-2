@@ -11,6 +11,8 @@ import {
   SheetDescription
 } from '@/components/ui/sheet';
 import {HomeLink} from './HomeLink';
+import {PHONE_TEL_HREF, WHATSAPP_HREF} from '@/lib/contact';
+import {TOURS_NAV} from '@/lib/tours-nav';
 
 // Mobile menu — drawer side-from-right via shadcn/ui Sheet (Radix-based).
 // Focus trap, ESC to close, click-outside, body-scroll-lock, ARIA: tutto
@@ -35,15 +37,6 @@ type ToursList = {
   sailing: string;
   sailingDesc: string;
 };
-
-const TOUR_LINKS = [
-  {href: '/tour-sicilia', key: 'overview'},
-  {href: '/tour-barocco', key: 'barocco'},
-  {href: '/tour/etna-premium', key: 'etna'},
-  {href: '/tour/isola-delle-correnti', key: 'isola'},
-  {href: '/tour/dolce-vita-siracusa', key: 'dolceVita'},
-  {href: '/tour/silent-sailing', key: 'sailing'}
-] as const;
 
 export function MobileMenu({
   links,
@@ -152,7 +145,7 @@ export function MobileMenu({
                       }`}
                     >
                       <ul className="overflow-hidden">
-                        {TOUR_LINKS.map((tour) => (
+                        {TOURS_NAV.map((tour) => (
                           <li key={tour.href}>
                             <Link
                               href={tour.href}
@@ -217,7 +210,7 @@ export function MobileMenu({
               <span aria-hidden="true">→</span>
             </Link>
             <a
-              href="https://wa.me/393756413379"
+              href={WHATSAPP_HREF}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
@@ -226,7 +219,7 @@ export function MobileMenu({
               {whatsappLabel}
             </a>
             <a
-              href="tel:+393756413379"
+              href={PHONE_TEL_HREF}
               onClick={() => setOpen(false)}
               className="inline-flex items-center justify-center gap-3 py-4 text-[13px] uppercase tracking-[0.1em] font-medium text-ink/70 hover:text-ink transition-colors tabular-nums"
             >

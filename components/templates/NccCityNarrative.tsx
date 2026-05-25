@@ -4,6 +4,7 @@ import {Link} from '@/i18n/navigation';
 import type {CityContent} from '@/lib/cities';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
 import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
+import {PHONE_TEL_HREF} from '@/lib/contact';
 
 // NccCityNarrative — pagina locale SEO (cluster Fast).
 // Design language Diario Mediterraneo, ma SENZA scroll-driven sticky:
@@ -273,7 +274,7 @@ export async function NccCityNarrative({city}: {city: CityContent}) {
               </span>
             </Link>
             <a
-              href="tel:+393756413379"
+              href={PHONE_TEL_HREF}
               className="inline-flex items-center justify-center gap-3 rounded-full border border-cream-on-dark/35 px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium text-cream-on-dark tabular-nums hover:bg-cream-on-dark/10 transition-colors"
             >
               {tCommon('ctaCall')}

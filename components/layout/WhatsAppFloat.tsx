@@ -1,13 +1,12 @@
 import {getTranslations} from 'next-intl/server';
-
-const WHATSAPP_NUMBER = '393756413379';
+import {WHATSAPP_HREF} from '@/lib/contact';
 
 export async function WhatsAppFloat() {
   const t = await getTranslations('WhatsApp');
 
   return (
     <a
-      href={`https://wa.me/${WHATSAPP_NUMBER}`}
+      href={WHATSAPP_HREF}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t('label')}

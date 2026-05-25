@@ -2,11 +2,14 @@ import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import {LanguageSwitcher} from './LanguageSwitcher';
 import {CookieSettingsLink} from './CookieSettingsLink';
+import {WHATSAPP_HREF} from '@/lib/contact';
+import {TOURS_NAV_NO_HUB} from '@/lib/tours-nav';
 
 export async function Footer() {
   const t = await getTranslations('Footer');
   const tNav = await getTranslations('Nav');
   const tBrand = await getTranslations('Brand');
+  const tTours = await getTranslations('Nav.toursList');
 
   const year = new Date().getFullYear();
 
@@ -41,31 +44,13 @@ export async function Footer() {
                   {tNav('tours')}
                 </Link>
               </li>
-              <li>
-                <Link href="/tour-barocco" className="hover:text-accent transition-colors">
-                  Tour Barocco
-                </Link>
-              </li>
-              <li>
-                <Link href="/tour/etna-premium" className="hover:text-accent transition-colors">
-                  Tour Etna Premium
-                </Link>
-              </li>
-              <li>
-                <Link href="/tour/dolce-vita-siracusa" className="hover:text-accent transition-colors">
-                  Dolce Vita Siracusa
-                </Link>
-              </li>
-              <li>
-                <Link href="/tour/silent-sailing" className="hover:text-accent transition-colors">
-                  Silent Sailing
-                </Link>
-              </li>
-              <li>
-                <Link href="/tour/isola-delle-correnti" className="hover:text-accent transition-colors">
-                  Isola delle Correnti
-                </Link>
-              </li>
+              {TOURS_NAV_NO_HUB.map((tour) => (
+                <li key={tour.href}>
+                  <Link href={tour.href} className="hover:text-accent transition-colors">
+                    {tTours(tour.key)}
+                  </Link>
+                </li>
+              ))}
               <li>
                 <Link href="/partner" className="hover:text-accent transition-colors">
                   Partner
@@ -137,7 +122,7 @@ export async function Footer() {
               </li>
               <li>
                 <a
-                  href="https://wa.me/393756413379"
+                  href={WHATSAPP_HREF}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-accent transition-colors"

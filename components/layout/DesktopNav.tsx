@@ -4,6 +4,7 @@ import {Link, usePathname} from '@/i18n/navigation';
 import {ChevronDownIcon} from 'lucide-react';
 import {useState} from 'react';
 import {HomeLink} from './HomeLink';
+import {TOURS_NAV} from '@/lib/tours-nav';
 
 // Desktop nav con dropdown elegante per Tour Sicilia.
 // Implementazione custom hover-aware con CSS transitions (no libreria pesante).
@@ -31,54 +32,16 @@ export type DesktopNavLabels = {
   };
 };
 
-type TourItem = {
-  href:
-    | '/tour-sicilia'
-    | '/tour-barocco'
-    | '/tour/etna-premium'
-    | '/tour/isola-delle-correnti'
-    | '/tour/dolce-vita-siracusa'
-    | '/tour/silent-sailing';
-  label: string;
-  desc: string;
-};
-
 export function DesktopNav({labels}: {labels: DesktopNavLabels}) {
   const pathname = usePathname();
   const [tourOpen, setTourOpen] = useState(false);
 
-  const tourItems: TourItem[] = [
-    {
-      href: '/tour-sicilia',
-      label: labels.toursList.overview,
-      desc: labels.toursList.overviewDesc
-    },
-    {
-      href: '/tour-barocco',
-      label: labels.toursList.barocco,
-      desc: labels.toursList.baroccoDesc
-    },
-    {
-      href: '/tour/etna-premium',
-      label: labels.toursList.etna,
-      desc: labels.toursList.etnaDesc
-    },
-    {
-      href: '/tour/isola-delle-correnti',
-      label: labels.toursList.isola,
-      desc: labels.toursList.isolaDesc
-    },
-    {
-      href: '/tour/dolce-vita-siracusa',
-      label: labels.toursList.dolceVita,
-      desc: labels.toursList.dolceVitaDesc
-    },
-    {
-      href: '/tour/silent-sailing',
-      label: labels.toursList.sailing,
-      desc: labels.toursList.sailingDesc
-    }
-  ];
+  // Costruisci tour items lookup-ando i label/desc tradotti dal map TOURS_NAV
+  const tourItems = TOURS_NAV.map((t) => ({
+    href: t.href,
+    label: labels.toursList[t.key],
+    desc: labels.toursList[`${t.key}Desc` as keyof typeof labels.toursList]
+  }));
 
   const isTourActive =
     pathname === '/tour-sicilia' ||

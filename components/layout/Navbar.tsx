@@ -5,6 +5,7 @@ import {LanguageSwitcher} from './LanguageSwitcher';
 import {DesktopNav} from './DesktopNav';
 import {HomeLink} from './HomeLink';
 import {MobileMenu, type MobileMenuLink} from './MobileMenu';
+import {PHONE_DISPLAY} from '@/lib/contact';
 
 export async function Navbar() {
   const t = await getTranslations('Nav');
@@ -85,7 +86,7 @@ export async function Navbar() {
             bookLabel={t('bookNow')}
             whatsappLabel={tNcc('ctaWhatsApp')}
             callLabel={t('callShort')}
-            callValue="+39 375 641 3379"
+            callValue={PHONE_DISPLAY}
           />
         </div>
       </div>
