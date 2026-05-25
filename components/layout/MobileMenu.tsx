@@ -13,6 +13,7 @@ import {
 import {HomeLink} from './HomeLink';
 import {PHONE_TEL_HREF, WHATSAPP_HREF} from '@/lib/contact';
 import {TOURS_NAV} from '@/lib/tours-nav';
+import type {ToursListLabels} from '@/lib/nav-types';
 
 // Mobile menu — drawer side-from-right via shadcn/ui Sheet (Radix-based).
 // Focus trap, ESC to close, click-outside, body-scroll-lock, ARIA: tutto
@@ -21,21 +22,6 @@ import {TOURS_NAV} from '@/lib/tours-nav';
 export type MobileMenuLink = {
   href: '/' | '/servizi' | '/tour-sicilia' | '/chi-siamo' | '/contatti';
   label: string;
-};
-
-type ToursList = {
-  overview: string;
-  overviewDesc: string;
-  barocco: string;
-  baroccoDesc: string;
-  etna: string;
-  etnaDesc: string;
-  isola: string;
-  isolaDesc: string;
-  dolceVita: string;
-  dolceVitaDesc: string;
-  sailing: string;
-  sailingDesc: string;
 };
 
 export function MobileMenu({
@@ -47,7 +33,7 @@ export function MobileMenu({
   callValue
 }: {
   links: MobileMenuLink[];
-  toursList: ToursList;
+  toursList: ToursListLabels;
   bookLabel: string;
   whatsappLabel: string;
   callLabel: string;
@@ -159,7 +145,7 @@ export function MobileMenu({
                                 {toursList[tour.key]}
                               </p>
                               <p className="mt-0.5 text-[12px] text-ink/55 leading-snug">
-                                {toursList[`${tour.key}Desc` as keyof ToursList]}
+                                {toursList[`${tour.key}Desc` as keyof ToursListLabels]}
                               </p>
                             </Link>
                           </li>

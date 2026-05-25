@@ -5,34 +5,13 @@ import {ChevronDownIcon} from 'lucide-react';
 import {useState} from 'react';
 import {HomeLink} from './HomeLink';
 import {TOURS_NAV} from '@/lib/tours-nav';
+import type {NavLabels} from '@/lib/nav-types';
 
 // Desktop nav con dropdown elegante per Tour Sicilia.
 // Implementazione custom hover-aware con CSS transitions (no libreria pesante).
 // Pattern: hover trigger → fade-in panel con tour list + descrizioni.
 
-export type DesktopNavLabels = {
-  home: string;
-  services: string;
-  tours: string;
-  about: string;
-  contact: string;
-  toursList: {
-    overview: string;
-    overviewDesc: string;
-    barocco: string;
-    baroccoDesc: string;
-    etna: string;
-    etnaDesc: string;
-    isola: string;
-    isolaDesc: string;
-    dolceVita: string;
-    dolceVitaDesc: string;
-    sailing: string;
-    sailingDesc: string;
-  };
-};
-
-export function DesktopNav({labels}: {labels: DesktopNavLabels}) {
+export function DesktopNav({labels}: {labels: NavLabels}) {
   const pathname = usePathname();
   const [tourOpen, setTourOpen] = useState(false);
 
