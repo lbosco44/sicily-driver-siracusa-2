@@ -6,9 +6,10 @@ import {useTranslations} from 'next-intl';
 export function ContactForm() {
   const t = useTranslations('Contatti.form');
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
     const form = e.currentTarget;
@@ -17,11 +18,17 @@ export function ContactForm() {
       form.reportValidity();
       return;
     }
+    setIsSubmitting(true);
     const data = Object.fromEntries(new FormData(form).entries());
     // Phase 1: no backend reale, log + toast/success message.
     // Phase 2 (TODO): POST a /api/contact con Resend.
     // eslint-disable-next-line no-console
     console.log('[ContactForm] submission', data);
+    // Microdelay per garantire che lo stato "Invio..." sia percepibile anche
+    // quando il submit e' istantaneo (Phase 1). In Phase 2 Resend la latenza
+    // reale lo rende naturale.
+    await new Promise((r) => setTimeout(r, 400));
+    setIsSubmitting(false);
     setSubmitted(true);
   }
 
@@ -87,15 +94,27 @@ export function ContactForm() {
 
       <label className="block">
         <span className="text-[11px] uppercase tracking-[0.12em] font-medium text-secondary block mb-2">
-          {t('fieldSubjectLabel')}
+          {t('fieldTypeLabel')}
         </span>
-        <input
-          name="subject"
-          type="text"
+        <select
+          name="type"
           required
-          placeholder={t('fieldSubjectPlaceholder')}
-          className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent transition-colors"
-        />
+          defaultValue=""
+          className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink focus:outline-none focus:border-accent transition-colors appearance-none bg-[length:18px] bg-no-repeat bg-[position:right_1rem_center] pr-12"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231F1A14' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E\")"
+          }}
+        >
+          <option value="" disabled>
+            —
+          </option>
+          <option value="transfer">{t('fieldTypeOption1')}</option>
+          <option value="tour">{t('fieldTypeOption2')}</option>
+          <option value="wedding">{t('fieldTypeOption3')}</option>
+          <option value="business">{t('fieldTypeOption4')}</option>
+          <option value="other">{t('fieldTypeOption5')}</option>
+        </select>
       </label>
 
       <label className="block">
@@ -114,11 +133,13 @@ export function ContactForm() {
       <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-7 pt-2">
         <button
           type="submit"
-          className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-8 py-4 text-[13px] uppercase tracking-[0.05em] font-medium transition-all duration-200 hover:bg-accent-hover"
+          disabled={isSubmitting}
+          aria-busy={isSubmitting}
+          className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-8 py-4 text-[13px] uppercase tracking-[0.05em] font-medium transition-all duration-200 hover:bg-accent-hover disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:bg-accent"
           style={{color: 'var(--cream-on-dark)'}}
         >
-          {t('submit')}
-          <span aria-hidden="true">→</span>
+          {isSubmitting ? t('submitting') : t('submit')}
+          <span aria-hidden="true">{isSubmitting ? '…' : '→'}</span>
         </button>
         <p id="form-note" className="text-[13px] text-ink/55 leading-relaxed">
           {t('submitNote')}

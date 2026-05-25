@@ -510,6 +510,7 @@
       "fieldMessageLabel": "Message",
       "fieldMessagePlaceholder": "When, from where, to where, how many people, any specific needs...",
       "submit": "Send",
+      "submitting": "Sending",
       "submitNote": "We reply within 24-36 hours.",
       "successTitle": "Thanks, we received your request.",
       "successBody": "We will reply within 24-36 hours.",

@@ -93,6 +93,7 @@ export type WeddingContent = {
     emailLabel: string;
     emailPlaceholder: string;
     submit: string;
+    submitting: string;
     submitNote: string;
     successTitle: string;
     successBody: string;
@@ -320,6 +321,7 @@ const WEDDING_IT: WeddingContent = {
     emailLabel: 'Email',
     emailPlaceholder: 'la-tua@email.it',
     submit: 'Ricevi preventivo entro 24h',
+    submitting: 'Invio',
     submitNote:
       'Richiesta ricevuta. Ti contattiamo entro 24h con il preventivo personalizzato.',
     successTitle: 'Richiesta ricevuta.',
@@ -524,6 +526,7 @@ const WEDDING_EN: WeddingContent = {
     emailLabel: 'Email',
     emailPlaceholder: 'your@email.com',
     submit: 'Get a quote within 24h',
+    submitting: 'Sending',
     submitNote:
       'Request received. We’ll contact you within 24h with a tailored quote.',
     successTitle: 'Request received.',

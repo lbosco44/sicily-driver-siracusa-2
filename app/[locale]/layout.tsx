@@ -1,5 +1,5 @@
 import type {Metadata} from 'next';
-import {Bricolage_Grotesque, Inter_Tight} from 'next/font/google';
+import {Cormorant_Garamond, DM_Sans} from 'next/font/google';
 import {NextIntlClientProvider, hasLocale} from 'next-intl';
 import {setRequestLocale, getTranslations} from 'next-intl/server';
 import {notFound} from 'next/navigation';
@@ -11,18 +11,21 @@ import {CookieBanner} from '@/components/layout/CookieBanner';
 import {ScrollToTop} from '@/components/layout/ScrollToTop';
 import '../globals.css';
 
-// Display font — Bricolage Grotesque (geometrico, distintivo, ottimo per scritte grandi).
-// Variable weight + opsz axes per scale tipografica fluida.
-const bricolage = Bricolage_Grotesque({
+// Display font — Cormorant Garamond (serif italian editorial, calore rinascimentale).
+// Italic e' la chiave emotiva del concept "Diario Mediterraneo": H1/H2 accent
+// words + quote testimonial + storytelling tour. Brief DESIGN.md sez. "Tipografia".
+const cormorant = Cormorant_Garamond({
   variable: '--font-display',
   subsets: ['latin'],
-  weight: ['200', '300', '400', '500', '600', '700', '800'],
+  weight: ['400', '500', '600'],
+  style: ['normal', 'italic'],
   display: 'swap',
   fallback: ['Georgia', 'ui-serif', 'serif']
 });
 
-// Body/UI font — Inter Tight (sans pulito ad alta densità).
-const interTight = Inter_Tight({
+// Body/UI font — DM Sans (sans geometrico moderno pulito).
+// DM Sans mai in italic per policy Brief: solo Cormorant porta l'italic.
+const dmSans = DM_Sans({
   variable: '--font-sans',
   subsets: ['latin'],
   weight: ['300', '400', '500', '600'],
@@ -58,7 +61,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${bricolage.variable} ${interTight.variable} antialiased`}
+      className={`${cormorant.variable} ${dmSans.variable} antialiased`}
       suppressHydrationWarning
     >
       <head>
