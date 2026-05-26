@@ -18,8 +18,8 @@ export function NavLink({
       aria-current={isActive ? 'page' : undefined}
       className={`text-[13px] uppercase tracking-[0.08em] font-medium transition-colors ${
         isActive
-          ? 'text-primary'
-          : 'text-ink/75 hover:text-primary'
+          ? 'text-accent'
+          : 'text-ink/75 hover:text-accent'
       }`}
     >
       {children}
