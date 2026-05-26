@@ -94,27 +94,15 @@ export function ContactForm() {
 
       <label className="block">
         <span className="text-[11px] uppercase tracking-[0.12em] font-medium text-secondary block mb-2">
-          {t('fieldTypeLabel')}
+          {t('fieldSubjectLabel')}
         </span>
-        <select
-          name="type"
+        <input
+          name="subject"
+          type="text"
           required
-          defaultValue=""
-          className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink focus:outline-none focus:border-accent transition-colors appearance-none bg-[length:18px] bg-no-repeat bg-[position:right_1rem_center] pr-12"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231F1A14' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E\")"
-          }}
-        >
-          <option value="" disabled>
-            —
-          </option>
-          <option value="transfer">{t('fieldTypeOption1')}</option>
-          <option value="tour">{t('fieldTypeOption2')}</option>
-          <option value="wedding">{t('fieldTypeOption3')}</option>
-          <option value="business">{t('fieldTypeOption4')}</option>
-          <option value="other">{t('fieldTypeOption5')}</option>
-        </select>
+          placeholder={t('fieldSubjectPlaceholder')}
+          className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent transition-colors"
+        />
       </label>
 
       <label className="block">

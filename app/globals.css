@@ -4,7 +4,7 @@
    Sicily Driver Siracusa — Design Tokens v2
    Concept: Diario Mediterraneo — racconto verticale scroll-driven
    Palette: "Calce e Mare" (cream/ink/blu mare/terracotta/ulivo)
-   Font: Cormorant Garamond (display, italic emotional key) + DM Sans (body)
+   Font: Bricolage Grotesque (display, big bold) + Inter Tight (body)
    ============================================================ */
 
 :root {
@@ -158,11 +158,9 @@ h1, h2, h3, .font-display {
   }
 }
 
-/* Brief scala: H1 1.05, H2 1.1, H3 1.1. Cormorant ha ascenders/descenders
-   piu' espressivi di Bricolage, line-height piu' rilassato. */
-h1 { line-height: 1.05; letter-spacing: -0.025em; }
-h2 { line-height: 1.1; letter-spacing: -0.02em; }
-h3 { line-height: 1.1; letter-spacing: -0.01em; }
+h1 { line-height: 0.95; letter-spacing: -0.035em; }
+h2 { line-height: 1; letter-spacing: -0.03em; }
+h3 { line-height: 1.1; letter-spacing: -0.015em; }
 
 /* Display scale enormi per moments narrativi */
 .text-display-xl  { font-size: clamp(56px, 11vw, 168px); line-height: 0.92; letter-spacing: -0.045em; }

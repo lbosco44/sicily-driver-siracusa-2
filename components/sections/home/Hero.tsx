@@ -79,11 +79,12 @@ export function Hero() {
           transition={{duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.15}}
         >
           <h1
-            className="font-display italic font-medium text-cream-on-dark whitespace-nowrap"
+            className="font-display font-medium text-cream-on-dark whitespace-nowrap"
             style={{
               fontSize: 'clamp(28px, 7vw, 104px)',
-              letterSpacing: '-0.02em',
-              lineHeight: '1.05',
+              fontStretch: '95%',
+              letterSpacing: '-0.025em',
+              lineHeight: '1',
               textShadow: '0 2px 24px rgba(0,0,0,0.3)'
             }}
           >
