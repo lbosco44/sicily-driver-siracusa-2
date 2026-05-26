@@ -9,20 +9,19 @@ import {ESPERIENZE, N} from './data';
 import {DesktopSticky} from './DesktopSticky';
 
 // Tuning della sezione (svh).
-// ENTRY_VH = altezza della fase di ingresso (rettangolo che scende, chromatic max).
-// SLIDE_VH = altezza per ogni passaggio di scena. Piu' alto = scroll piu' "pesante".
-//   AndAgain originale = 100vh per slide. Noi 150svh per dare al wheel uno scroll
-//   massimo intorno al 60-70% di una slide (cosi' l'animazione e' visibile).
-const ENTRY_VH = 100;
+// ENTRY_VH = altezza della fase di ingresso. 0 = no entry (frame in posizione
+//            immediatamente, niente blocco nero iniziale).
+// SLIDE_VH = altezza per ogni passaggio di scena. Piu' alto = scroll piu'
+//            "pesante", piu' tempo per percepire l'animazione di wipe.
+const ENTRY_VH = 0;
 const SLIDE_VH = 150;
 const TOTAL_VH = ENTRY_VH + N * SLIDE_VH;
 
-// Frame dello "schermo" interno (in svh / svw misurato in pixel runtime).
-// Sono ratio rispetto al viewport, applicate in pixel allo shader.
-const FRAME_PADDING_X_RATIO = 0.04; // 4% di larghezza per lato
-const FRAME_PADDING_Y_TOP = 80; // pixel
-const FRAME_PADDING_Y_BOTTOM = 160; // pixel (lascia spazio counter)
-const CORNER_RADIUS = 20; // pixel
+// Frame dello "schermo" interno (full-screen, niente inset).
+const FRAME_PADDING_X_RATIO = 0; // niente padding laterale
+const FRAME_PADDING_Y_TOP = 0;
+const FRAME_PADDING_Y_BOTTOM = 0;
+const CORNER_RADIUS = 0; // niente corner rotondi, edge-to-edge
 
 const VS = `#version 300 es
 in vec2 position;
@@ -110,10 +109,14 @@ float roundedBoxSDF(vec2 p, vec2 b, float r) {
 }
 
 vec4 wipeSample(vec2 innerUv, vec2 frameSize) {
-  // bezier-bowed wipe sulla coordinata X interna al frame
+  // bezier-bowed wipe sulla coordinata X interna al frame.
+  // isNew=0 → vediamo fromCol (scena corrente). isNew=1 → vediamo toCol (scena nuova).
+  // Il "1.0 - smoothstep" inverte la semantica: a progress=0 isNew=0 dappertutto
+  // (mostra fromCol pienamente, la scena corrente), a progress=1 isNew=1 ovunque
+  // (mostra toCol, la scena nuova). Il wipe sweep da SX a DX rivela il nuovo.
   float threshold = transitionProgress;
   float curved = innerUv.x + bezier(innerUv.y, bow / 3.0);
-  float isNew = smoothstep(threshold - 0.0005, threshold + 0.0005, curved);
+  float isNew = 1.0 - smoothstep(threshold - 0.0005, threshold + 0.0005, curved);
 
   // object-fit: cover dentro il frame
   vec2 uvFrom = coverUv(innerUv, fromResolution, frameSize);
@@ -182,22 +185,30 @@ export function DesktopWebGL() {
   });
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    const entryFraction = ENTRY_VH / TOTAL_VH;
-    const slidesFraction = 1 - entryFraction;
+    if (ENTRY_VH > 0) {
+      const entryFraction = ENTRY_VH / TOTAL_VH;
+      const slidesFraction = 1 - entryFraction;
 
-    if (latest <= entryFraction) {
-      // siamo nella fase di entrata
-      entryProgressRef.current = latest / entryFraction;
-      slideProgressRef.current = 0;
-      setActiveIndex((prev) => (prev === 0 ? prev : 0));
-    } else {
+      if (latest <= entryFraction) {
+        // fase di entrata (rect SDF scende dall'alto)
+        entryProgressRef.current = latest / entryFraction;
+        slideProgressRef.current = 0;
+        setActiveIndex((prev) => (prev === 0 ? prev : 0));
+        return;
+      }
       entryProgressRef.current = 1;
-      const slideRange = (latest - entryFraction) / slidesFraction; // 0..1
+      const slideRange = (latest - entryFraction) / slidesFraction;
       const p = Math.max(0, Math.min(N - 1, slideRange * N));
       slideProgressRef.current = p;
-      const idx = Math.min(Math.floor(p), N - 1);
-      setActiveIndex((prev) => (prev === idx ? prev : idx));
+    } else {
+      // Niente entry: frame sempre in posizione, scroll mappa direttamente
+      // sull'avanzamento scene.
+      entryProgressRef.current = 1;
+      const p = Math.max(0, Math.min(N - 1, latest * N));
+      slideProgressRef.current = p;
     }
+    const idx = Math.min(Math.floor(slideProgressRef.current), N - 1);
+    setActiveIndex((prev) => (prev === idx ? prev : idx));
   });
 
   useEffect(() => {
@@ -410,7 +421,7 @@ export function DesktopWebGL() {
             return (
               <div
                 key={e.key}
-                className={`absolute inset-0 flex flex-col justify-end ${alignClass} px-8 sm:px-12 lg:px-16 pb-12 sm:pb-16`}
+                className={`absolute inset-0 flex flex-col justify-end ${alignClass} px-8 sm:px-12 lg:px-20 pb-20 sm:pb-28 lg:pb-32`}
                 style={{
                   opacity: active ? 1 : 0,
                   transform: active ? 'translateY(0)' : 'translateY(2%)',
@@ -462,24 +473,6 @@ export function DesktopWebGL() {
           })}
         </div>
 
-        {/* Counter in fondo, fuori dal frame: "01 →" centrato, "05" a destra */}
-        <div
-          className="absolute z-20 inset-x-0 flex items-baseline justify-between px-8 sm:px-12 lg:px-16 text-cream-on-dark/85 pointer-events-none tabular-nums"
-          style={{bottom: `${(FRAME_PADDING_Y_BOTTOM - 80) / 2 + 32}px`}}
-        >
-          <div className="flex-1" />
-          <div className="flex-1 text-center">
-            <span className="font-display text-2xl sm:text-3xl">
-              {String(activeIndex + 1).padStart(2, '0')}
-            </span>{' '}
-            <span aria-hidden="true">→</span>
-          </div>
-          <div className="flex-1 text-right">
-            <span className="font-display text-2xl sm:text-3xl">
-              {String(N).padStart(2, '0')}
-            </span>
-          </div>
-        </div>
       </div>
     </div>
   );
