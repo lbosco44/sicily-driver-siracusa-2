@@ -7,7 +7,6 @@ import {EsperienzeScroll} from '@/components/sections/home/EsperienzeScroll';
 import {Manifesto} from '@/components/sections/home/Manifesto';
 import {Interni} from '@/components/sections/home/Interni';
 import {PolaroidMosaic} from '@/components/sections/home/PolaroidMosaic';
-import {PartnersQuotes} from '@/components/sections/home/PartnersQuotes';
 import {ListinoProse} from '@/components/sections/home/ListinoProse';
 import {DietroAlVolante} from '@/components/sections/home/DietroAlVolante';
 import {Testimonianza} from '@/components/sections/home/Testimonianza';
@@ -95,10 +94,7 @@ export default async function HomePage({
       {/* 06 — Mosaico polaroid destinazioni */}
       <PolaroidMosaic />
 
-      {/* 07 — Partner come citazioni */}
-      <PartnersQuotes />
-
-      {/* 08 — Listino come prosa narrativa */}
+      {/* 07 — Listino come prosa narrativa */}
       <ListinoProse />
 
       {/* 09 — Dietro al volante */}
