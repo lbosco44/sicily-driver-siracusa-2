@@ -1,5 +1,6 @@
 'use client';
 
+import {Fragment} from 'react';
 import {motion, useReducedMotion} from 'motion/react';
 
 // Whisper = schermo solo testo a piena viewport, una frase grande sola.
@@ -34,7 +35,9 @@ export function Whisper({
   maxWidthCh?: number;
 }) {
   const reduce = useReducedMotion();
-  const words = text.split(/(\s+)/); // mantiene whitespace
+  // Spezza prima per linea (\n = forced break), poi ogni linea per parole.
+  // Le righe si rendono con <br> esplicito, le parole con motion.span animate.
+  const lines = text.split('\n');
 
   const sizeClass =
     size === 'xl'
@@ -78,26 +81,40 @@ export function Whisper({
           }`}
           style={{fontStretch: '95%', maxWidth: `${maxWidthCh}ch`}}
         >
-          {words.map((w, i) =>
-            /\s+/.test(w) ? (
-              <span key={i}>{w}</span>
-            ) : (
-              <motion.span
-                key={i}
-                className="inline-block"
-                initial={reduce ? false : {opacity: 0, y: '0.4em'}}
-                whileInView={reduce ? undefined : {opacity: 1, y: 0}}
-                viewport={{once: true, margin: '-15%'}}
-                transition={{
-                  duration: 0.7,
-                  delay: i * 0.04,
-                  ease: [0.16, 1, 0.3, 1]
-                }}
-              >
-                {w}
-              </motion.span>
-            )
-          )}
+          {(() => {
+            // Indice globale parola attraversa le righe per stagger continuo
+            let wordIdx = 0;
+            return lines.map((line, lineIdx) => {
+              const tokens = line.split(/(\s+)/);
+              return (
+                <Fragment key={`line-${lineIdx}`}>
+                  {lineIdx > 0 && <br />}
+                  {tokens.map((w, tokenIdx) => {
+                    if (/\s+/.test(w) || w === '') {
+                      return <span key={`${lineIdx}-${tokenIdx}`}>{w}</span>;
+                    }
+                    const myIdx = wordIdx++;
+                    return (
+                      <motion.span
+                        key={`${lineIdx}-${tokenIdx}`}
+                        className="inline-block"
+                        initial={reduce ? false : {opacity: 0, y: '0.4em'}}
+                        whileInView={reduce ? undefined : {opacity: 1, y: 0}}
+                        viewport={{once: true, margin: '-15%'}}
+                        transition={{
+                          duration: 0.7,
+                          delay: myIdx * 0.04,
+                          ease: [0.16, 1, 0.3, 1]
+                        }}
+                      >
+                        {w}
+                      </motion.span>
+                    );
+                  })}
+                </Fragment>
+              );
+            });
+          })()}
         </p>
       </div>
     </section>
