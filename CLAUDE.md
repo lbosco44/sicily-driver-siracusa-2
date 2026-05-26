@@ -187,4 +187,31 @@ git push                    # Vercel preview auto-deploy via GitHub integration
 
 ---
 
-*Template Nexus v3.0 — Ultimo aggiornamento: 20 maggio 2026 (intermezzo /nexus-design obbligatorio)*
+# WORKFLOW GIT — Commit & Push dopo ogni modifica
+
+**Preferenza esplicita del cliente (26 maggio 2026):**
+
+Dopo OGNI modifica funzionale al codice o ai contenuti (componenti, copy, i18n
+messages, configurazione, ecc.), Claude esegue automaticamente:
+
+1. `git add` dei soli file modificati pertinenti alla modifica (mai `git add -A`)
+2. `git commit -m "<messaggio descrittivo in italiano>"` con HEREDOC + co-author trailer
+3. `git push origin <branch corrente>`
+
+Eccezioni che NON triggherano commit automatico:
+- Modifiche a file di scratch/temp (`.playwright-mcp/`, `.gstack/`, file in `/tmp`)
+- Modifiche solo a `Brief/*.md` (sono input del designer, non output di build)
+- Modifiche durante un'esplorazione interattiva ancora in corso (se Claude sta
+  per fare altre 3 Edit consecutive sullo stesso file/tema, può raggruppare in
+  un unico commit finale invece che committare ogni Edit)
+- Modifiche che falliscono `npx tsc --noEmit` o `npx vitest run` → fix prima
+  di committare, non committare codice rotto
+
+Non chiedere conferma esplicita per commit/push — è il pattern di default per
+questo progetto. Chiedere conferma SOLO se la modifica include file sensibili
+(`.env*`, credenziali, file con secrets) o se è una destructive operation
+(reset --hard, force push, rm -rf, ecc.).
+
+---
+
+*Template Nexus v3.0 — Ultimo aggiornamento: 26 maggio 2026 (workflow commit+push automatico)*
