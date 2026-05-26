@@ -24,7 +24,6 @@ export function ListinoProse() {
           viewport={{once: true, margin: '-10%'}}
           transition={{duration: 0.8, ease: [0.16, 1, 0.3, 1]}}
         >
-          <p className="eyebrow mb-7">{t('eyebrow')}</p>
           <h2
             className="font-display text-display-md font-light text-ink"
             style={{fontStretch: '95%'}}
