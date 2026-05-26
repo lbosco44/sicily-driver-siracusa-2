@@ -2,7 +2,7 @@
 
 import {Link} from '@/i18n/navigation';
 import {useTranslations} from 'next-intl';
-import {DesktopSticky} from './esperienze/DesktopSticky';
+import {DesktopWebGL} from './esperienze/DesktopWebGL';
 import {MobileScrollLock} from './esperienze/MobileScrollLock';
 
 // EsperienzeScroll — entry point pubblico.
@@ -21,7 +21,7 @@ export function EsperienzeScroll() {
         <MobileScrollLock />
       </div>
       <div className="hidden md:block">
-        <DesktopSticky />
+        <DesktopWebGL />
       </div>
 
       {/* Band terracotta finale */}
