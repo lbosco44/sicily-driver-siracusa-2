@@ -207,7 +207,12 @@ export function DesktopWebGL() {
       const p = Math.max(0, Math.min(N - 1, latest * N));
       slideProgressRef.current = p;
     }
-    const idx = Math.min(Math.floor(slideProgressRef.current), N - 1);
+    // Math.round invece di Math.floor: il testo crossfade al midpoint del wipe
+    // (p=0.5, 1.5, 2.5, 3.5) invece che all'inizio (p=0, 1, 2, 3). Visivamente
+    // il testo nuovo appare quando l'utente "ha scrollato attraverso" la scena
+    // precedente, allineato al momento in cui il wipe ha rivelato circa meta'
+    // della scena nuova.
+    const idx = Math.min(Math.round(slideProgressRef.current), N - 1);
     setActiveIndex((prev) => (prev === idx ? prev : idx));
   });
 
@@ -308,13 +313,12 @@ export function DesktopWebGL() {
       const p = slideProgressRef.current;
       const entry = entryProgressRef.current;
 
-      const idx = Math.min(Math.floor(p), N - 2);
-      // fracRaw deve usare `idx` (cappato a N-2), non Math.floor(p): quando
-      // p raggiunge N-1 (ultima scena) Math.floor(p) torna N-1 mentre idx
-      // resta a N-2, e fracRaw=p-Math.floor(p)=0 reset-erebbe la transizione
-      // a "inizio" mostrando fromTex=textures[N-2] invece della scena finale.
-      // Con p - idx, a p=N-1 fracRaw=1 -> wipe completo -> toTex=textures[N-1]
-      // mostrata correttamente.
+      // idx cappato a N-1 (non N-2): cosi' all'ultima scena (p=N-1)
+      // idx=N-1, fromTex=textures[N-1], toTex=textures[min(N, N-1)]=textures[N-1]
+      // (stessa textura). Lo shader mix(barocco, barocco, frac) ritorna barocco
+      // indipendentemente da frac. Niente edge case che ribalta a fromTex
+      // sbagliato come succedeva con cap a N-2.
+      const idx = Math.min(Math.floor(p), N - 1);
       const fracRaw = p - idx;
       const frac = Math.min(1, Math.max(0, fracRaw));
 
@@ -422,12 +426,13 @@ export function DesktopWebGL() {
 
           {ESPERIENZE.map((e, i) => {
             const active = activeIndex === i;
-            const alignClass =
-              e.align === 'left' ? 'items-start text-left' : 'items-end text-right';
+            // Override e.align: il cliente vuole TUTTI i testi sulla sinistra
+            // (data.ts mantiene il campo align per il mobile/altri usi futuri,
+            // ma qui forziamo left). Niente piu' alternanza desktra/sinistra.
             return (
               <div
                 key={e.key}
-                className={`absolute inset-0 flex flex-col justify-end ${alignClass} px-8 sm:px-12 lg:px-20 pb-20 sm:pb-28 lg:pb-32`}
+                className="absolute inset-0 flex flex-col justify-end items-start text-left px-8 sm:px-12 lg:px-20 pb-20 sm:pb-28 lg:pb-32"
                 style={{
                   opacity: active ? 1 : 0,
                   transform: active ? 'translateY(0)' : 'translateY(2%)',
@@ -453,11 +458,7 @@ export function DesktopWebGL() {
                   <p className="mt-5 max-w-[36ch] text-[16px] sm:text-[18px] text-cream-on-dark/90 leading-[1.55]">
                     {t(`card${e.key}Body`)}
                   </p>
-                  <div
-                    className={`mt-7 flex flex-wrap gap-3 ${
-                      e.align === 'left' ? 'justify-start' : 'justify-end'
-                    }`}
-                  >
+                  <div className="mt-7 flex flex-wrap gap-3 justify-start">
                     <Link
                       href={e.href}
                       className="inline-flex items-center gap-3 rounded-full bg-cream-on-dark px-6 py-2.5 text-[12px] uppercase tracking-[0.16em] font-medium text-primary-deep hover:bg-cream-soft transition-colors"
