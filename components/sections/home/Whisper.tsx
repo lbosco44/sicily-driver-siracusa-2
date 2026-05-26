@@ -21,13 +21,17 @@ export function Whisper({
   text,
   align = 'center',
   bg = 'canvas',
-  size = 'lg'
+  size = 'lg',
+  maxWidthCh = 18
 }: {
   eyebrow?: string;
   text: string;
   align?: 'left' | 'center';
   bg?: Bg;
   size?: 'md' | 'lg' | 'xl';
+  /** Larghezza massima testo in unità ch (default 18). Bumpare per testi lunghi
+   *  che a 18ch andrebbero in troppe righe (es. tagline narrative). */
+  maxWidthCh?: number;
 }) {
   const reduce = useReducedMotion();
   const words = text.split(/(\s+)/); // mantiene whitespace
@@ -71,8 +75,8 @@ export function Whisper({
         <p
           className={`font-display ${sizeClass} font-light ${
             align === 'center' ? 'mx-auto' : ''
-          } max-w-[18ch]`}
-          style={{fontStretch: '95%'}}
+          }`}
+          style={{fontStretch: '95%', maxWidth: `${maxWidthCh}ch`}}
         >
           {words.map((w, i) =>
             /\s+/.test(w) ? (

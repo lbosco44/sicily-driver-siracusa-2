@@ -79,8 +79,9 @@ export default async function HomePage({
       {/* 01 — Hero atmosferica full-bleed */}
       <Hero />
 
-      {/* 02 — Whisper "Ti veniamo a prendere ovunque tu sia." */}
-      <Whisper text={t('text')} bg="canvas" size="lg" />
+      {/* 02 — Whisper "Non facciamo semplici transfer, creiamo ricordi."
+          maxWidthCh=30 per testo lungo: ~4 parole per riga invece di 2-3 */}
+      <Whisper text={t('text')} bg="canvas" size="lg" maxWidthCh={30} />
 
       {/* 03 — 5 esperienze scroll-driven sticky (la sezione cuore della home) */}
       <EsperienzeScroll />
