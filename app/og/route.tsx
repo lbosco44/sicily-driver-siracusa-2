@@ -22,8 +22,8 @@ export async function GET(request: NextRequest) {
   const subtitle =
     searchParams.get('subtitle') ||
     (searchParams.get('locale') === 'en'
-      ? 'Private NCC · Sicily Tours · Mercedes 24/7'
-      : 'NCC privato · Tour Sicilia · Mercedes 24/7');
+      ? 'Private NCC · Sicily Tours · Luxury vans 24/7'
+      : 'NCC privato · Tour Sicilia · Van di lusso 24/7');
 
   return new ImageResponse(
     (

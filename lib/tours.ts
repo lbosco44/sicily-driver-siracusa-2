@@ -154,7 +154,7 @@ const HUB_IT: TourHubContent = {
   metaTitle:
     'Tour Sicilia con Autista · Itinerari su Misura | Sicily Driver',
   metaDescription:
-    'Tour Sicilia con driver dedicato: Barocco, Etna, Ortigia, Isola delle Correnti, Silent Sailing. Mercedes, autisti professionisti, itinerari personalizzabili. 5 esperienze + tour su misura.',
+    'Tour Sicilia con driver dedicato: Barocco, Etna, Ortigia, Isola delle Correnti, Silent Sailing. Van di lusso, autisti professionisti, itinerari personalizzabili. 5 esperienze + tour su misura.',
 
   heroImage: HERO_DOLCE_VITA,
   heroEyebrow: 'Tour Sicilia · con autista privato',
@@ -165,7 +165,7 @@ const HUB_IT: TourHubContent = {
   introH2Pre: 'Cinque modi',
   introH2Accent: 'di vedere la Sicilia',
   introBody:
-    'Scopri la Sicilia con un driver dedicato: itinerari su misura, Mercedes di classe e autisti professionisti. Partenze da Siracusa, Catania, Noto, Ragusa, Taormina. Servizio attivo 24/7.',
+    'Scopri la Sicilia con un driver dedicato: itinerari su misura, van di lusso e autisti professionisti. Partenze da Siracusa, Catania, Noto, Ragusa, Taormina. Servizio attivo 24/7.',
 
   itinerariesEyebrow: 'Le esperienze',
   itinerariesH2Pre: 'Gli',
@@ -240,7 +240,7 @@ const HUB_IT: TourHubContent = {
   includedH2Pre: 'Cosa è',
   includedH2Accent: 'sempre incluso',
   included: [
-    'Mercedes Classe V, GLB Premium o Classe E, in base al numero di passeggeri',
+    'Van di lusso tra cui Mercedes Classe V, GLB Premium o Classe E, in base al numero di passeggeri',
     'Driver bilingue italiano-inglese',
     'Soste fotografiche su richiesta, sempre',
     'Acqua a bordo, anche in versione frizzante se preferisci',
@@ -275,7 +275,7 @@ const HUB_EN: TourHubContent = {
   metaTitle:
     'Sicily Tours with Private Driver · Custom Itineraries | Sicily Driver',
   metaDescription:
-    'Sicily tours with a dedicated driver: Baroque, Etna, Ortigia, Isola delle Correnti, Silent Sailing. Mercedes, English-speaking chauffeurs, fully customizable. 5 experiences + custom tours.',
+    'Sicily tours with a dedicated driver: Baroque, Etna, Ortigia, Isola delle Correnti, Silent Sailing. Luxury vans, English-speaking chauffeurs, fully customizable. 5 experiences + custom tours.',
 
   heroImage: HERO_DOLCE_VITA,
   heroEyebrow: 'Sicily tours · with a private driver',
@@ -361,7 +361,7 @@ const HUB_EN: TourHubContent = {
   includedH2Pre: 'What’s',
   includedH2Accent: 'always included',
   included: [
-    'Mercedes V-Class, GLB Premium or E-Class, based on your party size',
+    'Luxury vans including Mercedes V-Class, GLB Premium or E-Class, based on your party size',
     'English-speaking driver',
     'Photo stops on request, always',
     'Water on board, sparkling if you prefer',
@@ -401,7 +401,7 @@ const HUB_EN: TourHubContent = {
 // ============================================================
 
 const INCLUDED_BASE_IT = [
-  'Mercedes Classe V con autista',
+  'Van di lusso con autista',
   'Soste fotografiche libere',
   'Acqua a bordo',
   'Flessibilità sulla durata',
@@ -409,7 +409,7 @@ const INCLUDED_BASE_IT = [
 ];
 
 const INCLUDED_BASE_EN = [
-  'Mercedes V-Class with driver',
+  'Luxury van with driver',
   'Free photo stops',
   'Water on board',
   'Schedule flexibility',
@@ -425,20 +425,20 @@ const BAROCCO_IT: TourContent = {
   metaTitle:
     'Tour del Barocco: Noto, Modica & Ragusa in un Giorno — Sicily Driver',
   metaDescription:
-    'Tour del Barocco siciliano in giornata: Noto (Cattedrale di San Nicolò), Modica (cioccolato e San Pietro), Ragusa Ibla (Cattedrale di San Giorgio). Mercedes Classe V con autista. Da €380.',
+    'Tour del Barocco siciliano in giornata: Noto (Cattedrale di San Nicolò), Modica (cioccolato e San Pietro), Ragusa Ibla (Cattedrale di San Giorgio). Van di lusso con autista. Da €380.',
 
   heroImage: HERO_BAROCCO,
   heroEyebrow: 'Tour del Barocco · 6–8 ore · da Siracusa',
   h1: 'Tour del Barocco: Noto, Modica & Ragusa in un Giorno',
   heroSubhead:
-    'Tre città Patrimonio Unesco. Sei-otto ore. Una Mercedes Classe V che ti aspetta dove serve.',
+    'Tre città Patrimonio Unesco. Sei-otto ore. Un van di lusso che ti aspetta dove serve.',
 
   introH2Pre: 'Quello che',
   introH2Accent: 'vivrai',
   introBody: [
     'Vivi l’emozione del Tour del Barocco in Sicilia: un’esperienza indimenticabile tra le città di Noto, Modica e Ragusa. Scopri la maestosità delle facciate barocche, i palazzi storici e le chiese simbolo di una cultura artistica senza eguali.',
     'Partendo da Siracusa, ti accompagniamo attraverso le meraviglie di Noto con la sua Cattedrale di San Nicolò, proseguendo verso la suggestiva Modica, patria del pregiato cioccolato artigianale e della chiesa di San Pietro, fino alla celebre Ragusa Ibla con la magnifica Cattedrale di San Giorgio. Ogni tappa è studiata per offrirti comfort, storia e gusto autentico.',
-    'Questo tour privato NCC garantisce puntualità e professionalità dei nostri autisti, parco auto di lusso (Mercedes Classe V, GLB Premium, Classe E), itinerario personalizzabile e supporto 24/7.'
+    'Questo tour privato NCC garantisce puntualità e professionalità dei nostri autisti, parco auto di lusso (van tra cui Mercedes Classe V, GLB Premium, Classe E), itinerario personalizzabile e supporto 24/7.'
   ],
 
   numbersEyebrow: 'Il tour, in numeri',
@@ -492,7 +492,7 @@ const BAROCCO_IT: TourContent = {
   includedH2Pre: 'Cosa',
   includedH2Accent: 'è incluso, cosa no',
   included: [
-    'Mercedes Classe V con autista',
+    'Van di lusso con autista',
     'Soste fotografiche libere a Noto, Modica, Ragusa',
     'Acqua a bordo',
     'Flessibilità sulla durata (6–8h)',
@@ -516,7 +516,7 @@ const BAROCCO_IT: TourContent = {
     },
     {
       q: 'Quante persone massimo?',
-      a: 'Fino a 7 in Mercedes Classe V. Per gruppi più grandi possiamo organizzare 2 mezzi con due driver.'
+      a: 'Fino a 7 nel nostro van di lusso. Per gruppi più grandi possiamo organizzare 2 mezzi con due driver.'
     },
     {
       q: 'Posso aggiungere una degustazione di cioccolato a Modica?',
@@ -541,20 +541,20 @@ const BAROCCO_EN: TourContent = {
   metaTitle:
     'Baroque Tour: Noto, Modica & Ragusa in One Day — Sicily Driver',
   metaDescription:
-    'Sicilian Baroque Tour in one day: Noto (Cathedral of San Nicolò), Modica (chocolate and San Pietro), Ragusa Ibla (Cathedral of San Giorgio). Mercedes V-Class with private driver. From €380.',
+    'Sicilian Baroque Tour in one day: Noto (Cathedral of San Nicolò), Modica (chocolate and San Pietro), Ragusa Ibla (Cathedral of San Giorgio). Luxury van with private driver. From €380.',
 
   heroImage: HERO_BAROCCO,
   heroEyebrow: 'Baroque Tour · 6–8 hours · from Syracuse',
   h1: 'Baroque Tour: Noto, Modica & Ragusa in One Day',
   heroSubhead:
-    'Three UNESCO World Heritage cities. Six to eight hours. A Mercedes V-Class waiting where you need it.',
+    'Three UNESCO World Heritage cities. Six to eight hours. A luxury van waiting where you need it.',
 
   introH2Pre: 'What',
   introH2Accent: "you'll experience",
   introBody: [
     'Experience the magic of our Baroque Tour in Sicily: an unforgettable journey through the Baroque masterpieces of Noto, Modica, and Ragusa. Admire the intricate church façades, opulent palaces, and historic squares that showcase the island’s rich artistic heritage.',
     'Starting from Syracuse, we guide you to the majestic Cathedral of San Nicolò in Noto, then to the charming Church of San Pietro in Modica, famous for its artisanal chocolate, and finally to the enchanting Cathedral of San Giorgio in Ragusa Ibla. Each stop is designed to combine culture, comfort, and authentic Sicilian flavors.',
-    'This private NCC tour ensures punctuality and professionalism of our drivers, a luxury fleet (Mercedes V-Class, GLB Premium, E-Class), a customizable itinerary and 24/7 support.'
+    'This private NCC tour ensures punctuality and professionalism of our drivers, a luxury fleet (vans including Mercedes V-Class, GLB Premium, E-Class), a customizable itinerary and 24/7 support.'
   ],
 
   numbersEyebrow: 'The tour, by numbers',
@@ -608,7 +608,7 @@ const BAROCCO_EN: TourContent = {
   includedH2Pre: 'What’s',
   includedH2Accent: 'included, what’s not',
   included: [
-    'Mercedes V-Class with driver',
+    'Luxury van with driver',
     'Free photo stops in Noto, Modica, Ragusa',
     'Water on board',
     'Schedule flexibility (6–8h)',
@@ -632,7 +632,7 @@ const BAROCCO_EN: TourContent = {
     },
     {
       q: 'Maximum party size?',
-      a: 'Up to 7 in a Mercedes V-Class. For larger groups we can organize 2 vehicles with two drivers.'
+      a: 'Up to 7 in our luxury van. For larger groups we can organize 2 vehicles with two drivers.'
     },
     {
       q: 'Can I add a Modica chocolate tasting?',
@@ -661,7 +661,7 @@ const ETNA_IT: TourContent = {
   metaTitle:
     'Tour Etna Premium · Quad e Cantine Benanti | Sicily Driver',
   metaDescription:
-    'Etna tour da Siracusa: crateri Silvestri a 1.900m con quad, degustazione in cantina (Benanti, Palmeri), pranzo con vista. Mercedes con autista, giornata intera.',
+    'Etna tour da Siracusa: crateri Silvestri a 1.900m con quad, degustazione in cantina (Benanti, Palmeri), pranzo con vista. Van di lusso con autista, giornata intera.',
 
   heroImage: HERO_ETNA,
   heroEyebrow: 'Etna · giornata intera',
@@ -743,7 +743,7 @@ const ETNA_IT: TourContent = {
   includedH2Pre: 'Cosa',
   includedH2Accent: 'è incluso, cosa no',
   included: [
-    'Mercedes Classe V con autista',
+    'Van di lusso con autista',
     'Quad sui crateri Silvestri (1h, guida inclusa)',
     'Pranzo siciliano in cantina (4 portate)',
     'Degustazione di 4-5 vini con sommelier',
@@ -788,7 +788,7 @@ const ETNA_EN: TourContent = {
   metaTitle:
     'Etna Premium Tour · Quad & Benanti Winery | Sicily Driver',
   metaDescription:
-    'Etna tour from Syracuse: Silvestri craters at 1,900m by quad, winery tasting (Benanti, Palmeri), lunch with a view. Mercedes with private driver, full day.',
+    'Etna tour from Syracuse: Silvestri craters at 1,900m by quad, winery tasting (Benanti, Palmeri), lunch with a view. Luxury van with private driver, full day.',
 
   heroImage: HERO_ETNA,
   heroEyebrow: 'Etna · full day',
@@ -870,7 +870,7 @@ const ETNA_EN: TourContent = {
   includedH2Pre: 'What’s',
   includedH2Accent: 'included, what’s not',
   included: [
-    'Mercedes V-Class with driver',
+    'Luxury van with driver',
     'Quad on Silvestri craters (1h, guide included)',
     'Sicilian lunch at the winery (4 courses)',
     '4-5 wines tasting with sommelier',
@@ -919,7 +919,7 @@ const ISOLA_IT: TourContent = {
   metaTitle:
     'Isola delle Correnti & Pura Vida · Sud Sicilia | Sicily Driver',
   metaDescription:
-    'Tour giornaliero all’Isola delle Correnti (l’estremità sud della Sicilia) con Pura Vida Beach Club e Marzamemi al tramonto. Mercedes con autista, sosta lunch, sunset experience.',
+    'Tour giornaliero all’Isola delle Correnti (l’estremità sud della Sicilia) con Pura Vida Beach Club e Marzamemi al tramonto. Van di lusso con autista, sosta lunch, sunset experience.',
 
   heroImage: HERO_ISOLA,
   heroEyebrow: 'Sicilia sud · giornata intera',
@@ -996,7 +996,7 @@ const ISOLA_IT: TourContent = {
   includedH2Pre: 'Cosa',
   includedH2Accent: 'è incluso, cosa no',
   included: [
-    'Mercedes Classe V con autista',
+    'Van di lusso con autista',
     'Posto riservato al Pura Vida Beach Club (lettini + ombrelloni)',
     'Lunch in spiaggia al Pura Vida',
     'Sunset experience al Pura Vida con prosecco e tagliere',
@@ -1041,7 +1041,7 @@ const ISOLA_EN: TourContent = {
   metaTitle:
     'Isola delle Correnti · South Sicily Day Tour | Sicily Driver',
   metaDescription:
-    'Day tour to Isola delle Correnti (the southernmost point of Sicily) with Pura Vida Beach Club and sunset in Marzamemi. Mercedes with driver, beach lunch, sunset experience.',
+    'Day tour to Isola delle Correnti (the southernmost point of Sicily) with Pura Vida Beach Club and sunset in Marzamemi. Luxury van with driver, beach lunch, sunset experience.',
 
   heroImage: HERO_ISOLA,
   heroEyebrow: 'South Sicily · full day',
@@ -1118,7 +1118,7 @@ const ISOLA_EN: TourContent = {
   includedH2Pre: 'What’s',
   includedH2Accent: 'included, what’s not',
   included: [
-    'Mercedes V-Class with driver',
+    'Luxury van with driver',
     'Reserved spot at Pura Vida Beach Club (sunbeds + umbrellas)',
     'Beach lunch at Pura Vida',
     'Sunset experience with prosecco and platter',

@@ -2,7 +2,7 @@
   "Brand": {
     "name": "Sicily Driver Syracuse",
     "shortName": "Sicily Driver",
-    "tagline": "Sicily, in a Mercedes, at your own pace."
+    "tagline": "Sicily, in a luxury van, at your own pace."
   },
   "Nav": {
     "home": "Home",
@@ -135,14 +135,14 @@
   "Home": {
     "meta": {
       "title": "Sicily Driver Syracuse — Private NCC, Taxi & Airport Transfers in Sicily",
-      "description": "Private NCC service in Syracuse: airport transfers from Catania, Comiso, Pozzallo. Baroque, Etna and Ortigia tours with English-speaking Mercedes drivers. 24/7 WhatsApp booking."
+      "description": "Private NCC service in Syracuse: airport transfers from Catania, Comiso, Pozzallo. Baroque, Etna and Ortigia tours with English-speaking drivers. Luxury vans 24/7, WhatsApp booking."
     },
     "hero": {
       "a11yLabel": "Sicily Driver Syracuse — private guide for eastern Sicily",
       "h1Pre": "Your driver",
       "h1Punct": ".",
       "h1Post": "in Sicily",
-      "subhead": "Private transfers and tours. Mercedes, EN/IT, 24/7.",
+      "subhead": "Private transfers and tours. Luxury vans, EN/IT, 24/7.",
       "scrollCue": "Scroll",
       "ctaPrimary": "Contact us"
     },
@@ -178,16 +178,16 @@
     "manifesto": {
       "eyebrow": "What we do",
       "h2": "Private transfers, tours, events. All across Sicily.",
-      "body1": "Sicily Driver Syracuse is your partner for chauffeur-driven car services (NCC) across the whole of Sicily. We offer private transfers to and from all the island’s airports — Catania, Comiso, Palermo and Trapani — as well as connections to the ports of Pozzallo and Augusta. Travel in maximum comfort aboard our Mercedes V-Class, GLB Premium and E-Class, 24 hours a day.",
+      "body1": "Sicily Driver Syracuse is your partner for chauffeur-driven car services (NCC) across the whole of Sicily. We offer private transfers to and from all the island’s airports — Catania, Comiso, Palermo and Trapani — as well as connections to the ports of Pozzallo and Augusta. Travel in maximum comfort aboard our luxury vans — including Mercedes V-Class, GLB Premium and E-Class — 24 hours a day.",
       "body2": "Our bespoke tours reach the Baroque of Noto, Modica and Ragusa Ibla, the lunar landscapes of Etna, ancient Ortigia and the terraces of Taormina. The dedicated service is designed for weddings, corporate events and tailor-made travel."
     },
     "interni": {
       "eyebrow": "The cars",
       "h2": "Serviced every week.",
-      "body": "The cars are Mercedes V-Class, GLB Premium or E-Class. Weekly mechanical checks, sanitised after every service, cold water on board, Wi-Fi on request. People spend hours in the car: we make sure those hours feel quiet.",
-      "waterAlt": "Water bottle in the rear cup holder of the Mercedes V-Class",
-      "leatherAlt": "Detail of Mercedes leather seat",
-      "screenAlt": "Wi-Fi tablet on the headrest of the Mercedes V-Class",
+      "body": "Our luxury vans include Mercedes V-Class, GLB Premium and E-Class. Weekly mechanical checks, sanitised after every service, cold water on board, Wi-Fi on request. People spend hours in the car: we make sure those hours feel quiet.",
+      "waterAlt": "Water bottle in the rear cup holder of the luxury van",
+      "leatherAlt": "Detail of luxury van leather seat",
+      "screenAlt": "Wi-Fi tablet on the headrest of the luxury van",
       "caption": "The journey begins the moment you open the door. Even the long hours, between Catania and Marzamemi, pass lightly."
     },
     "mosaico": {
@@ -237,7 +237,7 @@
       "h2": "The most requested routes.",
       "cataniaSiracusaLabel": "Catania Airport → Syracuse",
       "cataniaSiracusaPrice": "from €80",
-      "cataniaSiracusaNote": "One-hour drive, Mercedes V-Class, flight tracking, child seats free.",
+      "cataniaSiracusaNote": "One-hour drive, luxury van, flight tracking, child seats free.",
       "cataniaTaorminaLabel": "Catania Airport → Taormina",
       "cataniaTaorminaPrice": "from €120",
       "cataniaTaorminaNote": "One hour along the Ionian coast, comfortable even at night.",
@@ -253,11 +253,11 @@
     "dietro": {
       "eyebrow": "Who drives",
       "h2": "Three bases. One family.",
-      "body1": "Sicily Driver Syracuse is a family business with three bases in Syracuse, Noto and Marzamemi. A Mercedes fleet that grows step by step, checked every week.",
+      "body1": "Sicily Driver Syracuse is a family business with three bases in Syracuse, Noto and Marzamemi. A luxury-van fleet that grows step by step, checked every week.",
       "body2": "The drivers speak fluent Italian and English — most have lived or worked abroad. They know the roads, where the palaces no guidebook mentions are, and where to actually eat well.",
       "body3": "From Catania to Marzamemi we don’t take shortcuts. We drive you where you need to go, we wait if the flight is late, we know where to stop for the right photos.",
       "cta": "Read the full story",
-      "alt": "Mercedes driver parked on a Val di Noto road at sunset"
+      "alt": "Luxury van parked on a Val di Noto road at sunset"
     },
     "testimonianze": {
       "eyebrow": "From those who’ve ridden",
@@ -365,7 +365,7 @@
   "Servizi": {
     "meta": {
       "title": "NCC Services Sicily · Transfers, Tours, Weddings | Sicily Driver",
-      "description": "Our services at Sicily Driver Syracuse: airport transfers, private tours, weddings and events, business. Mercedes with English-speaking driver, 24/7 across eastern Sicily."
+      "description": "Our services at Sicily Driver Syracuse: airport transfers, private tours, weddings and events, business. Luxury vans with English-speaking driver, 24/7 across eastern Sicily."
     },
     "hero": {
       "eyebrow": "Everything we do",
@@ -374,7 +374,7 @@
       "subhead": "Premium vehicles, professional drivers and tailor-made itineraries to explore Sicily in total comfort."
     },
     "intro": {
-      "body": "At Sicily Driver Syracuse we offer four ways of being driven around eastern Sicily, with the same Mercedes fleet and the same chauffeurs throughout: point-to-point airport transfers, private day tours, wedding and event service, business solutions for companies and VIP guests."
+      "body": "At Sicily Driver Syracuse we offer four ways of being driven around eastern Sicily, with the same luxury-van fleet and the same chauffeurs throughout: point-to-point airport transfers, private day tours, wedding and event service, business solutions for companies and VIP guests."
     },
     "cards": {
       "eyebrow": "Four ways to use us",
@@ -383,7 +383,7 @@
       "card1Number": "01",
       "card1Kicker": "Airport & port transfers",
       "card1Title": "Airport & port transfers",
-      "card1Body": "Catania, Comiso, Palermo, Trapani. Pozzallo and Augusta. From €80 per route in Mercedes V-Class.",
+      "card1Body": "Catania, Comiso, Palermo, Trapani. Pozzallo and Augusta. From €80 per route in a luxury van.",
       "card1Point1": "Real-time flight monitoring",
       "card1Point2": "Free waiting up to 60 minutes",
       "card1Point3": "Child seats at no extra cost",
@@ -392,7 +392,7 @@
       "card2Kicker": "Private Sicily tours",
       "card2Title": "Private Sicily tours",
       "card2Body": "Baroque, Etna, Ortigia + Taormina. Tours customised on request. 6–9 hours with bespoke stops.",
-      "card2Point1": "Mercedes V-Class with English-speaking driver",
+      "card2Point1": "Luxury van with English-speaking driver",
       "card2Point2": "Photo and food stops",
       "card2Point3": "Water and flexibility included",
       "card2Cta": "Explore the tours",
@@ -414,7 +414,7 @@
       "card4Cta": "Request a proposal"
     },
     "fleet": {
-      "eyebrow": "Mercedes",
+      "eyebrow": "The fleet",
       "h2Pre": "The",
       "h2Accent": "fleet",
       "card1Model": "V-Class — the workhorse of the fleet",
@@ -461,13 +461,13 @@
   "ChiSiamo": {
     "meta": {
       "title": "About · The story of Sicily Driver Syracuse | NCC Sicily",
-      "description": "Sicily Driver Syracuse was born from a passion for high-quality NCC services. Three bases (Syracuse, Noto, Marzamemi), a curated Mercedes fleet, English-speaking drivers."
+      "description": "Sicily Driver Syracuse was born from a passion for high-quality NCC services. Three bases (Syracuse, Noto, Marzamemi), a curated luxury-van fleet, English-speaking drivers."
     },
     "hero": {
       "eyebrow": "Our story",
       "h1Pre": "Sicily Driver,",
       "h1Accent": "a Sicilian story",
-      "subhead": "Three bases, a Mercedes fleet looked after like family, drivers who speak real English — not Google Translate English."
+      "subhead": "Three bases, a luxury-van fleet looked after like family, drivers who speak real English — not Google Translate English."
     },
     "story": {
       "eyebrow": "About us",
@@ -483,7 +483,7 @@
       "h2Accent": "convictions",
       "item1Title": "No surprise pricing",
       "item1Body": "From Catania to Marzamemi, fare agreed before departure. No hidden surcharges, no mysterious 'night rate'.",
-      "item2Title": "Mercedes serviced weekly",
+      "item2Title": "Vans serviced weekly",
       "item2Body": "V-Class, GLB Premium, E-Class. Weekly mechanical checks, sanitised after every service. Cold water on board, always.",
       "item3Title": "Real bilingual drivers",
       "item3Body": "Our chauffeurs speak fluent Italian and English. They know the roads, the mass times in Modica, and where to actually eat well in Ortigia."

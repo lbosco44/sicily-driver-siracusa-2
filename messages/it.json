@@ -2,7 +2,7 @@
   "Brand": {
     "name": "Sicily Driver Siracusa",
     "shortName": "Sicily Driver",
-    "tagline": "Sicilia, in Mercedes, al tuo ritmo."
+    "tagline": "Sicilia, in van di lusso, al tuo ritmo."
   },
   "Nav": {
     "home": "Home",
@@ -135,14 +135,14 @@
   "Home": {
     "meta": {
       "title": "NCC Siracusa · Tour Sicilia con Autista | Sicily Driver",
-      "description": "Servizio NCC a Siracusa: transfer privati da Catania, Comiso e Pozzallo. Tour del Barocco, Etna, Ortigia con autista. Mercedes 24/7, prenotazione WhatsApp."
+      "description": "Servizio NCC a Siracusa: transfer privati da Catania, Comiso e Pozzallo. Tour del Barocco, Etna, Ortigia con autista. Van di lusso 24/7, prenotazione WhatsApp."
     },
     "hero": {
       "a11yLabel": "Sicily Driver Siracusa — guida privata per la Sicilia orientale",
       "h1Pre": "Il tuo NCC",
       "h1Punct": ".",
       "h1Post": "in Sicilia",
-      "subhead": "Transfer e tour privati. Mercedes, IT/EN, 24/7.",
+      "subhead": "Transfer e tour privati. Van di lusso, IT/EN, 24/7.",
       "scrollCue": "Scorri",
       "ctaPrimary": "Contattaci"
     },
@@ -178,16 +178,16 @@
     "manifesto": {
       "eyebrow": "Cosa facciamo",
       "h2": "Transfer privati, tour, eventi. In tutta la Sicilia.",
-      "body1": "Sicily Driver Siracusa è il tuo partner per il noleggio con conducente (NCC) in tutta la Sicilia. Offriamo transfer privati da e per tutti gli aeroporti dell’isola — Catania, Comiso, Palermo e Trapani — oltre a collegamenti con i porti di Pozzallo e Augusta. Viaggia in massima comodità a bordo delle nostre Mercedes Classe V, GLB Premium e Classe E, con servizio 24 ore su 24.",
+      "body1": "Sicily Driver Siracusa è il tuo partner per il noleggio con conducente (NCC) in tutta la Sicilia. Offriamo transfer privati da e per tutti gli aeroporti dell’isola — Catania, Comiso, Palermo e Trapani — oltre a collegamenti con i porti di Pozzallo e Augusta. Viaggia in massima comodità a bordo dei nostri van di lusso — tra cui Mercedes Classe V, GLB Premium e Classe E — con servizio 24 ore su 24.",
       "body2": "I nostri tour su misura raggiungono il Barocco di Noto, Modica e Ragusa Ibla, i paesaggi lunari dell’Etna, l’antica Ortigia e le terrazze di Taormina. Il servizio dedicato è pensato per matrimoni, eventi aziendali e viaggi su misura."
     },
     "interni": {
       "eyebrow": "Le auto",
       "h2": "Curate ogni settimana.",
-      "body": "Le auto sono Mercedes Classe V, GLB Premium o Classe E. Controlli meccanici settimanali, sanificazione a ogni servizio, acqua fresca a bordo, Wi-Fi su richiesta. Le persone passano ore in macchina: pensiamo noi a renderle silenziose.",
-      "waterAlt": "Bottiglia d’acqua nel portabicchiere posteriore della Mercedes Classe V",
-      "leatherAlt": "Dettaglio sedile in pelle Mercedes",
-      "screenAlt": "Tablet Wi-Fi sul poggiatesta della Mercedes Classe V",
+      "body": "I nostri van di lusso includono Mercedes Classe V, GLB Premium e Classe E. Controlli meccanici settimanali, sanificazione a ogni servizio, acqua fresca a bordo, Wi-Fi su richiesta. Le persone passano ore in macchina: pensiamo noi a renderle silenziose.",
+      "waterAlt": "Bottiglia d’acqua nel portabicchiere posteriore del van di lusso",
+      "leatherAlt": "Dettaglio sedile in pelle del van di lusso",
+      "screenAlt": "Tablet Wi-Fi sul poggiatesta del van di lusso",
       "caption": "Il viaggio comincia dal momento in cui apri la porta. Anche le ore lunghe, fra Catania e Marzamemi, passano leggere."
     },
     "mosaico": {
@@ -237,7 +237,7 @@
       "h2": "Le tratte più richieste.",
       "cataniaSiracusaLabel": "Aeroporto Catania → Siracusa",
       "cataniaSiracusaPrice": "da €80",
-      "cataniaSiracusaNote": "Un’ora di strada, Mercedes Classe V, monitoraggio volo, seggiolini gratis.",
+      "cataniaSiracusaNote": "Un’ora di strada, van di lusso, monitoraggio volo, seggiolini gratis.",
       "cataniaTaorminaLabel": "Aeroporto Catania → Taormina",
       "cataniaTaorminaPrice": "da €120",
       "cataniaTaorminaNote": "Un’ora lungo la costa ionica, comoda anche di sera.",
@@ -253,11 +253,11 @@
     "dietro": {
       "eyebrow": "Chi guida",
       "h2": "Tre sedi. Una famiglia.",
-      "body1": "Sicily Driver Siracusa è un’attività di famiglia con tre sedi tra Siracusa, Noto e Marzamemi. Una flotta Mercedes che cresce per gradi, controllata ogni settimana.",
+      "body1": "Sicily Driver Siracusa è un’attività di famiglia con tre sedi tra Siracusa, Noto e Marzamemi. Una flotta di van di lusso che cresce per gradi, controllata ogni settimana.",
       "body2": "I driver parlano italiano e inglese fluentemente — la maggior parte ha vissuto o lavorato all’estero. Conoscono le strade, sanno dove sono i palazzi che non vedrai su nessuna guida, e dove si mangia davvero bene.",
       "body3": "Da Catania a Marzamemi non prendiamo scorciatoie. Ti portiamo dove devi andare, ti aspettiamo se il volo ritarda, sappiamo dove fare le foto giuste.",
       "cta": "La storia per intero",
-      "alt": "Driver Mercedes parcheggiato in una strada del Val di Noto al tramonto"
+      "alt": "Van di lusso parcheggiato in una strada del Val di Noto al tramonto"
     },
     "testimonianze": {
       "eyebrow": "Da chi è già salito",
@@ -365,7 +365,7 @@
   "Servizi": {
     "meta": {
       "title": "Servizi NCC Sicilia · Transfer, Tour, Wedding | Sicily Driver",
-      "description": "I servizi di Sicily Driver Siracusa: transfer aeroportuali, tour privati, wedding & eventi, business. Mercedes con autista bilingue, 24/7 in Sicilia orientale."
+      "description": "I servizi di Sicily Driver Siracusa: transfer aeroportuali, tour privati, wedding & eventi, business. Van di lusso con autista bilingue, 24/7 in Sicilia orientale."
     },
     "hero": {
       "eyebrow": "Tutto quello che facciamo",
@@ -374,7 +374,7 @@
       "subhead": "Veicoli premium, autisti professionisti e itinerari su misura per scoprire la Sicilia in totale comfort."
     },
     "intro": {
-      "body": "Da Sicily Driver Siracusa offriamo quattro modi di accompagnarti in Sicilia, sempre con la stessa flotta Mercedes e gli stessi autisti: transfer aeroportuali punto-a-punto, tour privati in giornata, servizio wedding ed eventi, soluzioni business per aziende e ospiti VIP."
+      "body": "Da Sicily Driver Siracusa offriamo quattro modi di accompagnarti in Sicilia, sempre con la stessa flotta di van di lusso e gli stessi autisti: transfer aeroportuali punto-a-punto, tour privati in giornata, servizio wedding ed eventi, soluzioni business per aziende e ospiti VIP."
     },
     "cards": {
       "eyebrow": "Quattro modi di usarci",
@@ -383,7 +383,7 @@
       "card1Number": "01",
       "card1Kicker": "Transfer aeroporti e porti",
       "card1Title": "Transfer aeroporti e porti",
-      "card1Body": "Catania, Comiso, Palermo, Trapani. Pozzallo e Augusta. Da €80 a tratta in Mercedes Classe V.",
+      "card1Body": "Catania, Comiso, Palermo, Trapani. Pozzallo e Augusta. Da €80 a tratta in van di lusso.",
       "card1Point1": "Monitoraggio voli in tempo reale",
       "card1Point2": "Attesa gratuita fino a 60 minuti",
       "card1Point3": "Seggiolini bambino senza costi extra",
@@ -392,7 +392,7 @@
       "card2Kicker": "Tour privati in Sicilia",
       "card2Title": "Tour privati in Sicilia",
       "card2Body": "Barocco, Etna, Ortigia + Taormina. Tour personalizzati su richiesta. 6–9 ore con soste su misura.",
-      "card2Point1": "Mercedes Classe V con autista bilingue",
+      "card2Point1": "Van di lusso con autista bilingue",
       "card2Point2": "Soste fotografiche e gastronomiche",
       "card2Point3": "Acqua e flessibilità inclusi",
       "card2Cta": "Esplora i tour",
@@ -414,7 +414,7 @@
       "card4Cta": "Richiedi una proposta"
     },
     "fleet": {
-      "eyebrow": "Mercedes",
+      "eyebrow": "La flotta",
       "h2Pre": "La",
       "h2Accent": "flotta",
       "card1Model": "Classe V — il workhorse della flotta",
@@ -461,20 +461,20 @@
   "ChiSiamo": {
     "meta": {
       "title": "Chi siamo · La storia di Sicily Driver Siracusa | NCC Sicilia",
-      "description": "Sicily Driver Siracusa nasce dalla passione per i servizi NCC di qualità. Tre sedi (Siracusa, Noto, Marzamemi), una flotta Mercedes curata, autisti bilingue."
+      "description": "Sicily Driver Siracusa nasce dalla passione per i servizi NCC di qualità. Tre sedi (Siracusa, Noto, Marzamemi), una flotta di van di lusso curata, autisti bilingue."
     },
     "hero": {
       "eyebrow": "La storia",
       "h1Pre": "Sicily Driver,",
       "h1Accent": "una storia siciliana",
-      "subhead": "Tre sedi, una flotta Mercedes curata come fosse di casa, autisti che parlano italiano e inglese — l'inglese vero, non quello di Google Translate."
+      "subhead": "Tre sedi, una flotta di van di lusso curata come fosse di casa, autisti che parlano italiano e inglese — l'inglese vero, non quello di Google Translate."
     },
     "story": {
       "eyebrow": "Chi siamo",
       "h2Pre": "Una realtà",
       "h2Accent": "giovane e dinamica",
       "body1": "Sicily Driver Siracusa è una realtà giovane e dinamica, nata dalla passione per i servizi di NCC e transfer di alta qualità. Da Siracusa abbiamo iniziato accompagnando turisti, sposi, ospiti d'albergo e famiglie tra le strade della Sicilia orientale.",
-      "body2": "Grazie al nostro parco auto selezionato e all'attenzione al dettaglio, garantiamo puntualità e cortesia in ogni spostamento. Mercedes Classe V, GLB Premium e Classe E, controlli meccanici settimanali, sanificazione a ogni servizio.",
+      "body2": "Grazie al nostro parco auto selezionato e all'attenzione al dettaglio, garantiamo puntualità e cortesia in ogni spostamento. Van di lusso tra cui Mercedes Classe V, GLB Premium e Classe E, controlli meccanici settimanali, sanificazione a ogni servizio.",
       "body3": "Scegliere Sicily Driver Siracusa significa affidarsi a un partner dedicato: dai transfer aeroportuali, ai servizi NCC per eventi, fino alle escursioni e tour privati. Niente brochure, niente promesse di «eccellenza». Si vede dal viaggio."
     },
     "beliefs": {
@@ -483,7 +483,7 @@
       "h2Accent": "convinzioni",
       "item1Title": "Prezzi senza sorprese",
       "item1Body": "Da Catania a Marzamemi, tariffa concordata prima di partire. Niente supplementi nascosti, niente «tariffa notturna» misteriosa.",
-      "item2Title": "Mercedes curate ogni settimana",
+      "item2Title": "Van curati ogni settimana",
       "item2Body": "Classe V, GLB Premium, Classe E. Controlli meccanici settimanali, sanificazione a ogni servizio. Acqua fresca a bordo, sempre.",
       "item3Title": "Driver bilingue veri",
       "item3Body": "I nostri autisti parlano italiano e inglese fluentemente. Conoscono le strade, gli orari delle messe a Modica e dove si mangia davvero bene a Ortigia."

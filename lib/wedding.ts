@@ -134,7 +134,7 @@ const WEDDING_IT: WeddingContent = {
   metaTitle:
     'Wedding Sicilia — Auto d’Epoca, Navetta Ospiti, Consulenza Borghi | Sicily Driver',
   metaDescription:
-    'Servizio wedding in Sicilia orientale: 6 auto d’epoca tutte revisionate, navetta ospiti Mercedes, consulenza sui borghi dove sposarsi (Noto, Marzamemi, Scicli, Val di Noto).',
+    'Servizio wedding in Sicilia orientale: 6 auto d’epoca tutte revisionate, navetta ospiti in van di lusso, consulenza sui borghi dove sposarsi (Noto, Marzamemi, Scicli, Val di Noto).',
 
   heroImage: HERO_WEDDING,
   heroEyebrow: 'Wedding · Sicilia orientale',
@@ -204,7 +204,7 @@ const WEDDING_IT: WeddingContent = {
   shuttleEyebrow: 'Per gli invitati',
   shuttleH2: 'Navetta ospiti — gli invitati al loro posto',
   shuttleBody:
-    'La logistica del wedding è il dettaglio che fa la differenza per gli invitati. Coordiniamo una Mercedes Classe V (fino a 7 persone) o più mezzi in parallelo per i transfer ospiti: pickup hotel/aeroporti, transfer alle location della cerimonia e del ricevimento, rientro fine serata. Un solo numero WhatsApp di riferimento per ogni driver, tu pensi al resto.',
+    'La logistica del wedding è il dettaglio che fa la differenza per gli invitati. Coordiniamo un van di lusso (fino a 7 persone) o più mezzi in parallelo per i transfer ospiti: pickup hotel/aeroporti, transfer alle location della cerimonia e del ricevimento, rientro fine serata. Un solo numero WhatsApp di riferimento per ogni driver, tu pensi al resto.',
   shuttleIncludesLabel: 'Cosa include il servizio',
   shuttleIncludes: [
     'Pickup multipli da hotel diversi',
@@ -340,7 +340,7 @@ const WEDDING_EN: WeddingContent = {
   metaTitle:
     'Sicily Wedding — Vintage Cars, Guest Shuttle, Village Advice | Sicily Driver',
   metaDescription:
-    'Wedding service in eastern Sicily: 6 fully serviced vintage cars, Mercedes guest shuttle, advice on villages to marry in (Noto, Marzamemi, Scicli, Val di Noto).',
+    'Wedding service in eastern Sicily: 6 fully serviced vintage cars, luxury-van guest shuttle, advice on villages to marry in (Noto, Marzamemi, Scicli, Val di Noto).',
 
   heroImage: HERO_WEDDING,
   heroEyebrow: 'Wedding · eastern Sicily',
@@ -409,7 +409,7 @@ const WEDDING_EN: WeddingContent = {
   shuttleEyebrow: 'For the guests',
   shuttleH2: 'Guest shuttle — your guests in their place',
   shuttleBody:
-    'Wedding logistics is the detail that makes the difference for guests. We coordinate a Mercedes V-Class (up to 7 people) or multiple vehicles in parallel for guest transfers: pickup hotel/airports, transfer to ceremony and reception locations, return at the end of the evening. One single WhatsApp number per driver, you focus on the rest.',
+    'Wedding logistics is the detail that makes the difference for guests. We coordinate a luxury van (up to 7 people) or multiple vehicles in parallel for guest transfers: pickup hotel/airports, transfer to ceremony and reception locations, return at the end of the evening. One single WhatsApp number per driver, you focus on the rest.',
   shuttleIncludesLabel: 'What the service includes',
   shuttleIncludes: [
     'Multiple pickups from different hotels',
