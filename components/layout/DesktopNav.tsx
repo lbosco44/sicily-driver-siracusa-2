@@ -43,9 +43,20 @@ export function DesktopNav({labels}: {labels: NavLabels}) {
       </HomeLink>
       <NavItem href="/servizi" label={labels.services} pathname={pathname} />
 
-      {/* Tour Sicilia con dropdown */}
+      {/* Tour Sicilia con dropdown.
+          Il wrapper deve essere inline-flex items-center h-5 per evitare che
+          il suo line-box (block default = line-height ~28px) crei un baseline
+          diverso dagli altri NavItem (che sono Link inline-flex h-5 DIRETTI,
+          flex-items del <nav>). Senza questo, il Link interno "TOUR SICILIA"
+          sembra disallineato verticalmente (anche di 1-2px) rispetto agli
+          altri 4 items perché viene posizionato sul baseline del line-box del
+          wrapper invece che sul center del flex-item.
+          Il chevron SVG (size-3, viewBox 24x24 con polyline solo y=9→15) ha
+          contenuto visivo nel range centrale del bounding box, ma items-center
+          + leading-none lo allinea correttamente quando il wrapper stesso è
+          flex. */}
       <div
-        className="relative"
+        className="relative inline-flex items-center h-5"
         onMouseEnter={() => setTourOpen(true)}
         onMouseLeave={() => setTourOpen(false)}
       >
@@ -60,7 +71,7 @@ export function DesktopNav({labels}: {labels: NavLabels}) {
         >
           {labels.tours}
           <ChevronDownIcon
-            className={`size-3 transition-transform duration-300 ${
+            className={`size-3 shrink-0 transition-transform duration-300 ${
               tourOpen ? 'rotate-180' : ''
             }`}
             aria-hidden="true"
