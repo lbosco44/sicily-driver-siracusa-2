@@ -52,7 +52,7 @@ export function Hero() {
         style={{height: '100lvh'}}
       >
         <Image
-          src="/images/home/hero.jpeg"
+          src="/images/home/hero.webp"
           alt=""
           fill
           priority
