@@ -33,7 +33,7 @@ export function DesktopNav({labels}: {labels: NavLabels}) {
       aria-label="Primary"
     >
       <HomeLink
-        className={`inline-flex items-center text-[13px] uppercase tracking-[0.08em] font-medium leading-none transition-colors ${
+        className={`inline-flex items-center h-5 text-[13px] uppercase tracking-[0.08em] font-medium leading-none transition-colors ${
           pathname === '/'
             ? 'text-accent'
             : 'text-ink/75 hover:text-accent'
@@ -54,7 +54,7 @@ export function DesktopNav({labels}: {labels: NavLabels}) {
           onFocus={() => setTourOpen(true)}
           aria-expanded={tourOpen}
           aria-haspopup="true"
-          className={`inline-flex items-center gap-1 text-[13px] uppercase tracking-[0.08em] font-medium leading-none transition-colors ${
+          className={`inline-flex items-center gap-1 h-5 text-[13px] uppercase tracking-[0.08em] font-medium leading-none transition-colors ${
             isTourActive ? 'text-accent' : 'text-ink/75 hover:text-accent'
           }`}
         >
@@ -137,7 +137,7 @@ function NavItem({
     <Link
       href={href}
       aria-current={isActive ? 'page' : undefined}
-      className={`inline-flex items-center text-[13px] uppercase tracking-[0.08em] font-medium leading-none transition-colors ${
+      className={`inline-flex items-center h-5 text-[13px] uppercase tracking-[0.08em] font-medium leading-none transition-colors ${
         isActive ? 'text-accent' : 'text-ink/75 hover:text-accent'
       }`}
     >
