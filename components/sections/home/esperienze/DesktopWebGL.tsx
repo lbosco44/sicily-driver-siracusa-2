@@ -309,7 +309,13 @@ export function DesktopWebGL() {
       const entry = entryProgressRef.current;
 
       const idx = Math.min(Math.floor(p), N - 2);
-      const fracRaw = p - Math.floor(p);
+      // fracRaw deve usare `idx` (cappato a N-2), non Math.floor(p): quando
+      // p raggiunge N-1 (ultima scena) Math.floor(p) torna N-1 mentre idx
+      // resta a N-2, e fracRaw=p-Math.floor(p)=0 reset-erebbe la transizione
+      // a "inizio" mostrando fromTex=textures[N-2] invece della scena finale.
+      // Con p - idx, a p=N-1 fracRaw=1 -> wipe completo -> toTex=textures[N-1]
+      // mostrata correttamente.
+      const fracRaw = p - idx;
       const frac = Math.min(1, Math.max(0, fracRaw));
 
       // momentum reagisce sia allo scroll dello slide-progress che all'entry-progress
