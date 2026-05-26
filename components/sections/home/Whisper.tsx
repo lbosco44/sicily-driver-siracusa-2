@@ -61,7 +61,7 @@ export function Whisper({
       className={`relative ${bgClass[bg]} py-32 sm:py-48 lg:py-56 overflow-hidden`}
     >
       <div
-        className={`relative mx-auto max-w-(--container-narrow) px-6 sm:px-10 flex flex-col gap-8 ${alignClass}`}
+        className={`relative mx-auto px-6 sm:px-10 flex flex-col gap-8 ${alignClass}`}
       >
         {eyebrow && (
           <motion.p
