@@ -212,6 +212,35 @@ questo progetto. Chiedere conferma SOLO se la modifica include file sensibili
 (`.env*`, credenziali, file con secrets) o se è una destructive operation
 (reset --hard, force push, rm -rf, ecc.).
 
+## Branch strategy + Vercel deploy
+
+**Preferenza esplicita del cliente (26 maggio 2026):**
+
+Claude lavora **sempre sul branch corrente** (non su `main`), tipicamente
+un branch tipo `claude/<slug>` creato dal worktree. Pattern:
+
+1. **Push automatico → branch remoto** (non `main`). Vercel costruisce
+   automaticamente un **preview deploy** all'URL del branch
+   (`<project>-git-<branch>-<team>.vercel.app`).
+2. **Per portare in produzione**: serve mergiare la PR su `main`.
+   Production deploy automatico di Vercel su push a `main` →
+   dominio reale aggiornato in ~2 min.
+
+**Workflow operativo:**
+- Claude raggruppa modifiche logicamente connesse sul branch
+- Quando un gruppo è completo e verificato (tsc + tests), Claude apre
+  (o aggiorna) una PR verso `main` con changelog dettagliato
+- Il cliente verifica sul preview URL (Vercel posta il link nel commento PR)
+- Il cliente fa merge della PR quando vuole portare in produzione
+
+**NON pushare mai direttamente a `main`** senza permesso esplicito del
+cliente. Anche se il cliente dice "fai sempre commit e push", il push va
+sul branch di lavoro, non su main.
+
+**Eccezione**: se il cliente dice esplicitamente "merge", "vai live",
+"manda in produzione", "deploy now" o equivalente, Claude può fare
+fast-forward merge del branch su main e pushare.
+
 ---
 
-*Template Nexus v3.0 — Ultimo aggiornamento: 26 maggio 2026 (workflow commit+push automatico)*
+*Template Nexus v3.0 — Ultimo aggiornamento: 26 maggio 2026 (workflow commit+push automatico + branch strategy Vercel)*
