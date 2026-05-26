@@ -79,16 +79,18 @@ export function Hero() {
           transition={{duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.15}}
         >
           <h1
-            className="font-display font-medium text-cream-on-dark whitespace-nowrap"
+            className="font-display font-medium text-cream-on-dark"
             style={{
               fontSize: 'clamp(28px, 7vw, 104px)',
               fontStretch: '95%',
               letterSpacing: '-0.025em',
-              lineHeight: '1',
+              lineHeight: '1.05',
               textShadow: '0 2px 24px rgba(0,0,0,0.3)'
             }}
           >
-            {t('h1Pre')} {t('h1Post')}
+            {t('h1Pre')},
+            <br />
+            {t('h1Post')}
             <span className="text-accent-decorative">{t('h1Punct')}</span>
           </h1>
 
