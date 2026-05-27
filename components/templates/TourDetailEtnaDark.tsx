@@ -40,23 +40,29 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
 
   return (
     <div className="tour-etna-page" style={{backgroundColor: ETNA_BLACK, color: 'var(--cream-on-dark)'}}>
-      {/* 01 — HERO cinematic ultra-dark */}
+      {/* 01 — HERO cinematic ultra-dark con video background.
+            Cliente 27/05/2026: aggiunto video-hero.mp4 in loop muto al posto
+            dell'Image. autoPlay + muted + loop + playsInline = standard per
+            video background autoplayable su tutti i browser (Safari iOS
+            blocca autoplay con audio, ma muted lo permette).
+            preload="auto" perche' e' above-the-fold critical content.
+            Image rimane come poster fallback per reduced-motion / no-video
+            browsers / preload prima del primo frame. */}
       <section className="hero-stage relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <Image
-            src={tour.heroImage}
-            alt=""
-            fill
-            priority
-            fetchPriority="high"
-            sizes={HERO_SIZES}
-            quality={85}
-            placeholder="blur"
-            blurDataURL={HERO_BLUR}
-            className="object-cover"
+          <video
+            src="/images/tour-etna/video-hero.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster={tour.heroImage}
+            className="absolute inset-0 w-full h-full object-cover"
             style={{filter: 'saturate(0.85) brightness(0.65) contrast(1.1)'}}
+            aria-hidden="true"
           />
-          {/* Overlay neutro per leggibilità testo — niente più sfumatura rossa */}
+          {/* Overlay neutro per leggibilità testo */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/85" />
         </div>
 
