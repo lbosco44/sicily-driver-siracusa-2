@@ -102,7 +102,9 @@ vec2 brownConrady(vec2 uv, float k1, float k2) {
 }
 
 vec2 barrelEdge(vec2 uv) {
-  float k = 0.18 * momentum;
+  // 0.09 (giu' da 0.18): bending laterale piu' leggero, l'immagine si curva
+  // meno durante il wipe. Il cliente trova 0.18 "troppo esagerato".
+  float k = 0.09 * momentum;
   uv = brownConrady(uv, k, k);
   float scale = abs(k) < 1.0 ? 1.0 - abs(k) : 1.0 / (k + 1.0);
   return uv * scale - (scale * 0.5) + 0.5;
@@ -200,7 +202,14 @@ export function DesktopWebGL() {
   // Con ENTRY_VH=0 (niente fase entry animata), inizializziamo direttamente
   // a 1 per evitare il flash nero iniziale.
   const entryProgressRef = useRef(ENTRY_VH > 0 ? 0 : 1);
+  // slideProgressRef: TARGET value, aggiornato instantaneo dal scroll listener.
+  // slideSmoothedRef: VALORE EFFETTIVO usato per il rendering, LERPa verso il
+  // target con un fattore costante per frame → quando l'utente lascia la
+  // rotella, smoothed continua a inseguire il target per qualche frame ancora,
+  // dando il feel "morbido / inerziale" stile AndAgain. Senza questo, lo
+  // scroll si sente come un ingranaggio (1:1 con la rotella).
   const slideProgressRef = useRef(0);
+  const slideSmoothedRef = useRef(0);
   const momentumRef = useRef(0);
   const lastSlideProgressRef = useRef(0);
   // Ref parallelo a hasDrawn state, per evitare setState ridondanti nel loop RAF.
@@ -350,7 +359,18 @@ export function DesktopWebGL() {
 
       if (loadedCount < N) return;
 
-      const p = slideProgressRef.current;
+      // LERP smoothing: slideSmoothedRef insegue slideProgressRef (target)
+      // con un fattore costante per frame. Lambda 0.08 ≈ ~0.85s per arrivare
+      // al 95% del target a 60fps. Questo significa che quando l'utente lascia
+      // la rotella, smoothed continua a inseguire per ~10-20 frame ancora →
+      // sensazione "inerziale morbida" anziche' "ingranaggio 1:1".
+      // Se aumenti lambda (es. 0.15) → scroll piu' diretto / meno inerzia.
+      // Se diminuisci (es. 0.04) → scroll molto morbido / quasi galleggia.
+      const LERP_LAMBDA = 0.08;
+      slideSmoothedRef.current +=
+        (slideProgressRef.current - slideSmoothedRef.current) * LERP_LAMBDA;
+
+      const p = slideSmoothedRef.current;
       const entry = entryProgressRef.current;
 
       // idx cappato a N-1 (non N-2): cosi' all'ultima scena (p=N-1)
@@ -362,9 +382,12 @@ export function DesktopWebGL() {
       const fracRaw = p - idx;
       const frac = Math.min(1, Math.max(0, fracRaw));
 
-      // momentum reagisce sia allo scroll dello slide-progress che all'entry-progress
+      // momentum reagisce alla VELOCITA' di p smoothed (non al target raw),
+      // quindi gli slideDelta sono piccoli per frame anche su scroll rapidi.
+      // 1.4 (giu' da 2.5): peak momentum piu' basso → barrel/chromatic meno
+      // marcati, sensazione "morbida" anziche' "frusta".
       const slideDelta = Math.abs(p - lastSlideProgressRef.current);
-      momentumRef.current += slideDelta * 2.5;
+      momentumRef.current += slideDelta * 1.4;
       lastSlideProgressRef.current = p;
 
       // Boost di curvatura barrel + chromatic durante l'entry.
@@ -407,7 +430,11 @@ export function DesktopWebGL() {
         transitionProgress: frac,
         bow: 0.5 - frac,
         momentum: totalMomentum,
-        edgeIntensity: Math.min(0.7, entryEdge + momentumRef.current * 0.35),
+        // Cap 0.4 (giu' da 0.7): chromatic aberration meno pronunciato sul
+        // peak. Multiplier 0.20 (giu' da 0.35): risposta meno sensibile al
+        // momentum. Insieme alla LERP smoothing e al k=0.09 nel barrel,
+        // l'effetto e' "morbido" anziche' "frusta".
+        edgeIntensity: Math.min(0.4, entryEdge + momentumRef.current * 0.20),
         paddingX: paddingX_px,
         paddingTop: paddingTop_px,
         paddingBottom: paddingBottom_px,
@@ -425,8 +452,11 @@ export function DesktopWebGL() {
         setHasDrawn(true);
       }
 
-      // damp momentum 20% per frame
-      momentumRef.current += (0 - momentumRef.current) * 0.2;
+      // Damp momentum 7% per frame (giu' da 20%). Con dampening alto (20%)
+      // il momentum spariva in 5-6 frame → effetto "frusta" che inizia forte
+      // e finisce di colpo. Con 7% sparisce in ~20-30 frame → fade morbido,
+      // l'utente percepisce il bending che si attenua gradualmente.
+      momentumRef.current += (0 - momentumRef.current) * 0.07;
     }
 
     return () => {
