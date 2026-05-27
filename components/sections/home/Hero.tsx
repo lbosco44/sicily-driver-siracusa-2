@@ -52,7 +52,7 @@ export function Hero() {
         style={{height: '100lvh'}}
       >
         <Image
-          src="/images/home/hero.webp"
+          src="/images/home/hero.jpeg"
           alt=""
           fill
           priority
@@ -88,8 +88,6 @@ export function Hero() {
               textShadow: '0 2px 24px rgba(0,0,0,0.3)'
             }}
           >
-            {t('h1Pre')},
-            <br />
             {t('h1Post')}
             <span className="text-accent-decorative">{t('h1Punct')}</span>
           </h1>
