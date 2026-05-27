@@ -23,17 +23,15 @@ type PartnerLogo = {
 };
 
 const PARTNERS: PartnerLogo[] = [
-  // Partner gia' citati in lib/partners.ts (pagina /partner) + posti
-  // tipicamente legati al servizio NCC premium siciliano. Placeholder
-  // per ora, il cliente sostituira' con i file reali in
-  // public/images/loghi-partner/. Solo "pura-vita.svg" e' gia' presente
-  // (caricato 27/05/2026).
+  // I 4 partner reali con loghi caricati dal cliente in
+  // public/images/loghi-partner/ il 27/05/2026.
+  // Per aggiungerne altri: droppa il file nella cartella, aggiungi un
+  // entry qui con name + image path. Format: SVG (preferito, scala
+  // perfetta) o PNG con sfondo trasparente.
   {name: 'Pura Vida', image: '/images/loghi-partner/pura-vita.svg'},
-  {name: 'Fratelli Burgio'},
-  {name: 'Cantina Benanti'},
-  {name: 'Cantina Palmeri'},
-  {name: 'Hotel Algilà'},
-  {name: 'Des Étrangers'}
+  {name: 'Fratelli Burgio', image: '/images/loghi-partner/fratelli-burgio.png'},
+  {name: 'Cantine Benanti', image: '/images/loghi-partner/cantine-benanti.png'},
+  {name: 'Cantina Palmeri', image: '/images/loghi-partner/palmeri.png'}
 ];
 
 export async function PartnersBar() {
@@ -45,10 +43,14 @@ export async function PartnersBar() {
   const items = [...PARTNERS, ...PARTNERS];
 
   return (
-    <section className="bg-canvas py-14 sm:py-16 overflow-hidden">
-      {/* Header introduttivo, italic editoriale, niente eyebrow */}
-      <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 mb-9 sm:mb-10">
-        <p className="text-center font-display italic text-[15px] sm:text-[16px] text-ink-soft/85">
+    <section className="bg-canvas py-20 sm:py-24 overflow-hidden">
+      {/* Header introduttivo: cliente 27/05/2026 ha chiesto piu' grande +
+          in grassetto rispetto alla versione italic light precedente. */}
+      <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 mb-12 sm:mb-14">
+        <p
+          className="text-center font-display text-[22px] sm:text-[28px] lg:text-[32px] font-medium text-ink leading-[1.2]"
+          style={{fontStretch: '95%'}}
+        >
           {t('intro')}
         </p>
       </div>
@@ -65,14 +67,14 @@ export async function PartnersBar() {
             'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)'
         }}
       >
-        <div className="flex gap-14 sm:gap-16 lg:gap-20 animate-partners-marquee w-max items-center">
+        <div className="flex gap-16 sm:gap-20 lg:gap-24 animate-partners-marquee w-max items-center">
           {items.map((p, i) => {
             const content = p.image ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={p.image}
                 alt={p.name}
-                className="h-10 sm:h-12 lg:h-14 w-auto object-contain"
+                className="h-16 sm:h-20 lg:h-24 w-auto object-contain"
                 loading="lazy"
                 decoding="async"
               />
@@ -81,15 +83,18 @@ export async function PartnersBar() {
               // Quando il cliente uploadera' il file reale, basta aggiungere
               // image: '/images/loghi-partner/<file>' nell'array sopra.
               <span
-                className="text-[13px] sm:text-[14px] tracking-[0.05em] font-display font-light text-ink/55 whitespace-nowrap"
+                className="text-[18px] sm:text-[20px] tracking-[0.04em] font-display font-medium text-ink/70 whitespace-nowrap"
                 style={{fontStretch: '92%'}}
               >
                 {p.name}
               </span>
             );
 
+            // Opacity 85% di default (giu' di 15% per non sovrastare il resto
+            // della sezione), niente grayscale (cliente vuole loghi piu'
+            // visibili). Hover → 100%.
             const wrapper =
-              'flex-shrink-0 flex items-center h-12 sm:h-14 opacity-55 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300';
+              'flex-shrink-0 flex items-center h-20 sm:h-24 lg:h-28 opacity-85 hover:opacity-100 transition-opacity duration-300';
 
             // Set aria-hidden true per la seconda copia (i >= PARTNERS.length)
             // cosi' screen reader leggono il loop una volta sola.
