@@ -5,6 +5,7 @@ import {Hero} from '@/components/sections/home/Hero';
 import {Whisper} from '@/components/sections/home/Whisper';
 import {EsperienzeScroll} from '@/components/sections/home/EsperienzeScroll';
 import {Manifesto} from '@/components/sections/home/Manifesto';
+import {PartnersBar} from '@/components/sections/home/PartnersBar';
 import {Interni} from '@/components/sections/home/Interni';
 import {PolaroidMosaic} from '@/components/sections/home/PolaroidMosaic';
 import {ListinoProse} from '@/components/sections/home/ListinoProse';
@@ -87,6 +88,11 @@ export default async function HomePage({
 
       {/* 04 — Manifesto: paragrafo keyword-dense SEO-locked, reso narrativo */}
       <Manifesto />
+
+      {/* 04b — Partners marquee: loghi dei posti che frequentiamo
+          (Pura Vida, Burgio, Benanti, Palmeri, hotel selezionati). Marquee
+          CSS-only, pause su hover. Loghi in /public/images/loghi-partner/. */}
+      <PartnersBar />
 
       {/* 05 — Le auto, sotto-screen: 3 dettagli interni */}
       <Interni />
