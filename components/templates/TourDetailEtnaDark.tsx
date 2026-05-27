@@ -76,27 +76,125 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
 
       </section>
 
-      {/* 02 — INTRO dark drop-cap lava */}
-      <section className="py-32 sm:py-44" style={{backgroundColor: ETNA_BLACK}}>
-        <div className="mx-auto max-w-(--container-narrow) px-6 sm:px-10">
-          <p
-            className="eyebrow mb-10"
-            style={{color: LAVA_GLOW}}
+      {/* 02 — INTRO + NUMBERS unificati (rielaborato 27/05/2026)
+            Layout cinematic: body con drop-cap a sinistra (col 7) + stats
+            verticali "movie credits style" a destra (col 5) separati da
+            linee lava. Atmospheric glow lava sull'edge destro.
+            Sostituisce le precedenti sezioni 02 (intro drop-cap full-width)
+            e 03 (numbers row orizzontale full-width) in un unico layout
+            piu' compatto e visivamente connesso. */}
+      <section
+        className="relative py-32 sm:py-40 overflow-hidden"
+        style={{backgroundColor: ETNA_BLACK}}
+      >
+        {/* Glow lava radiale a destra → atmosfera, cinematic */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `radial-gradient(ellipse 60% 50% at 85% 50%, ${LAVA_RED}18 0%, transparent 60%)`
+          }}
+          aria-hidden="true"
+        />
+
+        <div className="relative mx-auto max-w-(--container-editorial) px-6 sm:px-10">
+          {/* Header eyebrow + lava line */}
+          <motion.div
+            className="mb-16 sm:mb-20 max-w-2xl"
+            initial={{opacity: 0, y: 16}}
+            whileInView={{opacity: 1, y: 0}}
+            viewport={{once: true, margin: '-10%'}}
+            transition={{duration: 0.8, ease: [0.16, 1, 0.3, 1]}}
           >
-            {tour.introH2Pre}{' '}
-            <span style={{color: LAVA_GLOW}}>{tour.introH2Accent}</span>
-          </p>
-          <div className="space-y-7 sm:space-y-8 text-[19px] sm:text-[20px] leading-[1.75] text-cream-on-dark/80">
-            {tour.introBody.map((p, i) => (
-              <p
-                key={i}
-                className={i === 0 ? 'etna-dropcap' : ''}
+            <p className="eyebrow mb-6" style={{color: LAVA_GLOW}}>
+              {tour.introH2Pre}{' '}
+              <span style={{color: LAVA_GLOW}}>{tour.introH2Accent}</span>
+            </p>
+            {/* Thin lava line decorativa */}
+            <div
+              className="h-px w-16 sm:w-20"
+              style={{backgroundColor: LAVA_GLOW}}
+              aria-hidden="true"
+            />
+          </motion.div>
+
+          {/* Grid 2-col: body sx, stats dx */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20">
+            {/* LEFT: body con drop-cap */}
+            <motion.div
+              className="lg:col-span-7"
+              initial={{opacity: 0, y: 24}}
+              whileInView={{opacity: 1, y: 0}}
+              viewport={{once: true, margin: '-10%'}}
+              transition={{duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1]}}
+            >
+              <div
+                className="space-y-7 sm:space-y-8 text-[18px] sm:text-[19px] leading-[1.75]"
+                style={{color: 'rgba(245, 239, 228, 0.82)'}}
               >
-                {p}
+                {tour.introBody.map((p, i) => (
+                  <p key={i} className={i === 0 ? 'etna-dropcap' : ''}>
+                    {p}
+                  </p>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* RIGHT: stats stack verticale "movie credits" */}
+            <motion.div
+              className="lg:col-span-5"
+              initial={{opacity: 0, y: 24}}
+              whileInView={{opacity: 1, y: 0}}
+              viewport={{once: true, margin: '-10%'}}
+              transition={{duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1]}}
+            >
+              <p
+                className="eyebrow mb-6 sm:mb-7"
+                style={{color: 'rgba(245, 239, 228, 0.45)'}}
+              >
+                {tour.numbersEyebrow}
               </p>
-            ))}
+
+              <ul style={{borderTop: `1px solid ${LAVA_RED}30`}}>
+                {tour.numbers.map((n, i) => (
+                  <motion.li
+                    key={n.label}
+                    className="py-5 sm:py-6 grid grid-cols-[auto_1fr] gap-x-6 items-baseline"
+                    style={{borderBottom: `1px solid ${LAVA_RED}25`}}
+                    initial={{opacity: 0, x: 12}}
+                    whileInView={{opacity: 1, x: 0}}
+                    viewport={{once: true, margin: '-10%'}}
+                    transition={{
+                      duration: 0.6,
+                      delay: 0.3 + i * 0.08,
+                      ease: [0.16, 1, 0.3, 1]
+                    }}
+                  >
+                    {/* Label small uppercase, allineata in basso */}
+                    <p
+                      className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-medium whitespace-nowrap"
+                      style={{color: 'rgba(245, 239, 228, 0.5)'}}
+                    >
+                      {n.label}
+                    </p>
+                    {/* Value display large, right-aligned */}
+                    <p
+                      className="font-display font-light tabular-nums text-right leading-none"
+                      style={{
+                        color: 'var(--cream-on-dark)',
+                        fontStretch: '88%',
+                        fontSize: 'clamp(24px, 2.2vw, 36px)',
+                        letterSpacing: '-0.01em'
+                      }}
+                    >
+                      {n.value}
+                    </p>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
           </div>
         </div>
+
         {/* Drop-cap targetato SOLO al paragrafo intro, non a cascata */}
         <style>{`
           .etna-dropcap::first-letter {
@@ -110,54 +208,6 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
             font-weight: 300;
           }
         `}</style>
-      </section>
-
-      {/* 03 — IL TOUR IN NUMERI — riga orizzontale, dark */}
-      <section
-        className="py-20 sm:py-28"
-        style={{backgroundColor: ETNA_BLACK_SOFT, borderTop: `1px solid ${LAVA_RED}40`, borderBottom: `1px solid ${LAVA_RED}40`}}
-      >
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <p
-            className="eyebrow mb-10 sm:mb-12"
-            style={{color: LAVA_GLOW}}
-          >
-            {tour.numbersEyebrow}
-          </p>
-
-          <ul
-            className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 lg:gap-y-0"
-            style={{}}
-          >
-            {tour.numbers.map((n, i) => (
-              <li
-                key={n.label}
-                className={`min-w-0 ${
-                  i > 0 ? 'lg:pl-8 xl:pl-10 lg:border-l' : ''
-                } ${i < tour.numbers.length - 1 ? 'lg:pr-8 xl:pr-10' : ''}`}
-                style={{borderColor: `${LAVA_RED}25`}}
-              >
-                <p
-                  className="font-display font-light tabular-nums leading-[1] break-words"
-                  style={{
-                    color: 'var(--cream-on-dark)',
-                    fontStretch: '88%',
-                    fontSize: 'clamp(24px, 2.8vw, 44px)',
-                    letterSpacing: '-0.02em'
-                  }}
-                >
-                  {n.value}
-                </p>
-                <p
-                  className="mt-4 text-[12px] sm:text-[13px] uppercase tracking-[0.14em] font-medium leading-relaxed max-w-[28ch]"
-                  style={{color: 'rgba(245, 239, 228, 0.55)'}}
-                >
-                  {n.label}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
       </section>
 
       {/* 04 — PARTNER cantine (condizionale) — citazioni dark */}
