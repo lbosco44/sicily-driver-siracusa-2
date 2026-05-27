@@ -172,7 +172,6 @@ export function DesktopWebGL() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [ready, setReady] = useState(false);
 
   // entryProgress: 0..1 durante la fase iniziale (rect scende dall'alto)
   // slideProgress: 0..N-1 continuo durante le scene
@@ -223,7 +222,10 @@ export function DesktopWebGL() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const gl = canvas.getContext('webgl2', {antialias: true, alpha: false});
+    // alpha: true → canvas trasparente quando non disegna (cosi' il fallback
+    // <img> sotto e' visibile sempre, niente blocco nero durante caricamento
+    // textures o race conditions con loading gate).
+    const gl = canvas.getContext('webgl2', {antialias: true, alpha: true});
     if (!gl) {
       console.warn('[DesktopWebGL] WebGL2 non disponibile, fallback opacity');
       return;
@@ -275,7 +277,6 @@ export function DesktopWebGL() {
         });
         textures[i] = {texture: tex, w: img.naturalWidth, h: img.naturalHeight};
         loadedCount++;
-        if (loadedCount === N) setReady(true);
       };
       img.onerror = () => {
         console.warn(`[DesktopWebGL] image load failed: ${e.image}`);
@@ -400,39 +401,37 @@ export function DesktopWebGL() {
       className="relative bg-black"
     >
       <div className="sticky top-0 h-[100svh] overflow-hidden">
-        {/* Fallback image: CSS background-image, full-screen edge-to-edge.
-            Bulletproof, niente Next.js Image quirks con position sticky.
-            Resta opacity 1 finche' il canvas WebGL non e' ready
-            (textures caricate). Quando ready: fade to 0 in 400ms, mentre
-            il canvas fa fade to 1 → crossfade pulito, niente snap nero. */}
-        <div
-          className="absolute inset-0 pointer-events-none"
+        {/* Fallback: plain <img> tag (NO Next.js Image, NO CSS bg-image).
+            Browser native loading, niente framework quirks. Resta SEMPRE
+            visibile sotto al canvas. Quando il canvas WebGL inizia a
+            disegnare la prima scena, copre questo img coi suoi pixel
+            opachi. Se per qualche ragione il canvas non disegna (textures
+            non caricate, errore WebGL, race condition), l'img resta
+            visibile invece di mostrare nero. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={ESPERIENZE[0].image}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
           style={{
-            backgroundImage: `url(${ESPERIENZE[0].image})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            filter: 'saturate(0.88) brightness(0.82) contrast(1.06)',
-            opacity: ready ? 0 : 1,
-            transition: 'opacity 400ms ease-out'
+            filter: 'saturate(0.88) brightness(0.82) contrast(1.06)'
           }}
+          loading="eager"
+          decoding="sync"
           aria-hidden="true"
         />
         <div
           className="absolute inset-0 atmo-overlay-dark pointer-events-none"
-          style={{
-            opacity: ready ? 0 : 1,
-            transition: 'opacity 400ms ease-out'
-          }}
+          aria-hidden="true"
         />
 
-        {/* WebGL canvas: il fondo nero dello shader fa da letterbox */}
+        {/* WebGL canvas: alpha:true, sempre opacity 1. Quando le textures
+            non sono ancora caricate o il tick() esce early, il canvas e'
+            TRASPARENTE → si vede l'<img> fallback sotto. Quando il canvas
+            inizia a disegnare, copre l'<img>. Niente gate, niente nero. */}
         <canvas
           ref={canvasRef}
           className="absolute inset-0 w-full h-full block"
-          style={{
-            opacity: ready ? 1 : 0,
-            transition: 'opacity 400ms ease-out'
-          }}
           aria-hidden="true"
         />
 
