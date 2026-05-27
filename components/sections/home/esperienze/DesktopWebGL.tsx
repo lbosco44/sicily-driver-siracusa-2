@@ -413,22 +413,18 @@ export function DesktopWebGL() {
         }}
       >
         {/* TRIPLE FALLBACK livello 2: plain <img> tag.
-            Browser native loading, niente framework quirks. */}
+            Browser native loading, niente framework quirks.
+            NIENTE filter brightness/saturate qui — l'immagine deve essere
+            chiaramente visibile. Il darkening per leggibilita' testo lo
+            faro' sul container del testo se necessario. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={ESPERIENZE[0].image}
           alt=""
           className="absolute inset-0 w-full h-full object-cover pointer-events-none block"
-          style={{
-            filter: 'saturate(0.88) brightness(0.82) contrast(1.06)',
-            display: 'block'
-          }}
+          style={{display: 'block'}}
           loading="eager"
           decoding="sync"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 atmo-overlay-dark pointer-events-none"
           aria-hidden="true"
         />
 
