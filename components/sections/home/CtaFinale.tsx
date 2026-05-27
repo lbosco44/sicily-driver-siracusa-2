@@ -51,23 +51,22 @@ export function CtaFinale() {
           />
 
           {/* Overlay nel vano scuro del van.
-              POSIZIONI RICALIBRATE 27/05/2026 dopo feedback cliente:
-              overflowava sul driver. Vere coordinate del vano scuro nella
-              foto:
-              - x: 40% (left edge subito dopo la mano del driver) a 64%
-                (right edge dove inizia il sedile destro) → width 24%
-              - y: 22% (top opening) a 78% (bottom step) → height 56%
-              Posizioniamo l'overlay con margine interno per non toccare i
-              bordi: left:48% right:38% top:25% bottom:25%
-              → element span 48-62% width × 25-75% height → DENTRO il vano,
-              non sbordando sul driver a sinistra ne' sul sedile a destra. */}
+              POSIZIONI ITERAZIONE 5 (27/05/2026): coordinate MISURATE via
+              pixel sampling sul file naturale (1480x833):
+              - x 42% (lum 2 = deep black, dopo la mano del driver a 38-40%
+                con lum 40)
+              - x 58% (lum 2 = ancora deep black)
+              - x 60% transizione (lum 16) → sedile inizia
+              - x 64% (lum 21 = sedile dorato/scuro ma ancora dark)
+              Safe range per overlay: 43-64% (cap 21% wide).
+              Eviato 42-43% e 64-65% come buffer. */}
           <motion.div
             className="absolute flex flex-col items-center justify-center text-center"
             style={{
-              top: '25%',
-              bottom: '25%',
-              left: '48%',
-              right: '38%',
+              top: '24%',
+              bottom: '24%',
+              left: '43%',
+              right: '36%',
               color: 'var(--cream-on-dark)'
             }}
             initial={reduce ? false : {opacity: 0, y: 12}}
@@ -78,12 +77,13 @@ export function CtaFinale() {
             transition={{duration: 0.9, ease: [0.16, 1, 0.3, 1]}}
           >
             <h2
-              className="font-display font-medium leading-[1.02] tracking-tight whitespace-nowrap"
+              className="font-display font-medium leading-[1.02] tracking-tight"
               style={{
-                // Cap piu' basso (28px max) per garantire che "Ti aspettiamo"
-                // non sbordi il container al 48-62% del viewport
-                // (~250-260px a 1700px max image).
-                fontSize: 'clamp(10px, 1.7vw, 28px)',
+                // Container 21% × 1700px image = 357px wide.
+                // "Ti aspettiamo" a 50px font ≈ 340-345px → fits con 12px
+                // margine. Cap a 50px massimizza il "molto piu' grande"
+                // chiesto dal cliente senza overflow.
+                fontSize: 'clamp(22px, 2.85vw, 50px)',
                 fontStretch: '95%'
               }}
             >
@@ -92,20 +92,18 @@ export function CtaFinale() {
               {t('h2Line2')}
             </h2>
 
-            {/* 2 CTAs stack vertical. Sizes calibrate per stare dentro
-                lo spazio stretto del vano. */}
-            <div
-              className="flex flex-col items-center gap-1.5 sm:gap-2 mt-2.5 sm:mt-4 lg:mt-5 w-full"
-            >
+            {/* 2 CTAs stack vertical. Cap padding/font ingranditi: cliente
+                vuole che riempiano lo spazio nero. */}
+            <div className="flex flex-col items-center gap-2.5 sm:gap-3 mt-5 sm:mt-7 lg:mt-8 w-full">
               <a
                 href={WHATSAPP_HREF}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1 sm:gap-2 rounded-full bg-accent hover:bg-accent-hover transition-all duration-200 whitespace-nowrap"
+                className="group inline-flex items-center gap-2 sm:gap-2.5 rounded-full bg-accent hover:bg-accent-hover transition-all duration-200 whitespace-nowrap"
                 style={{
                   color: 'var(--cream-on-dark)',
-                  padding: 'clamp(3px, 0.55vw, 9px) clamp(8px, 1.2vw, 18px)',
-                  fontSize: 'clamp(7px, 0.7vw, 11px)',
+                  padding: 'clamp(10px, 1.1vw, 18px) clamp(18px, 2vw, 32px)',
+                  fontSize: 'clamp(12px, 1vw, 16px)',
                   letterSpacing: '0.14em',
                   textTransform: 'uppercase',
                   fontWeight: 500
@@ -122,11 +120,11 @@ export function CtaFinale() {
 
               <a
                 href={PHONE_TEL_HREF}
-                className="inline-flex items-center rounded-full border border-cream-on-dark/40 hover:border-cream-on-dark/70 hover:bg-cream-on-dark/8 transition-colors whitespace-nowrap tabular-nums"
+                className="inline-flex items-center rounded-full border border-cream-on-dark/50 hover:border-cream-on-dark/80 hover:bg-cream-on-dark/8 transition-colors whitespace-nowrap tabular-nums"
                 style={{
                   color: 'var(--cream-on-dark)',
-                  padding: 'clamp(2px, 0.45vw, 8px) clamp(8px, 1.1vw, 16px)',
-                  fontSize: 'clamp(6px, 0.65vw, 10px)',
+                  padding: 'clamp(8px, 0.9vw, 15px) clamp(16px, 1.8vw, 28px)',
+                  fontSize: 'clamp(11px, 0.9vw, 14px)',
                   letterSpacing: '0.12em',
                   fontWeight: 500
                 }}
