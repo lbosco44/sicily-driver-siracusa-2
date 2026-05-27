@@ -25,17 +25,17 @@ export function CtaFinale() {
 
   return (
     <section
-      className="relative py-16 sm:py-20 lg:py-24 overflow-hidden"
+      className="relative py-10 sm:py-14 lg:py-16 overflow-hidden"
       // #F5EFE4 = cream del background della foto cta-finale.png →
       // l'immagine si fonde col bg della sezione, niente edge visibile.
-      // E' lo stesso colore del nostro --canvas-warm, ma usiamo l'hex
-      // esplicito per garantire match esatto (la foto e' export su quel
-      // colore preciso).
       style={{backgroundColor: '#F5EFE4'}}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{maxWidth: '1700px'}}>
         <motion.div
-          className="relative w-full max-w-5xl mx-auto aspect-[16/9]"
+          // Van molto piu' grande: max-w-5xl (1024px) → max-w 1700px. Su
+          // viewport 1920 occupa ~85% larghezza → quasi full-bleed come
+          // richiesto dal cliente "occupasse tutta la sezione quasi".
+          className="relative w-full mx-auto aspect-[16/9]"
           initial={reduce ? false : {opacity: 0, y: 24}}
           whileInView={reduce ? undefined : {opacity: 1, y: 0}}
           viewport={{once: true, margin: '-15%'}}
@@ -45,22 +45,29 @@ export function CtaFinale() {
             src="/images/home/cta-finale.png"
             alt={t('imageAlt')}
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1024px"
+            sizes="(max-width: 768px) 100vw, (max-width: 1700px) 95vw, 1700px"
             className="object-contain"
             priority={false}
           />
 
-          {/* Overlay nel vano scuro della porta aperta del van.
-              Position: percentuali calibrate sull'aspect 16:9 dell'immagine.
-              Su mobile (immagine piu' piccola), il padding interno e' ridotto
-              proporzionalmente via clamp() font sizes. */}
+          {/* Overlay nel vano scuro del van.
+              POSIZIONI RICALIBRATE 27/05/2026 dopo feedback cliente:
+              overflowava sul driver. Vere coordinate del vano scuro nella
+              foto:
+              - x: 40% (left edge subito dopo la mano del driver) a 64%
+                (right edge dove inizia il sedile destro) → width 24%
+              - y: 22% (top opening) a 78% (bottom step) → height 56%
+              Posizioniamo l'overlay con margine interno per non toccare i
+              bordi: left:48% right:38% top:25% bottom:25%
+              → element span 48-62% width × 25-75% height → DENTRO il vano,
+              non sbordando sul driver a sinistra ne' sul sedile a destra. */}
           <motion.div
             className="absolute flex flex-col items-center justify-center text-center"
             style={{
-              top: '20%',
-              bottom: '20%',
-              left: '40%',
-              right: '36%',
+              top: '25%',
+              bottom: '25%',
+              left: '48%',
+              right: '38%',
               color: 'var(--cream-on-dark)'
             }}
             initial={reduce ? false : {opacity: 0, y: 12}}
@@ -71,9 +78,12 @@ export function CtaFinale() {
             transition={{duration: 0.9, ease: [0.16, 1, 0.3, 1]}}
           >
             <h2
-              className="font-display font-medium leading-[1.05] tracking-tight"
+              className="font-display font-medium leading-[1.02] tracking-tight whitespace-nowrap"
               style={{
-                fontSize: 'clamp(14px, 2.6vw, 38px)',
+                // Cap piu' basso (28px max) per garantire che "Ti aspettiamo"
+                // non sbordi il container al 48-62% del viewport
+                // (~250-260px a 1700px max image).
+                fontSize: 'clamp(10px, 1.7vw, 28px)',
                 fontStretch: '95%'
               }}
             >
@@ -82,22 +92,21 @@ export function CtaFinale() {
               {t('h2Line2')}
             </h2>
 
-            {/* 2 CTAs sotto. Su mobile diventano molto piccole per stare nel
-                vano stretto. Stack verticale per economizzare larghezza. */}
+            {/* 2 CTAs stack vertical. Sizes calibrate per stare dentro
+                lo spazio stretto del vano. */}
             <div
-              className="flex flex-col items-center gap-1.5 sm:gap-2 mt-3 sm:mt-5 lg:mt-6 w-full"
-              style={{maxWidth: '90%'}}
+              className="flex flex-col items-center gap-1.5 sm:gap-2 mt-2.5 sm:mt-4 lg:mt-5 w-full"
             >
               <a
                 href={WHATSAPP_HREF}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-accent hover:bg-accent-hover px-3 sm:px-4 lg:px-5 transition-all duration-200 whitespace-nowrap"
+                className="group inline-flex items-center gap-1 sm:gap-2 rounded-full bg-accent hover:bg-accent-hover transition-all duration-200 whitespace-nowrap"
                 style={{
                   color: 'var(--cream-on-dark)',
-                  padding: 'clamp(4px, 0.75vw, 10px) clamp(10px, 1.6vw, 22px)',
-                  fontSize: 'clamp(8px, 0.85vw, 12px)',
-                  letterSpacing: '0.16em',
+                  padding: 'clamp(3px, 0.55vw, 9px) clamp(8px, 1.2vw, 18px)',
+                  fontSize: 'clamp(7px, 0.7vw, 11px)',
+                  letterSpacing: '0.14em',
                   textTransform: 'uppercase',
                   fontWeight: 500
                 }}
@@ -116,9 +125,9 @@ export function CtaFinale() {
                 className="inline-flex items-center rounded-full border border-cream-on-dark/40 hover:border-cream-on-dark/70 hover:bg-cream-on-dark/8 transition-colors whitespace-nowrap tabular-nums"
                 style={{
                   color: 'var(--cream-on-dark)',
-                  padding: 'clamp(3px, 0.65vw, 9px) clamp(10px, 1.5vw, 20px)',
-                  fontSize: 'clamp(7px, 0.78vw, 11px)',
-                  letterSpacing: '0.14em',
+                  padding: 'clamp(2px, 0.45vw, 8px) clamp(8px, 1.1vw, 16px)',
+                  fontSize: 'clamp(6px, 0.65vw, 10px)',
+                  letterSpacing: '0.12em',
                   fontWeight: 500
                 }}
               >
