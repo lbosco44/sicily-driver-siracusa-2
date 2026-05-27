@@ -11,15 +11,18 @@ import {motion, useReducedMotion} from 'motion/react';
 const DETAILS = [
   {
     key: 'water',
-    image: '/images/home/interni-acqua.png'
+    // Foto cliente 27/05/2026: acqua.webp (598KB, sostituisce interni-acqua.png 2.1MB)
+    image: '/images/home/acqua.webp'
   },
   {
     key: 'leather',
-    image: '/images/home/interni-sedile.png'
+    // Foto cliente 27/05/2026: sedile.webp (374KB, sostituisce interni-sedile.png 2.2MB)
+    image: '/images/home/sedile.webp'
   },
   {
     key: 'screen',
-    image: '/images/home/interni-tablet.png'
+    // Foto cliente 27/05/2026: tablet.webp (455KB, sostituisce interni-tablet.png 2.0MB)
+    image: '/images/home/tablet.webp'
   }
 ];
 
