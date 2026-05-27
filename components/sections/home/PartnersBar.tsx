@@ -49,13 +49,24 @@ const PARTNERS: PartnerLogo[] = [
 export async function PartnersBar() {
   const t = await getTranslations('Home.partnersBar');
 
-  // Duplichiamo la lista una volta: il keyframes traduce da 0 a -50%, quindi
-  // mentre la prima copia esce a sx, la seconda e' gia' nella posizione
-  // d'origine → loop seamless visivamente.
-  const items = [...PARTNERS, ...PARTNERS];
+  // Per il loop seamless con keyframes translateX(0 → -50%), servono
+  // ESATTAMENTE 2 copie identiche: la prima meta' del DOM = la seconda.
+  // Quando il container si sposta di -50% (= larghezza unica), la
+  // seconda copia occupa la posizione di partenza della prima → loop
+  // visivamente identico, senza jump percepito.
+  // Per maggior densita' (cliente "spazio bianco a destra"), espandiamo
+  // la "unique row" duplicando PARTNERS 2 volte PRIMA del duplicato
+  // marquee. Cosi' la riga unica ha 8 elementi (4 partner × 2 ripetuti)
+  // e il DOM totale 16, sempre 6-8 loghi visibili in viewport.
+  const denseRow = [...PARTNERS, ...PARTNERS];
+  const items = [...denseRow, ...denseRow];
 
   return (
-    <section className="bg-canvas py-20 sm:py-24 overflow-hidden">
+    // bg-canvas-warm (non bg-canvas come Manifesto sopra): crea uno
+    // stacco visivo gentile tra le due sezioni che avevano lo stesso
+    // colore (cliente: "sono su stesso sfondo e non capisco dove finisce
+    // una e inizia l'altra").
+    <section className="bg-canvas-warm py-20 sm:py-24 overflow-hidden">
       {/* Header introduttivo: cliente 27/05/2026 ha chiesto piu' grande +
           in grassetto rispetto alla versione italic light precedente. */}
       <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 mb-12 sm:mb-14">
@@ -73,13 +84,19 @@ export async function PartnersBar() {
       <div
         className="relative w-full overflow-hidden"
         style={{
+          // Fade piu' stretto ai bordi (4% invece di 8%): meno area di
+          // "vuoto bianco" percepita, i loghi arrivano piu' vicino agli
+          // edge del viewport.
           maskImage:
-            'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+            'linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%)',
           WebkitMaskImage:
-            'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)'
+            'linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%)'
         }}
       >
-        <div className="flex gap-16 sm:gap-20 lg:gap-24 animate-partners-marquee w-max items-center">
+        {/* Gap ridotto: gap-10 → gap-14 (40-56px) invece di gap-16/24
+            (64-96px). Piu' loghi visibili contemporaneamente → bar
+            piu' "piena", meno sensazione di vuoto. */}
+        <div className="flex gap-10 sm:gap-12 lg:gap-14 animate-partners-marquee w-max items-center">
           {items.map((p, i) => {
             const content = p.image ? (
               // eslint-disable-next-line @next/next/no-img-element
