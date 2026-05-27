@@ -42,10 +42,10 @@ export function Manifesto() {
   ];
 
   return (
-    <section className="bg-canvas py-28 sm:py-36">
+    <section className="bg-canvas py-20 sm:py-24">
       <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
         <motion.h2
-          className="font-display text-display-lg font-light text-ink max-w-[18ch] mb-10 sm:mb-12"
+          className="font-display text-display-md sm:text-display-lg font-light text-ink max-w-[18ch] mb-8"
           style={{fontStretch: '95%'}}
           initial={reduce ? false : {opacity: 0, y: 24}}
           whileInView={reduce ? undefined : {opacity: 1, y: 0}}
@@ -56,7 +56,7 @@ export function Manifesto() {
         </motion.h2>
 
         <motion.p
-          className="font-display italic text-[22px] sm:text-[26px] font-light text-ink-soft max-w-[42ch] leading-[1.4] mb-16 sm:mb-20"
+          className="font-display italic text-[20px] sm:text-[22px] font-light text-ink-soft max-w-[42ch] leading-[1.4] mb-12 sm:mb-14"
           style={{fontStretch: '95%'}}
           initial={reduce ? false : {opacity: 0, y: 16}}
           whileInView={reduce ? undefined : {opacity: 1, y: 0}}
@@ -66,11 +66,15 @@ export function Manifesto() {
           {t('lead')}
         </motion.p>
 
-        <ul className="border-t border-[var(--border-strong)]">
+        {/* Grid 3 colonne side-by-side (1 col mobile). Cliente 27/05/2026:
+            "tipo 01 a sinistra, 02 a destra, falla piu' bassa, e' troppo
+            ampia". 3 colonne dimezzano l'altezza verticale rispetto a 3
+            righe full-width. Border-t sopra come unica linea, niente
+            divider verticali tra colonne per non spezzare il rhythm. */}
+        <div className="border-t border-[var(--border-strong)] pt-10 sm:pt-12 grid grid-cols-1 sm:grid-cols-3 gap-x-8 sm:gap-x-10 lg:gap-x-14 gap-y-12 sm:gap-y-0">
           {rows.map((r, i) => (
-            <motion.li
+            <motion.div
               key={r.number}
-              className="border-b border-[var(--border-strong)] grid grid-cols-1 lg:grid-cols-12 gap-x-8 lg:gap-x-12 gap-y-3 lg:gap-y-0 py-10 sm:py-12"
               initial={reduce ? false : {opacity: 0, y: 20}}
               whileInView={reduce ? undefined : {opacity: 1, y: 0}}
               viewport={{once: true, margin: '-10%'}}
@@ -80,36 +84,24 @@ export function Manifesto() {
                 ease: [0.16, 1, 0.3, 1]
               }}
             >
-              {/* Numero italico large terracotta — colonna sx desktop,
-                  inline top mobile */}
-              <div className="lg:col-span-2">
-                <span
-                  className="font-display italic text-[56px] sm:text-[72px] lg:text-[80px] font-light text-accent leading-none block tabular-nums"
-                  style={{fontStretch: '95%'}}
-                >
-                  {r.number}
-                </span>
-              </div>
-
-              {/* Title + body — colonna dx desktop, sotto numero mobile */}
-              <div className="lg:col-span-10 lg:pl-4">
-                <h3
-                  className="font-display text-[28px] sm:text-[36px] lg:text-[40px] font-light text-ink leading-[1.1] mb-4"
-                  style={{fontStretch: '95%'}}
-                >
-                  {r.title}
-                </h3>
-                <p className="text-[17px] sm:text-[18px] leading-[1.65] text-ink-soft max-w-[58ch]">
-                  {r.body}
-                </p>
-              </div>
-            </motion.li>
+              <span
+                className="font-display italic text-[44px] sm:text-[52px] lg:text-[60px] font-light text-accent leading-none block tabular-nums mb-5"
+                style={{fontStretch: '95%'}}
+              >
+                {r.number}
+              </span>
+              <h3
+                className="font-display text-[22px] sm:text-[24px] lg:text-[28px] font-light text-ink leading-[1.15] mb-3"
+                style={{fontStretch: '95%'}}
+              >
+                {r.title}
+              </h3>
+              <p className="text-[15px] sm:text-[16px] leading-[1.6] text-ink-soft">
+                {r.body}
+              </p>
+            </motion.div>
           ))}
-        </ul>
-
-        {/* Body legacy nascosto per SEO. NextIntl renderizza solo se
-            chiamato, quindi non vengono renderizzati. Restano nei
-            messages.json per backward compat / revert facile. */}
+        </div>
       </div>
     </section>
   );

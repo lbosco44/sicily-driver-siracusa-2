@@ -25,13 +25,25 @@ type PartnerLogo = {
 const PARTNERS: PartnerLogo[] = [
   // I 4 partner reali con loghi caricati dal cliente in
   // public/images/loghi-partner/ il 27/05/2026.
-  // Per aggiungerne altri: droppa il file nella cartella, aggiungi un
-  // entry qui con name + image path. Format: SVG (preferito, scala
-  // perfetta) o PNG con sfondo trasparente.
-  {name: 'Pura Vida', image: '/images/loghi-partner/pura-vita.svg'},
-  {name: 'Fratelli Burgio', image: '/images/loghi-partner/fratelli-burgio.png'},
-  {name: 'Cantine Benanti', image: '/images/loghi-partner/cantine-benanti.png'},
-  {name: 'Cantina Palmeri', image: '/images/loghi-partner/palmeri.png'}
+  // Uso esplicitamente le versioni "-ink" (monochrome scuro) per
+  // uniformita' visiva: tutti i loghi nello stesso colore = bar
+  // coerente, sembra fatto apposta. Benanti ha solo -ink disponibile,
+  // gli altri hanno anche -original (colori brand) ma scegliamo -ink
+  // per consistency.
+  // Palmeri: cliente ha richiesto esplicitamente palmeri2-ink (versione
+  // alternativa scelta).
+  // Per aggiungere altri partner: droppa il file -ink nella cartella,
+  // aggiungi un entry qui con name + image path.
+  {name: 'Pura Vida', image: '/images/loghi-partner/pura-vita-ink.svg'},
+  {
+    name: 'Fratelli Burgio',
+    image: '/images/loghi-partner/fratelli-burgio-ink.png'
+  },
+  {
+    name: 'Cantine Benanti',
+    image: '/images/loghi-partner/cantine-benanti-ink.png'
+  },
+  {name: 'Cantina Palmeri', image: '/images/loghi-partner/palmeri2-ink.png'}
 ];
 
 export async function PartnersBar() {
