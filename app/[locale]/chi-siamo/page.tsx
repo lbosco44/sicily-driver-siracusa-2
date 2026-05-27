@@ -278,13 +278,20 @@ export default async function ChiSiamoPage({
         </div>
       </section>
 
-      {/* 05 — LE 3 SEDI */}
-      <section className="bg-canvas-warm py-32 sm:py-40">
+      {/* 05 — SEDI bento grid asimmetrico (consistente con convinzioni)
+            Cliente 28/05/2026: "stessa rielaborazione" della precedente,
+            era brutta come convinzioni. Stesso pattern bento 1 big + 2
+            small ma con icona MapPin decorativa al posto del numero
+            01/02/03 (le sedi sono LUOGHI, non valori ordinati).
+            Big card = Siracusa (HQ, primaria) con badge "SEDE PRINCIPALE".
+            Ogni card include link "Apri in Maps" → google maps search
+            con l'indirizzo. */}
+      <section className="bg-canvas-warm py-20 sm:py-28">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-2xl mb-16 sm:mb-20">
-            <p className="eyebrow mb-7">{t('bases.eyebrow')}</p>
+          <div className="max-w-2xl mb-12 sm:mb-14">
+            <p className="eyebrow mb-5">{t('bases.eyebrow')}</p>
             <h2
-              className="font-display text-display-md font-light text-ink"
+              className="font-display text-display-sm sm:text-display-md font-light text-ink"
               style={{fontStretch: '95%'}}
             >
               {t('bases.h2Pre')}{' '}
@@ -292,30 +299,96 @@ export default async function ChiSiamoPage({
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-y-0 md:gap-x-12 lg:gap-x-16">
-            {bases.map((b, i) => (
-              <article
-                key={i}
-                className={
-                  i < bases.length - 1
-                    ? 'md:border-r md:border-[var(--border-strong)] md:pr-12 lg:pr-16'
-                    : ''
-                }
-              >
-                <h3
-                  className="font-display text-display-sm font-light text-ink leading-[1.05] mb-5"
-                  style={{fontStretch: '95%'}}
+          <div className="grid grid-cols-1 md:grid-cols-12 md:auto-rows-fr gap-4 lg:gap-5">
+            {bases.map((b, i) => {
+              const isBig = i === 0;
+              const cellClass = isBig
+                ? 'md:col-span-7 md:row-span-2 min-h-[260px]'
+                : 'md:col-span-5 min-h-[140px]';
+
+              // MapPin icon size: big card piu' grande
+              const iconSize = isBig ? 'w-32 h-32 sm:w-44 sm:h-44' : 'w-20 h-20 sm:w-24 sm:h-24';
+
+              // City name display, big card piu' grande
+              const nameClass = isBig
+                ? 'text-[36px] sm:text-[44px] lg:text-[52px]'
+                : 'text-[24px] sm:text-[28px]';
+
+              const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                `${b.address}, ${b.name}, Italia`
+              )}`;
+
+              return (
+                <article
+                  key={i}
+                  className={`relative rounded-2xl bg-canvas border border-[var(--border-strong)] p-7 sm:p-8 lg:p-9 flex flex-col justify-between overflow-hidden group hover:border-accent transition-colors duration-300 ${cellClass}`}
                 >
-                  {b.name}
-                </h3>
-                <p className="font-display italic text-[18px] text-accent mb-4">
-                  {b.address}
-                </p>
-                <p className="text-[15px] text-ink-soft leading-relaxed max-w-[36ch]">
-                  {b.note}
-                </p>
-              </article>
-            ))}
+                  {/* MapPin icon decorativo top-right, lava-tinted trasparente */}
+                  <svg
+                    aria-hidden="true"
+                    className={`absolute top-5 right-5 text-accent/15 ${iconSize} select-none pointer-events-none`}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+
+                  {/* Badge "SEDE PRINCIPALE" solo sulla big card */}
+                  {isBig && (
+                    <span className="absolute -top-3 left-7 inline-flex items-center px-3 py-1 rounded-full bg-accent text-cream-on-dark text-[10px] uppercase tracking-[0.18em] font-medium">
+                      Sede principale
+                    </span>
+                  )}
+
+                  {/* Content */}
+                  <div className="relative">
+                    <h3
+                      className={`font-display font-light text-ink leading-[1] mb-3 sm:mb-4 ${nameClass}`}
+                      style={{fontStretch: '95%'}}
+                    >
+                      {b.name}
+                    </h3>
+                    <p
+                      className={`font-display italic text-accent mb-3 ${
+                        isBig ? 'text-[19px] sm:text-[22px]' : 'text-[15px] sm:text-[16px]'
+                      }`}
+                    >
+                      {b.address}
+                    </p>
+                    <p
+                      className={`text-ink-soft leading-relaxed max-w-[36ch] ${
+                        isBig
+                          ? 'text-[15px] sm:text-[16px]'
+                          : 'text-[13px] sm:text-[14px]'
+                      }`}
+                    >
+                      {b.note}
+                    </p>
+                  </div>
+
+                  {/* Link "Apri in Maps" bottom-aligned via flex justify-between */}
+                  <a
+                    href={mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative mt-5 sm:mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] font-medium text-primary group-hover:text-accent transition-colors self-start"
+                  >
+                    Apri in Maps
+                    <span
+                      aria-hidden="true"
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    >
+                      →
+                    </span>
+                  </a>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
