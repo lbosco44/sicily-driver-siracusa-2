@@ -32,10 +32,14 @@ export function CtaFinale() {
     >
       <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{maxWidth: '1700px'}}>
         <motion.div
-          // Van molto piu' grande: max-w-5xl (1024px) → max-w 1700px. Su
-          // viewport 1920 occupa ~85% larghezza → quasi full-bleed come
-          // richiesto dal cliente "occupasse tutta la sezione quasi".
-          className="relative w-full mx-auto aspect-[16/9]"
+          // Aspect responsive: 4:5 (portrait) mobile / 16:9 desktop.
+          // Mobile aspect 4:5 con object-cover → l'immagine viene croppata
+          // ai lati e mostra principalmente il driver + il vano scuro
+          // (zoom visivo ~2.2x rispetto all'object-contain del 16:9).
+          // Cliente: "auto intera piccola = un po' cringe, zoom su autista
+          // per CTA piu' leggibili".
+          // Desktop: aspect-[16/9] come prima, full van visibile.
+          className="relative w-full mx-auto aspect-[4/5] sm:aspect-[3/4] md:aspect-[16/9]"
           initial={reduce ? false : {opacity: 0, y: 24}}
           whileInView={reduce ? undefined : {opacity: 1, y: 0}}
           viewport={{once: true, margin: '-15%'}}
@@ -46,7 +50,11 @@ export function CtaFinale() {
             alt={t('imageAlt')}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1700px) 95vw, 1700px"
-            className="object-contain"
+            // object-cover su mobile crops sides → driver+door zoomati
+            // object-cover su desktop con aspect 16:9 = come contain (image
+            // 16:9 nativa, no crop). Stessa class su entrambi.
+            // objectPosition default center → driver + door visibili
+            className="object-cover"
             priority={false}
           />
 
@@ -61,12 +69,22 @@ export function CtaFinale() {
               Safe range per overlay: 43-64% (cap 21% wide).
               Eviato 42-43% e 64-65% come buffer. */}
           <motion.div
-            className="absolute flex flex-col items-center justify-center text-center"
+            // Posizioni overlay RESPONSIVE: cambiano in base all'aspect
+            // della figura (mobile crop vs desktop full).
+            //
+            // MOBILE (aspect 4:5 / 3:4, image object-cover):
+            //   Image scaled height = container height
+            //   Image scaled width > container width → cropped sides
+            //   Dark door (originale x:42-58%) si traduce a x:33-67% del
+            //   container visibile su 4:5 mobile (rapporto crop 2.22x).
+            //   Overlay: left:35% right:35% top:30% bottom:32% = dentro
+            //   il dark door del viewport mobile.
+            //
+            // DESKTOP (aspect 16:9, image fitta intera):
+            //   Dark door alle stesse coordinate originali x:42-58%.
+            //   Overlay: left:39.5% right:39.5% top:24% bottom:24%.
+            className="absolute flex flex-col items-center justify-center text-center top-[30%] sm:top-[27%] md:top-[24%] bottom-[32%] sm:bottom-[28%] md:bottom-[24%] left-[35%] sm:left-[37%] md:left-[39.5%] right-[35%] sm:right-[37%] md:right-[39.5%]"
             style={{
-              top: '24%',
-              bottom: '24%',
-              left: '39.5%',
-              right: '39.5%',
               color: 'var(--cream-on-dark)'
             }}
             initial={reduce ? false : {opacity: 0, y: 12}}
