@@ -20,24 +20,29 @@ export async function Footer() {
           - mt-16 → mt-10 (gap grid→bottom strip ridotto)
           - space-y-2 → space-y-2 sulle liste link
           - rimosso tagline italic (informazione duplicata col wordmark) */}
-      <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 py-10 sm:py-12">
+      {/* Cliente 27/05/2026 (mobile): "fai il footer su mobile come
+          desktop piu piccolo" → 4 colonne anche su mobile (era 2x2),
+          ma testo/spacing tighter per stare in viewport stretti.
+          Email/phone usano break-words per wrappare naturalmente al "@"
+          o "-" senza overflow. */}
+      <div className="mx-auto max-w-(--container-editorial) px-4 sm:px-10 py-8 sm:py-12">
         {/* Top: wordmark compatto, niente tagline */}
-        <div className="border-b border-cream-on-dark/15 pb-6">
-          <p className="font-display italic text-2xl sm:text-3xl font-medium text-cream-on-dark/95">
+        <div className="border-b border-cream-on-dark/15 pb-5 sm:pb-6">
+          <p className="font-display italic text-xl sm:text-3xl font-medium text-cream-on-dark/95">
             {tBrand('name')}
           </p>
         </div>
 
-        {/* Grid 4 col, gap ridotto */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 mt-8">
+        {/* Grid 4 col su mobile + desktop, gap responsive */}
+        <div className="grid grid-cols-4 gap-3 sm:gap-8 lg:gap-10 mt-6 sm:mt-8">
           {/* Servizi — Cliente 27/05/2026: lista ridotta da 9 link a 5
               (rimossi i 5 sotto-tour individuali — chi li vuole va su
               /tour-sicilia hub). Footer piu' compatto. */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-4">
+            <h4 className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-3 sm:mb-4">
               {t('servicesHeading')}
             </h4>
-            <ul className="space-y-2 text-[14px] text-cream-on-dark/85">
+            <ul className="space-y-2 text-[12px] sm:text-[14px] text-cream-on-dark/85 break-words">
               <li>
                 <Link href="/servizi" className="hover:text-accent transition-colors">
                   {tNav('services')}
@@ -68,10 +73,10 @@ export async function Footer() {
 
           {/* Aree servite */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-4">
+            <h4 className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-3 sm:mb-4">
               {t('areasHeading')}
             </h4>
-            <ul className="space-y-2 text-[14px] text-cream-on-dark/85">
+            <ul className="space-y-2 text-[12px] sm:text-[14px] text-cream-on-dark/85 break-words">
               <li>
                 <Link href="/ncc-catania" className="hover:text-accent transition-colors">
                   Catania
@@ -97,10 +102,10 @@ export async function Footer() {
 
           {/* Contatti */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-4">
+            <h4 className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-3 sm:mb-4">
               {t('contactsHeading')}
             </h4>
-            <ul className="space-y-2 text-[14px] text-cream-on-dark/85">
+            <ul className="space-y-2 text-[12px] sm:text-[14px] text-cream-on-dark/85 break-words">
               <li>
                 <a
                   href={`tel:${t('phone').replace(/\s/g, '')}`}
@@ -132,10 +137,10 @@ export async function Footer() {
 
           {/* Sedi */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-4">
+            <h4 className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-3 sm:mb-4">
               {t('officesHeading')}
             </h4>
-            <ul className="space-y-2 text-[14px] text-cream-on-dark/85 leading-relaxed">
+            <ul className="space-y-2 text-[12px] sm:text-[14px] text-cream-on-dark/85 break-words leading-relaxed">
               <li>Siracusa</li>
               <li>Noto</li>
               <li>Marzamemi</li>
