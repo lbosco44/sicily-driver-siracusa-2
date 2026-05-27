@@ -65,8 +65,8 @@ export function CtaFinale() {
             style={{
               top: '24%',
               bottom: '24%',
-              left: '40%',
-              right: '39%',
+              left: '39.5%',
+              right: '39.5%',
               color: 'var(--cream-on-dark)'
             }}
             initial={reduce ? false : {opacity: 0, y: 12}}
