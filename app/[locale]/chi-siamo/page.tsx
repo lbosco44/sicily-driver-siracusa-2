@@ -195,36 +195,86 @@ export default async function ChiSiamoPage({
         </div>
       </section>
 
-      {/* 04 — BELIEFS — NO numerazione 01/02/03, solo titoli e prose */}
-      <section className="bg-canvas py-32 sm:py-40">
+      {/* 04 — CONVINZIONI bento grid asimmetrico
+            Cliente 28/05/2026: la versione precedente (3 righe text-wall)
+            era "troppo basilare". Rielaborata in bento grid editorial:
+            - Card 1 (big, sinistra): "Prezzi senza sorprese" — la promise
+              piu' importante, occupa col-span-7 row-span-2 con numero 01
+              gigante + icona BadgeCheck terracotta
+            - Card 2 (top destra): "Van curati" col-span-5 con icona Sparkles
+            - Card 3 (bottom destra): "Driver bilingue" col-span-5 con
+              icona Languages
+            - Padding sezione ridotto da py-32/40 a py-20/28
+            - Mobile: stack 3 card vertical (1 col), aspetto card preservato
+              ma scaled down (icone smaller, padding ridotto). */}
+      <section className="bg-canvas py-20 sm:py-28">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <p className="eyebrow mb-10">{t('beliefs.eyebrow')}</p>
-          <h2
-            className="font-display text-display-md font-light text-ink max-w-[14ch] mb-16 sm:mb-20"
-            style={{fontStretch: '95%'}}
-          >
-            {t('beliefs.h2Pre')}{' '}
-            <span className="italic text-accent">{t('beliefs.h2Accent')}</span>
-          </h2>
+          <div className="max-w-2xl mb-12 sm:mb-14">
+            <p className="eyebrow mb-5">{t('beliefs.eyebrow')}</p>
+            <h2
+              className="font-display text-display-sm sm:text-display-md font-light text-ink max-w-[14ch]"
+              style={{fontStretch: '95%'}}
+            >
+              {t('beliefs.h2Pre')}{' '}
+              <span className="italic text-accent">{t('beliefs.h2Accent')}</span>
+            </h2>
+          </div>
 
-          <ul className="divide-y divide-[var(--border-strong)]">
-            {beliefs.map((b, i) => (
-              <li
-                key={i}
-                className="py-10 sm:py-12 grid grid-cols-1 lg:grid-cols-[1fr_1.8fr] gap-6 lg:gap-16 items-baseline"
-              >
-                <h3
-                  className="font-display italic text-display-sm font-light text-ink leading-[1.05]"
-                  style={{fontStretch: '95%'}}
+          <div className="grid grid-cols-1 md:grid-cols-12 md:auto-rows-fr gap-4 lg:gap-5">
+            {beliefs.map((b, i) => {
+              // Card 0 (Prezzi) e' il "big" — span 7 col + 2 row (col sinistra)
+              // Card 1, 2 sono "small" — span 5 col + 1 row (col destra stacked)
+              const isBig = i === 0;
+              const cellClass = isBig
+                ? 'md:col-span-7 md:row-span-2 min-h-[260px]'
+                : 'md:col-span-5 min-h-[140px]';
+
+              // Numero italic display, large per big card, medium per small
+              const numClass = isBig
+                ? 'text-[80px] sm:text-[120px] lg:text-[140px]'
+                : 'text-[52px] sm:text-[64px]';
+
+              // Title size: big card piu' grande
+              const titleClass = isBig
+                ? 'text-[28px] sm:text-[32px] lg:text-[36px]'
+                : 'text-[20px] sm:text-[22px]';
+
+              return (
+                <article
+                  key={i}
+                  className={`relative rounded-2xl bg-canvas-warm border border-[var(--border-strong)] p-7 sm:p-8 lg:p-9 flex flex-col justify-between overflow-hidden group hover:border-accent transition-colors duration-300 ${cellClass}`}
                 >
-                  {b.title}
-                </h3>
-                <p className="text-[17px] sm:text-[18px] leading-[1.7] text-ink-soft max-w-[58ch]">
-                  {b.body}
-                </p>
-              </li>
-            ))}
-          </ul>
+                  {/* Numero italico display, lava-tinted in top-right */}
+                  <span
+                    aria-hidden="true"
+                    className={`absolute top-3 right-5 font-display italic font-light text-accent/15 leading-none tabular-nums select-none ${numClass}`}
+                    style={{fontStretch: '95%'}}
+                  >
+                    0{i + 1}
+                  </span>
+
+                  {/* Title + body */}
+                  <div className="relative">
+                    <h3
+                      className={`font-display font-light text-ink leading-[1.1] mb-3 sm:mb-4 ${titleClass}`}
+                      style={{fontStretch: '95%'}}
+                    >
+                      {b.title}
+                    </h3>
+                    <p
+                      className={`leading-[1.55] text-ink-soft max-w-[42ch] ${
+                        isBig
+                          ? 'text-[16px] sm:text-[17px]'
+                          : 'text-[14px] sm:text-[15px]'
+                      }`}
+                    >
+                      {b.body}
+                    </p>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 
