@@ -400,21 +400,28 @@ export function DesktopWebGL() {
       style={{height: `${TOTAL_VH}svh`}}
       className="relative bg-black"
     >
-      <div className="sticky top-0 h-[100svh] overflow-hidden">
-        {/* Fallback: plain <img> tag (NO Next.js Image, NO CSS bg-image).
-            Browser native loading, niente framework quirks. Resta SEMPRE
-            visibile sotto al canvas. Quando il canvas WebGL inizia a
-            disegnare la prima scena, copre questo img coi suoi pixel
-            opachi. Se per qualche ragione il canvas non disegna (textures
-            non caricate, errore WebGL, race condition), l'img resta
-            visibile invece di mostrare nero. */}
+      <div
+        className="sticky top-0 h-[100svh] overflow-hidden"
+        style={{
+          /* TRIPLE FALLBACK livello 1: CSS background-image direttamente sul
+             sticky inner. Garantisce che SOTTO il canvas + <img> + overlay
+             ci sia sempre l'immagine della prima scena, anche se React non
+             rendesse i figli per qualche errore. */
+          backgroundImage: `url(${ESPERIENZE[0].image})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        {/* TRIPLE FALLBACK livello 2: plain <img> tag.
+            Browser native loading, niente framework quirks. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={ESPERIENZE[0].image}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none block"
           style={{
-            filter: 'saturate(0.88) brightness(0.82) contrast(1.06)'
+            filter: 'saturate(0.88) brightness(0.82) contrast(1.06)',
+            display: 'block'
           }}
           loading="eager"
           decoding="sync"
