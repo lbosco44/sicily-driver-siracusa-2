@@ -1,7 +1,6 @@
 'use client';
 
 import {useRef, useState, useEffect} from 'react';
-import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {useReducedMotion, useScroll, useMotionValueEvent} from 'motion/react';
 import * as twgl from 'twgl.js';
@@ -10,22 +9,21 @@ import {ESPERIENZE, N} from './data';
 import {DesktopSticky} from './DesktopSticky';
 
 // Tuning della sezione (svh).
-// ENTRY_VH = altezza fase di ingresso. Il frame SDF "rotola" dall'alto con
-//            chromatic aberration max durante questa fase. Pattern AndAgain.
+// ENTRY_VH = 0: niente fase di ingresso animata. L'immagine e' a schermo
+//            intero dal momento in cui la sezione entra in viewport.
+//            (L'effetto chromatic + wipe + barrel awvviene DURANTE le
+//            transizioni tra scene, non all'entry.)
 // SLIDE_VH = altezza per ogni passaggio di scena. Piu' alto = scroll piu'
 //            "burroso", piu' tempo per percepire il wipe lateral pieghevole.
-const ENTRY_VH = 100;
+const ENTRY_VH = 0;
 const SLIDE_VH = 220;
 const TOTAL_VH = ENTRY_VH + N * SLIDE_VH;
 
-// Frame dello "schermo" interno con corner rotondi (SDF).
-// L'immagine sta dentro un rettangolo arrotondato, lo spazio fuori e' nero
-// (letterbox del shader). Il wipe orizzontale + chromatic edge avviene DENTRO
-// questo frame, replicando l'effetto "rolling/folded" del sito di riferimento.
-const FRAME_PADDING_X_RATIO = 0.04; // 4% di larghezza per lato
-const FRAME_PADDING_Y_TOP = 80; // pixel
-const FRAME_PADDING_Y_BOTTOM = 80; // pixel (era 160 col counter, ora simmetrico)
-const CORNER_RADIUS = 20; // pixel
+// Full-screen edge-to-edge: niente frame, niente padding, niente corner rotondi.
+const FRAME_PADDING_X_RATIO = 0;
+const FRAME_PADDING_Y_TOP = 0;
+const FRAME_PADDING_Y_BOTTOM = 0;
+const CORNER_RADIUS = 0;
 
 const VS = `#version 300 es
 in vec2 position;
@@ -402,41 +400,30 @@ export function DesktopWebGL() {
       className="relative bg-black"
     >
       <div className="sticky top-0 h-[100svh] overflow-hidden">
-        {/* Fallback image: posizionato DENTRO il frame inset, dietro il canvas.
-            Plain <Image> con `fill` su un parent relative (matchando esattamente
-            l'inset dove il canvas dipingera' il frame SDF). Resta visibile
-            mentre le 5 textures WebGL caricano (canvas opacity 0). Quando il
-            canvas diventa ready, lo copre con opacity 1 + l'animazione di
-            entry rolling prende il sopravvento.
-            Fuori dal frame: spazio nero (bg-black del container) = letterbox
-            del shader, coerente con il rendering finale. */}
+        {/* Fallback image: CSS background-image, full-screen edge-to-edge.
+            Bulletproof, niente Next.js Image quirks con position sticky.
+            Resta opacity 1 finche' il canvas WebGL non e' ready
+            (textures caricate). Quando ready: fade to 0 in 400ms, mentre
+            il canvas fa fade to 1 → crossfade pulito, niente snap nero. */}
         <div
-          className="absolute pointer-events-none overflow-hidden"
+          className="absolute inset-0 pointer-events-none"
           style={{
-            top: `${FRAME_PADDING_Y_TOP}px`,
-            bottom: `${FRAME_PADDING_Y_BOTTOM}px`,
-            left: `${FRAME_PADDING_X_RATIO * 100}%`,
-            right: `${FRAME_PADDING_X_RATIO * 100}%`,
-            borderRadius: `${CORNER_RADIUS}px`,
+            backgroundImage: `url(${ESPERIENZE[0].image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            filter: 'saturate(0.88) brightness(0.82) contrast(1.06)',
             opacity: ready ? 0 : 1,
             transition: 'opacity 400ms ease-out'
           }}
           aria-hidden="true"
-        >
-          <Image
-            src={ESPERIENZE[0].image}
-            alt=""
-            fill
-            priority
-            sizes="92vw"
-            quality={80}
-            className="object-cover"
-            style={{
-              filter: 'saturate(0.88) brightness(0.82) contrast(1.06)'
-            }}
-          />
-          <div className="absolute inset-0 atmo-overlay-dark" />
-        </div>
+        />
+        <div
+          className="absolute inset-0 atmo-overlay-dark pointer-events-none"
+          style={{
+            opacity: ready ? 0 : 1,
+            transition: 'opacity 400ms ease-out'
+          }}
+        />
 
         {/* WebGL canvas: il fondo nero dello shader fa da letterbox */}
         <canvas
