@@ -95,27 +95,13 @@ export default async function ContattiPage({
         )}
       />
 
-      {/* 01 — HERO asciutta, cream */}
-      <section className="bg-canvas pt-40 sm:pt-52 pb-24 sm:pb-32">
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <p className="eyebrow mb-10">{t('hero.eyebrow')}</p>
-          <h1
-            className="font-display text-display-lg font-medium text-ink max-w-[24ch] leading-[0.95]"
-            style={{fontStretch: '92%'}}
-          >
-            {t('hero.h1Pre')}{' '}
-            <span className="italic text-accent">{t('hero.h1Accent')}</span>
-          </h1>
-          <p className="mt-12 max-w-[58ch] font-display text-[22px] sm:text-[26px] font-light text-ink-soft leading-[1.4]">
-            {t('hero.subhead')}
-          </p>
-        </div>
-      </section>
-
-      {/* 02 — FORM PRIMA (priorità cliente: la maggior parte delle richieste
-            arriva dal form, il cliente preferisce gestire per iscritto per
-            barriere linguistiche al telefono) */}
-      <section className="bg-canvas-deep py-32 sm:py-40 border-y border-[var(--border)]">
+      {/* 01 — FORM PRIMA (priorità cliente: il visitatore deve vedere
+            subito il form aprendo la pagina contatti. Hero rimossa il
+            27/05/2026 — il cliente non la voleva piu', il form ora e' la
+            prima cosa visibile sotto la navbar.)
+            pt-40/pt-52 replica il padding-top della vecchia hero per dare
+            respiro tra navbar fissa e h2 del form. */}
+      <section className="bg-canvas-deep pt-40 sm:pt-52 pb-32 sm:pb-40 border-b border-[var(--border)]">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20">
             <div className="lg:sticky lg:top-28 lg:self-start">
