@@ -358,11 +358,14 @@
     },
     "ctaFinale": {
       "eyebrow": "Quando arrivi",
-      "h2": "Scrivici quando atterri.",
+      "h2": "Ti aspettiamo a bordo.",
+      "h2Line1": "Ti aspettiamo",
+      "h2Line2": "a bordo",
       "body": "WhatsApp è il canale più veloce. Ti rispondiamo entro un’ora, 24 ore su 24, anche d’inverno.",
       "ctaWhatsApp": "Apri WhatsApp",
       "ctaCall": "+39 375 641 3379",
-      "emailPre": "Oppure scrivi a"
+      "emailPre": "Oppure scrivi a",
+      "imageAlt": "Autista in giacca e cravatta accanto al van di lusso Mercedes Classe V con la porta scorrevole aperta, pronto ad accogliere a bordo"
     }
   },
   "NccPage": {

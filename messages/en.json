@@ -358,7 +358,10 @@
     },
     "ctaFinale": {
       "eyebrow": "When you arrive",
-      "h2": "Message us when you land.",
+      "h2": "We're waiting on board.",
+      "h2Line1": "We're waiting",
+      "h2Line2": "on board",
+      "imageAlt": "Chauffeur in suit next to the luxury Mercedes V-Class van with the sliding door open, ready to welcome on board",
       "body": "WhatsApp is the fastest channel. We reply within an hour, 24 hours a day, even in winter.",
       "ctaWhatsApp": "Open WhatsApp",
       "ctaCall": "+39 375 641 3379",
