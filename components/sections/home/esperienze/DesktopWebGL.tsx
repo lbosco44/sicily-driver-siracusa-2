@@ -1,6 +1,7 @@
 'use client';
 
 import {useRef, useState, useEffect} from 'react';
+import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {useReducedMotion, useScroll, useMotionValueEvent} from 'motion/react';
 import * as twgl from 'twgl.js';
@@ -398,6 +399,29 @@ export function DesktopWebGL() {
       className="relative bg-black"
     >
       <div className="sticky top-0 h-[100svh] overflow-hidden">
+        {/* Fallback image: la prima scena renderizzata come Next/Image
+            DIETRO al canvas. Resta visibile mentre le 5 textures WebGL
+            si caricano (canvas e' opacity 0 finche' !ready). Cosi' alla
+            prima visita l'utente vede la foto della prima scena invece
+            del fondo nero. Quando il canvas diventa ready, lo copre con
+            opacity 1 + l'animazione WebGL prende il sopravvento.
+            object-fit: cover replica il behavior del shader coverUv(). */}
+        <Image
+          src={ESPERIENZE[0].image}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          quality={80}
+          className="absolute inset-0 w-full h-full object-cover"
+          aria-hidden="true"
+          style={{
+            filter: 'saturate(0.88) brightness(0.82) contrast(1.06)'
+          }}
+        />
+        {/* Atmo overlay dark sopra l'image, replica del shader chromatic */}
+        <div className="absolute inset-0 atmo-overlay-dark pointer-events-none" />
+
         {/* WebGL canvas: il fondo nero dello shader fa da letterbox */}
         <canvas
           ref={canvasRef}
