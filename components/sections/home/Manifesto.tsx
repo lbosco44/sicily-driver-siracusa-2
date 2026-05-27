@@ -56,7 +56,7 @@ export function Manifesto() {
         </motion.h2>
 
         <motion.p
-          className="font-display italic text-[20px] sm:text-[22px] font-light text-ink-soft max-w-[42ch] leading-[1.4] mb-12 sm:mb-14"
+          className="font-display italic text-[18px] sm:text-[20px] lg:text-[22px] font-light text-ink-soft leading-[1.4] mb-12 sm:mb-14"
           style={{fontStretch: '95%'}}
           initial={reduce ? false : {opacity: 0, y: 16}}
           whileInView={reduce ? undefined : {opacity: 1, y: 0}}
