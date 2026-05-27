@@ -9,13 +9,16 @@ import {ESPERIENZE, N} from './data';
 import {DesktopSticky} from './DesktopSticky';
 
 // Tuning della sezione (svh).
-// ENTRY_VH = 0: niente fase di ingresso animata. L'immagine e' a schermo
-//            intero dal momento in cui la sezione entra in viewport.
-//            (L'effetto chromatic + wipe + barrel awvviene DURANTE le
-//            transizioni tra scene, non all'entry.)
+// ENTRY_VH = 80: fase di ingresso "rolling" stile AndAgain.uk. L'immagine e'
+//            sempre full-screen (yOffset SEMPRE 0 → niente gap nero), ma
+//            durante l'entry il momentum e l'edgeIntensity sono al massimo
+//            → barrel distortion + chromatic aberration creano un effetto
+//            "rullo curvato" che si appiattisce gradualmente man mano che
+//            l'utente scrolla nella sezione. A entry=1 (~80svh di scroll) i
+//            bordi sono completamente flat e l'immagine e' pulita.
 // SLIDE_VH = altezza per ogni passaggio di scena. Piu' alto = scroll piu'
 //            "burroso", piu' tempo per percepire il wipe lateral pieghevole.
-const ENTRY_VH = 0;
+const ENTRY_VH = 80;
 const SLIDE_VH = 220;
 const TOTAL_VH = ENTRY_VH + N * SLIDE_VH;
 
@@ -365,8 +368,13 @@ export function DesktopWebGL() {
       momentumRef.current += slideDelta * 2.5;
       lastSlideProgressRef.current = p;
 
-      // boost di curvatura durante l'entry: piu' forte quando entryProgress e' lontano da 1
-      const entryBow = (1 - entry) * 1.4;
+      // Boost di curvatura barrel + chromatic durante l'entry.
+      // entryBow (momentum boost): la curva 1 → 0 ease-out per fade dolce.
+      // 2.2 e' un valore alto che da' un effetto "curvato rullo" visibile sui
+      // bordi senza distorcere troppo il centro. AndAgain riferimento: i loro
+      // bordi si curvano nei primi ~600px di scroll dopo l'entry della section.
+      const easeOutEntry = 1.0 - Math.pow(1.0 - entry, 2.5); // ease-out cubic-ish
+      const entryBow = (1.0 - easeOutEntry) * 2.2;
 
       const fromTex = textures[idx];
       const toTex = textures[Math.min(idx + 1, N - 1)];
@@ -378,10 +386,16 @@ export function DesktopWebGL() {
       const paddingTop_px = FRAME_PADDING_Y_TOP * dpr;
       const paddingBottom_px = FRAME_PADDING_Y_BOTTOM * dpr;
 
-      // yOffset: durante entry il frame scende dall'alto. -H * (1 - entry).
-      const yOffset_px = -H * (1 - entry);
+      // yOffset: SEMPRE 0. Il frame riempie sempre tutto il canvas → niente
+      // gap nero. L'effetto "rullo" viene tutto dalla barrel + chromatic
+      // distortion (entryBow + entryEdge), non da uno shift verticale.
+      // Questo replica il pattern AndAgain.uk: immagine sempre visibile,
+      // bordi che si curvano durante lo scroll.
+      const yOffset_px = 0;
 
-      const entryEdge = (1 - entry) * 0.7; // chromatic max su entry
+      // Chromatic aberration boost durante l'entry. 1.1 valore alto → bordi
+      // marcati con sfasamento RGB visibile, settla a 0 quando entry=1.
+      const entryEdge = (1.0 - easeOutEntry) * 1.1;
       const totalMomentum = momentumRef.current + entryBow;
 
       gl.viewport(0, 0, W, H);
