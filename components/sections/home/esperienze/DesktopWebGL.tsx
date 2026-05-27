@@ -9,16 +9,15 @@ import {ESPERIENZE, N} from './data';
 import {DesktopSticky} from './DesktopSticky';
 
 // Tuning della sezione (svh).
-// ENTRY_VH = 80: fase di ingresso "rolling" stile AndAgain.uk. L'immagine e'
-//            sempre full-screen (yOffset SEMPRE 0 → niente gap nero), ma
-//            durante l'entry il momentum e l'edgeIntensity sono al massimo
-//            → barrel distortion + chromatic aberration creano un effetto
-//            "rullo curvato" che si appiattisce gradualmente man mano che
-//            l'utente scrolla nella sezione. A entry=1 (~80svh di scroll) i
-//            bordi sono completamente flat e l'immagine e' pulita.
+// ENTRY_VH = 0: niente fase di ingresso animata. L'immagine e' piatta e
+//            stabile dal momento in cui la sezione tocca il viewport. Il
+//            cliente non vuole l'effetto rolling/curvato in entrata.
+//            (L'effetto chromatic + wipe + barrel rimane DURANTE le
+//            transizioni tra scene quando l'utente scrolla, modulato dalla
+//            velocita' di scroll via momentumRef.)
 // SLIDE_VH = altezza per ogni passaggio di scena. Piu' alto = scroll piu'
 //            "burroso", piu' tempo per percepire il wipe lateral pieghevole.
-const ENTRY_VH = 80;
+const ENTRY_VH = 0;
 const SLIDE_VH = 220;
 const TOTAL_VH = ENTRY_VH + N * SLIDE_VH;
 
