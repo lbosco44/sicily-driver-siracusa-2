@@ -1,45 +1,26 @@
 'use client';
 
-import {useRef} from 'react';
 import Image from 'next/image';
-import {Link} from '@/i18n/navigation';
 import {useTranslations} from 'next-intl';
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useReducedMotion,
-  type MotionValue
-} from 'motion/react';
 import type {TourHubContent} from '@/lib/tours';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
 import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
+import {EsperienzeScroll} from '@/components/sections/home/EsperienzeScroll';
 
 // TourHubNarrative — pagina /tour-sicilia + /en/sicily-tours.
 // Stesso linguaggio della home: hero atmosferica, scroll-driven sticky per
 // le 5 esperienze, storytelling narrative, CTA finale immersive.
 // Diverso dalla home perché qui chi atterra HA già scelto "voglio un tour".
 
-// I 5 (+1 custom) itinerari sono colorati come nella home per coerenza.
-const ITINERARY_COLORS = [
-  '#E8DBC4', // Dolce Vita — sand
-  '#1E3A4F', // Silent Sailing — blu mare
-  '#EDE5D6', // Isola delle Correnti — cream
-  '#B05E40', // Etna Premium — terracotta
-  '#5F7367', // Barocco — ulivo
-  '#142838' // Custom — primary deep
-];
-
 export function TourHubNarrative({hub}: {hub: TourHubContent}) {
-  const tCommon = useTranslations('NccPage');
-
-  const stickyRef = useRef<HTMLDivElement>(null);
-  const {scrollYProgress} = useScroll({
-    target: stickyRef,
-    offset: ['start start', 'end end']
-  });
-
-  const N = hub.itineraries.length;
+  // Cliente 27/05/2026: la sezione itinerari/esperienze usa ora la stessa
+  // sezione WebGL scroll-driven della homepage (EsperienzeScroll).
+  // Stesso contenuto (5 esperienze hardcoded in components/sections/home/
+  // esperienze/data.ts), stesso shader wipe, stesso behaviour mobile (lock).
+  // Tutto il logic del precedente sticky vertical scroll (stickyRef,
+  // useScroll, useTransform, ItineraryBackground/Image/Text/HubCounter)
+  // e' stato deprecato. I subcomponents restano definiti sotto per
+  // backward compat ma non sono piu' renderizzati.
 
   return (
     <>
@@ -97,58 +78,13 @@ export function TourHubNarrative({hub}: {hub: TourHubContent}) {
         </div>
       </section>
 
-      {/* 03 — ITINERARI scroll-driven sticky */}
-      <section ref={stickyRef} className="relative" aria-label={hub.itinerariesEyebrow}>
-        <div style={{height: `${N * 100}vh`}} className="relative">
-          <div className="sticky top-0 h-[100svh] overflow-hidden">
-            {/* Backgrounds */}
-            {hub.itineraries.map((it, i) => (
-              <ItineraryBackground
-                key={`${it.number}-bg`}
-                index={i}
-                total={N}
-                bg={ITINERARY_COLORS[i] ?? '#1E3A4F'}
-                scrollYProgress={scrollYProgress}
-              />
-            ))}
-
-            {/* Foto */}
-            {hub.itineraries.map((it, i) => (
-              <ItineraryImage
-                key={`${it.number}-img`}
-                index={i}
-                total={N}
-                image={it.image}
-                priority={i === 0}
-                scrollYProgress={scrollYProgress}
-              />
-            ))}
-
-            {/* Counter sticky top */}
-            <div className="absolute top-0 inset-x-0 z-20 pt-8 sm:pt-10">
-              <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-baseline justify-between">
-                <p className="eyebrow text-cream-on-dark/85">
-                  {hub.itinerariesEyebrow}
-                </p>
-                <HubCounter total={N} scrollYProgress={scrollYProgress} />
-              </div>
-            </div>
-
-            {/* Testo per ogni itinerario */}
-            {hub.itineraries.map((it, i) => (
-              <ItineraryText
-                key={`${it.number}-text`}
-                itinerary={it}
-                index={i}
-                total={N}
-                ctaDiscover={tCommon('ctaDiscoverTour')}
-                ctaWhatsApp={tCommon('ctaWhatsApp')}
-                scrollYProgress={scrollYProgress}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 03 — ESPERIENZE scroll-driven WebGL (riusato dall'home)
+            Cliente 27/05/2026: stesso identico layout della homepage:
+            5 esperienze con foto + testo (Dolce Vita, Silent Sailing,
+            Isola Correnti, Etna, Barocco), shader wipe orizzontale
+            transition, testo SEMPRE a sinistra, mobile scroll-lock.
+            Source: components/sections/home/EsperienzeScroll.tsx */}
+      <EsperienzeScroll />
 
       {/* 04 — STORYTELLING giornata tipo */}
       <section className="bg-canvas py-40 sm:py-56">
@@ -270,238 +206,5 @@ export function TourHubNarrative({hub}: {hub: TourHubContent}) {
         </div>
       </section>
     </>
-  );
-}
-
-// ============================================================
-// Subcomponents — scroll-driven layers
-// ============================================================
-
-// Bulletproof keyframes: explicit full-range coverage of [0, 1] — every
-// scene has hard anchors at progress=0 AND 1, so Motion never extrapolates.
-function sceneOpacityKeyframes(index: number, total: number) {
-  const start = index / total;
-  const end = (index + 1) / total;
-  const FADE = 0.02;
-  const fadeInStart = Math.max(start - FADE, 0);
-  const fadeOutEnd = Math.min(end + FADE, 1);
-
-  if (index === 0) {
-    return {
-      times: [0, end, fadeOutEnd, 1],
-      values: [1, 1, 0, 0]
-    };
-  }
-  if (index === total - 1) {
-    return {
-      times: [0, fadeInStart, start, 1],
-      values: [0, 0, 1, 1]
-    };
-  }
-  return {
-    times: [0, fadeInStart, start, end, fadeOutEnd, 1],
-    values: [0, 0, 1, 1, 0, 0]
-  };
-}
-
-function ItineraryBackground({
-  index,
-  total,
-  bg,
-  scrollYProgress
-}: {
-  index: number;
-  total: number;
-  bg: string;
-  scrollYProgress: MotionValue<number>;
-}) {
-  const reduce = useReducedMotion();
-  const {times, values} = sceneOpacityKeyframes(index, total);
-  const opacity = useTransform(scrollYProgress, times, values);
-  return (
-    <motion.div
-      className="absolute inset-0"
-      style={{backgroundColor: bg, opacity: reduce ? 1 : opacity}}
-    />
-  );
-}
-
-function ItineraryImage({
-  index,
-  total,
-  image,
-  priority,
-  scrollYProgress
-}: {
-  index: number;
-  total: number;
-  image: string;
-  priority: boolean;
-  scrollYProgress: MotionValue<number>;
-}) {
-  const reduce = useReducedMotion();
-  const start = index / total;
-  const end = (index + 1) / total;
-  const {times, values} = sceneOpacityKeyframes(index, total);
-  const opacity = useTransform(scrollYProgress, times, values);
-  const scale = useTransform(
-    scrollYProgress,
-    [start, end],
-    reduce ? [1, 1] : [1.06, 1]
-  );
-
-  return (
-    <motion.div
-      className="absolute inset-0"
-      style={{opacity: reduce ? 1 : opacity, scale}}
-    >
-      <Image
-        src={image}
-        alt=""
-        fill
-        sizes="100vw"
-        quality={80}
-        placeholder="blur"
-        blurDataURL={HERO_BLUR}
-        className="object-cover"
-        style={{filter: 'saturate(0.88) brightness(0.78) contrast(1.06)'}}
-        priority={priority}
-        {...(priority ? {fetchPriority: 'high' as const} : {})}
-      />
-      <div className="absolute inset-0 atmo-overlay-dark" />
-    </motion.div>
-  );
-}
-
-function ItineraryText({
-  itinerary,
-  index,
-  total,
-  ctaDiscover,
-  ctaWhatsApp,
-  scrollYProgress
-}: {
-  itinerary: TourHubContent['itineraries'][number];
-  index: number;
-  total: number;
-  ctaDiscover: string;
-  ctaWhatsApp: string;
-  scrollYProgress: MotionValue<number>;
-}) {
-  const reduce = useReducedMotion();
-  const start = index / total;
-  const end = (index + 1) / total;
-  const peakStart = start + 0.05;
-  const peakEnd = end - 0.05;
-
-  // Same full-range strategy: explicit keyframes covering [0, 1].
-  let opacityTimes: number[];
-  let opacityValues: number[];
-  let yTimes: number[];
-  let yValues: string[];
-
-  if (index === 0) {
-    opacityTimes = [0, peakEnd, end, 1];
-    opacityValues = [1, 1, 0, 0];
-    yTimes = [0, peakEnd, end, 1];
-    yValues = reduce
-      ? ['0%', '0%', '0%', '0%']
-      : ['0%', '0%', '-4%', '-4%'];
-  } else if (index === total - 1) {
-    opacityTimes = [0, start, peakStart, 1];
-    opacityValues = [0, 0, 1, 1];
-    yTimes = [0, start, peakStart, 1];
-    yValues = reduce
-      ? ['0%', '0%', '0%', '0%']
-      : ['6%', '6%', '0%', '0%'];
-  } else {
-    opacityTimes = [0, start, peakStart, peakEnd, end, 1];
-    opacityValues = [0, 0, 1, 1, 0, 0];
-    yTimes = [0, start, peakStart, peakEnd, end, 1];
-    yValues = reduce
-      ? ['0%', '0%', '0%', '0%', '0%', '0%']
-      : ['6%', '6%', '0%', '0%', '-4%', '-4%'];
-  }
-
-  const opacity = useTransform(scrollYProgress, opacityTimes, opacityValues);
-  const y = useTransform(scrollYProgress, yTimes, yValues);
-  // Only the visible itinerary catches clicks; without this, the topmost
-  // stacked motion.div eats every pointer event regardless of opacity.
-  const pointerEvents = useTransform(opacity, (v: number) =>
-    v > 0.15 ? 'auto' : 'none'
-  );
-
-  const alignClass =
-    index % 2 === 0 ? 'items-start text-left' : 'items-end text-right';
-  const isCustom = itinerary.href === '/contatti';
-
-  return (
-    <motion.div
-      className={`absolute inset-0 z-10 flex flex-col justify-end ${alignClass} px-6 sm:px-12 lg:px-20 pb-24 sm:pb-32`}
-      style={{opacity: reduce ? 1 : opacity, y, pointerEvents}}
-    >
-      <div style={{maxWidth: 'min(560px, 84vw)'}}>
-        <p className="eyebrow text-cream-on-dark/85 mb-5">
-          {itinerary.duration} · {itinerary.price}
-        </p>
-        <h2
-          className="hero-headline font-display text-display-lg font-medium text-cream-on-dark"
-          style={{
-            fontStretch: '92%',
-            textShadow: '0 2px 18px rgba(0,0,0,0.3)'
-          }}
-        >
-          {itinerary.title}
-        </h2>
-        <p className="mt-6 max-w-[42ch] text-[18px] sm:text-[20px] text-cream-on-dark/90 leading-[1.55]">
-          {itinerary.body}
-        </p>
-
-        <div
-          className={`mt-8 flex flex-wrap gap-3 sm:gap-4 ${
-            index % 2 === 0 ? 'justify-start' : 'justify-end'
-          }`}
-        >
-          {!isCustom && (
-            <Link
-              href={itinerary.href}
-              className="inline-flex items-center gap-3 rounded-full bg-cream-on-dark px-7 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-primary-deep hover:bg-cream-soft transition-colors"
-            >
-              {ctaDiscover}
-              <span aria-hidden="true">→</span>
-            </Link>
-          )}
-          <Link href="/contatti"
-            className="inline-flex items-center gap-3 rounded-full border border-cream-on-dark/50 px-7 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-cream-on-dark hover:bg-cream-on-dark/10 hover:border-cream-on-dark transition-colors"
-          >
-            {ctaWhatsApp}
-            <span aria-hidden="true">→</span>
-          </Link>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-function HubCounter({
-  total,
-  scrollYProgress
-}: {
-  total: number;
-  scrollYProgress: MotionValue<number>;
-}) {
-  const current = useTransform(scrollYProgress, (p) => {
-    const idx = Math.min(Math.floor(p * total) + 1, total);
-    return String(idx).padStart(2, '0');
-  });
-  return (
-    <div className="flex items-baseline gap-2 text-cream-on-dark/85 tabular-nums">
-      <motion.span className="font-display text-2xl sm:text-3xl">
-        {current}
-      </motion.span>
-      <span className="text-[11px] uppercase tracking-[0.18em]">
-        / {String(total).padStart(2, '0')}
-      </span>
-    </div>
   );
 }

@@ -14,6 +14,7 @@ import {
 import type {TourContent} from '@/lib/tours';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
 import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
+import {EtnaStagesWebGL} from '@/components/sections/tour-etna/EtnaStagesWebGL';
 
 // TourDetailEtnaDark — variante mood dark/cinematic dedicata all'Etna.
 // Mood: pietra lavica, notte sul vulcano, fuoco discreto.
@@ -258,29 +259,53 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
         </section>
       )}
 
-      {/* 05 — TAPPE scroll-driven sticky cinematic dark */}
-      <section ref={stagesRef} className="relative" aria-label={tour.stagesEyebrow}>
-        {/* Header sezione */}
-        <div className="py-24 sm:py-32" style={{backgroundColor: ETNA_BLACK}}>
-          <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-            <p
-              className="eyebrow mb-7"
-              style={{color: LAVA_GLOW}}
-            >
-              {tour.stagesEyebrow}
-            </p>
-            <h2
-              className="hero-headline font-display text-display-lg font-light max-w-[20ch]"
-              style={{color: 'var(--cream-on-dark)', fontStretch: '92%'}}
-            >
-              {tour.stagesH2Pre}{' '}
-              <span style={{color: LAVA_GLOW}}>{tour.stagesH2Accent}</span>
-            </h2>
-          </div>
-        </div>
+      {/* 05 — TAPPE scroll-driven cinematic
+            Cliente 27/05/2026: stesso WebGL scroll-driven orizzontale della
+            home (con wipe Bezier + barrel + chromatic + LERP), ma con foto
+            e testi delle 5 STAGES di Etna. Testo sempre a sinistra.
 
+            Layout responsive:
+            - Mobile (md:hidden): sticky vertical scroll esistente (sub-comps
+              EtnaStageImage/Text/Counter sotto)
+            - Desktop (hidden md:block): nuovo EtnaStagesWebGL con shader
+              identico alla home */}
+
+      {/* Header sezione, visibile su entrambi (no duplicato) */}
+      <section
+        className="py-24 sm:py-32"
+        style={{backgroundColor: ETNA_BLACK}}
+        aria-label={tour.stagesEyebrow}
+      >
+        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
+          <p className="eyebrow mb-7" style={{color: LAVA_GLOW}}>
+            {tour.stagesEyebrow}
+          </p>
+          <h2
+            className="hero-headline font-display text-display-lg font-light max-w-[20ch]"
+            style={{color: 'var(--cream-on-dark)', fontStretch: '92%'}}
+          >
+            {tour.stagesH2Pre}{' '}
+            <span style={{color: LAVA_GLOW}}>{tour.stagesH2Accent}</span>
+          </h2>
+        </div>
+      </section>
+
+      {/* DESKTOP: nuovo WebGL horizontal scroll, identico mood home */}
+      <div className="hidden md:block">
+        <EtnaStagesWebGL stages={tour.stages} eyebrow={tour.stagesEyebrow} />
+      </div>
+
+      {/* MOBILE: vertical sticky scroll (legacy, comportamento invariato) */}
+      <section
+        ref={stagesRef}
+        className="md:hidden relative"
+        aria-label={tour.stagesEyebrow}
+      >
         <div style={{height: `${N * 100}vh`}} className="relative">
-          <div className="sticky top-0 h-[100svh] overflow-hidden" style={{backgroundColor: ETNA_BLACK}}>
+          <div
+            className="sticky top-0 h-[100svh] overflow-hidden"
+            style={{backgroundColor: ETNA_BLACK}}
+          >
             {/* Foto sticky per ogni tappa */}
             {tour.stages.map((s, i) => (
               <EtnaStageImage
@@ -293,7 +318,7 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
               />
             ))}
 
-            {/* Counter + eyebrow sticky top */}
+            {/* Counter sticky top */}
             <div className="absolute top-0 inset-x-0 z-20 pt-8 sm:pt-10">
               <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-baseline justify-between">
                 <p className="eyebrow" style={{color: LAVA_GLOW}}>
