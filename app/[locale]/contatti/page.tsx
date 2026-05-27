@@ -75,11 +75,10 @@ export default async function ContattiPage({
     }
   ];
 
-  const bases = [
-    {name: t('bases.base1Name'), address: t('bases.base1Address')},
-    {name: t('bases.base2Name'), address: t('bases.base2Address')},
-    {name: t('bases.base3Name'), address: t('bases.base3Address')}
-  ];
+  // bases (Siracusa/Noto/Marzamemi) rimosso dalla pagina contatti
+  // il 27/05/2026 — info preservata nel Footer.Sedi, ridondante in pagina.
+  // I copy bases.* restano nei messages per backward compat e per la
+  // schema.org LocalBusiness che ne potrebbe aver bisogno.
 
   return (
     <>
@@ -229,48 +228,17 @@ export default async function ContattiPage({
         </div>
       </section>
 
-      {/* 04 — SEDI */}
-      <section className="bg-canvas-warm py-32 sm:py-40">
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-2xl mb-14 sm:mb-16">
-            <p className="eyebrow mb-7">{t('bases.eyebrow')}</p>
-            <h2
-              className="font-display text-display-md font-light text-ink"
-              style={{fontStretch: '95%'}}
-            >
-              {t('bases.h2Pre')}{' '}
-              <span className="italic text-accent">{t('bases.h2Accent')}</span>
-            </h2>
-          </div>
-
-          <ul className="grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-y-0 md:gap-x-12 lg:gap-x-16">
-            {bases.map((b, i) => (
-              <li
-                key={i}
-                className={
-                  i < bases.length - 1
-                    ? 'md:border-r md:border-[var(--border-strong)] md:pr-12 lg:pr-16'
-                    : ''
-                }
-              >
-                <h3
-                  className="font-display text-display-sm font-light text-ink leading-[1.05] mb-5"
-                  style={{fontStretch: '95%'}}
-                >
-                  {b.name}
-                </h3>
-                <p className="font-display italic text-[18px] text-accent">
-                  {b.address}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* 05 — TEMPI DI RISPOSTA */}
+      {/* 04 — TEMPI DI RISPOSTA (sezione blu compatta)
+            Cliente 27/05/2026:
+            - Rimossa sezione "Dove siamo" (sedi Siracusa/Noto/Marzamemi):
+              info preservata nel Footer.Sedi, ridondante in pagina.
+            - py-32/40 → py-20/24: padding verticale dimezzato
+            - display-lg → display-md: h2 piu' contenuto
+            - body 21px → 18px, businessNote 16px → 15px: gerarchia
+              piu' compatta
+            - max-w-(--container-narrow) → max-w-3xl: container piu' stretto */}
       <section
-        className="relative bg-primary-deep py-32 sm:py-40 overflow-hidden"
+        className="relative bg-primary-deep py-20 sm:py-24 overflow-hidden"
         style={{color: 'var(--cream-on-dark)'}}
       >
         <div
@@ -282,20 +250,17 @@ export default async function ContattiPage({
           aria-hidden="true"
         />
 
-        <div className="relative mx-auto max-w-(--container-narrow) px-6 sm:px-10">
-          <p className="eyebrow text-cream-on-dark/65 mb-10">
-            {t('times.eyebrow')}
-          </p>
+        <div className="relative mx-auto max-w-3xl px-6 sm:px-10">
           <AnimatedHeading
             as="h2"
             text={`${t('times.h2Pre')} ${t('times.h2Accent')}`}
-            className="font-display text-display-lg font-light text-cream-on-dark max-w-[20ch] leading-[0.98]"
+            className="font-display text-display-md font-light text-cream-on-dark max-w-[22ch] leading-[1.02]"
             style={{fontStretch: '95%'}}
           />
-          <p className="mt-10 text-[19px] sm:text-[21px] text-cream-soft leading-[1.65] max-w-[58ch]">
+          <p className="mt-7 text-[17px] sm:text-[18px] text-cream-soft leading-[1.6] max-w-[58ch]">
             {t('times.body')}
           </p>
-          <p className="mt-7 text-[16px] text-cream-on-dark/65 leading-[1.65] max-w-[58ch]">
+          <p className="mt-5 text-[15px] text-cream-on-dark/65 leading-[1.6] max-w-[58ch]">
             {t('times.businessNote')}
           </p>
         </div>

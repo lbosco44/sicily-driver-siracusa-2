@@ -176,6 +176,13 @@ h3 { line-height: 1.1; letter-spacing: -0.015em; }
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--secondary);
+  /* Cliente 27/05/2026: nascosto site-wide. I "titolini sopra" alle h2
+     (eyebrow / kicker) appesantivano le sezioni e non aggiungevano
+     informazione utile (esempio: "TEMPI DI RISPOSTA" sopra a "Quando
+     rispondiamo" e' ridondante). Manteniamo il markup nei 23 componenti
+     che lo usano per backward compat / SEO landmarks invisibili / revert
+     rapido se cambia idea. Per ripristinare: rimuovere questa riga. */
+  display: none;
 }
 
 /* Tabular nums per prezzi/numeri */
