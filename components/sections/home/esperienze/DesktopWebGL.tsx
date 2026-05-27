@@ -451,11 +451,10 @@ export function DesktopWebGL() {
 
         {/* Frame-aligned text overlays (scene text) */}
         <div className="absolute z-10 pointer-events-none" style={frameInsetStyle}>
-          {/* atmo overlay scuro dentro al frame, per leggibilita' del testo */}
-          <div
-            className="absolute inset-0 atmo-overlay-dark"
-            style={{borderRadius: `${CORNER_RADIUS}px`}}
-          />
+          {/* NOTA: atmo overlay duplicato rimosso. Ce n'e' uno gia' al livello
+              sticky inner (sopra al canvas). Sovrapporre due gradient
+              rgba(20,18,14,0.78) al bottom dava un dark composito al ~95%
+              che faceva apparire la sezione completamente NERA. */}
 
           {ESPERIENZE.map((e, i) => {
             const active = activeIndex === i;
