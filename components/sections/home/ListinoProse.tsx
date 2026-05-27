@@ -114,7 +114,7 @@ export function ListinoProse() {
             - md+: grid normale come prima
             - margine negativo -mx-6/-mx-10 + padding interno per estendere
               lo scroll fino al bordo viewport (full-bleed) */}
-        <div className="scrollbar-hidden flex md:grid md:grid-cols-2 xl:grid-cols-4 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none gap-4 lg:gap-5 -mx-6 px-6 md:mx-0 md:px-0 pb-4 md:pb-0">
+        <div className="scrollbar-hidden flex md:grid md:grid-cols-2 xl:grid-cols-4 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none gap-4 lg:gap-5 -mx-6 px-6 md:mx-0 md:px-0 pt-4 md:pt-0 pb-4 md:pb-0">
           {ROUTES.map((r, i) => {
             const features = [
               {label: t('feature1'), value: t(`${r.key}Duration`)},
