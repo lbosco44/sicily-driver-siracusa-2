@@ -24,9 +24,11 @@ export function EsperienzeScroll() {
         <DesktopWebGL />
       </div>
 
-      {/* Band terracotta finale */}
+      {/* Band terracotta finale. Cliente 27/05/2026: CTA "Parliamone" ora
+          allineata a meta' altezza del box, non al baseline della prima
+          riga del tagline (era visivamente sbilanciata in alto). */}
       <div className="bg-accent py-20 sm:py-24">
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-7">
+        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-7">
           <p
             className="font-display text-display-sm font-light text-cream-on-dark max-w-[28ch]"
             style={{fontStretch: '95%'}}
@@ -35,7 +37,7 @@ export function EsperienzeScroll() {
           </p>
           <Link
             href="/contatti"
-            className="inline-flex items-center gap-3 rounded-full bg-cream-on-dark px-7 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-accent hover:bg-cream-soft transition-colors self-start"
+            className="inline-flex items-center gap-3 rounded-full bg-cream-on-dark px-7 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-accent hover:bg-cream-soft transition-colors self-start sm:self-center"
           >
             {t('customCta')}
             <span aria-hidden="true">→</span>
