@@ -328,93 +328,104 @@ export default async function ChiSiamoPage({
               ))}
             </ul>
 
-            {/* RIGHT: Sicily SVG stilizzata.
-                Simplified outline + 3 pin terracotta + labels.
-                Le 3 sedi sono tutte nel sud-est, vicine: i pin si
-                clustreranno in quella zona (geograficamente accurato). */}
+            {/* RIGHT: Mappa Sicilia reale (PNG silhouette) + 3 pin overlay.
+                Cliente 28/05/2026: ha fornito 4 immagini Sicilia, scelta
+                la pngtree silhouette (gray, contiene Eolie/Egadi minori,
+                nessun watermark visibile).
+                File: /public/images/sicilia-map.png (20KB)
+                Pin posizionati via percentuali calibrate sul frame
+                dell'immagine. Le 3 sedi (SR, Noto, Marzamemi) sono nel
+                sud-est. */}
             <div className="relative mx-auto w-full max-w-md lg:max-w-lg">
-              <svg
-                viewBox="0 0 120 80"
-                className="w-full h-auto"
-                role="img"
-                aria-label="Mappa stilizzata della Sicilia con le 3 sedi Sicily Driver: Siracusa, Noto, Marzamemi"
-              >
-                {/* Sicily outline simplified */}
-                <path
-                  d="M 8,42 L 18,22 L 35,12 L 60,8 L 88,12 L 102,18 L 108,28 L 102,36 L 88,42 L 82,52 L 80,60 L 75,68 L 60,74 L 42,74 L 25,68 L 12,58 Z"
-                  fill="var(--canvas)"
-                  stroke="var(--ink-soft)"
-                  strokeWidth="0.6"
-                  strokeLinejoin="round"
-                  opacity="0.55"
+              <div className="relative aspect-[5/4]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/sicilia-map.png"
+                  alt="Mappa stilizzata della Sicilia con le 3 sedi Sicily Driver: Siracusa, Noto, Marzamemi"
+                  className="absolute inset-0 w-full h-full object-contain"
+                  style={{
+                    // Riduci opacita' + leggera tinta seppia per match palette
+                    // editorial cream. Da gray scuro a "vintage atlas wash".
+                    opacity: 0.45,
+                    filter: 'sepia(0.25) brightness(0.85)'
+                  }}
                 />
 
-                {/* Etna bump (small) */}
-                <circle
-                  cx="78"
-                  cy="42"
-                  r="3.5"
-                  fill="var(--canvas)"
-                  stroke="var(--ink-soft)"
-                  strokeWidth="0.4"
-                  opacity="0.4"
-                />
-
-                {/* Decorative dotted line connecting the 3 sedi (path: SR → Noto → Marzamemi) */}
-                <path
-                  d="M 82,55 L 75,63 L 78,71"
-                  stroke="var(--accent)"
-                  strokeWidth="0.4"
-                  strokeDasharray="1,1"
-                  fill="none"
-                  opacity="0.6"
-                />
-
-                {/* Sedi pins terracotta */}
-                {[
-                  {x: 82, y: 55, label: 'Siracusa', labelX: 88, labelY: 56},
-                  {x: 75, y: 63, label: 'Noto', labelX: 80, labelY: 65},
-                  {x: 78, y: 71, label: 'Marzamemi', labelX: 82, labelY: 73}
-                ].map((p, i) => (
-                  <g key={i}>
-                    {/* Pin halo */}
-                    <circle
-                      cx={p.x}
-                      cy={p.y}
-                      r="3.5"
-                      fill="var(--accent)"
-                      opacity="0.18"
-                    />
-                    {/* Pin dot */}
-                    <circle cx={p.x} cy={p.y} r="1.8" fill="var(--accent)" />
-                    {/* Label */}
-                    <text
-                      x={p.labelX}
-                      y={p.labelY}
-                      fontSize="3.2"
-                      fontFamily="var(--font-display)"
-                      fontStyle="italic"
-                      fill="var(--ink)"
-                    >
-                      {p.label}
-                    </text>
-                  </g>
-                ))}
-
-                {/* "Sicilia" label decorativo */}
-                <text
-                  x="38"
-                  y="48"
-                  fontSize="4"
-                  fontFamily="var(--font-display)"
-                  fontStyle="italic"
-                  fill="var(--ink-soft)"
-                  opacity="0.5"
-                  letterSpacing="0.2em"
+                {/* "Sicilia" label decorativa over center, italic */}
+                <p
+                  className="absolute font-display italic text-ink-soft/35 select-none pointer-events-none tracking-[0.3em]"
+                  style={{
+                    top: '38%',
+                    left: '28%',
+                    fontSize: 'clamp(11px, 1.4vw, 16px)',
+                    fontStretch: '95%'
+                  }}
+                  aria-hidden="true"
                 >
                   SICILIA
-                </text>
-              </svg>
+                </p>
+
+                {/* Linea tratteggiata che connette i 3 pin.
+                    Coordinate matching i pin sotto. */}
+                <svg
+                  className="absolute inset-0 w-full h-full pointer-events-none"
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M 76,58 L 70,68 L 73,77"
+                    stroke="var(--accent)"
+                    strokeWidth="0.5"
+                    strokeDasharray="1.5,1.5"
+                    fill="none"
+                    opacity="0.7"
+                    vectorEffect="non-scaling-stroke"
+                  />
+                </svg>
+
+                {/* Sedi pins: posizioni calibrate sulla silhouette.
+                    Siracusa: costa est, lat ~37° → ~76% x del frame
+                    Noto: entroterra Val di Noto → ~70% x
+                    Marzamemi: capo sud → ~73% x, 77% y */}
+                {[
+                  {x: 76, y: 58, label: 'Siracusa'},
+                  {x: 70, y: 68, label: 'Noto'},
+                  {x: 73, y: 77, label: 'Marzamemi'}
+                ].map((p, i) => (
+                  <div
+                    key={i}
+                    className="absolute flex items-center gap-2"
+                    style={{
+                      left: `${p.x}%`,
+                      top: `${p.y}%`,
+                      transform: 'translate(-50%, -50%)'
+                    }}
+                  >
+                    {/* Halo grande terracotta semitrasparente */}
+                    <span
+                      className="absolute w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-accent/25 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 animate-pulse"
+                      style={{animationDuration: '3s'}}
+                      aria-hidden="true"
+                    />
+                    {/* Dot solid terracotta piu' visibile */}
+                    <span
+                      className="w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full bg-accent flex-shrink-0 relative z-10 ring-2 ring-canvas-warm"
+                      aria-hidden="true"
+                    />
+                    {/* Label inline a destra del pin */}
+                    <span
+                      className="font-display italic text-[13px] sm:text-[14px] font-medium text-ink whitespace-nowrap relative z-10 ml-1"
+                      style={{
+                        fontStretch: '95%',
+                        textShadow: '0 1px 8px rgba(245, 239, 228, 0.8)'
+                      }}
+                    >
+                      {p.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
