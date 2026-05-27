@@ -57,20 +57,33 @@ export function Interni() {
           </motion.p>
         </div>
 
-        {/* 3 foto dettaglio in griglia asimmetrica leggera */}
-        <div className="grid grid-cols-12 gap-4 sm:gap-6 lg:gap-8">
+        {/* MOSAICO TETRIS rielaborato 27/05/2026.
+            Vecchio: 3 immagini con span e aspect diversi che non si
+            allineavano (5/4, 4/5, 16/8) → spazi disordinati.
+            Nuovo: griglia 12-col × 2-row con altezza fissa, perfetto
+            tetris asimmetrico.
+            - L (water): col-span-7 row-span-2 (big vertical sx)
+            - A (leather): col-span-5 row-span-1 (small horizontal top dx)
+            - B (tablet): col-span-5 row-span-1 (small horizontal bottom dx)
+            Heights matchano automaticamente grazie a grid-rows e
+            container h fixed.
+            Mobile: stack verticale 1-col con aspect propri (4/5 per L,
+            3/2 per A e B). */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 lg:grid-rows-2 gap-4 sm:gap-5 lg:h-[600px] xl:h-[680px]">
           {DETAILS.map((d, i) => {
-            // Foto 1: larga-sinistra (8 col); 2: stretta-destra (4 col); 3: full-width sotto
-            const span =
+            // Layout cells:
+            // i=0 (water): big sx, vertical, span 7×2
+            // i=1 (leather): small top dx, horizontal, span 5×1
+            // i=2 (tablet): small bottom dx, horizontal, span 5×1
+            const cellClass =
               i === 0
-                ? 'col-span-12 sm:col-span-8 aspect-[5/4]'
-                : i === 1
-                  ? 'col-span-12 sm:col-span-4 aspect-[4/5]'
-                  : 'col-span-12 aspect-[16/8] sm:aspect-[16/6]';
+                ? 'aspect-[4/5] lg:aspect-auto lg:col-span-7 lg:row-span-2'
+                : 'aspect-[3/2] lg:aspect-auto lg:col-span-5 lg:row-span-1';
+
             return (
               <motion.figure
                 key={d.key}
-                className={`relative overflow-hidden rounded-sm ${span} grain`}
+                className={`relative overflow-hidden rounded-sm grain ${cellClass}`}
                 initial={reduce ? false : {opacity: 0, y: 32}}
                 whileInView={reduce ? undefined : {opacity: 1, y: 0}}
                 viewport={{once: true, margin: '-10%'}}
@@ -84,7 +97,7 @@ export function Interni() {
                   src={d.image}
                   alt={t(`${d.key}Alt`)}
                   fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                   loading="lazy"
                   style={{filter: 'saturate(0.85) brightness(0.96) contrast(1.05)'}}
