@@ -278,14 +278,12 @@ export default async function ChiSiamoPage({
         </div>
       </section>
 
-      {/* 05 — SEDI bento grid asimmetrico (consistente con convinzioni)
-            Cliente 28/05/2026: "stessa rielaborazione" della precedente,
-            era brutta come convinzioni. Stesso pattern bento 1 big + 2
-            small ma con icona MapPin decorativa al posto del numero
-            01/02/03 (le sedi sono LUOGHI, non valori ordinati).
-            Big card = Siracusa (HQ, primaria) con badge "SEDE PRINCIPALE".
-            Ogni card include link "Apri in Maps" → google maps search
-            con l'indirizzo. */}
+      {/* 05 — SEDI con mappa stilizzata della Sicilia
+            Cliente 28/05/2026: rifare DIVERSO dal bento delle convinzioni
+            (era identico = noioso). Pattern nuovo: mappa SVG simplificata
+            della Sicilia con 3 pin terracotta + lista sedi accanto.
+            Visual specifico per "luoghi" — comunica geografia.
+            Niente badge "sede principale" (rimosso) ne link Maps. */}
       <section className="bg-canvas-warm py-20 sm:py-28">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
           <div className="max-w-2xl mb-12 sm:mb-14">
@@ -299,96 +297,125 @@ export default async function ChiSiamoPage({
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 md:auto-rows-fr gap-4 lg:gap-5">
-            {bases.map((b, i) => {
-              const isBig = i === 0;
-              const cellClass = isBig
-                ? 'md:col-span-7 md:row-span-2 min-h-[260px]'
-                : 'md:col-span-5 min-h-[140px]';
-
-              // MapPin icon size: big card piu' grande
-              const iconSize = isBig ? 'w-32 h-32 sm:w-44 sm:h-44' : 'w-20 h-20 sm:w-24 sm:h-24';
-
-              // City name display, big card piu' grande
-              const nameClass = isBig
-                ? 'text-[36px] sm:text-[44px] lg:text-[52px]'
-                : 'text-[24px] sm:text-[28px]';
-
-              const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                `${b.address}, ${b.name}, Italia`
-              )}`;
-
-              return (
-                <article
-                  key={i}
-                  className={`relative rounded-2xl bg-canvas border border-[var(--border-strong)] p-7 sm:p-8 lg:p-9 flex flex-col justify-between overflow-hidden group hover:border-accent transition-colors duration-300 ${cellClass}`}
-                >
-                  {/* MapPin icon decorativo top-right, lava-tinted trasparente */}
-                  <svg
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* LEFT: lista sedi editorial */}
+            <ul className="divide-y divide-[var(--border)]">
+              {bases.map((b, i) => (
+                <li key={i} className="py-7 first:pt-0 last:pb-0 flex gap-5 group">
+                  {/* Pin number marker tondo */}
+                  <span
+                    className="flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-accent/12 text-accent inline-flex items-center justify-center font-display italic text-[16px] sm:text-[18px] tabular-nums transition-colors group-hover:bg-accent group-hover:text-cream-on-dark"
+                    style={{fontStretch: '95%'}}
                     aria-hidden="true"
-                    className={`absolute top-5 right-5 text-accent/15 ${iconSize} select-none pointer-events-none`}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
                   >
-                    <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-
-                  {/* Badge "SEDE PRINCIPALE" solo sulla big card */}
-                  {isBig && (
-                    <span className="absolute -top-3 left-7 inline-flex items-center px-3 py-1 rounded-full bg-accent text-cream-on-dark text-[10px] uppercase tracking-[0.18em] font-medium">
-                      Sede principale
-                    </span>
-                  )}
-
-                  {/* Content */}
-                  <div className="relative">
+                    {i + 1}
+                  </span>
+                  <div className="flex-1 min-w-0">
                     <h3
-                      className={`font-display font-light text-ink leading-[1] mb-3 sm:mb-4 ${nameClass}`}
+                      className="font-display text-[26px] sm:text-[30px] font-light text-ink leading-[1.1] mb-1.5"
                       style={{fontStretch: '95%'}}
                     >
                       {b.name}
                     </h3>
-                    <p
-                      className={`font-display italic text-accent mb-3 ${
-                        isBig ? 'text-[19px] sm:text-[22px]' : 'text-[15px] sm:text-[16px]'
-                      }`}
-                    >
+                    <p className="font-display italic text-[16px] sm:text-[17px] text-accent mb-2">
                       {b.address}
                     </p>
-                    <p
-                      className={`text-ink-soft leading-relaxed max-w-[36ch] ${
-                        isBig
-                          ? 'text-[15px] sm:text-[16px]'
-                          : 'text-[13px] sm:text-[14px]'
-                      }`}
-                    >
+                    <p className="text-[14px] sm:text-[15px] text-ink-soft leading-[1.55] max-w-[44ch]">
                       {b.note}
                     </p>
                   </div>
+                </li>
+              ))}
+            </ul>
 
-                  {/* Link "Apri in Maps" bottom-aligned via flex justify-between */}
-                  <a
-                    href={mapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative mt-5 sm:mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] font-medium text-primary group-hover:text-accent transition-colors self-start"
-                  >
-                    Apri in Maps
-                    <span
-                      aria-hidden="true"
-                      className="transition-transform duration-300 group-hover:translate-x-1"
+            {/* RIGHT: Sicily SVG stilizzata.
+                Simplified outline + 3 pin terracotta + labels.
+                Le 3 sedi sono tutte nel sud-est, vicine: i pin si
+                clustreranno in quella zona (geograficamente accurato). */}
+            <div className="relative mx-auto w-full max-w-md lg:max-w-lg">
+              <svg
+                viewBox="0 0 120 80"
+                className="w-full h-auto"
+                role="img"
+                aria-label="Mappa stilizzata della Sicilia con le 3 sedi Sicily Driver: Siracusa, Noto, Marzamemi"
+              >
+                {/* Sicily outline simplified */}
+                <path
+                  d="M 8,42 L 18,22 L 35,12 L 60,8 L 88,12 L 102,18 L 108,28 L 102,36 L 88,42 L 82,52 L 80,60 L 75,68 L 60,74 L 42,74 L 25,68 L 12,58 Z"
+                  fill="var(--canvas)"
+                  stroke="var(--ink-soft)"
+                  strokeWidth="0.6"
+                  strokeLinejoin="round"
+                  opacity="0.55"
+                />
+
+                {/* Etna bump (small) */}
+                <circle
+                  cx="78"
+                  cy="42"
+                  r="3.5"
+                  fill="var(--canvas)"
+                  stroke="var(--ink-soft)"
+                  strokeWidth="0.4"
+                  opacity="0.4"
+                />
+
+                {/* Decorative dotted line connecting the 3 sedi (path: SR → Noto → Marzamemi) */}
+                <path
+                  d="M 82,55 L 75,63 L 78,71"
+                  stroke="var(--accent)"
+                  strokeWidth="0.4"
+                  strokeDasharray="1,1"
+                  fill="none"
+                  opacity="0.6"
+                />
+
+                {/* Sedi pins terracotta */}
+                {[
+                  {x: 82, y: 55, label: 'Siracusa', labelX: 88, labelY: 56},
+                  {x: 75, y: 63, label: 'Noto', labelX: 80, labelY: 65},
+                  {x: 78, y: 71, label: 'Marzamemi', labelX: 82, labelY: 73}
+                ].map((p, i) => (
+                  <g key={i}>
+                    {/* Pin halo */}
+                    <circle
+                      cx={p.x}
+                      cy={p.y}
+                      r="3.5"
+                      fill="var(--accent)"
+                      opacity="0.18"
+                    />
+                    {/* Pin dot */}
+                    <circle cx={p.x} cy={p.y} r="1.8" fill="var(--accent)" />
+                    {/* Label */}
+                    <text
+                      x={p.labelX}
+                      y={p.labelY}
+                      fontSize="3.2"
+                      fontFamily="var(--font-display)"
+                      fontStyle="italic"
+                      fill="var(--ink)"
                     >
-                      →
-                    </span>
-                  </a>
-                </article>
-              );
-            })}
+                      {p.label}
+                    </text>
+                  </g>
+                ))}
+
+                {/* "Sicilia" label decorativo */}
+                <text
+                  x="38"
+                  y="48"
+                  fontSize="4"
+                  fontFamily="var(--font-display)"
+                  fontStyle="italic"
+                  fill="var(--ink-soft)"
+                  opacity="0.5"
+                  letterSpacing="0.2em"
+                >
+                  SICILIA
+                </text>
+              </svg>
+            </div>
           </div>
         </div>
       </section>
