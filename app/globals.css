@@ -230,6 +230,18 @@ h3 { line-height: 1.1; letter-spacing: -0.015em; }
   justify-content: center;
 }
 
+/* Utility: nasconde scrollbar webkit per carouseli mobile.
+   Tailwind non ha built-in per questo (Tailwind v4 scrollbar plugin
+   richiede dipendenza esterna). Soluzione minimale: aggiungi
+   .scrollbar-hidden alla classe del container scrollable. */
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
 /* Marquee infinito per partner logos. Tecnica: duplichiamo la lista nel JSX
    (passa [...items, ...items]) e animiamo translateX da 0 a -50% in loop
    lineare. Quando la prima copia esce a sinistra, la seconda e' gia' nella

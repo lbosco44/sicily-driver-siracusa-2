@@ -102,8 +102,19 @@ export function ListinoProse() {
           </p>
         </motion.div>
 
-        {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-5">
+        {/* Cards container.
+            Cliente 27/05/2026: su mobile 4 card stack verticale era troppo
+            lungo (~2800px scroll solo per questa sezione).
+            FIX: orizzontale swipeable con CSS scroll-snap su mobile, grid
+            normale su desktop.
+            Tecnica:
+            - <md: flex orizzontale con overflow-x-auto + snap-x mandatory
+            - cards: w-[85%] flex-shrink-0 snap-center → ogni card occupa
+              85% del viewport, hint della prossima visibile a destra
+            - md+: grid normale come prima
+            - margine negativo -mx-6/-mx-10 + padding interno per estendere
+              lo scroll fino al bordo viewport (full-bleed) */}
+        <div className="scrollbar-hidden flex md:grid md:grid-cols-2 xl:grid-cols-4 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none gap-4 lg:gap-5 -mx-6 px-6 md:mx-0 md:px-0 pb-4 md:pb-0">
           {ROUTES.map((r, i) => {
             const features = [
               {label: t('feature1'), value: t(`${r.key}Duration`)},
@@ -115,7 +126,7 @@ export function ListinoProse() {
             return (
               <motion.article
                 key={r.key}
-                className={`relative rounded-2xl bg-canvas-warm p-6 sm:p-7 flex flex-col transition-shadow duration-200 ${
+                className={`relative rounded-2xl bg-canvas-warm p-6 sm:p-7 flex flex-col transition-shadow duration-200 flex-shrink-0 w-[85%] sm:w-[60%] md:w-auto snap-center ${
                   r.popular
                     ? 'border-2 border-accent shadow-[0_10px_30px_rgba(176,94,64,0.12)]'
                     : 'border border-[var(--border-strong)]'
