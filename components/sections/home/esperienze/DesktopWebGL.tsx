@@ -172,13 +172,37 @@ export function DesktopWebGL() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  // hasDrawn: il canvas viene mostrato (opacity 1) SOLO dopo che il primo
+  // frame WebGL e' stato effettivamente disegnato con le textures caricate.
+  // Prima di quel momento il canvas resta opacity 0 → si vede il fallback
+  // <img> sotto. Questo evita il bug del "canvas nero opaco" che si manifesta
+  // in Chrome/Chromium quando il drawing buffer del canvas non e' stato
+  // ancora popolato (anche con alpha:true e premultipliedAlpha:true, il
+  // browser compone il canvas come nero pieno se il buffer e' vuoto).
+  const [hasDrawn, setHasDrawn] = useState(false);
 
   // entryProgress: 0..1 durante la fase iniziale (rect scende dall'alto)
   // slideProgress: 0..N-1 continuo durante le scene
-  const entryProgressRef = useRef(0);
+  //
+  // ⚠️ BUG ROOT CAUSE FIX (commit successivo a 0b7c6a2):
+  // entryProgressRef DEVE essere inizializzato a 1 quando ENTRY_VH=0.
+  // Motivo: nello shader, yOffset = -H * (1 - entry). Con entry=0 (default
+  // di useRef), yOffset = -H → l'intero frame e' shiftato SOPRA il canvas
+  // → la SDF roundedBoxSDF restituisce dist > 0 per ogni pixel del canvas
+  // → alpha = 1 - smoothstep(0, 1, dist) = 0 → mix(outsideColor=BLACK, ...) = BLACK
+  // Risultato: il canvas si dipinge OPAQUE BLACK su tutta la superficie,
+  // coprendo l'img fallback sotto. Solo quando l'utente scrolla,
+  // useMotionValueEvent fira → setta entryProgressRef.current = 1 → il frame
+  // torna in posizione → immagine visibile. Questo spiega perche' l'utente
+  // vedeva "nero finche non arrivo nella sezione".
+  // Con ENTRY_VH=0 (niente fase entry animata), inizializziamo direttamente
+  // a 1 per evitare il flash nero iniziale.
+  const entryProgressRef = useRef(ENTRY_VH > 0 ? 0 : 1);
   const slideProgressRef = useRef(0);
   const momentumRef = useRef(0);
   const lastSlideProgressRef = useRef(0);
+  // Ref parallelo a hasDrawn state, per evitare setState ridondanti nel loop RAF.
+  const hasDrawnRef = useRef(false);
 
   const {scrollYProgress} = useScroll({
     target: containerRef,
@@ -243,6 +267,13 @@ export function DesktopWebGL() {
       }
     });
 
+    // Imposta clearColor TRASPARENTE e clear immediato. Senza questo, alcuni
+    // browser (Chrome con compositor GPU) mostrano il backing buffer iniziale
+    // come nero opaco anche con alpha:true. Il clear esplicito forza il buffer
+    // a (0,0,0,0) pre-composizione.
+    gl.clearColor(0, 0, 0, 0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+
     const dpr = window.devicePixelRatio === 3 ? 2 : 1;
 
     function resize() {
@@ -253,6 +284,10 @@ export function DesktopWebGL() {
         canvas.width = w;
         canvas.height = h;
         gl.viewport(0, 0, w, h);
+        // Dopo ogni resize del backing buffer, ricompare il problema del buffer
+        // non inizializzato. Clear immediato a trasparente.
+        gl.clearColor(0, 0, 0, 0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
       }
     }
     resize();
@@ -368,6 +403,15 @@ export function DesktopWebGL() {
       });
       twgl.drawBufferInfo(gl, bufferInfo);
 
+      // Primo frame disegnato con successo → marca hasDrawn e mostra canvas.
+      // Il setState scatta UNA SOLA volta (React batcha rerender successivi
+      // dato che lo stato è già true). Dopo, il canvas resta visibile per
+      // tutto il ciclo di vita del componente.
+      if (!hasDrawnRef.current) {
+        hasDrawnRef.current = true;
+        setHasDrawn(true);
+      }
+
       // damp momentum 20% per frame
       momentumRef.current += (0 - momentumRef.current) * 0.2;
     }
@@ -428,13 +472,21 @@ export function DesktopWebGL() {
           aria-hidden="true"
         />
 
-        {/* WebGL canvas: alpha:true, sempre opacity 1. Quando le textures
-            non sono ancora caricate o il tick() esce early, il canvas e'
-            TRASPARENTE → si vede l'<img> fallback sotto. Quando il canvas
-            inizia a disegnare, copre l'<img>. Niente gate, niente nero. */}
+        {/* WebGL canvas: opacity gated da hasDrawn state.
+            Bug noto: Chrome/Chromium compone canvas WebGL come nero opaco
+            quando il drawing buffer non e' stato ancora popolato, anche
+            con alpha:true. Workaround: tenere il canvas opacity 0 finche'
+            tick() non ha disegnato il primo frame con successo. Una volta
+            disegnato (textures caricate + draw call completata), il canvas
+            diventa opacity 1 e copre l'<img> fallback.
+            Transizione 200ms per evitare flash visibile durante lo switch. */}
         <canvas
           ref={canvasRef}
           className="absolute inset-0 w-full h-full block"
+          style={{
+            opacity: hasDrawn ? 1 : 0,
+            transition: 'opacity 200ms ease-out'
+          }}
           aria-hidden="true"
         />
 
