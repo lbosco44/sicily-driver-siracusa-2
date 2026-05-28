@@ -107,7 +107,17 @@ export default async function ChiSiamoPage({
           <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/35 to-black/75" />
         </div>
 
-        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-[18vh] sm:pb-[22vh]">
+        {/* Cliente 28/05/2026: nuova foto interno auto con conducente a dx
+            in basso. Per non sovrapporre il testo sulle mani/volante,
+            sposto il blocco in ALTO (items-start + pt) invece che in basso.
+            Spezzo il headline in 3 righe esplicite per controllare il rag:
+              riga 1: "Sicily Driver"
+              riga 2: "una storia"  (accent)
+              riga 3: "siciliana"   (accent)
+            Split lato JSX dopo aver tolto la virgola da h1Pre, cosi'
+            l'i18n string resta semanticamente unica ma il layout decide il
+            ritmo visivo. */}
+        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-start pt-[16vh] sm:pt-[18vh]">
           <div className="max-w-[28ch]">
             <h1
               className="hero-headline font-display text-display-lg font-medium text-cream-on-dark"
@@ -116,8 +126,13 @@ export default async function ChiSiamoPage({
                 textShadow: '0 2px 24px rgba(0,0,0,0.3)'
               }}
             >
-              {t('hero.h1Pre')}{' '}
-              <span className="text-accent-decorative">{t('hero.h1Accent')}</span>
+              <span className="block">{t('hero.h1Pre')}</span>
+              <span className="block text-accent-decorative">
+                {t('hero.h1Accent').split(' ').slice(0, -1).join(' ')}
+              </span>
+              <span className="block text-accent-decorative">
+                {t('hero.h1Accent').split(' ').slice(-1)[0]}
+              </span>
             </h1>
           </div>
         </div>
