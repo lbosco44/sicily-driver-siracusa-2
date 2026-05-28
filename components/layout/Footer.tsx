@@ -31,7 +31,7 @@ export async function Footer() {
       <div
         className="absolute pointer-events-none select-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
         style={{
-          width: 'min(54vw, 660px)',
+          width: 'min(26vw, 320px)',
           aspectRatio: '1 / 1'
         }}
         aria-hidden="true"
@@ -61,11 +61,20 @@ export async function Footer() {
           Email/phone usano break-words per wrappare naturalmente al "@"
           o "-" senza overflow. */}
       <div className="relative z-10 mx-auto max-w-(--container-editorial) px-4 sm:px-10 py-8 sm:py-12">
-        {/* Top: wordmark compatto, niente tagline */}
+        {/* Top: logo SICILY DRIVER al posto del wordmark testuale.
+            Cliente 28/05/2026. Asset preprocessato: ho convertito
+            sicily-driver.jpeg (bianco con logo nero) in sicily-driver-logo.png
+            con bg trasparente + logo cream (#F5EFE4) via PIL.
+            Sul footer navy il logo cream pop senza bisogno di blend mode
+            o filter trick. Altezza h-12/14 → matcha l'altezza del font
+            wordmark precedente (xl/3xl). */}
         <div className="border-b border-cream-on-dark/15 pb-5 sm:pb-6">
-          <p className="font-display italic text-xl sm:text-3xl font-medium text-cream-on-dark/95">
-            {tBrand('name')}
-          </p>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/sicily-driver-logo.png"
+            alt={tBrand('name')}
+            className="h-12 sm:h-14 w-auto"
+          />
         </div>
 
         {/* Grid 4 col su mobile + desktop, gap responsive */}
