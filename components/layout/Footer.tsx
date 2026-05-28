@@ -71,7 +71,7 @@ export async function Footer() {
         <div className="border-b border-cream-on-dark/15 pb-5 sm:pb-6">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/sicily-driver-logo.png"
+            src="/sicily-driver-logo2.png"
             alt={tBrand('name')}
             className="h-36 sm:h-44 w-auto"
           />
