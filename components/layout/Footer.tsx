@@ -73,7 +73,7 @@ export async function Footer() {
           <img
             src="/sicily-driver-logo2.png"
             alt={tBrand('name')}
-            className="h-36 sm:h-44 w-auto"
+            className="h-[72px] sm:h-[88px] w-auto"
           />
         </div>
 
