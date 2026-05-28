@@ -198,17 +198,15 @@ export default async function ServiziPage({
         </div>
       </section>
 
-      {/* 04 — LA FLOTTA: framing user-first "quante persone siete?"
-            Cliente 28/05/2026: "non ci sono solo Mercedes, non deve
-            sembrare cosi".
-            Riprogettato: invece di mostrare 3 modelli Mercedes
-            specifici, mostriamo la CAPACITA' (6-8 / 4-5 / 1-3) come
-            anchor visivo gigante. Mercedes diventa UNO degli esempi
-            disponibili tra altre opzioni premium (BMW, Audi, VW).
-            Layout: 3 colonne editorial con divisori sottili tra,
-            niente card boxes. Numeri capacita' MASSICCI italic
-            terracotta come hero della sezione. */}
-      <section className="bg-canvas py-20 sm:py-28">
+      {/* 04 — LA FLOTTA: design MINIMAL (iterazione 3)
+            Cliente 28/05/2026: la versione precedente era "incasinata,
+            troppi pesi di font, sizes, caps, grassetti diversi".
+            Riprogettato MINIMAL: 1 sola gerarchia font, no decorazioni
+            (no numeri giganti, no caps brand stamp, no italic price),
+            solo info essenziale per colonna: tipo, passeggeri, prezzo.
+            Brand mention spostato nel lead generale al top → niente
+            piu' ripetizione 3 volte. */}
+      <section className="bg-canvas py-20 sm:py-24">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
           <div className="max-w-2xl mb-12 sm:mb-14">
             <h2
@@ -223,53 +221,31 @@ export default async function ServiziPage({
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-y-0 md:divide-x md:divide-[var(--border-strong)]">
+          {/* 3 colonne minimal: stesso peso font (light), 3 size hierarchy
+              solo (title 28px / pax 17px / price 17px), niente bold uppercase
+              brand, niente italic decorativo. Divider sottili tra colonne. */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-y-0 md:divide-x md:divide-[var(--border)]">
             {fleet.map((f, i) => (
               <article
                 key={i}
-                className={`flex flex-col ${
+                className={`${
                   i === 0
-                    ? 'md:pr-8 lg:pr-10'
+                    ? 'md:pr-10 lg:pr-14'
                     : i === fleet.length - 1
-                      ? 'md:pl-8 lg:pl-10'
-                      : 'md:px-8 lg:px-10'
+                      ? 'md:pl-10 lg:pl-14'
+                      : 'md:px-10 lg:px-14'
                 }`}
               >
-                {/* Capacita' GIGANTE italic accent — l'anchor visivo */}
-                <div className="flex items-baseline gap-3 mb-1">
-                  <span
-                    className="font-display italic text-[64px] sm:text-[78px] lg:text-[96px] font-light text-accent leading-none tabular-nums"
-                    style={{fontStretch: '92%'}}
-                  >
-                    {f.capacity}
-                  </span>
-                  <span
-                    className="text-[12px] sm:text-[13px] uppercase tracking-[0.16em] font-medium text-secondary"
-                  >
-                    {f.pax}
-                  </span>
-                </div>
-
                 <h3
-                  className="font-display text-[24px] sm:text-[28px] font-light text-ink leading-[1.15] mt-3 mb-4"
+                  className="font-display text-[24px] sm:text-[28px] font-light text-ink leading-[1.15] mb-4"
                   style={{fontStretch: '95%'}}
                 >
                   {f.type}
                 </h3>
-
-                <p className="text-[15px] sm:text-[16px] leading-[1.6] text-ink-soft mb-5 flex-1">
-                  {f.detail}
+                <p className="text-[16px] sm:text-[17px] text-ink-soft leading-[1.55]">
+                  {f.capacity} {f.pax}
                 </p>
-
-                {/* Brand mention: Mercedes come uno degli esempi */}
-                <p className="text-[12px] uppercase tracking-[0.12em] font-medium text-ink/55 mb-5 leading-[1.5]">
-                  {f.brands}
-                </p>
-
-                <p
-                  className="font-display italic text-[20px] sm:text-[22px] text-accent pt-4 border-t border-[var(--border)] tabular-nums"
-                  style={{fontStretch: '95%'}}
-                >
+                <p className="text-[16px] sm:text-[17px] text-accent leading-[1.55] mt-1">
                   {f.price}
                 </p>
               </article>
