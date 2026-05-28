@@ -7,6 +7,7 @@ import {getBreadcrumb} from '@/lib/breadcrumbs';
 import {routing} from '@/i18n/routing';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
 import type {Locale} from '@/lib/cities';
+import {ServicesTabs} from '@/components/sections/servizi/ServicesTabs';
 
 export async function generateMetadata({
   params
@@ -164,22 +165,34 @@ export default async function ServiziPage({
         </div>
       </section>
 
-      {/* 02 — INTRO narrativa */}
-      <section className="bg-canvas py-28 sm:py-36">
+      {/* 02 — INTRO compatto + chip preview dei 4 servizi
+            Cliente 28/05/2026: era text wall pesante che ripeteva i 4
+            servizi gia' presenti nella sezione sotto. Sostituito con
+            un titolo punchy + chip row preview cliccabile (anchor link
+            agli scroll target). */}
+      <section className="bg-canvas py-16 sm:py-20">
         <div className="mx-auto max-w-(--container-narrow) px-6 sm:px-10">
-          <p className="text-[19px] sm:text-[20px] leading-[1.7] text-ink-soft">
+          <p
+            className="font-display italic text-[22px] sm:text-[28px] lg:text-[32px] font-light text-ink-soft leading-[1.35] max-w-[44ch]"
+            style={{fontStretch: '95%'}}
+          >
             {t('intro.body')}
           </p>
         </div>
       </section>
 
-      {/* 03 — 4 SERVIZI come blocchi editorial */}
-      <section className="bg-canvas-deep py-32 sm:py-40">
+      {/* 03 — 4 SERVIZI come TABS interattivi
+            Cliente 28/05/2026: "non usare 4 schede 2x2 con numerazione
+            01/02/03/04 come sempre". Tabs pattern stile Apple/Stripe
+            implementato in <ServicesTabs>. Riduce ~75% vertical space
+            (un solo servizio visibile alla volta), aggiunge interattivita',
+            visivamente diverso dal bento. */}
+      <section className="bg-canvas-deep py-20 sm:py-24 lg:py-28">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-3xl mb-16 sm:mb-20">
-            <p className="eyebrow mb-7">{t('cards.eyebrow')}</p>
+          <div className="max-w-2xl mb-10 sm:mb-12">
+            <p className="eyebrow mb-5">{t('cards.eyebrow')}</p>
             <h2
-              className="font-display text-display-md font-light text-ink"
+              className="font-display text-display-sm sm:text-display-md font-light text-ink leading-[1.1]"
               style={{fontStretch: '95%'}}
             >
               {t('cards.h2Pre')}{' '}
@@ -187,54 +200,7 @@ export default async function ServiziPage({
             </h2>
           </div>
 
-          <ul className="divide-y divide-[var(--border-strong)]">
-            {services.map((s) => (
-              <li key={s.key}>
-                <Link
-                  href={s.href}
-                  className="group block py-12 sm:py-14 grid grid-cols-1 lg:grid-cols-[1fr_2fr_auto] gap-8 lg:gap-16 items-baseline"
-                >
-                  <div>
-                    <p className="text-[11px] uppercase tracking-[0.22em] font-medium text-secondary mb-5">
-                      {s.kicker}
-                    </p>
-                    <h3
-                      className="font-display text-display-sm font-light text-ink group-hover:text-accent transition-colors leading-[1.05]"
-                      style={{fontStretch: '95%'}}
-                    >
-                      {s.title}
-                    </h3>
-                  </div>
-
-                  <div>
-                    <p className="text-[17px] leading-[1.65] text-ink-soft mb-6 max-w-[58ch]">
-                      {s.body}
-                    </p>
-                    <ul className="space-y-2 text-[15px] text-ink/70">
-                      {s.points.map((p, j) => (
-                        <li key={j} className="flex gap-3">
-                          <span aria-hidden="true" className="text-secondary">
-                            —
-                          </span>
-                          <span>{p}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <p className="text-[12px] uppercase tracking-[0.2em] font-medium text-primary inline-flex items-center gap-3 self-end group-hover:text-accent transition-colors">
-                    {s.cta}
-                    <span
-                      aria-hidden="true"
-                      className="transition-transform duration-300 group-hover:translate-x-1.5"
-                    >
-                      →
-                    </span>
-                  </p>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <ServicesTabs services={services} />
         </div>
       </section>
 
