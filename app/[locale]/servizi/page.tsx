@@ -8,6 +8,7 @@ import {routing} from '@/i18n/routing';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
 import type {Locale} from '@/lib/cities';
 import {ServicesTabs} from '@/components/sections/servizi/ServicesTabs';
+import {CtaFinale} from '@/components/sections/home/CtaFinale';
 
 export async function generateMetadata({
   params
@@ -277,47 +278,77 @@ export default async function ServiziPage({
         </div>
       </section>
 
-      {/* 05 — AREE SERVITE */}
-      <section className="bg-canvas-warm py-32 sm:py-40">
+      {/* 05 — TUTTA LA SICILIA (riprogettata 28/05/2026)
+            Cliente: il framing "Le città che conosciamo" sembrava che
+            servissimo solo quelle citta'. Cambiato a "Tutta la Sicilia"
+            con lead che chiarisce: andiamo ovunque, le CTA sono le
+            destinazioni piu' richieste con pagina dedicata.
+            Layout: H2 centrato + lead + 4 chip-CTA prominenti +
+            supporting info compatto sotto. */}
+      <section className="bg-canvas-warm py-20 sm:py-28">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20">
-            <div>
-              <p className="eyebrow mb-7">{t('areas.eyebrow')}</p>
-              <h2
-                className="font-display text-display-md font-light text-ink leading-[1.05]"
-                style={{fontStretch: '95%'}}
-              >
-                {t('areas.h2Pre')}{' '}
-                <span className="italic text-accent">{t('areas.h2Accent')}</span>
-              </h2>
-            </div>
+          {/* Top: H2 + lead, centrato */}
+          <div className="max-w-3xl mb-10 sm:mb-12">
+            <h2
+              className="font-display text-display-md sm:text-display-lg font-light text-ink leading-[1.02]"
+              style={{fontStretch: '95%'}}
+            >
+              {t('areas.h2Pre')}{' '}
+              <span className="italic text-accent">{t('areas.h2Accent')}</span>
+            </h2>
+            <p className="mt-6 sm:mt-7 text-[17px] sm:text-[18px] leading-[1.6] text-ink-soft max-w-[58ch]">
+              {t('areas.lead')}
+            </p>
+          </div>
 
-            <div className="space-y-6 text-[17px] sm:text-[18px] leading-[1.7] text-ink-soft">
-              <p className="font-display italic text-[20px] text-primary">
+          {/* 4 chip-CTA prominenti per le citta' con pagina dedicata */}
+          <div className="flex flex-wrap gap-3 sm:gap-4 mb-12 sm:mb-14">
+            {(
+              [
+                {href: '/ncc-catania', label: 'Catania'},
+                {href: '/ncc-noto', label: 'Noto'},
+                {href: '/ncc-taormina', label: 'Taormina'},
+                {href: '/ncc-ragusa', label: 'Ragusa'}
+              ] as const
+            ).map((c) => (
+              <Link
+                key={c.href}
+                href={c.href}
+                className="group inline-flex items-center gap-3 rounded-full border-2 border-[var(--border-strong)] hover:border-accent bg-canvas hover:bg-accent px-6 py-3 text-[13px] sm:text-[14px] uppercase tracking-[0.14em] font-medium text-ink hover:text-cream-on-dark transition-all duration-200"
+              >
+                {c.label}
+                <span
+                  aria-hidden="true"
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                >
+                  →
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          {/* Supporting info compatto: altre citta', aeroporti, sedi.
+              Italic small, fade in opacity, non distrae dalle CTA primarie. */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10 pt-8 border-t border-[var(--border)] text-[14px] sm:text-[15px] leading-[1.6]">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.18em] font-medium text-secondary mb-3">
+                Sedi
+              </p>
+              <p className="font-display italic text-[17px] text-primary">
                 {t('areas.bases')}
               </p>
-              <p>{t('areas.cities')}</p>
-              <p className="text-[15px] text-ink/60">{t('areas.airports')}</p>
-
-              <div className="pt-6 flex flex-wrap gap-3">
-                {(
-                  [
-                    {href: '/ncc-catania', label: 'Catania'},
-                    {href: '/ncc-noto', label: 'Noto'},
-                    {href: '/ncc-taormina', label: 'Taormina'},
-                    {href: '/ncc-ragusa', label: 'Ragusa'}
-                  ] as const
-                ).map((c) => (
-                  <Link
-                    key={c.href}
-                    href={c.href}
-                    className="inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] px-5 py-2.5 text-[12px] uppercase tracking-[0.12em] font-medium text-primary hover:border-accent hover:text-accent transition-colors"
-                  >
-                    {c.label}
-                    <span aria-hidden="true">→</span>
-                  </Link>
-                ))}
-              </div>
+            </div>
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.18em] font-medium text-secondary mb-3">
+                Altre destinazioni
+              </p>
+              <p className="text-ink-soft">{t('areas.cities')}</p>
+            </div>
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.18em] font-medium text-secondary mb-3">
+                Aeroporti
+              </p>
+              <p className="text-ink-soft">{t('areas.airports')}</p>
             </div>
           </div>
         </div>
@@ -363,38 +394,11 @@ export default async function ServiziPage({
         </div>
       </section>
 
-      {/* 07 — CTA finale */}
-      <section
-        className="relative bg-primary-deep py-32 sm:py-40 overflow-hidden"
-        style={{color: 'var(--cream-on-dark)'}}
-      >
-        <div
-          className="absolute top-[-15%] right-[-10%] w-[50vw] h-[50vw] rounded-full pointer-events-none"
-          style={{
-            background:
-              'radial-gradient(circle, rgba(176, 94, 64, 0.15) 0%, transparent 60%)'
-          }}
-          aria-hidden="true"
-        />
-
-        <div className="relative mx-auto max-w-(--container-narrow) px-6 sm:px-10">
-          <p className="eyebrow text-cream-on-dark/65 mb-10">
-            {t('ctaFinale.eyebrow')}
-          </p>
-          <h2
-            className="font-display text-display-lg font-light text-cream-on-dark max-w-[22ch] leading-[0.98]"
-            style={{fontStretch: '95%'}}
-          >
-            {t('ctaFinale.h2')}
-          </h2>
-          <p className="mt-9 text-[18px] sm:text-[20px] text-cream-soft leading-[1.65] max-w-[58ch]">
-            {t('ctaFinale.subhead')}
-          </p>
-
-          <div className="mt-12 sm:mt-14 flex flex-col sm:flex-row gap-4 sm:gap-5">
-          </div>
-        </div>
-      </section>
+      {/* 07 — CTA finale "Saliamo a bordo" (riusato dall'home)
+            Cliente 28/05/2026: sostituita la sezione blu deep con il
+            CtaFinale van overlay della home. Coerente come closing
+            pattern in tutto il sito. */}
+      <CtaFinale />
     </>
   );
 }
