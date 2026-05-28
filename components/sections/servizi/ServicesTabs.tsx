@@ -35,9 +35,14 @@ export function ServicesTabs({services}: {services: readonly ServiceItem[]}) {
 
   return (
     <div>
-      {/* Tab labels row — overflow-x-auto su mobile per scroll laterale */}
+      {/* Tab pills row — design "button-like" per essere chiaramente
+          cliccabili (cliente 28/05/2026: precedente sembrava poco
+          riconoscibile come interattivo).
+          Pattern: pill rotonde, attiva = bg-accent + cream text,
+          inattive = border + ink, hover = border-accent. Stesso
+          linguaggio usato altrove sul sito per CTAs. */}
       <div
-        className="flex gap-0 overflow-x-auto scrollbar-hidden border-b border-[var(--border-strong)] -mx-6 px-6 sm:-mx-10 sm:px-10 lg:mx-0 lg:px-0"
+        className="flex flex-wrap gap-2 sm:gap-3 overflow-x-auto scrollbar-hidden -mx-6 px-6 sm:-mx-10 sm:px-10 lg:mx-0 lg:px-0 pb-2"
         role="tablist"
       >
         {services.map((s, i) => {
@@ -50,41 +55,13 @@ export function ServicesTabs({services}: {services: readonly ServiceItem[]}) {
               aria-selected={isActive}
               aria-controls={`service-panel-${s.key}`}
               id={`service-tab-${s.key}`}
-              className={`relative flex-shrink-0 px-5 sm:px-7 lg:px-9 py-4 sm:py-5 text-left transition-colors duration-200 group ${
+              className={`relative flex-shrink-0 rounded-full px-5 sm:px-6 py-2.5 sm:py-3 text-[12px] sm:text-[13px] uppercase tracking-[0.14em] font-medium transition-all duration-200 whitespace-nowrap ${
                 isActive
-                  ? 'text-ink'
-                  : 'text-ink-soft hover:text-ink'
+                  ? 'bg-accent text-cream-on-dark border-2 border-accent'
+                  : 'bg-transparent text-ink border-2 border-[var(--border-strong)] hover:border-accent hover:text-accent'
               }`}
             >
-              <p
-                className={`text-[10px] sm:text-[11px] uppercase tracking-[0.18em] font-medium mb-2 transition-colors ${
-                  isActive ? 'text-accent' : 'text-secondary'
-                }`}
-              >
-                {s.kicker}
-              </p>
-              <h3
-                className={`font-display text-[18px] sm:text-[22px] lg:text-[24px] font-light leading-[1.15] whitespace-nowrap transition-all ${
-                  isActive ? 'font-medium' : ''
-                }`}
-                style={{fontStretch: '95%'}}
-              >
-                {s.title}
-              </h3>
-
-              {/* Underline accent bar per il tab attivo */}
-              {isActive && (
-                <motion.span
-                  layoutId="active-tab-underline"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent"
-                  transition={{
-                    type: 'spring',
-                    stiffness: 380,
-                    damping: 30
-                  }}
-                  aria-hidden="true"
-                />
-              )}
+              {s.title}
             </button>
           );
         })}
@@ -115,10 +92,15 @@ export function ServicesTabs({services}: {services: readonly ServiceItem[]}) {
               </h4>
               <Link
                 href={current.href}
-                className="inline-flex items-center gap-3 mt-7 sm:mt-9 text-[12px] uppercase tracking-[0.2em] font-medium text-primary border-b border-accent pb-1 hover:border-accent-hover transition-colors self-start"
+                className="group inline-flex items-center gap-3 mt-7 sm:mt-9 rounded-full bg-accent hover:bg-accent-hover px-7 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-cream-on-dark transition-all duration-200 self-start"
               >
                 {current.cta}
-                <span aria-hidden="true">→</span>
+                <span
+                  aria-hidden="true"
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                >
+                  →
+                </span>
               </Link>
             </div>
 

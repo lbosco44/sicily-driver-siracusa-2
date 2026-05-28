@@ -165,21 +165,9 @@ export default async function ServiziPage({
         </div>
       </section>
 
-      {/* 02 — INTRO compatto + chip preview dei 4 servizi
-            Cliente 28/05/2026: era text wall pesante che ripeteva i 4
-            servizi gia' presenti nella sezione sotto. Sostituito con
-            un titolo punchy + chip row preview cliccabile (anchor link
-            agli scroll target). */}
-      <section className="bg-canvas py-16 sm:py-20">
-        <div className="mx-auto max-w-(--container-narrow) px-6 sm:px-10">
-          <p
-            className="font-display italic text-[22px] sm:text-[28px] lg:text-[32px] font-light text-ink-soft leading-[1.35] max-w-[44ch]"
-            style={{fontStretch: '95%'}}
-          >
-            {t('intro.body')}
-          </p>
-        </div>
-      </section>
+      {/* 02 — INTRO rimossa interamente (cliente 28/05/2026: la frase
+            italic ripeteva i 4 servizi che gia' compaiono nella sezione
+            tabs sotto → ridondante). */}
 
       {/* 03 — 4 SERVIZI come TABS interattivi
             Cliente 28/05/2026: "non usare 4 schede 2x2 con numerazione
