@@ -92,7 +92,7 @@ export default async function ChiSiamoPage({
       <section className="hero-stage relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <Image
-            src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1800&q=80&auto=format&fm=webp"
+            src="/images/chi-siamo/hero.jpeg"
             alt=""
             fill
             priority
