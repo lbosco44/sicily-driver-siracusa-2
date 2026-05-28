@@ -158,57 +158,12 @@ export default async function ChiSiamoPage({
         </div>
       </section>
 
-      {/* 03 — GALLERIA editorial asimmetrica */}
-      <section className="bg-canvas-deep py-32 sm:py-40">
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="grid grid-cols-12 gap-4 sm:gap-6 grain">
-            <figure className="col-span-12 sm:col-span-7 relative aspect-[5/4] overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1400&q=80&auto=format&fm=webp"
-                alt=""
-                fill
-                sizes="(max-width: 768px) 100vw, 58vw"
-                className="object-cover"
-                loading="lazy"
-                style={{filter: 'saturate(0.85) brightness(0.94) contrast(1.06)'}}
-              />
-            </figure>
-            <figure className="col-span-12 sm:col-span-5 relative aspect-[4/3] overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=900&q=80&auto=format&fm=webp"
-                alt=""
-                fill
-                sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover"
-                loading="lazy"
-                style={{filter: 'saturate(0.85) brightness(0.94) contrast(1.06)'}}
-              />
-            </figure>
-            <figure className="col-span-12 sm:col-span-5 relative aspect-[4/3] overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=900&q=80&auto=format&fm=webp"
-                alt=""
-                fill
-                sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover"
-                loading="lazy"
-                style={{filter: 'saturate(0.85) brightness(0.94) contrast(1.06)'}}
-              />
-            </figure>
-            <figure className="col-span-12 sm:col-span-7 relative aspect-[5/4] overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=1400&q=80&auto=format&fm=webp"
-                alt=""
-                fill
-                sizes="(max-width: 768px) 100vw, 58vw"
-                className="object-cover"
-                loading="lazy"
-                style={{filter: 'saturate(0.85) brightness(0.94) contrast(1.06)'}}
-              />
-            </figure>
-          </div>
-        </div>
-      </section>
+      {/* 03 — GALLERIA editorial asimmetrica RIMOSSA (cliente 28/05/2026)
+            Le 4 foto Unsplash (entrata garage, swings, burger, beach)
+            erano placeholder visivi ma non raccontavano nulla del cliente
+            e rallentavano il flusso della narrativa. Senza foto reali della
+            squadra/garage/lavori, meglio togliere e lasciare che la nuova
+            hero (interno auto reale) + story facciano il lavoro emozionale. */}
 
       {/* 04 — CONVINZIONI bento grid asimmetrico
             Cliente 28/05/2026: la versione precedente (3 righe text-wall)

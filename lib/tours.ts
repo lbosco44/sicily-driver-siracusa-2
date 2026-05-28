@@ -139,12 +139,19 @@ export type TourHubContent = {
 
 const HERO_BAROCCO = '/images/tour-barocco/hero.png';
 const HERO_ETNA = '/images/tour-etna/hero.jpeg';
-const HERO_ISOLA =
-  'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=70&auto=format&fm=webp';
+const HERO_ISOLA = '/images/tour-isola/hero.jpeg';
+// HUB hero (pagina /tour-sicilia "Esplora i tour") — foto cliente 28/05/2026
+const HERO_HUB = '/images/tour-sicilia/hero.jpeg';
 const HERO_DOLCE_VITA =
   'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=1600&q=70&auto=format&fm=webp';
 const HERO_SAILING =
   'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1600&q=70&auto=format&fm=webp';
+
+// Stage images per ISOLA_IT / ISOLA_EN (foto cliente 28/05/2026)
+const ISOLA_STAGE_1 = '/images/tour-isola/stage-1.jpeg';
+const ISOLA_STAGE_2 = '/images/tour-isola/stage-2.jpg';
+const ISOLA_STAGE_3 = '/images/tour-isola/stage-3.jpeg';
+const ISOLA_STAGE_4 = '/images/tour-isola/stage-4.jpg';
 
 // ============================================================
 // TOUR HUB IT/EN
@@ -156,7 +163,7 @@ const HUB_IT: TourHubContent = {
   metaDescription:
     'Tour Sicilia con driver dedicato: Barocco, Etna, Ortigia, Isola delle Correnti, Silent Sailing. Van di lusso, autisti professionisti, itinerari personalizzabili. 5 esperienze + tour su misura.',
 
-  heroImage: HERO_DOLCE_VITA,
+  heroImage: HERO_HUB,
   heroEyebrow: 'Tour Sicilia · con autista privato',
   h1Pre: 'Tour Sicilia con',
   h1Accent: 'Autista Privato',
@@ -277,7 +284,7 @@ const HUB_EN: TourHubContent = {
   metaDescription:
     'Sicily tours with a dedicated driver: Baroque, Etna, Ortigia, Isola delle Correnti, Silent Sailing. Luxury vans, English-speaking chauffeurs, fully customizable. 5 experiences + custom tours.',
 
-  heroImage: HERO_DOLCE_VITA,
+  heroImage: HERO_HUB,
   heroEyebrow: 'Sicily tours · with a private driver',
   h1Pre: 'Sicily Tours, with a',
   h1Accent: 'Private Driver',
@@ -957,39 +964,35 @@ const ISOLA_IT: TourContent = {
 
   stagesEyebrow: 'Tappa per tappa',
   stagesH2Pre: 'Come',
-  stagesH2Accent: 'si sviluppa il giorno',
+  stagesH2Accent: 'si sviluppa la giornata',
   stages: [
     {
       number: '01',
       title: 'Da Siracusa a Portopalo',
       duration: '1h',
       body: 'Partenza in tarda mattinata, scendiamo lungo la costa sud. Passiamo davanti a Avola, Pachino, attraversiamo i vigneti di Nero d’Avola. Il driver ti racconta come è cambiata questa zona negli ultimi vent’anni — da rurale dimenticata a una delle aree gastronomiche più interessanti dell’isola.',
-      image:
-        'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=70&auto=format&fm=webp'
+      image: ISOLA_STAGE_1
     },
     {
       number: '02',
       title: 'Pura Vida Beach Club',
       duration: '3–4h',
       body: 'Arrivo al Pura Vida, lettini al sole prenotati per voi, lunch in spiaggia (pesce del giorno, antipasti siciliani, vino bianco di territorio). Mare basso e cristallino, tre-quattro ore di relax senza obbligo di programma. Chi vuole, prende la striscia di sabbia che porta a piedi sull’isolotto.',
-      image:
-        'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1200&q=70&auto=format&fm=webp'
+      image: ISOLA_STAGE_2
     },
     {
       number: '03',
       title: 'Sunset experience',
       duration: '1h',
       body: 'Verso il tardo pomeriggio ci spostiamo sul lato dell’Isola delle Correnti che guarda ovest. Il sole tramonta tra i due mari — uno dei punti più suggestivi della Sicilia per fotografare il sunset. Prosecco e taglieri serviti dal Pura Vida.',
-      image:
-        '/images/tour-etna/stage-3-cantina.jpeg'
+      image: ISOLA_STAGE_3
     },
     {
       number: '04',
       title: 'Aperitivo a Marzamemi',
       duration: '1h',
       body: 'Rientro via Marzamemi, il borgo dei pescatori con la piazza affacciata sulla tonnara. Aperitivo nei locali di Piazza Regina Margherita prima di tornare a Siracusa. Arrivo previsto verso le 21.',
-      image:
-        '/images/tour-barocco/stage-1-noto.png'
+      image: ISOLA_STAGE_4
     }
   ],
 
@@ -1086,32 +1089,28 @@ const ISOLA_EN: TourContent = {
       title: 'Syracuse to Portopalo',
       duration: '1h',
       body: 'Late-morning departure, we descend the south coast. We pass Avola, Pachino, we cross the Nero d’Avola vineyards. The driver tells you how this area changed in the last twenty years — from forgotten rural to one of the most interesting gastronomic regions of the island.',
-      image:
-        'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=70&auto=format&fm=webp'
+      image: ISOLA_STAGE_1
     },
     {
       number: '02',
       title: 'Pura Vida Beach Club',
       duration: '3–4h',
       body: 'Arrival at Pura Vida, sunbeds reserved for you, beach lunch (catch of the day, Sicilian antipasti, white wine of the land). Shallow crystalline sea, three to four hours of relaxation with no fixed program. Whoever wants takes the sand strip walking to the islet.',
-      image:
-        'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1200&q=70&auto=format&fm=webp'
+      image: ISOLA_STAGE_2
     },
     {
       number: '03',
       title: 'Sunset experience',
       duration: '1h',
       body: 'In late afternoon we move to the Isola delle Correnti side facing west. The sun sets between the two seas — one of Sicily’s most beautiful sunset spots. Prosecco and platters served by Pura Vida.',
-      image:
-        '/images/tour-etna/stage-3-cantina.jpeg'
+      image: ISOLA_STAGE_3
     },
     {
       number: '04',
       title: 'Aperitivo in Marzamemi',
       duration: '1h',
       body: 'Return via Marzamemi, the fishermen’s village with the square facing the tonnara. Aperitivo in the bars of Piazza Regina Margherita before returning to Syracuse. Expected arrival around 21:00.',
-      image:
-        '/images/tour-barocco/stage-1-noto.png'
+      image: ISOLA_STAGE_4
     }
   ],
 
