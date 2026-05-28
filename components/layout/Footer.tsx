@@ -31,7 +31,7 @@ export async function Footer() {
       <div
         className="absolute pointer-events-none select-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
         style={{
-          width: 'min(26vw, 320px)',
+          width: 'min(29vw, 352px)',
           aspectRatio: '1 / 1'
         }}
         aria-hidden="true"
@@ -73,7 +73,7 @@ export async function Footer() {
           <img
             src="/sicily-driver-logo.png"
             alt={tBrand('name')}
-            className="h-12 sm:h-14 w-auto"
+            className="h-36 sm:h-44 w-auto"
           />
         </div>
 
