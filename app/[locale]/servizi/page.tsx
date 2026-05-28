@@ -49,7 +49,6 @@ export default async function ServiziPage({
   setRequestLocale(locale);
 
   const t = await getTranslations('Servizi');
-  const tNcc = await getTranslations('NccPage');
 
   const faqItems = [
     {q: t('faq.q1'), a: t('faq.a1')},
@@ -100,21 +99,27 @@ export default async function ServiziPage({
 
   const fleet = [
     {
-      model: t('fleet.card1Model'),
+      capacity: t('fleet.card1Capacity'),
       pax: t('fleet.card1Pax'),
-      comfort: t('fleet.card1Comfort'),
+      type: t('fleet.card1Type'),
+      detail: t('fleet.card1Detail'),
+      brands: t('fleet.card1Brands'),
       price: t('fleet.card1Price')
     },
     {
-      model: t('fleet.card2Model'),
+      capacity: t('fleet.card2Capacity'),
       pax: t('fleet.card2Pax'),
-      comfort: t('fleet.card2Comfort'),
+      type: t('fleet.card2Type'),
+      detail: t('fleet.card2Detail'),
+      brands: t('fleet.card2Brands'),
       price: t('fleet.card2Price')
     },
     {
-      model: t('fleet.card3Model'),
+      capacity: t('fleet.card3Capacity'),
       pax: t('fleet.card3Pax'),
-      comfort: t('fleet.card3Comfort'),
+      type: t('fleet.card3Type'),
+      detail: t('fleet.card3Detail'),
+      brands: t('fleet.card3Brands'),
       price: t('fleet.card3Price')
     }
   ];
@@ -192,55 +197,80 @@ export default async function ServiziPage({
         </div>
       </section>
 
-      {/* 04 — LA FLOTTA */}
-      <section className="bg-canvas py-32 sm:py-40">
+      {/* 04 — LA FLOTTA: framing user-first "quante persone siete?"
+            Cliente 28/05/2026: "non ci sono solo Mercedes, non deve
+            sembrare cosi".
+            Riprogettato: invece di mostrare 3 modelli Mercedes
+            specifici, mostriamo la CAPACITA' (6-8 / 4-5 / 1-3) come
+            anchor visivo gigante. Mercedes diventa UNO degli esempi
+            disponibili tra altre opzioni premium (BMW, Audi, VW).
+            Layout: 3 colonne editorial con divisori sottili tra,
+            niente card boxes. Numeri capacita' MASSICCI italic
+            terracotta come hero della sezione. */}
+      <section className="bg-canvas py-20 sm:py-28">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-2xl mb-16 sm:mb-20">
-            <p className="eyebrow mb-7">{t('fleet.eyebrow')}</p>
+          <div className="max-w-2xl mb-12 sm:mb-14">
             <h2
-              className="font-display text-display-md font-light text-ink"
+              className="font-display text-display-sm sm:text-display-md font-light text-ink leading-[1.1]"
               style={{fontStretch: '95%'}}
             >
               {t('fleet.h2Pre')}{' '}
               <span className="italic text-accent">{t('fleet.h2Accent')}</span>
             </h2>
+            <p className="mt-5 text-[16px] sm:text-[17px] leading-[1.55] text-ink-soft max-w-[58ch]">
+              {t('fleet.lead')}
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-y-0 md:gap-x-12 lg:gap-x-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-y-0 md:divide-x md:divide-[var(--border-strong)]">
             {fleet.map((f, i) => (
               <article
                 key={i}
-                className={
-                  i < fleet.length - 1
-                    ? 'md:border-r md:border-[var(--border-strong)] md:pr-12 lg:pr-16'
-                    : ''
-                }
+                className={`flex flex-col ${
+                  i === 0
+                    ? 'md:pr-8 lg:pr-10'
+                    : i === fleet.length - 1
+                      ? 'md:pl-8 lg:pl-10'
+                      : 'md:px-8 lg:px-10'
+                }`}
               >
+                {/* Capacita' GIGANTE italic accent — l'anchor visivo */}
+                <div className="flex items-baseline gap-3 mb-1">
+                  <span
+                    className="font-display italic text-[64px] sm:text-[78px] lg:text-[96px] font-light text-accent leading-none tabular-nums"
+                    style={{fontStretch: '92%'}}
+                  >
+                    {f.capacity}
+                  </span>
+                  <span
+                    className="text-[12px] sm:text-[13px] uppercase tracking-[0.16em] font-medium text-secondary"
+                  >
+                    {f.pax}
+                  </span>
+                </div>
+
                 <h3
-                  className="font-display italic text-[26px] sm:text-[30px] font-light text-ink leading-tight mb-7"
+                  className="font-display text-[24px] sm:text-[28px] font-light text-ink leading-[1.15] mt-3 mb-4"
                   style={{fontStretch: '95%'}}
                 >
-                  {f.model}
+                  {f.type}
                 </h3>
-                <dl className="space-y-5 text-[15px] leading-[1.6] text-ink-soft">
-                  <div>
-                    <dt className="eyebrow text-secondary mb-1">
-                      {tNcc('fleetTablePax')}
-                    </dt>
-                    <dd className="text-ink font-medium">{f.pax}</dd>
-                  </div>
-                  <div>
-                    <dt className="eyebrow text-secondary mb-1">
-                      {tNcc('fleetTableComfort')}
-                    </dt>
-                    <dd>{f.comfort}</dd>
-                  </div>
-                  <div className="pt-2 border-t border-[var(--border)]">
-                    <p className="font-display italic text-[22px] text-accent">
-                      {f.price}
-                    </p>
-                  </div>
-                </dl>
+
+                <p className="text-[15px] sm:text-[16px] leading-[1.6] text-ink-soft mb-5 flex-1">
+                  {f.detail}
+                </p>
+
+                {/* Brand mention: Mercedes come uno degli esempi */}
+                <p className="text-[12px] uppercase tracking-[0.12em] font-medium text-ink/55 mb-5 leading-[1.5]">
+                  {f.brands}
+                </p>
+
+                <p
+                  className="font-display italic text-[20px] sm:text-[22px] text-accent pt-4 border-t border-[var(--border)] tabular-nums"
+                  style={{fontStretch: '95%'}}
+                >
+                  {f.price}
+                </p>
               </article>
             ))}
           </div>
