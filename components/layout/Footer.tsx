@@ -12,7 +12,42 @@ export async function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-cream-on-dark" style={{color: 'var(--cream-on-dark)'}}>
+    <footer
+      className="relative bg-primary text-cream-on-dark overflow-hidden"
+      style={{color: 'var(--cream-on-dark)'}}
+    >
+      {/* Watermark logo gigante cliente 28/05/2026.
+          Iterazione 2: centrato + size molto piu' grande dell'altezza
+          del footer → cropped naturalmente dall'overflow:hidden, vediamo
+          solo la parte centrale del logo (corpo della figura).
+          Sizing: min(90vw, 1100px) → logo ~1000px su desktop, occupa
+          quasi tutta la larghezza utile, overflowa verticalmente in
+          alto/basso.
+          Opacity 0.08 → visibile ma non disturba lettura testo (testo
+          cream-on-dark è molto piu' brillante).
+          Filter invert(1) → da nero → bianco/cream sul bg primary blu.
+          No mix-blend-mode (interferiva con la visibilita').
+          Pointer-events none → no hover/click che ruba interazione. */}
+      <div
+        className="absolute pointer-events-none select-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        style={{
+          width: 'min(90vw, 1100px)',
+          aspectRatio: '1 / 1'
+        }}
+        aria-hidden="true"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/logo-nero.png"
+          alt=""
+          className="w-full h-full object-contain"
+          style={{
+            filter: 'invert(1)',
+            opacity: 0.08
+          }}
+        />
+      </div>
+
       {/* Cliente 27/05/2026: footer ridotto da 783px → ~440px.
           - py 16/20 → 10/12 (padding verticale dimezzato)
           - wordmark 3xl/4xl → 2xl (piu' contenuto, niente tagline)
@@ -25,7 +60,7 @@ export async function Footer() {
           ma testo/spacing tighter per stare in viewport stretti.
           Email/phone usano break-words per wrappare naturalmente al "@"
           o "-" senza overflow. */}
-      <div className="mx-auto max-w-(--container-editorial) px-4 sm:px-10 py-8 sm:py-12">
+      <div className="relative z-10 mx-auto max-w-(--container-editorial) px-4 sm:px-10 py-8 sm:py-12">
         {/* Top: wordmark compatto, niente tagline */}
         <div className="border-b border-cream-on-dark/15 pb-5 sm:pb-6">
           <p className="font-display italic text-xl sm:text-3xl font-medium text-cream-on-dark/95">
