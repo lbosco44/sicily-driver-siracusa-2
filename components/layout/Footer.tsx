@@ -31,7 +31,7 @@ export async function Footer() {
       <div
         className="absolute pointer-events-none select-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
         style={{
-          width: 'min(90vw, 1100px)',
+          width: 'min(54vw, 660px)',
           aspectRatio: '1 / 1'
         }}
         aria-hidden="true"
