@@ -14,6 +14,7 @@ import {
 import type {TourContent} from '@/lib/tours';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
 import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
+import {EtnaStagesWebGL} from '@/components/sections/tour-etna/EtnaStagesWebGL';
 
 // TourDetailEtnaDark — variante mood dark/cinematic dedicata all'Etna.
 // Mood: pietra lavica, notte sul vulcano, fuoco discreto.
@@ -40,23 +41,29 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
 
   return (
     <div className="tour-etna-page" style={{backgroundColor: ETNA_BLACK, color: 'var(--cream-on-dark)'}}>
-      {/* 01 — HERO cinematic ultra-dark */}
+      {/* 01 — HERO cinematic ultra-dark con video background.
+            Cliente 27/05/2026: aggiunto video-hero.mp4 in loop muto al posto
+            dell'Image. autoPlay + muted + loop + playsInline = standard per
+            video background autoplayable su tutti i browser (Safari iOS
+            blocca autoplay con audio, ma muted lo permette).
+            preload="auto" perche' e' above-the-fold critical content.
+            Image rimane come poster fallback per reduced-motion / no-video
+            browsers / preload prima del primo frame. */}
       <section className="hero-stage relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <Image
-            src={tour.heroImage}
-            alt=""
-            fill
-            priority
-            fetchPriority="high"
-            sizes={HERO_SIZES}
-            quality={85}
-            placeholder="blur"
-            blurDataURL={HERO_BLUR}
-            className="object-cover"
+          <video
+            src="/images/tour-etna/video-hero.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster={tour.heroImage}
+            className="absolute inset-0 w-full h-full object-cover"
             style={{filter: 'saturate(0.85) brightness(0.65) contrast(1.1)'}}
+            aria-hidden="true"
           />
-          {/* Overlay neutro per leggibilità testo — niente più sfumatura rossa */}
+          {/* Overlay neutro per leggibilità testo */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/85" />
         </div>
 
@@ -76,27 +83,125 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
 
       </section>
 
-      {/* 02 — INTRO dark drop-cap lava */}
-      <section className="py-32 sm:py-44" style={{backgroundColor: ETNA_BLACK}}>
-        <div className="mx-auto max-w-(--container-narrow) px-6 sm:px-10">
-          <p
-            className="eyebrow mb-10"
-            style={{color: LAVA_GLOW}}
+      {/* 02 — INTRO + NUMBERS unificati (rielaborato 27/05/2026)
+            Layout cinematic: body con drop-cap a sinistra (col 7) + stats
+            verticali "movie credits style" a destra (col 5) separati da
+            linee lava. Atmospheric glow lava sull'edge destro.
+            Sostituisce le precedenti sezioni 02 (intro drop-cap full-width)
+            e 03 (numbers row orizzontale full-width) in un unico layout
+            piu' compatto e visivamente connesso. */}
+      <section
+        className="relative py-32 sm:py-40 overflow-hidden"
+        style={{backgroundColor: ETNA_BLACK}}
+      >
+        {/* Glow lava radiale a destra → atmosfera, cinematic */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `radial-gradient(ellipse 60% 50% at 85% 50%, ${LAVA_RED}18 0%, transparent 60%)`
+          }}
+          aria-hidden="true"
+        />
+
+        <div className="relative mx-auto max-w-(--container-editorial) px-6 sm:px-10">
+          {/* Header eyebrow + lava line */}
+          <motion.div
+            className="mb-16 sm:mb-20 max-w-2xl"
+            initial={{opacity: 0, y: 16}}
+            whileInView={{opacity: 1, y: 0}}
+            viewport={{once: true, margin: '-10%'}}
+            transition={{duration: 0.8, ease: [0.16, 1, 0.3, 1]}}
           >
-            {tour.introH2Pre}{' '}
-            <span style={{color: LAVA_GLOW}}>{tour.introH2Accent}</span>
-          </p>
-          <div className="space-y-7 sm:space-y-8 text-[19px] sm:text-[20px] leading-[1.75] text-cream-on-dark/80">
-            {tour.introBody.map((p, i) => (
-              <p
-                key={i}
-                className={i === 0 ? 'etna-dropcap' : ''}
+            <p className="eyebrow mb-6" style={{color: LAVA_GLOW}}>
+              {tour.introH2Pre}{' '}
+              <span style={{color: LAVA_GLOW}}>{tour.introH2Accent}</span>
+            </p>
+            {/* Thin lava line decorativa */}
+            <div
+              className="h-px w-16 sm:w-20"
+              style={{backgroundColor: LAVA_GLOW}}
+              aria-hidden="true"
+            />
+          </motion.div>
+
+          {/* Grid 2-col: body sx, stats dx */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20">
+            {/* LEFT: body con drop-cap */}
+            <motion.div
+              className="lg:col-span-7"
+              initial={{opacity: 0, y: 24}}
+              whileInView={{opacity: 1, y: 0}}
+              viewport={{once: true, margin: '-10%'}}
+              transition={{duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1]}}
+            >
+              <div
+                className="space-y-7 sm:space-y-8 text-[18px] sm:text-[19px] leading-[1.75]"
+                style={{color: 'rgba(245, 239, 228, 0.82)'}}
               >
-                {p}
+                {tour.introBody.map((p, i) => (
+                  <p key={i} className={i === 0 ? 'etna-dropcap' : ''}>
+                    {p}
+                  </p>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* RIGHT: stats stack verticale "movie credits" */}
+            <motion.div
+              className="lg:col-span-5"
+              initial={{opacity: 0, y: 24}}
+              whileInView={{opacity: 1, y: 0}}
+              viewport={{once: true, margin: '-10%'}}
+              transition={{duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1]}}
+            >
+              <p
+                className="eyebrow mb-6 sm:mb-7"
+                style={{color: 'rgba(245, 239, 228, 0.45)'}}
+              >
+                {tour.numbersEyebrow}
               </p>
-            ))}
+
+              <ul style={{borderTop: `1px solid ${LAVA_RED}30`}}>
+                {tour.numbers.map((n, i) => (
+                  <motion.li
+                    key={n.label}
+                    className="py-5 sm:py-6 grid grid-cols-[auto_1fr] gap-x-6 items-baseline"
+                    style={{borderBottom: `1px solid ${LAVA_RED}25`}}
+                    initial={{opacity: 0, x: 12}}
+                    whileInView={{opacity: 1, x: 0}}
+                    viewport={{once: true, margin: '-10%'}}
+                    transition={{
+                      duration: 0.6,
+                      delay: 0.3 + i * 0.08,
+                      ease: [0.16, 1, 0.3, 1]
+                    }}
+                  >
+                    {/* Label small uppercase, allineata in basso */}
+                    <p
+                      className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-medium whitespace-nowrap"
+                      style={{color: 'rgba(245, 239, 228, 0.5)'}}
+                    >
+                      {n.label}
+                    </p>
+                    {/* Value display large, right-aligned */}
+                    <p
+                      className="font-display font-light tabular-nums text-right leading-none"
+                      style={{
+                        color: 'var(--cream-on-dark)',
+                        fontStretch: '88%',
+                        fontSize: 'clamp(24px, 2.2vw, 36px)',
+                        letterSpacing: '-0.01em'
+                      }}
+                    >
+                      {n.value}
+                    </p>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
           </div>
         </div>
+
         {/* Drop-cap targetato SOLO al paragrafo intro, non a cascata */}
         <style>{`
           .etna-dropcap::first-letter {
@@ -110,54 +215,6 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
             font-weight: 300;
           }
         `}</style>
-      </section>
-
-      {/* 03 — IL TOUR IN NUMERI — riga orizzontale, dark */}
-      <section
-        className="py-20 sm:py-28"
-        style={{backgroundColor: ETNA_BLACK_SOFT, borderTop: `1px solid ${LAVA_RED}40`, borderBottom: `1px solid ${LAVA_RED}40`}}
-      >
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <p
-            className="eyebrow mb-10 sm:mb-12"
-            style={{color: LAVA_GLOW}}
-          >
-            {tour.numbersEyebrow}
-          </p>
-
-          <ul
-            className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 lg:gap-y-0"
-            style={{}}
-          >
-            {tour.numbers.map((n, i) => (
-              <li
-                key={n.label}
-                className={`min-w-0 ${
-                  i > 0 ? 'lg:pl-8 xl:pl-10 lg:border-l' : ''
-                } ${i < tour.numbers.length - 1 ? 'lg:pr-8 xl:pr-10' : ''}`}
-                style={{borderColor: `${LAVA_RED}25`}}
-              >
-                <p
-                  className="font-display font-light tabular-nums leading-[1] break-words"
-                  style={{
-                    color: 'var(--cream-on-dark)',
-                    fontStretch: '88%',
-                    fontSize: 'clamp(24px, 2.8vw, 44px)',
-                    letterSpacing: '-0.02em'
-                  }}
-                >
-                  {n.value}
-                </p>
-                <p
-                  className="mt-4 text-[12px] sm:text-[13px] uppercase tracking-[0.14em] font-medium leading-relaxed max-w-[28ch]"
-                  style={{color: 'rgba(245, 239, 228, 0.55)'}}
-                >
-                  {n.label}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
       </section>
 
       {/* 04 — PARTNER cantine (condizionale) — citazioni dark */}
@@ -202,29 +259,53 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
         </section>
       )}
 
-      {/* 05 — TAPPE scroll-driven sticky cinematic dark */}
-      <section ref={stagesRef} className="relative" aria-label={tour.stagesEyebrow}>
-        {/* Header sezione */}
-        <div className="py-24 sm:py-32" style={{backgroundColor: ETNA_BLACK}}>
-          <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-            <p
-              className="eyebrow mb-7"
-              style={{color: LAVA_GLOW}}
-            >
-              {tour.stagesEyebrow}
-            </p>
-            <h2
-              className="hero-headline font-display text-display-lg font-light max-w-[20ch]"
-              style={{color: 'var(--cream-on-dark)', fontStretch: '92%'}}
-            >
-              {tour.stagesH2Pre}{' '}
-              <span style={{color: LAVA_GLOW}}>{tour.stagesH2Accent}</span>
-            </h2>
-          </div>
-        </div>
+      {/* 05 — TAPPE scroll-driven cinematic
+            Cliente 27/05/2026: stesso WebGL scroll-driven orizzontale della
+            home (con wipe Bezier + barrel + chromatic + LERP), ma con foto
+            e testi delle 5 STAGES di Etna. Testo sempre a sinistra.
 
+            Layout responsive:
+            - Mobile (md:hidden): sticky vertical scroll esistente (sub-comps
+              EtnaStageImage/Text/Counter sotto)
+            - Desktop (hidden md:block): nuovo EtnaStagesWebGL con shader
+              identico alla home */}
+
+      {/* Header sezione, visibile su entrambi (no duplicato) */}
+      <section
+        className="py-24 sm:py-32"
+        style={{backgroundColor: ETNA_BLACK}}
+        aria-label={tour.stagesEyebrow}
+      >
+        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
+          <p className="eyebrow mb-7" style={{color: LAVA_GLOW}}>
+            {tour.stagesEyebrow}
+          </p>
+          <h2
+            className="hero-headline font-display text-display-lg font-light max-w-[20ch]"
+            style={{color: 'var(--cream-on-dark)', fontStretch: '92%'}}
+          >
+            {tour.stagesH2Pre}{' '}
+            <span style={{color: LAVA_GLOW}}>{tour.stagesH2Accent}</span>
+          </h2>
+        </div>
+      </section>
+
+      {/* DESKTOP: nuovo WebGL horizontal scroll, identico mood home */}
+      <div className="hidden md:block">
+        <EtnaStagesWebGL stages={tour.stages} eyebrow={tour.stagesEyebrow} />
+      </div>
+
+      {/* MOBILE: vertical sticky scroll (legacy, comportamento invariato) */}
+      <section
+        ref={stagesRef}
+        className="md:hidden relative"
+        aria-label={tour.stagesEyebrow}
+      >
         <div style={{height: `${N * 100}vh`}} className="relative">
-          <div className="sticky top-0 h-[100svh] overflow-hidden" style={{backgroundColor: ETNA_BLACK}}>
+          <div
+            className="sticky top-0 h-[100svh] overflow-hidden"
+            style={{backgroundColor: ETNA_BLACK}}
+          >
             {/* Foto sticky per ogni tappa */}
             {tour.stages.map((s, i) => (
               <EtnaStageImage
@@ -237,7 +318,7 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
               />
             ))}
 
-            {/* Counter + eyebrow sticky top */}
+            {/* Counter sticky top */}
             <div className="absolute top-0 inset-x-0 z-20 pt-8 sm:pt-10">
               <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-baseline justify-between">
                 <p className="eyebrow" style={{color: LAVA_GLOW}}>

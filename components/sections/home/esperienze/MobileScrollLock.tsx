@@ -28,6 +28,20 @@ export function MobileScrollLock() {
   const lastTriggerRef = useRef(0);
   const touchStartYRef = useRef<number | null>(null);
   const activeIndexRef = useRef(0);
+  // CRITICAL FIX 27/05/2026 (cliente: "rimango bloccato sul tour 5 dopo
+  // l'ultimo scroll, non riesco a scendere giu nella home").
+  // BUG ROOT CAUSE: dopo releaseAndScroll('down') al tour 5, lo
+  // smooth-scroll impiega ~300-500ms a portare la sezione fuori
+  // viewport. Durante questo tempo l'IntersectionObserver puo' firare
+  // con intersectionRatio ancora > 0.85 → re-set isLockedRef.current
+  // = true → utente bloccato di nuovo, scroll non funziona, sensazione
+  // di "rimbalzo".
+  // FIX: releasedRef e' un flag latch che, una volta settato dopo
+  // releaseAndScroll, IMPEDISCE all'IO di ri-attivare il lock finche'
+  // la sezione non e' effettivamente uscita dal viewport
+  // (intersectionRatio < UNLOCK threshold). Solo allora releasedRef
+  // viene resettato a false e l'IO puo' ri-lockare al prossimo entry.
+  const releasedRef = useRef(false);
 
   useEffect(() => {
     activeIndexRef.current = activeIndex;
@@ -35,6 +49,9 @@ export function MobileScrollLock() {
 
   const releaseAndScroll = useCallback((direction: 'up' | 'down') => {
     isLockedRef.current = false;
+    // LATCH: blocca l'IO da ri-attivare il lock finche' la sezione non
+    // esce effettivamente dal viewport. Vedi commento su releasedRef.
+    releasedRef.current = true;
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
@@ -84,7 +101,10 @@ export function MobileScrollLock() {
       (entries) => {
         const entry = entries[0];
         if (entry.intersectionRatio >= LOCK_INTERSECTION_THRESHOLD) {
-          if (!isLockedRef.current) {
+          // Skippa il lock se releasedRef e' attivo: l'utente ha appena
+          // svincolato dalla sezione tramite releaseAndScroll, non
+          // re-imprigionarlo durante lo smooth-scroll uscente.
+          if (!isLockedRef.current && !releasedRef.current) {
             const rect = entry.boundingClientRect;
 
             if (rect.top < -1) {
@@ -107,6 +127,11 @@ export function MobileScrollLock() {
           }
         } else if (entry.intersectionRatio < UNLOCK_INTERSECTION_THRESHOLD) {
           isLockedRef.current = false;
+          // La sezione e' uscita davvero dal viewport → il latch
+          // releasedRef si disattiva, permettendo il prossimo lock
+          // al re-entry (es. utente scrolla di nuovo verso l'alto
+          // tornando ai tour).
+          releasedRef.current = false;
         }
       },
       {threshold: [0, 0.3, 0.5, 0.7, 0.85, 0.95, 1]}

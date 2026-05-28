@@ -5,9 +5,9 @@ import {Hero} from '@/components/sections/home/Hero';
 import {Whisper} from '@/components/sections/home/Whisper';
 import {EsperienzeScroll} from '@/components/sections/home/EsperienzeScroll';
 import {Manifesto} from '@/components/sections/home/Manifesto';
+import {PartnersBar} from '@/components/sections/home/PartnersBar';
 import {Interni} from '@/components/sections/home/Interni';
 import {PolaroidMosaic} from '@/components/sections/home/PolaroidMosaic';
-import {PartnersQuotes} from '@/components/sections/home/PartnersQuotes';
 import {ListinoProse} from '@/components/sections/home/ListinoProse';
 import {DietroAlVolante} from '@/components/sections/home/DietroAlVolante';
 import {Testimonianza} from '@/components/sections/home/Testimonianza';
@@ -79,8 +79,9 @@ export default async function HomePage({
       {/* 01 — Hero atmosferica full-bleed */}
       <Hero />
 
-      {/* 02 — Whisper "Ti veniamo a prendere ovunque tu sia." */}
-      <Whisper text={t('text')} bg="canvas" size="lg" />
+      {/* 02 — Whisper "Non facciamo semplici transfer, creiamo ricordi."
+          maxWidthCh=30 per testo lungo: ~4 parole per riga invece di 2-3 */}
+      <Whisper text={t('text')} bg="canvas" size="lg" maxWidthCh={30} />
 
       {/* 03 — 5 esperienze scroll-driven sticky (la sezione cuore della home) */}
       <EsperienzeScroll />
@@ -88,16 +89,18 @@ export default async function HomePage({
       {/* 04 — Manifesto: paragrafo keyword-dense SEO-locked, reso narrativo */}
       <Manifesto />
 
+      {/* 04b — Partners marquee: loghi dei posti che frequentiamo
+          (Pura Vida, Burgio, Benanti, Palmeri, hotel selezionati). Marquee
+          CSS-only, pause su hover. Loghi in /public/images/loghi-partner/. */}
+      <PartnersBar />
+
       {/* 05 — Le auto, sotto-screen: 3 dettagli interni */}
       <Interni />
 
       {/* 06 — Mosaico polaroid destinazioni */}
       <PolaroidMosaic />
 
-      {/* 07 — Partner come citazioni */}
-      <PartnersQuotes />
-
-      {/* 08 — Listino come prosa narrativa */}
+      {/* 07 — Listino come prosa narrativa */}
       <ListinoProse />
 
       {/* 09 — Dietro al volante */}

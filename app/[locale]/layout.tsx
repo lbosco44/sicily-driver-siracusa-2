@@ -67,6 +67,15 @@ export default async function LocaleLayout({
           href="https://images.unsplash.com"
           crossOrigin="anonymous"
         />
+        {/* Preload prima foto della tour section: garantisce che il fallback
+            <img> nella EsperienzeScroll abbia bytes pronti appena il browser
+            renderizza, niente flash di nero durante caricamento. */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/home/dolce-vita.png"
+          fetchPriority="high"
+        />
       </head>
       <body className="min-h-screen flex flex-col bg-canvas text-ink">
         <a

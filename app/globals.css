@@ -176,6 +176,13 @@ h3 { line-height: 1.1; letter-spacing: -0.015em; }
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--secondary);
+  /* Cliente 27/05/2026: nascosto site-wide. I "titolini sopra" alle h2
+     (eyebrow / kicker) appesantivano le sezioni e non aggiungevano
+     informazione utile (esempio: "TEMPI DI RISPOSTA" sopra a "Quando
+     rispondiamo" e' ridondante). Manteniamo il markup nei 23 componenti
+     che lo usano per backward compat / SEO landmarks invisibili / revert
+     rapido se cambia idea. Per ripristinare: rimuovere questa riga. */
+  display: none;
 }
 
 /* Tabular nums per prezzi/numeri */
@@ -221,6 +228,41 @@ h3 { line-height: 1.1; letter-spacing: -0.015em; }
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Utility: nasconde scrollbar webkit per carouseli mobile.
+   Tailwind non ha built-in per questo (Tailwind v4 scrollbar plugin
+   richiede dipendenza esterna). Soluzione minimale: aggiungi
+   .scrollbar-hidden alla classe del container scrollable. */
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+/* Marquee infinito per partner logos. Tecnica: duplichiamo la lista nel JSX
+   (passa [...items, ...items]) e animiamo translateX da 0 a -50% in loop
+   lineare. Quando la prima copia esce a sinistra, la seconda e' gia' nella
+   posizione iniziale → loop visivamente seamless. Pausa su hover per
+   permettere all'utente di leggere i nomi/ispezionare i loghi.
+   40s = velocita' "editorial", non e' un slot machine: il visitatore deve
+   poter cogliere i marchi senza inseguirli. */
+@keyframes partners-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-partners-marquee {
+  animation: partners-marquee 40s linear infinite;
+}
+.animate-partners-marquee:hover {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-partners-marquee {
+    animation: none;
+  }
 }
 
 /* Atmospheric gradient overlay per foto full-bleed con testo */

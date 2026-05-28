@@ -70,21 +70,21 @@ export type CityContent = {
 // ============================================================
 const FLEET_IT: FleetCard[] = [
   {
-    model: 'Mercedes Classe V',
+    model: 'Van di lusso 7 posti',
     pax: 'Fino a 7 passeggeri',
     luggage: '6 valigie grandi + bagaglio a mano',
     comfort: 'Aria condizionata, sedili in pelle, finestrini oscurati',
     ideal: 'Famiglie, gruppi, transfer aeroporto'
   },
   {
-    model: 'Mercedes GLB Premium',
+    model: 'SUV premium',
     pax: 'Fino a 4 passeggeri',
     luggage: '3 valigie grandi',
     comfort: 'SUV alto, vista comoda',
     ideal: 'Coppie, tour panoramici'
   },
   {
-    model: 'Mercedes Classe E',
+    model: 'Berlina di lusso',
     pax: 'Fino a 3 passeggeri',
     luggage: '2 valigie grandi',
     comfort: 'Berlina executive, eleganza per business',
@@ -94,21 +94,21 @@ const FLEET_IT: FleetCard[] = [
 
 const FLEET_EN: FleetCard[] = [
   {
-    model: 'Mercedes V-Class',
+    model: 'Luxury van, 7 seats',
     pax: 'Up to 7 passengers',
     luggage: '6 large suitcases + carry-on',
     comfort: 'Air conditioning, leather seats, tinted windows',
     ideal: 'Families, groups, airport transfers'
   },
   {
-    model: 'Mercedes GLB Premium',
+    model: 'Premium SUV',
     pax: 'Up to 4 passengers',
     luggage: '3 large suitcases',
     comfort: 'Higher SUV ride, panoramic view',
     ideal: 'Couples, scenic tours'
   },
   {
-    model: 'Mercedes E-Class',
+    model: 'Luxury sedan',
     pax: 'Up to 3 passengers',
     luggage: '2 large suitcases',
     comfort: 'Executive sedan, business elegance',
@@ -141,20 +141,20 @@ const INCLUDES_EN = [
 const CATANIA_IT: CityContent = {
   metaTitle: 'NCC Catania · Transfer Aeroporto e Autista Privato | Sicily Driver',
   metaDescription:
-    'NCC Catania con Mercedes e autista privato. Transfer Aeroporto Catania-Fontanarossa verso Siracusa da €80, Taormina da €120, Noto, Ragusa Ibla. Servizio 24/7.',
+    'NCC Catania con van di lusso e autista privato. Transfer Aeroporto Catania-Fontanarossa verso Siracusa da €80, Taormina da €120, Noto, Ragusa Ibla. Servizio 24/7.',
   h1: 'NCC Catania – Transfer Aeroporto e Autista Privato',
   intro:
-    'Servizio NCC professionale da e per Catania, inclusi transfer dall’Aeroporto di Catania verso Siracusa, Noto, Ragusa e Taormina. Veicoli Mercedes, autisti professionisti, servizio 24/7.',
+    'Servizio NCC professionale da e per Catania, inclusi transfer dall’Aeroporto di Catania verso Siracusa, Noto, Ragusa e Taormina. Van di lusso (tra cui Mercedes Classe V, GLB Premium, Classe E), autisti professionisti, servizio 24/7.',
 
   heroImage:
     'https://images.unsplash.com/photo-1532509774891-141d37f25ae9?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'NCC Catania · Aeroporto Fontanarossa · 24/7',
   heroSubhead:
-    'Mercedes con autista bilingue, monitoraggio volo, attesa gratuita 60 minuti. Dal terminal arrivi alla tua destinazione, senza pensieri.',
+    'Van di lusso con autista bilingue, monitoraggio volo, attesa gratuita 60 minuti. Dal terminal arrivi alla tua destinazione, senza pensieri.',
 
   trust: [
-    {number: 'da €80', label: 'Catania → Siracusa in Mercedes'},
-    {number: 'Mercedes', label: 'Classe V · GLB · Classe E'},
+    {number: 'da €80', label: 'Catania → Siracusa in van di lusso'},
+    {number: 'Van di lusso', label: 'tra cui Mercedes Classe V · GLB · Classe E'},
     {number: '24/7', label: 'su WhatsApp e telefono'}
   ],
 
@@ -172,7 +172,7 @@ const CATANIA_IT: CityContent = {
     {from: 'Catania Porto (crociere)', to: 'Ortigia', price: 'da €90'}
   ],
   routesMicrocopy:
-    'Prezzi per Mercedes Classe V (fino a 7 passeggeri). Per tratte non in elenco, scrivici su WhatsApp: ti rispondiamo con un preventivo entro un’ora.',
+    'Prezzi per van di lusso fino a 7 passeggeri. Per tratte non in elenco, scrivici su WhatsApp: ti rispondiamo con un preventivo entro un’ora.',
 
   includesH2Pre: 'Cosa include',
   includesH2Accent: 'il servizio',
@@ -229,7 +229,7 @@ const CATANIA_IT: CityContent = {
 const NOTO_IT: CityContent = {
   metaTitle: 'NCC Noto · Transfer Privati e Tour Barocco | Sicily Driver',
   metaDescription:
-    'NCC Noto: transfer privati da/per gli aeroporti di Catania e Comiso e tour del Val di Noto. Mercedes con autista, servizio 24/7. Da Noto a Siracusa da €60.',
+    'NCC Noto: transfer privati da/per gli aeroporti di Catania e Comiso e tour del Val di Noto. Van di lusso con autista, servizio 24/7. Da Noto a Siracusa da €60.',
   h1: 'NCC Noto – Transfer Privati e Tour Barocco',
   intro:
     'Servizio NCC a Noto per transfer da/per aeroporti (Catania, Comiso) e tour nel Val di Noto: Noto, Modica, Ragusa Ibla e Marzamemi. Autista dedicato e comfort premium.',
@@ -238,10 +238,10 @@ const NOTO_IT: CityContent = {
     'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'NCC Noto · Val di Noto · 24/7',
   heroSubhead:
-    'La capitale del Barocco siciliano come punto di partenza. Da Noto verso Siracusa, Marzamemi o Modica con Mercedes e autista dedicato.',
+    'La capitale del Barocco siciliano come punto di partenza. Da Noto verso Siracusa, Marzamemi o Modica con van di lusso e autista dedicato.',
 
   trust: [
-    {number: 'da €60', label: 'Noto → Siracusa in Mercedes'},
+    {number: 'da €60', label: 'Noto → Siracusa in van di lusso'},
     {number: 'Val di Noto', label: 'ogni giorno, tutto l’anno'},
     {number: '24/7', label: 'su WhatsApp e telefono'}
   ],
@@ -258,7 +258,7 @@ const NOTO_IT: CityContent = {
     {from: 'Noto', to: 'Avola', price: 'da €30'}
   ],
   routesMicrocopy:
-    'Prezzi per Mercedes Classe V. Per tratte fuori elenco (Comiso, Pozzallo, Catania porto crociere) scrivici su WhatsApp.',
+    'Prezzi per van di lusso fino a 7 passeggeri. Per tratte fuori elenco (Comiso, Pozzallo, Catania porto crociere) scrivici su WhatsApp.',
 
   includesH2Pre: 'Cosa include',
   includesH2Accent: 'il servizio',
@@ -314,7 +314,7 @@ const NOTO_IT: CityContent = {
 const TAORMINA_IT: CityContent = {
   metaTitle: 'NCC Taormina · Transfer di Lusso e Tour Etna | Sicily Driver',
   metaDescription:
-    'NCC Taormina: transfer privato Aeroporto di Catania, Siracusa, costa ionica. Mercedes Classe V, GLB, Classe E. Tour Etna con degustazione. 24/7.',
+    'NCC Taormina: transfer privato Aeroporto di Catania, Siracusa, costa ionica. Van di lusso tra cui Mercedes Classe V, GLB, Classe E. Tour Etna con degustazione. 24/7.',
   h1: 'NCC Taormina – Transfer di Lusso e Tour Etna',
   intro:
     'NCC per Taormina con transfer da/per Aeroporto di Catania, Siracusa e tutta la costa ionica. Opzione Tour Etna con degustazione in cantina e soste panoramiche.',
@@ -323,7 +323,7 @@ const TAORMINA_IT: CityContent = {
     'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'NCC Taormina · Costa Ionica · 24/7',
   heroSubhead:
-    'Dal teatro greco a Isola Bella, da Catania Fontanarossa al cratere dell’Etna. Mercedes con autista bilingue, orari flessibili, tariffa concordata.',
+    'Dal teatro greco a Isola Bella, da Catania Fontanarossa al cratere dell’Etna. Van di lusso con autista bilingue, orari flessibili, tariffa concordata.',
 
   trust: [
     {number: 'da €120', label: 'Taormina → Catania Aeroporto'},
@@ -342,7 +342,7 @@ const TAORMINA_IT: CityContent = {
     {from: 'Taormina', to: 'Catania Porto (crociere)', price: 'da €110'}
   ],
   routesMicrocopy:
-    'Prezzi per Mercedes Classe V. Combina transfer Taormina → Etna con un’escursione vinicola: vedi Tour Etna per i dettagli.',
+    'Prezzi per van di lusso fino a 7 passeggeri. Combina transfer Taormina → Etna con un’escursione vinicola: vedi Tour Etna per i dettagli.',
 
   includesH2Pre: 'Cosa include',
   includesH2Accent: 'il servizio',
@@ -399,7 +399,7 @@ const TAORMINA_IT: CityContent = {
 const RAGUSA_IT: CityContent = {
   metaTitle: 'NCC Ragusa · Transfer Privati e Servizio Conducente | Sicily Driver',
   metaDescription:
-    'NCC Ragusa e Ragusa Ibla: transfer privati da/per gli aeroporti di Catania e Comiso, tour del Barocco, collegamenti Siracusa e Noto. Mercedes con autista 24/7.',
+    'NCC Ragusa e Ragusa Ibla: transfer privati da/per gli aeroporti di Catania e Comiso, tour del Barocco, collegamenti Siracusa e Noto. Van di lusso con autista 24/7.',
   h1: 'NCC Ragusa – Transfer Privati e Servizio con Conducente',
   intro:
     'Servizio NCC a Ragusa e Ragusa Ibla per transfer privati da/per Aeroporto di Catania e Comiso, tour del Barocco e collegamenti per Siracusa e Noto.',
@@ -408,7 +408,7 @@ const RAGUSA_IT: CityContent = {
     'https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'NCC Ragusa Ibla · Val di Noto · 24/7',
   heroSubhead:
-    'Dalla cattedrale di San Giorgio agli aeroporti di Comiso e Catania. Mercedes con autista per Ragusa, Modica, Scicli e tutta la provincia.',
+    'Dalla cattedrale di San Giorgio agli aeroporti di Comiso e Catania. Van di lusso con autista per Ragusa, Modica, Scicli e tutta la provincia.',
 
   trust: [
     {number: 'Ragusa Ibla', label: 'e Modica nel cuore'},
@@ -428,7 +428,7 @@ const RAGUSA_IT: CityContent = {
     {from: 'Ragusa', to: 'Marzamemi', price: 'da €110'}
   ],
   routesMicrocopy:
-    'Prezzi per Mercedes Classe V. Comiso è l’aeroporto più vicino (40 min), Catania richiede 1h30 ma offre più voli.',
+    'Prezzi per van di lusso fino a 7 passeggeri. Comiso è l’aeroporto più vicino (40 min), Catania richiede 1h30 ma offre più voli.',
 
   includesH2Pre: 'Cosa include',
   includesH2Accent: 'il servizio',
@@ -489,20 +489,20 @@ const RAGUSA_IT: CityContent = {
 const CATANIA_EN: CityContent = {
   metaTitle: 'Catania Airport Transfer · Private Driver from Catania | Sicily Driver',
   metaDescription:
-    'Private Mercedes driver from Catania Fontanarossa Airport to Syracuse from €80, Taormina from €120, Noto, Ragusa Ibla. 24/7 chauffeur service across Sicily.',
+    'Private luxury-van driver from Catania Fontanarossa Airport to Syracuse from €80, Taormina from €120, Noto, Ragusa Ibla. 24/7 chauffeur service across Sicily.',
   h1: 'Private Driver Catania – Airport Transfer & Chauffeur Service',
   intro:
-    'Private driver in Catania for airport transfers (CTA) and custom trips to Siracusa, Noto, Taormina and Ragusa. Mercedes vehicles, English-speaking chauffeurs, 24/7 service.',
+    'Private driver in Catania for airport transfers (CTA) and custom trips to Siracusa, Noto, Taormina and Ragusa. Luxury vans (including Mercedes V-Class, GLB Premium, E-Class), English-speaking chauffeurs, 24/7 service.',
 
   heroImage:
     'https://images.unsplash.com/photo-1532509774891-141d37f25ae9?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'Private driver Catania · Fontanarossa · 24/7',
   heroSubhead:
-    'Mercedes chauffeur, real-time flight tracking, free 60-minute waiting time. From the arrivals gate to your destination, hassle-free.',
+    'Luxury van with chauffeur, real-time flight tracking, free 60-minute waiting time. From the arrivals gate to your destination, hassle-free.',
 
   trust: [
-    {number: 'from €80', label: 'Catania → Syracuse in Mercedes'},
-    {number: 'Mercedes', label: 'V-Class · GLB · E-Class'},
+    {number: 'from €80', label: 'Catania → Syracuse in a luxury van'},
+    {number: 'Luxury vans', label: 'including Mercedes V-Class · GLB · E-Class'},
     {number: '24/7', label: 'on WhatsApp and phone'}
   ],
 
@@ -519,7 +519,7 @@ const CATANIA_EN: CityContent = {
     {from: 'Catania Cruise Port', to: 'Ortigia', price: 'from €90'}
   ],
   routesMicrocopy:
-    'Prices for Mercedes V-Class (up to 7 passengers). For routes not listed, message us on WhatsApp — you’ll get a quote within one hour.',
+    'Prices for our luxury van (up to 7 passengers). For routes not listed, message us on WhatsApp — you’ll get a quote within one hour.',
 
   includesH2Pre: 'What’s',
   includesH2Accent: 'included',
@@ -576,7 +576,7 @@ const CATANIA_EN: CityContent = {
 const NOTO_EN: CityContent = {
   metaTitle: 'Private Driver Noto · Transfers & Baroque Tour | Sicily Driver',
   metaDescription:
-    'Private driver in Noto for transfers from Catania and Comiso airports and Val di Noto Baroque tours. Mercedes chauffeur, 24/7 service. From Noto to Syracuse from €60.',
+    'Private driver in Noto for transfers from Catania and Comiso airports and Val di Noto Baroque tours. Luxury van with chauffeur, 24/7 service. From Noto to Syracuse from €60.',
   h1: 'Private Driver Noto – Transfers & Baroque Tour',
   intro:
     'Private driver in Noto for transfers from Catania or Comiso airport and Baroque Valley tours: Noto, Modica, Ragusa Ibla and Marzamemi.',
@@ -585,10 +585,10 @@ const NOTO_EN: CityContent = {
     'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'Private driver Noto · Val di Noto · 24/7',
   heroSubhead:
-    'The capital of Sicilian Baroque as a base. From Noto to Syracuse, Marzamemi or Modica with a Mercedes and dedicated chauffeur.',
+    'The capital of Sicilian Baroque as a base. From Noto to Syracuse, Marzamemi or Modica in a luxury van with dedicated chauffeur.',
 
   trust: [
-    {number: 'from €60', label: 'Noto → Syracuse in Mercedes'},
+    {number: 'from €60', label: 'Noto → Syracuse in a luxury van'},
     {number: 'Val di Noto', label: 'every day, year-round'},
     {number: '24/7', label: 'on WhatsApp and phone'}
   ],
@@ -604,7 +604,7 @@ const NOTO_EN: CityContent = {
     {from: 'Noto', to: 'Modica', price: 'from €70'}
   ],
   routesMicrocopy:
-    'Prices for Mercedes V-Class. For routes not listed (Comiso, Pozzallo, Catania cruise port) message us on WhatsApp.',
+    'Prices for our luxury van (up to 7 passengers). For routes not listed (Comiso, Pozzallo, Catania cruise port) message us on WhatsApp.',
 
   includesH2Pre: 'What’s',
   includesH2Accent: 'included',
@@ -660,7 +660,7 @@ const NOTO_EN: CityContent = {
 const TAORMINA_EN: CityContent = {
   metaTitle: 'Private Driver Taormina · Luxury Transfers & Etna Tour | Sicily Driver',
   metaDescription:
-    'Private driver Taormina with Catania Airport transfer, Syracuse and Ionian coast routes. Mercedes V-Class, GLB, E-Class. Etna tour with wine tasting. 24/7.',
+    'Private driver Taormina with Catania Airport transfer, Syracuse and Ionian coast routes. Luxury vans including Mercedes V-Class, GLB, E-Class. Etna tour with wine tasting. 24/7.',
   h1: 'Private Driver Taormina – Luxury Transfers & Etna Tour',
   intro:
     'Private driver to/from Taormina with transfers from Catania Airport, Siracusa and the Ionian coast. Add an Etna wine-tasting tour with scenic stops.',
@@ -669,7 +669,7 @@ const TAORMINA_EN: CityContent = {
     'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'Private driver Taormina · Ionian Coast · 24/7',
   heroSubhead:
-    'From the Greek theatre to Isola Bella, from Catania Fontanarossa to the Etna craters. Mercedes chauffeur, flexible hours, agreed flat rate.',
+    'From the Greek theatre to Isola Bella, from Catania Fontanarossa to the Etna craters. Luxury van with chauffeur, flexible hours, agreed flat rate.',
 
   trust: [
     {number: 'from €120', label: 'Taormina → Catania Airport'},
@@ -688,7 +688,7 @@ const TAORMINA_EN: CityContent = {
     {from: 'Taormina', to: 'Catania Cruise Port', price: 'from €110'}
   ],
   routesMicrocopy:
-    'Prices for Mercedes V-Class. Combine Taormina → Etna transfer with a wine tour: see the Etna Tour page for details.',
+    'Prices for our luxury van (up to 7 passengers). Combine Taormina → Etna transfer with a wine tour: see the Etna Tour page for details.',
 
   includesH2Pre: 'What’s',
   includesH2Accent: 'included',
@@ -745,7 +745,7 @@ const TAORMINA_EN: CityContent = {
 const RAGUSA_EN: CityContent = {
   metaTitle: 'Private Driver Ragusa · Chauffeur & Airport Transfers | Sicily Driver',
   metaDescription:
-    'Private driver in Ragusa and Ragusa Ibla: transfers to/from Catania and Comiso airport, Baroque tours, links to Syracuse and Noto. Mercedes chauffeur 24/7.',
+    'Private driver in Ragusa and Ragusa Ibla: transfers to/from Catania and Comiso airport, Baroque tours, links to Syracuse and Noto. Luxury van with chauffeur 24/7.',
   h1: 'Private Driver Ragusa – Chauffeur & Airport Transfers',
   intro:
     'Private driver in Ragusa and Ragusa Ibla for transfers to/from Catania and Comiso Airport, Baroque tours and connections to Siracusa and Noto.',
@@ -754,7 +754,7 @@ const RAGUSA_EN: CityContent = {
     'https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=1600&q=70&auto=format&fm=webp',
   heroEyebrow: 'Private driver Ragusa Ibla · Val di Noto · 24/7',
   heroSubhead:
-    'From San Giorgio Cathedral to Comiso and Catania airports. Mercedes chauffeur across Ragusa, Modica, Scicli and the whole province.',
+    'From San Giorgio Cathedral to Comiso and Catania airports. Luxury van with chauffeur across Ragusa, Modica, Scicli and the whole province.',
 
   trust: [
     {number: 'Ragusa Ibla', label: 'and Modica at the heart'},
@@ -774,7 +774,7 @@ const RAGUSA_EN: CityContent = {
     {from: 'Ragusa', to: 'Marzamemi', price: 'from €110'}
   ],
   routesMicrocopy:
-    'Prices for Mercedes V-Class. Comiso is the closest airport (40 min), Catania takes 1h30 but offers more flights.',
+    'Prices for our luxury van (up to 7 passengers). Comiso is the closest airport (40 min), Catania takes 1h30 but offers more flights.',
 
   includesH2Pre: 'What’s',
   includesH2Accent: 'included',

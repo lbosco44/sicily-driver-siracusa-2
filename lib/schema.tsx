@@ -54,8 +54,8 @@ export function localBusinessSchema(locale: 'it' | 'en') {
     name: 'Sicily Driver Siracusa',
     description:
       locale === 'it'
-        ? 'NCC privato e tour della Sicilia orientale. Transfer aeroporti Catania, Comiso, Palermo, Trapani. Tour Barocco, Etna, Ortigia, Taormina con Mercedes Classe V, GLB Premium, Classe E.'
-        : 'Private NCC and private tours across eastern Sicily. Airport transfers from Catania, Comiso, Palermo, Trapani. Baroque, Etna, Ortigia, Taormina tours with Mercedes Class V, GLB Premium, Class E.',
+        ? 'NCC privato e tour della Sicilia orientale. Transfer aeroporti Catania, Comiso, Palermo, Trapani. Tour Barocco, Etna, Ortigia, Taormina con van di lusso (tra cui Mercedes Classe V, GLB Premium, Classe E).'
+        : 'Private NCC and private tours across eastern Sicily. Airport transfers from Catania, Comiso, Palermo, Trapani. Baroque, Etna, Ortigia, Taormina tours with luxury vans (including Mercedes V-Class, GLB Premium, E-Class).',
     url: locale === 'it' ? `${URL_BASE}/it` : `${URL_BASE}/en`,
     telephone: PHONE,
     email: EMAIL,

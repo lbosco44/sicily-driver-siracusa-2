@@ -7,6 +7,8 @@ import {getBreadcrumb} from '@/lib/breadcrumbs';
 import {routing} from '@/i18n/routing';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
 import type {Locale} from '@/lib/cities';
+import {ServicesTabs} from '@/components/sections/servizi/ServicesTabs';
+import {CtaFinale} from '@/components/sections/home/CtaFinale';
 
 export async function generateMetadata({
   params
@@ -48,7 +50,6 @@ export default async function ServiziPage({
   setRequestLocale(locale);
 
   const t = await getTranslations('Servizi');
-  const tNcc = await getTranslations('NccPage');
 
   const faqItems = [
     {q: t('faq.q1'), a: t('faq.a1')},
@@ -99,21 +100,27 @@ export default async function ServiziPage({
 
   const fleet = [
     {
-      model: t('fleet.card1Model'),
+      capacity: t('fleet.card1Capacity'),
       pax: t('fleet.card1Pax'),
-      comfort: t('fleet.card1Comfort'),
+      type: t('fleet.card1Type'),
+      detail: t('fleet.card1Detail'),
+      brands: t('fleet.card1Brands'),
       price: t('fleet.card1Price')
     },
     {
-      model: t('fleet.card2Model'),
+      capacity: t('fleet.card2Capacity'),
       pax: t('fleet.card2Pax'),
-      comfort: t('fleet.card2Comfort'),
+      type: t('fleet.card2Type'),
+      detail: t('fleet.card2Detail'),
+      brands: t('fleet.card2Brands'),
       price: t('fleet.card2Price')
     },
     {
-      model: t('fleet.card3Model'),
+      capacity: t('fleet.card3Capacity'),
       pax: t('fleet.card3Pax'),
-      comfort: t('fleet.card3Comfort'),
+      type: t('fleet.card3Type'),
+      detail: t('fleet.card3Detail'),
+      brands: t('fleet.card3Brands'),
       price: t('fleet.card3Price')
     }
   ];
@@ -136,7 +143,7 @@ export default async function ServiziPage({
       <section className="hero-stage relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <Image
-            src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1800&q=80&auto=format&fm=webp"
+            src="/images/servizi/hero.jpeg"
             alt=""
             fill
             priority
@@ -164,22 +171,22 @@ export default async function ServiziPage({
         </div>
       </section>
 
-      {/* 02 — INTRO narrativa */}
-      <section className="bg-canvas py-28 sm:py-36">
-        <div className="mx-auto max-w-(--container-narrow) px-6 sm:px-10">
-          <p className="text-[19px] sm:text-[20px] leading-[1.7] text-ink-soft">
-            {t('intro.body')}
-          </p>
-        </div>
-      </section>
+      {/* 02 — INTRO rimossa interamente (cliente 28/05/2026: la frase
+            italic ripeteva i 4 servizi che gia' compaiono nella sezione
+            tabs sotto → ridondante). */}
 
-      {/* 03 — 4 SERVIZI come blocchi editorial */}
-      <section className="bg-canvas-deep py-32 sm:py-40">
+      {/* 03 — 4 SERVIZI come TABS interattivi
+            Cliente 28/05/2026: "non usare 4 schede 2x2 con numerazione
+            01/02/03/04 come sempre". Tabs pattern stile Apple/Stripe
+            implementato in <ServicesTabs>. Riduce ~75% vertical space
+            (un solo servizio visibile alla volta), aggiunge interattivita',
+            visivamente diverso dal bento. */}
+      <section className="bg-canvas-deep py-20 sm:py-24 lg:py-28">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-3xl mb-16 sm:mb-20">
-            <p className="eyebrow mb-7">{t('cards.eyebrow')}</p>
+          <div className="max-w-2xl mb-10 sm:mb-12">
+            <p className="eyebrow mb-5">{t('cards.eyebrow')}</p>
             <h2
-              className="font-display text-display-md font-light text-ink"
+              className="font-display text-display-sm sm:text-display-md font-light text-ink leading-[1.1]"
               style={{fontStretch: '95%'}}
             >
               {t('cards.h2Pre')}{' '}
@@ -187,135 +194,90 @@ export default async function ServiziPage({
             </h2>
           </div>
 
-          <ul className="divide-y divide-[var(--border-strong)]">
-            {services.map((s) => (
-              <li key={s.key}>
-                <Link
-                  href={s.href}
-                  className="group block py-12 sm:py-14 grid grid-cols-1 lg:grid-cols-[1fr_2fr_auto] gap-8 lg:gap-16 items-baseline"
-                >
-                  <div>
-                    <p className="text-[11px] uppercase tracking-[0.22em] font-medium text-secondary mb-5">
-                      {s.kicker}
-                    </p>
-                    <h3
-                      className="font-display text-display-sm font-light text-ink group-hover:text-accent transition-colors leading-[1.05]"
-                      style={{fontStretch: '95%'}}
-                    >
-                      {s.title}
-                    </h3>
-                  </div>
-
-                  <div>
-                    <p className="text-[17px] leading-[1.65] text-ink-soft mb-6 max-w-[58ch]">
-                      {s.body}
-                    </p>
-                    <ul className="space-y-2 text-[15px] text-ink/70">
-                      {s.points.map((p, j) => (
-                        <li key={j} className="flex gap-3">
-                          <span aria-hidden="true" className="text-secondary">
-                            —
-                          </span>
-                          <span>{p}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <p className="text-[12px] uppercase tracking-[0.2em] font-medium text-primary inline-flex items-center gap-3 self-end group-hover:text-accent transition-colors">
-                    {s.cta}
-                    <span
-                      aria-hidden="true"
-                      className="transition-transform duration-300 group-hover:translate-x-1.5"
-                    >
-                      →
-                    </span>
-                  </p>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <ServicesTabs services={services} />
         </div>
       </section>
 
-      {/* 04 — LA FLOTTA */}
-      <section className="bg-canvas py-32 sm:py-40">
+      {/* 04 — LA FLOTTA: design MINIMAL (iterazione 3)
+            Cliente 28/05/2026: la versione precedente era "incasinata,
+            troppi pesi di font, sizes, caps, grassetti diversi".
+            Riprogettato MINIMAL: 1 sola gerarchia font, no decorazioni
+            (no numeri giganti, no caps brand stamp, no italic price),
+            solo info essenziale per colonna: tipo, passeggeri, prezzo.
+            Brand mention spostato nel lead generale al top → niente
+            piu' ripetizione 3 volte. */}
+      <section className="bg-canvas py-20 sm:py-24">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-2xl mb-16 sm:mb-20">
-            <p className="eyebrow mb-7">{t('fleet.eyebrow')}</p>
+          <div className="max-w-2xl mb-12 sm:mb-14">
             <h2
-              className="font-display text-display-md font-light text-ink"
+              className="font-display text-display-sm sm:text-display-md font-light text-ink leading-[1.1]"
               style={{fontStretch: '95%'}}
             >
               {t('fleet.h2Pre')}{' '}
               <span className="italic text-accent">{t('fleet.h2Accent')}</span>
             </h2>
+            <p className="mt-5 text-[16px] sm:text-[17px] leading-[1.55] text-ink-soft max-w-[58ch]">
+              {t('fleet.lead')}
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-y-0 md:gap-x-12 lg:gap-x-16">
+          {/* 3 colonne minimal: stesso peso font (light), 3 size hierarchy
+              solo (title 28px / pax 17px / price 17px), niente bold uppercase
+              brand, niente italic decorativo. Divider sottili tra colonne. */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-y-0 md:divide-x md:divide-[var(--border)]">
             {fleet.map((f, i) => (
               <article
                 key={i}
-                className={
-                  i < fleet.length - 1
-                    ? 'md:border-r md:border-[var(--border-strong)] md:pr-12 lg:pr-16'
-                    : ''
-                }
+                className={`${
+                  i === 0
+                    ? 'md:pr-10 lg:pr-14'
+                    : i === fleet.length - 1
+                      ? 'md:pl-10 lg:pl-14'
+                      : 'md:px-10 lg:px-14'
+                }`}
               >
                 <h3
-                  className="font-display italic text-[26px] sm:text-[30px] font-light text-ink leading-tight mb-7"
+                  className="font-display text-[24px] sm:text-[28px] font-light text-ink leading-[1.15] mb-4"
                   style={{fontStretch: '95%'}}
                 >
-                  {f.model}
+                  {f.type}
                 </h3>
-                <dl className="space-y-5 text-[15px] leading-[1.6] text-ink-soft">
-                  <div>
-                    <dt className="eyebrow text-secondary mb-1">
-                      {tNcc('fleetTablePax')}
-                    </dt>
-                    <dd className="text-ink font-medium">{f.pax}</dd>
-                  </div>
-                  <div>
-                    <dt className="eyebrow text-secondary mb-1">
-                      {tNcc('fleetTableComfort')}
-                    </dt>
-                    <dd>{f.comfort}</dd>
-                  </div>
-                  <div className="pt-2 border-t border-[var(--border)]">
-                    <p className="font-display italic text-[22px] text-accent">
-                      {f.price}
-                    </p>
-                  </div>
-                </dl>
+                <p className="text-[16px] sm:text-[17px] text-ink-soft leading-[1.55]">
+                  {f.capacity} {f.pax}
+                </p>
+                <p className="text-[16px] sm:text-[17px] text-accent leading-[1.55] mt-1">
+                  {f.price}
+                </p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 05 — AREE SERVITE */}
-      <section className="bg-canvas-warm py-32 sm:py-40">
+      {/* 05 — TUTTA LA SICILIA (riprogettata 28/05/2026 + 2nd iter)
+            Cliente: 1) il framing "Le città che conosciamo" sembrava
+            che servissimo solo quelle citta' → cambiato a "Tutta la
+            Sicilia". 2) Supporting info (sedi/altre/aeroporti) era
+            in una row sotto separata, allungava la sezione. Spostata
+            in colonna destra accanto al lead → -50% vertical. */}
+      <section className="bg-canvas-warm py-20 sm:py-24">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-start">
+            {/* LEFT: H2 + lead + 4 chip CTA */}
             <div>
-              <p className="eyebrow mb-7">{t('areas.eyebrow')}</p>
               <h2
-                className="font-display text-display-md font-light text-ink leading-[1.05]"
+                className="font-display text-display-md sm:text-display-lg font-light text-ink leading-[1.02]"
                 style={{fontStretch: '95%'}}
               >
                 {t('areas.h2Pre')}{' '}
                 <span className="italic text-accent">{t('areas.h2Accent')}</span>
               </h2>
-            </div>
-
-            <div className="space-y-6 text-[17px] sm:text-[18px] leading-[1.7] text-ink-soft">
-              <p className="font-display italic text-[20px] text-primary">
-                {t('areas.bases')}
+              <p className="mt-6 sm:mt-7 text-[17px] sm:text-[18px] leading-[1.6] text-ink-soft max-w-[52ch]">
+                {t('areas.lead')}
               </p>
-              <p>{t('areas.cities')}</p>
-              <p className="text-[15px] text-ink/60">{t('areas.airports')}</p>
 
-              <div className="pt-6 flex flex-wrap gap-3">
+              {/* 4 chip-CTA prominenti */}
+              <div className="flex flex-wrap gap-3 sm:gap-4 mt-9 sm:mt-10">
                 {(
                   [
                     {href: '/ncc-catania', label: 'Catania'},
@@ -327,14 +289,44 @@ export default async function ServiziPage({
                   <Link
                     key={c.href}
                     href={c.href}
-                    className="inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] px-5 py-2.5 text-[12px] uppercase tracking-[0.12em] font-medium text-primary hover:border-accent hover:text-accent transition-colors"
+                    className="group inline-flex items-center gap-3 rounded-full border-2 border-[var(--border-strong)] hover:border-accent bg-canvas hover:bg-accent px-6 py-3 text-[13px] sm:text-[14px] uppercase tracking-[0.14em] font-medium text-ink hover:text-cream-on-dark transition-all duration-200"
                   >
                     {c.label}
-                    <span aria-hidden="true">→</span>
+                    <span
+                      aria-hidden="true"
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    >
+                      →
+                    </span>
                   </Link>
                 ))}
               </div>
             </div>
+
+            {/* RIGHT: supporting info stacked verticale (sidebar style).
+                Spostato qui dalla row sotto per accorciare la sezione. */}
+            <aside className="space-y-6 lg:space-y-7 lg:max-w-[300px] lg:pt-2 lg:border-l lg:border-[var(--border)] lg:pl-12 text-[13px] sm:text-[14px] leading-[1.55]">
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.18em] font-medium text-secondary mb-2">
+                  Sedi
+                </p>
+                <p className="font-display italic text-[16px] text-primary">
+                  {t('areas.bases')}
+                </p>
+              </div>
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.18em] font-medium text-secondary mb-2">
+                  Altre destinazioni
+                </p>
+                <p className="text-ink-soft">{t('areas.cities')}</p>
+              </div>
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.18em] font-medium text-secondary mb-2">
+                  Aeroporti
+                </p>
+                <p className="text-ink-soft">{t('areas.airports')}</p>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
@@ -379,38 +371,11 @@ export default async function ServiziPage({
         </div>
       </section>
 
-      {/* 07 — CTA finale */}
-      <section
-        className="relative bg-primary-deep py-32 sm:py-40 overflow-hidden"
-        style={{color: 'var(--cream-on-dark)'}}
-      >
-        <div
-          className="absolute top-[-15%] right-[-10%] w-[50vw] h-[50vw] rounded-full pointer-events-none"
-          style={{
-            background:
-              'radial-gradient(circle, rgba(176, 94, 64, 0.15) 0%, transparent 60%)'
-          }}
-          aria-hidden="true"
-        />
-
-        <div className="relative mx-auto max-w-(--container-narrow) px-6 sm:px-10">
-          <p className="eyebrow text-cream-on-dark/65 mb-10">
-            {t('ctaFinale.eyebrow')}
-          </p>
-          <h2
-            className="font-display text-display-lg font-light text-cream-on-dark max-w-[22ch] leading-[0.98]"
-            style={{fontStretch: '95%'}}
-          >
-            {t('ctaFinale.h2')}
-          </h2>
-          <p className="mt-9 text-[18px] sm:text-[20px] text-cream-soft leading-[1.65] max-w-[58ch]">
-            {t('ctaFinale.subhead')}
-          </p>
-
-          <div className="mt-12 sm:mt-14 flex flex-col sm:flex-row gap-4 sm:gap-5">
-          </div>
-        </div>
-      </section>
+      {/* 07 — CTA finale "Saliamo a bordo" (riusato dall'home)
+            Cliente 28/05/2026: sostituita la sezione blu deep con il
+            CtaFinale van overlay della home. Coerente come closing
+            pattern in tutto il sito. */}
+      <CtaFinale />
     </>
   );
 }

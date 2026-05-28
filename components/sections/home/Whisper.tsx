@@ -1,6 +1,8 @@
 'use client';
 
+import {Fragment} from 'react';
 import {motion, useReducedMotion} from 'motion/react';
+import {Highlight} from '@/components/ui/Highlight';
 
 // Whisper = schermo solo testo a piena viewport, una frase grande sola.
 // Usato come "respiro" tra capitoli narrativi.
@@ -21,16 +23,22 @@ export function Whisper({
   text,
   align = 'center',
   bg = 'canvas',
-  size = 'lg'
+  size = 'lg',
+  maxWidthCh = 18
 }: {
   eyebrow?: string;
   text: string;
   align?: 'left' | 'center';
   bg?: Bg;
   size?: 'md' | 'lg' | 'xl';
+  /** Larghezza massima testo in unità ch (default 18). Bumpare per testi lunghi
+   *  che a 18ch andrebbero in troppe righe (es. tagline narrative). */
+  maxWidthCh?: number;
 }) {
   const reduce = useReducedMotion();
-  const words = text.split(/(\s+)/); // mantiene whitespace
+  // Spezza prima per linea (\n = forced break), poi ogni linea per parole.
+  // Le righe si rendono con <br> esplicito, le parole con motion.span animate.
+  const lines = text.split('\n');
 
   const sizeClass =
     size === 'xl'
@@ -54,7 +62,7 @@ export function Whisper({
       className={`relative ${bgClass[bg]} py-32 sm:py-48 lg:py-56 overflow-hidden`}
     >
       <div
-        className={`relative mx-auto max-w-(--container-narrow) px-6 sm:px-10 flex flex-col gap-8 ${alignClass}`}
+        className={`relative mx-auto px-6 sm:px-10 flex flex-col gap-8 ${alignClass}`}
       >
         {eyebrow && (
           <motion.p
@@ -71,29 +79,70 @@ export function Whisper({
         <p
           className={`font-display ${sizeClass} font-light ${
             align === 'center' ? 'mx-auto' : ''
-          } max-w-[18ch]`}
-          style={{fontStretch: '95%'}}
+          }`}
+          style={{fontStretch: '95%', maxWidth: `${maxWidthCh}ch`}}
         >
-          {words.map((w, i) =>
-            /\s+/.test(w) ? (
-              <span key={i}>{w}</span>
-            ) : (
-              <motion.span
-                key={i}
-                className="inline-block"
-                initial={reduce ? false : {opacity: 0, y: '0.4em'}}
-                whileInView={reduce ? undefined : {opacity: 1, y: 0}}
-                viewport={{once: true, margin: '-15%'}}
-                transition={{
-                  duration: 0.7,
-                  delay: i * 0.04,
-                  ease: [0.16, 1, 0.3, 1]
-                }}
-              >
-                {w}
-              </motion.span>
-            )
-          )}
+          {(() => {
+            // Indice globale parola attraversa righe + segmenti per stagger continuo
+            let wordIdx = 0;
+
+            // Render dei token di un segmento (highlight o plain) con motion.span
+            // per ogni parola. Increment di wordIdx globale per mantenere stagger.
+            const renderTokens = (text: string, keyPrefix: string) =>
+              text.split(/(\s+)/).map((token, tokenIdx) => {
+                if (/\s+/.test(token) || token === '') {
+                  return <span key={`${keyPrefix}-${tokenIdx}`}>{token}</span>;
+                }
+                const myIdx = wordIdx++;
+                return (
+                  <motion.span
+                    key={`${keyPrefix}-${tokenIdx}`}
+                    className="inline-block"
+                    initial={reduce ? false : {opacity: 0, y: '0.4em'}}
+                    whileInView={reduce ? undefined : {opacity: 1, y: 0}}
+                    viewport={{once: true, margin: '-15%'}}
+                    transition={{
+                      duration: 0.7,
+                      delay: myIdx * 0.04,
+                      ease: [0.16, 1, 0.3, 1]
+                    }}
+                  >
+                    {token}
+                  </motion.span>
+                );
+              });
+
+            return lines.map((line, lineIdx) => {
+              // Spezza la linea in segmenti alternati: plain text e **highlight**.
+              // Es: "La Sicilia non **si vive**." → ["La Sicilia non ", "**si vive**", "."]
+              const segments = line
+                .split(/(\*\*[^*]+\*\*)/g)
+                .filter((s) => s.length > 0);
+              return (
+                <Fragment key={`line-${lineIdx}`}>
+                  {lineIdx > 0 && <br />}
+                  {segments.map((segment, segIdx) => {
+                    const isHl =
+                      segment.startsWith('**') && segment.endsWith('**');
+                    const text = isHl ? segment.slice(2, -2) : segment;
+                    const keyPrefix = `${lineIdx}-${segIdx}`;
+                    if (isHl) {
+                      return (
+                        <Highlight key={keyPrefix}>
+                          {renderTokens(text, keyPrefix)}
+                        </Highlight>
+                      );
+                    }
+                    return (
+                      <Fragment key={keyPrefix}>
+                        {renderTokens(text, keyPrefix)}
+                      </Fragment>
+                    );
+                  })}
+                </Fragment>
+              );
+            });
+          })()}
         </p>
       </div>
     </section>

@@ -83,7 +83,7 @@ export async function NccCityNarrative({city}: {city: CityContent}) {
         </div>
       </section>
 
-      {/* 06 — LA FLOTTA — 3 schede Mercedes editorial */}
+      {/* 06 — LA FLOTTA — 3 schede van/SUV/berlina editorial */}
       <section className="bg-canvas py-32 sm:py-40">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
           <h2

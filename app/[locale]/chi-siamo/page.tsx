@@ -92,7 +92,7 @@ export default async function ChiSiamoPage({
       <section className="hero-stage relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <Image
-            src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1800&q=80&auto=format&fm=webp"
+            src="/images/chi-siamo/hero.jpeg"
             alt=""
             fill
             priority
@@ -107,7 +107,17 @@ export default async function ChiSiamoPage({
           <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/35 to-black/75" />
         </div>
 
-        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-[18vh] sm:pb-[22vh]">
+        {/* Cliente 28/05/2026: nuova foto interno auto con conducente a dx
+            in basso. Per non sovrapporre il testo sulle mani/volante,
+            sposto il blocco in ALTO (items-start + pt) invece che in basso.
+            Spezzo il headline in 3 righe esplicite per controllare il rag:
+              riga 1: "Sicily Driver"
+              riga 2: "una storia"  (accent)
+              riga 3: "siciliana"   (accent)
+            Split lato JSX dopo aver tolto la virgola da h1Pre, cosi'
+            l'i18n string resta semanticamente unica ma il layout decide il
+            ritmo visivo. */}
+        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-start pt-[16vh] sm:pt-[18vh]">
           <div className="max-w-[28ch]">
             <h1
               className="hero-headline font-display text-display-lg font-medium text-cream-on-dark"
@@ -116,8 +126,13 @@ export default async function ChiSiamoPage({
                 textShadow: '0 2px 24px rgba(0,0,0,0.3)'
               }}
             >
-              {t('hero.h1Pre')}{' '}
-              <span className="text-accent-decorative">{t('hero.h1Accent')}</span>
+              <span className="block">{t('hero.h1Pre')}</span>
+              <span className="block text-accent-decorative">
+                {t('hero.h1Accent').split(' ').slice(0, -1).join(' ')}
+              </span>
+              <span className="block text-accent-decorative">
+                {t('hero.h1Accent').split(' ').slice(-1)[0]}
+              </span>
             </h1>
           </div>
         </div>
@@ -143,98 +158,108 @@ export default async function ChiSiamoPage({
         </div>
       </section>
 
-      {/* 03 — GALLERIA editorial asimmetrica */}
-      <section className="bg-canvas-deep py-32 sm:py-40">
+      {/* 03 — GALLERIA editorial asimmetrica RIMOSSA (cliente 28/05/2026)
+            Le 4 foto Unsplash (entrata garage, swings, burger, beach)
+            erano placeholder visivi ma non raccontavano nulla del cliente
+            e rallentavano il flusso della narrativa. Senza foto reali della
+            squadra/garage/lavori, meglio togliere e lasciare che la nuova
+            hero (interno auto reale) + story facciano il lavoro emozionale. */}
+
+      {/* 04 — CONVINZIONI bento grid asimmetrico
+            Cliente 28/05/2026: la versione precedente (3 righe text-wall)
+            era "troppo basilare". Rielaborata in bento grid editorial:
+            - Card 1 (big, sinistra): "Prezzi senza sorprese" — la promise
+              piu' importante, occupa col-span-7 row-span-2 con numero 01
+              gigante + icona BadgeCheck terracotta
+            - Card 2 (top destra): "Van curati" col-span-5 con icona Sparkles
+            - Card 3 (bottom destra): "Driver bilingue" col-span-5 con
+              icona Languages
+            - Padding sezione ridotto da py-32/40 a py-20/28
+            - Mobile: stack 3 card vertical (1 col), aspetto card preservato
+              ma scaled down (icone smaller, padding ridotto). */}
+      <section className="bg-canvas py-20 sm:py-28">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="grid grid-cols-12 gap-4 sm:gap-6 grain">
-            <figure className="col-span-12 sm:col-span-7 relative aspect-[5/4] overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1400&q=80&auto=format&fm=webp"
-                alt=""
-                fill
-                sizes="(max-width: 768px) 100vw, 58vw"
-                className="object-cover"
-                loading="lazy"
-                style={{filter: 'saturate(0.85) brightness(0.94) contrast(1.06)'}}
-              />
-            </figure>
-            <figure className="col-span-12 sm:col-span-5 relative aspect-[4/3] overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=900&q=80&auto=format&fm=webp"
-                alt=""
-                fill
-                sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover"
-                loading="lazy"
-                style={{filter: 'saturate(0.85) brightness(0.94) contrast(1.06)'}}
-              />
-            </figure>
-            <figure className="col-span-12 sm:col-span-5 relative aspect-[4/3] overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=900&q=80&auto=format&fm=webp"
-                alt=""
-                fill
-                sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover"
-                loading="lazy"
-                style={{filter: 'saturate(0.85) brightness(0.94) contrast(1.06)'}}
-              />
-            </figure>
-            <figure className="col-span-12 sm:col-span-7 relative aspect-[5/4] overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=1400&q=80&auto=format&fm=webp"
-                alt=""
-                fill
-                sizes="(max-width: 768px) 100vw, 58vw"
-                className="object-cover"
-                loading="lazy"
-                style={{filter: 'saturate(0.85) brightness(0.94) contrast(1.06)'}}
-              />
-            </figure>
+          <div className="max-w-2xl mb-12 sm:mb-14">
+            <p className="eyebrow mb-5">{t('beliefs.eyebrow')}</p>
+            <h2
+              className="font-display text-display-sm sm:text-display-md font-light text-ink max-w-[14ch]"
+              style={{fontStretch: '95%'}}
+            >
+              {t('beliefs.h2Pre')}{' '}
+              <span className="italic text-accent">{t('beliefs.h2Accent')}</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-12 md:auto-rows-fr gap-4 lg:gap-5">
+            {beliefs.map((b, i) => {
+              // Card 0 (Prezzi) e' il "big" — span 7 col + 2 row (col sinistra)
+              // Card 1, 2 sono "small" — span 5 col + 1 row (col destra stacked)
+              const isBig = i === 0;
+              const cellClass = isBig
+                ? 'md:col-span-7 md:row-span-2 min-h-[260px]'
+                : 'md:col-span-5 min-h-[140px]';
+
+              // Numero italic display, large per big card, medium per small
+              const numClass = isBig
+                ? 'text-[80px] sm:text-[120px] lg:text-[140px]'
+                : 'text-[52px] sm:text-[64px]';
+
+              // Title size: big card piu' grande
+              const titleClass = isBig
+                ? 'text-[28px] sm:text-[32px] lg:text-[36px]'
+                : 'text-[20px] sm:text-[22px]';
+
+              return (
+                <article
+                  key={i}
+                  className={`relative rounded-2xl bg-canvas-warm border border-[var(--border-strong)] p-7 sm:p-8 lg:p-9 flex flex-col justify-between overflow-hidden group hover:border-accent transition-colors duration-300 ${cellClass}`}
+                >
+                  {/* Numero italico display, lava-tinted in top-right */}
+                  <span
+                    aria-hidden="true"
+                    className={`absolute top-3 right-5 font-display italic font-light text-accent/15 leading-none tabular-nums select-none ${numClass}`}
+                    style={{fontStretch: '95%'}}
+                  >
+                    0{i + 1}
+                  </span>
+
+                  {/* Title + body */}
+                  <div className="relative">
+                    <h3
+                      className={`font-display font-light text-ink leading-[1.1] mb-3 sm:mb-4 ${titleClass}`}
+                      style={{fontStretch: '95%'}}
+                    >
+                      {b.title}
+                    </h3>
+                    <p
+                      className={`leading-[1.55] text-ink-soft max-w-[42ch] ${
+                        isBig
+                          ? 'text-[16px] sm:text-[17px]'
+                          : 'text-[14px] sm:text-[15px]'
+                      }`}
+                    >
+                      {b.body}
+                    </p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* 04 — BELIEFS — NO numerazione 01/02/03, solo titoli e prose */}
-      <section className="bg-canvas py-32 sm:py-40">
+      {/* 05 — SEDI con mappa stilizzata della Sicilia
+            Cliente 28/05/2026: rifare DIVERSO dal bento delle convinzioni
+            (era identico = noioso). Pattern nuovo: mappa SVG simplificata
+            della Sicilia con 3 pin terracotta + lista sedi accanto.
+            Visual specifico per "luoghi" — comunica geografia.
+            Niente badge "sede principale" (rimosso) ne link Maps. */}
+      <section className="bg-canvas-warm py-20 sm:py-28">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <p className="eyebrow mb-10">{t('beliefs.eyebrow')}</p>
-          <h2
-            className="font-display text-display-md font-light text-ink max-w-[14ch] mb-16 sm:mb-20"
-            style={{fontStretch: '95%'}}
-          >
-            {t('beliefs.h2Pre')}{' '}
-            <span className="italic text-accent">{t('beliefs.h2Accent')}</span>
-          </h2>
-
-          <ul className="divide-y divide-[var(--border-strong)]">
-            {beliefs.map((b, i) => (
-              <li
-                key={i}
-                className="py-10 sm:py-12 grid grid-cols-1 lg:grid-cols-[1fr_1.8fr] gap-6 lg:gap-16 items-baseline"
-              >
-                <h3
-                  className="font-display italic text-display-sm font-light text-ink leading-[1.05]"
-                  style={{fontStretch: '95%'}}
-                >
-                  {b.title}
-                </h3>
-                <p className="text-[17px] sm:text-[18px] leading-[1.7] text-ink-soft max-w-[58ch]">
-                  {b.body}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* 05 — LE 3 SEDI */}
-      <section className="bg-canvas-warm py-32 sm:py-40">
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-2xl mb-16 sm:mb-20">
-            <p className="eyebrow mb-7">{t('bases.eyebrow')}</p>
+          <div className="max-w-2xl mb-12 sm:mb-14">
+            <p className="eyebrow mb-5">{t('bases.eyebrow')}</p>
             <h2
-              className="font-display text-display-md font-light text-ink"
+              className="font-display text-display-sm sm:text-display-md font-light text-ink"
               style={{fontStretch: '95%'}}
             >
               {t('bases.h2Pre')}{' '}
@@ -242,30 +267,136 @@ export default async function ChiSiamoPage({
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-y-0 md:gap-x-12 lg:gap-x-16">
-            {bases.map((b, i) => (
-              <article
-                key={i}
-                className={
-                  i < bases.length - 1
-                    ? 'md:border-r md:border-[var(--border-strong)] md:pr-12 lg:pr-16'
-                    : ''
-                }
-              >
-                <h3
-                  className="font-display text-display-sm font-light text-ink leading-[1.05] mb-5"
-                  style={{fontStretch: '95%'}}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* LEFT: lista sedi editorial */}
+            <ul className="divide-y divide-[var(--border)]">
+              {bases.map((b, i) => (
+                <li key={i} className="py-7 first:pt-0 last:pb-0 flex gap-5 group">
+                  {/* Pin number marker tondo */}
+                  <span
+                    className="flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-accent/12 text-accent inline-flex items-center justify-center font-display italic text-[16px] sm:text-[18px] tabular-nums transition-colors group-hover:bg-accent group-hover:text-cream-on-dark"
+                    style={{fontStretch: '95%'}}
+                    aria-hidden="true"
+                  >
+                    {i + 1}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <h3
+                      className="font-display text-[26px] sm:text-[30px] font-light text-ink leading-[1.1] mb-1.5"
+                      style={{fontStretch: '95%'}}
+                    >
+                      {b.name}
+                    </h3>
+                    <p className="font-display italic text-[16px] sm:text-[17px] text-accent mb-2">
+                      {b.address}
+                    </p>
+                    <p className="text-[14px] sm:text-[15px] text-ink-soft leading-[1.55] max-w-[44ch]">
+                      {b.note}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            {/* RIGHT: Mappa Sicilia reale (PNG silhouette) + 3 pin overlay.
+                Cliente 28/05/2026: ha fornito 4 immagini Sicilia, scelta
+                la pngtree silhouette (gray, contiene Eolie/Egadi minori,
+                nessun watermark visibile).
+                File: /public/images/sicilia-map.png (20KB)
+                Pin posizionati via percentuali calibrate sul frame
+                dell'immagine. Le 3 sedi (SR, Noto, Marzamemi) sono nel
+                sud-est. */}
+            <div className="relative mx-auto w-full max-w-md lg:max-w-lg">
+              <div className="relative aspect-[5/4]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/sicilia-map.png"
+                  alt="Mappa stilizzata della Sicilia con le 3 sedi Sicily Driver: Siracusa, Noto, Marzamemi"
+                  className="absolute inset-0 w-full h-full object-contain"
+                  style={{
+                    // Riduci opacita' + leggera tinta seppia per match palette
+                    // editorial cream. Da gray scuro a "vintage atlas wash".
+                    opacity: 0.45,
+                    filter: 'sepia(0.25) brightness(0.85)'
+                  }}
+                />
+
+                {/* "Sicilia" label decorativa over center, italic */}
+                <p
+                  className="absolute font-display italic text-ink-soft/35 select-none pointer-events-none tracking-[0.3em]"
+                  style={{
+                    top: '38%',
+                    left: '28%',
+                    fontSize: 'clamp(11px, 1.4vw, 16px)',
+                    fontStretch: '95%'
+                  }}
+                  aria-hidden="true"
                 >
-                  {b.name}
-                </h3>
-                <p className="font-display italic text-[18px] text-accent mb-4">
-                  {b.address}
+                  SICILIA
                 </p>
-                <p className="text-[15px] text-ink-soft leading-relaxed max-w-[36ch]">
-                  {b.note}
-                </p>
-              </article>
-            ))}
+
+                {/* Linea tratteggiata che connette i 3 pin.
+                    Coordinate matching i pin sotto. */}
+                <svg
+                  className="absolute inset-0 w-full h-full pointer-events-none"
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M 76,58 L 70,68 L 73,77"
+                    stroke="var(--accent)"
+                    strokeWidth="0.5"
+                    strokeDasharray="1.5,1.5"
+                    fill="none"
+                    opacity="0.7"
+                    vectorEffect="non-scaling-stroke"
+                  />
+                </svg>
+
+                {/* Sedi pins: posizioni calibrate sulla silhouette.
+                    Siracusa: costa est, lat ~37° → ~76% x del frame
+                    Noto: entroterra Val di Noto → ~70% x
+                    Marzamemi: capo sud → ~73% x, 77% y */}
+                {[
+                  {x: 76, y: 58, label: 'Siracusa'},
+                  {x: 70, y: 68, label: 'Noto'},
+                  {x: 73, y: 77, label: 'Marzamemi'}
+                ].map((p, i) => (
+                  <div
+                    key={i}
+                    className="absolute flex items-center gap-2"
+                    style={{
+                      left: `${p.x}%`,
+                      top: `${p.y}%`,
+                      transform: 'translate(-50%, -50%)'
+                    }}
+                  >
+                    {/* Halo grande terracotta semitrasparente */}
+                    <span
+                      className="absolute w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-accent/25 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 animate-pulse"
+                      style={{animationDuration: '3s'}}
+                      aria-hidden="true"
+                    />
+                    {/* Dot solid terracotta piu' visibile */}
+                    <span
+                      className="w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full bg-accent flex-shrink-0 relative z-10 ring-2 ring-canvas-warm"
+                      aria-hidden="true"
+                    />
+                    {/* Label inline a destra del pin */}
+                    <span
+                      className="font-display italic text-[13px] sm:text-[14px] font-medium text-ink whitespace-nowrap relative z-10 ml-1"
+                      style={{
+                        fontStretch: '95%',
+                        textShadow: '0 1px 8px rgba(245, 239, 228, 0.8)'
+                      }}
+                    >
+                      {p.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
