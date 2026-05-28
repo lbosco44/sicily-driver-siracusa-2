@@ -278,78 +278,79 @@ export default async function ServiziPage({
         </div>
       </section>
 
-      {/* 05 — TUTTA LA SICILIA (riprogettata 28/05/2026)
-            Cliente: il framing "Le città che conosciamo" sembrava che
-            servissimo solo quelle citta'. Cambiato a "Tutta la Sicilia"
-            con lead che chiarisce: andiamo ovunque, le CTA sono le
-            destinazioni piu' richieste con pagina dedicata.
-            Layout: H2 centrato + lead + 4 chip-CTA prominenti +
-            supporting info compatto sotto. */}
-      <section className="bg-canvas-warm py-20 sm:py-28">
+      {/* 05 — TUTTA LA SICILIA (riprogettata 28/05/2026 + 2nd iter)
+            Cliente: 1) il framing "Le città che conosciamo" sembrava
+            che servissimo solo quelle citta' → cambiato a "Tutta la
+            Sicilia". 2) Supporting info (sedi/altre/aeroporti) era
+            in una row sotto separata, allungava la sezione. Spostata
+            in colonna destra accanto al lead → -50% vertical. */}
+      <section className="bg-canvas-warm py-20 sm:py-24">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          {/* Top: H2 + lead, centrato */}
-          <div className="max-w-3xl mb-10 sm:mb-12">
-            <h2
-              className="font-display text-display-md sm:text-display-lg font-light text-ink leading-[1.02]"
-              style={{fontStretch: '95%'}}
-            >
-              {t('areas.h2Pre')}{' '}
-              <span className="italic text-accent">{t('areas.h2Accent')}</span>
-            </h2>
-            <p className="mt-6 sm:mt-7 text-[17px] sm:text-[18px] leading-[1.6] text-ink-soft max-w-[58ch]">
-              {t('areas.lead')}
-            </p>
-          </div>
-
-          {/* 4 chip-CTA prominenti per le citta' con pagina dedicata */}
-          <div className="flex flex-wrap gap-3 sm:gap-4 mb-12 sm:mb-14">
-            {(
-              [
-                {href: '/ncc-catania', label: 'Catania'},
-                {href: '/ncc-noto', label: 'Noto'},
-                {href: '/ncc-taormina', label: 'Taormina'},
-                {href: '/ncc-ragusa', label: 'Ragusa'}
-              ] as const
-            ).map((c) => (
-              <Link
-                key={c.href}
-                href={c.href}
-                className="group inline-flex items-center gap-3 rounded-full border-2 border-[var(--border-strong)] hover:border-accent bg-canvas hover:bg-accent px-6 py-3 text-[13px] sm:text-[14px] uppercase tracking-[0.14em] font-medium text-ink hover:text-cream-on-dark transition-all duration-200"
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-start">
+            {/* LEFT: H2 + lead + 4 chip CTA */}
+            <div>
+              <h2
+                className="font-display text-display-md sm:text-display-lg font-light text-ink leading-[1.02]"
+                style={{fontStretch: '95%'}}
               >
-                {c.label}
-                <span
-                  aria-hidden="true"
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                >
-                  →
-                </span>
-              </Link>
-            ))}
-          </div>
+                {t('areas.h2Pre')}{' '}
+                <span className="italic text-accent">{t('areas.h2Accent')}</span>
+              </h2>
+              <p className="mt-6 sm:mt-7 text-[17px] sm:text-[18px] leading-[1.6] text-ink-soft max-w-[52ch]">
+                {t('areas.lead')}
+              </p>
 
-          {/* Supporting info compatto: altre citta', aeroporti, sedi.
-              Italic small, fade in opacity, non distrae dalle CTA primarie. */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10 pt-8 border-t border-[var(--border)] text-[14px] sm:text-[15px] leading-[1.6]">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.18em] font-medium text-secondary mb-3">
-                Sedi
-              </p>
-              <p className="font-display italic text-[17px] text-primary">
-                {t('areas.bases')}
-              </p>
+              {/* 4 chip-CTA prominenti */}
+              <div className="flex flex-wrap gap-3 sm:gap-4 mt-9 sm:mt-10">
+                {(
+                  [
+                    {href: '/ncc-catania', label: 'Catania'},
+                    {href: '/ncc-noto', label: 'Noto'},
+                    {href: '/ncc-taormina', label: 'Taormina'},
+                    {href: '/ncc-ragusa', label: 'Ragusa'}
+                  ] as const
+                ).map((c) => (
+                  <Link
+                    key={c.href}
+                    href={c.href}
+                    className="group inline-flex items-center gap-3 rounded-full border-2 border-[var(--border-strong)] hover:border-accent bg-canvas hover:bg-accent px-6 py-3 text-[13px] sm:text-[14px] uppercase tracking-[0.14em] font-medium text-ink hover:text-cream-on-dark transition-all duration-200"
+                  >
+                    {c.label}
+                    <span
+                      aria-hidden="true"
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    >
+                      →
+                    </span>
+                  </Link>
+                ))}
+              </div>
             </div>
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.18em] font-medium text-secondary mb-3">
-                Altre destinazioni
-              </p>
-              <p className="text-ink-soft">{t('areas.cities')}</p>
-            </div>
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.18em] font-medium text-secondary mb-3">
-                Aeroporti
-              </p>
-              <p className="text-ink-soft">{t('areas.airports')}</p>
-            </div>
+
+            {/* RIGHT: supporting info stacked verticale (sidebar style).
+                Spostato qui dalla row sotto per accorciare la sezione. */}
+            <aside className="space-y-6 lg:space-y-7 lg:max-w-[300px] lg:pt-2 lg:border-l lg:border-[var(--border)] lg:pl-12 text-[13px] sm:text-[14px] leading-[1.55]">
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.18em] font-medium text-secondary mb-2">
+                  Sedi
+                </p>
+                <p className="font-display italic text-[16px] text-primary">
+                  {t('areas.bases')}
+                </p>
+              </div>
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.18em] font-medium text-secondary mb-2">
+                  Altre destinazioni
+                </p>
+                <p className="text-ink-soft">{t('areas.cities')}</p>
+              </div>
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.18em] font-medium text-secondary mb-2">
+                  Aeroporti
+                </p>
+                <p className="text-ink-soft">{t('areas.airports')}</p>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
