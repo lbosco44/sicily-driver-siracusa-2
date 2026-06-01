@@ -32,11 +32,16 @@ export function PolaroidMosaic() {
         >
           <p className="eyebrow mb-7">{t('eyebrow')}</p>
           <h2
-            className="font-display text-display-md font-light text-ink"
+            className="font-display text-display-md font-light text-ink mb-4"
             style={{fontStretch: '95%'}}
           >
             {t('h2')}
           </h2>
+          {t.has('body') && (
+            <p className="text-[17px] sm:text-[18px] leading-[1.65] text-ink-soft max-w-[60ch]">
+              {t('body')}
+            </p>
+          )}
         </motion.div>
 
         {/* Griglia polaroid: 1 col su mobile (perfetto), 3 col uniformi su desktop */}
