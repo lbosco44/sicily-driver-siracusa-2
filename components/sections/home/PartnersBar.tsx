@@ -43,7 +43,12 @@ const PARTNERS: PartnerLogo[] = [
     name: 'Cantine Benanti',
     image: '/images/loghi-partner/cantine-benanti-ink.png'
   },
-  {name: 'Cantina Palmeri', image: '/images/loghi-partner/palmeri2-ink.png'}
+  {name: 'Cantina Palmeri', image: '/images/loghi-partner/palmeri2-ink.png'},
+  // Nuovi partner cliente 28/05/2026: Gambino, Orty Suite, Bam Bar.
+  // Tutti in versione -ink per coerenza visiva con gli esistenti.
+  {name: 'Gambino', image: '/images/loghi-partner/gambino-ink.png'},
+  {name: 'Orty Suite', image: '/images/loghi-partner/ortysuite-ink.png'},
+  {name: 'Bam Bar', image: '/images/loghi-partner/bambar-ink.png'}
 ];
 
 export async function PartnersBar() {
