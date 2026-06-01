@@ -176,6 +176,16 @@ export async function Footer() {
                   WhatsApp
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/sicilydriversyracuse?igsh=NmJrYjFuZWgyYWl0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors"
+                >
+                  Instagram
+                </a>
+              </li>
             </ul>
           </div>
 
