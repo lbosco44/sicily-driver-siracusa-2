@@ -32,13 +32,9 @@ export const ESPERIENZE: readonly Esperienza[] = [
     bg: '#1E3A4F',
     align: 'right'
   },
-  {
-    key: '3',
-    href: '/tour/isola-delle-correnti',
-    image: '/images/home/isola.png',
-    bg: '#EDE5D6',
-    align: 'left'
-  },
+  // Cliente 28/05/2026: card "Isola delle Correnti" (Dove finisce la Sicilia)
+  // RIMOSSA dalla sezione scroll della home. Il tour resta accessibile dal
+  // menu Tour Sicilia e dalla pagina /tour/isola-delle-correnti.
   {
     key: '4',
     href: '/tour/etna-premium',
