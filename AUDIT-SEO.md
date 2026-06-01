@@ -179,21 +179,53 @@ Rimuovere poi `body1`/`body2` morti da `it.json`/`en.json` (pulizia).
 `localBusinessSchema`; aggiungere Instagram a `sameAs`; creare `touristTripSchema()` e
 montarlo sulle 5 pagine tour ×2 lingue.
 
-## P1.3 — Redirect 301: mancano 2 dei 3 "bug storici"  [↔ esterno §B]
+**Input ricevuti (29/05/2026):**
+- ✅ **`founder` Vincenzo Izzo + P.IVA**: confermati dal cliente → si possono esporre.
+- ✅ **GBP**: URL canonico già disponibile dal `cid` in `GoogleReviewsBadge.tsx`
+  → `https://www.google.com/maps?cid=16944631268431014158` (forma consigliata per
+  `sameAs`). Il cliente ha anche fornito lo shortlink `share.google/M7sd0IF2w0Omwa8Wp`
+  (in `schema.tsx:114` ce n'è un altro, `…Lj0QSPY5y9nKanT76`); useremo il `cid` canonico.
+- ⏳ **`reviewCount` esatto** ancora da leggere dal cruscotto GBP del cliente (il numero
+  totale recensioni Google, non solo le 4,9★ mostrate): serve per un `aggregateRating`
+  veritiero. **Mai inventarlo.**
 
-**Stato: 🟡 da completare.**
+## P1.3 — Redirect 301: copertura COMPLETA sui live, 3 safety-net 404 da aggiungere  [↔ esterno §B]
 
-**Evidenza:** `next.config.ts:22-54` ha **21 redirect** `permanent: true` (10 IT + 11 EN,
-incluso `/contact-en.php` al `:50`). **Mancano** rispetto a `SEO.md:434-442` / §6.4:
-- `/contact.php` → `/en/contact` (301) — **assente**
-- `/sicily-tours.php` → `/en/sicily-tours` (301) — **assente**
+**Stato: 🟡 quasi completo (declassato dopo crawl reale 29/05/2026).**
 
-Sono link interni rotti del vecchio sito (404 storici) che vale la pena catturare.
+**Evidenza (crawl live del vecchio sito, vedi Appendice A):** tutti i **21 URL reali
+indicizzabili** (status 200) del vecchio sito **sono coperti** dai redirect in
+`next.config.ts:22-54` (`permanent: true`, single-hop). Buona notizia: nessun URL vivo
+resta scoperto.
 
-**Fix:** aggiungere i 2 redirect mancanti in `next.config.ts`.
+Restano scoperti solo **3 URL 404/stale** (nessuna pagina viva, ma possono essere ancora
+nell'indice Google via vecchia sitemap / link interni rotti):
+- `/tour.php` — **404**, ma è ancora nel vecchio `sitemap.xml`. Il tour hub reale è
+  `/tour-sicilia.php` (200, già redirezionato ✅). Safety-net consigliato → `/it/tour-sicilia`.
+- `/contact.php` — **404** (`SEO.md:441`). Safety-net → `/it/contatti` (o `/en/contact`).
+- `/sicily-tours.php` — **404** (`SEO.md:442`). Safety-net → `/en/sicily-tours`.
+
+**Fix:** aggiungere i 3 safety-net in `next.config.ts` (costo zero, copre eventuale equity
+residua nell'indice). Priorità bassa: nessuno è una pagina viva.
 
 > Nota architettura: le destinazioni IT puntano a `/it/*` (coerente con `localePrefix:
 > always` attuale). Se si sceglie l'Opzione A di P0.1 (IT su root), vanno riscritte a `/*`.
+
+## P1.7 — Canonica www → non-www da normalizzare al cutover  [↔ esterno §6.3]
+
+**Stato: 🟡 da configurare al cutover (Vercel domain).**
+
+**Evidenza:** il vecchio sito è servito su **`www.`** — il suo `sitemap.xml` dichiara
+`<loc>https://www.ncctaxisiracusa.com/</loc>` e tutte le pagine reali rispondono su `www.`.
+Il nuovo sito usa **non-www** come canonica (`metadataBase: https://ncctaxisiracusa.com`,
+`lib/schema.tsx:7`). La GSC del cliente segnala **"Pagina duplicata senza URL canonico"**
+(1 pagina) — coerente con `/` + `/index.php` + `www`/non-`www` che servono lo stesso
+contenuto senza canonical sul vecchio sito.
+
+**Fix:** al cutover, su Vercel impostare il redirect 301 `www.ncctaxisiracusa.com/*` →
+`ncctaxisiracusa.com/*` (apex). Il nuovo sito ha già canonical espliciti su ogni pagina,
+quindi il problema "duplicato senza canonical" si risolve da sé una volta scelta
+l'architettura root pulita (P0.1).
 
 ## P1.4 — H1 home editoriale, senza keyword forte  [↔ esterno §3.1]
 
@@ -277,14 +309,16 @@ Comando: `pnpm build && pnpm start` poi Lighthouse CI / PageSpeed sulle 3 pagine
 
 ---
 
-# ⏳ Input necessari dal cliente (sbloccano singoli punti)
+# Input cliente — stato aggiornato (29/05/2026)
 
-1. **URL Google Business Profile completo + numero esatto recensioni** → completa
-   `sameAs` (`schema.tsx:114` shortlink → URL esteso) e abilita `aggregateRating` veritiero (P1.2).
-2. **Lista completa URL `.php` live del vecchio sito** → conferma copertura 301 (V1/P1.3).
-3. **Accesso Google Search Console** → lista URL indicizzati, submit sitemap al go-live,
-   monitoraggio 6 settimane delle 5 query top.
-4. Conferma esposizione **founder (Vincenzo Izzo) + P.IVA** nello schema (P1.2).
+1. **URL Google Business Profile**: ✅ fornito. URL canonico `cid` disponibile.
+   ⏳ **manca solo il `reviewCount` totale** (numero recensioni dal cruscotto GBP) per
+   l'`aggregateRating` (P1.2).
+2. **Lista completa URL `.php` del vecchio sito**: ✅ **estratta via crawl** (Appendice A).
+   Copertura 301 verificata: tutti i 21 URL live coperti (P1.3).
+3. **Google Search Console**: ✅ dati forniti (export CSV). Interpretazione in Appendice B.
+   ⏳ resta da **submittare la sitemap** al go-live e **monitorare 6 settimane** le 5 query top.
+4. **founder (Vincenzo Izzo) + P.IVA**: ✅ confermato dal cliente → esponibile (P1.2).
 
 ---
 
@@ -328,5 +362,80 @@ Comando: `pnpm build && pnpm start` poi Lighthouse CI / PageSpeed sulle 3 pagine
 | hreflang corretto | §2bis setup | ✅ (verificato) | Concordano (OK) |
 | noindex residuo | §F12 | P0.4 ✅codice/⏳cutover | Concordano |
 
-*Fine AUDIT-SEO.md — fase report. Nessuna modifica al codice effettuata.
-Prossimo step: approvazione + decisione architettura root (P0.1) → fase fix.*
+---
+
+# Appendice A — Inventario URL vecchio sito + copertura redirect (crawl 29/05/2026)
+
+> Estratto crawlando `https://www.ncctaxisiracusa.com` (link in `index.php`/`index-en.php`
+> + `sitemap.xml` legacy) e verificando ogni status code con `curl`.
+
+## A.1 — URL reali (status 200) e copertura 301
+
+| URL vecchio (200) | Coperto da redirect? | Destinazione |
+|---|---|---|
+| `/` (root, www) | ⚠️ proxy 307 geo (P0.1) | `/it` o `/en` |
+| `/index.php` | ✅ | `/it` |
+| `/chi-siamo.php` | ✅ | `/it/chi-siamo` |
+| `/servizi.php` | ✅ | `/it/servizi` |
+| `/tour-sicilia.php` | ✅ | `/it/tour-sicilia` |
+| `/tour-barocco.php` | ✅ | `/it/tour-barocco` |
+| `/contatti.php` | ✅ | `/it/contatti` |
+| `/ncc-catania.php` | ✅ | `/it/ncc-catania` |
+| `/ncc-noto.php` | ✅ | `/it/ncc-noto` |
+| `/ncc-taormina.php` | ✅ | `/it/ncc-taormina` |
+| `/ncc-ragusa.php` | ✅ | `/it/ncc-ragusa` |
+| `/index-en.php` | ✅ | `/en` |
+| `/chi-siamo-en.php` | ✅ | `/en/about` |
+| `/servizi-en.php` | ✅ | `/en/services` |
+| `/tour-sicilia-en.php` | ✅ | `/en/sicily-tours` |
+| `/tour-barocco-en.php` | ✅ | `/en/baroque-tour` |
+| `/contatti-en.php` | ✅ | `/en/contact` |
+| `/driver-catania.php` | ✅ | `/en/driver-catania` |
+| `/driver-noto.php` | ✅ | `/en/driver-noto` |
+| `/driver-taormina.php` | ✅ | `/en/driver-taormina` |
+| `/driver-ragusa.php` | ✅ | `/en/driver-ragusa` |
+
+→ **21/21 URL live coperti.** La migrazione redirect è sostanzialmente completa.
+
+## A.2 — URL 404 / stale (safety-net opzionali, P1.3)
+
+| URL | Status | Note |
+|---|---|---|
+| `/tour.php` | 404 | Presente nel vecchio `sitemap.xml` ma non è una pagina viva (il tour hub reale è `/tour-sicilia.php`). |
+| `/contact.php` | 404 | Bug storico (`SEO.md:441`). |
+| `/contact-en.php` | 404 | Linkato nel nav EN del vecchio sito (bug) → **già redirezionato ✅**. |
+| `/sicily-tours.php` | 404 | Bug storico (`SEO.md:442`). |
+
+## A.3 — Note canoniche
+- Il vecchio `sitemap.xml` usa `www.` e dichiara la home come `/` (root), non `/index.php`.
+  → conferma necessità di **www → non-www** + root pulita (P0.1 / P1.7).
+- Il vecchio `sitemap.xml` contiene una voce **stale** (`/tour.php`, 404) → da non replicare.
+
+# Appendice B — Interpretazione Google Search Console (CSV cliente)
+
+## B.1 — Stato indicizzazione (`Grafico.csv`, mar–mag 2026)
+- ~**22-23 pagine note**, di cui **~13-15 indicizzate** e **~7-9 non indicizzate** (bassa
+  stagione). Volume impressioni 13–62/giorno → SEO funzionante a piccola scala, fragile.
+  Coerente con `SEO.md` ("77 click alta stagione, ogni preservation conta").
+
+## B.2 — Problemi critici (`Problemi critici.csv`)
+| Ragione GSC | Pagine | Lettura |
+|---|---|---|
+| Pagina duplicata senza URL canonico | 1 | `/` + `/index.php` + `www/non-www` stesso contenuto senza canonical → **il nuovo sito lo risolve** coi canonical espliciti (purché P0.1 pulito). |
+| Pagina con reindirizzamento | 1 | Una pagina già reduce (probabile http→https o www). Fisiologico. |
+| Scansionata, non indicizzata | 4 | Pagine thin/placeholder (probabili `ncc-*`/`driver-*` poveri di contenuto). I nuovi template più ricchi aiutano. |
+| Rilevata, non indicizzata | 3 | Pagine scoperte ma non ancora crawlate (bassa priorità). |
+| Non trovata (404) | 0 | ✅ nessun 404 nell'indice attuale. |
+
+→ Il problema "**duplicato senza canonical**" **corrobora P0.1**: la root del vecchio sito
+ha un'ambiguità canonica che il nuovo sito deve chiudere con un'architettura root pulita.
+
+## B.3 — Sitemap (`Metadati.csv`)
+GSC ha la sitemap con stato "Tutte le pagine note" → al go-live va **re-submittata** la
+nuova `sitemap.xml` (non-www, con hreflang) e rimossa/aggiornata la vecchia.
+
+---
+
+*Fine AUDIT-SEO.md — fase report (aggiornato 29/05/2026 con crawl vecchio sito + GSC).
+Nessuna modifica al codice effettuata. Prossimo step: decisione architettura root (P0.1)
+→ fase fix.*
