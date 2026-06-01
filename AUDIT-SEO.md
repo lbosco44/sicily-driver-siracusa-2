@@ -185,9 +185,9 @@ montarlo sulle 5 pagine tour ×2 lingue.
   → `https://www.google.com/maps?cid=16944631268431014158` (forma consigliata per
   `sameAs`). Il cliente ha anche fornito lo shortlink `share.google/M7sd0IF2w0Omwa8Wp`
   (in `schema.tsx:114` ce n'è un altro, `…Lj0QSPY5y9nKanT76`); useremo il `cid` canonico.
-- ⏳ **`reviewCount` esatto** ancora da leggere dal cruscotto GBP del cliente (il numero
-  totale recensioni Google, non solo le 4,9★ mostrate): serve per un `aggregateRating`
-  veritiero. **Mai inventarlo.**
+- ✅ **`reviewCount` = 32**, **`ratingValue` = 4,9** (dal cruscotto GBP, 29/05/2026).
+  `aggregateRating` ora completamente sbloccato:
+  `{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"32","bestRating":"5"}`.
 
 ## P1.3 — Redirect 301: copertura COMPLETA sui live, 3 safety-net 404 da aggiungere  [↔ esterno §B]
 
@@ -311,9 +311,8 @@ Comando: `pnpm build && pnpm start` poi Lighthouse CI / PageSpeed sulle 3 pagine
 
 # Input cliente — stato aggiornato (29/05/2026)
 
-1. **URL Google Business Profile**: ✅ fornito. URL canonico `cid` disponibile.
-   ⏳ **manca solo il `reviewCount` totale** (numero recensioni dal cruscotto GBP) per
-   l'`aggregateRating` (P1.2).
+1. **URL Google Business Profile + recensioni**: ✅ completo. `cid` URL disponibile,
+   **`reviewCount` = 32, rating 4,9** → `aggregateRating` pronto (P1.2).
 2. **Lista completa URL `.php` del vecchio sito**: ✅ **estratta via crawl** (Appendice A).
    Copertura 301 verificata: tutti i 21 URL live coperti (P1.3).
 3. **Google Search Console**: ✅ dati forniti (export CSV). Interpretazione in Appendice B.
