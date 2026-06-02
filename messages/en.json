@@ -193,6 +193,15 @@
     "partnersBar": {
       "intro": "The excellence that shapes our journey."
     },
+    "faq": {
+      "h2": "The ones we get asked most.",
+      "q1": "How much does an airport transfer from Catania cost?",
+      "a1": "Prices start at €80 per trip for NCC service with luxury vans, varying based on route and number of passengers.",
+      "q2": "Can I book a Baroque tour in one day?",
+      "a2": "Yes: we offer 4–8 hour tours with optional guide; the itinerary is customizable and includes Noto, Modica, Ragusa Ibla.",
+      "q3": "Do you offer late-night private taxi service?",
+      "a3": "Certainly: our NCC operates 24/7, perfect for evening transfers to restaurants, events, or airports."
+    },
     "interni": {
       "eyebrow": "The cars",
       "h2": "Serviced every week.",

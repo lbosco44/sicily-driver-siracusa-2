@@ -11,9 +11,10 @@ import {PolaroidMosaic} from '@/components/sections/home/PolaroidMosaic';
 import {ListinoProse} from '@/components/sections/home/ListinoProse';
 import {DietroAlVolante} from '@/components/sections/home/DietroAlVolante';
 import {Testimonianza} from '@/components/sections/home/Testimonianza';
+import {FaqHome} from '@/components/sections/home/FaqHome';
 import {CtaFinale} from '@/components/sections/home/CtaFinale';
 
-import {localBusinessSchema, JsonLd} from '@/lib/schema';
+import {localBusinessSchema, faqPageSchema, JsonLd} from '@/lib/schema';
 import {routing} from '@/i18n/routing';
 
 export async function generateMetadata({
@@ -71,10 +72,20 @@ export default async function HomePage({
   setRequestLocale(locale);
 
   const t = await getTranslations({locale, namespace: 'Home.whisper1'});
+  const tFaq = await getTranslations({locale, namespace: 'Home.faq'});
+
+  // FAQ home [PRESERVE] — reintegrate (Audit SEO P0.3). Stesso array usato per
+  // il rendering (FaqHome) e per il FAQPage JSON-LD → singola fonte di verità.
+  const faqItems = [
+    {q: tFaq('q1'), a: tFaq('a1')},
+    {q: tFaq('q2'), a: tFaq('a2')},
+    {q: tFaq('q3'), a: tFaq('a3')}
+  ];
 
   return (
     <>
       <JsonLd data={localBusinessSchema(locale as 'it' | 'en')} />
+      <JsonLd data={faqPageSchema(faqItems)} />
 
       {/* 01 — Hero atmosferica full-bleed */}
       <Hero />
@@ -109,7 +120,11 @@ export default async function HomePage({
       {/* 10 — Una sola testimonianza, dominante */}
       <Testimonianza />
 
-      {/* 11 — CTA finale immersiva, blu mare profondo */}
+      {/* 11 — FAQ home [PRESERVE] reintegrate (Audit SEO P0.3).
+          Penultima sezione (cliente 29/05/2026), prima del CTA finale. */}
+      <FaqHome h2={tFaq('h2')} items={faqItems} />
+
+      {/* 12 — CTA finale immersiva, blu mare profondo */}
       <CtaFinale />
     </>
   );

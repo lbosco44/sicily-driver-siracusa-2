@@ -160,6 +160,32 @@ export function breadcrumbSchema(items: BreadcrumbItem[]) {
   };
 }
 
+// TouristTrip per le 5 pagine tour dedicate (Audit SEO P1.2). Abilita
+// l'eleggibilità ai rich-result "things to do" e collega il tour al provider
+// (LocalBusiness/TaxiService). Niente prezzo hardcoded → no invenzioni.
+export function touristTripSchema(params: {
+  name: string;
+  description: string;
+  image: string;
+  url: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'TouristTrip',
+    name: params.name,
+    description: params.description,
+    image: params.image.startsWith('http')
+      ? params.image
+      : `${URL_BASE}${params.image}`,
+    url: `${URL_BASE}${params.url}`,
+    provider: {
+      '@type': ['LocalBusiness', 'TaxiService'],
+      name: 'Sicily Driver Siracusa',
+      url: `${URL_BASE}/`
+    }
+  };
+}
+
 export function JsonLd({data}: {data: object}) {
   return (
     <script

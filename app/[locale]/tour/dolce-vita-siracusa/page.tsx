@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import {setRequestLocale} from 'next-intl/server';
 import {TourDetailDolceVita} from '@/components/templates/TourDetailDolceVita';
 import {getTour} from '@/lib/tours';
-import {faqPageSchema, breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
+import {faqPageSchema, breadcrumbSchema, localBusinessSchema, touristTripSchema, JsonLd} from '@/lib/schema';
 import {getBreadcrumb} from '@/lib/breadcrumbs';
 import {routing} from '@/i18n/routing';
 import type {Locale} from '@/lib/cities';
@@ -58,6 +58,17 @@ export default async function TourDolceVitaPage({
         data={breadcrumbSchema(
           getBreadcrumb('tour/dolce-vita-siracusa', locale as Locale, tour.h1)
         )}
+      />
+      <JsonLd
+        data={touristTripSchema({
+          name: tour.h1,
+          description: tour.metaDescription,
+          image: tour.heroImage,
+          url:
+            locale === 'it'
+              ? '/tour/dolce-vita-siracusa'
+              : '/en/tour/dolce-vita-siracusa'
+        })}
       />
       <TourDetailDolceVita tour={tour} />
     </>

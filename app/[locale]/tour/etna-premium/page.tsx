@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import {setRequestLocale} from 'next-intl/server';
 import {TourDetailEtnaDark} from '@/components/templates/TourDetailEtnaDark';
 import {getTour} from '@/lib/tours';
-import {faqPageSchema, breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
+import {faqPageSchema, breadcrumbSchema, localBusinessSchema, touristTripSchema, JsonLd} from '@/lib/schema';
 import {getBreadcrumb} from '@/lib/breadcrumbs';
 import {routing} from '@/i18n/routing';
 import type {Locale} from '@/lib/cities';
@@ -58,6 +58,14 @@ export default async function TourEtnaPremiumPage({
         data={breadcrumbSchema(
           getBreadcrumb('tour/etna-premium', locale as Locale, tour.h1)
         )}
+      />
+      <JsonLd
+        data={touristTripSchema({
+          name: tour.h1,
+          description: tour.metaDescription,
+          image: tour.heroImage,
+          url: locale === 'it' ? '/tour/etna-premium' : '/en/tour/etna-premium'
+        })}
       />
       <TourDetailEtnaDark tour={tour} />
     </>

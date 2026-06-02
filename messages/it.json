@@ -193,6 +193,15 @@
     "partnersBar": {
       "intro": "Le eccellenze che fanno parte del nostro percorso."
     },
+    "faq": {
+      "h2": "Le domande che ci fanno più spesso.",
+      "q1": "Quanto costa un transfer aeroporto Catania?",
+      "a1": "I prezzi partono da €80 a tratta per il servizio NCC con van di lusso, variabili in base alla tratta e al numero di passeggeri.",
+      "q2": "Posso prenotare un tour Barocco in giornata?",
+      "a2": "Sì: offriamo tour di 4–8 ore con guida opzionale; l'itinerario è personalizzabile e include Noto, Modica, Ragusa Ibla.",
+      "q3": "Avete un servizio taxi privato notturno?",
+      "a3": "Certamente: il nostro NCC è attivo 24/7, perfetto anche per transfer serali verso ristoranti, eventi o aeroporti."
+    },
     "interni": {
       "eyebrow": "Le auto",
       "h2": "Il lusso si nota nei dettagli.",

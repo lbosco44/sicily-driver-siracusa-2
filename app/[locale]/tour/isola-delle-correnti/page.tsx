@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import {setRequestLocale} from 'next-intl/server';
 import {TourDetailIsola} from '@/components/templates/TourDetailIsola';
 import {getTour} from '@/lib/tours';
-import {faqPageSchema, breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
+import {faqPageSchema, breadcrumbSchema, localBusinessSchema, touristTripSchema, JsonLd} from '@/lib/schema';
 import {getBreadcrumb} from '@/lib/breadcrumbs';
 import {routing} from '@/i18n/routing';
 import type {Locale} from '@/lib/cities';
@@ -58,6 +58,17 @@ export default async function TourIsolaDelleCorrentiPage({
         data={breadcrumbSchema(
           getBreadcrumb('tour/isola-delle-correnti', locale as Locale, tour.h1)
         )}
+      />
+      <JsonLd
+        data={touristTripSchema({
+          name: tour.h1,
+          description: tour.metaDescription,
+          image: tour.heroImage,
+          url:
+            locale === 'it'
+              ? '/tour/isola-delle-correnti'
+              : '/en/tour/isola-delle-correnti'
+        })}
       />
       <TourDetailIsola tour={tour} />
     </>
