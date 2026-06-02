@@ -107,14 +107,27 @@ export function localBusinessSchema(locale: 'it' | 'en') {
     image: `${URL_BASE}/og?locale=${locale}`,
     vatID: 'IT02150600894',
     taxID: '02150600894',
+    // Founder confermato dal cliente (29/05/2026).
+    founder: {
+      '@type': 'Person',
+      name: 'Vincenzo Izzo'
+    },
+    // AggregateRating reale da Google Business Profile (29/05/2026): 4,9★ su
+    // 32 recensioni. Abilita le stelline in SERP. Valori MAI inventati.
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '32',
+      bestRating: '5'
+    },
     sameAs: [
-      // Google Business Profile — shortlink condiviso dal cliente.
-      // TODO post-deploy: sostituire con URL maps.app.goo.gl/... esteso
-      // per knowledge graph linking esplicito.
-      'https://share.google/Lj0QSPY5y9nKanT76',
+      // Google Business Profile — URL canonico (cid) per knowledge graph linking.
+      // È la fonte lead principale del cliente: collegarla irradia autorevolezza.
+      'https://www.google.com/maps?cid=16944631268431014158',
+      // Instagram
+      'https://www.instagram.com/sicilydriversyracuse',
       // Facebook brand storico
       'https://www.facebook.com/nccautoservizisiracusa/'
-      // TODO: aggiungere Instagram quando cliente fornisce handle
     ]
   };
 }
