@@ -39,7 +39,7 @@ esattamente l'anti-pattern che Google sconsiglia; (3) la **home ha perso le FAQ*
 | **P1.2** `aggregateRating` 4,9/32 + `founder` + Instagram + GBP cid | ✅ **FATTO** | `8582478` |
 | **P1.2** `TouristTrip` sui 5 tour | ✅ **FATTO** | `7a9e503` |
 | **P0.3** FAQ home + `FAQPage` (penultima sezione) | ✅ **FATTO** | `7a9e503` |
-| **P1.1** keyword "noleggio con conducente (NCC)" | ⏳ in attesa input cliente (dove/come) | — |
+| **P1.1** keyword "noleggio con conducente (NCC)" | ✅ **FATTO** (A1 FAQ home, SSR) | `2221270` |
 | **P1.4/P1.5/P1.6** H1/title/preserve check | ⬜ content review | — |
 | **P1.7** www→non-www | ⏳ config Vercel al cutover | — |
 | **V1/V2** curl live + Lighthouse | ⏳ ambiente live al cutover | — |
