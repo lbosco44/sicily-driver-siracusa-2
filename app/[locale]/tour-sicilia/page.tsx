@@ -14,7 +14,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   const hub = getTourHub(locale as Locale);
-  const itPath = '/it/tour-sicilia';
+  const itPath = '/tour-sicilia';
   const enPath = '/en/sicily-tours';
   return {
     title: hub.metaTitle,

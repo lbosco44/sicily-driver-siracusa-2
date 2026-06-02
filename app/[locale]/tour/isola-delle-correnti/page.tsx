@@ -14,16 +14,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   const tour = getTour('isola-delle-correnti', locale as Locale);
-  const path = `/${locale}/tour/isola-delle-correnti`;
+  const path = locale === 'it' ? '/tour/isola-delle-correnti' : '/en/tour/isola-delle-correnti';
   return {
     title: tour.metaTitle,
     description: tour.metaDescription,
     alternates: {
       canonical: path,
       languages: {
-        it: '/it/tour/isola-delle-correnti',
+        it: '/tour/isola-delle-correnti',
         en: '/en/tour/isola-delle-correnti',
-        'x-default': '/it/tour/isola-delle-correnti'
+        'x-default': '/tour/isola-delle-correnti'
       }
     },
     openGraph: {

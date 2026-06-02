@@ -13,7 +13,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   const city = getCity('ragusa', locale as Locale);
-  const itPath = '/it/ncc-ragusa';
+  const itPath = '/ncc-ragusa';
   const enPath = '/en/driver-ragusa';
   return {
     title: city.metaTitle,

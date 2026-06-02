@@ -14,16 +14,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   const tour = getTour('silent-sailing', locale as Locale);
-  const path = `/${locale}/tour/silent-sailing`;
+  const path = locale === 'it' ? '/tour/silent-sailing' : '/en/tour/silent-sailing';
   return {
     title: tour.metaTitle,
     description: tour.metaDescription,
     alternates: {
       canonical: path,
       languages: {
-        it: '/it/tour/silent-sailing',
+        it: '/tour/silent-sailing',
         en: '/en/tour/silent-sailing',
-        'x-default': '/it/tour/silent-sailing'
+        'x-default': '/tour/silent-sailing'
       }
     },
     openGraph: {

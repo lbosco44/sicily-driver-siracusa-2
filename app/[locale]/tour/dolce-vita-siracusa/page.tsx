@@ -14,16 +14,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   const tour = getTour('dolce-vita-siracusa', locale as Locale);
-  const path = `/${locale}/tour/dolce-vita-siracusa`;
+  const path = locale === 'it' ? '/tour/dolce-vita-siracusa' : '/en/tour/dolce-vita-siracusa';
   return {
     title: tour.metaTitle,
     description: tour.metaDescription,
     alternates: {
       canonical: path,
       languages: {
-        it: '/it/tour/dolce-vita-siracusa',
+        it: '/tour/dolce-vita-siracusa',
         en: '/en/tour/dolce-vita-siracusa',
-        'x-default': '/it/tour/dolce-vita-siracusa'
+        'x-default': '/tour/dolce-vita-siracusa'
       }
     },
     openGraph: {

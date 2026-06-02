@@ -40,8 +40,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return PAGES.flatMap((page) => {
     const itUrl = page.path.it
-      ? `${BASE}/it/${page.path.it}`
-      : `${BASE}/it`;
+      ? `${BASE}/${page.path.it}`
+      : `${BASE}/`;
     const enUrl = page.path.en
       ? `${BASE}/en/${page.path.en}`
       : `${BASE}/en`;

@@ -27,15 +27,15 @@ export async function generateMetadata({
     title: t('title'),
     description: t('description'),
     alternates: {
-      canonical: `/${locale}`,
-      languages: {it: '/it', en: '/en', 'x-default': '/it'}
+      canonical: locale === 'it' ? '/' : '/en',
+      languages: {it: '/', en: '/en', 'x-default': '/'}
     },
     openGraph: {
       title: t('title'),
       description: t('description'),
       locale: locale === 'it' ? 'it_IT' : 'en_US',
       type: 'website',
-      url: `https://ncctaxisiracusa.com/${locale}`,
+      url: `https://ncctaxisiracusa.com${locale === 'it' ? '' : '/en'}`,
       siteName: 'Sicily Driver Siracusa',
       images: [
         {

@@ -3,9 +3,18 @@ import {defineRouting} from 'next-intl/routing';
 export const routing = defineRouting({
   locales: ['it', 'en'],
   defaultLocale: 'it',
+  // as-needed: l'italiano (default) è servito SENZA prefisso sulla root /
+  // (/, /chi-siamo, /servizi…), l'inglese su /en. La root torna a essere la
+  // pagina IT vera e indicizzabile = URL storico che ranka per
+  // 'taxi siracusa'/'ncc siracusa'. (Audit SEO P0.1)
   localePrefix: {
-    mode: 'always'
+    mode: 'as-needed'
   },
+  // localeDetection false: nessun auto-redirect per cookie/Accept-Language.
+  // La root / serve sempre l'italiano; l'utente cambia lingua con lo switcher
+  // e gli hreflang dicono a Google quale versione mostrare a chi cerca.
+  // Rimuove l'anti-pattern geo-redirect. (Audit SEO P0.2)
+  localeDetection: false,
   pathnames: {
     '/': '/',
     '/chi-siamo': {

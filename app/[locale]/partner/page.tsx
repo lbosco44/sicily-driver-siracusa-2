@@ -17,7 +17,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   const p = getPartners(locale as Locale);
-  const itPath = '/it/partner';
+  const itPath = '/partner';
   const enPath = '/en/partners';
   return {
     title: p.metaTitle,

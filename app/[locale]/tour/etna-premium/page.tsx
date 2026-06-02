@@ -14,16 +14,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   const tour = getTour('etna-premium', locale as Locale);
-  const path = `/${locale}/tour/etna-premium`;
+  const path = locale === 'it' ? '/tour/etna-premium' : '/en/tour/etna-premium';
   return {
     title: tour.metaTitle,
     description: tour.metaDescription,
     alternates: {
       canonical: path,
       languages: {
-        it: '/it/tour/etna-premium',
+        it: '/tour/etna-premium',
         en: '/en/tour/etna-premium',
-        'x-default': '/it/tour/etna-premium'
+        'x-default': '/tour/etna-premium'
       }
     },
     openGraph: {

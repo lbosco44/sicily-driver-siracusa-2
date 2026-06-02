@@ -14,7 +14,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   const tour = getTour('barocco', locale as Locale);
-  const itPath = '/it/tour-barocco';
+  const itPath = '/tour-barocco';
   const enPath = '/en/baroque-tour';
   return {
     title: tour.metaTitle,

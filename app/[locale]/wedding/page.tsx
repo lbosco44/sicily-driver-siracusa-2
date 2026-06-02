@@ -24,7 +24,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   const wedding = getWedding(locale as Locale);
-  const itPath = '/it/wedding';
+  const itPath = '/wedding';
   const enPath = '/en/weddings';
   return {
     title: wedding.metaTitle,

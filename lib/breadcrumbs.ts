@@ -55,33 +55,33 @@ const LABELS_EN: Labels = {
 
 // Map page → URL canonica per locale (matches i18n routing.ts pathnames)
 const PATH: Record<PageKey, {it: string; en: string}> = {
-  'ncc-catania': {it: '/it/ncc-catania', en: '/en/driver-catania'},
-  'ncc-noto': {it: '/it/ncc-noto', en: '/en/driver-noto'},
-  'ncc-taormina': {it: '/it/ncc-taormina', en: '/en/driver-taormina'},
-  'ncc-ragusa': {it: '/it/ncc-ragusa', en: '/en/driver-ragusa'},
-  servizi: {it: '/it/servizi', en: '/en/services'},
-  'chi-siamo': {it: '/it/chi-siamo', en: '/en/about'},
-  contatti: {it: '/it/contatti', en: '/en/contact'},
-  'tour-sicilia': {it: '/it/tour-sicilia', en: '/en/sicily-tours'},
-  'tour-barocco': {it: '/it/tour-barocco', en: '/en/baroque-tour'},
+  'ncc-catania': {it: '/ncc-catania', en: '/en/driver-catania'},
+  'ncc-noto': {it: '/ncc-noto', en: '/en/driver-noto'},
+  'ncc-taormina': {it: '/ncc-taormina', en: '/en/driver-taormina'},
+  'ncc-ragusa': {it: '/ncc-ragusa', en: '/en/driver-ragusa'},
+  servizi: {it: '/servizi', en: '/en/services'},
+  'chi-siamo': {it: '/chi-siamo', en: '/en/about'},
+  contatti: {it: '/contatti', en: '/en/contact'},
+  'tour-sicilia': {it: '/tour-sicilia', en: '/en/sicily-tours'},
+  'tour-barocco': {it: '/tour-barocco', en: '/en/baroque-tour'},
   'tour/etna-premium': {
-    it: '/it/tour/etna-premium',
+    it: '/tour/etna-premium',
     en: '/en/tour/etna-premium'
   },
   'tour/isola-delle-correnti': {
-    it: '/it/tour/isola-delle-correnti',
+    it: '/tour/isola-delle-correnti',
     en: '/en/tour/isola-delle-correnti'
   },
   'tour/dolce-vita-siracusa': {
-    it: '/it/tour/dolce-vita-siracusa',
+    it: '/tour/dolce-vita-siracusa',
     en: '/en/tour/dolce-vita-siracusa'
   },
   'tour/silent-sailing': {
-    it: '/it/tour/silent-sailing',
+    it: '/tour/silent-sailing',
     en: '/en/tour/silent-sailing'
   },
-  wedding: {it: '/it/wedding', en: '/en/weddings'},
-  partner: {it: '/it/partner', en: '/en/partners'}
+  wedding: {it: '/wedding', en: '/en/weddings'},
+  partner: {it: '/partner', en: '/en/partners'}
 };
 
 // Returns the breadcrumb trail (last item is current page).
@@ -91,7 +91,8 @@ export function getBreadcrumb(
   currentName: string
 ): {name: string; url: string}[] {
   const L = locale === 'it' ? LABELS_IT : LABELS_EN;
-  const prefix = `/${locale}`;
+  // IT su root (no prefisso), EN su /en. (Audit SEO P0.1)
+  const prefix = locale === 'it' ? '/' : '/en';
   const home = {name: L.home, url: prefix};
   const here = {name: currentName, url: PATH[page][locale]};
 
