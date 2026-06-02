@@ -29,6 +29,27 @@ esattamente l'anti-pattern che Google sconsiglia; (3) la **home ha perso le FAQ*
 
 ---
 
+# 📌 Stato implementazione fix (aggiornato 29/05/2026)
+
+| Item | Stato | Commit |
+|---|---|---|
+| **P0.1** IT su root (`localePrefix as-needed`) | ✅ **FATTO** (build + smoke test OK) | `01c1cc3` |
+| **P0.2** Rimozione geo-redirect IP | ✅ **FATTO** (`localeDetection false`) | `01c1cc3` |
+| **P1.3** 3 redirect safety-net 404 | ✅ **FATTO** | `01c1cc3` |
+| **P1.2** `aggregateRating` 4,9/32 + `founder` + Instagram + GBP cid | ✅ **FATTO** | `8582478` |
+| **P1.2** `TouristTrip` sui 5 tour | ⬜ da fare (invisibile) | — |
+| **P0.3** FAQ home + `FAQPage` | ⬜ da fare (sezione visibile → review design) | — |
+| **P1.1** keyword "noleggio con conducente (NCC)" | ⬜ richiede ok copy (copy-lock) | — |
+| **P1.4/P1.5/P1.6** H1/title/preserve check | ⬜ content review | — |
+| **P1.7** www→non-www | ⏳ config Vercel al cutover | — |
+| **V1/V2** curl live + Lighthouse | ⏳ ambiente live al cutover | — |
+
+Verifica P0.1/P0.2 (smoke test su `next start`): `/` → 200 IT (anche con
+`Accept-Language: en`, nessun redirect), `/en` → 200 EN, `/it` → 307 `/`,
+`/index.php` → 308 `/`, `/tour.php` → 308 `/tour-sicilia`, sitemap loc IT senza `/it`.
+
+---
+
 # 🔴 P0 — Bloccanti (chiudere prima del cutover DNS)
 
 ## P0.1 — Architettura root `/`: redirect 307 geo-dipendente, non contenuto stabile  [↔ esterno §2.1]
