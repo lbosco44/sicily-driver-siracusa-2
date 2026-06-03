@@ -24,7 +24,8 @@ export const CONSENT_VERSION = 1;
 const STORAGE_KEY = 'sds-cookie-consent';
 
 // Custom event per propagare cambi tra istanze (es. footer + banner stessa pagina)
-const CHANGE_EVENT = 'sds-cookie-consent-change';
+export const CONSENT_CHANGE_EVENT = 'sds-cookie-consent-change';
+const CHANGE_EVENT = CONSENT_CHANGE_EVENT;
 
 function readStorage(): Consent | null {
   if (typeof window === 'undefined') return null;

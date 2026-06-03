@@ -8,6 +8,7 @@ import {Navbar} from '@/components/layout/Navbar';
 import {Footer} from '@/components/layout/Footer';
 import {WhatsAppFloat} from '@/components/layout/WhatsAppFloat';
 import {CookieBanner} from '@/components/layout/CookieBanner';
+import {Analytics} from '@/components/layout/Analytics';
 import {ScrollToTop} from '@/components/layout/ScrollToTop';
 import '../globals.css';
 
@@ -94,6 +95,7 @@ export default async function LocaleLayout({
           <Footer />
           <WhatsAppFloat />
           <CookieBanner />
+          <Analytics />
         </NextIntlClientProvider>
       </body>
     </html>
