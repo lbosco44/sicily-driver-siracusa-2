@@ -218,7 +218,7 @@ export async function Footer() {
             <span className="hidden sm:inline text-cream-on-dark/30">·</span>
             <CookieSettingsLink />
           </div>
-          <LanguageSwitcher className="[&_button]:text-cream-on-dark/80 [&_button[aria-current]]:text-accent-decorative [&_span]:text-cream-on-dark/40" />
+          <LanguageSwitcher className="[&_button]:text-cream-on-dark/80 [&_button[aria-current]]:text-cream-on-dark [&_button[aria-current]]:underline [&_button[aria-current]]:underline-offset-4 [&_span]:text-cream-on-dark/40" />
         </div>
       </div>
     </footer>
