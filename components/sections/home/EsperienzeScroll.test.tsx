@@ -1,6 +1,7 @@
 import {describe, it, expect, vi} from 'vitest';
 import {render, screen} from '@testing-library/react';
 import {EsperienzeScroll} from './EsperienzeScroll';
+import {N} from './esperienze/data';
 
 // Mock di tutto l'ecosistema necessario al rendering iniziale.
 vi.mock('@/i18n/navigation', () => ({
@@ -50,9 +51,12 @@ describe('EsperienzeScroll', () => {
     expect(eyebrows.length).toBeGreaterThanOrEqual(1);
   });
 
-  it('initial counter shows 01 / 05', () => {
+  it('initial counter shows 01 / total (derivato da N)', () => {
     render(<EsperienzeScroll />);
     expect(screen.getAllByText('01').length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText(/05/).length).toBeGreaterThanOrEqual(1);
+    // Totale derivato da N: il test non va aggiornato a mano se cambia
+    // il numero di esperienze (es. card rimossa → N=4 → "/ 04").
+    const total = String(N).padStart(2, '0');
+    expect(screen.getAllByText(`/ ${total}`).length).toBeGreaterThanOrEqual(1);
   });
 });
