@@ -11,7 +11,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   const t = await getTranslations({locale, namespace: 'Privacy.meta'});
-  const path = `/${locale}/privacy`;
+  // localePrefix as-needed: IT servito senza prefisso (/privacy), EN su /en/privacy.
+  // Niente '/it/privacy' (redirige) nel canonical.
+  const path = locale === 'it' ? '/privacy' : '/en/privacy';
   return {
     title: t('title'),
     description: t('description'),
