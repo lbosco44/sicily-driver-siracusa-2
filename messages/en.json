@@ -587,6 +587,7 @@
       "fieldPhoneLabel": "Phone",
       "fieldPhonePlaceholder": "+44 ...",
       "fieldTypeLabel": "Request type",
+      "fieldTypePlaceholder": "Select…",
       "fieldTypeOption1": "Airport / port transfer",
       "fieldTypeOption2": "Private tour",
       "fieldTypeOption3": "Wedding and events",
@@ -594,14 +595,12 @@
       "fieldTypeOption5": "Other",
       "fieldMessageLabel": "Message",
       "fieldMessagePlaceholder": "When, from where, to where, how many people, any specific needs...",
-      "submit": "Send",
+      "submit": "Request a quote",
       "submitting": "Sending",
       "submitNote": "We reply within 24-36 hours.",
       "successTitle": "Thanks, we received your request.",
       "successBody": "We will reply within 24-36 hours.",
-      "errorRequired": "Please check the required fields and try again.",
-      "fieldSubjectLabel": "Subject",
-      "fieldSubjectPlaceholder": "E.g. Catania-Syracuse transfer, Etna Tour, Wedding..."
+      "errorRequired": "Please check the required fields and try again."
     },
     "bases": {
       "eyebrow": "Our bases",

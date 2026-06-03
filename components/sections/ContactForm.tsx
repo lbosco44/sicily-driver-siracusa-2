@@ -94,15 +94,28 @@ export function ContactForm() {
 
       <label className="block">
         <span className="text-[11px] uppercase tracking-[0.12em] font-medium text-secondary block mb-2">
-          {t('fieldSubjectLabel')}
+          {t('fieldTypeLabel')}
         </span>
-        <input
-          name="subject"
-          type="text"
+        <select
+          name="type"
           required
-          placeholder={t('fieldSubjectPlaceholder')}
-          className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent transition-colors"
-        />
+          defaultValue=""
+          className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink focus:outline-none focus:border-accent transition-colors appearance-none bg-no-repeat cursor-pointer"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238B9B8E' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E\")",
+            backgroundPosition: 'right 1rem center'
+          }}
+        >
+          <option value="" disabled>
+            {t('fieldTypePlaceholder')}
+          </option>
+          <option value={t('fieldTypeOption1')}>{t('fieldTypeOption1')}</option>
+          <option value={t('fieldTypeOption2')}>{t('fieldTypeOption2')}</option>
+          <option value={t('fieldTypeOption3')}>{t('fieldTypeOption3')}</option>
+          <option value={t('fieldTypeOption4')}>{t('fieldTypeOption4')}</option>
+          <option value={t('fieldTypeOption5')}>{t('fieldTypeOption5')}</option>
+        </select>
       </label>
 
       <label className="block">
