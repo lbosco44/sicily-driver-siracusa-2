@@ -23,7 +23,7 @@ Cartella `References/` contiene screenshot, moodboard, clip Greenlight di riferi
 
 # STACK CONFERMATO
 
-- **Framework**: Next.js 15 + App Router + React Server Components
+- **Framework**: Next.js 16 + App Router + React Server Components
 - **Language**: TypeScript
 - **UI base**: shadcn/ui v4 + Tailwind CSS v4
 - **Componenti aggiuntivi**: registry shadcn community (vedi sotto)
@@ -243,4 +243,4 @@ fast-forward merge del branch su main e pushare.
 
 ---
 
-*Template Nexus v3.0 — Ultimo aggiornamento: 26 maggio 2026 (workflow commit+push automatico + branch strategy Vercel)*
+*Template Nexus v3.0 — Ultimo aggiornamento: 3 giugno 2026 (stack allineato a Next.js 16 + ESLint 9 / eslint-config-next 16)*
