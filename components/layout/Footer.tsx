@@ -83,9 +83,9 @@ export async function Footer() {
               (rimossi i 5 sotto-tour individuali — chi li vuole va su
               /tour-sicilia hub). Footer piu' compatto. */}
           <div>
-            <h4 className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-3 sm:mb-4">
+            <h2 className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-3 sm:mb-4">
               {t('servicesHeading')}
-            </h4>
+            </h2>
             <ul className="space-y-2 text-[12px] sm:text-[14px] text-cream-on-dark/85 break-words">
               <li>
                 <Link href="/servizi" className="hover:text-accent transition-colors">
@@ -117,9 +117,9 @@ export async function Footer() {
 
           {/* Aree servite */}
           <div>
-            <h4 className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-3 sm:mb-4">
+            <h2 className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-3 sm:mb-4">
               {t('areasHeading')}
-            </h4>
+            </h2>
             <ul className="space-y-2 text-[12px] sm:text-[14px] text-cream-on-dark/85 break-words">
               <li>
                 <Link href="/ncc-catania" className="hover:text-accent transition-colors">
@@ -146,9 +146,9 @@ export async function Footer() {
 
           {/* Contatti */}
           <div>
-            <h4 className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-3 sm:mb-4">
+            <h2 className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-3 sm:mb-4">
               {t('contactsHeading')}
-            </h4>
+            </h2>
             <ul className="space-y-2 text-[12px] sm:text-[14px] text-cream-on-dark/85 break-words">
               <li>
                 <a
@@ -191,9 +191,9 @@ export async function Footer() {
 
           {/* Sedi */}
           <div>
-            <h4 className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-3 sm:mb-4">
+            <h2 className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] font-medium text-cream-on-dark/75 mb-3 sm:mb-4">
               {t('officesHeading')}
-            </h4>
+            </h2>
             <ul className="space-y-2 text-[12px] sm:text-[14px] text-cream-on-dark/85 break-words leading-relaxed">
               <li>Siracusa</li>
               <li>Noto</li>
@@ -218,7 +218,7 @@ export async function Footer() {
             <span className="hidden sm:inline text-cream-on-dark/30">·</span>
             <CookieSettingsLink />
           </div>
-          <LanguageSwitcher className="[&_button]:text-cream-on-dark/55 [&_button[aria-current]]:text-accent [&_span]:text-cream-on-dark/30" />
+          <LanguageSwitcher className="[&_button]:text-cream-on-dark/80 [&_button[aria-current]]:text-accent-decorative [&_span]:text-cream-on-dark/40" />
         </div>
       </div>
     </footer>

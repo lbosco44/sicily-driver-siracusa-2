@@ -36,7 +36,7 @@ export function LanguageSwitcher({className}: {className?: string}) {
           'transition-opacity duration-200 cursor-pointer',
           locale === 'it'
             ? 'text-primary opacity-100'
-            : 'text-ink/50 hover:opacity-100 hover:text-primary'
+            : 'text-ink/70 hover:opacity-100 hover:text-primary'
         )}
       >
         {t('it')}
@@ -52,7 +52,7 @@ export function LanguageSwitcher({className}: {className?: string}) {
           'transition-opacity duration-200 cursor-pointer',
           locale === 'en'
             ? 'text-primary opacity-100'
-            : 'text-ink/50 hover:opacity-100 hover:text-primary'
+            : 'text-ink/70 hover:opacity-100 hover:text-primary'
         )}
       >
         {t('en')}
