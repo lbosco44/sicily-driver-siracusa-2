@@ -46,7 +46,7 @@ export function CtaFinale() {
           transition={{duration: 1, ease: [0.16, 1, 0.3, 1]}}
         >
           <Image
-            src="/images/home/cta-finale.png"
+            src="/images/home/cta-finale.webp"
             alt={t('imageAlt')}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1700px) 95vw, 1700px"

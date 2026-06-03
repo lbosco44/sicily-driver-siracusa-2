@@ -11,7 +11,7 @@ const PLACES = [
   {key: 'ortigia',   image: '/images/home/polaroid-ortigia.jpg',   rotate: -2.5, offset: false},
   {key: 'noto',      image: '/images/home/polaroid-noto.jpg',       rotate: 1.5,  offset: true},
   {key: 'marzamemi', image: '/images/home/polaroid-marzamemi.jpeg', rotate: -1.2, offset: false},
-  {key: 'ragusa',    image: '/images/home/polaroid-ragusa.png',      rotate: 2.2,  offset: true},
+  {key: 'ragusa',    image: '/images/home/polaroid-ragusa.webp',      rotate: 2.2,  offset: true},
   {key: 'etna',      image: '/images/home/polaroid-etna.jpg',        rotate: -1.8, offset: false},
   {key: 'taormina',  image: '/images/home/polaroid-taormina.jpg',   rotate: 1.3,  offset: true}
 ];

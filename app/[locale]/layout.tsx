@@ -74,7 +74,7 @@ export default async function LocaleLayout({
         <link
           rel="preload"
           as="image"
-          href="/images/home/dolce-vita.png"
+          href="/images/home/dolce-vita.webp"
           fetchPriority="high"
         />
       </head>

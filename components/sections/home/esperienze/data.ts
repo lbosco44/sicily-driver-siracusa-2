@@ -21,14 +21,14 @@ export const ESPERIENZE: readonly Esperienza[] = [
   {
     key: '1',
     href: '/tour/dolce-vita-siracusa',
-    image: '/images/home/dolce-vita.png',
+    image: '/images/home/dolce-vita.webp',
     bg: '#E8DBC4',
     align: 'left'
   },
   {
     key: '2',
     href: '/tour/silent-sailing',
-    image: '/images/home/sailing.png',
+    image: '/images/home/sailing.webp',
     bg: '#1E3A4F',
     align: 'right'
   },
@@ -38,14 +38,14 @@ export const ESPERIENZE: readonly Esperienza[] = [
   {
     key: '4',
     href: '/tour/etna-premium',
-    image: '/images/home/etna.png',
+    image: '/images/home/etna.webp',
     bg: '#B05E40',
     align: 'right'
   },
   {
     key: '5',
     href: '/tour-barocco',
-    image: '/images/home/barocco.png',
+    image: '/images/home/barocco.webp',
     bg: '#5F7367',
     align: 'left'
   }
