@@ -66,6 +66,15 @@ const nextConfig: NextConfig = {
       // la root / serve direttamente l'italiano (default) come contenuto
       // indicizzabile — nessun redirect, equity preservata sull'URL storico.
       // (Audit SEO P0.1/P0.2)
+
+      // --- Canonica host: www → non-www (Brief/SEO.md §6.3) ---
+      // Scelta canonica unica senza www. http→https è già forzato da Vercel.
+      {
+        source: '/:path*',
+        has: [{type: 'host', value: 'www.ncctaxisiracusa.com'}],
+        destination: 'https://ncctaxisiracusa.com/:path*',
+        permanent: true
+      }
     ];
   }
 };
