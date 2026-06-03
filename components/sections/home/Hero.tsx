@@ -4,9 +4,9 @@ import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {motion, useReducedMotion} from 'motion/react';
 import {useEffect, useRef} from 'react';
-import {Link} from '@/i18n/navigation';
 import {HERO_BLUR} from '@/lib/blur';
 import {GoogleReviewsBadge} from '@/components/ui/GoogleReviewsBadge';
+import {HeroQuickQuote} from '@/components/sections/home/HeroQuickQuote';
 
 // Stop 01 — Hero atmosferica
 // Foto Sicily golden hour full-bleed + headline Bricolage gigante + cue scroll discreta.
@@ -103,16 +103,13 @@ export function Hero() {
             {t('subhead')}
           </p>
 
-          {/* Bottoni: CTA Contattaci + Instagram + Badge Google — centrati */}
-          <div className="mt-5 sm:mt-9 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-            <Link
-              href="/contatti"
-              className="inline-flex items-center gap-3 rounded-full bg-accent px-8 py-4 text-[13px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
-              style={{color: 'var(--cream-on-dark)'}}
-            >
-              {t('ctaPrimary')}
-              <span aria-hidden="true">→</span>
-            </Link>
+          {/* Micro-form rapido "Da → A" → WhatsApp (azione primaria, lead-gen) */}
+          <div className="mt-5 sm:mt-9">
+            <HeroQuickQuote />
+          </div>
+
+          {/* Chip secondari: Instagram + Badge Google — centrati */}
+          <div className="mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <a
               href="https://www.instagram.com/sicilydriversyracuse?igsh=NmJrYjFuZWgyYWl0"
               target="_blank"

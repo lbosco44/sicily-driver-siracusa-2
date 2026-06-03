@@ -145,6 +145,15 @@
       "scrollCue": "Scroll",
       "ctaPrimary": "Contact us"
     },
+    "heroQuote": {
+      "fromLabel": "Pickup point",
+      "fromPlaceholder": "From… (e.g. Catania Airport)",
+      "toLabel": "Destination",
+      "toPlaceholder": "To… (e.g. Syracuse)",
+      "cta": "Quote on WhatsApp",
+      "waMessage": "Hi! I'd like a quote for a transfer from {from} to {to}.",
+      "waMessageGeneric": "Hi! I'd like a quote for a transfer in Sicily."
+    },
     "whisper1": {
       "eyebrow": "How we work",
       "text": "We don't just\ndo transfers,\nwe create memories.\nSicily isn't crossed,\n**it's lived**."

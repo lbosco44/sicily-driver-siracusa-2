@@ -145,6 +145,15 @@
       "scrollCue": "Scorri",
       "ctaPrimary": "Contattaci"
     },
+    "heroQuote": {
+      "fromLabel": "Punto di partenza",
+      "fromPlaceholder": "Da… (es. Aeroporto Catania)",
+      "toLabel": "Destinazione",
+      "toPlaceholder": "A… (es. Siracusa)",
+      "cta": "Preventivo su WhatsApp",
+      "waMessage": "Ciao! Vorrei un preventivo per un transfer da {from} a {to}.",
+      "waMessageGeneric": "Ciao! Vorrei un preventivo per un transfer in Sicilia."
+    },
     "whisper1": {
       "eyebrow": "Come funzioniamo",
       "text": "Non facciamo\nsemplici transfer,\ncreiamo ricordi.\nLa Sicilia non\nsi attraversa,\nsi vive."
