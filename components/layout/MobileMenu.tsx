@@ -43,8 +43,10 @@ export function MobileMenu({
   const [tourExpanded, setTourExpanded] = useState(false);
   const pathname = usePathname();
 
-  // Chiudi al cambio rotta
+  // Chiudi al cambio rotta. setState in effect è intenzionale qui: reagiamo
+  // a un valore esterno (pathname) che cambia tra i render.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setOpen(false);
   }, [pathname]);
 

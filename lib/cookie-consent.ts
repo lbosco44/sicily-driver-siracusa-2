@@ -66,6 +66,9 @@ export function useCookieConsent() {
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
+    // setState in effect intenzionale: idratazione one-shot da localStorage
+    // al mount (evita mismatch SSR/CSR). Non è derivabile in render.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setConsent(readStorage());
     setHydrated(true);
 
