@@ -19,7 +19,12 @@ import {DesktopSticky} from './DesktopSticky';
 //            "burroso", piu' tempo per percepire il wipe lateral pieghevole.
 const ENTRY_VH = 0;
 const SLIDE_VH = 220;
-const TOTAL_VH = ENTRY_VH + N * SLIDE_VH;
+// EXIT_VH: breve buffer di uscita sull'ultimo tour. Prima la mappatura riservava
+// un intero SLIDE_VH (220vh ≈ 2 schermate) come "deadzone" finale → l'utente
+// scrollava a vuoto sull'ultimo tour e pensava il sito finisse lì. Ora l'ultimo
+// tour esce dopo ~1 scroll; le N-1 transizioni restano "burrose" a SLIDE_VH.
+const EXIT_VH = 50;
+const TOTAL_VH = ENTRY_VH + Math.max(0, N - 1) * SLIDE_VH + EXIT_VH;
 
 // Full-screen edge-to-edge: niente frame, niente padding, niente corner rotondi.
 const FRAME_PADDING_X_RATIO = 0;
@@ -238,9 +243,15 @@ export function DesktopWebGL() {
       slideProgressRef.current = p;
     } else {
       // Niente entry: frame sempre in posizione, scroll mappa direttamente
-      // sull'avanzamento scene.
+      // sull'avanzamento scene. Le N-1 transizioni occupano (N-1)*SLIDE_VH;
+      // l'EXIT_VH finale tiene l'ultimo tour solo per un breve tratto prima
+      // dell'uscita (niente più deadzone di un intero SLIDE_VH).
       entryProgressRef.current = 1;
-      const p = Math.max(0, Math.min(N - 1, latest * N));
+      const slidesFraction = N > 1 ? ((N - 1) * SLIDE_VH) / TOTAL_VH : 1;
+      const p =
+        latest >= slidesFraction || slidesFraction <= 0
+          ? N - 1
+          : Math.max(0, Math.min(N - 1, (latest / slidesFraction) * (N - 1)));
       slideProgressRef.current = p;
     }
     // Math.round invece di Math.floor: il testo crossfade al midpoint del wipe
