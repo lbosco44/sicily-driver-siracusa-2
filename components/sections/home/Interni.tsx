@@ -54,9 +54,10 @@ export function Interni() {
   return (
     <section className="bg-canvas-deep py-28 sm:py-36">
       <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-        {/* HEADER — impilato (h2 → body), misura leggibile, niente colonna orfana */}
+        {/* HEADER — orizzontale e compatto: h2 su una riga (desktop), body
+            su ~2 righe a piena larghezza. Niente colonna stretta/orfana. */}
         <motion.div
-          className="max-w-[680px] mb-16 sm:mb-24"
+          className="mb-14 sm:mb-20"
           initial={reduce ? false : {opacity: 0, y: 24}}
           whileInView={reduce ? undefined : {opacity: 1, y: 0}}
           viewport={{once: true, margin: '-10%'}}
@@ -64,12 +65,12 @@ export function Interni() {
         >
           <p className="eyebrow mb-7">{t('eyebrow')}</p>
           <h2
-            className="font-display text-display-md font-light text-ink"
+            className="font-display text-[clamp(40px,7vw,72px)] font-light text-ink lg:whitespace-nowrap"
             style={{fontStretch: '95%'}}
           >
             {t('h2')}
           </h2>
-          <p className="mt-7 text-[18px] sm:text-[19px] leading-[1.65] text-ink-soft max-w-[52ch]">
+          <p className="mt-6 text-[16px] sm:text-[17px] leading-[1.6] text-ink-soft lg:text-balance">
             {t('body')}
           </p>
         </motion.div>
