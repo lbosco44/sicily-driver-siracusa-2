@@ -215,9 +215,9 @@
       "eyebrow": "Le auto",
       "h2": "Il lusso si nota nei dettagli.",
       "body": "I nostri Mercedes Classe V, GLB Premium e Classe E sono preparati con la stessa attenzione che riserviamo ai nostri clienti. Acqua fresca a bordo, sanificazione dopo ogni servizio e Wi-Fi su richiesta. Perché il comfort non riguarda solo la destinazione, ma tutto il viaggio.",
-      "waterAlt": "Bottiglia d’acqua nel portabicchiere posteriore del van di lusso",
-      "leatherAlt": "Dettaglio sedile in pelle del van di lusso",
-      "screenAlt": "Tablet Wi-Fi sul poggiatesta del van di lusso",
+      "poggiatestaAlt": "Poggiatesta in pelle con impunture a contrasto del van di lusso",
+      "comandiAlt": "Comandi del sedile sulla portiera in pelle del van di lusso",
+      "volanteAlt": "Volante Mercedes con la stella al centro",
       "caption": "Il viaggio comincia dal momento in cui apri la porta. Anche le ore lunghe, fra Catania e Marzamemi, passano leggere."
     },
     "mosaico": {

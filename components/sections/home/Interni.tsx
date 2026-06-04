@@ -24,26 +24,29 @@ import {motion, useReducedMotion} from 'motion/react';
 
 const DETAILS = [
   {
-    key: 'water',
-    // Foto cliente 27/05/2026: acqua.webp (598KB, sostituisce interni-acqua.png 2.1MB)
-    image: '/images/home/acqua.webp',
+    key: 'poggiatesta',
+    // Foto cliente 04/06/2026: poggiatesta.webp (69KB, da unsplash xFsbcjjJfSE,
+    // poggiatesta in pelle con impunture a contrasto). Landscape → crop 4/5.
+    image: '/images/home/poggiatesta.webp',
     // Sfalsamento desktop per ritmo "parete di galleria" (niente grid rigida)
     offset: 'lg:mt-0',
+    mobileAspect: 'aspect-[16/11]'
+  },
+  {
+    key: 'comandi',
+    // Foto cliente 04/06/2026: comandi.webp (34KB, da unsplash 6H2GC94MoEU,
+    // comandi sedile sulla portiera). Portrait.
+    image: '/images/home/comandi.webp',
+    offset: 'lg:mt-20',
     mobileAspect: 'aspect-[4/5]'
   },
   {
-    key: 'leather',
-    // Foto cliente 27/05/2026: sedile.webp (374KB, sostituisce interni-sedile.png 2.2MB)
-    image: '/images/home/sedile.webp',
-    offset: 'lg:mt-20',
-    mobileAspect: 'aspect-[16/11]'
-  },
-  {
-    key: 'screen',
-    // Foto cliente 27/05/2026: tablet.webp (455KB, sostituisce interni-tablet.png 2.0MB)
-    image: '/images/home/tablet.webp',
+    key: 'volante',
+    // Foto cliente 04/06/2026: volante.webp (46KB, mercedes.jpg, volante con
+    // stella Mercedes). Portrait.
+    image: '/images/home/volante.webp',
     offset: 'lg:mt-10',
-    mobileAspect: 'aspect-[16/11]'
+    mobileAspect: 'aspect-[4/5]'
   }
 ];
 
