@@ -98,10 +98,13 @@ export async function PartnersBar() {
             'linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%)'
         }}
       >
-        {/* Gap ridotto: gap-10 → gap-14 (40-56px) invece di gap-16/24
-            (64-96px). Piu' loghi visibili contemporaneamente → bar
-            piu' "piena", meno sensazione di vuoto. */}
-        <div className="flex gap-10 sm:gap-12 lg:gap-14 animate-partners-marquee w-max items-center">
+        {/* Spacing via margin-right su ogni item (NON gap sul container).
+            Con CSS gap, la larghezza totale e' N*w + (N-1)*g, e il punto di
+            -50% cade a N*w/2 + (N-1)*g/2 — non coincide con la fine della
+            prima meta' (N/2 * w + (N/2 - 1) * g) → micro-salto visibile.
+            Con margin-right su ogni item: N*(w+g), e -50% = N/2*(w+g) che
+            coincide ESATTAMENTE con la fine della prima meta' → loop fluido. */}
+        <div className="flex animate-partners-marquee w-max items-center">
           {items.map((p, i) => {
             const content = p.image ? (
               // eslint-disable-next-line @next/next/no-img-element
@@ -124,15 +127,13 @@ export async function PartnersBar() {
               </span>
             );
 
-            // Opacity 85% di default (giu' di 15% per non sovrastare il resto
-            // della sezione), niente grayscale (cliente vuole loghi piu'
-            // visibili). Hover → 100%.
+            // Opacity 85% di default. margin-right (non gap) per loop fluido.
             const wrapper =
-              'flex-shrink-0 flex items-center h-20 sm:h-24 lg:h-28 opacity-85 hover:opacity-100 transition-opacity duration-300';
+              'flex-shrink-0 flex items-center h-20 sm:h-24 lg:h-28 opacity-85 hover:opacity-100 transition-opacity duration-300 mr-10 sm:mr-12 lg:mr-14';
 
-            // Set aria-hidden true per la seconda copia (i >= PARTNERS.length)
-            // cosi' screen reader leggono il loop una volta sola.
-            const isClone = i >= PARTNERS.length;
+            // Set aria-hidden true per la seconda meta' del DOM (cloni).
+            // denseRow = 2×PARTNERS (14 item) → la seconda denseRow inizia a i=14.
+            const isClone = i >= denseRow.length;
 
             return p.href ? (
               <a
