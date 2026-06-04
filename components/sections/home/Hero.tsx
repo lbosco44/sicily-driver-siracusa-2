@@ -104,11 +104,14 @@ export function Hero() {
             <span className="text-accent-decorative">{t('h1Punct')}</span>
           </h1>
 
-          {/* Subhead: una riga sotto headline (mt stretto su mobile) */}
+          {/* Subhead sotto headline. Mobile: va a capo (prima era
+              whitespace-nowrap → su 390px restava su una riga a 12px e
+              veniva troncata, più piccola del bottone). Desktop (sm+):
+              torna su una riga sola. */}
           <p
-            className="mt-3 sm:mt-6 font-light text-cream-soft/95 whitespace-nowrap"
+            className="mt-3 sm:mt-6 font-light text-cream-soft/95 text-balance max-w-[40ch] sm:max-w-none mx-auto sm:whitespace-nowrap"
             style={{
-              fontSize: 'clamp(12px, 1.5vw, 18px)',
+              fontSize: 'clamp(15px, 1.6vw, 18px)',
               textShadow:
                 '0 1px 3px rgba(0,0,0,0.6), 0 2px 20px rgba(0,0,0,0.55)'
             }}
