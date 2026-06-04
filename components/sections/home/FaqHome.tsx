@@ -17,7 +17,7 @@ export function FaqHome({h2, items}: {h2: string; items: readonly FaqItem[]}) {
   const reduce = useReducedMotion();
 
   return (
-    <section className="bg-canvas-deep py-24 sm:py-32">
+    <section className="bg-canvas-deep py-20 sm:py-28">
       <div className="mx-auto max-w-(--container-narrow) px-6 sm:px-10">
         <h2
           className="font-display text-display-sm sm:text-display-md font-light text-ink leading-[1.1] mb-12 sm:mb-16 max-w-[18ch]"

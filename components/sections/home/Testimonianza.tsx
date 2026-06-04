@@ -41,7 +41,7 @@ export function Testimonianza() {
   const allItems = [...items, ...items];
 
   return (
-    <section className="bg-canvas-warm py-32 sm:py-44 overflow-hidden">
+    <section className="bg-canvas-warm py-20 sm:py-28 overflow-hidden">
       {/* Header */}
       <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 mb-14 sm:mb-16">
         <motion.div

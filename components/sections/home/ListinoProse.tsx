@@ -41,7 +41,7 @@ export function ListinoProse() {
   const isLargeGroup = passengers >= 4;
 
   return (
-    <section className="bg-canvas py-24 sm:py-32">
+    <section className="bg-canvas py-20 sm:py-28">
       <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
         {/* Header centrato */}
         <motion.div

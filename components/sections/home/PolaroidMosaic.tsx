@@ -21,7 +21,7 @@ export function PolaroidMosaic() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="bg-canvas py-32 sm:py-40">
+    <section className="bg-canvas py-20 sm:py-28">
       <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
         <motion.div
           className="max-w-3xl mb-16 sm:mb-24"

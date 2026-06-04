@@ -12,7 +12,7 @@ export function DietroAlVolante() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="bg-canvas py-32 sm:py-40">
+    <section className="bg-canvas py-20 sm:py-28">
       <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Foto larga */}

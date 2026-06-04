@@ -55,7 +55,7 @@ export function Interni() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="bg-canvas-deep py-28 sm:py-36">
+    <section className="bg-canvas-deep py-20 sm:py-28">
       <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
         {/* HEADER — orizzontale e compatto: h2 su una riga (desktop), body
             su ~2 righe a piena larghezza. Niente colonna stretta/orfana. */}
