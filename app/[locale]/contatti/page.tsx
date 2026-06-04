@@ -115,9 +115,10 @@ export default async function ContattiPage({
             subito il form aprendo la pagina contatti. Hero rimossa il
             27/05/2026 — il cliente non la voleva piu', il form ora e' la
             prima cosa visibile sotto la navbar.)
-            pt-40/pt-52 replica il padding-top della vecchia hero per dare
-            respiro tra navbar fissa e h2 del form. */}
-      <section className="bg-canvas-deep pt-40 sm:pt-52 pb-32 sm:pb-40 border-b border-[var(--border)]">
+            Padding-top ridotto (cliente 04/06/2026: "iniziare quasi subito,
+            senza tutto quello spazio"): pt-24/28, basta a liberare la navbar
+            fissa senza il vuoto precedente. */}
+      <section className="bg-canvas-deep pt-24 sm:pt-28 pb-24 sm:pb-32 border-b border-[var(--border)]">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20">
             <div className="lg:sticky lg:top-28 lg:self-start">
@@ -157,11 +158,10 @@ export default async function ContattiPage({
                       {...(c.external
                         ? {target: '_blank', rel: 'noopener noreferrer'}
                         : {})}
-                      className={`group relative rounded-2xl border border-[var(--border-strong)] bg-canvas p-5 sm:p-6 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(20,18,14,0.08)] ${hoverBorderClass}`}
+                      className={`group flex items-center gap-4 rounded-2xl border border-[var(--border-strong)] bg-canvas px-5 py-5 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(20,18,14,0.08)] ${hoverBorderClass}`}
                     >
-                      <div className="flex items-center gap-3 mb-4">
                         <span
-                          className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white"
+                          className="flex-shrink-0 w-11 h-11 rounded-full flex items-center justify-center text-white"
                           style={{backgroundColor: accentColor}}
                           aria-hidden="true"
                         >
@@ -192,30 +192,15 @@ export default async function ContattiPage({
                             </svg>
                           )}
                         </span>
-                        <p className="text-[11px] uppercase tracking-[0.22em] font-medium text-secondary">
-                          {c.label}
-                        </p>
-                      </div>
-
-                      <p
-                        className="font-display italic text-[18px] sm:text-[20px] font-light text-ink leading-tight tabular-nums break-all"
-                        style={{fontStretch: '95%'}}
-                      >
-                        {c.value}
-                      </p>
-                      <p className="mt-2 text-[13px] leading-[1.5] text-ink-soft">
-                        {c.note}
-                      </p>
-
-                      <div className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] font-medium text-primary">
-                        {c.ctaLabel}
+                        <span className="min-w-0 font-display text-[15px] sm:text-[16px] font-light text-ink leading-tight break-words">
+                          {c.kind === 'whatsapp' ? c.label : c.value}
+                        </span>
                         <span
                           aria-hidden="true"
-                          className="transition-transform duration-200 group-hover:translate-x-1"
+                          className="ml-auto shrink-0 text-primary transition-transform duration-200 group-hover:translate-x-1"
                         >
                           →
                         </span>
-                      </div>
                     </a>
                   );
                 })}

@@ -37,7 +37,7 @@ export function EsperienzeScroll() {
           </p>
           <Link
             href="/contatti"
-            className="inline-flex items-center gap-3 rounded-full bg-cream-on-dark px-7 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-accent hover:bg-cream-soft transition-colors self-start sm:self-center"
+            className="inline-flex items-center gap-3 rounded-full bg-cream-on-dark px-7 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-accent hover:bg-cream-soft transition-colors self-start sm:self-center whitespace-nowrap"
           >
             {t('customCta')}
             <span aria-hidden="true">→</span>

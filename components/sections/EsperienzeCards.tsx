@@ -175,7 +175,7 @@ export async function EsperienzeCards() {
           </p>
           <Link
             href="/contatti"
-            className="inline-flex items-center gap-2 text-[13px] uppercase tracking-[0.06em] font-medium text-primary border-b border-accent/60 pb-1 hover:border-accent transition-colors self-start"
+            className="inline-flex items-center gap-2 text-[13px] uppercase tracking-[0.06em] font-medium text-primary border-b border-accent/60 pb-1 hover:border-accent transition-colors self-start whitespace-nowrap"
           >
             {t('customCta')}
             <span aria-hidden="true">→</span>
