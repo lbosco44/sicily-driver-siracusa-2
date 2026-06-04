@@ -258,7 +258,7 @@ export async function TourDetailNarrative({tour}: {tour: TourContent}) {
 
       {/* 08 — CTA finale immersiva */}
       <section
-        className="relative bg-primary-deep py-40 sm:py-56 overflow-hidden"
+        className="relative bg-primary-deep py-20 sm:py-28 overflow-hidden"
         style={{color: 'var(--cream-on-dark)'}}
       >
         <div
@@ -275,7 +275,7 @@ export async function TourDetailNarrative({tour}: {tour: TourContent}) {
           <AnimatedHeading
             as="h2"
             text={tour.ctaH2}
-            className="font-display text-display-xl font-light text-cream-on-dark max-w-[18ch] leading-[0.95]"
+            className="font-display text-display-lg font-light text-cream-on-dark max-w-[18ch] leading-[0.95]"
             style={{fontStretch: '95%'}}
           />
           <p className="mt-10 text-[19px] sm:text-[21px] text-cream-soft leading-[1.6] max-w-[52ch]">

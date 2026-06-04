@@ -450,7 +450,7 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
 
       {/* 08 — CTA finale: glow lava */}
       <section
-        className="relative py-40 sm:py-56 overflow-hidden"
+        className="relative py-20 sm:py-28 overflow-hidden"
         style={{backgroundColor: ETNA_BLACK}}
       >
         <div
@@ -471,7 +471,7 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
           <AnimatedHeading
             as="h2"
             text={tour.ctaH2}
-            className="hero-headline font-display text-display-xl font-light max-w-[18ch] leading-[0.95]"
+            className="hero-headline font-display text-display-lg font-light max-w-[18ch] leading-[0.95]"
             style={{
               color: 'var(--cream-on-dark)',
               fontStretch: '92%',

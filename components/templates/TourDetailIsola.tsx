@@ -438,7 +438,7 @@ export function TourDetailIsola({tour}: {tour: TourContent}) {
 
       {/* 08 — CTA finale: gradient sun-baked, niente foto, vibe estivo */}
       <section
-        className="relative py-40 sm:py-56 overflow-hidden"
+        className="relative py-20 sm:py-28 overflow-hidden"
         style={{
           background: `linear-gradient(135deg, ${CREAM_HOT} 0%, #F5E0AA 45%, ${SUN_YELLOW} 100%)`,
           color: 'var(--ink)'
@@ -473,7 +473,7 @@ export function TourDetailIsola({tour}: {tour: TourContent}) {
             text={tour.ctaH2}
             className="hero-headline font-display font-light text-ink leading-[0.96]"
             style={{
-              fontSize: 'clamp(48px, 8.5vw, 132px)',
+              fontSize: 'clamp(48px, min(8.5vw, 12vh), 132px)',
               fontStretch: '90%',
               letterSpacing: '-0.035em',
               maxWidth: 'min(640px, 90vw)'

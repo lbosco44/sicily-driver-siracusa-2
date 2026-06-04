@@ -436,7 +436,7 @@ export function TourDetailSailing({tour}: {tour: TourContent}) {
 
       {/* 08 — CTA finale: solo gradient cielo+mare, niente foto */}
       <section
-        className="relative py-44 sm:py-64 overflow-hidden"
+        className="relative py-20 sm:py-28 overflow-hidden"
         style={{
           background: `linear-gradient(180deg, ${SEA_NIGHT_DEEP} 0%, ${SEA_NIGHT} 60%, #1B3F5A 100%)`,
           color: 'var(--cream-on-dark)'
@@ -463,7 +463,7 @@ export function TourDetailSailing({tour}: {tour: TourContent}) {
             text={tour.ctaH2}
             className="hero-headline font-display font-light text-cream-on-dark leading-[0.95]"
             style={{
-              fontSize: 'clamp(48px, 8.5vw, 128px)',
+              fontSize: 'clamp(48px, min(8.5vw, 12vh), 128px)',
               fontStretch: '88%',
               letterSpacing: '-0.035em',
               maxWidth: 'min(680px, 90vw)'
