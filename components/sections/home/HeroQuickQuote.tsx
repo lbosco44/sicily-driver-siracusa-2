@@ -55,7 +55,7 @@ export function HeroQuickQuote() {
       </div>
       <button
         type="submit"
-        className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-[13px] uppercase tracking-[0.06em] font-medium whitespace-nowrap transition-all duration-200 hover:bg-accent-hover shrink-0"
+        className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-2.5 text-[12px] sm:text-[13px] uppercase tracking-[0.06em] font-medium whitespace-nowrap transition-all duration-200 hover:bg-accent-hover shrink-0"
         style={{color: 'var(--cream-on-dark)'}}
       >
         <svg

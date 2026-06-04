@@ -93,7 +93,11 @@ export function Hero() {
           <h1
             className="font-display font-medium text-cream-on-dark"
             style={{
-              fontSize: 'clamp(28px, 7vw, 104px)',
+              // Min alzato da 28 a 36: su mobile l'H1 era più piccolo del
+              // bottone CTA → ribilanciato, ora va su 2 righe e torna
+              // l'elemento dominante. Desktop/tablet invariati (li governa
+              // il 7vw / il cap 104, non il minimo).
+              fontSize: 'clamp(36px, 7vw, 104px)',
               fontStretch: '95%',
               letterSpacing: '-0.025em',
               lineHeight: '1.05',
