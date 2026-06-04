@@ -159,9 +159,9 @@ export default async function ServiziPage({
         </div>
 
         <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-[18vh] sm:pb-[22vh]">
-          <div className="max-w-[24ch]">
+          <div className="max-w-[18rem] sm:max-w-[34rem]">
             <h1
-              className="font-display text-display-lg font-medium text-cream-on-dark"
+              className="font-display text-display-lg font-medium text-cream-on-dark text-balance"
               style={{fontStretch: '92%'}}
             >
               {t('hero.h1Pre')}{' '}
