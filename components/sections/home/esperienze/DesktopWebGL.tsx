@@ -572,14 +572,16 @@ export function DesktopWebGL() {
                   transform: active ? 'translateY(0)' : 'translateY(2%)',
                   transition:
                     'opacity 400ms cubic-bezier(0.16, 1, 0.3, 1), transform 400ms cubic-bezier(0.16, 1, 0.3, 1)',
-                  willChange: 'opacity, transform'
+                  willChange: 'opacity, transform',
+                  // Solo la scena attiva è cliccabile. Senza questo, le scene
+                  // inattive (opacity 0) restano sovrapposte e l'ultima nel DOM
+                  // (tour-barocco) intercettava TUTTI i click → ogni CTA portava
+                  // al tour barocco. Mirror della logica di SceneLayer (mobile).
+                  pointerEvents: active ? 'auto' : 'none'
                 }}
                 aria-hidden={!active}
               >
-                <div
-                  style={{maxWidth: 'min(520px, 80%)'}}
-                  className="pointer-events-auto"
-                >
+                <div style={{maxWidth: 'min(520px, 80%)'}}>
                   <h2
                     className="hero-headline font-display text-display-md sm:text-display-lg font-medium text-cream-on-dark whitespace-pre-line"
                     style={{

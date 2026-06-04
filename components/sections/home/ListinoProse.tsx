@@ -1,8 +1,8 @@
 'use client';
 
 import {useState} from 'react';
-import {useTranslations, useLocale} from 'next-intl';
-import Link from 'next/link';
+import {useTranslations} from 'next-intl';
+import {Link} from '@/i18n/navigation';
 import {motion, useReducedMotion} from 'motion/react';
 import {Check, Users} from 'lucide-react';
 import {WHATSAPP_HREF} from '@/lib/contact';
@@ -35,7 +35,6 @@ const ROUTES = [
 
 export function ListinoProse() {
   const t = useTranslations('Home.listino');
-  const locale = useLocale();
   const reduce = useReducedMotion();
   const [passengers, setPassengers] = useState(2);
   const isLargeGroup = passengers >= 4;
@@ -231,7 +230,7 @@ export function ListinoProse() {
             {t('disclaimer')}
           </p>
           <Link
-            href={`/${locale}/contatti`}
+            href="/contatti"
             className="inline-flex items-center gap-3 text-[12px] uppercase tracking-[0.2em] font-medium text-primary border-b border-accent pb-1 hover:border-accent-hover transition-colors self-start"
           >
             {t('cta')}
