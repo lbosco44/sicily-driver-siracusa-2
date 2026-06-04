@@ -71,12 +71,12 @@ export async function PartnersBar() {
     // stacco visivo gentile tra le due sezioni che avevano lo stesso
     // colore (cliente: "sono su stesso sfondo e non capisco dove finisce
     // una e inizia l'altra").
-    <section className="bg-canvas-warm py-20 sm:py-24 overflow-hidden">
+    <section className="bg-canvas-warm py-12 sm:py-14 overflow-hidden">
       {/* Header introduttivo: cliente 27/05/2026 ha chiesto piu' grande +
           in grassetto rispetto alla versione italic light precedente. */}
-      <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 mb-12 sm:mb-14">
+      <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10 mb-8 sm:mb-10">
         <p
-          className="text-center font-display text-[22px] sm:text-[28px] lg:text-[32px] font-medium text-ink leading-[1.2]"
+          className="text-center font-display text-[20px] sm:text-[24px] lg:text-[26px] font-medium text-ink leading-[1.2]"
           style={{fontStretch: '95%'}}
         >
           {t('intro')}
@@ -111,7 +111,7 @@ export async function PartnersBar() {
               <img
                 src={p.image}
                 alt={p.name}
-                className="h-16 sm:h-20 lg:h-24 w-auto object-contain"
+                className="h-10 sm:h-11 lg:h-12 w-auto object-contain"
                 loading="lazy"
                 decoding="async"
               />
@@ -129,7 +129,7 @@ export async function PartnersBar() {
 
             // Opacity 85% di default. margin-right (non gap) per loop fluido.
             const wrapper =
-              'flex-shrink-0 flex items-center h-20 sm:h-24 lg:h-28 opacity-85 hover:opacity-100 transition-opacity duration-300 mr-10 sm:mr-12 lg:mr-14';
+              'flex-shrink-0 flex items-center h-12 sm:h-14 lg:h-16 opacity-85 hover:opacity-100 transition-opacity duration-300 mr-8 sm:mr-10 lg:mr-12';
 
             // Set aria-hidden true per la seconda meta' del DOM (cloni).
             // denseRow = 2×PARTNERS (14 item) → la seconda denseRow inizia a i=14.
