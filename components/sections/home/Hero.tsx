@@ -66,6 +66,18 @@ export function Hero() {
         />
         {/* Overlay graduale per leggibilità testo in basso */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/15 to-black/70" />
+        {/* Scrim radiale localizzato dietro il blocco testo (headline + subhead
+            + micro-form): garantisce leggibilità del sottotitolo bianco sottile
+            ovunque cada rispetto all'immagine (es. sopra i palazzi chiari su
+            laptop). Robusto a tutte le risoluzioni perché ancorato al 30% top. */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse 90% 55% at 50% 30%, rgba(0,0,0,0.45), transparent 72%)'
+          }}
+          aria-hidden="true"
+        />
       </div>
 
       {/* Headline centrata in alto + subhead + bottoni + scroll cue in basso.
@@ -97,7 +109,8 @@ export function Hero() {
             className="mt-3 sm:mt-6 font-light text-cream-soft/95 whitespace-nowrap"
             style={{
               fontSize: 'clamp(12px, 1.5vw, 18px)',
-              textShadow: '0 1px 12px rgba(0,0,0,0.35)'
+              textShadow:
+                '0 1px 3px rgba(0,0,0,0.6), 0 2px 20px rgba(0,0,0,0.55)'
             }}
           >
             {t('subhead')}

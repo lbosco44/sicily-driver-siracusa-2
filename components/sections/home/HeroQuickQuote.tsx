@@ -30,9 +30,9 @@ export function HeroQuickQuote() {
   return (
     <form
       onSubmit={openWhatsApp}
-      className="mx-auto w-full max-w-[560px] flex flex-col sm:flex-row items-stretch gap-2.5 rounded-2xl sm:rounded-full bg-cream-on-dark/12 backdrop-blur-md border border-cream-on-dark/25 p-2.5"
+      className="mx-auto w-full max-w-[640px] flex flex-col sm:flex-row items-stretch gap-2.5 rounded-2xl sm:rounded-full bg-cream-on-dark/12 backdrop-blur-md border border-cream-on-dark/25 p-2.5"
     >
-      <div className="flex flex-1 items-center gap-2">
+      <div className="flex flex-1 min-w-0 items-center gap-2">
         <input
           value={from}
           onChange={(e) => setFrom(e.target.value)}
