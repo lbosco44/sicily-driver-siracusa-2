@@ -108,15 +108,15 @@ export function Interni() {
 
         {/* CHIUSURA — caption come outro editoriale, con filetto terracotta */}
         <motion.div
-          className="mt-20 sm:mt-28 max-w-[46ch]"
+          className="mt-14 sm:mt-20 max-w-[78ch]"
           initial={reduce ? false : {opacity: 0, y: 16}}
           whileInView={reduce ? undefined : {opacity: 1, y: 0}}
           viewport={{once: true, margin: '-10%'}}
           transition={{duration: 0.9, ease: [0.16, 1, 0.3, 1]}}
         >
-          <span className="block w-12 h-px bg-accent mb-7" aria-hidden="true" />
+          <span className="block w-12 h-px bg-accent mb-6" aria-hidden="true" />
           <p
-            className="font-display italic text-[22px] sm:text-[26px] font-light text-ink leading-[1.45]"
+            className="font-display italic text-[20px] sm:text-[23px] font-light text-ink leading-[1.4] text-balance"
             style={{fontStretch: '95%'}}
           >
             {t('caption')}
