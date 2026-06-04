@@ -29,7 +29,7 @@ export function DesktopNav({labels}: {labels: NavLabels}) {
 
   return (
     <nav
-      className="hidden md:flex items-center gap-8"
+      className="hidden md:flex items-center gap-8 justify-self-center"
       aria-label="Primary"
     >
       <HomeLink
