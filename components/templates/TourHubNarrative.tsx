@@ -86,34 +86,53 @@ export function TourHubNarrative({hub}: {hub: TourHubContent}) {
             Source: components/sections/home/EsperienzeScroll.tsx */}
       <EsperienzeScroll />
 
-      {/* 04 — STORYTELLING giornata tipo */}
-      <section className="bg-canvas py-40 sm:py-56">
-        <div className="mx-auto max-w-(--container-narrow) px-6 sm:px-10">
-          <p className="eyebrow mb-10">{hub.storyEyebrow}</p>
+      {/* 04 — STORYTELLING giornata tipo (rielaborato 04/06/2026: i padding
+            enormi py-40/56 + la colonna stretta centrata lasciavano un vuoto
+            enorme. Ora i 3 momenti sono righe numerate 01/02/03 a piena
+            larghezza editoriale, stile Manifesto. Copy invariato; i numeri
+            sono decorativi). */}
+      <section className="bg-canvas py-20 sm:py-28">
+        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
+          <p className="eyebrow mb-7">{hub.storyEyebrow}</p>
           <h2
-            className="font-display text-display-md font-light text-ink max-w-[18ch] mb-14 sm:mb-16"
+            className="font-display text-display-md font-light text-ink max-w-[16ch] mb-12 sm:mb-14"
             style={{fontStretch: '95%'}}
           >
             {hub.storyH2Pre}{' '}
             <span className="italic font-light">{hub.storyH2Accent}</span>
           </h2>
 
-          <div className="space-y-7 text-[19px] sm:text-[20px] leading-[1.7] text-ink-soft">
+          <div className="border-t border-[var(--border-strong)]">
             {hub.storyParagraphs.map((p, i) => (
-              <p key={i}>{p}</p>
+              <div
+                key={i}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-10 py-8 sm:py-10 border-b border-[var(--border-strong)]"
+              >
+                <span
+                  className="lg:col-span-2 font-display italic text-[40px] sm:text-[52px] font-light text-accent leading-none tabular-nums"
+                  style={{fontStretch: '95%'}}
+                >
+                  0{i + 1}
+                </span>
+                <p className="lg:col-span-10 text-[18px] sm:text-[20px] leading-[1.7] text-ink-soft max-w-[64ch]">
+                  {p}
+                </p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 05 — COSA È SEMPRE INCLUSO — lista editorial */}
-      <section className="bg-canvas-deep py-32 sm:py-40">
+      {/* 05 — COSA È SEMPRE INCLUSO (rielaborato 04/06/2026: padding ridotti +
+            lista su 2 colonne con bullet accent → riempie lo spazio e bilancia
+            il titolo, niente piu' lista sparsa accanto al titolo gigante). */}
+      <section className="bg-canvas-deep py-20 sm:py-28">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20">
-            <div>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-16 items-start">
+            <div className="lg:sticky lg:top-28">
               <p className="eyebrow mb-7">{hub.includedEyebrow}</p>
               <h2
-                className="font-display text-display-md font-light text-ink max-w-[16ch]"
+                className="font-display text-display-md font-light text-ink max-w-[14ch]"
                 style={{fontStretch: '95%'}}
               >
                 {hub.includedH2Pre}{' '}
@@ -121,13 +140,14 @@ export function TourHubNarrative({hub}: {hub: TourHubContent}) {
               </h2>
             </div>
 
-            <ul className="space-y-4 text-[17px] sm:text-[18px] leading-[1.65] text-ink-soft">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 lg:gap-x-14 gap-y-5 sm:gap-y-6 text-[16px] sm:text-[17px] leading-[1.55] text-ink-soft">
               {hub.included.map((item, i) => (
-                <li
-                  key={i}
-                  className="pb-4 border-b border-[var(--border)] last:border-b-0"
-                >
-                  {item}
+                <li key={i} className="flex gap-3">
+                  <span
+                    aria-hidden="true"
+                    className="mt-[0.55em] h-1.5 w-1.5 rounded-full bg-accent shrink-0"
+                  />
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
