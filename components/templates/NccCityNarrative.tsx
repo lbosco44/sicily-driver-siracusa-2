@@ -4,7 +4,7 @@ import {Link} from '@/i18n/navigation';
 import type {CityContent} from '@/lib/cities';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
 import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
-import {PHONE_TEL_HREF} from '@/lib/contact';
+import {WHATSAPP_HREF} from '@/lib/contact';
 
 // NccCityNarrative — pagina locale SEO (cluster Fast).
 // Design language Diario Mediterraneo, ma SENZA scroll-driven sticky:
@@ -261,7 +261,10 @@ export async function NccCityNarrative({city}: {city: CityContent}) {
           </p>
 
           <div className="mt-12 sm:mt-14 flex flex-col sm:flex-row gap-4 sm:gap-5">
-            <Link href="/contatti"
+            <a
+              href={WHATSAPP_HREF}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-3 rounded-full bg-accent px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
               style={{color: 'var(--cream-on-dark)'}}
             >
@@ -272,13 +275,13 @@ export async function NccCityNarrative({city}: {city: CityContent}) {
               >
                 →
               </span>
-            </Link>
-            <a
-              href={PHONE_TEL_HREF}
-              className="inline-flex items-center justify-center gap-3 rounded-full border border-cream-on-dark/35 px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium text-cream-on-dark tabular-nums hover:bg-cream-on-dark/10 transition-colors"
-            >
-              {tCommon('ctaCall')}
             </a>
+            <Link
+              href="/contatti"
+              className="inline-flex items-center justify-center gap-3 rounded-full border border-cream-on-dark/35 px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium text-cream-on-dark hover:bg-cream-on-dark/10 transition-colors"
+            >
+              {tCommon('ctaQuote')}
+            </Link>
           </div>
 
           <p className="mt-12 text-[14px] text-cream-on-dark/60">

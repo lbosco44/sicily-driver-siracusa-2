@@ -11,7 +11,7 @@ import {
   SheetDescription
 } from '@/components/ui/sheet';
 import {HomeLink} from './HomeLink';
-import {PHONE_TEL_HREF, WHATSAPP_HREF} from '@/lib/contact';
+import {WHATSAPP_HREF} from '@/lib/contact';
 import {TOURS_NAV} from '@/lib/tours-nav';
 import type {ToursListLabels} from '@/lib/nav-types';
 
@@ -28,16 +28,12 @@ export function MobileMenu({
   links,
   toursList,
   bookLabel,
-  whatsappLabel,
-  callLabel,
-  callValue
+  whatsappLabel
 }: {
   links: MobileMenuLink[];
   toursList: ToursListLabels;
   bookLabel: string;
   whatsappLabel: string;
-  callLabel: string;
-  callValue: string;
 }) {
   const [open, setOpen] = useState(false);
   const [tourExpanded, setTourExpanded] = useState(false);
@@ -205,13 +201,6 @@ export function MobileMenu({
               className="inline-flex items-center justify-center gap-3 rounded-full border border-ink/25 px-7 py-4 text-[13px] uppercase tracking-[0.1em] font-medium text-ink hover:bg-ink hover:text-cream-on-dark transition-colors"
             >
               {whatsappLabel}
-            </a>
-            <a
-              href={PHONE_TEL_HREF}
-              onClick={() => setOpen(false)}
-              className="inline-flex items-center justify-center gap-3 py-4 text-[13px] uppercase tracking-[0.1em] font-medium text-ink/70 hover:text-ink transition-colors tabular-nums"
-            >
-              {callLabel} · {callValue}
             </a>
           </div>
         </nav>

@@ -179,9 +179,7 @@
       "customTagline": "Queste sono solo alcune idee. La tua esperienza in Sicilia può essere molto di più.",
       "customCta": "Contattaci",
       "swipeHint": "Scorri lateralmente →",
-      "swipeExit": "Scorri giu per continuare ↓",
-      "card1TitleLine1": "Tour",
-      "card1TitleLine2": "La Dolce Vita"
+      "swipeExit": "Scorri giu per continuare ↓"
     },
     "manifesto": {
       "eyebrow": "Cosa facciamo",
@@ -395,7 +393,7 @@
       "h2Line2": "a bordo",
       "body": "WhatsApp è il canale più veloce. Ti rispondiamo entro un’ora, 24 ore su 24, anche d’inverno.",
       "ctaWhatsApp": "Apri WhatsApp",
-      "ctaCall": "+39 375 641 3379",
+      "ctaForm": "Richiedi un preventivo",
       "emailPre": "Oppure scrivi a",
       "imageAlt": "Autista in giacca e cravatta accanto al van di lusso Mercedes Classe V con la porta scorrevole aperta, pronto ad accogliere a bordo"
     }
@@ -640,7 +638,7 @@
       "eyebrow": "Tempi di risposta",
       "h2Pre": "Quando",
       "h2Accent": "rispondiamo",
-      "body": "WhatsApp: entro 1 ora, 24 ore su 24, anche notti e festivi. Email: entro 24 ore. Telefono: sempre, h24.",
+      "body": "WhatsApp: entro 1 ora, 24 ore su 24, anche notti e festivi. Email: entro 24 ore.",
       "businessNote": "Per wedding ed eventi serve preventivo articolato: la prima risposta arriva entro un'ora con un primo dimensionamento, il preventivo completo entro 24 ore."
     },
     "faq": {

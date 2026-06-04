@@ -10,7 +10,7 @@ import {getWedding} from '@/lib/wedding';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
 import type {Locale} from '@/lib/cities';
 import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
-import {PHONE_DISPLAY, PHONE_TEL_HREF, WHATSAPP_HREF} from '@/lib/contact';
+import {WHATSAPP_HREF} from '@/lib/contact';
 
 // Wedding narrative restructure — design language Diario Mediterraneo.
 // Hero atmosferico → 3 momenti (before/during/after) → 6 auto d'epoca
@@ -443,12 +443,6 @@ export default async function WeddingPage({
               >
                 →
               </span>
-            </a>
-            <a
-              href={PHONE_TEL_HREF}
-              className="inline-flex items-center justify-center gap-3 rounded-full border border-cream-on-dark/35 px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium text-cream-on-dark tabular-nums hover:bg-cream-on-dark/8 transition-colors"
-            >
-              {PHONE_DISPLAY}
             </a>
             <Link
               href="/contatti"

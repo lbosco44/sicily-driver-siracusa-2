@@ -179,9 +179,7 @@
       "customTagline": "These are just a few ideas. Your Sicilian experience can be so much more.",
       "customCta": "Contact us",
       "swipeHint": "Swipe sideways →",
-      "swipeExit": "Scroll down to continue ↓",
-      "card1TitleLine1": "Tour",
-      "card1TitleLine2": "La Dolce Vita"
+      "swipeExit": "Scroll down to continue ↓"
     },
     "manifesto": {
       "eyebrow": "What we do",
@@ -396,7 +394,7 @@
       "imageAlt": "Chauffeur in suit next to the luxury Mercedes V-Class van with the sliding door open, ready to welcome on board",
       "body": "WhatsApp is the fastest channel. We reply within an hour, 24 hours a day, even in winter.",
       "ctaWhatsApp": "Open WhatsApp",
-      "ctaCall": "+39 375 641 3379",
+      "ctaForm": "Request a quote",
       "emailPre": "Or write to"
     }
   },
@@ -640,7 +638,7 @@
       "eyebrow": "Response times",
       "h2Pre": "When",
       "h2Accent": "we reply",
-      "body": "WhatsApp: within 1 hour, 24/7, including nights and holidays. Email: within 24 hours. Phone: always, around the clock.",
+      "body": "WhatsApp: within 1 hour, 24/7, including nights and holidays. Email: within 24 hours.",
       "businessNote": "Weddings and events need a detailed quote: the first reply arrives within an hour with initial sizing, the full quote within 24 hours."
     },
     "faq": {

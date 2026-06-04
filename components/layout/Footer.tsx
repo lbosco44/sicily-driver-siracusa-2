@@ -152,14 +152,6 @@ export async function Footer() {
             <ul className="space-y-2 text-[12px] sm:text-[14px] text-cream-on-dark/85 break-words">
               <li>
                 <a
-                  href={`tel:${t('phone').replace(/\s/g, '')}`}
-                  className="hover:text-accent transition-colors tabular-nums"
-                >
-                  {t('phone')}
-                </a>
-              </li>
-              <li>
-                <a
                   href={`mailto:${t('email')}`}
                   className="hover:text-accent transition-colors"
                 >

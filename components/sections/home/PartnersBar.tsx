@@ -20,6 +20,10 @@ type PartnerLogo = {
   name: string;
   image?: string; // /images/loghi-partner/<file>.svg|png
   href?: string;
+  // Dimensioni intrinseche del file → aspect-ratio riservato dal browser
+  // prima del load = niente CLS sul marquee. (Audit fix 10)
+  w?: number;
+  h?: number;
 };
 
 const PARTNERS: PartnerLogo[] = [
@@ -34,21 +38,25 @@ const PARTNERS: PartnerLogo[] = [
   // alternativa scelta).
   // Per aggiungere altri partner: droppa il file -ink nella cartella,
   // aggiungi un entry qui con name + image path.
-  {name: 'Pura Vida', image: '/images/loghi-partner/pura-vita-ink.svg'},
+  {name: 'Pura Vida', image: '/images/loghi-partner/pura-vita-ink.svg', w: 202, h: 239},
   {
     name: 'Fratelli Burgio',
-    image: '/images/loghi-partner/fratelli-burgio-ink.png'
+    image: '/images/loghi-partner/fratelli-burgio-ink.png',
+    w: 2734,
+    h: 634
   },
   {
     name: 'Cantine Benanti',
-    image: '/images/loghi-partner/cantine-benanti-ink.png'
+    image: '/images/loghi-partner/cantine-benanti-ink.png',
+    w: 200,
+    h: 202
   },
-  {name: 'Cantina Palmeri', image: '/images/loghi-partner/palmeri2-ink.png'},
+  {name: 'Cantina Palmeri', image: '/images/loghi-partner/palmeri2-ink.png', w: 1500, h: 687},
   // Nuovi partner cliente 28/05/2026: Gambino, Orty Suite, Bam Bar.
   // Tutti in versione -ink per coerenza visiva con gli esistenti.
-  {name: 'Gambino', image: '/images/loghi-partner/gambino-ink.png'},
-  {name: 'Orty Suite', image: '/images/loghi-partner/ortysuite-ink.png'},
-  {name: 'Bam Bar', image: '/images/loghi-partner/bambar-ink.png'}
+  {name: 'Gambino', image: '/images/loghi-partner/gambino-ink.png', w: 460, h: 140},
+  {name: 'Orty Suite', image: '/images/loghi-partner/ortysuite-ink.png', w: 655, h: 316},
+  {name: 'Bam Bar', image: '/images/loghi-partner/bambar-ink.png', w: 1590, h: 415}
 ];
 
 export async function PartnersBar() {
@@ -111,6 +119,8 @@ export async function PartnersBar() {
               <img
                 src={p.image}
                 alt={p.name}
+                width={p.w}
+                height={p.h}
                 className="h-10 sm:h-11 lg:h-12 w-auto object-contain"
                 loading="lazy"
                 decoding="async"

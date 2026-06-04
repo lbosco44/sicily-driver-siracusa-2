@@ -15,7 +15,10 @@ const nextConfig: NextConfig = {
     // Dimezziamo i breakpoint generati (default 8): basta coprire
     // mobile/tablet/desktop/4K, ogni tear extra bloat il proxy.
     deviceSizes: [640, 828, 1200, 1920],
-    imageSizes: [16, 32, 64, 128, 256, 512]
+    imageSizes: [16, 32, 64, 128, 256, 512],
+    // Qualità usate dai componenti (hero q85, esperienze q80). Senza questa
+    // lista Next 16 emette warning e clampa al default [75]. (Audit fix 6)
+    qualities: [75, 80, 85]
   },
 
   async redirects() {

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {motion, useReducedMotion} from 'motion/react';
-import {PHONE_TEL_HREF} from '@/lib/contact';
+import {Link} from '@/i18n/navigation';
 import {WHATSAPP_HREF} from '@/lib/contact';
 
 // CtaFinale — rielaborato 27/05/2026.
@@ -136,9 +136,9 @@ export function CtaFinale() {
                 </span>
               </a>
 
-              <a
-                href={PHONE_TEL_HREF}
-                className="inline-flex items-center rounded-full border border-cream-on-dark/50 hover:border-cream-on-dark/80 hover:bg-cream-on-dark/8 transition-colors whitespace-nowrap tabular-nums"
+              <Link
+                href="/contatti"
+                className="inline-flex items-center rounded-full border border-cream-on-dark/50 hover:border-cream-on-dark/80 hover:bg-cream-on-dark/8 transition-colors whitespace-nowrap"
                 style={{
                   color: 'var(--cream-on-dark)',
                   padding: 'clamp(8px, 0.9vw, 15px) clamp(16px, 1.8vw, 28px)',
@@ -147,8 +147,8 @@ export function CtaFinale() {
                   fontWeight: 500
                 }}
               >
-                {t('ctaCall')}
-              </a>
+                {t('ctaForm')}
+              </Link>
             </div>
           </motion.div>
         </motion.div>
