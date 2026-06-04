@@ -59,7 +59,7 @@ export function Whisper({
 
   return (
     <section
-      className={`relative ${bgClass[bg]} py-32 sm:py-48 lg:py-56 overflow-hidden`}
+      className={`relative ${bgClass[bg]} py-24 sm:py-32 lg:py-36 overflow-hidden`}
     >
       <div
         className={`relative mx-auto px-6 sm:px-10 flex flex-col gap-8 ${alignClass}`}

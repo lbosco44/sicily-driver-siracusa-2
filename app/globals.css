@@ -162,10 +162,15 @@ h1 { line-height: 0.95; letter-spacing: -0.035em; }
 h2 { line-height: 1; letter-spacing: -0.03em; }
 h3 { line-height: 1.1; letter-spacing: -0.015em; }
 
-/* Display scale enormi per moments narrativi */
-.text-display-xl  { font-size: clamp(56px, 11vw, 168px); line-height: 0.92; letter-spacing: -0.045em; }
-.text-display-lg  { font-size: clamp(48px, 9vw, 128px);  line-height: 0.94; letter-spacing: -0.04em; }
-.text-display-md  { font-size: clamp(40px, 7vw, 96px);   line-height: 0.98; letter-spacing: -0.035em; }
+/* Display scale enormi per moments narrativi.
+   Font dimensionato con min(vw, vh): su schermi alti vince il vw (invariato),
+   su laptop larghi-ma-bassi entra in gioco il vh e il titolo si rimpicciolisce
+   quel tanto che basta a NON sforare l'altezza dello schermo (niente scroll
+   per leggere una sezione-dichiarazione). Su schermi alti il comportamento è
+   identico a prima. */
+.text-display-xl  { font-size: clamp(56px, min(11vw, 15vh), 168px); line-height: 0.92; letter-spacing: -0.045em; }
+.text-display-lg  { font-size: clamp(48px, min(9vw, 12vh), 128px);  line-height: 0.94; letter-spacing: -0.04em; }
+.text-display-md  { font-size: clamp(40px, min(7vw, 11vh), 96px);   line-height: 0.98; letter-spacing: -0.035em; }
 .text-display-sm  { font-size: clamp(32px, 5vw, 64px);   line-height: 1.04; letter-spacing: -0.025em; }
 
 /* Eyebrow uniforme */
