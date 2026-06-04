@@ -7,22 +7,43 @@ import {motion, useReducedMotion} from 'motion/react';
 // Interni — sezione discreta sotto-screen che mostra i dettagli dell'auto
 // (bottiglia d'acqua, sedile in pelle, tablet wifi). Niente big "FLOTTA",
 // niente specifiche tecniche. Solo 3 dettagli che fanno sentire la cura.
+//
+// Rielaborato 04/06/2026.
+// Vecchio: header a due colonne (h2 a sx / body a dx → orfano), poi mosaico
+// "tetris" 12-col con altezza FISSA (lg:h-[600px]) che forzava la foto acqua
+// (quadrata) in una cella alta col-span-7 row-span-2 e schiacciava le due
+// landscape → crop sbagliati + vuoti tipografici. Cliente: "gli spazi sono
+// gestiti male, le foto pure, e il titolo è messo accanto al sottotitolo".
+//
+// Nuovo: header IMPILATO (h2 → body lead sotto, misura leggibile) e le tre
+// foto rese come TRITTICO editoriale — tre studi verticali nello stesso
+// formato 4/5 (la quadrata e le due landscape diventano finalmente un set
+// coerente), sfalsati come una parete di galleria invece che incastrati in
+// una griglia rigida → niente altezza forzata, niente vuoti. Caption
+// promossa a chiusura editoriale con filetto terracotta.
 
 const DETAILS = [
   {
     key: 'water',
     // Foto cliente 27/05/2026: acqua.webp (598KB, sostituisce interni-acqua.png 2.1MB)
-    image: '/images/home/acqua.webp'
+    image: '/images/home/acqua.webp',
+    // Sfalsamento desktop per ritmo "parete di galleria" (niente grid rigida)
+    offset: 'lg:mt-0',
+    mobileAspect: 'aspect-[4/5]'
   },
   {
     key: 'leather',
     // Foto cliente 27/05/2026: sedile.webp (374KB, sostituisce interni-sedile.png 2.2MB)
-    image: '/images/home/sedile.webp'
+    image: '/images/home/sedile.webp',
+    offset: 'lg:mt-20',
+    mobileAspect: 'aspect-[16/11]'
   },
   {
     key: 'screen',
     // Foto cliente 27/05/2026: tablet.webp (455KB, sostituisce interni-tablet.png 2.0MB)
-    image: '/images/home/tablet.webp'
+    image: '/images/home/tablet.webp',
+    offset: 'lg:mt-10',
+    mobileAspect: 'aspect-[16/11]'
   }
 ];
 
@@ -31,94 +52,72 @@ export function Interni() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="bg-canvas-deep py-32 sm:py-40">
+    <section className="bg-canvas-deep py-28 sm:py-36">
       <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-20 mb-16 sm:mb-20">
-          <motion.div
-            initial={reduce ? false : {opacity: 0, y: 24}}
-            whileInView={reduce ? undefined : {opacity: 1, y: 0}}
-            viewport={{once: true, margin: '-10%'}}
-            transition={{duration: 0.8, ease: [0.16, 1, 0.3, 1]}}
+        {/* HEADER — impilato (h2 → body), misura leggibile, niente colonna orfana */}
+        <motion.div
+          className="max-w-[680px] mb-16 sm:mb-24"
+          initial={reduce ? false : {opacity: 0, y: 24}}
+          whileInView={reduce ? undefined : {opacity: 1, y: 0}}
+          viewport={{once: true, margin: '-10%'}}
+          transition={{duration: 0.8, ease: [0.16, 1, 0.3, 1]}}
+        >
+          <p className="eyebrow mb-7">{t('eyebrow')}</p>
+          <h2
+            className="font-display text-display-md font-light text-ink"
+            style={{fontStretch: '95%'}}
           >
-            <p className="eyebrow mb-7">{t('eyebrow')}</p>
-            <h2
-              className="font-display text-display-md font-light text-ink"
-              style={{fontStretch: '95%'}}
-            >
-              {t('h2')}
-            </h2>
-          </motion.div>
-
-          <motion.p
-            className="text-[18px] sm:text-[19px] leading-[1.65] text-ink-soft max-w-[42ch] lg:self-end"
-            initial={reduce ? false : {opacity: 0, y: 24}}
-            whileInView={reduce ? undefined : {opacity: 1, y: 0}}
-            viewport={{once: true, margin: '-10%'}}
-            transition={{duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1]}}
-          >
+            {t('h2')}
+          </h2>
+          <p className="mt-7 text-[18px] sm:text-[19px] leading-[1.65] text-ink-soft max-w-[52ch]">
             {t('body')}
-          </motion.p>
+          </p>
+        </motion.div>
+
+        {/* TRITTICO — tre studi 4/5 sfalsati, hover-zoom (lens) leggero */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 items-start">
+          {DETAILS.map((d, i) => (
+            <motion.figure
+              key={d.key}
+              className={`group relative overflow-hidden rounded-sm grain ${d.mobileAspect} sm:aspect-[4/5] ${d.offset}`}
+              initial={reduce ? false : {opacity: 0, y: 32}}
+              whileInView={reduce ? undefined : {opacity: 1, y: 0}}
+              viewport={{once: true, margin: '-10%'}}
+              transition={{
+                duration: 1,
+                delay: i * 0.12,
+                ease: [0.16, 1, 0.3, 1]
+              }}
+            >
+              <Image
+                src={d.image}
+                alt={t(`${d.key}Alt`)}
+                fill
+                sizes="(max-width: 640px) 100vw, 33vw"
+                className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
+                loading="lazy"
+                style={{filter: 'saturate(0.85) brightness(0.96) contrast(1.05)'}}
+              />
+            </motion.figure>
+          ))}
         </div>
 
-        {/* MOSAICO TETRIS rielaborato 27/05/2026.
-            Vecchio: 3 immagini con span e aspect diversi che non si
-            allineavano (5/4, 4/5, 16/8) → spazi disordinati.
-            Nuovo: griglia 12-col × 2-row con altezza fissa, perfetto
-            tetris asimmetrico.
-            - L (water): col-span-7 row-span-2 (big vertical sx)
-            - A (leather): col-span-5 row-span-1 (small horizontal top dx)
-            - B (tablet): col-span-5 row-span-1 (small horizontal bottom dx)
-            Heights matchano automaticamente grazie a grid-rows e
-            container h fixed.
-            Mobile: stack verticale 1-col con aspect propri (4/5 per L,
-            3/2 per A e B). */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 lg:grid-rows-2 gap-4 sm:gap-5 lg:h-[600px] xl:h-[680px]">
-          {DETAILS.map((d, i) => {
-            // Layout cells:
-            // i=0 (water): big sx, vertical, span 7×2
-            // i=1 (leather): small top dx, horizontal, span 5×1
-            // i=2 (tablet): small bottom dx, horizontal, span 5×1
-            const cellClass =
-              i === 0
-                ? 'aspect-[4/5] lg:aspect-auto lg:col-span-7 lg:row-span-2'
-                : 'aspect-[3/2] lg:aspect-auto lg:col-span-5 lg:row-span-1';
-
-            return (
-              <motion.figure
-                key={d.key}
-                className={`relative overflow-hidden rounded-sm grain ${cellClass}`}
-                initial={reduce ? false : {opacity: 0, y: 32}}
-                whileInView={reduce ? undefined : {opacity: 1, y: 0}}
-                viewport={{once: true, margin: '-10%'}}
-                transition={{
-                  duration: 1,
-                  delay: i * 0.1,
-                  ease: [0.16, 1, 0.3, 1]
-                }}
-              >
-                <Image
-                  src={d.image}
-                  alt={t(`${d.key}Alt`)}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                  loading="lazy"
-                  style={{filter: 'saturate(0.85) brightness(0.96) contrast(1.05)'}}
-                />
-              </motion.figure>
-            );
-          })}
-        </div>
-
-        <motion.p
-          className="mt-12 sm:mt-16 max-w-[58ch] font-display italic text-[20px] sm:text-[22px] font-light text-ink-soft leading-[1.5]"
+        {/* CHIUSURA — caption come outro editoriale, con filetto terracotta */}
+        <motion.div
+          className="mt-20 sm:mt-28 max-w-[46ch]"
           initial={reduce ? false : {opacity: 0, y: 16}}
           whileInView={reduce ? undefined : {opacity: 1, y: 0}}
           viewport={{once: true, margin: '-10%'}}
           transition={{duration: 0.9, ease: [0.16, 1, 0.3, 1]}}
         >
-          {t('caption')}
-        </motion.p>
+          <span className="block w-12 h-px bg-accent mb-7" aria-hidden="true" />
+          <p
+            className="font-display italic text-[22px] sm:text-[26px] font-light text-ink leading-[1.45]"
+            style={{fontStretch: '95%'}}
+          >
+            {t('caption')}
+          </p>
+        </motion.div>
       </div>
     </section>
   );
