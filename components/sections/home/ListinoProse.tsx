@@ -38,7 +38,7 @@ export function ListinoProse() {
   const locale = useLocale();
   const reduce = useReducedMotion();
   const [passengers, setPassengers] = useState(2);
-  const isLargeGroup = passengers > 4;
+  const isLargeGroup = passengers >= 4;
 
   return (
     <section className="bg-canvas py-24 sm:py-32">
@@ -160,19 +160,19 @@ export function ListinoProse() {
                   </p>
                 </div>
 
-                {/* Price */}
+                {/* Price — switcha dinamicamente con lo slider passeggeri */}
                 <div className="mb-6 pb-6 border-b border-[var(--border-strong)]">
                   <p className="text-[11px] uppercase tracking-[0.18em] text-secondary mb-1">
-                    {t(`${r.key}PriceNote`)}
+                    {isLargeGroup ? t('paxNoteGroup') : t(`${r.key}PriceNote`)}
                   </p>
                   <p
-                    className="font-display text-[40px] sm:text-[44px] font-medium text-ink leading-none tabular-nums"
+                    className="font-display text-[40px] sm:text-[44px] font-medium text-ink leading-none tabular-nums transition-all duration-200"
                     style={{fontStretch: '92%'}}
                   >
-                    {t(`${r.key}Price`)}
+                    {isLargeGroup ? t(`${r.key}PriceGroup`) : t(`${r.key}Price`)}
                   </p>
                   <p className="text-[12px] text-ink-soft mt-1.5">
-                    {t(`${r.key}PricePlus`)}
+                    {isLargeGroup ? t(`${r.key}PriceBase`) : t(`${r.key}PricePlus`)}
                   </p>
                 </div>
 
