@@ -1,9 +1,15 @@
 import type {Metadata} from 'next';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
-import {breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
+import {
+  breadcrumbSchema,
+  localBusinessSchema,
+  faqPageSchema,
+  JsonLd
+} from '@/lib/schema';
 import {getBreadcrumb} from '@/lib/breadcrumbs';
 import {routing} from '@/i18n/routing';
 import {ContactForm} from '@/components/sections/ContactForm';
+import {FaqHome} from '@/components/sections/home/FaqHome';
 import type {Locale} from '@/lib/cities';
 import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
 import {WHATSAPP_HREF, EMAIL_HREF} from '@/lib/contact';
@@ -75,6 +81,17 @@ export default async function ContattiPage({
     }
   ];
 
+  // FAQ contatti [NEW] (Brief/COPY.md §9.1). Singola fonte di verità per
+  // rendering (FaqHome) + FAQPage JSON-LD. A1/A2 adattate a WhatsApp: il
+  // brief citava "chiama", ma il telefono è stato rimosso dai canali il
+  // 27/05/2026 — WhatsApp è il canale veloce esposto in pagina.
+  const faqItems = [
+    {q: t('faq.q1'), a: t('faq.a1')},
+    {q: t('faq.q2'), a: t('faq.a2')},
+    {q: t('faq.q3'), a: t('faq.a3')},
+    {q: t('faq.q4'), a: t('faq.a4')}
+  ];
+
   // bases (Siracusa/Noto/Marzamemi) rimosso dalla pagina contatti
   // il 27/05/2026 — info preservata nel Footer.Sedi, ridondante in pagina.
   // I copy bases.* restano nei messages per backward compat e per la
@@ -83,6 +100,7 @@ export default async function ContattiPage({
   return (
     <>
       <JsonLd data={localBusinessSchema(locale as Locale)} />
+      <JsonLd data={faqPageSchema(faqItems)} />
       <JsonLd
         data={breadcrumbSchema(
           getBreadcrumb(
@@ -248,6 +266,12 @@ export default async function ContattiPage({
           </p>
         </div>
       </section>
+
+      {/* 05 — FAQ contatti [NEW] (Brief/COPY.md §9.1). Stesso accordion +
+            FAQPage schema della home, riusato. Chiude la pagina sopra il
+            footer, dopo il blocco blu "Tempi di risposta" che fa da stacco
+            cromatico. */}
+      <FaqHome h2={t('faq.h2')} items={faqItems} />
     </>
   );
 }

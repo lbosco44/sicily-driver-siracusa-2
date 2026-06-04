@@ -642,6 +642,17 @@
       "h2Accent": "rispondiamo",
       "body": "WhatsApp: entro 1 ora, 24 ore su 24, anche notti e festivi. Email: entro 24 ore. Telefono: sempre, h24.",
       "businessNote": "Per wedding ed eventi serve preventivo articolato: la prima risposta arriva entro un'ora con un primo dimensionamento, il preventivo completo entro 24 ore."
+    },
+    "faq": {
+      "h2": "Domande veloci.",
+      "q1": "In quanto tempo rispondete su WhatsApp?",
+      "a1": "Entro 1 ora durante il giorno, entro la mattina dopo se scrivi in piena notte. Per voli e transfer urgenti scrivici su WhatsApp: è il canale più veloce.",
+      "q2": "Posso prenotare anche per il giorno stesso?",
+      "a2": "Sì, se siamo disponibili. Per un transfer aeroporto in giornata scrivici su WhatsApp: è il modo più rapido per avere conferma.",
+      "q3": "Volete una caparra al momento della prenotazione?",
+      "a3": "Per i tour standard di solito no: paghi al termine del servizio, in carta o contanti. Per wedding e gruppi grandi chiediamo una caparra del 30% confermata via bonifico.",
+      "q4": "Cosa succede se devo annullare?",
+      "a4": "Cancellazione gratuita fino a 24 ore prima del servizio. Da 24 a 4 ore prima, addebito del 30%. Meno di 4 ore prima, addebito intero. Per emergenze come voli cancellati o imprevisti siamo sempre flessibili."
     }
   }
 }

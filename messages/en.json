@@ -642,6 +642,17 @@
       "h2Accent": "we reply",
       "body": "WhatsApp: within 1 hour, 24/7, including nights and holidays. Email: within 24 hours. Phone: always, around the clock.",
       "businessNote": "Weddings and events need a detailed quote: the first reply arrives within an hour with initial sizing, the full quote within 24 hours."
+    },
+    "faq": {
+      "h2": "Quick questions.",
+      "q1": "How quickly do you reply on WhatsApp?",
+      "a1": "Within 1 hour during the day, by the next morning if you write in the middle of the night. For urgent flights and transfers, message us on WhatsApp: it's the fastest channel.",
+      "q2": "Can I also book for the same day?",
+      "a2": "Yes, if we're available. For a same-day airport transfer, message us on WhatsApp: it's the quickest way to get confirmation.",
+      "q3": "Do you require a deposit when booking?",
+      "a3": "For standard tours usually not: you pay at the end of the service, by card or cash. For weddings and large groups we ask for a 30% deposit confirmed by bank transfer.",
+      "q4": "What happens if I need to cancel?",
+      "a4": "Free cancellation up to 24 hours before the service. From 24 to 4 hours before, a 30% charge. Less than 4 hours before, the full charge. For emergencies such as cancelled flights or unexpected events, we're always flexible."
     }
   }
 }
