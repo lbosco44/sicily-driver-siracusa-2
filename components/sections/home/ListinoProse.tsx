@@ -171,6 +171,9 @@ export function ListinoProse() {
                   >
                     {t(`${r.key}Price`)}
                   </p>
+                  <p className="text-[12px] text-ink-soft mt-1.5">
+                    {t(`${r.key}PricePlus`)}
+                  </p>
                 </div>
 
                 {/* Features */}
