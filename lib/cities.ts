@@ -146,8 +146,7 @@ const CATANIA_IT: CityContent = {
   intro:
     'Servizio NCC professionale da e per Catania, inclusi transfer dall’Aeroporto di Catania verso Siracusa, Noto, Ragusa e Taormina. Van di lusso (tra cui Mercedes Classe V, GLB Premium, Classe E), autisti professionisti, servizio 24/7.',
 
-  heroImage:
-    'https://images.unsplash.com/photo-1532509774891-141d37f25ae9?w=1600&q=70&auto=format&fm=webp',
+  heroImage: '/images/ncc/catania.webp',
   heroEyebrow: 'NCC Catania · Aeroporto Fontanarossa · 24/7',
   heroSubhead:
     'Van di lusso con autista bilingue, monitoraggio volo, attesa gratuita 60 minuti. Dal terminal arrivi alla tua destinazione, senza pensieri.',
@@ -234,8 +233,7 @@ const NOTO_IT: CityContent = {
   intro:
     'Servizio NCC a Noto per transfer da/per aeroporti (Catania, Comiso) e tour nel Val di Noto: Noto, Modica, Ragusa Ibla e Marzamemi. Autista dedicato e comfort premium.',
 
-  heroImage:
-    'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=1600&q=70&auto=format&fm=webp',
+  heroImage: '/images/ncc/noto.webp',
   heroEyebrow: 'NCC Noto · Val di Noto · 24/7',
   heroSubhead:
     'La capitale del Barocco siciliano come punto di partenza. Da Noto verso Siracusa, Marzamemi o Modica con van di lusso e autista dedicato.',
@@ -319,8 +317,7 @@ const TAORMINA_IT: CityContent = {
   intro:
     'NCC per Taormina con transfer da/per Aeroporto di Catania, Siracusa e tutta la costa ionica. Opzione Tour Etna con degustazione in cantina e soste panoramiche.',
 
-  heroImage:
-    'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&q=70&auto=format&fm=webp',
+  heroImage: '/images/ncc/taormina.webp',
   heroEyebrow: 'NCC Taormina · Costa Ionica · 24/7',
   heroSubhead:
     'Dal teatro greco a Isola Bella, da Catania Fontanarossa al cratere dell’Etna. Van di lusso con autista bilingue, orari flessibili, tariffa concordata.',
@@ -404,8 +401,7 @@ const RAGUSA_IT: CityContent = {
   intro:
     'Servizio NCC a Ragusa e Ragusa Ibla per transfer privati da/per Aeroporto di Catania e Comiso, tour del Barocco e collegamenti per Siracusa e Noto.',
 
-  heroImage:
-    'https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=1600&q=70&auto=format&fm=webp',
+  heroImage: '/images/ncc/ragusa.webp',
   heroEyebrow: 'NCC Ragusa Ibla · Val di Noto · 24/7',
   heroSubhead:
     'Dalla cattedrale di San Giorgio agli aeroporti di Comiso e Catania. Van di lusso con autista per Ragusa, Modica, Scicli e tutta la provincia.',
