@@ -59,85 +59,106 @@ export async function NccCityNarrative({city}: {city: CityContent}) {
         </div>
       </section>
 
-      {/* 05 — COSA INCLUDE IL SERVIZIO — lista editorial pulita */}
-      <section className="bg-canvas-warm py-32 sm:py-40">
+      {/* 05 — COSA INCLUDE IL SERVIZIO — checklist editorial (rielaborato
+            04/06/2026: da lista piatta a 2 colonne con check terracotta che si
+            riempiono in hover, padding ridotti). Copy invariato. */}
+      <section className="bg-canvas-warm py-20 sm:py-28">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
           <h2
-            className="font-display text-display-md font-light text-ink max-w-[18ch] mb-14 sm:mb-16"
+            className="font-display text-display-md font-light text-ink max-w-[18ch] mb-12 sm:mb-14"
             style={{fontStretch: '95%'}}
           >
             {city.includesH2Pre}{' '}
             <span className="italic text-accent">{city.includesH2Accent}</span>
           </h2>
 
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-16 lg:gap-x-24 divide-y md:divide-y-0 divide-[var(--border)]">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 lg:gap-x-14 gap-y-1">
             {city.includes.map((item, i) => (
               <li
                 key={i}
-                className="py-6 md:py-7 md:border-b md:border-[var(--border)] last:md:border-b-0 text-[17px] sm:text-[18px] leading-[1.65] text-ink-soft"
+                className="group flex items-start gap-4 rounded-md -mx-3 px-3 py-4 transition-colors duration-200 hover:bg-canvas"
               >
-                {item}
+                <span
+                  aria-hidden="true"
+                  className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent/12 text-accent transition-colors duration-200 group-hover:bg-accent group-hover:text-cream-on-dark"
+                >
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>
+                </span>
+                <span className="text-[16px] sm:text-[17px] leading-[1.55] text-ink-soft">
+                  {item}
+                </span>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      {/* 06 — LA FLOTTA — 3 schede van/SUV/berlina editorial */}
-      <section className="bg-canvas py-32 sm:py-40">
+      {/* 06 — LA FLOTTA — schede prodotto editorial (rielaborato 04/06/2026:
+            le label dl usavano la classe .eyebrow (display:none) → erano
+            INVISIBILI, restava testo sciolto. Ora card con capienza in
+            evidenza, label visibili Bagagli/Comfort, tagline "ideale per"
+            come footer accent + hover lift. Padding ridotti. Copy invariato. */}
+      <section className="bg-canvas py-20 sm:py-28">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
           <h2
-            className="font-display text-display-md font-light text-ink max-w-[14ch] mb-16 sm:mb-20"
+            className="font-display text-display-md font-light text-ink max-w-[14ch] mb-12 sm:mb-14"
             style={{fontStretch: '95%'}}
           >
             {city.fleetH2Pre}{' '}
             <span className="italic text-accent">{city.fleetH2Accent}</span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-y-0 md:gap-x-10 lg:gap-x-14">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 items-stretch">
             {city.fleet.map((f, i) => (
               <article
                 key={i}
-                className={`${
-                  i < city.fleet.length - 1
-                    ? 'md:border-r md:border-[var(--border-strong)] md:pr-10 lg:pr-14'
-                    : ''
-                }`}
+                className="group flex flex-col rounded-sm border border-[var(--border-strong)] bg-canvas-warm/40 p-7 sm:p-8 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-accent hover:bg-canvas-warm/70 hover:shadow-[0_16px_40px_rgba(31,26,20,0.08)]"
               >
                 <h3
-                  className="font-display italic text-[26px] sm:text-[30px] font-light text-ink leading-tight mb-7"
+                  className="font-display text-[24px] sm:text-[28px] font-light text-ink leading-tight"
                   style={{fontStretch: '95%'}}
                 >
                   {f.model}
                 </h3>
-                <dl className="space-y-5 text-[15px] leading-[1.6] text-ink-soft">
+                <span
+                  aria-hidden="true"
+                  className="mt-4 block h-px w-10 bg-accent"
+                />
+                <p className="mt-5 text-[17px] sm:text-[18px] font-medium text-ink">
+                  {f.pax}
+                </p>
+                <dl className="mt-5 space-y-4 flex-1">
                   <div>
-                    <dt className="eyebrow text-secondary mb-1">
-                      {tCommon('fleetTablePax')}
-                    </dt>
-                    <dd className="text-ink font-medium">{f.pax}</dd>
-                  </div>
-                  <div>
-                    <dt className="eyebrow text-secondary mb-1">
+                    <dt className="text-[10px] uppercase tracking-[0.2em] font-medium text-secondary mb-1">
                       {tCommon('fleetTableLuggage')}
                     </dt>
-                    <dd>{f.luggage}</dd>
+                    <dd className="text-[15px] leading-[1.5] text-ink-soft">
+                      {f.luggage}
+                    </dd>
                   </div>
                   <div>
-                    <dt className="eyebrow text-secondary mb-1">
+                    <dt className="text-[10px] uppercase tracking-[0.2em] font-medium text-secondary mb-1">
                       {tCommon('fleetTableComfort')}
                     </dt>
-                    <dd>{f.comfort}</dd>
-                  </div>
-                  <div>
-                    <dt className="eyebrow text-secondary mb-1">
-                      {tCommon('fleetTableIdeal')}
-                    </dt>
-                    <dd className="font-display italic text-[16px]">
-                      {f.ideal}
+                    <dd className="text-[15px] leading-[1.5] text-ink-soft">
+                      {f.comfort}
                     </dd>
                   </div>
                 </dl>
+                <p className="mt-6 pt-5 border-t border-[var(--border)] font-display italic text-[15px] sm:text-[16px] text-accent leading-snug">
+                  {f.ideal}
+                </p>
               </article>
             ))}
           </div>
