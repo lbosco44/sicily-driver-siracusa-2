@@ -271,19 +271,19 @@ const CATANIA_IT: CityContent = {
     {
       title: 'Tour del Barocco',
       image:
-        'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=800&q=70&auto=format&fm=webp',
+        '/images/home/barocco.webp',
       href: '/tour-barocco'
     },
     {
       title: 'Tour Etna',
       image:
-        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
+        '/images/home/etna.webp',
       href: '/tour/etna-premium'
     },
     {
       title: 'Ortigia + Taormina',
       image:
-        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
+        '/images/home/dolce-vita.webp',
       href: '/tour/dolce-vita-siracusa'
     }
   ],
@@ -356,19 +356,19 @@ const NOTO_IT: CityContent = {
     {
       title: 'Tour del Barocco',
       image:
-        'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=800&q=70&auto=format&fm=webp',
+        '/images/home/barocco.webp',
       href: '/tour-barocco'
     },
     {
       title: 'Tour Etna',
       image:
-        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
+        '/images/home/etna.webp',
       href: '/tour/etna-premium'
     },
     {
       title: 'Ortigia + Taormina',
       image:
-        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
+        '/images/home/dolce-vita.webp',
       href: '/tour/dolce-vita-siracusa'
     }
   ],
@@ -439,19 +439,19 @@ const TAORMINA_IT: CityContent = {
     {
       title: 'Tour Etna',
       image:
-        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
+        '/images/home/etna.webp',
       href: '/tour/etna-premium'
     },
     {
       title: 'Ortigia + Taormina',
       image:
-        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
+        '/images/home/dolce-vita.webp',
       href: '/tour/dolce-vita-siracusa'
     },
     {
       title: 'Tour del Barocco',
       image:
-        'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=800&q=70&auto=format&fm=webp',
+        '/images/home/barocco.webp',
       href: '/tour-barocco'
     }
   ],
@@ -524,19 +524,19 @@ const RAGUSA_IT: CityContent = {
     {
       title: 'Tour del Barocco',
       image:
-        'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=800&q=70&auto=format&fm=webp',
+        '/images/home/barocco.webp',
       href: '/tour-barocco'
     },
     {
       title: 'Ortigia + Taormina',
       image:
-        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
+        '/images/home/dolce-vita.webp',
       href: '/tour/dolce-vita-siracusa'
     },
     {
       title: 'Tour Etna',
       image:
-        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
+        '/images/home/etna.webp',
       href: '/tour/etna-premium'
     }
   ],
@@ -615,19 +615,19 @@ const CATANIA_EN: CityContent = {
     {
       title: 'Baroque Tour',
       image:
-        'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=800&q=70&auto=format&fm=webp',
+        '/images/home/barocco.webp',
       href: '/tour-barocco'
     },
     {
       title: 'Etna Tour',
       image:
-        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
+        '/images/home/etna.webp',
       href: '/tour/etna-premium'
     },
     {
       title: 'Ortigia + Taormina',
       image:
-        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
+        '/images/home/dolce-vita.webp',
       href: '/tour/dolce-vita-siracusa'
     }
   ],
@@ -700,19 +700,19 @@ const NOTO_EN: CityContent = {
     {
       title: 'Baroque Tour',
       image:
-        'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=800&q=70&auto=format&fm=webp',
+        '/images/home/barocco.webp',
       href: '/tour-barocco'
     },
     {
       title: 'Etna Tour',
       image:
-        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
+        '/images/home/etna.webp',
       href: '/tour/etna-premium'
     },
     {
       title: 'Ortigia + Taormina',
       image:
-        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
+        '/images/home/dolce-vita.webp',
       href: '/tour/dolce-vita-siracusa'
     }
   ],
@@ -784,19 +784,19 @@ const TAORMINA_EN: CityContent = {
     {
       title: 'Etna Tour',
       image:
-        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
+        '/images/home/etna.webp',
       href: '/tour/etna-premium'
     },
     {
       title: 'Ortigia + Taormina',
       image:
-        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
+        '/images/home/dolce-vita.webp',
       href: '/tour/dolce-vita-siracusa'
     },
     {
       title: 'Baroque Tour',
       image:
-        'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=800&q=70&auto=format&fm=webp',
+        '/images/home/barocco.webp',
       href: '/tour-barocco'
     }
   ],
@@ -870,19 +870,19 @@ const RAGUSA_EN: CityContent = {
     {
       title: 'Baroque Tour',
       image:
-        'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=800&q=70&auto=format&fm=webp',
+        '/images/home/barocco.webp',
       href: '/tour-barocco'
     },
     {
       title: 'Ortigia + Taormina',
       image:
-        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
+        '/images/home/dolce-vita.webp',
       href: '/tour/dolce-vita-siracusa'
     },
     {
       title: 'Etna Tour',
       image:
-        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
+        '/images/home/etna.webp',
       href: '/tour/etna-premium'
     }
   ],
@@ -970,19 +970,19 @@ const TRANSFER_IT: CityContent = {
     {
       title: 'Tour del Barocco',
       image:
-        'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=800&q=70&auto=format&fm=webp',
+        '/images/home/barocco.webp',
       href: '/tour-barocco'
     },
     {
       title: 'Tour Etna',
       image:
-        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
+        '/images/home/etna.webp',
       href: '/tour/etna-premium'
     },
     {
       title: 'Ortigia + Taormina',
       image:
-        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
+        '/images/home/dolce-vita.webp',
       href: '/tour/dolce-vita-siracusa'
     }
   ],
@@ -1061,19 +1061,19 @@ const TRANSFER_EN: CityContent = {
     {
       title: 'Baroque Tour',
       image:
-        'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=800&q=70&auto=format&fm=webp',
+        '/images/home/barocco.webp',
       href: '/tour-barocco'
     },
     {
       title: 'Etna Tour',
       image:
-        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
+        '/images/home/etna.webp',
       href: '/tour/etna-premium'
     },
     {
       title: 'Ortigia + Taormina',
       image:
-        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
+        '/images/home/dolce-vita.webp',
       href: '/tour/dolce-vita-siracusa'
     }
   ],

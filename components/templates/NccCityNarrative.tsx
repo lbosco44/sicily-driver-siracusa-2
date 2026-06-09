@@ -32,31 +32,37 @@ export async function NccCityNarrative({city}: {city: CityContent}) {
             className="object-cover"
             style={{filter: 'saturate(0.85) brightness(0.78) contrast(1.08)'}}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/35 to-black/75" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-black/60" />
+          {/* Scrim radiale dietro il blocco testo (ora in alto-centro) per
+              garantire leggibilità dell'H1 + subhead bianchi. */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'radial-gradient(ellipse 90% 55% at 50% 28%, rgba(0,0,0,0.45), transparent 72%)'
+            }}
+            aria-hidden="true"
+          />
         </div>
 
-        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 grid grid-rows-[1fr_auto_auto] pb-[16vh] sm:pb-[20vh]">
-          <div />
-          <div className="max-w-[60ch]">
-            <p className="eyebrow text-cream-on-dark/85 mb-6">{city.heroEyebrow}</p>
-            <h1
-              className="hero-headline font-display font-medium text-cream-on-dark leading-[1.05]"
-              style={{
-                fontSize: 'clamp(32px, 4.4vw, 64px)',
-                fontStretch: '90%',
-                letterSpacing: '-0.025em',
-                textShadow: '0 2px 24px rgba(0,0,0,0.3)'
-              }}
-            >
-              {city.h1}
-            </h1>
-            <p className="mt-8 max-w-[44ch] font-display text-[19px] sm:text-[22px] font-light text-cream-on-dark/95 leading-[1.4]">
-              {city.heroSubhead}
-            </p>
-          </div>
-
-          <div className="mt-12 flex flex-col sm:flex-row gap-4">
-          </div>
+        {/* Testo hero centrato in alto (cliente 10/06/2026: prima era in basso
+            a sinistra, ora allineato come la home/transfer). */}
+        <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex flex-col items-center justify-start text-center pt-24 sm:pt-32">
+          <p className="eyebrow text-cream-on-dark/85 mb-6">{city.heroEyebrow}</p>
+          <h1
+            className="hero-headline font-display font-medium text-cream-on-dark leading-[1.05] mx-auto max-w-[20ch] text-balance"
+            style={{
+              fontSize: 'clamp(32px, 4.4vw, 64px)',
+              fontStretch: '90%',
+              letterSpacing: '-0.025em',
+              textShadow: '0 2px 24px rgba(0,0,0,0.3)'
+            }}
+          >
+            {city.h1}
+          </h1>
+          <p className="mt-6 sm:mt-7 max-w-[52ch] mx-auto font-display text-[18px] sm:text-[22px] font-light text-cream-on-dark/95 leading-[1.4] text-balance">
+            {city.heroSubhead}
+          </p>
         </div>
       </section>
 
