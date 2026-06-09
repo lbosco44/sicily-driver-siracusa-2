@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import {Testimonianza} from '@/components/sections/home/Testimonianza';
 import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import type {TourContent} from '@/lib/tours';
@@ -255,6 +256,8 @@ export async function TourDetailNarrative({tour}: {tour: TourContent}) {
           </ul>
         </div>
       </section>
+
+      <Testimonianza />
 
       {/* 08 — CTA finale immersiva */}
       <section

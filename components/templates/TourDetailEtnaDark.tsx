@@ -2,6 +2,7 @@
 
 import {useRef} from 'react';
 import Image from 'next/image';
+import {Testimonianza} from '@/components/sections/home/Testimonianza';
 import {Link} from '@/i18n/navigation';
 import {useTranslations} from 'next-intl';
 import {
@@ -447,6 +448,8 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
           </ul>
         </div>
       </section>
+
+      <Testimonianza />
 
       {/* 08 — CTA finale: glow lava */}
       <section

@@ -1,5 +1,6 @@
 import type {Metadata} from 'next';
 import Image from 'next/image';
+import {Testimonianza} from '@/components/sections/home/Testimonianza';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import {breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
@@ -400,6 +401,8 @@ export default async function ChiSiamoPage({
           </div>
         </div>
       </section>
+
+      <Testimonianza />
 
       {/* 06 — CTA finale */}
       <section

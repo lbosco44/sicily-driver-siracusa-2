@@ -1,5 +1,6 @@
 import type {Metadata} from 'next';
 import Image from 'next/image';
+import {Testimonianza} from '@/components/sections/home/Testimonianza';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import {faqPageSchema, breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
@@ -370,6 +371,8 @@ export default async function ServiziPage({
           </ul>
         </div>
       </section>
+
+      <Testimonianza />
 
       {/* 07 — CTA finale "Saliamo a bordo" (riusato dall'home)
             Cliente 28/05/2026: sostituita la sezione blu deep con il

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import {Testimonianza} from '@/components/sections/home/Testimonianza';
 import {Link} from '@/i18n/navigation';
 import {useTranslations} from 'next-intl';
 import {motion, useReducedMotion} from 'motion/react';
@@ -435,6 +436,8 @@ export function TourDetailIsola({tour}: {tour: TourContent}) {
           </ul>
         </div>
       </section>
+
+      <Testimonianza />
 
       {/* 08 — CTA finale: gradient sun-baked, niente foto, vibe estivo */}
       <section

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import {Testimonianza} from '@/components/sections/home/Testimonianza';
 import {useTranslations} from 'next-intl';
 import type {TourHubContent} from '@/lib/tours';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
@@ -194,6 +195,8 @@ export function TourHubNarrative({hub}: {hub: TourHubContent}) {
           </ul>
         </div>
       </section>
+
+      <Testimonianza />
 
       {/* 07 — CTA finale */}
       <section

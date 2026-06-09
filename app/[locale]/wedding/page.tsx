@@ -1,5 +1,6 @@
 import type {Metadata} from 'next';
 import Image from 'next/image';
+import {Testimonianza} from '@/components/sections/home/Testimonianza';
 import {setRequestLocale, getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import {faqPageSchema, breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
@@ -401,6 +402,8 @@ export default async function WeddingPage({
           </div>
         </div>
       </section>
+
+      <Testimonianza />
 
       {/* 09 — CTA finale */}
       <section

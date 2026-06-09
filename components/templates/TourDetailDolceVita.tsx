@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import {Testimonianza} from '@/components/sections/home/Testimonianza';
 import {Link} from '@/i18n/navigation';
 import {useTranslations} from 'next-intl';
 import {motion, useReducedMotion} from 'motion/react';
@@ -285,6 +286,8 @@ export function TourDetailDolceVita({tour}: {tour: TourContent}) {
           </ul>
         </div>
       </section>
+
+      <Testimonianza />
 
       {/* 07 — CTA finale immersiva blu mare */}
       <section

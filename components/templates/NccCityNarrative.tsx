@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import {Testimonianza} from '@/components/sections/home/Testimonianza';
 import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import type {CityContent} from '@/lib/cities';
@@ -254,6 +255,8 @@ export async function NccCityNarrative({city}: {city: CityContent}) {
           </div>
         </div>
       </section>
+
+      <Testimonianza />
 
       {/* 09 — CTA finale */}
       <section

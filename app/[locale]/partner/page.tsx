@@ -1,5 +1,6 @@
 import type {Metadata} from 'next';
 import Image from 'next/image';
+import {Testimonianza} from '@/components/sections/home/Testimonianza';
 import {setRequestLocale} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import {breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
@@ -167,6 +168,8 @@ export default async function PartnerPage({
           </div>
         </div>
       </section>
+
+      <Testimonianza />
 
       {/* 03 — CTA finale collaborazioni */}
       <section
