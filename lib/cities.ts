@@ -894,13 +894,12 @@ const RAGUSA_EN: CityContent = {
 };
 
 // ============================================================
-// TRANSFER HUB — pagina "tutte le tratte" /transfer-sicilia
-// (EN /sicily-transfers). Riusa il template NccCityNarrative e il tipo
-// CityContent, ma NON è una città: è il landing generale dei transfer
-// raggiunto dalla CTA "Scopri le destinazioni" sotto il pulsante TRANSFER.
-// Creata 09/06/2026. COPY/IMMAGINI/FAQ = placeholder, da rifinire col cliente.
-// NB: il template attuale non renderizza la tabella `routes`; i dati sono
-// pronti per quando aggiungeremo la sezione tratte.
+// TRANSFER HUB — vera pagina transfer /transfer-aeroporti-porti-sicilia
+// (EN /sicily-airport-port-transfers). Usa il tipo CityContent + template
+// dedicato TransferNarrative, ma NON è una città: è il landing generale dei
+// transfer raggiunto dalla CTA "Scopri le destinazioni" sotto il pulsante
+// TRANSFER. Da qui partiranno le pagine figlie SEO (transfer-catania-siracusa,
+// transfer-catania-noto, transfer-catania-taormina, transfer-pozzallo-siracusa).
 // ============================================================
 
 const TRANSFER_IT: CityContent = {
@@ -951,12 +950,16 @@ const TRANSFER_IT: CityContent = {
   faqH2Accent: 'ci fate spesso',
   faqs: [
     {
-      q: 'Come funziona il monitoraggio del volo?',
-      a: 'Teniamo sotto controllo il tuo volo in tempo reale: se è in ritardo o in anticipo, l’autista si adatta. L’attesa è gratuita fino a 60 minuti dall’atterraggio.'
+      q: 'Quanto costa un transfer da Catania a Siracusa?',
+      a: 'Dipende da orario, numero di passeggeri e veicolo richiesto. Scrivici su WhatsApp e riceverai una quotazione chiara prima della prenotazione.'
     },
     {
-      q: 'I prezzi sono fissi o a tassametro?',
-      a: 'Sempre fissi e concordati prima della partenza, qualunque sia il traffico. Nessuna sorpresa a fine corsa.'
+      q: 'Il servizio è disponibile di notte?',
+      a: 'Sì, organizziamo transfer 24 ore su 24, anche per voli notturni o partenze al mattino presto.'
+    },
+    {
+      q: 'Posso prenotare un transfer con più tappe?',
+      a: 'Sì, possiamo organizzare soste intermedie, pickup in hotel, ville, porti, ristoranti o location per eventi.'
     }
   ],
 
@@ -1038,12 +1041,16 @@ const TRANSFER_EN: CityContent = {
   faqH2Accent: 'questions',
   faqs: [
     {
-      q: 'How does flight monitoring work?',
-      a: 'We track your flight in real time: if it’s delayed or early, the driver adapts. Waiting is free up to 60 minutes after landing.'
+      q: 'How much is a transfer from Catania to Syracuse?',
+      a: 'It depends on time, number of passengers and the vehicle requested. Message us on WhatsApp and you’ll get a clear quote before booking.'
     },
     {
-      q: 'Are prices fixed or metered?',
-      a: 'Always fixed and agreed before departure, whatever the traffic. No surprises at the end of the ride.'
+      q: 'Is the service available at night?',
+      a: 'Yes, we run transfers 24/7, including night flights or early-morning departures.'
+    },
+    {
+      q: 'Can I book a transfer with multiple stops?',
+      a: 'Yes, we can arrange intermediate stops, pickups at hotels, villas, ports, restaurants or event venues.'
     }
   ],
 

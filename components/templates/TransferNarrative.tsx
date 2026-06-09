@@ -7,7 +7,7 @@ import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
 import {WHATSAPP_HREF} from '@/lib/contact';
 import {TransferHero} from '@/components/sections/transfer/TransferHero';
 
-// TransferNarrative — pagina /transfer-sicilia (EN /sicily-transfers).
+// TransferNarrative — pagina /transfer-aeroporti-porti-sicilia (EN /sicily-airport-port-transfers).
 // Stesso design language delle pagine NCC città (NccCityNarrative), ma:
 //   1. hero in stile homepage (titolo + pill preventivo WhatsApp + recensioni)
 //   2. sezione dedicata "Le tratte più richieste" (boarding-pass cards)

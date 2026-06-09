@@ -24,7 +24,7 @@ export type ServiceItem = {
   href:
     | '/ncc-catania'
     | '/tour-sicilia'
-    | '/transfer-sicilia'
+    | '/transfer-aeroporti-porti-sicilia'
     | '/wedding'
     | '/contatti';
 };

@@ -13,8 +13,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   const hub = getTransferHub(locale as Locale);
-  const itPath = '/transfer-sicilia';
-  const enPath = '/en/sicily-transfers';
+  const itPath = '/transfer-aeroporti-porti-sicilia';
+  const enPath = '/en/sicily-airport-port-transfers';
   return {
     title: hub.metaTitle,
     description: hub.metaDescription,
@@ -55,7 +55,7 @@ export default async function TransferSiciliaPage({
       <JsonLd data={localBusinessSchema(locale as Locale)} />
       <JsonLd data={faqPageSchema(hub.faqs)} />
       <JsonLd
-        data={breadcrumbSchema(getBreadcrumb('transfer-sicilia', locale as Locale, hub.h1))}
+        data={breadcrumbSchema(getBreadcrumb('transfer-aeroporti-porti-sicilia', locale as Locale, hub.h1))}
       />
       <TransferNarrative hub={hub} />
     </>

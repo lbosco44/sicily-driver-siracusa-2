@@ -6,7 +6,7 @@ import {HERO_BLUR} from '@/lib/blur';
 import {GoogleReviewsBadge} from '@/components/ui/GoogleReviewsBadge';
 import {HeroQuickQuote} from '@/components/sections/home/HeroQuickQuote';
 
-// TransferHero — hero pagina /transfer-sicilia. Stessa impostazione della
+// TransferHero — hero pagina /transfer-aeroporti-porti-sicilia. Stessa impostazione della
 // hero della homepage (titolo Bricolage centrato + micro-form "Da → A" verso
 // WhatsApp + badge Google), ma con il copy della pagina transfer passato come
 // prop. Cliente 09/06/2026: "metti il testo come nella hero della homepage,
