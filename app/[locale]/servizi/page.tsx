@@ -160,7 +160,7 @@ export default async function ServiziPage({
         </div>
 
         <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-[18vh] sm:pb-[22vh]">
-          <div className="max-w-[18rem] sm:max-w-[34rem]">
+          <div className="max-w-[22rem] sm:max-w-[46rem]">
             <h1
               className="font-display text-display-lg font-medium text-cream-on-dark text-balance"
               style={{fontStretch: '92%'}}
@@ -193,6 +193,9 @@ export default async function ServiziPage({
               {t('cards.h2Pre')}{' '}
               <span className="italic text-accent">{t('cards.h2Accent')}</span>
             </h2>
+            <p className="mt-4 text-[16px] sm:text-[17px] leading-[1.6] text-ink-soft">
+              {t('cards.subhead')}
+            </p>
           </div>
 
           <ServicesTabs services={services} />

@@ -61,7 +61,7 @@ export function ServicesTabs({services}: {services: readonly ServiceItem[]}) {
                   : 'bg-transparent text-ink border-2 border-[var(--border-strong)] hover:border-accent hover:text-accent'
               }`}
             >
-              {s.title}
+              {s.kicker}
             </button>
           );
         })}
