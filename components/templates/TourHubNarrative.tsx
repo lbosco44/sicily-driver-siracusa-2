@@ -45,9 +45,9 @@ export function TourHubNarrative({hub}: {hub: TourHubContent}) {
         </div>
 
         <div className="relative h-full mx-auto max-w-(--container-editorial) px-6 sm:px-10 flex items-end pb-[18vh] sm:pb-[22vh]">
-          <div className="max-w-[22rem] sm:max-w-[52rem]">
+          <div className="max-w-[28ch]">
             <h1
-              className="hero-headline font-display text-display-lg font-medium text-cream-on-dark text-balance"
+              className="hero-headline font-display text-display-lg font-medium text-cream-on-dark"
               style={{
                 fontStretch: '92%',
                 textShadow: '0 2px 24px rgba(0,0,0,0.3)'
@@ -58,9 +58,6 @@ export function TourHubNarrative({hub}: {hub: TourHubContent}) {
                 {hub.h1Accent}
               </span>
             </h1>
-            <p className="mt-4 sm:mt-5 text-[15px] sm:text-[17px] leading-[1.65] text-cream-on-dark/80 max-w-[52ch]">
-              {hub.heroSubhead}
-            </p>
           </div>
         </div>
       </section>

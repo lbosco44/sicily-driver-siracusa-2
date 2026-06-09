@@ -68,7 +68,7 @@ export default async function ServiziPage({
       body: t('cards.card1Body'),
       points: [t('cards.card1Point1'), t('cards.card1Point2'), t('cards.card1Point3')],
       cta: t('cards.card1Cta'),
-      href: '/tour-sicilia' as const
+      href: '/transfer-sicilia' as const
     },
     {
       key: '2',

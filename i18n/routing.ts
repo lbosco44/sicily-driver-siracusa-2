@@ -33,6 +33,10 @@ export const routing = defineRouting({
       it: '/tour-sicilia',
       en: '/sicily-tours'
     },
+    '/transfer-sicilia': {
+      it: '/transfer-sicilia',
+      en: '/sicily-transfers'
+    },
     '/tour-barocco': {
       it: '/tour-barocco',
       en: '/baroque-tour'

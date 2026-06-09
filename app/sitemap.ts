@@ -21,6 +21,7 @@ const PAGES: Entry[] = [
   // Categoria 2 — refresh metadata
   {path: {it: 'ncc-catania', en: 'driver-catania'}, priority: 0.8, changeFrequency: 'monthly'},
   {path: {it: 'tour-sicilia', en: 'sicily-tours'}, priority: 0.8, changeFrequency: 'monthly'},
+  {path: {it: 'transfer-sicilia', en: 'sicily-transfers'}, priority: 0.8, changeFrequency: 'monthly'},
   {path: {it: 'contatti', en: 'contact'}, priority: 0.8, changeFrequency: 'yearly'},
   // Tour nuovi additivi — priorità media
   {path: {it: 'tour/isola-delle-correnti', en: 'tour/isola-delle-correnti'}, priority: 0.8, changeFrequency: 'monthly'},

@@ -12,6 +12,7 @@ type PageKey =
   | 'chi-siamo'
   | 'contatti'
   | 'tour-sicilia'
+  | 'transfer-sicilia'
   | 'tour-barocco'
   | 'tour/etna-premium'
   | 'tour/isola-delle-correnti'
@@ -63,6 +64,7 @@ const PATH: Record<PageKey, {it: string; en: string}> = {
   'chi-siamo': {it: '/chi-siamo', en: '/en/about'},
   contatti: {it: '/contatti', en: '/en/contact'},
   'tour-sicilia': {it: '/tour-sicilia', en: '/en/sicily-tours'},
+  'transfer-sicilia': {it: '/transfer-sicilia', en: '/en/sicily-transfers'},
   'tour-barocco': {it: '/tour-barocco', en: '/en/baroque-tour'},
   'tour/etna-premium': {
     it: '/tour/etna-premium',

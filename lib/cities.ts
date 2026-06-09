@@ -825,6 +825,192 @@ const RAGUSA_EN: CityContent = {
 };
 
 // ============================================================
+// TRANSFER HUB — pagina "tutte le tratte" /transfer-sicilia
+// (EN /sicily-transfers). Riusa il template NccCityNarrative e il tipo
+// CityContent, ma NON è una città: è il landing generale dei transfer
+// raggiunto dalla CTA "Scopri le destinazioni" sotto il pulsante TRANSFER.
+// Creata 09/06/2026. COPY/IMMAGINI/FAQ = placeholder, da rifinire col cliente.
+// NB: il template attuale non renderizza la tabella `routes`; i dati sono
+// pronti per quando aggiungeremo la sezione tratte.
+// ============================================================
+
+const TRANSFER_IT: CityContent = {
+  metaTitle: 'Transfer Sicilia · NCC con Autista Privato 24/7 | Sicily Driver',
+  metaDescription:
+    'Transfer privati in tutta la Sicilia: aeroporti di Catania e Comiso, porti, hotel e città. Van di lusso con autista, prezzi fissi, monitoraggio voli. Servizio 24/7.',
+  h1: 'Le destinazioni più amate della Sicilia',
+  intro:
+    'Transfer privati da e per aeroporti, porti, hotel e ogni destinazione della Sicilia orientale. Van di lusso e auto premium con autisti professionisti, prezzi fissi e servizio 24/7.',
+
+  heroImage: '/images/ncc/catania.webp',
+  heroEyebrow: 'Transfer privati · in tutta la Sicilia · 24/7',
+  heroSubhead:
+    'Dal tuo arrivo in aeroporto o al porto fino alla destinazione finale. Autisti professionisti, Van e Auto premium, monitoraggio voli e assistenza diretta su WhatsApp.',
+
+  trust: [
+    {number: 'da €80', label: 'Catania Aeroporto → Siracusa'},
+    {number: 'Prezzi fissi', label: 'concordati prima della partenza'},
+    {number: '24/7', label: 'su WhatsApp e telefono'}
+  ],
+
+  routesEyebrow: 'Tratte più richieste',
+  routesH2Pre: 'In tutta la Sicilia,',
+  routesH2Accent: 'ti portiamo',
+  routes: [
+    {from: 'Catania Aeroporto', to: 'Siracusa (Ortigia)', price: 'da €80'},
+    {from: 'Catania Aeroporto', to: 'Taormina', price: 'da €120'},
+    {from: 'Catania Aeroporto', to: 'Noto', price: 'da €100'},
+    {from: 'Catania Aeroporto', to: 'Ragusa Ibla', price: 'da €150'},
+    {from: 'Catania Aeroporto', to: 'Modica', price: 'da €140'},
+    {from: 'Comiso Aeroporto', to: 'Ragusa Ibla', price: 'da €40'},
+    {from: 'Siracusa (Ortigia)', to: 'Noto', price: 'da €60'},
+    {from: 'Noto', to: 'Marzamemi', price: 'da €40'},
+    {from: 'Catania Porto (crociere)', to: 'Ortigia', price: 'da €90'}
+  ],
+  routesMicrocopy:
+    'Prezzi per van di lusso fino a 7 passeggeri. Per tratte non in elenco, scrivici su WhatsApp: ti rispondiamo con un preventivo entro un’ora.',
+
+  includesH2Pre: 'Cosa include',
+  includesH2Accent: 'il servizio',
+  includes: INCLUDES_IT,
+
+  fleetH2Pre: 'La',
+  fleetH2Accent: 'flotta',
+  fleet: FLEET_IT,
+
+  faqEyebrow: 'Dubbi',
+  faqH2Pre: 'Le domande che',
+  faqH2Accent: 'ci fate spesso',
+  faqs: [
+    {
+      q: 'Come funziona il monitoraggio del volo?',
+      a: 'Teniamo sotto controllo il tuo volo in tempo reale: se è in ritardo o in anticipo, l’autista si adatta. L’attesa è gratuita fino a 60 minuti dall’atterraggio.'
+    },
+    {
+      q: 'I prezzi sono fissi o a tassametro?',
+      a: 'Sempre fissi e concordati prima della partenza, qualunque sia il traffico. Nessuna sorpresa a fine corsa.'
+    }
+  ],
+
+  nearbyToursEyebrow: 'Esperienze',
+  nearbyToursH2Pre: 'Non solo transfer:',
+  nearbyToursH2Accent: 'i nostri tour',
+  nearbyTours: [
+    {
+      title: 'Tour del Barocco',
+      image:
+        'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=800&q=70&auto=format&fm=webp',
+      href: '/tour-barocco'
+    },
+    {
+      title: 'Tour Etna',
+      image:
+        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
+      href: '/tour/etna-premium'
+    },
+    {
+      title: 'Ortigia + Taormina',
+      image:
+        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
+      href: '/tour/dolce-vita-siracusa'
+    }
+  ],
+
+  ctaEyebrow: 'Per prima cosa',
+  ctaH2: 'Dove ti veniamo a prendere?',
+  ctaSubhead:
+    'Dimmi data, orario, tratta e numero di passeggeri. Ti rispondiamo con un preventivo entro un’ora.'
+};
+
+const TRANSFER_EN: CityContent = {
+  metaTitle: 'Sicily Transfers · Private Driver & NCC 24/7 | Sicily Driver',
+  metaDescription:
+    'Private transfers across Sicily: Catania and Comiso airports, ports, hotels and cities. Luxury van with chauffeur, flat rates, flight monitoring. 24/7 service.',
+  h1: 'Sicily’s Most Loved Destinations',
+  intro:
+    'Private transfers to and from airports, ports, hotels and every destination in eastern Sicily. Luxury vans and premium cars with professional drivers, flat rates and 24/7 service.',
+
+  heroImage: '/images/ncc/catania.webp',
+  heroEyebrow: 'Private transfers · across Sicily · 24/7',
+  heroSubhead:
+    'From your airport or port arrival to your final destination. Professional drivers, premium vans and cars, flight monitoring and direct WhatsApp support.',
+
+  trust: [
+    {number: 'from €80', label: 'Catania Airport → Syracuse'},
+    {number: 'Flat rates', label: 'agreed before departure'},
+    {number: '24/7', label: 'on WhatsApp and phone'}
+  ],
+
+  routesEyebrow: 'Most requested routes',
+  routesH2Pre: 'Across Sicily,',
+  routesH2Accent: 'we drive you',
+  routes: [
+    {from: 'Catania Airport', to: 'Syracuse (Ortigia)', price: 'from €80'},
+    {from: 'Catania Airport', to: 'Taormina', price: 'from €120'},
+    {from: 'Catania Airport', to: 'Noto', price: 'from €100'},
+    {from: 'Catania Airport', to: 'Ragusa Ibla', price: 'from €150'},
+    {from: 'Catania Airport', to: 'Modica', price: 'from €140'},
+    {from: 'Comiso Airport', to: 'Ragusa Ibla', price: 'from €40'},
+    {from: 'Syracuse (Ortigia)', to: 'Noto', price: 'from €60'},
+    {from: 'Noto', to: 'Marzamemi', price: 'from €40'},
+    {from: 'Catania Cruise Port', to: 'Ortigia', price: 'from €90'}
+  ],
+  routesMicrocopy:
+    'Prices for our luxury van (up to 7 passengers). For routes not listed, message us on WhatsApp — you’ll get a quote within one hour.',
+
+  includesH2Pre: 'What’s',
+  includesH2Accent: 'included',
+  includes: INCLUDES_EN,
+
+  fleetH2Pre: 'Our',
+  fleetH2Accent: 'fleet',
+  fleet: FLEET_EN,
+
+  faqEyebrow: 'FAQ',
+  faqH2Pre: 'Frequent',
+  faqH2Accent: 'questions',
+  faqs: [
+    {
+      q: 'How does flight monitoring work?',
+      a: 'We track your flight in real time: if it’s delayed or early, the driver adapts. Waiting is free up to 60 minutes after landing.'
+    },
+    {
+      q: 'Are prices fixed or metered?',
+      a: 'Always fixed and agreed before departure, whatever the traffic. No surprises at the end of the ride.'
+    }
+  ],
+
+  nearbyToursEyebrow: 'Experiences',
+  nearbyToursH2Pre: 'Not just transfers:',
+  nearbyToursH2Accent: 'our tours',
+  nearbyTours: [
+    {
+      title: 'Baroque Tour',
+      image:
+        'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=800&q=70&auto=format&fm=webp',
+      href: '/tour-barocco'
+    },
+    {
+      title: 'Etna Tour',
+      image:
+        'https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=800&q=70&auto=format&fm=webp',
+      href: '/tour/etna-premium'
+    },
+    {
+      title: 'Ortigia + Taormina',
+      image:
+        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=800&q=70&auto=format&fm=webp',
+      href: '/tour/dolce-vita-siracusa'
+    }
+  ],
+
+  ctaEyebrow: 'First things first',
+  ctaH2: 'Where shall we pick you up?',
+  ctaSubhead:
+    'Tell us the date, time, route and number of passengers. We’ll reply with a quote within the hour.'
+};
+
+// ============================================================
 // Lookup
 // ============================================================
 
@@ -835,4 +1021,13 @@ const DATA: Record<Locale, Record<CityKey, CityContent>> = {
 
 export function getCity(key: CityKey, locale: Locale): CityContent {
   return DATA[locale][key];
+}
+
+const TRANSFER: Record<Locale, CityContent> = {
+  it: TRANSFER_IT,
+  en: TRANSFER_EN
+};
+
+export function getTransferHub(locale: Locale): CityContent {
+  return TRANSFER[locale];
 }
