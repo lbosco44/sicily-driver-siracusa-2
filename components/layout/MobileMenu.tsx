@@ -11,6 +11,7 @@ import {
   SheetDescription
 } from '@/components/ui/sheet';
 import {HomeLink} from './HomeLink';
+import {LanguageSwitcher} from './LanguageSwitcher';
 import {WHATSAPP_HREF} from '@/lib/contact';
 import {TOURS_NAV} from '@/lib/tours-nav';
 import type {ToursListLabels} from '@/lib/nav-types';
@@ -28,12 +29,14 @@ export function MobileMenu({
   links,
   toursList,
   bookLabel,
-  whatsappLabel
+  whatsappLabel,
+  languageLabel
 }: {
   links: MobileMenuLink[];
   toursList: ToursListLabels;
   bookLabel: string;
   whatsappLabel: string;
+  languageLabel: string;
 }) {
   const [open, setOpen] = useState(false);
   const [tourExpanded, setTourExpanded] = useState(false);
@@ -202,6 +205,15 @@ export function MobileMenu({
             >
               {whatsappLabel}
             </a>
+          </div>
+
+          {/* Language switcher — spostato qui dalla navbar su mobile
+              (cliente 10/06/2026). */}
+          <div className="mt-8 pt-6 border-t border-[var(--border)] flex items-center justify-between">
+            <span className="text-[11px] uppercase tracking-[0.18em] font-medium text-secondary">
+              {languageLabel}
+            </span>
+            <LanguageSwitcher className="text-[14px]" />
           </div>
         </nav>
       </SheetContent>
