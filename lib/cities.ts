@@ -153,6 +153,56 @@ const TRANSFER_INCLUDES_EN = [
   'WhatsApp support before and during the service'
 ];
 
+// Transfer hub — flotta dedicata (cliente 09/06/2026): modelli Mercedes
+// espliciti + caso d'uso come tagline. NON condivisa con le pagine città.
+const TRANSFER_FLEET_IT: FleetCard[] = [
+  {
+    model: 'Mercedes Classe V',
+    pax: 'Fino a 7 passeggeri',
+    luggage: '6 valigie grandi + bagaglio a mano',
+    comfort: 'Aria condizionata, sedili in pelle, finestrini oscurati',
+    ideal: 'Per famiglie e gruppi'
+  },
+  {
+    model: 'Mercedes GLB Premium',
+    pax: 'Fino a 4 passeggeri',
+    luggage: '3 valigie grandi',
+    comfort: 'SUV alto, vista panoramica, assetto comodo',
+    ideal: 'Per transfer privati e tour'
+  },
+  {
+    model: 'Mercedes Classe E',
+    pax: 'Fino a 3 passeggeri',
+    luggage: '2 valigie grandi',
+    comfort: 'Berlina executive, finiture eleganti, guida silenziosa',
+    ideal: 'Per business, coppie e ospiti VIP'
+  }
+];
+
+const TRANSFER_FLEET_EN: FleetCard[] = [
+  {
+    model: 'Mercedes V-Class',
+    pax: 'Up to 7 passengers',
+    luggage: '6 large suitcases + carry-on',
+    comfort: 'Air conditioning, leather seats, tinted windows',
+    ideal: 'For families and groups'
+  },
+  {
+    model: 'Mercedes GLB Premium',
+    pax: 'Up to 4 passengers',
+    luggage: '3 large suitcases',
+    comfort: 'High SUV ride, panoramic view, comfortable setup',
+    ideal: 'For private transfers and tours'
+  },
+  {
+    model: 'Mercedes E-Class',
+    pax: 'Up to 3 passengers',
+    luggage: '2 large suitcases',
+    comfort: 'Executive sedan, elegant finishes, quiet ride',
+    ideal: 'For business, couples and VIP guests'
+  }
+];
+
 // ============================================================
 // City data
 // ============================================================
@@ -892,9 +942,9 @@ const TRANSFER_IT: CityContent = {
   includesH2Accent: 'il servizio',
   includes: TRANSFER_INCLUDES_IT,
 
-  fleetH2Pre: 'La',
-  fleetH2Accent: 'flotta',
-  fleet: FLEET_IT,
+  fleetH2Pre: 'Viaggia comodo,',
+  fleetH2Accent: 'fin dal primo minuto',
+  fleet: TRANSFER_FLEET_IT,
 
   faqEyebrow: 'Dubbi',
   faqH2Pre: 'Le domande che',
@@ -979,9 +1029,9 @@ const TRANSFER_EN: CityContent = {
   includesH2Accent: 'included',
   includes: TRANSFER_INCLUDES_EN,
 
-  fleetH2Pre: 'Our',
-  fleetH2Accent: 'fleet',
-  fleet: FLEET_EN,
+  fleetH2Pre: 'Travel in comfort,',
+  fleetH2Accent: 'from the first minute',
+  fleet: TRANSFER_FLEET_EN,
 
   faqEyebrow: 'FAQ',
   faqH2Pre: 'Frequent',

@@ -135,7 +135,7 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
       <section className="bg-canvas-warm py-20 sm:py-28">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
           <h2
-            className="font-display text-display-md font-light text-ink max-w-[14ch] mb-12 sm:mb-14"
+            className="font-display text-display-md font-light text-ink max-w-[20ch] mb-12 sm:mb-14"
             style={{fontStretch: '95%'}}
           >
             {hub.fleetH2Pre}{' '}
