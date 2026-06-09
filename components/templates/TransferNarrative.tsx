@@ -91,13 +91,29 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
                   >
                     {r.from}
                   </span>
-                  <span
+                  <svg
                     aria-hidden="true"
-                    className="shrink-0 flex items-center text-accent"
+                    viewBox="0 0 48 12"
+                    fill="none"
+                    className="shrink-0 w-9 sm:w-12 text-accent"
                   >
-                    <span className="hidden sm:block w-7 border-t border-dashed border-accent/45" />
-                    <span className="text-[20px] leading-none px-0.5">→</span>
-                  </span>
+                    <line
+                      x1="0"
+                      y1="6"
+                      x2="40"
+                      y2="6"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M38 2.5 L45.5 6 L38 9.5"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                   <span
                     className="flex-1 min-w-0 text-right font-display text-[16px] sm:text-[19px] font-medium text-ink leading-snug"
                     style={{fontStretch: '95%'}}
@@ -109,7 +125,7 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
             ))}
           </ul>
 
-          <p className="mt-9 sm:mt-10 text-[15px] sm:text-[16px] leading-[1.6] text-ink-soft max-w-[64ch]">
+          <p className="mt-9 sm:mt-10 text-[15px] sm:text-[16px] leading-[1.6] text-ink-soft">
             {hub.routesMicrocopy}
           </p>
         </div>
