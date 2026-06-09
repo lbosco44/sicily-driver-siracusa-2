@@ -123,8 +123,13 @@ export default async function ContattiPage({
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20">
             <div className="lg:sticky lg:top-28 lg:self-start">
               <h2
-                className="font-display text-display-md font-light text-ink max-w-[14ch] mb-7"
-                style={{fontStretch: '95%'}}
+                className="font-display font-light text-ink max-w-[15ch] text-balance mb-7"
+                style={{
+                  fontStretch: '95%',
+                  fontSize: 'clamp(38px, 6.2vw, 84px)',
+                  lineHeight: '0.98',
+                  letterSpacing: '-0.035em'
+                }}
               >
                 {t('form.h2Pre')}{' '}
                 <span className="italic text-accent">{t('form.h2Accent')}</span>
