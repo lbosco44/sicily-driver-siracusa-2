@@ -165,9 +165,9 @@ const HUB_IT: TourHubContent = {
 
   heroImage: HERO_HUB,
   heroEyebrow: 'Tour Sicilia · con autista privato',
-  h1Pre: 'Tour Sicilia con',
-  h1Accent: 'Autista Privato',
-  heroSubhead: 'Cinque esperienze testate e tour su misura, in tutta la Sicilia orientale.',
+  h1Pre: 'Le destinazioni più amate',
+  h1Accent: 'della Sicilia',
+  heroSubhead: 'Dal tuo arrivo in aeroporto o al porto fino alla destinazione finale. Autisti professionisti, Van e Auto premium, monitoraggio voli e assistenza diretta su WhatsApp.',
 
   introH2Pre: 'Cinque modi',
   introH2Accent: 'di vedere la Sicilia',
@@ -286,9 +286,9 @@ const HUB_EN: TourHubContent = {
 
   heroImage: HERO_HUB,
   heroEyebrow: 'Sicily tours · with a private driver',
-  h1Pre: 'Sicily Tours, with a',
-  h1Accent: 'Private Driver',
-  heroSubhead: 'Five tested experiences and unlimited custom routes across eastern Sicily.',
+  h1Pre: "Sicily's Most Loved",
+  h1Accent: 'Destinations',
+  heroSubhead: 'From your airport or port arrival to your final destination. Professional drivers, premium vans and cars, flight monitoring and direct WhatsApp support.',
 
   introH2Pre: 'Five ways',
   introH2Accent: 'to see Sicily',
