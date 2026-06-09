@@ -407,7 +407,17 @@
     "ctaCall": "Chiama · +39 375 641 3379",
     "ctaQuote": "Richiedi un preventivo",
     "ctaEmailPre": "O scrivici a",
-    "ctaDiscoverTour": "Scopri il tour"
+    "ctaDiscoverTour": "Scopri il tour",
+    "routeDuration": "Durata",
+    "routeQuoteCta": "Preventivo su WhatsApp",
+    "routePriceFootnote": "Prezzo fisso, confermato prima della partenza.",
+    "routeIncludesPre": "Cosa include",
+    "routeIncludesAccent": "la tratta",
+    "routeFaqPre": "Domande su questa",
+    "routeFaqAccent": "tratta",
+    "routeOthersPre": "Altre tratte",
+    "routeOthersAccent": "richieste",
+    "routeAllRoutes": "Tutte le tratte"
   },
   "Servizi": {
     "meta": {

@@ -13,6 +13,10 @@ type PageKey =
   | 'contatti'
   | 'tour-sicilia'
   | 'transfer-aeroporti-porti-sicilia'
+  | 'transfer-catania-siracusa'
+  | 'transfer-catania-noto'
+  | 'transfer-catania-taormina'
+  | 'transfer-pozzallo-siracusa'
   | 'tour-barocco'
   | 'tour/etna-premium'
   | 'tour/isola-delle-correnti'
@@ -28,6 +32,7 @@ type Labels = {
   about: string;
   contact: string;
   ncc: string;
+  transfer: string;
   wedding: string;
   partner: string;
 };
@@ -39,6 +44,7 @@ const LABELS_IT: Labels = {
   about: 'Chi siamo',
   contact: 'Contatti',
   ncc: 'NCC città',
+  transfer: 'Transfer',
   wedding: 'Wedding',
   partner: 'Partner'
 };
@@ -50,6 +56,7 @@ const LABELS_EN: Labels = {
   about: 'About',
   contact: 'Contact',
   ncc: 'City driver',
+  transfer: 'Transfers',
   wedding: 'Weddings',
   partner: 'Partners'
 };
@@ -67,6 +74,22 @@ const PATH: Record<PageKey, {it: string; en: string}> = {
   'transfer-aeroporti-porti-sicilia': {
     it: '/transfer-aeroporti-porti-sicilia',
     en: '/en/sicily-airport-port-transfers'
+  },
+  'transfer-catania-siracusa': {
+    it: '/transfer-catania-siracusa',
+    en: '/en/catania-syracuse-transfer'
+  },
+  'transfer-catania-noto': {
+    it: '/transfer-catania-noto',
+    en: '/en/catania-noto-transfer'
+  },
+  'transfer-catania-taormina': {
+    it: '/transfer-catania-taormina',
+    en: '/en/catania-taormina-transfer'
+  },
+  'transfer-pozzallo-siracusa': {
+    it: '/transfer-pozzallo-siracusa',
+    en: '/en/pozzallo-syracuse-transfer'
   },
   'tour-barocco': {it: '/tour-barocco', en: '/en/baroque-tour'},
   'tour/etna-premium': {
@@ -104,6 +127,14 @@ export function getBreadcrumb(
   // Pagine NCC: Home > NCC città > {città}
   if (page.startsWith('ncc-')) {
     return [home, {name: L.ncc, url: prefix}, here];
+  }
+  // Pagine tratta transfer: Home > Transfer (pagina-madre) > {tratta}
+  if (page.startsWith('transfer-') && page !== 'transfer-aeroporti-porti-sicilia') {
+    return [
+      home,
+      {name: L.transfer, url: PATH['transfer-aeroporti-porti-sicilia'][locale]},
+      here
+    ];
   }
   // Pagine tour dedicate (sotto /tour/): Home > Tour > {tour}
   if (

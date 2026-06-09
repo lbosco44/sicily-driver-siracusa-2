@@ -22,6 +22,11 @@ const PAGES: Entry[] = [
   {path: {it: 'ncc-catania', en: 'driver-catania'}, priority: 0.8, changeFrequency: 'monthly'},
   {path: {it: 'tour-sicilia', en: 'sicily-tours'}, priority: 0.8, changeFrequency: 'monthly'},
   {path: {it: 'transfer-aeroporti-porti-sicilia', en: 'sicily-airport-port-transfers'}, priority: 0.8, changeFrequency: 'monthly'},
+  // Pagine figlie SEO per singola tratta
+  {path: {it: 'transfer-catania-siracusa', en: 'catania-syracuse-transfer'}, priority: 0.7, changeFrequency: 'monthly'},
+  {path: {it: 'transfer-catania-noto', en: 'catania-noto-transfer'}, priority: 0.7, changeFrequency: 'monthly'},
+  {path: {it: 'transfer-catania-taormina', en: 'catania-taormina-transfer'}, priority: 0.7, changeFrequency: 'monthly'},
+  {path: {it: 'transfer-pozzallo-siracusa', en: 'pozzallo-syracuse-transfer'}, priority: 0.7, changeFrequency: 'monthly'},
   {path: {it: 'contatti', en: 'contact'}, priority: 0.8, changeFrequency: 'yearly'},
   // Tour nuovi additivi — priorità media
   {path: {it: 'tour/isola-delle-correnti', en: 'tour/isola-delle-correnti'}, priority: 0.8, changeFrequency: 'monthly'},

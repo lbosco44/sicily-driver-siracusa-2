@@ -37,6 +37,22 @@ export const routing = defineRouting({
       it: '/transfer-aeroporti-porti-sicilia',
       en: '/sicily-airport-port-transfers'
     },
+    '/transfer-catania-siracusa': {
+      it: '/transfer-catania-siracusa',
+      en: '/catania-syracuse-transfer'
+    },
+    '/transfer-catania-noto': {
+      it: '/transfer-catania-noto',
+      en: '/catania-noto-transfer'
+    },
+    '/transfer-catania-taormina': {
+      it: '/transfer-catania-taormina',
+      en: '/catania-taormina-transfer'
+    },
+    '/transfer-pozzallo-siracusa': {
+      it: '/transfer-pozzallo-siracusa',
+      en: '/pozzallo-syracuse-transfer'
+    },
     '/tour-barocco': {
       it: '/tour-barocco',
       en: '/baroque-tour'

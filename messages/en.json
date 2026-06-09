@@ -407,7 +407,17 @@
     "ctaCall": "Call · +39 375 641 3379",
     "ctaQuote": "Request a quote",
     "ctaEmailPre": "Or email",
-    "ctaDiscoverTour": "Discover the tour"
+    "ctaDiscoverTour": "Discover the tour",
+    "routeDuration": "Duration",
+    "routeQuoteCta": "Quote on WhatsApp",
+    "routePriceFootnote": "Flat rate, confirmed before departure.",
+    "routeIncludesPre": "What the trip",
+    "routeIncludesAccent": "includes",
+    "routeFaqPre": "Questions about this",
+    "routeFaqAccent": "route",
+    "routeOthersPre": "Other requested",
+    "routeOthersAccent": "routes",
+    "routeAllRoutes": "All routes"
   },
   "Servizi": {
     "meta": {
