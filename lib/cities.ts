@@ -10,7 +10,7 @@
 export type CityKey = 'catania' | 'noto' | 'taormina' | 'ragusa';
 export type Locale = 'it' | 'en';
 
-export type Route = {from: string; to: string; price: string};
+export type Route = {from: string; to: string; price?: string};
 export type Faq = {q: string; a: string};
 export type FleetCard = {model: string; pax: string; luggage: string; comfort: string; ideal: string};
 export type TourCard = {title: string; image: string; href: '/tour-barocco' | '/tour/etna-premium' | '/tour/dolce-vita-siracusa'};
@@ -132,6 +132,25 @@ const INCLUDES_EN = [
   'Cold water on board, always',
   'Direct WhatsApp with driver at pickup',
   'Tax receipt or invoice for business'
+];
+
+// Transfer hub — checklist dedicata (cliente 09/06/2026)
+const TRANSFER_INCLUDES_IT = [
+  'Monitoraggio voli in tempo reale',
+  'Attesa gratuita fino a 60 minuti',
+  'Pickup in aeroporto, porto, hotel o villa',
+  'Seggiolini bambino su richiesta',
+  'Acqua fresca a bordo',
+  'Assistenza WhatsApp prima e durante il servizio'
+];
+
+const TRANSFER_INCLUDES_EN = [
+  'Real-time flight monitoring',
+  'Free waiting up to 60 minutes',
+  'Pickup at airport, port, hotel or villa',
+  'Child seats on request',
+  'Cold water on board',
+  'WhatsApp support before and during the service'
 ];
 
 // ============================================================
@@ -853,26 +872,25 @@ const TRANSFER_IT: CityContent = {
     {number: '24/7', label: 'su WhatsApp e telefono'}
   ],
 
-  routesEyebrow: 'Tratte più richieste',
-  routesH2Pre: 'In tutta la Sicilia,',
-  routesH2Accent: 'ti portiamo',
+  routesEyebrow: 'In tutta la Sicilia',
+  routesH2Pre: 'Le tratte',
+  routesH2Accent: 'più richieste',
   routes: [
-    {from: 'Catania Aeroporto', to: 'Siracusa (Ortigia)', price: 'da €80'},
-    {from: 'Catania Aeroporto', to: 'Taormina', price: 'da €120'},
-    {from: 'Catania Aeroporto', to: 'Noto', price: 'da €100'},
-    {from: 'Catania Aeroporto', to: 'Ragusa Ibla', price: 'da €150'},
-    {from: 'Catania Aeroporto', to: 'Modica', price: 'da €140'},
-    {from: 'Comiso Aeroporto', to: 'Ragusa Ibla', price: 'da €40'},
-    {from: 'Siracusa (Ortigia)', to: 'Noto', price: 'da €60'},
-    {from: 'Noto', to: 'Marzamemi', price: 'da €40'},
-    {from: 'Catania Porto (crociere)', to: 'Ortigia', price: 'da €90'}
+    {from: 'Aeroporto Catania', to: 'Siracusa / Ortigia'},
+    {from: 'Aeroporto Catania', to: 'Noto'},
+    {from: 'Aeroporto Catania', to: 'Taormina'},
+    {from: 'Aeroporto Catania', to: 'Modica / Ragusa Ibla'},
+    {from: 'Aeroporto Comiso', to: 'Ragusa / Modica / Noto'},
+    {from: 'Porto di Pozzallo', to: 'Siracusa / Ortigia'},
+    {from: 'Palermo', to: 'Siracusa / Taormina / Noto'},
+    {from: 'Trapani', to: 'Palermo / Agrigento / Sicilia orientale'}
   ],
   routesMicrocopy:
-    'Prezzi per van di lusso fino a 7 passeggeri. Per tratte non in elenco, scrivici su WhatsApp: ti rispondiamo con un preventivo entro un’ora.',
+    'Queste sono le tratte che ci chiedono più spesso. Operiamo in tutta la Sicilia: per qualsiasi altra destinazione scrivici su WhatsApp, ti rispondiamo con un preventivo entro un’ora.',
 
   includesH2Pre: 'Cosa include',
   includesH2Accent: 'il servizio',
-  includes: INCLUDES_IT,
+  includes: TRANSFER_INCLUDES_IT,
 
   fleetH2Pre: 'La',
   fleetH2Accent: 'flotta',
@@ -941,26 +959,25 @@ const TRANSFER_EN: CityContent = {
     {number: '24/7', label: 'on WhatsApp and phone'}
   ],
 
-  routesEyebrow: 'Most requested routes',
-  routesH2Pre: 'Across Sicily,',
-  routesH2Accent: 'we drive you',
+  routesEyebrow: 'Across Sicily',
+  routesH2Pre: 'Most requested',
+  routesH2Accent: 'routes',
   routes: [
-    {from: 'Catania Airport', to: 'Syracuse (Ortigia)', price: 'from €80'},
-    {from: 'Catania Airport', to: 'Taormina', price: 'from €120'},
-    {from: 'Catania Airport', to: 'Noto', price: 'from €100'},
-    {from: 'Catania Airport', to: 'Ragusa Ibla', price: 'from €150'},
-    {from: 'Catania Airport', to: 'Modica', price: 'from €140'},
-    {from: 'Comiso Airport', to: 'Ragusa Ibla', price: 'from €40'},
-    {from: 'Syracuse (Ortigia)', to: 'Noto', price: 'from €60'},
-    {from: 'Noto', to: 'Marzamemi', price: 'from €40'},
-    {from: 'Catania Cruise Port', to: 'Ortigia', price: 'from €90'}
+    {from: 'Catania Airport', to: 'Syracuse / Ortigia'},
+    {from: 'Catania Airport', to: 'Noto'},
+    {from: 'Catania Airport', to: 'Taormina'},
+    {from: 'Catania Airport', to: 'Modica / Ragusa Ibla'},
+    {from: 'Comiso Airport', to: 'Ragusa / Modica / Noto'},
+    {from: 'Pozzallo Port', to: 'Syracuse / Ortigia'},
+    {from: 'Palermo', to: 'Syracuse / Taormina / Noto'},
+    {from: 'Trapani', to: 'Palermo / Agrigento / eastern Sicily'}
   ],
   routesMicrocopy:
-    'Prices for our luxury van (up to 7 passengers). For routes not listed, message us on WhatsApp — you’ll get a quote within one hour.',
+    'These are the routes we’re asked for most. We operate across all of Sicily — for any other destination, message us on WhatsApp and we’ll reply with a quote within the hour.',
 
   includesH2Pre: 'What’s',
   includesH2Accent: 'included',
-  includes: INCLUDES_EN,
+  includes: TRANSFER_INCLUDES_EN,
 
   fleetH2Pre: 'Our',
   fleetH2Accent: 'fleet',

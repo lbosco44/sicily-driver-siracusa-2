@@ -1,6 +1,6 @@
 import type {Metadata} from 'next';
 import {setRequestLocale} from 'next-intl/server';
-import {NccCityNarrative} from '@/components/templates/NccCityNarrative';
+import {TransferNarrative} from '@/components/templates/TransferNarrative';
 import {getTransferHub, type Locale} from '@/lib/cities';
 import {faqPageSchema, breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
 import {getBreadcrumb} from '@/lib/breadcrumbs';
@@ -57,7 +57,7 @@ export default async function TransferSiciliaPage({
       <JsonLd
         data={breadcrumbSchema(getBreadcrumb('transfer-sicilia', locale as Locale, hub.h1))}
       />
-      <NccCityNarrative city={hub} />
+      <TransferNarrative hub={hub} />
     </>
   );
 }
