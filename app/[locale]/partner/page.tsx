@@ -198,7 +198,7 @@ export default async function PartnerPage({
                 className="font-display italic text-[28px] sm:text-[40px] font-light text-ink/25 leading-none tabular-nums"
                 style={{fontStretch: '95%'}}
               >
-                05
+                {String(p.partners.length + 1).padStart(2, '0')}
               </span>
             </div>
             <div className="pt-1">

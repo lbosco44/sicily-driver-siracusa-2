@@ -14,7 +14,8 @@ export type Partner = {
   tourHref:
     | '/tour/isola-delle-correnti'
     | '/tour/silent-sailing'
-    | '/tour/etna-premium';
+    | '/tour/etna-premium'
+    | '/tour/dolce-vita-siracusa';
   tourName: string;
   // Logo monocromo -ink + dimensioni intrinseche (no CLS).
   logo: string;
@@ -122,11 +123,44 @@ const PARTNER_IT: PartnerContent = {
       logo: '/images/loghi-partner/palmeri2-ink.png',
       logoW: 1500,
       logoH: 687
+    },
+    {
+      eyebrow: 'Etna nord · Cantina di famiglia',
+      name: 'Gambino Vini',
+      body: 'Gambino sta sul versante nord dell’Etna, a Linguaglossa, con i vigneti terrazzati di contrada Petto Dragone intorno agli 800 metri. È una cantina di famiglia che lavora i vitigni dell’isola come si deve: Nerello Mascalese e Nerello Cappuccio per i rossi, Carricante e Catarratto per i bianchi, su suoli vulcanici che danno vini nervosi e minerali. La sala di degustazione guarda il vulcano da un lato e il mare dall’altro. Li portiamo nell’Etna Premium perché qui il vino si beve con la montagna davanti, non in una sala anonima.',
+      whereYouFindThem: 'Dove li trovi nei nostri tour',
+      tourHref: '/tour/etna-premium',
+      tourName: 'Etna Premium Escape',
+      logo: '/images/loghi-partner/gambino-ink.png',
+      logoW: 460,
+      logoH: 140
+    },
+    {
+      eyebrow: 'Taormina · Granita siciliana',
+      name: 'Bam Bar',
+      body: 'Il Bam Bar, in via di Giovanni a Taormina, è la tappa per la vera granita siciliana — quella servita con la brioche col tuppo, da mangiare seduti tra le decorazioni dipinte a mano. Mandorla, gelso, limone, pistacchio: scegliere è difficile, e infatti in molti ne prendono due gusti. È un posto semplice e sempre pieno, di turisti e di gente di Taormina allo stesso modo. Lo inseriamo nei nostri itinerari perché una mattina a Taormina senza granita da Bam Bar è una mattina sprecata.',
+      whereYouFindThem: 'Dove li trovi nei nostri tour',
+      tourHref: '/tour/dolce-vita-siracusa',
+      tourName: 'Ortigia + Taormina',
+      logo: '/images/loghi-partner/bambar-ink.png',
+      logoW: 1590,
+      logoH: 415
+    },
+    {
+      eyebrow: 'Siracusa · Soggiorno di design',
+      name: 'Orty Suite',
+      body: 'Orty Suite è un loft di design nella Borgata di Siracusa, a pochi passi da Ortigia ma lontano dal caos. Settantaquattro metri quadri, soffitti alti più di quattro, arredi fatti a mano da artigiani del posto: il tipo di posto dove torni volentieri dopo una giornata in giro. Cortile privato, tutto a portata di passeggiata — dal Teatro Greco al museo Paolo Orsi. Lo consigliamo perché chi ci sceglie per muoversi merita anche un posto vero dove fermarsi, non una camera qualsiasi.',
+      whereYouFindThem: 'L’esperienza a due passi',
+      tourHref: '/tour/silent-sailing',
+      tourName: 'Silent Sailing',
+      logo: '/images/loghi-partner/ortysuite-ink.png',
+      logoW: 655,
+      logoH: 316
     }
   ],
 
   fifthSlotIntro:
-    'Stiamo selezionando un quinto partner: una pasticceria di Modica per i tour del barocco. Aggiornamento previsto entro fine 2026.',
+    'Stiamo selezionando un nuovo partner: una pasticceria di Modica per i tour del barocco. Aggiornamento previsto entro fine 2026.',
 
   ctaEyebrow: 'Lavoriamo insieme?',
   ctaH2Pre: 'Sei un’attività siciliana e',
@@ -198,11 +232,44 @@ const PARTNER_EN: PartnerContent = {
       logo: '/images/loghi-partner/palmeri2-ink.png',
       logoW: 1500,
       logoH: 687
+    },
+    {
+      eyebrow: 'North Etna · Family winery',
+      name: 'Gambino Vini',
+      body: 'Gambino sits on the northern slope of Etna, in Linguaglossa, with the terraced vineyards of contrada Petto Dragone at around 800 meters. It’s a family winery that works the island’s grapes properly: Nerello Mascalese and Nerello Cappuccio for the reds, Carricante and Catarratto for the whites, on volcanic soils that give nervy, mineral wines. The tasting room faces the volcano on one side and the sea on the other. We take you here on the Etna Premium because the wine is drunk with the mountain in front of you, not in an anonymous room.',
+      whereYouFindThem: 'Where you find them in our tours',
+      tourHref: '/tour/etna-premium',
+      tourName: 'Etna Premium Escape',
+      logo: '/images/loghi-partner/gambino-ink.png',
+      logoW: 460,
+      logoH: 140
+    },
+    {
+      eyebrow: 'Taormina · Sicilian granita',
+      name: 'Bam Bar',
+      body: 'Bam Bar, on Via di Giovanni in Taormina, is the stop for real Sicilian granita — the one served with brioche col tuppo, eaten sitting among the hand-painted decorations. Almond, mulberry, lemon, pistachio: choosing is hard, which is why many order two flavors. It’s a simple place, always full, of tourists and Taormina locals alike. We put it in our itineraries because a morning in Taormina without granita at Bam Bar is a wasted morning.',
+      whereYouFindThem: 'Where you find them in our tours',
+      tourHref: '/tour/dolce-vita-siracusa',
+      tourName: 'Ortigia + Taormina',
+      logo: '/images/loghi-partner/bambar-ink.png',
+      logoW: 1590,
+      logoH: 415
+    },
+    {
+      eyebrow: 'Syracuse · Design stay',
+      name: 'Orty Suite',
+      body: 'Orty Suite is a design loft in the Borgata of Syracuse, a few steps from Ortigia but away from the chaos. Seventy-four square meters, ceilings over four meters high, furnishings handmade by local artisans: the kind of place you’re happy to come back to after a day out. A private courtyard, everything within walking distance — from the Greek Theatre to the Paolo Orsi museum. We recommend it because those who choose us to get around also deserve a real place to stay, not just any room.',
+      whereYouFindThem: 'The experience a step away',
+      tourHref: '/tour/silent-sailing',
+      tourName: 'Silent Sailing',
+      logo: '/images/loghi-partner/ortysuite-ink.png',
+      logoW: 655,
+      logoH: 316
     }
   ],
 
   fifthSlotIntro:
-    'We’re selecting a fifth partner: a pasticceria in Modica for Baroque tours. Update expected by end of 2026.',
+    'We’re selecting a new partner: a pasticceria in Modica for Baroque tours. Update expected by end of 2026.',
 
   ctaEyebrow: 'Work together?',
   ctaH2Pre: 'Are you a Sicilian business',
