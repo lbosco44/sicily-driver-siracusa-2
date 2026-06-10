@@ -150,7 +150,7 @@
       "fromPlaceholder": "Da… (es. Aeroporto Catania)",
       "toLabel": "Destinazione",
       "toPlaceholder": "A… (es. Siracusa)",
-      "cta": "Preventivo su WhatsApp",
+      "cta": "Contattaci",
       "waMessage": "Ciao! Vorrei un preventivo per un transfer da {from} a {to}.",
       "waMessageGeneric": "Ciao! Vorrei un preventivo per un transfer in Sicilia."
     },
@@ -409,7 +409,7 @@
     "ctaEmailPre": "O scrivici a",
     "ctaDiscoverTour": "Scopri il tour",
     "routeDuration": "Durata",
-    "routeQuoteCta": "Preventivo su WhatsApp",
+    "routeQuoteCta": "Contattaci",
     "routePriceFootnote": "Prezzo fisso, confermato prima della partenza.",
     "routeIncludesPre": "Cosa include",
     "routeIncludesAccent": "la tratta",

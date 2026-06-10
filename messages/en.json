@@ -150,7 +150,7 @@
       "fromPlaceholder": "From… (e.g. Catania Airport)",
       "toLabel": "Destination",
       "toPlaceholder": "To… (e.g. Syracuse)",
-      "cta": "Quote on WhatsApp",
+      "cta": "Contact us",
       "waMessage": "Hi! I'd like a quote for a transfer from {from} to {to}.",
       "waMessageGeneric": "Hi! I'd like a quote for a transfer in Sicily."
     },
@@ -409,7 +409,7 @@
     "ctaEmailPre": "Or email",
     "ctaDiscoverTour": "Discover the tour",
     "routeDuration": "Duration",
-    "routeQuoteCta": "Quote on WhatsApp",
+    "routeQuoteCta": "Contact us",
     "routePriceFootnote": "Flat rate, confirmed before departure.",
     "routeIncludesPre": "What the trip",
     "routeIncludesAccent": "includes",
