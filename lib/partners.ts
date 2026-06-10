@@ -16,18 +16,26 @@ export type Partner = {
     | '/tour/silent-sailing'
     | '/tour/etna-premium';
   tourName: string;
-  image: string;
+  // Logo monocromo -ink + dimensioni intrinseche (no CLS).
+  logo: string;
+  logoW: number;
+  logoH: number;
 };
+
+// Loghi mostrati nel "muro delle eccellenze" in hero (tutti, anche quelli
+// senza scheda editoriale dedicata).
+export type WallLogo = {name: string; image: string; w: number; h: number};
 
 export type PartnerContent = {
   metaTitle: string;
   metaDescription: string;
 
-  heroImage: string;
   heroEyebrow: string;
   h1Pre: string;
   h1Accent: string;
   heroSubhead: string;
+
+  wallLogos: WallLogo[];
 
   partners: Partner[];
 
@@ -40,17 +48,17 @@ export type PartnerContent = {
   ctaButton: string;
 };
 
-// Placeholder images — TODO replace with foto reali partner
-const IMG_PURAVIDA =
-  'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=70&auto=format&fm=webp';
-const IMG_BURGIO =
-  'https://images.unsplash.com/photo-1565299543923-37dd37887442?w=1200&q=70&auto=format&fm=webp';
-const IMG_BENANTI =
-  'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=70&auto=format&fm=webp';
-const IMG_PALMERI =
-  'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1200&q=70&auto=format&fm=webp';
-const HERO_PARTNER =
-  'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1600&q=70&auto=format&fm=webp';
+// Muro loghi hero — tutti i partner (versioni -ink monocrome), dimensioni
+// intrinseche per evitare CLS. Condiviso IT/EN (i loghi non hanno lingua).
+const WALL_LOGOS: WallLogo[] = [
+  {name: 'Pura Vida', image: '/images/loghi-partner/pura-vita-ink.svg', w: 202, h: 239},
+  {name: 'Fratelli Burgio', image: '/images/loghi-partner/fratelli-burgio-ink.png', w: 2734, h: 634},
+  {name: 'Cantine Benanti', image: '/images/loghi-partner/cantine-benanti-ink.png', w: 200, h: 202},
+  {name: 'Cantina Palmeri', image: '/images/loghi-partner/palmeri2-ink.png', w: 1500, h: 687},
+  {name: 'Gambino', image: '/images/loghi-partner/gambino-ink.png', w: 460, h: 140},
+  {name: 'Orty Suite', image: '/images/loghi-partner/ortysuite-ink.png', w: 655, h: 316},
+  {name: 'Bam Bar', image: '/images/loghi-partner/bambar-ink.png', w: 1590, h: 415}
+];
 
 // ============================================================
 // IT
@@ -62,12 +70,13 @@ const PARTNER_IT: PartnerContent = {
   metaDescription:
     'I partner curati di Sicily Driver Siracusa: Pura Vida Beach Club, Fratelli Burgio, Cantina Benanti, Cantina Palmeri. Non sponsor, posti che frequentiamo da anni.',
 
-  heroImage: HERO_PARTNER,
   heroEyebrow: 'Partner',
-  h1Pre: 'Chi scegliamo',
-  h1Accent: 'per te',
+  h1Pre: 'Le eccellenze che fanno parte del',
+  h1Accent: 'nostro percorso.',
   heroSubhead:
     'Non sono sponsor. Sono i posti e le persone che noi stessi portiamo nei nostri tour perché crediamo siano i migliori.',
+
+  wallLogos: WALL_LOGOS,
 
   partners: [
     {
@@ -77,7 +86,9 @@ const PARTNER_IT: PartnerContent = {
       whereYouFindThem: 'Dove li trovi nei nostri tour',
       tourHref: '/tour/isola-delle-correnti',
       tourName: 'Isola delle Correnti',
-      image: IMG_PURAVIDA
+      logo: '/images/loghi-partner/pura-vita-ink.svg',
+      logoW: 202,
+      logoH: 239
     },
     {
       eyebrow: 'Ortigia · Gastronomia siciliana',
@@ -86,7 +97,9 @@ const PARTNER_IT: PartnerContent = {
       whereYouFindThem: 'Dove li trovi nei nostri tour',
       tourHref: '/tour/silent-sailing',
       tourName: 'Silent Sailing',
-      image: IMG_BURGIO
+      logo: '/images/loghi-partner/fratelli-burgio-ink.png',
+      logoW: 2734,
+      logoH: 634
     },
     {
       eyebrow: 'Etna · Cantina storica',
@@ -95,7 +108,9 @@ const PARTNER_IT: PartnerContent = {
       whereYouFindThem: 'Dove li trovi nei nostri tour',
       tourHref: '/tour/etna-premium',
       tourName: 'Etna Premium Escape',
-      image: IMG_BENANTI
+      logo: '/images/loghi-partner/cantine-benanti-ink.png',
+      logoW: 200,
+      logoH: 202
     },
     {
       eyebrow: 'Etna · Vini di territorio',
@@ -104,7 +119,9 @@ const PARTNER_IT: PartnerContent = {
       whereYouFindThem: 'Dove li trovi nei nostri tour',
       tourHref: '/tour/etna-premium',
       tourName: 'Etna Premium Escape',
-      image: IMG_PALMERI
+      logo: '/images/loghi-partner/palmeri2-ink.png',
+      logoW: 1500,
+      logoH: 687
     }
   ],
 
@@ -129,12 +146,13 @@ const PARTNER_EN: PartnerContent = {
   metaDescription:
     'Sicily Driver Syracuse curated partners: Pura Vida Beach Club, Fratelli Burgio, Cantina Benanti, Cantina Palmeri. Not sponsors — places we’ve known for years.',
 
-  heroImage: HERO_PARTNER,
   heroEyebrow: 'Partners',
-  h1Pre: 'Who we choose',
-  h1Accent: 'for you',
+  h1Pre: 'The finest names along',
+  h1Accent: 'our journey.',
   heroSubhead:
     'Not sponsors. The places and people we ourselves take into our tours because we believe they’re the best.',
+
+  wallLogos: WALL_LOGOS,
 
   partners: [
     {
@@ -144,7 +162,9 @@ const PARTNER_EN: PartnerContent = {
       whereYouFindThem: 'Where you find them in our tours',
       tourHref: '/tour/isola-delle-correnti',
       tourName: 'Isola delle Correnti',
-      image: IMG_PURAVIDA
+      logo: '/images/loghi-partner/pura-vita-ink.svg',
+      logoW: 202,
+      logoH: 239
     },
     {
       eyebrow: 'Ortigia · Sicilian gourmet shop',
@@ -153,7 +173,9 @@ const PARTNER_EN: PartnerContent = {
       whereYouFindThem: 'Where you find them in our tours',
       tourHref: '/tour/silent-sailing',
       tourName: 'Silent Sailing',
-      image: IMG_BURGIO
+      logo: '/images/loghi-partner/fratelli-burgio-ink.png',
+      logoW: 2734,
+      logoH: 634
     },
     {
       eyebrow: 'Etna · Historic winery',
@@ -162,7 +184,9 @@ const PARTNER_EN: PartnerContent = {
       whereYouFindThem: 'Where you find them in our tours',
       tourHref: '/tour/etna-premium',
       tourName: 'Etna Premium Escape',
-      image: IMG_BENANTI
+      logo: '/images/loghi-partner/cantine-benanti-ink.png',
+      logoW: 200,
+      logoH: 202
     },
     {
       eyebrow: 'Etna · Terroir wines',
@@ -171,7 +195,9 @@ const PARTNER_EN: PartnerContent = {
       whereYouFindThem: 'Where you find them in our tours',
       tourHref: '/tour/etna-premium',
       tourName: 'Etna Premium Escape',
-      image: IMG_PALMERI
+      logo: '/images/loghi-partner/palmeri2-ink.png',
+      logoW: 1500,
+      logoH: 687
     }
   ],
 
