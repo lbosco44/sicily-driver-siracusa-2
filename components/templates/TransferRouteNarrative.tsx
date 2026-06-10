@@ -23,11 +23,14 @@ export async function TransferRouteNarrative({
 
   return (
     <>
-      {/* 01 — HERO stile homepage: titolo tratta + pill preventivo + recensioni */}
+      {/* 01 — HERO: titolo tratta + solo bottone Contattaci (no selettore Da→A,
+            cliente 10/06/2026) + recensioni */}
       <TransferHero
         title={route.h1}
         subhead={route.heroSubhead}
         image={route.heroImage}
+        quickQuote={false}
+        ctaLabel={tCommon('ctaWhatsApp')}
       />
 
       {/* 02 — DETTAGLI TRATTA: prezzo + durata (card) accanto a "cosa include" */}
