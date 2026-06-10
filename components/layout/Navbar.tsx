@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import {MessageCircle} from 'lucide-react';
 import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import {LanguageSwitcher} from './LanguageSwitcher';
@@ -83,18 +84,22 @@ export async function Navbar() {
           <Link
             href="/contatti"
             className="
-              inline-flex items-center gap-1.5 sm:gap-2
+              inline-flex items-center gap-2
               rounded-full bg-accent
-              px-3.5 py-2 sm:px-5 sm:py-2.5
-              text-[11px] sm:text-[13px] uppercase tracking-[0.05em] font-medium
+              px-4 py-2.5 sm:px-5
+              text-[12px] sm:text-[13px] uppercase tracking-[0.05em] font-medium
               whitespace-nowrap
               transition-all duration-200 ease-out
               hover:bg-accent-hover
             "
             style={{color: 'var(--cream-on-dark)'}}
           >
+            <MessageCircle
+              aria-hidden="true"
+              className="size-4 shrink-0"
+              strokeWidth={2}
+            />
             {t('bookNow')}
-            <span aria-hidden="true" className="hidden sm:inline">→</span>
           </Link>
 
           <MobileMenu
