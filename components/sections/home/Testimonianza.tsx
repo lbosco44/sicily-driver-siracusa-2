@@ -1,8 +1,9 @@
 'use client';
 
-import {useTranslations} from 'next-intl';
+import {useLocale, useTranslations} from 'next-intl';
 import {motion, useReducedMotion} from 'motion/react';
 import {GoogleReviewsBadge} from '@/components/ui/GoogleReviewsBadge';
+import {isItalianReview} from '@/lib/reviewLang';
 
 // Testimonianza — marquee infinito di recensioni, stesso pattern di PartnersBar.
 // Auto-scroll: doppia copia + CSS keyframes reviews-marquee (55s).
@@ -33,8 +34,15 @@ function Stars() {
 
 export function Testimonianza() {
   const t = useTranslations('Home.testimonianze');
+  const locale = useLocale();
   const reduce = useReducedMotion();
-  const items = t.raw('items') as Review[];
+  // Recensioni Google reali: mostriamo solo quelle nella lingua della pagina
+  // (IT → recensioni in italiano, EN → recensioni in inglese). I testi non
+  // vengono tradotti: sono parole originali dei clienti.
+  const allReviews = t.raw('items') as Review[];
+  const items = allReviews.filter((r) =>
+    locale === 'it' ? isItalianReview(r.author) : !isItalianReview(r.author)
+  );
 
   // Doppia copia identica → loop seamless (la seconda copia occupa
   // la posizione iniziale quando la prima esce dal viewport).
