@@ -10,7 +10,6 @@ import {MobileMenu, type MobileMenuLink} from './MobileMenu';
 export async function Navbar() {
   const t = await getTranslations('Nav');
   const tBrand = await getTranslations('Brand');
-  const tNcc = await getTranslations('NccPage');
   const tTours = await getTranslations('Nav.toursList');
   const tLang = await getTranslations('LanguageSwitcher');
 
@@ -106,7 +105,7 @@ export async function Navbar() {
             links={links}
             toursList={navLabels.toursList}
             bookLabel={t('bookNow')}
-            whatsappLabel={tNcc('ctaWhatsApp')}
+            whatsappLabel={t('whatsappCta')}
             languageLabel={tLang('ariaLabel')}
           />
         </div>
