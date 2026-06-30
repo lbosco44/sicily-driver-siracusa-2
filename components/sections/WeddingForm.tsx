@@ -73,7 +73,7 @@ export function WeddingForm({fields}: {fields: WeddingFormFields}) {
   }
 
   const inputClass =
-    'w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent transition-colors';
+    'w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[16px] sm:text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent transition-colors';
   const labelClass =
     'text-[11px] uppercase tracking-[0.12em] font-medium text-secondary block mb-2';
 
@@ -166,6 +166,7 @@ export function WeddingForm({fields}: {fields: WeddingFormFields}) {
           <input
             name="name"
             type="text"
+            autoComplete="name"
             required
             placeholder={fields.namePlaceholder}
             className={inputClass}
@@ -177,6 +178,8 @@ export function WeddingForm({fields}: {fields: WeddingFormFields}) {
           <input
             name="phone"
             type="tel"
+            inputMode="tel"
+            autoComplete="tel"
             required
             placeholder={fields.phonePlaceholder}
             className={inputClass}
@@ -188,6 +191,8 @@ export function WeddingForm({fields}: {fields: WeddingFormFields}) {
           <input
             name="email"
             type="email"
+            inputMode="email"
+            autoComplete="email"
             placeholder={fields.emailPlaceholder}
             className={inputClass}
           />

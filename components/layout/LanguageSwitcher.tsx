@@ -33,7 +33,7 @@ export function LanguageSwitcher({className}: {className?: string}) {
         onClick={() => switchLocale('it')}
         aria-current={locale === 'it' ? 'true' : undefined}
         className={cn(
-          'transition-opacity duration-200 cursor-pointer',
+          'px-2.5 py-2 -my-2 transition-opacity duration-200 cursor-pointer',
           locale === 'it'
             ? 'text-primary opacity-100'
             : 'text-ink/70 hover:opacity-100 hover:text-primary'
@@ -49,7 +49,7 @@ export function LanguageSwitcher({className}: {className?: string}) {
         onClick={() => switchLocale('en')}
         aria-current={locale === 'en' ? 'true' : undefined}
         className={cn(
-          'transition-opacity duration-200 cursor-pointer',
+          'px-2.5 py-2 -my-2 transition-opacity duration-200 cursor-pointer',
           locale === 'en'
             ? 'text-primary opacity-100'
             : 'text-ink/70 hover:opacity-100 hover:text-primary'

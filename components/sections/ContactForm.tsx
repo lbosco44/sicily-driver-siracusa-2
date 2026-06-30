@@ -72,9 +72,10 @@ export function ContactForm() {
           <input
             name="name"
             type="text"
+            autoComplete="name"
             required
             placeholder={t('fieldNamePlaceholder')}
-            className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent transition-colors"
+            className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[16px] sm:text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent transition-colors"
           />
         </label>
 
@@ -85,9 +86,11 @@ export function ContactForm() {
           <input
             name="phone"
             type="tel"
+            inputMode="tel"
+            autoComplete="tel"
             required
             placeholder={t('fieldPhonePlaceholder')}
-            className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent transition-colors"
+            className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[16px] sm:text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent transition-colors"
           />
         </label>
       </div>
@@ -100,7 +103,7 @@ export function ContactForm() {
           name="type"
           required
           defaultValue=""
-          className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink focus:outline-none focus:border-accent transition-colors appearance-none bg-no-repeat cursor-pointer"
+          className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[16px] sm:text-[15px] text-ink focus:outline-none focus:border-accent transition-colors appearance-none bg-no-repeat cursor-pointer"
           style={{
             backgroundImage:
               "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238B9B8E' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E\")",
@@ -127,7 +130,7 @@ export function ContactForm() {
           rows={5}
           required
           placeholder={t('fieldMessagePlaceholder')}
-          className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent transition-colors resize-y"
+          className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[16px] sm:text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent transition-colors resize-y"
         />
       </label>
 

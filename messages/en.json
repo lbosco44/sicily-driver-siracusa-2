@@ -42,7 +42,8 @@
   "A11y": {
     "skipToContent": "Skip to content",
     "opensNewTab": "(opens in new tab)",
-    "currentPage": "Current page"
+    "currentPage": "Current page",
+    "closeMenu": "Close"
   },
   "Privacy": {
     "meta": {

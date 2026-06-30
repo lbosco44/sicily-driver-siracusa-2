@@ -30,13 +30,15 @@ export function MobileMenu({
   toursList,
   bookLabel,
   whatsappLabel,
-  languageLabel
+  languageLabel,
+  closeLabel
 }: {
   links: MobileMenuLink[];
   toursList: ToursListLabels;
   bookLabel: string;
   whatsappLabel: string;
   languageLabel: string;
+  closeLabel: string;
 }) {
   const [open, setOpen] = useState(false);
   const [tourExpanded, setTourExpanded] = useState(false);
@@ -57,7 +59,7 @@ export function MobileMenu({
         aria-label="Apri menu"
         aria-expanded={open}
         onClick={() => setOpen(true)}
-        className="md:hidden inline-flex flex-col items-center justify-center w-10 h-10 -mr-2 text-ink hover:text-primary transition-colors"
+        className="md:hidden inline-flex flex-col items-center justify-center w-11 h-11 -mr-2 text-ink hover:text-primary transition-colors"
       >
         <span
           aria-hidden="true"
@@ -71,6 +73,7 @@ export function MobileMenu({
 
       <SheetContent
         side="right"
+        closeLabel={closeLabel}
         className="w-[min(420px,88vw)] bg-canvas p-0 border-l border-[var(--border)]"
       >
         <SheetTitle className="sr-only">Menu di navigazione</SheetTitle>
