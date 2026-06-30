@@ -7,6 +7,7 @@ import * as twgl from 'twgl.js';
 import {Link} from '@/i18n/navigation';
 import {ESPERIENZE, N} from './data';
 import {DesktopSticky} from './DesktopSticky';
+import {useMediaQuery} from '@/lib/useMediaQuery';
 
 // Tuning della sezione (svh).
 // ENTRY_VH = 0: niente fase di ingresso animata. L'immagine e' piatta e
@@ -177,6 +178,11 @@ export function DesktopWebGL() {
   const t = useTranslations('Home.esperienze');
   const tCommon = useTranslations('NccPage');
   const reduce = useReducedMotion();
+  // Gate viewport: il context WebGL2 + il download delle texture partono SOLO
+  // da desktop. Su mobile il componente resta montato (hidden md:block) ma
+  // l'effetto pesante non gira → niente banda dati sprecata sul device
+  // prioritario. Il DOM renderizzato non cambia, quindi nessun flash.
+  const isDesktop = useMediaQuery('(min-width: 768px)');
 
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -264,7 +270,7 @@ export function DesktopWebGL() {
   });
 
   useEffect(() => {
-    if (reduce) return;
+    if (reduce || !isDesktop) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -478,7 +484,7 @@ export function DesktopWebGL() {
       io.disconnect();
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
-  }, [reduce]);
+  }, [reduce, isDesktop]);
 
   // Fallback prefers-reduced-motion → riusa il DesktopSticky originale
   if (reduce) return <DesktopSticky />;
@@ -580,6 +586,7 @@ export function DesktopWebGL() {
                   pointerEvents: active ? 'auto' : 'none'
                 }}
                 aria-hidden={!active}
+                inert={!active}
               >
                 <div style={{maxWidth: 'min(520px, 80%)'}}>
                   <h2

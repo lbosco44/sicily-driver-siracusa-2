@@ -4,6 +4,8 @@ import {useRef, useState, useEffect} from 'react';
 import {useReducedMotion, useScroll, useMotionValueEvent} from 'motion/react';
 import * as twgl from 'twgl.js';
 import type {TourContent} from '@/lib/tours';
+import {useMediaQuery} from '@/lib/useMediaQuery';
+import {nextImageUrl} from '@/lib/img';
 
 // EtnaStagesWebGL — variante del DesktopWebGL della homepage, adattata per
 // la pagina Tour Etna Premium. Stesso shader (wipe Bezier + barrel +
@@ -172,6 +174,9 @@ export function EtnaStagesWebGL({
   eyebrow: string;
 }) {
   const reduce = useReducedMotion();
+  // Gate viewport: WebGL2 + download texture solo da desktop (il componente è
+  // hidden md:block, su mobile il vertical-sticky separato gestisce le foto).
+  const isDesktop = useMediaQuery('(min-width: 768px)');
   const N = stages.length;
   const TOTAL_VH = ENTRY_VH + N * SLIDE_VH;
 
@@ -216,7 +221,7 @@ export function EtnaStagesWebGL({
   });
 
   useEffect(() => {
-    if (reduce) return;
+    if (reduce || !isDesktop) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -266,7 +271,9 @@ export function EtnaStagesWebGL({
     stages.forEach((s, i) => {
       const img = new window.Image();
       img.crossOrigin = 'anonymous';
-      img.src = s.image;
+      // Texture via optimizer Next (AVIF/WebP ridimensionato) invece dei file
+      // RAW multi-MB in /public → niente ~11MB di immagini grezze su desktop.
+      img.src = nextImageUrl(s.image, 1920, 80);
       img.onload = () => {
         if (cancelled) return;
         const tex = twgl.createTexture(gl, {
@@ -380,7 +387,7 @@ export function EtnaStagesWebGL({
       io.disconnect();
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
-  }, [reduce, stages, N]);
+  }, [reduce, stages, N, isDesktop]);
 
   // Reduced motion: niente WebGL, fallback semplice — il caller (TourDetailEtnaDark)
   // ha gia' il sticky scroll vertical, quindi qui ritorniamo null per non
@@ -404,7 +411,7 @@ export function EtnaStagesWebGL({
       <div
         className="sticky top-0 h-[100svh] overflow-hidden"
         style={{
-          backgroundImage: `url(${stages[0].image})`,
+          backgroundImage: `url(${nextImageUrl(stages[0].image, 1920, 80)})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundColor: ETNA_BLACK
@@ -412,7 +419,7 @@ export function EtnaStagesWebGL({
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={stages[0].image}
+          src={nextImageUrl(stages[0].image, 1920, 80)}
           alt=""
           className="absolute inset-0 w-full h-full object-cover pointer-events-none block"
           style={{display: 'block'}}

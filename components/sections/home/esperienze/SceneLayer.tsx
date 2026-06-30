@@ -53,6 +53,7 @@ export function SceneLayer({
         pointerEvents: active ? 'auto' : 'none'
       }}
       aria-hidden={!active}
+      inert={!active}
     >
       {shouldRenderImage && (
         <>

@@ -16,6 +16,8 @@ import type {TourContent} from '@/lib/tours';
 import {HERO_BLUR, HERO_SIZES} from '@/lib/blur';
 import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
 import {EtnaStagesWebGL} from '@/components/sections/tour-etna/EtnaStagesWebGL';
+import {useMediaQuery} from '@/lib/useMediaQuery';
+import {nextImageUrl} from '@/lib/img';
 
 // TourDetailEtnaDark — variante mood dark/cinematic dedicata all'Etna.
 // Mood: pietra lavica, notte sul vulcano, fuoco discreto.
@@ -32,6 +34,7 @@ const LAVA_GLOW = '#E84B36';
 
 export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
   const tCommon = useTranslations('NccPage');
+  const isDesktop = useMediaQuery('(min-width: 768px)');
   const stagesRef = useRef<HTMLDivElement>(null);
   const {scrollYProgress} = useScroll({
     target: stagesRef,
@@ -52,18 +55,36 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
             browsers / preload prima del primo frame. */}
       <section className="hero-stage relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <video
-            src="/images/tour-etna/video-hero.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            poster={tour.heroImage}
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{filter: 'saturate(0.85) brightness(0.65) contrast(1.1)'}}
-            aria-hidden="true"
-          />
+          {isDesktop ? (
+            <video
+              src="/images/tour-etna/video-hero.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster={nextImageUrl(tour.heroImage, 1920, 80)}
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{filter: 'saturate(0.85) brightness(0.65) contrast(1.1)'}}
+              aria-hidden="true"
+            />
+          ) : (
+            // Mobile: niente video autoplay (~1.9MB su rete cellulare + batteria).
+            // Poster statico ottimizzato (next/image → AVIF/WebP), stesso frame.
+            <Image
+              src={tour.heroImage}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              quality={80}
+              placeholder="blur"
+              blurDataURL={HERO_BLUR}
+              className="object-cover"
+              style={{filter: 'saturate(0.85) brightness(0.65) contrast(1.1)'}}
+              aria-hidden="true"
+            />
+          )}
           {/* Overlay neutro per leggibilità testo */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/85" />
         </div>
