@@ -59,6 +59,15 @@ export function DesktopNav({labels}: {labels: NavLabels}) {
         className="relative inline-flex items-center h-5"
         onMouseEnter={() => setTourOpen(true)}
         onMouseLeave={() => setTourOpen(false)}
+        onKeyDown={(e) => {
+          if (e.key === 'Escape') setTourOpen(false);
+        }}
+        onBlur={(e) => {
+          // Chiudi quando il focus esce dall'intero wrapper (trigger + pannello).
+          if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+            setTourOpen(false);
+          }
+        }}
       >
         <Link
           href="/tour-sicilia"

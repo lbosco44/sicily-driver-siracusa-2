@@ -1,6 +1,6 @@
 'use client';
 
-import {useState} from 'react';
+import {useState, useRef, type KeyboardEvent} from 'react';
 import {Link} from '@/i18n/navigation';
 import {motion, AnimatePresence, useReducedMotion} from 'motion/react';
 
@@ -33,6 +33,27 @@ export function ServicesTabs({services}: {services: readonly ServiceItem[]}) {
   const [activeIndex, setActiveIndex] = useState(0);
   const reduce = useReducedMotion();
   const current = services[activeIndex];
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  // Pattern tastiera WAI-ARIA Tabs: frecce per spostarsi tra i tab, Home/End
+  // agli estremi. Coerente col role="tab" annunciato dallo screen reader.
+  function onTabKeyDown(e: KeyboardEvent<HTMLButtonElement>, i: number) {
+    let next = i;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      next = (i + 1) % services.length;
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      next = (i - 1 + services.length) % services.length;
+    } else if (e.key === 'Home') {
+      next = 0;
+    } else if (e.key === 'End') {
+      next = services.length - 1;
+    } else {
+      return;
+    }
+    e.preventDefault();
+    setActiveIndex(next);
+    tabRefs.current[next]?.focus();
+  }
 
   return (
     <div>
@@ -51,9 +72,14 @@ export function ServicesTabs({services}: {services: readonly ServiceItem[]}) {
           return (
             <button
               key={s.key}
+              ref={(el) => {
+                tabRefs.current[i] = el;
+              }}
               onClick={() => setActiveIndex(i)}
+              onKeyDown={(e) => onTabKeyDown(e, i)}
               role="tab"
               aria-selected={isActive}
+              tabIndex={isActive ? 0 : -1}
               aria-controls={`service-panel-${s.key}`}
               id={`service-tab-${s.key}`}
               className={`relative flex-shrink-0 rounded-full px-5 sm:px-6 py-2.5 sm:py-3 text-[12px] sm:text-[13px] uppercase tracking-[0.14em] font-medium transition-all duration-200 whitespace-nowrap ${
@@ -77,6 +103,7 @@ export function ServicesTabs({services}: {services: readonly ServiceItem[]}) {
             role="tabpanel"
             id={`service-panel-${current.key}`}
             aria-labelledby={`service-tab-${current.key}`}
+            tabIndex={0}
             initial={reduce ? false : {opacity: 0, y: 12}}
             animate={{opacity: 1, y: 0}}
             exit={reduce ? undefined : {opacity: 0, y: -8}}
