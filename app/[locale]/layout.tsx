@@ -68,15 +68,10 @@ export default async function LocaleLayout({
           href="https://images.unsplash.com"
           crossOrigin="anonymous"
         />
-        {/* Preload prima foto della tour section: garantisce che il fallback
-            <img> nella EsperienzeScroll abbia bytes pronti appena il browser
-            renderizza, niente flash di nero durante caricamento. */}
-        <link
-          rel="preload"
-          as="image"
-          href="/images/home/dolce-vita.webp"
-          fetchPriority="high"
-        />
+        {/* NB: il preload della prima foto Esperienze (dolce-vita.webp) NON sta
+            più qui — veniva scaricato ad alta priorità su OGNI pagina (anche
+            dove non serve, in competizione con l'LCP). Ora è scoped alla sola
+            home in app/[locale]/page.tsx. */}
       </head>
       <body className="min-h-screen flex flex-col bg-canvas text-ink">
         <a
