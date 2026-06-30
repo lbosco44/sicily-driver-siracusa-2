@@ -1,4 +1,5 @@
 import type {Metadata} from 'next';
+import {ogImage, twitterCard} from '@/lib/seo';
 import {setRequestLocale} from 'next-intl/server';
 import {TransferRouteNarrative} from '@/components/templates/TransferRouteNarrative';
 import {getTransferRoute, getAllTransferRoutes} from '@/lib/transferRoutes';
@@ -31,8 +32,10 @@ export async function generateMetadata({
       locale: locale === 'it' ? 'it_IT' : 'en_US',
       type: 'website',
       url: `https://ncctaxisiracusa.com${locale === 'it' ? IT_PATH : EN_PATH}`,
-      siteName: 'Sicily Driver Siracusa'
-    }
+      siteName: 'Sicily Driver Siracusa',
+      images: ogImage(locale, route.metaTitle)
+    },
+    twitter: twitterCard(route.metaTitle, route.metaDescription, locale)
   };
 }
 
