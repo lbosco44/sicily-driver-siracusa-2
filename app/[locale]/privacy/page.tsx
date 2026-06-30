@@ -53,8 +53,8 @@ export default async function PrivacyPage({
     <>
       <JsonLd
         data={breadcrumbSchema([
-          {name: 'Home', url: `/${locale}`},
-          {name: t('h1'), url: `/${locale}/privacy`}
+          {name: 'Home', url: locale === 'it' ? '/' : '/en'},
+          {name: t('h1'), url: locale === 'it' ? '/privacy' : '/en/privacy'}
         ])}
       />
 

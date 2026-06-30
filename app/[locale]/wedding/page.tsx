@@ -326,7 +326,11 @@ export default async function WeddingPage({
               >
                 <Image
                   src={src}
-                  alt={`Wedding Sicilia ${i + 1}`}
+                  alt={
+                    locale === 'it'
+                      ? 'Matrimonio in Sicilia con auto Sicily Driver'
+                      : 'Wedding in Sicily with a Sicily Driver car'
+                  }
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"
                   className="object-cover"

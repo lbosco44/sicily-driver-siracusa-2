@@ -112,6 +112,32 @@ export function localBusinessSchema(locale: 'it' | 'en') {
       '@type': 'Person',
       name: 'Vincenzo Izzo'
     },
+    // Recensioni Google reali (le stesse mostrate nella sezione Testimonianze):
+    // accompagnano l'aggregateRating così non è "self-serving" senza review
+    // on-page (requisito Google per i review snippet). 5★ = come visualizzate.
+    review: [
+      {
+        '@type': 'Review',
+        author: {'@type': 'Person', name: 'Evan Long'},
+        reviewRating: {'@type': 'Rating', ratingValue: '5', bestRating: '5'},
+        reviewBody:
+          "We used Sicily Driver Syracuse this week for all of our travel needs and were blown away by Alberto's punctuality and hospitality. He always arrived earlier than he said he would for pickups, in a pristinely clean vehicle, and was extremely helpful. Whether you are doing tours or simply need transfers, I would definitely recommend them for all of your needs."
+      },
+      {
+        '@type': 'Review',
+        author: {'@type': 'Person', name: 'Jenni Wilson'},
+        reviewRating: {'@type': 'Rating', ratingValue: '5', bestRating: '5'},
+        reviewBody:
+          'Vincenzo was prompt, courteous, and professional. The vehicles are spotless, and he speaks impeccable English. We plan to be in Syracuse again and will definitely hire Sicily Driver Siracusa.'
+      },
+      {
+        '@type': 'Review',
+        author: {'@type': 'Person', name: 'Giulia Magnano'},
+        reviewRating: {'@type': 'Rating', ratingValue: '5', bestRating: '5'},
+        reviewBody:
+          "Mia moglie ed io abbiamo fatto il Tour del Barocco visitando Noto, Modica e Ragusa. È stato bellissimo e l'autista è stato molto gentile! L'auto era pulitissima."
+      }
+    ],
     // AggregateRating reale da Google Business Profile (29/05/2026): 4,9★ su
     // 32 recensioni. Abilita le stelline in SERP. Valori MAI inventati.
     aggregateRating: {
