@@ -1,6 +1,6 @@
 'use client';
 
-import {useRef} from 'react';
+import {useRef, useState} from 'react';
 import Image from 'next/image';
 import {Testimonianza} from '@/components/sections/home/Testimonianza';
 import {Link} from '@/i18n/navigation';
@@ -9,6 +9,7 @@ import {
   motion,
   useScroll,
   useTransform,
+  useMotionValueEvent,
   useReducedMotion,
   type MotionValue
 } from 'motion/react';
@@ -42,6 +43,15 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
   });
 
   const N = tour.stages.length;
+
+  // Stage attiva sul path mobile (sticky scroll): monta l'<Image> solo per la
+  // scena attiva ±1, come SceneLayer della home. Evita di richiedere tutte le
+  // foto stage insieme.
+  const [stageActive, setStageActive] = useState(0);
+  useMotionValueEvent(scrollYProgress, 'change', (v) => {
+    const idx = Math.min(Math.floor(v * N), N - 1);
+    setStageActive((p) => (p === idx ? p : idx));
+  });
 
   return (
     <div className="tour-etna-page" style={{backgroundColor: ETNA_BLACK, color: 'var(--cream-on-dark)'}}>
@@ -336,6 +346,7 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
                 total={N}
                 image={s.image}
                 priority={i === 0}
+                shouldRender={i === 0 || Math.abs(i - stageActive) <= 1}
                 scrollYProgress={scrollYProgress}
               />
             ))}
@@ -526,12 +537,14 @@ function EtnaStageImage({
   total,
   image,
   priority,
+  shouldRender,
   scrollYProgress
 }: {
   index: number;
   total: number;
   image: string;
   priority: boolean;
+  shouldRender: boolean;
   scrollYProgress: MotionValue<number>;
 }) {
   const reduce = useReducedMotion();
@@ -567,19 +580,21 @@ function EtnaStageImage({
       className="absolute inset-0"
       style={{opacity: reduce ? 1 : opacity, scale}}
     >
-      <Image
-        src={image}
-        alt=""
-        fill
-        sizes="100vw"
-        quality={85}
-        placeholder="blur"
-        blurDataURL={HERO_BLUR}
-        className="object-cover"
-        style={{filter: 'saturate(0.9) brightness(0.7) contrast(1.08)'}}
-        priority={priority}
-        {...(priority ? {fetchPriority: 'high' as const} : {})}
-      />
+      {shouldRender && (
+        <Image
+          src={image}
+          alt=""
+          fill
+          sizes="100vw"
+          quality={85}
+          placeholder="blur"
+          blurDataURL={HERO_BLUR}
+          className="object-cover"
+          style={{filter: 'saturate(0.9) brightness(0.7) contrast(1.08)'}}
+          priority={priority}
+          {...(priority ? {fetchPriority: 'high' as const} : {})}
+        />
+      )}
       {/* Overlay dark uniforme — niente più sfumatura rossa */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/75" />
     </motion.div>

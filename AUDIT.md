@@ -93,6 +93,20 @@ Nessun link rotto o route inesistente trovato. I due bug funzionali gravi sono i
 
 ## 🟡 MINORE — difetti contenuti
 
+> **✅ RISOLTI il 2026-06-30** (tsc + 12 test verdi). Note:
+> - **MOB-01**: input a `text-[16px] sm:text-[15px]` (mobile ≥16px, desktop invariato); HeroQuickQuote `text-[16px] sm:text-[14px]`.
+> - **MOB-02**: `inputMode`/`autoComplete` su tel/email/name (Contact + Wedding).
+> - **MOB-05/06**: Instagram `w-11 h-11`, hamburger `w-11 h-11`, LanguageSwitcher hit-area `px-2.5 py-2 -my-2` (zero layout shift).
+> - **SEO-02**: breadcrumb privacy con URL canonici (`/`, `/privacy`).
+> - **SEO-03**: aggiunte 3 recensioni Google reali allo schema → `aggregateRating` ora conforme.
+> - **SEO-04**: *parziale* — alt resi descrittivi locale-aware; le **foto reali** restano un task contenuti (cliente), gallery ancora Unsplash.
+> - **PERF-03**: `twgl` ora `import()` dinamico dentro l'effetto desktop → fuori dal bundle mobile.
+> - **PERF-05**: stage Etna mobile montate solo ±1 dalla attiva (come SceneLayer).
+> - **PERF-06**: *non applicabile* — `video-hero2.mp4` è un file **untracked**, non finisce nel deploy git. Nessuna azione (se vuoi lo cancello in locale).
+> - **A11Y-02**: ServicesTabs con frecce + roving tabindex + tabpanel focusabile.
+> - **A11Y-04**: X del drawer ora localizzata (`A11y.closeMenu` IT/EN, prop `closeLabel`).
+> - **A11Y-05**: dropdown Tour desktop chiude con Esc e su blur-out.
+
 | ID | File:riga | Problema | Fix |
 |----|-----------|----------|-----|
 | MOB-01 | `ContactForm.tsx:77,90,103,130`; `WeddingForm.tsx:76`; `HeroQuickQuote.tsx:42,53` | Input a 14-15px → iOS Safari zooma in focus | Portare gli input a ≥16px su mobile (`text-[16px]`, eventuale 15px solo da `sm:`) |

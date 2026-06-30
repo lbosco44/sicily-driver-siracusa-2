@@ -3,7 +3,6 @@
 import {useRef, useState, useEffect} from 'react';
 import {useTranslations} from 'next-intl';
 import {useReducedMotion, useScroll, useMotionValueEvent} from 'motion/react';
-import * as twgl from 'twgl.js';
 import {Link} from '@/i18n/navigation';
 import {ESPERIENZE, N} from './data';
 import {DesktopSticky} from './DesktopSticky';
@@ -274,6 +273,14 @@ export function DesktopWebGL() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    let cleanup: (() => void) | undefined;
+    let cancelledEarly = false;
+
+    // twgl caricato on-demand (code-split): non entra nel chunk della home,
+    // quindi non viene scaricato/parsato su mobile dove il WebGL non gira.
+    import('twgl.js').then((twgl) => {
+      if (cancelledEarly) return;
+
     // alpha: true → canvas trasparente quando non disegna (cosi' il fallback
     // <img> sotto e' visibile sempre, niente blocco nero durante caricamento
     // textures o race conditions con loading gate).
@@ -476,13 +483,21 @@ export function DesktopWebGL() {
       momentumRef.current += (0 - momentumRef.current) * 0.07;
     }
 
-    return () => {
+    cleanup = () => {
       cancelled = true;
       running = false;
       cancelAnimationFrame(rafId);
       ro.disconnect();
       io.disconnect();
       gl.getExtension('WEBGL_lose_context')?.loseContext();
+    };
+    }).catch(() => {
+      // chunk twgl non caricato (rete): resta il fallback <img>/background.
+    });
+
+    return () => {
+      cancelledEarly = true;
+      cleanup?.();
     };
   }, [reduce, isDesktop]);
 

@@ -2,7 +2,6 @@
 
 import {useRef, useState, useEffect} from 'react';
 import {useReducedMotion, useScroll, useMotionValueEvent} from 'motion/react';
-import * as twgl from 'twgl.js';
 import type {TourContent} from '@/lib/tours';
 import {useMediaQuery} from '@/lib/useMediaQuery';
 import {nextImageUrl} from '@/lib/img';
@@ -225,6 +224,14 @@ export function EtnaStagesWebGL({
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    let cleanup: (() => void) | undefined;
+    let cancelledEarly = false;
+
+    // twgl on-demand (code-split): non entra nel bundle, scaricato solo quando
+    // il WebGL gira davvero (desktop).
+    import('twgl.js').then((twgl) => {
+      if (cancelledEarly) return;
+
     const gl = canvas.getContext('webgl2', {antialias: true, alpha: true});
     if (!gl) {
       console.warn('[EtnaStagesWebGL] WebGL2 non disponibile');
@@ -379,13 +386,21 @@ export function EtnaStagesWebGL({
       momentumRef.current += (0 - momentumRef.current) * 0.07;
     }
 
-    return () => {
+    cleanup = () => {
       cancelled = true;
       running = false;
       cancelAnimationFrame(rafId);
       ro.disconnect();
       io.disconnect();
       gl.getExtension('WEBGL_lose_context')?.loseContext();
+    };
+    }).catch(() => {
+      // chunk twgl non caricato (rete): resta il fallback <img>/background.
+    });
+
+    return () => {
+      cancelledEarly = true;
+      cleanup?.();
     };
   }, [reduce, stages, N, isDesktop]);
 
