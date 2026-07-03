@@ -50,14 +50,12 @@ export function TourDetailIsola({tour}: {tour: TourContent}) {
             className="object-cover"
             style={{filter: 'saturate(1.08) brightness(1.0) contrast(1.04) sepia(0.06)'}}
           />
-          {/* Cielo caldo in alto, scrim deciso in basso: il titolo bianco sta
-              nella metà bassa e la foto (spiaggia luminosa) da sola dava 1.32:1.
-              Ora AA: nero-seppia >=0.80 dove poggia l'H1. */}
+          {/* Gradient più caldo, niente dark heavy */}
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(180deg, rgba(232, 181, 71, 0.04) 0%, rgba(20, 18, 14, 0.15) 28%, rgba(20, 18, 14, 0.80) 50%, rgba(20, 18, 14, 0.90) 100%)'
+                'linear-gradient(180deg, rgba(232, 181, 71, 0.05) 0%, rgba(20, 18, 14, 0.20) 50%, rgba(20, 18, 14, 0.65) 100%)'
             }}
           />
         </div>
