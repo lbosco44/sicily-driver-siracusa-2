@@ -188,7 +188,7 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
             >
               <p
                 className="eyebrow mb-6 sm:mb-7"
-                style={{color: 'rgba(245, 239, 228, 0.45)'}}
+                style={{color: 'rgba(245, 239, 228, 0.55)'}}
               >
                 {tour.numbersEyebrow}
               </p>
@@ -409,11 +409,11 @@ export function TourDetailEtnaDark({tour}: {tour: TourContent}) {
             <div>
               <p
                 className="eyebrow mb-7"
-                style={{color: 'rgba(245, 239, 228, 0.4)'}}
+                style={{color: 'rgba(245, 239, 228, 0.55)'}}
               >
                 {tour.excludedLabel}
               </p>
-              <ul className="space-y-4 text-[17px] sm:text-[18px] leading-[1.65]" style={{color: 'rgba(245, 239, 228, 0.45)'}}>
+              <ul className="space-y-4 text-[17px] sm:text-[18px] leading-[1.65]" style={{color: 'rgba(245, 239, 228, 0.55)'}}>
                 {tour.excluded.map((item, i) => (
                   <li
                     key={i}

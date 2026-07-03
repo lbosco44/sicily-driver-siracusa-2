@@ -19,7 +19,7 @@
   --accent: #A5532F;          /* terracotta scuro — AA 4.73:1 su cream (testo piccolo) */
   --accent-hover: #985333;
   --accent-decorative: #E07856; /* terracotta chiaro — solo per highlight large */
-  --secondary: #5F7367;       /* verde ulivo scuro — AA 4.5:1 su cream */
+  --secondary: #556356;       /* verde ulivo scuro — AA 5.1:1 su cream/muted-bg (era #5F7367 = 4.05, sotto soglia sui form) */
   --border: #E8DFD0;          /* cream scuro — divisori sottili */
   --border-strong: #C9BFA9;   /* divisore più marcato */
   --muted-bg: #EDE5D6;        /* sfondi alternati */
