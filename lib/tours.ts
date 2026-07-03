@@ -142,8 +142,10 @@ const HERO_ETNA = '/images/tour-etna/hero.jpeg';
 const HERO_ISOLA = '/images/tour-isola/hero.jpeg';
 // HUB hero (pagina /tour-sicilia "Esplora i tour") — foto cliente 28/05/2026
 const HERO_HUB = '/images/tour-sicilia/hero.jpeg';
-const HERO_DOLCE_VITA =
-  'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=1600&q=70&auto=format&fm=webp';
+// Foto reale della Fiat 500 Spiaggina (bianca, lungomare Ortigia al tramonto) —
+// la stessa usata nella card Dolce Vita in home. Sostituisce il placeholder
+// Unsplash (utente 2026-07-03: "metti la foto della 500 nella hero").
+const HERO_DOLCE_VITA = '/images/home/dolce-vita.webp';
 const HERO_SAILING =
   'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1600&q=70&auto=format&fm=webp';
 
