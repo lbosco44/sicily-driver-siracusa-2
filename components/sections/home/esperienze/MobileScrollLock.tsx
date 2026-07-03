@@ -5,20 +5,12 @@ import {useReducedMotion} from 'motion/react';
 import {ESPERIENZE} from './data';
 import {SceneLayer, SceneOverlay} from './SceneLayer';
 
-// Mobile: le 4 scene sono slide a tutta schermata con CSS scroll-snap.
-//
-// Ogni scena ha `snap-start` + `snap-always` (scroll-snap-align: start +
-// scroll-snap-stop: always). `scroll-snap-stop: always` impedisce al browser di
-// "passare sopra" una scena: anche con un flick fortissimo lo scroll si ferma
-// alla PRIMA foto che incontra → avanza ESATTAMENTE una foto per scroll, forte
-// o piano allo stesso modo. È tutto NATIVO del browser: niente intercettazione
-// dei gesti (lo scroll-lock via preventDefault era inaffidabile su touch: lock
-// asincrono troppo lento sui flick + momentum iOS non bloccabile), quindi
-// niente salti e niente "resto bloccato".
-//
-// Lo `scroll-snap-type: y proximity` sta su <html> SOLO su mobile (globals.css);
-// solo queste scene hanno snap-align, quindi il resto della pagina scrolla
-// normale.
+// Mobile: immagini una dopo l'altra, scroll NORMALE.
+// Niente scroll-lock, niente scroll-snap, niente sticky, niente JS sullo
+// scroll: solo le 4 scene impilate (foto + titolo + CTA) che scorrono come
+// una pagina qualsiasi. Scelta esplicita dell'utente (2026-07-03) dopo che i
+// tentativi di aggancio/snap davano problemi su touch: così è robusto e senza
+// sorprese su qualsiasi telefono.
 export function MobileScrollLock() {
   const t = useTranslations('Home.esperienze');
   const tCommon = useTranslations('NccPage');
@@ -27,10 +19,7 @@ export function MobileScrollLock() {
   return (
     <div>
       {ESPERIENZE.map((e, i) => (
-        <div
-          key={e.key}
-          className="relative h-[100svh] overflow-hidden snap-start snap-always"
-        >
+        <div key={e.key} className="relative h-[100svh] overflow-hidden">
           <SceneLayer
             e={e}
             index={i}
@@ -40,7 +29,7 @@ export function MobileScrollLock() {
             tCommon={tCommon}
             reduce={!!reduce}
           />
-          <SceneOverlay activeIndex={i} t={t} showDots />
+          <SceneOverlay activeIndex={i} t={t} showDots={false} />
         </div>
       ))}
     </div>
