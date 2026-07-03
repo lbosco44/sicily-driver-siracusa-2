@@ -95,6 +95,18 @@ html {
   overflow-x: clip;
 }
 
+/* Mobile — sezione Tour della home: scroll-snap verticale. Le 4 scene hanno
+   snap-align + scroll-snap-stop:always (in MobileScrollLock) → il browser NON
+   può passare sopra una foto nemmeno con un flick fortissimo: ogni scroll
+   avanza ESATTAMENTE una foto (forte o piano uguale), in modo NATIVO (niente
+   scroll-jacking, niente blocco da momentum iOS). `proximity` = fuori da quelle
+   scene la pagina scrolla normale (nessun'altra sezione ha snap-align). */
+@media (max-width: 767px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+}
+
 /* Footer su pagina Tour Etna: grigio scuro per non spezzare i colori
    (blu mare → grigio etna). Usa :has() per detectare la pagina. */
 body:has(.tour-etna-page) footer {
