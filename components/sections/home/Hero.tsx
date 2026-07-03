@@ -6,7 +6,7 @@ import {motion, useReducedMotion} from 'motion/react';
 import {useEffect, useRef} from 'react';
 import {HERO_BLUR} from '@/lib/blur';
 import {GoogleReviewsBadge} from '@/components/ui/GoogleReviewsBadge';
-import {HeroQuickQuote} from '@/components/sections/home/HeroQuickQuote';
+import {Link} from '@/i18n/navigation';
 
 // Stop 01 — Hero atmosferica
 // Foto Sicily golden hour full-bleed + headline Bricolage gigante + cue scroll discreta.
@@ -14,6 +14,7 @@ import {HeroQuickQuote} from '@/components/sections/home/HeroQuickQuote';
 
 export function Hero() {
   const t = useTranslations('Home.hero');
+  const tNav = useTranslations('Nav');
   const reduce = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -123,9 +124,17 @@ export function Hero() {
             {t('subhead')}
           </p>
 
-          {/* Micro-form rapido "Da → A" → WhatsApp (azione primaria, lead-gen) */}
-          <div className="mt-5 sm:mt-9">
-            <HeroQuickQuote />
+          {/* CTA primaria: solo "Contattaci" → pagina contatti (coerente con
+              la navbar). I campi Da→A del micro-form sono stati rimossi. */}
+          <div className="mt-5 sm:mt-9 flex justify-center">
+            <Link
+              href="/contatti"
+              className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-[13px] uppercase tracking-[0.08em] font-medium whitespace-nowrap transition-all duration-200 hover:bg-accent-hover"
+              style={{color: 'var(--cream-on-dark)'}}
+            >
+              {tNav('bookNow')}
+              <span aria-hidden="true">→</span>
+            </Link>
           </div>
 
           {/* Badge Google — centrato (Instagram spostato in navbar) */}
