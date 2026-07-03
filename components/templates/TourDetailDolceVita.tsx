@@ -74,7 +74,7 @@ export function TourDetailDolceVita({tour}: {tour: TourContent}) {
         <div className="relative mx-auto max-w-(--container-narrow) px-6 sm:px-10">
           <p className="eyebrow mb-10">
             {tour.introH2Pre}{' '}
-            <span className="text-accent">{tour.introH2Accent}</span>
+            <span className="text-accent-strong">{tour.introH2Accent}</span>
           </p>
           <div className="space-y-7 text-[19px] sm:text-[20px] leading-[1.75] text-ink-soft">
             {tour.introBody.map((p, i) => (
@@ -185,7 +185,7 @@ export function TourDetailDolceVita({tour}: {tour: TourContent}) {
                       ease: [0.16, 1, 0.3, 1]
                     }}
                   >
-                    <p className="font-display italic text-[20px] text-accent mb-4 tabular-nums">
+                    <p className="font-display italic text-[20px] text-accent-strong mb-4 tabular-nums">
                       {stage.number}
                     </p>
                     <h3
@@ -218,7 +218,7 @@ export function TourDetailDolceVita({tour}: {tour: TourContent}) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-14 gap-x-16 lg:gap-x-24">
             <div>
-              <p className="eyebrow text-accent mb-7">{tour.includedLabel}</p>
+              <p className="eyebrow text-accent-strong mb-7">{tour.includedLabel}</p>
               <ul className="space-y-4 text-[17px] sm:text-[18px] leading-[1.65] text-ink-soft">
                 {tour.included.map((item, i) => (
                   <li

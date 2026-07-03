@@ -16,9 +16,10 @@
   --ink-soft: #4A3E33;        /* ink più morbido per sub-body */
   --primary: #1E3A4F;         /* blu mare profondo — moments scuri */
   --primary-deep: #142838;    /* blu notte per CTA finale */
-  --accent: #A5532F;          /* terracotta scuro — AA 4.73:1 su cream (testo piccolo) */
+  --accent: #A5532F;          /* terracotta scuro — AA 4.73:1 su cream standard; NON su cream caldi */
   --accent-hover: #985333;
   --accent-decorative: #E07856; /* terracotta chiaro — solo per highlight large */
+  --accent-text: #8F4526;     /* terracotta più scuro — AA ≥4.5:1 anche su cream caldi (canvas-warm, #F2E9D8/#E8DDC9). Per testo piccolo accent — Opzione B */
   --secondary: #556356;       /* verde ulivo scuro — AA 5.1:1 su cream/muted-bg (era #5F7367 = 4.05, sotto soglia sui form) */
   --border: #E8DFD0;          /* cream scuro — divisori sottili */
   --border-strong: #C9BFA9;   /* divisore più marcato */
@@ -49,6 +50,7 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-decorative: var(--accent-decorative);
+  --color-accent-strong: var(--accent-text);
   --color-secondary: var(--secondary);
   --color-border-soft: var(--border);
   --color-border-strong: var(--border-strong);

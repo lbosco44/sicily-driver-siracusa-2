@@ -252,7 +252,7 @@ export default async function ServiziPage({
                 <p className="text-[16px] sm:text-[17px] text-ink-soft leading-[1.55]">
                   {f.capacity} {f.pax}
                 </p>
-                <p className="text-[16px] sm:text-[17px] text-accent leading-[1.55] mt-1">
+                <p className="text-[16px] sm:text-[17px] text-accent-strong leading-[1.55] mt-1">
                   {f.price}
                 </p>
               </article>

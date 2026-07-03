@@ -16,8 +16,12 @@ import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
 // Mood: rilassato, estivo, luminoso, niente sticky-scroll cinematografico.
 
 const SUN_YELLOW = '#E8B547';
-const SUN_YELLOW_DEEP = '#C99427';
+// Oro profondo per il TESTO (eyebrow, numeri, accent): scurito da #C99427
+// (2.38:1, illeggibile) a #805D0F → AA ≥4.7:1 sui cream Isola. Opzione B.
+const SUN_YELLOW_DEEP = '#805D0F';
 const SKY = '#A9D2E0';
+// Blu profondo per il TESTO (numero tappa): SKY #A9D2E0 come testo era 1.44:1.
+const SKY_DEEP = '#3D6B7D';
 const CREAM_HOT = '#F8F1E1';
 const CREAM_DEEPER = '#F0E4CB';
 
@@ -250,7 +254,7 @@ export function TourDetailIsola({tour}: {tour: TourContent}) {
 
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-10 lg:gap-x-16 gap-y-20 sm:gap-y-24">
             {tour.stages.map((stage, i) => {
-              const numberColors = [SUN_YELLOW_DEEP, SKY, '#B05E40', SUN_YELLOW_DEEP];
+              const numberColors = [SUN_YELLOW_DEEP, SKY_DEEP, '#B05E40', SUN_YELLOW_DEEP];
               return (
                 <motion.li
                   key={stage.number}
