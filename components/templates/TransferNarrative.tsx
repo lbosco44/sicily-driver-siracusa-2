@@ -20,7 +20,12 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
   return (
     <>
       {/* 01 — HERO stile homepage: copy transfer + pill + recensioni */}
-      <TransferHero title={hub.h1} subhead={hub.heroSubhead} image={hub.heroImage} />
+      <TransferHero
+        title={hub.h1}
+        subhead={hub.heroSubhead}
+        image={hub.heroImage}
+        ctaLabel={tCommon('ctaWhatsApp')}
+      />
 
       {/* 02 — COSA INCLUDE IL SERVIZIO — checklist editorial 2 colonne */}
       <section className="bg-canvas-warm py-20 sm:py-28">

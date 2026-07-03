@@ -29,7 +29,6 @@ export async function TransferRouteNarrative({
         title={route.h1}
         subhead={route.heroSubhead}
         image={route.heroImage}
-        quickQuote={false}
         ctaLabel={tCommon('ctaWhatsApp')}
       />
 
