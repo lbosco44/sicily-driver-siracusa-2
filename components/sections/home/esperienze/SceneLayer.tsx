@@ -67,8 +67,6 @@ export function SceneLayer({
             blurDataURL={HERO_BLUR}
             className="object-cover"
             style={{filter: 'saturate(0.88) brightness(0.82) contrast(1.06)'}}
-            priority={index === 0}
-            {...(index === 0 ? {fetchPriority: 'high' as const} : {})}
           />
           <div className="absolute inset-0 atmo-overlay-dark" />
         </>
