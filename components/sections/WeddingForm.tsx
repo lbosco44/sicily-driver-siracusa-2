@@ -1,6 +1,7 @@
 'use client';
 
 import {useState, type FormEvent} from 'react';
+import {useLocale} from 'next-intl';
 
 export type WeddingFormFields = {
   dateLabel: string;
@@ -29,9 +30,11 @@ export type WeddingFormFields = {
   successTitle: string;
   successBody: string;
   errorRequired: string;
+  errorSend: string;
 };
 
 export function WeddingForm({fields}: {fields: WeddingFormFields}) {
+  const locale = useLocale();
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -47,12 +50,19 @@ export function WeddingForm({fields}: {fields: WeddingFormFields}) {
     }
     setIsSubmitting(true);
     const data = Object.fromEntries(new FormData(form).entries());
-    // Phase 1: log + success state. Phase 2 (TODO): POST /api/wedding-quote con Resend.
-    // eslint-disable-next-line no-console
-    console.log('[WeddingForm] submission', data);
-    await new Promise((r) => setTimeout(r, 400));
-    setIsSubmitting(false);
-    setSubmitted(true);
+    try {
+      const res = await fetch('/api/wedding', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({...data, locale})
+      });
+      if (!res.ok) throw new Error('send-failed');
+      setSubmitted(true);
+    } catch {
+      setError(fields.errorSend);
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -79,6 +89,13 @@ export function WeddingForm({fields}: {fields: WeddingFormFields}) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Honeypot anti-spam: invisibile agli umani, i bot lo compilano. */}
+      <div aria-hidden="true" style={{position: 'absolute', left: '-9999px', top: 'auto', width: 1, height: 1, overflow: 'hidden'}}>
+        <label>
+          Company
+          <input name="company" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
+        </label>
+      </div>
       {error && (
         <div
           role="alert"

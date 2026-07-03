@@ -634,7 +634,8 @@
       "submitNote": "We reply within 24-36 hours.",
       "successTitle": "Thanks, we received your request.",
       "successBody": "We will reply within 24-36 hours.",
-      "errorRequired": "Please check the required fields and try again."
+      "errorRequired": "Please check the required fields and try again.",
+      "errorSend": "Sending failed. Please try again or message us on WhatsApp."
     },
     "bases": {
       "eyebrow": "Our bases",

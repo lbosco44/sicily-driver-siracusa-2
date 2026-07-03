@@ -98,6 +98,7 @@ export type WeddingContent = {
     successTitle: string;
     successBody: string;
     errorRequired: string;
+    errorSend: string;
   };
 
   ctaEyebrow: string;
@@ -327,7 +328,8 @@ const WEDDING_IT: WeddingContent = {
     successTitle: 'Richiesta ricevuta.',
     successBody:
       'Ti contattiamo entro 24h con il preventivo personalizzato. Per cose urgenti, scrivi direttamente su WhatsApp.',
-    errorRequired: 'Controlla i campi obbligatori e riprova.'
+    errorRequired: 'Controlla i campi obbligatori e riprova.',
+    errorSend: 'Invio non riuscito. Riprova o scrivici su WhatsApp.'
   },
 
   ctaEyebrow: 'Preferisci scrivere direttamente?',
@@ -532,7 +534,8 @@ const WEDDING_EN: WeddingContent = {
     successTitle: 'Request received.',
     successBody:
       'We’ll contact you within 24h with a tailored quote. For urgent matters, message us on WhatsApp.',
-    errorRequired: 'Please check the required fields and try again.'
+    errorRequired: 'Please check the required fields and try again.',
+    errorSend: 'Sending failed. Please try again or message us on WhatsApp.'
   },
 
   ctaEyebrow: 'Prefer to write directly?',

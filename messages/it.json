@@ -634,7 +634,8 @@
       "submitNote": "Rispondiamo entro 24-36 ore.",
       "successTitle": "Grazie, abbiamo ricevuto la tua richiesta.",
       "successBody": "Ti rispondiamo entro 24-36 ore.",
-      "errorRequired": "Controlla i campi obbligatori e riprova."
+      "errorRequired": "Controlla i campi obbligatori e riprova.",
+      "errorSend": "Invio non riuscito. Riprova o scrivici su WhatsApp."
     },
     "bases": {
       "eyebrow": "Le sedi",

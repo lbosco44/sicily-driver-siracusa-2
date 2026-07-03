@@ -1,10 +1,11 @@
 'use client';
 
 import {useState, type FormEvent} from 'react';
-import {useTranslations} from 'next-intl';
+import {useTranslations, useLocale} from 'next-intl';
 
 export function ContactForm() {
   const t = useTranslations('Contatti.form');
+  const locale = useLocale();
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -20,16 +21,20 @@ export function ContactForm() {
     }
     setIsSubmitting(true);
     const data = Object.fromEntries(new FormData(form).entries());
-    // Phase 1: no backend reale, log + toast/success message.
-    // Phase 2 (TODO): POST a /api/contact con Resend.
-    // eslint-disable-next-line no-console
-    console.log('[ContactForm] submission', data);
-    // Microdelay per garantire che lo stato "Invio..." sia percepibile anche
-    // quando il submit e' istantaneo (Phase 1). In Phase 2 Resend la latenza
-    // reale lo rende naturale.
-    await new Promise((r) => setTimeout(r, 400));
-    setIsSubmitting(false);
-    setSubmitted(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({...data, locale})
+      });
+      if (!res.ok) throw new Error('send-failed');
+      setSubmitted(true);
+    } catch {
+      // Invio fallito: teniamo il form compilato e offriamo il fallback WhatsApp.
+      setError(t('errorSend'));
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -55,6 +60,13 @@ export function ContactForm() {
       className="space-y-6"
       aria-describedby="form-note"
     >
+      {/* Honeypot anti-spam: invisibile agli umani, i bot lo compilano. */}
+      <div aria-hidden="true" style={{position: 'absolute', left: '-9999px', top: 'auto', width: 1, height: 1, overflow: 'hidden'}}>
+        <label>
+          Company
+          <input name="company" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
+        </label>
+      </div>
       {error && (
         <div
           role="alert"
