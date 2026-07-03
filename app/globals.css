@@ -283,9 +283,22 @@ h3 { line-height: 1.1; letter-spacing: -0.015em; }
 .animate-reviews-marquee:hover {
   animation-play-state: paused;
 }
+/* Mobile: niente auto-scroll. Il marquee diventa un carosello swipeabile a
+   mano (il contenitore .reviews-viewport è overflow-x:auto sotto sm). Su
+   desktop resta lo scorrimento automatico. */
+@media (max-width: 639px) {
+  .animate-reviews-marquee {
+    animation: none;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .animate-reviews-marquee {
     animation: none;
+  }
+  /* Con "riduci movimento" niente auto-scroll a nessuna larghezza →
+     il contenitore resta scrollabile a mano anche su desktop. */
+  .reviews-viewport {
+    overflow-x: auto;
   }
 }
 

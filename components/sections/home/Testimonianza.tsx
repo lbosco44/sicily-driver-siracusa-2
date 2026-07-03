@@ -72,9 +72,12 @@ export function Testimonianza() {
         </motion.div>
       </div>
 
-      {/* Marquee — fade ai bordi, pause su hover via CSS */}
+      {/* Marquee su desktop, carosello swipeabile su mobile.
+          Mobile (< sm): overflow-x-auto + snap → l'utente scorre a mano
+          (l'auto-scroll è spento via CSS, così funziona anche con
+          "riduci movimento" attivo). Desktop: marquee automatico. */}
       <div
-        className="relative w-full overflow-hidden"
+        className="reviews-viewport scrollbar-hidden relative w-full overflow-x-auto sm:overflow-hidden snap-x"
         style={{
           maskImage:
             'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)',
@@ -92,7 +95,9 @@ export function Testimonianza() {
               <li
                 key={i}
                 aria-hidden={isClone || undefined}
-                className="shrink-0 bg-canvas border border-[var(--border)] px-8 sm:px-10 py-10 sm:py-12 flex flex-col"
+                className={`shrink-0 snap-start bg-canvas border border-[var(--border)] px-8 sm:px-10 py-10 sm:py-12 flex flex-col ${
+                  isClone ? 'max-sm:hidden' : ''
+                }`}
                 style={{width: 'min(380px, 82vw)', minHeight: 280}}
               >
                 <Stars />
