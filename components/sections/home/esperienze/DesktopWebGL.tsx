@@ -537,13 +537,17 @@ export function DesktopWebGL() {
             chiaramente visibile. Il darkening per leggibilita' testo lo
             faro' sul container del testo se necessario. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
+        {/* Fallback dietro il canvas. loading="lazy": su mobile il componente è
+            `hidden md:block` (display:none) → l'immagine raw NON viene scaricata
+            (niente 141KB sprecati sul device prioritario). Su desktop, sezione
+            sotto la piega, il background-image sopra copre comunque il flash. */}
         <img
           src={ESPERIENZE[0].image}
           alt=""
           className="absolute inset-0 w-full h-full object-cover pointer-events-none block"
           style={{display: 'block'}}
-          loading="eager"
-          decoding="sync"
+          loading="lazy"
+          decoding="async"
           aria-hidden="true"
         />
 

@@ -1,4 +1,3 @@
-import ReactDOM from 'react-dom';
 import {setRequestLocale, getTranslations} from 'next-intl/server';
 import type {Metadata} from 'next';
 
@@ -71,11 +70,6 @@ export default async function HomePage({
 }) {
   const {locale} = await params;
   setRequestLocale(locale);
-
-  // Preload della prima foto della sezione Esperienze (dolce-vita): scoped alla
-  // sola home (prima era nel layout condiviso → scaricata su ogni pagina).
-  // Priorità normale (sotto la piega): non deve competere con l'LCP dell'hero.
-  ReactDOM.preload('/images/home/dolce-vita.webp', {as: 'image'});
 
   const t = await getTranslations({locale, namespace: 'Home.whisper1'});
   const tFaq = await getTranslations({locale, namespace: 'Home.faq'});
