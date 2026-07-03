@@ -205,7 +205,7 @@ export default async function WeddingPage({
                     />
                   </figure>
                   <div className="flex items-baseline gap-4">
-                    <p className="font-display italic text-[15px] text-accent tabular-nums">
+                    <p className="font-display italic text-[15px] text-accent-strong tabular-nums">
                       {car.year}
                     </p>
                     <h3
@@ -283,7 +283,7 @@ export default async function WeddingPage({
                   >
                     {v.name}
                   </h3>
-                  <p className="mt-3 font-display italic text-[18px] text-accent leading-snug max-w-[30ch]">
+                  <p className="mt-3 font-display italic text-[18px] text-accent-strong leading-snug max-w-[30ch]">
                     {v.tagline}
                   </p>
                 </div>

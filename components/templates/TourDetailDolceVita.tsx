@@ -107,7 +107,7 @@ export function TourDetailDolceVita({tour}: {tour: TourContent}) {
                 >
                   {n.value}
                 </p>
-                <p className="mt-4 text-[12px] sm:text-[13px] uppercase tracking-[0.14em] font-medium text-ink/60 leading-relaxed max-w-[28ch]">
+                <p className="mt-4 text-[12px] sm:text-[13px] uppercase tracking-[0.14em] font-medium text-ink/70 leading-relaxed max-w-[28ch]">
                   {n.label}
                 </p>
               </li>
@@ -232,7 +232,7 @@ export function TourDetailDolceVita({tour}: {tour: TourContent}) {
             </div>
             <div>
               <p className="eyebrow text-secondary mb-7">{tour.excludedLabel}</p>
-              <ul className="space-y-4 text-[17px] sm:text-[18px] leading-[1.65] text-ink/60">
+              <ul className="space-y-4 text-[17px] sm:text-[18px] leading-[1.65] text-ink/70">
                 {tour.excluded.map((item, i) => (
                   <li
                     key={i}
