@@ -2,6 +2,7 @@
 
 import {useState, type FormEvent} from 'react';
 import {useLocale} from 'next-intl';
+import {WHATSAPP_HREF} from '@/lib/contact';
 
 export type WeddingFormFields = {
   dateLabel: string;
@@ -56,7 +57,14 @@ export function WeddingForm({fields}: {fields: WeddingFormFields}) {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({...data, locale})
       });
-      if (!res.ok) throw new Error('send-failed');
+      if (!res.ok) {
+        let code = 'send';
+        try {
+          code = ((await res.json()) as {error?: string})?.error ?? 'send';
+        } catch {}
+        setError(code === 'validation' ? fields.errorRequired : fields.errorSend);
+        return;
+      }
       setSubmitted(true);
     } catch {
       setError(fields.errorSend);
@@ -102,7 +110,15 @@ export function WeddingForm({fields}: {fields: WeddingFormFields}) {
           aria-live="assertive"
           className="rounded-md border border-accent/40 bg-accent/10 px-4 py-3 text-[14px] text-ink"
         >
-          {error}
+          {error}{' '}
+          <a
+            href={WHATSAPP_HREF}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium underline underline-offset-2"
+          >
+            WhatsApp
+          </a>
         </div>
       )}
 

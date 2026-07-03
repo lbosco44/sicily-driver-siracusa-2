@@ -280,7 +280,10 @@ h3 { line-height: 1.1; letter-spacing: -0.015em; }
 .animate-reviews-marquee {
   animation: reviews-marquee 55s linear infinite;
 }
-.animate-reviews-marquee:hover {
+/* Pausa su hover E su focus da tastiera (WCAG 2.2.2: contenuto in movimento
+   deve essere fermabile anche senza mouse). */
+.animate-reviews-marquee:hover,
+.animate-reviews-marquee:focus-within {
   animation-play-state: paused;
 }
 /* Mobile: niente auto-scroll. Il marquee diventa un carosello swipeabile a

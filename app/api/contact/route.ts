@@ -1,5 +1,5 @@
 import {NextResponse} from 'next/server';
-import {sendLeadEmail, leadEmailHtml} from '@/lib/email';
+import {sendLeadEmail, leadEmailHtml, oneLine, clip} from '@/lib/email';
 
 export const runtime = 'nodejs';
 
@@ -26,10 +26,11 @@ export async function POST(req: Request) {
     return NextResponse.json({ok: true});
   }
 
-  const name = (body.name || '').trim();
-  const phone = (body.phone || '').trim();
-  const type = (body.type || '').trim();
-  const message = (body.message || '').trim();
+  // Cap lunghezze: difesa contro payload abnormi verso la casella del cliente.
+  const name = oneLine(body.name || '', 80);
+  const phone = oneLine(body.phone || '', 40);
+  const type = oneLine(body.type || '', 80);
+  const message = clip(body.message || '', 2000);
 
   if (!name || !phone || !type || !message) {
     return NextResponse.json({ok: false, error: 'validation'}, {status: 400});

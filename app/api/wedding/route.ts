@@ -1,5 +1,11 @@
 import {NextResponse} from 'next/server';
-import {sendLeadEmail, leadEmailHtml} from '@/lib/email';
+import {
+  sendLeadEmail,
+  leadEmailHtml,
+  isValidEmail,
+  oneLine,
+  clip
+} from '@/lib/email';
 
 export const runtime = 'nodejs';
 
@@ -17,10 +23,6 @@ type Body = {
   locale?: string;
 };
 
-function clean(v: string | undefined): string {
-  return (v || '').trim();
-}
-
 export async function POST(req: Request) {
   let body: Body;
   try {
@@ -33,12 +35,13 @@ export async function POST(req: Request) {
     return NextResponse.json({ok: true});
   }
 
-  const date = clean(body.date);
-  const ceremony = clean(body.ceremony);
-  const carsCount = clean(body.carsCount);
-  const name = clean(body.name);
-  const phone = clean(body.phone);
-  const email = clean(body.email);
+  // Cap lunghezze: difesa contro payload abnormi verso la casella del cliente.
+  const date = oneLine(body.date || '', 40);
+  const ceremony = oneLine(body.ceremony || '', 120);
+  const carsCount = oneLine(body.carsCount || '', 10);
+  const name = oneLine(body.name || '', 80);
+  const phone = oneLine(body.phone || '', 40);
+  const email = oneLine(body.email || '', 120);
 
   // Obbligatori nel form: data, cerimonia, n° auto, nome, telefono.
   if (!date || !ceremony || !carsCount || !name || !phone) {
@@ -52,10 +55,10 @@ export async function POST(req: Request) {
     ['Email', email || '—'],
     ['Data evento', date],
     ['Location cerimonia', ceremony],
-    ['Location ricevimento', clean(body.reception) || '—'],
+    ['Location ricevimento', oneLine(body.reception || '', 120) || '—'],
     ['N° auto', carsCount],
-    ['N° invitati', clean(body.guests) || '—'],
-    ['Note', clean(body.notes) || '—'],
+    ['N° invitati', oneLine(body.guests || '', 60) || '—'],
+    ['Note', clip(body.notes || '', 2000) || '—'],
     ['Lingua sito', locale]
   ];
 
@@ -64,7 +67,8 @@ export async function POST(req: Request) {
     html: leadEmailHtml('Nuova richiesta dal sito — Wedding', rows),
     text: rows.map(([k, v]) => `${k}: ${v}`).join('\n'),
     // Il wedding form raccoglie l'email → il cliente può rispondere diretto.
-    replyTo: email || undefined
+    // Solo se valida: un indirizzo sporco farebbe rifiutare l'intera email.
+    replyTo: email && isValidEmail(email) ? email : undefined
   });
 
   if (!result.ok) {

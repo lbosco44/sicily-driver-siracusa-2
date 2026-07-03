@@ -2,6 +2,7 @@
 
 import {useState, type FormEvent} from 'react';
 import {useTranslations, useLocale} from 'next-intl';
+import {WHATSAPP_HREF} from '@/lib/contact';
 
 export function ContactForm() {
   const t = useTranslations('Contatti.form');
@@ -27,10 +28,17 @@ export function ContactForm() {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({...data, locale})
       });
-      if (!res.ok) throw new Error('send-failed');
+      if (!res.ok) {
+        let code = 'send';
+        try {
+          code = ((await res.json()) as {error?: string})?.error ?? 'send';
+        } catch {}
+        setError(code === 'validation' ? t('errorRequired') : t('errorSend'));
+        return;
+      }
       setSubmitted(true);
     } catch {
-      // Invio fallito: teniamo il form compilato e offriamo il fallback WhatsApp.
+      // Rete/timeout: teniamo il form compilato e offriamo il fallback WhatsApp.
       setError(t('errorSend'));
     } finally {
       setIsSubmitting(false);
@@ -73,7 +81,15 @@ export function ContactForm() {
           aria-live="assertive"
           className="rounded-md border border-accent/40 bg-accent/10 px-4 py-3 text-[14px] text-ink"
         >
-          {error}
+          {error}{' '}
+          <a
+            href={WHATSAPP_HREF}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium underline underline-offset-2"
+          >
+            WhatsApp
+          </a>
         </div>
       )}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">

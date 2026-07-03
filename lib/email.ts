@@ -18,6 +18,21 @@ type SendResult = {ok: true; delivered: boolean} | {ok: false; error: string};
 const RESEND_ENDPOINT = 'https://api.resend.com/emails';
 const DEFAULT_FROM = 'Sicily Driver <noreply@ncctaxisiracusa.com>';
 
+// Validazione email minimale (per decidere se usarla come reply_to).
+export function isValidEmail(value: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+// Cap lunghezza (difesa payload enormi). Preserva i newline interni.
+export function clip(value: string, max: number): string {
+  return value.trim().slice(0, max);
+}
+
+// Riga singola normalizzata: per subject e campi mono-linea (nome, telefono).
+export function oneLine(value: string, max: number): string {
+  return value.replace(/\s+/g, ' ').trim().slice(0, max);
+}
+
 export function escapeHtml(value: string): string {
   return value
     .replace(/&/g, '&amp;')
@@ -64,17 +79,30 @@ export async function sendLeadEmail(opts: {
   const from = process.env.LEAD_FROM_EMAIL || DEFAULT_FROM;
 
   if (!apiKey || !to) {
-    // Pre-lancio: non configurato. Non è un errore, è uno stato atteso.
     console.warn(
       '[lead] Resend non configurato (RESEND_API_KEY / LEAD_TO_EMAIL mancanti). Lead NON inviato:',
       opts.subject
     );
-    return {ok: true, delivered: false};
+    // Fuori dalla produzione (preview Vercel / dev locale) è uno stato atteso:
+    // "staging", nessun errore, il form mostra comunque la conferma in demo.
+    // In PRODUZIONE una env mancante è un guasto: restituiamo errore → il form
+    // mostra il fallback WhatsApp invece di una finta conferma con lead perso.
+    // Usiamo VERCEL_ENV (non NODE_ENV, che è "production" anche in preview).
+    // Override esplicito con LEAD_STAGING=1.
+    const staging =
+      process.env.VERCEL_ENV !== 'production' ||
+      process.env.LEAD_STAGING === '1';
+    return staging
+      ? {ok: true, delivered: false}
+      : {ok: false, error: 'not_configured'};
   }
 
   try {
     const res = await fetch(RESEND_ENDPOINT, {
       method: 'POST',
+      // Timeout: se Resend è lento/appeso non blocchiamo la function e non
+      // lasciamo il bottone in "Invio..." all'infinito (rischio doppio invio).
+      signal: AbortSignal.timeout(8000),
       headers: {
         Authorization: `Bearer ${apiKey}`,
         'Content-Type': 'application/json'
