@@ -1,20 +1,27 @@
 'use client';
 
-import {useCallback, useEffect, useRef, useState} from 'react';
+import {useRef, useState} from 'react';
 import {useTranslations} from 'next-intl';
-import {useReducedMotion} from 'motion/react';
+import {useReducedMotion, useScroll, useMotionValueEvent} from 'motion/react';
 import {ESPERIENZE, N} from './data';
 import {SceneLayer, SceneOverlay} from './SceneLayer';
 
-// Mobile: scroll-lock pattern (Apple/Tesla style).
-// 1 gesto wheel/touch = 1 cambio scena, niente skip, niente buco.
-// Boundary release con smooth-scroll out.
-
-const SCENE_COOLDOWN_MS = 450;
-const TOUCH_SWIPE_THRESHOLD = 30;
-const LOCK_INTERSECTION_THRESHOLD = 0.85;
-const UNLOCK_INTERSECTION_THRESHOLD = 0.3;
-const LOCK_SETTLE_MS = 600;
+// Mobile: sticky vertical scroll — stesso pattern robusto del desktop
+// (DesktopWebGL): un contenitore ALTO + un inner `sticky`, e la scena attiva
+// è derivata dalla POSIZIONE di scroll, non intercettando i gesti.
+//
+// PERCHÉ (fix 2026-07-03): la versione precedente era uno "scroll-lock" che
+// bloccava wheel/touch con preventDefault e cambiava scena 1-per-gesto. Su
+// touch è inaffidabile: (1) il lock si arma via IntersectionObserver ASINCRONO,
+// troppo lento per un flick veloce; (2) su iOS lo scroll inerziale dopo il
+// touchend NON è bloccabile via JS. Risultato: con uno scroll forte la sezione
+// (alta 1 sola schermata) usciva dal viewport "senza agganciare", saltando le
+// foto. Qui non c'è nulla da intercettare: le foto SONO lo scroll. Niente
+// scroll-jacking, niente blocco iOS, niente salti.
+//
+// Ogni scena occupa VH_PER_SCENE di scroll: più alto = serve scrollare di più
+// per cambiare foto (feel più "lento/deciso"); più basso = cambio più rapido.
+const VH_PER_SCENE = 70;
 
 export function MobileScrollLock() {
   const t = useTranslations('Home.esperienze');
@@ -23,177 +30,39 @@ export function MobileScrollLock() {
   const reduce = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const isLockedRef = useRef(false);
-  const lockSettleAtRef = useRef(0);
-  const lastTriggerRef = useRef(0);
-  const touchStartYRef = useRef<number | null>(null);
-  const activeIndexRef = useRef(0);
-  // CRITICAL FIX 27/05/2026 (cliente: "rimango bloccato sul tour 5 dopo
-  // l'ultimo scroll, non riesco a scendere giu nella home").
-  // BUG ROOT CAUSE: dopo releaseAndScroll('down') al tour 5, lo
-  // smooth-scroll impiega ~300-500ms a portare la sezione fuori
-  // viewport. Durante questo tempo l'IntersectionObserver puo' firare
-  // con intersectionRatio ancora > 0.85 → re-set isLockedRef.current
-  // = true → utente bloccato di nuovo, scroll non funziona, sensazione
-  // di "rimbalzo".
-  // FIX: releasedRef e' un flag latch che, una volta settato dopo
-  // releaseAndScroll, IMPEDISCE all'IO di ri-attivare il lock finche'
-  // la sezione non e' effettivamente uscita dal viewport
-  // (intersectionRatio < UNLOCK threshold). Solo allora releasedRef
-  // viene resettato a false e l'IO puo' ri-lockare al prossimo entry.
-  const releasedRef = useRef(false);
+  const {scrollYProgress} = useScroll({
+    target: ref,
+    offset: ['start start', 'end end']
+  });
 
-  useEffect(() => {
-    activeIndexRef.current = activeIndex;
-  }, [activeIndex]);
-
-  const releaseAndScroll = useCallback((direction: 'up' | 'down') => {
-    isLockedRef.current = false;
-    // LATCH: blocca l'IO da ri-attivare il lock finche' la sezione non
-    // esce effettivamente dal viewport. Vedi commento su releasedRef.
-    releasedRef.current = true;
-    const el = ref.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const target =
-      direction === 'down'
-        ? window.scrollY + rect.bottom + 1
-        : Math.max(0, window.scrollY + rect.top - window.innerHeight - 1);
-    window.scrollTo({top: target, behavior: 'smooth'});
-  }, []);
-
-  const advance = useCallback(
-    (direction: 'up' | 'down') => {
-      const now = Date.now();
-      if (now - lockSettleAtRef.current < LOCK_SETTLE_MS) return;
-      if (now - lastTriggerRef.current < SCENE_COOLDOWN_MS) return;
-
-      const current = activeIndexRef.current;
-      if (direction === 'up' && current === 0) {
-        releaseAndScroll('up');
-        return;
-      }
-      if (direction === 'down' && current === N - 1) {
-        releaseAndScroll('down');
-        return;
-      }
-
-      lastTriggerRef.current = now;
-      const next =
-        direction === 'down'
-          ? Math.min(current + 1, N - 1)
-          : Math.max(current - 1, 0);
-      activeIndexRef.current = next;
-      setActiveIndex(next);
-    },
-    [releaseAndScroll]
-  );
-
-  // IntersectionObserver: quando sezione raggiunge ~fullscreen,
-  // 1. determina direzione di entrata via rect.top sign:
-  //    - rect.top > 0  → utente scrolla giu', entra da sotto → scene 0
-  //    - rect.top < 0  → utente scrolla su, entra da sopra → scene N-1
-  // 2. attiva lock
-  // 3. smooth-scroll per allineare PRECISAMENTE section.top a viewport.top
-  useEffect(() => {
-    if (reduce || !ref.current) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (entry.intersectionRatio >= LOCK_INTERSECTION_THRESHOLD) {
-          // Skippa il lock se releasedRef e' attivo: l'utente ha appena
-          // svincolato dalla sezione tramite releaseAndScroll, non
-          // re-imprigionarlo durante lo smooth-scroll uscente.
-          if (!isLockedRef.current && !releasedRef.current) {
-            const rect = entry.boundingClientRect;
-
-            if (rect.top < -1) {
-              activeIndexRef.current = N - 1;
-              setActiveIndex(N - 1);
-            } else if (rect.top > 1) {
-              activeIndexRef.current = 0;
-              setActiveIndex(0);
-            }
-
-            isLockedRef.current = true;
-            lockSettleAtRef.current = Date.now();
-
-            if (Math.abs(rect.top) > 1) {
-              window.scrollTo({
-                top: window.scrollY + rect.top,
-                behavior: 'smooth'
-              });
-            }
-          }
-        } else if (entry.intersectionRatio < UNLOCK_INTERSECTION_THRESHOLD) {
-          isLockedRef.current = false;
-          // La sezione e' uscita davvero dal viewport → il latch
-          // releasedRef si disattiva, permettendo il prossimo lock
-          // al re-entry (es. utente scrolla di nuovo verso l'alto
-          // tornando ai tour).
-          releasedRef.current = false;
-        }
-      },
-      {threshold: [0, 0.3, 0.5, 0.7, 0.85, 0.95, 1]}
-    );
-    observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [reduce]);
-
-  useEffect(() => {
-    if (reduce) return;
-
-    const handleWheel = (e: WheelEvent) => {
-      if (!isLockedRef.current) return;
-      e.preventDefault();
-      advance(e.deltaY > 0 ? 'down' : 'up');
-    };
-
-    const handleTouchStart = (e: TouchEvent) => {
-      touchStartYRef.current = e.touches[0].clientY;
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      if (!isLockedRef.current) return;
-      e.preventDefault();
-    };
-
-    const handleTouchEnd = (e: TouchEvent) => {
-      if (!isLockedRef.current || touchStartYRef.current === null) return;
-      const deltaY = touchStartYRef.current - e.changedTouches[0].clientY;
-      touchStartYRef.current = null;
-      if (Math.abs(deltaY) < TOUCH_SWIPE_THRESHOLD) return;
-      advance(deltaY > 0 ? 'down' : 'up');
-    };
-
-    window.addEventListener('wheel', handleWheel, {passive: false});
-    window.addEventListener('touchstart', handleTouchStart, {passive: true});
-    window.addEventListener('touchmove', handleTouchMove, {passive: false});
-    window.addEventListener('touchend', handleTouchEnd);
-
-    return () => {
-      window.removeEventListener('wheel', handleWheel);
-      window.removeEventListener('touchstart', handleTouchStart);
-      window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('touchend', handleTouchEnd);
-    };
-  }, [advance, reduce]);
+  // La foto mostrata è sempre quella più vicina alla posizione di scroll
+  // (Math.round): niente stati "a metà dissolvenza", una foto alla volta.
+  useMotionValueEvent(scrollYProgress, 'change', (p) => {
+    const idx = Math.max(0, Math.min(N - 1, Math.round(p * (N - 1))));
+    setActiveIndex((prev) => (prev === idx ? prev : idx));
+  });
 
   return (
-    <div ref={ref} className="relative h-[100svh] overflow-hidden bg-canvas">
-      {ESPERIENZE.map((e, i) => (
-        <SceneLayer
-          key={e.key}
-          e={e}
-          index={i}
-          active={activeIndex === i}
-          activeIndex={activeIndex}
-          t={t}
-          tCommon={tCommon}
-          reduce={!!reduce}
-        />
-      ))}
-      <SceneOverlay activeIndex={activeIndex} t={t} showDots />
+    <div
+      ref={ref}
+      style={{height: `${100 + VH_PER_SCENE * (N - 1)}svh`}}
+      className="relative bg-canvas"
+    >
+      <div className="sticky top-0 h-[100svh] overflow-hidden">
+        {ESPERIENZE.map((e, i) => (
+          <SceneLayer
+            key={e.key}
+            e={e}
+            index={i}
+            active={activeIndex === i}
+            activeIndex={activeIndex}
+            t={t}
+            tCommon={tCommon}
+            reduce={!!reduce}
+          />
+        ))}
+        <SceneOverlay activeIndex={activeIndex} t={t} showDots />
+      </div>
     </div>
   );
 }
