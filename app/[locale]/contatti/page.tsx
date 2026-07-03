@@ -214,7 +214,7 @@ export default async function ContattiPage({
                 })}
               </div>
 
-              <p className="mt-6 text-[12px] italic text-ink/45">
+              <p className="mt-6 text-[12px] italic text-ink/70">
                 {t('ways.pec')}
               </p>
             </div>

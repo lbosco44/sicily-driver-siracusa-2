@@ -223,7 +223,7 @@ export default async function WeddingPage({
             })}
           </div>
 
-          <p className="mt-12 sm:mt-16 text-[13px] italic text-ink/45 max-w-prose">
+          <p className="mt-12 sm:mt-16 text-[13px] italic text-ink/70 max-w-prose">
             {w.carsTodoNote}
           </p>
         </div>
@@ -307,7 +307,7 @@ export default async function WeddingPage({
             >
               {w.galleryH2}
             </h2>
-            <p className="text-[14px] italic font-display text-ink/55">
+            <p className="text-[14px] italic font-display text-ink/70">
               {w.galleryCaption}
             </p>
           </div>
@@ -341,7 +341,7 @@ export default async function WeddingPage({
             ))}
           </div>
 
-          <p className="mt-10 text-[13px] italic text-ink/45">
+          <p className="mt-10 text-[13px] italic text-ink/70">
             {w.galleryPlaceholderNote}
           </p>
         </div>

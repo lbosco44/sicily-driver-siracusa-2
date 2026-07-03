@@ -210,7 +210,7 @@ export function WeddingForm({fields}: {fields: WeddingFormFields}) {
           {isSubmitting ? fields.submitting : fields.submit}
           <span aria-hidden="true">{isSubmitting ? '…' : '→'}</span>
         </button>
-        <p className="text-[13px] text-ink/55 leading-relaxed max-w-md">
+        <p className="text-[13px] text-ink/70 leading-relaxed max-w-md">
           {fields.submitNote}
         </p>
       </div>

@@ -68,7 +68,7 @@ export default async function PrivacyPage({
           >
             {t('h1')}
           </h1>
-          <p className="mt-10 text-[15px] text-ink/55">{t('updated')}</p>
+          <p className="mt-10 text-[15px] text-ink/70">{t('updated')}</p>
         </div>
       </section>
 

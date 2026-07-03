@@ -369,10 +369,10 @@ export function TourDetailIsola({tour}: {tour: TourContent}) {
               </ul>
             </div>
             <div>
-              <p className="eyebrow mb-7 text-ink/40">
+              <p className="eyebrow mb-7 text-ink/65">
                 {tour.excludedLabel}
               </p>
-              <ul className="space-y-4 text-[17px] sm:text-[18px] leading-[1.65] text-ink/55">
+              <ul className="space-y-4 text-[17px] sm:text-[18px] leading-[1.65] text-ink/70">
                 {tour.excluded.map((item, i) => (
                   <li
                     key={i}

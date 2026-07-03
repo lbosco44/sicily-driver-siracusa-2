@@ -145,7 +145,7 @@ export function ContactForm() {
           {isSubmitting ? t('submitting') : t('submit')}
           <span aria-hidden="true">{isSubmitting ? '…' : '→'}</span>
         </button>
-        <p id="form-note" className="text-[13px] text-ink/55 leading-relaxed">
+        <p id="form-note" className="text-[13px] text-ink/70 leading-relaxed">
           {t('submitNote')}
         </p>
       </div>
