@@ -155,6 +155,14 @@ const ISOLA_STAGE_2 = '/images/tour-isola/stage-2.jpg';
 const ISOLA_STAGE_3 = '/images/tour-isola/stage-3.jpeg';
 const ISOLA_STAGE_4 = '/images/tour-isola/stage-4.jpg';
 
+// Stage images Dolce Vita — foto reali cliente 03/07/2026 (tappe 02/03/04).
+// Tappa 01 "Partenza dal parcheggio Talete" riusa la foto reale della 500
+// (HERO_DOLCE_VITA): il parcheggio è brutto, ma la copy è "la 500 ti aspetta
+// lì, foto di partenza" → la Spiaggina è il soggetto giusto per quella tappa.
+const DOLCE_STAGE_CASTELLO = '/images/tour-dolce-vita/lungomare-castello-maniace.jpg';
+const DOLCE_STAGE_DUOMO = '/images/tour-dolce-vita/duomo-siracusa.jpg';
+const DOLCE_STAGE_APERITIVO = '/images/tour-dolce-vita/aperitivo-finale.jpg';
+
 // ============================================================
 // TOUR HUB IT/EN
 // ============================================================
@@ -1203,32 +1211,28 @@ const DOLCE_VITA_IT: TourContent = {
       title: 'Partenza dal parcheggio Talete',
       duration: '15 min',
       body: 'Ci troviamo al parcheggio Talete, all’ingresso di Ortigia. La 500 ti aspetta lì, capote già abbassata se il tempo lo permette. Foto di partenza, breve briefing su quello che vedremo, e si parte.',
-      image:
-        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=1200&q=70&auto=format&fm=webp'
+      image: HERO_DOLCE_VITA
     },
     {
       number: '02',
       title: 'Lungomare di Levante e Castello Maniace',
       duration: '45 min',
       body: 'Imbocchiamo Via XX Settembre, costeggiamo il porto piccolo e arriviamo al Castello Maniace, all’estremità sud di Ortigia. Sosta foto sul belvedere — uno dei punti più Instagrammati dell’isola.',
-      image:
-        '/images/tour-etna/stage-3-cantina.jpeg'
+      image: DOLCE_STAGE_CASTELLO
     },
     {
       number: '03',
       title: 'Duomo, Fonte Aretusa, Lungomare di Ponente',
       duration: '1h',
       body: 'Risaliamo verso Piazza Duomo, dove la cattedrale è ancora un tempio dorico inglobato. Sosta breve per camminare nella piazza, poi la Fonte Aretusa con i papiri — l’unica colonia di papiri spontanei d’Europa. Si chiude sul lungomare di Ponente al tramonto.',
-      image:
-        '/images/tour-barocco/stage-3-ragusa.jpeg'
+      image: DOLCE_STAGE_DUOMO
     },
     {
       number: '04',
       title: 'Aperitivo finale',
       duration: '1h',
       body: 'Aperitivo in uno dei locali di Lungomare Alfeo o Riva di Levante, vista mare. Spritz o vino bianco siciliano, tagliere di formaggi e salumi locali. Foto finali con la 500 nell’angolo giusto. Restituzione 2h dopo l’inizio.',
-      image:
-        '/images/tour-barocco/stage-1-noto.png'
+      image: DOLCE_STAGE_APERITIVO
     }
   ],
 
@@ -1314,32 +1318,28 @@ const DOLCE_VITA_EN: TourContent = {
       title: 'Talete car park departure',
       duration: '15 min',
       body: 'We meet at the Talete car park, the entrance to Ortigia. The 500 is waiting, top already down if the weather allows. Departure photo, brief intro to what we’ll see, and we go.',
-      image:
-        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=1200&q=70&auto=format&fm=webp'
+      image: HERO_DOLCE_VITA
     },
     {
       number: '02',
       title: 'Eastern seafront & Maniace Castle',
       duration: '45 min',
       body: 'We take Via XX Settembre, along the small port, up to Maniace Castle at the southern tip of Ortigia. Photo stop at the belvedere — one of the most Instagrammed spots on the island.',
-      image:
-        '/images/tour-etna/stage-3-cantina.jpeg'
+      image: DOLCE_STAGE_CASTELLO
     },
     {
       number: '03',
       title: 'Duomo, Arethusa, Western seafront',
       duration: '1h',
       body: 'We climb back to Piazza Duomo, where the cathedral is still a Doric temple inside. A short stop to walk the square, then the Arethusa Spring with the papyrus — the only spontaneous papyrus colony in Europe. We close on the western seafront at sunset.',
-      image:
-        '/images/tour-barocco/stage-3-ragusa.jpeg'
+      image: DOLCE_STAGE_DUOMO
     },
     {
       number: '04',
       title: 'Final aperitivo',
       duration: '1h',
       body: 'Aperitivo at one of the bars on Lungomare Alfeo or Riva di Levante, sea view. Spritz or Sicilian white wine, board of local cheeses and cured meats. Final photos with the 500 at the right angle. Drop-off 2h after start.',
-      image:
-        '/images/tour-barocco/stage-1-noto.png'
+      image: DOLCE_STAGE_APERITIVO
     }
   ],
 
