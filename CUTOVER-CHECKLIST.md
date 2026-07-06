@@ -114,10 +114,10 @@ Sito attuale su hosting Aruba: `A @` e `A www` → `89.46.106.60`;
 `AAAA @` e `AAAA www` → `2a00:6d40:4:3::c245:60`.
 
 **Al cutover, solo 4 mosse (record editabili):**
-1. ☐ `A @` : `89.46.106.60` → **IP Vercel** (valore mostrato da Vercel, storicamente `76.76.21.21`)
+1. ☐ `A @` : `89.46.106.60` → **`216.198.79.1`** (IP Vercel, confermato dal pannello 2026-07-06)
 2. ☐ **ELIMINA** `AAAA @` (`2a00:6d40:4:3::c245:60`) — altrimenti gli utenti IPv6 restano sul vecchio sito
 3. ☐ **ELIMINA** `A www` (`89.46.106.60`) **e** `AAAA www`
-4. ☐ **AGGIUNGI** `CNAME www` → `cname.vercel-dns.com`
+4. ☐ **AGGIUNGI** `CNAME www` → `b99a9293e04439e8.vercel-dns-017.com` (valore SPECIFICO del progetto, mostrato da Vercel 2026-07-06 — NON il generico cname.vercel-dns.com)
 
 Note:
 - Già presente `TXT @ google-site-verification=uEDf4ezj2GmHmEw4E3fYCGBr6UIJ9S0xR2dz9pzuQW8`
