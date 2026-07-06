@@ -49,3 +49,6 @@ next-env.d.ts
 
 # playwright MCP scratch (screenshots, snapshots, console logs)
 .playwright-mcp/
+
+# archivio visivo sito vecchio (binario)
+/before-old-site-home.png
