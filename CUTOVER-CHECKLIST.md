@@ -103,6 +103,30 @@
   Consiglio: in Resend usa il **sottodominio** `send.ncctaxisiracusa.com` →
   invio isolato dalla posta Aruba.
 
+### Record reali Aruba — rilevati 2026-07-06 (piano esatto)
+
+Email CONFERMATA sul dominio (Aruba): `MX @ → mx.ncctaxisiracusa.com (10)`,
+`mx/mail/pop3/smtp/webmail → 62.149.128.x / 62.149.158.x`, SPF ×2
+(`include:spf.aruba.it` + `include:_spf.aruba.it`), DMARC, DKIM `a1._domainkey`,
+`imap/autoconfig/SRV` → **NON TOCCARE**. Casella `@ncctaxisiracusa.com` deve restare viva.
+
+Sito attuale su hosting Aruba: `A @` e `A www` → `89.46.106.60`;
+`AAAA @` e `AAAA www` → `2a00:6d40:4:3::c245:60`.
+
+**Al cutover, solo 4 mosse (record editabili):**
+1. ☐ `A @` : `89.46.106.60` → **IP Vercel** (valore mostrato da Vercel, storicamente `76.76.21.21`)
+2. ☐ **ELIMINA** `AAAA @` (`2a00:6d40:4:3::c245:60`) — altrimenti gli utenti IPv6 restano sul vecchio sito
+3. ☐ **ELIMINA** `A www` (`89.46.106.60`) **e** `AAAA www`
+4. ☐ **AGGIUNGI** `CNAME www` → `cname.vercel-dns.com`
+
+Note:
+- Già presente `TXT @ google-site-verification=uEDf4ezj2GmHmEw4E3fYCGBr6UIJ9S0xR2dz9pzuQW8`
+  → dominio già verificato in un account Google. Se accessibile, riusare quella Search
+  Console (baseline pronta); altrimenti aggiungere una seconda verifica nostra.
+- `ftp/stat/statistiche/admin/sms/localhost/_domainconnect` = servizi Aruba/hosting vecchio:
+  innocui dopo il cutover, si possono lasciare (pulizia opzionale).
+- Resend (email form): record sul sottodominio `send.` → NON tocca SPF/MX root.
+
 ## 7. Accessi / config necessari (chi fa cosa)
 
 **Env su Vercel (Production)** prima del go-live:
