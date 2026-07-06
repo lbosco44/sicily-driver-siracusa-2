@@ -35,6 +35,10 @@ yarn-error.log*
 # ...ma il template di esempio (solo placeholder, nessun segreto) va committato
 !.env.example
 
+# company profile: sorgente (html/css) versionato; PDF e immagini generati no
+/company-profile/*.pdf
+/company-profile/_img/
+
 # vercel
 .vercel
 
