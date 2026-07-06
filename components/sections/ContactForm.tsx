@@ -3,6 +3,7 @@
 import {useState, type FormEvent} from 'react';
 import {useTranslations, useLocale} from 'next-intl';
 import {WHATSAPP_HREF} from '@/lib/contact';
+import {trackEvent} from '@/lib/analytics';
 
 export function ContactForm() {
   const t = useTranslations('Contatti.form');
@@ -36,6 +37,7 @@ export function ContactForm() {
         setError(code === 'validation' ? t('errorRequired') : t('errorSend'));
         return;
       }
+      trackEvent('form_submit', {form: 'contatti'});
       setSubmitted(true);
     } catch {
       // Rete/timeout: teniamo il form compilato e offriamo il fallback WhatsApp.

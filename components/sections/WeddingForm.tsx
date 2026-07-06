@@ -3,6 +3,7 @@
 import {useState, type FormEvent} from 'react';
 import {useLocale} from 'next-intl';
 import {WHATSAPP_HREF} from '@/lib/contact';
+import {trackEvent} from '@/lib/analytics';
 
 export type WeddingFormFields = {
   dateLabel: string;
@@ -65,6 +66,7 @@ export function WeddingForm({fields}: {fields: WeddingFormFields}) {
         setError(code === 'validation' ? fields.errorRequired : fields.errorSend);
         return;
       }
+      trackEvent('form_submit', {form: 'wedding'});
       setSubmitted(true);
     } catch {
       setError(fields.errorSend);
