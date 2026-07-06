@@ -68,6 +68,59 @@
 
 ---
 
+## 6. DNS su ARUBA — record esatti (parte concreta del cutover)
+
+**Dove:** pannello Aruba → dominio `ncctaxisiracusa.com` → **Gestione DNS**
+(il dominio deve usare i nameserver Aruba, di default è così).
+
+> ⚠️ **REGOLA D'ORO EMAIL — non rompere la posta.** Su Aruba cambiamo SOLO i
+> record del **sito** (A dell'apex + CNAME www) e AGGIUNGIAMO i record per
+> Search Console e Resend. **NON toccare** i record **MX**, lo **SPF** esistente,
+> né i CNAME di posta (`webmail`, `pop`, `imap`, `smtp`, `autoconfig`). Così la
+> casella `@ncctaxisiracusa.com` continua a funzionare.
+
+**Passi:**
+1. ☐ **(giorno prima)** Abbassare il **TTL** dei record A/CNAME a **300s** →
+   propagazione veloce e rollback rapido.
+2. ☐ **Aggiungere i 2 domini su Vercel** (progetto → Settings → Domains):
+   `ncctaxisiracusa.com` **e** `www.ncctaxisiracusa.com`. Vercel mostra i valori
+   DNS **esatti** da usare (non usare IP scritti a memoria).
+3. ☐ Su Aruba impostare:
+   - **A** su `@` (apex) → l'IP indicato da Vercel (tipicamente `76.76.21.21`,
+     ma usa **quello mostrato**).
+   - **CNAME** su `www` → `cname.vercel-dns.com` (o il valore mostrato).
+   - Se Aruba non lascia modificare l'A dell'apex (legato all'hosting), elimina il
+     vecchio A del sito e reinseriscilo col valore Vercel.
+4. ☐ Attendere propagazione (con TTL basso: minuti) → Vercel emette da solo HTTPS.
+
+**Record da AGGIUNGERE (non rompono nulla, richiesti ma non bloccanti l'email):**
+- ☐ **Search Console**: 1 record **TXT** su `@` con la stringa di verifica di GSC
+  (proprietà **Dominio**).
+- ☐ **Resend** (invio email dei form): i record che Resend mostra quando aggiungi
+  il dominio — **DKIM** (`resend._domainkey`) e, col sottodominio, **MX + SPF su
+  `send.`**. ⚠️ Se esiste già uno **SPF** Aruba (`v=spf1 ...`) NON crearne un
+  secondo: si **fondono** in un unico record aggiungendo l'include di Resend.
+  Consiglio: in Resend usa il **sottodominio** `send.ncctaxisiracusa.com` →
+  invio isolato dalla posta Aruba.
+
+## 7. Accessi / config necessari (chi fa cosa)
+
+**Env su Vercel (Production)** prima del go-live:
+- ☐ `RESEND_API_KEY`, `LEAD_TO_EMAIL`, `LEAD_FROM_EMAIL` (invio form)
+- ☐ `NEXT_PUBLIC_GA_ID` (GA4)
+
+**Google (decidere: account agenzia Nexus consigliato, poi si passa al cliente):**
+- ☐ Proprietà **Search Console** (Dominio, via TXT Aruba) + invio sitemap
+- ☐ Proprietà **GA4** → Measurement ID
+- ☐ URL/CID del **Google Business Profile** (va in `sameAs` schema)
+
+**Ripartizione:**
+- **Claude**: codice (fatto); record DNS esatti una volta visti quelli attuali
+  Aruba; cablaggio GA4 + eventi; verifiche live (redirect/robots/sitemap/schema/
+  CWV/axe) su cadenza; lettura dei dati GSC/GA4 che gli vengono passati.
+- **Lorenzo** (Claude non può loggarsi in Aruba/Vercel/Google): record su Aruba;
+  2 domini su Vercel; creazione/verifica GSC + GA4; rimozione Deployment Protection.
+
 ## Note finali
 - Il sito è costruito come migrazione **preserve + improve**: URL storici e testi che rankano sono preservati; in più migliorano title/meta e dati strutturati (recensioni 4.9, FAQ, tour).
 - I punti **CRITICI** di questa checklist sono gli unici veri rischi residui — sono controlli operativi, non modifiche al sito.
