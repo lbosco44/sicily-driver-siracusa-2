@@ -1,6 +1,6 @@
 import type {Metadata} from 'next';
 import {ogImage, twitterCard} from '@/lib/seo';
-import {setRequestLocale} from 'next-intl/server';
+import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {TransferNarrative} from '@/components/templates/TransferNarrative';
 import {getTransferHub, type Locale} from '@/lib/cities';
 import {faqPageSchema, breadcrumbSchema, localBusinessSchema, JsonLd} from '@/lib/schema';
@@ -52,11 +52,13 @@ export default async function TransferSiciliaPage({
   const {locale} = await params;
   setRequestLocale(locale);
   const hub = getTransferHub(locale as Locale);
+  const tForm = await getTranslations('TransferForm');
+  const faqs = tForm.raw('faqs') as {q: string; a: string}[];
 
   return (
     <>
       <JsonLd data={localBusinessSchema(locale as Locale)} />
-      <JsonLd data={faqPageSchema(hub.faqs)} />
+      <JsonLd data={faqPageSchema(faqs)} />
       <JsonLd
         data={breadcrumbSchema(getBreadcrumb('transfer-aeroporti-porti-sicilia', locale as Locale, hub.h1))}
       />

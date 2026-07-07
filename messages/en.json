@@ -716,6 +716,68 @@
     "bespokeBody": "Whether you're coming to Sicily for a holiday, a wedding, an event or a business trip, we arrange every transfer around your schedule, your needs and your destination. There are no standard itineraries. There's only the journey you have in mind.",
     "bespokeImageAlt": "Driver in a suit next to the luxury van with the door open, on a Val di Noto road at sunset",
     "destTitle": "Most requested destinations",
-    "destSubtitle": "Tap a destination: the form above fills in automatically."
+    "destSubtitle": "Tap a destination: the form above fills in automatically.",
+    "faqs": [
+      {
+        "q": "How much does a private transfer in Sicily cost?",
+        "a": "The cost of a transfer depends on the route, the number of passengers and any special requests. Send us the details of your journey through the form and we'll reply quickly with a tailored proposal, clear and with no surprises."
+      },
+      {
+        "q": "How do I recognise my driver on arrival?",
+        "a": "Your driver will be waiting right in the arrivals area with your name clearly displayed. You'll also receive all the useful information before the service, so you can easily find the meeting point."
+      },
+      {
+        "q": "What happens if my flight is delayed?",
+        "a": "We monitor your flight in real time. In case of a delay we automatically update the service time, without you having to let us know."
+      },
+      {
+        "q": "How long does the driver wait after landing?",
+        "a": "The driver will wait as long as needed for you to collect your luggage and reach the arrivals area. Should anything unusual come up, our team will stay at your disposal."
+      },
+      {
+        "q": "Do you also run transfers at night?",
+        "a": "Yes. We arrange private transfers 24 hours a day, 7 days a week, including night arrivals, early-morning departures and public holidays."
+      },
+      {
+        "q": "Can I request a child seat?",
+        "a": "Of course. We provide child seats and boosters on request. We just ask you to let us know when booking."
+      },
+      {
+        "q": "Do you accept credit card payments?",
+        "a": "Yes. We accept the main payment methods. We'll let you know the available options when the service is confirmed."
+      },
+      {
+        "q": "Do you run transfers to and from hotels, resorts and private villas?",
+        "a": "Yes. We arrange private transfers from airports, ports, hotels, resorts, private villas, B&Bs and any other accommodation throughout Sicily."
+      },
+      {
+        "q": "Can I also book the return transfer?",
+        "a": "Yes. Many clients book both the outbound and the return together, so the whole trip is organised in advance."
+      },
+      {
+        "q": "Which destinations do you cover?",
+        "a": "We operate across the whole of Sicily. We regularly arrange transfers to Syracuse, Ortigia, Noto, Taormina, Modica, Ragusa Ibla, Marzamemi, Catania, Palermo, Mount Etna and many other destinations."
+      },
+      {
+        "q": "Can I book a transfer with one or more stops?",
+        "a": "Yes. If you'd like to stop along the way to visit a place, have lunch or take a break, we'll arrange a tailored itinerary around your needs."
+      },
+      {
+        "q": "How far in advance should I book?",
+        "a": "We recommend booking as early as possible, especially during the summer season. When available, we can still handle last-minute requests too."
+      },
+      {
+        "q": "Are your transfers shared with other passengers?",
+        "a": "No. All our services are private. The vehicle is reserved exclusively for you and your companions."
+      },
+      {
+        "q": "Do you arrange transfers for groups?",
+        "a": "Yes. Thanks to our network of partners we can arrange transfers for solo travellers, families, groups and small events, using the vehicle best suited to the number of passengers."
+      },
+      {
+        "q": "Why choose a private transfer instead of a taxi?",
+        "a": "A private transfer lets you know the cost of the service before departure, avoid waiting and travel with a dedicated driver. Your driver monitors the flight, welcomes you at arrivals and takes you straight to your destination, for a more comfortable, punctual and personalised experience."
+      }
+    ]
   }
 }

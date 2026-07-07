@@ -716,6 +716,68 @@
     "bespokeBody": "Che tu stia arrivando in Sicilia per una vacanza, un matrimonio, un evento o un viaggio di lavoro, organizziamo ogni transfer in base ai tuoi orari, alle tue esigenze e alla tua destinazione. Non esistono itinerari standard. Esiste solo il viaggio che hai in mente.",
     "bespokeImageAlt": "Autista in giacca accanto al van di lusso con la porta aperta, su una strada del Val di Noto al tramonto",
     "destTitle": "Destinazioni più richieste",
-    "destSubtitle": "Tocca una meta: il modulo qui sopra si compila da solo."
+    "destSubtitle": "Tocca una meta: il modulo qui sopra si compila da solo.",
+    "faqs": [
+      {
+        "q": "Quanto costa un transfer privato in Sicilia?",
+        "a": "Il costo di un transfer dipende dalla tratta, dal numero di passeggeri e da eventuali richieste particolari. Inviaci i dettagli del tuo viaggio attraverso il modulo e ti risponderemo rapidamente con una proposta personalizzata, chiara e senza sorprese."
+      },
+      {
+        "q": "Come riconosco il mio autista all'arrivo?",
+        "a": "Il tuo autista ti aspetterà direttamente nell'area arrivi con il tuo nome ben visibile. Riceverai inoltre tutte le informazioni utili prima del servizio, così da trovare facilmente il punto d'incontro."
+      },
+      {
+        "q": "Cosa succede se il mio volo è in ritardo?",
+        "a": "Monitoriamo il tuo volo in tempo reale. In caso di ritardo aggiorneremo automaticamente l'orario del servizio, senza che tu debba avvisarci."
+      },
+      {
+        "q": "Quanto tempo aspetta l'autista dopo l'atterraggio?",
+        "a": "L'autista attenderà il tempo necessario per consentirti di ritirare i bagagli e raggiungere l'area arrivi. Se dovessero verificarsi situazioni particolari, il nostro team resterà a tua disposizione."
+      },
+      {
+        "q": "Effettuate transfer anche di notte?",
+        "a": "Sì. Organizziamo transfer privati 24 ore su 24, 7 giorni su 7, compresi arrivi notturni, partenze all'alba e giorni festivi."
+      },
+      {
+        "q": "Posso richiedere un seggiolino per bambini?",
+        "a": "Certamente. Mettiamo a disposizione seggiolini e rialzi su richiesta. Ti chiediamo solo di comunicarlo durante la prenotazione."
+      },
+      {
+        "q": "Accettate pagamenti con carta di credito?",
+        "a": "Sì. Accettiamo i principali metodi di pagamento. Ti comunicheremo le modalità disponibili al momento della conferma del servizio."
+      },
+      {
+        "q": "Effettuate transfer da e per hotel, resort e ville private?",
+        "a": "Sì. Organizziamo transfer privati da aeroporti, porti, hotel, resort, ville private, B&B e qualsiasi altra struttura ricettiva in tutta la Sicilia."
+      },
+      {
+        "q": "Posso prenotare anche il transfer di ritorno?",
+        "a": "Sì. Molti clienti prenotano insieme sia l'andata che il ritorno, così da organizzare tutto il viaggio in anticipo."
+      },
+      {
+        "q": "Quali destinazioni raggiungete?",
+        "a": "Operiamo in tutta la Sicilia. Organizziamo regolarmente transfer verso Siracusa, Ortigia, Noto, Taormina, Modica, Ragusa Ibla, Marzamemi, Catania, Palermo, l'Etna e molte altre destinazioni."
+      },
+      {
+        "q": "Posso prenotare un transfer con una o più soste?",
+        "a": "Sì. Se desideri fermarti lungo il percorso per visitare una località, pranzare o effettuare una sosta, organizzeremo un itinerario personalizzato in base alle tue esigenze."
+      },
+      {
+        "q": "Quanto tempo prima devo prenotare?",
+        "a": "Consigliamo di prenotare il prima possibile, soprattutto durante la stagione estiva. Quando disponibile, possiamo comunque organizzare anche richieste dell'ultimo minuto."
+      },
+      {
+        "q": "I vostri transfer sono condivisi con altri passeggeri?",
+        "a": "No. Tutti i nostri servizi sono privati. Il veicolo sarà riservato esclusivamente a te e ai tuoi accompagnatori."
+      },
+      {
+        "q": "Organizzate transfer per gruppi?",
+        "a": "Sì. Grazie alla nostra rete di partner possiamo organizzare transfer per singoli viaggiatori, famiglie, gruppi e piccoli eventi, utilizzando il veicolo più adatto al numero di passeggeri."
+      },
+      {
+        "q": "Perché scegliere un transfer privato invece di un taxi?",
+        "a": "Un transfer privato ti permette di conoscere il costo del servizio prima della partenza, evitare attese e viaggiare con un autista dedicato. Il tuo autista monitorerà il volo, ti accoglierà agli arrivi e ti accompagnerà direttamente alla destinazione, offrendo un'esperienza più comoda, puntuale e personalizzata."
+      }
+    ]
   }
 }

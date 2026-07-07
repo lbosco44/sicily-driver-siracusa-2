@@ -31,6 +31,7 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
     {title: tForm('step2Title'), body: tForm('step2Body')},
     {title: tForm('step3Title'), body: tForm('step3Body')}
   ];
+  const faqs = tForm.raw('faqs') as {q: string; a: string}[];
 
   return (
     <>
@@ -358,7 +359,7 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
           </h2>
 
           <ul className="divide-y divide-[var(--border-strong)]">
-            {hub.faqs.map((item, i) => (
+            {faqs.map((item, i) => (
               <li key={i}>
                 <details className="group py-2">
                   <summary className="cursor-pointer list-none py-7 flex items-start justify-between gap-8">
