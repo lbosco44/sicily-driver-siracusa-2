@@ -147,7 +147,7 @@ export default async function ServiziPage({
       <section className="hero-stage relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <Image
-            src="/images/servizi/hero.jpeg"
+            src="/images/servizi/hero-maniace.png"
             alt=""
             fill
             priority
