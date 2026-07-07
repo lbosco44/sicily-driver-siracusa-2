@@ -6,6 +6,7 @@ import type {CityContent} from '@/lib/cities';
 import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
 import {WHATSAPP_HREF} from '@/lib/contact';
 import {TransferHero} from '@/components/sections/transfer/TransferHero';
+import {TransferForm} from '@/components/sections/transfer/TransferForm';
 
 // TransferNarrative — pagina /transfer-aeroporti-porti-sicilia (EN /sicily-airport-port-transfers).
 // Stesso design language delle pagine NCC città (NccCityNarrative), ma:
@@ -16,6 +17,7 @@ import {TransferHero} from '@/components/sections/transfer/TransferHero';
 
 export async function TransferNarrative({hub}: {hub: CityContent}) {
   const tCommon = await getTranslations('NccPage');
+  const tForm = await getTranslations('TransferForm');
 
   return (
     <>
@@ -26,6 +28,41 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
         image={hub.heroImage}
         ctaLabel={tCommon('ctaWhatsApp')}
       />
+
+      {/* 01b — ORGANIZZA UN TRANSFER: form richiesta + blocco "arrivo senza sorprese".
+            Cliente 07/07/2026: la CTA "Organizza un transfer" (pagina Servizi) porta
+            qui; l'utente compila partenza/arrivo a testo libero e riceve una proposta. */}
+      <section className="bg-canvas py-20 sm:py-28" id="organizza-transfer">
+        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
+          <div className="max-w-2xl mb-10 sm:mb-12">
+            <h2
+              className="font-display text-display-sm sm:text-display-md font-light text-ink leading-[1.1]"
+              style={{fontStretch: '95%'}}
+            >
+              {tForm('sectionTitle')}
+            </h2>
+            <p className="mt-4 text-[16px] sm:text-[17px] leading-[1.6] text-ink-soft max-w-[52ch]">
+              {tForm('sectionSubtitle')}
+            </p>
+          </div>
+
+          <div className="max-w-3xl">
+            <TransferForm />
+          </div>
+
+          <div className="mt-16 sm:mt-20 border-t border-[var(--border)] pt-12 sm:pt-14 max-w-[64ch]">
+            <h3
+              className="font-display text-[26px] sm:text-[32px] font-light text-ink leading-[1.15]"
+              style={{fontStretch: '95%'}}
+            >
+              {tForm('arrivoTitle')}
+            </h3>
+            <p className="mt-5 text-[16px] sm:text-[18px] leading-[1.7] text-ink-soft">
+              {tForm('arrivoBody')}
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* 02 — COSA INCLUDE IL SERVIZIO — checklist editorial 2 colonne */}
       <section className="bg-canvas-warm py-20 sm:py-28">
