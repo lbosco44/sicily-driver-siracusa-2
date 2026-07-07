@@ -124,6 +124,31 @@ Aggiuntive a quelle del CLAUDE.md globale Nexus, applicate sempre in questo temp
 
 ---
 
+# REGOLA TIPOGRAFIA — dimensioni titoli (evita layout "spezzati")
+
+La scala display è **già fluida** (`clamp()` in `app/globals.css`, righe ~173-176):
+scala con la larghezza dello schermo. `html`/`body` hanno `overflow-x: clip`
+(niente scrollbar orizzontale) e h1/h2/h3 hanno `text-wrap: pretty`. Quindi il
+problema dei titoli enormi che spezzano la pagina **non è tecnico: è la SCELTA
+della misura**. Regola d'oro:
+
+| Token | Max (schermi larghi) | Usare per |
+|---|---|---|
+| `text-display-xl` / `text-display-lg` | ~128-168px | **SOLO hero h1** (impatto pieno prima schermata) + classe `.hero-headline` |
+| `text-display-md` | ~96px | Titolo di **sezione importante** (focal point) |
+| `text-display-sm` | ~64px | Titolo di **sezione standard** (h2/h3 normali) |
+
+- **MAI** usare `display-lg`/`display-xl` per un h2/h3 di sezione: su desktop
+  largo diventa 110-128px e spezza il layout (il cliente lo nota subito). Errore
+  ricorrente — controllare sempre.
+- Pattern desktop-up tipico: **`text-display-sm sm:text-display-md`** per un h2 di
+  sezione prominente; `text-display-md sm:text-display-lg` **solo** per hero.
+- Titolo che va a capo male / parola lunga che esce → aggiungi `text-balance`.
+- Prima di consegnare una sezione con titolo grande: verifica a **375px E su
+  desktop largo (≥1440px)** che non sfori/spezzi (regola mobile + `/qa-mobile`).
+
+---
+
 # WORKFLOW SLASH COMMANDS (da CLAUDE.md globale)
 
 Le 23 slash commands gstack sono attive in questo progetto. I più usati per il workflow Nexus:

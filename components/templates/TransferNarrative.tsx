@@ -36,7 +36,7 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
           <div className="max-w-2xl mx-auto text-center mb-10 sm:mb-12">
             <h2
-              className="font-display text-display-md sm:text-display-lg font-light text-ink leading-[1.05]"
+              className="font-display text-display-sm sm:text-display-md font-light text-ink leading-[1.05] text-balance"
               style={{fontStretch: '95%'}}
             >
               {tForm('sectionTitle')}
