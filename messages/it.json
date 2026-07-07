@@ -7,6 +7,7 @@
   "Nav": {
     "home": "Home",
     "services": "Servizi",
+    "transfer": "Transfer",
     "tours": "Tour Sicilia",
     "wedding": "Wedding",
     "partner": "Partner",
@@ -679,6 +680,7 @@
     "pickupOtherPlaceholder": "Scrivi l'indirizzo di partenza",
     "dropoffLabel": "Arrivo",
     "dropoffPlaceholder": "Cerca una destinazione…",
+    "dropoffOtherPlaceholder": "Scrivi l'indirizzo di arrivo",
     "dateLabel": "Data",
     "timeLabel": "Ora",
     "paxLabel": "Passeggeri",
@@ -793,6 +795,7 @@
     "introTitle": "Transfer privati in Sicilia",
     "introBody1": "La Sicilia è una delle destinazioni più affascinanti del Mediterraneo, ma spostarsi tra aeroporti, città e località turistiche richiede spesso tempi lunghi e collegamenti non sempre diretti. Per questo Sicily Driver offre un servizio di transfer privati in tutta la Sicilia, pensato per chi desidera viaggiare in modo confortevole, puntuale e senza stress.",
     "introBody2": "Organizziamo trasferimenti da e per gli aeroporti di Catania, Comiso, Palermo e Trapani, oltre ai porti di Pozzallo e Augusta, collegando le principali destinazioni dell'isola come Siracusa, Ortigia, Noto, Taormina, Modica, Ragusa Ibla, Marzamemi e l'Etna.",
+    "airportEyebrow": "Aeroporti serviti",
     "airportCatTitle": "Transfer dall'Aeroporto di Catania",
     "airportCatBody": "L'Aeroporto di Catania Fontanarossa rappresenta il principale punto di accesso alla Sicilia orientale. Ogni giorno organizziamo transfer privati dall'aeroporto verso Siracusa, Ortigia, Noto, Taormina, Modica, Ragusa Ibla, Marzamemi e tutte le principali destinazioni della costa orientale.",
     "airportOtherTitle": "Transfer da Comiso, Palermo e Trapani",

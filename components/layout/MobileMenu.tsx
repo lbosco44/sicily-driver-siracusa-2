@@ -21,7 +21,13 @@ import type {ToursListLabels} from '@/lib/nav-types';
 // gestito nativamente dalla primitive. Niente piu' motion custom.
 
 export type MobileMenuLink = {
-  href: '/' | '/servizi' | '/tour-sicilia' | '/chi-siamo' | '/contatti';
+  href:
+    | '/'
+    | '/servizi'
+    | '/transfer-aeroporti-porti-sicilia'
+    | '/tour-sicilia'
+    | '/chi-siamo'
+    | '/contatti';
   label: string;
 };
 

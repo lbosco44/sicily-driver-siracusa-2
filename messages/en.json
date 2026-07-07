@@ -7,6 +7,7 @@
   "Nav": {
     "home": "Home",
     "services": "Services",
+    "transfer": "Transfers",
     "tours": "Sicily Tours",
     "wedding": "Wedding",
     "partner": "Partners",
@@ -679,6 +680,7 @@
     "pickupOtherPlaceholder": "Type your pick-up address",
     "dropoffLabel": "Drop-off",
     "dropoffPlaceholder": "Search a destination…",
+    "dropoffOtherPlaceholder": "Type the drop-off address",
     "dateLabel": "Date",
     "timeLabel": "Time",
     "paxLabel": "Passengers",
@@ -793,6 +795,7 @@
     "introTitle": "Private transfers in Sicily",
     "introBody1": "Sicily is one of the most captivating destinations in the Mediterranean, but getting around between airports, towns and resorts often takes time, and the connections aren't always direct. That's why Sicily Driver offers private transfers across the whole island, designed for those who want to travel comfortably, on time and stress-free.",
     "introBody2": "We arrange transfers to and from the airports of Catania, Comiso, Palermo and Trapani, as well as the ports of Pozzallo and Augusta, connecting the island's main destinations such as Syracuse, Ortigia, Noto, Taormina, Modica, Ragusa Ibla, Marzamemi and Mount Etna.",
+    "airportEyebrow": "Airports we serve",
     "airportCatTitle": "Transfers from Catania Airport",
     "airportCatBody": "Catania Fontanarossa Airport is the main gateway to eastern Sicily. Every day we arrange private transfers from the airport to Syracuse, Ortigia, Noto, Taormina, Modica, Ragusa Ibla, Marzamemi and all the main destinations along the eastern coast.",
     "airportOtherTitle": "Transfers from Comiso, Palermo and Trapani",

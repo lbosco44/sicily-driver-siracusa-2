@@ -42,6 +42,11 @@ export function DesktopNav({labels}: {labels: NavLabels}) {
         {labels.home}
       </HomeLink>
       <NavItem href="/servizi" label={labels.services} pathname={pathname} />
+      <NavItem
+        href="/transfer-aeroporti-porti-sicilia"
+        label={labels.transfer}
+        pathname={pathname}
+      />
 
       {/* Tour Sicilia con dropdown.
           Il wrapper deve essere inline-flex items-center h-5 per evitare che
@@ -138,7 +143,12 @@ export function DesktopNav({labels}: {labels: NavLabels}) {
   );
 }
 
-type NavItemHref = '/' | '/servizi' | '/chi-siamo' | '/contatti';
+type NavItemHref =
+  | '/'
+  | '/servizi'
+  | '/transfer-aeroporti-porti-sicilia'
+  | '/chi-siamo'
+  | '/contatti';
 
 function NavItem({
   href,

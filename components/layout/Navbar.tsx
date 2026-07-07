@@ -17,6 +17,7 @@ export async function Navbar() {
   const links: MobileMenuLink[] = [
     {href: '/', label: t('home')},
     {href: '/servizi', label: t('services')},
+    {href: '/transfer-aeroporti-porti-sicilia', label: t('transfer')},
     {href: '/tour-sicilia', label: t('tours')},
     {href: '/chi-siamo', label: t('about')},
     {href: '/contatti', label: t('contact')}
@@ -25,6 +26,7 @@ export async function Navbar() {
   const navLabels = {
     home: t('home'),
     services: t('services'),
+    transfer: t('transfer'),
     tours: t('tours'),
     about: t('about'),
     contact: t('contact'),

@@ -10,6 +10,7 @@ export type ToursListLabels = Record<TourNavKey | `${TourNavKey}Desc`, string>;
 export type NavLabels = {
   home: string;
   services: string;
+  transfer: string;
   tours: string;
   about: string;
   contact: string;

@@ -8,7 +8,7 @@ import {TRANSFER_PREFILL_EVENT} from './PopularDestinations';
 
 // Form richiesta transfer — stile Nexus (coerente con ContactForm).
 // Partenza = menu (aeroporti / porti / città / altro indirizzo).
-// Arrivo = campo di ricerca con suggerimenti (datalist), scrittura libera.
+// Arrivo = stesso menu (aeroporti / porti / città + Etna / altro indirizzo).
 // Passeggeri e Bagagli = menu. Invia a /api/transfer → email a info@ via Resend.
 // Successo inline + fallback WhatsApp (stesso pattern del form contatti).
 
@@ -35,13 +35,12 @@ const CITIES: Place[] = [
   {it: 'Catania', en: 'Catania'},
   {it: 'Palermo', en: 'Palermo'}
 ];
-// Suggerimenti per il campo "Arrivo" (ricerca): mete + aeroporti/porti.
-const DESTINATIONS: Place[] = [
-  ...CITIES,
-  {it: 'Etna', en: 'Mount Etna'},
-  ...AIRPORTS,
-  ...PORTS
-];
+// Etna: valida come ARRIVO (non come punto di partenza tipico).
+// Nota: il valore ('Etna' in entrambe le lingue) deve combaciare con il chip
+// "Destinazioni più richieste" (PopularDestinations), che precompila l'Arrivo.
+const ETNA: Place = {it: 'Etna', en: 'Etna'};
+// Città e centri selezionabili come ARRIVO (le città di partenza + l'Etna).
+const DEST_CITIES: Place[] = [...CITIES, ETNA];
 const PAX_OPTIONS = ['1', '2', '3', '4', '5', '6', '7', '7+'];
 const OTHER = '__other__';
 
@@ -57,6 +56,7 @@ export function TransferForm() {
   const [pickup, setPickup] = useState('');
   const [pickupCustom, setPickupCustom] = useState('');
   const [dropoff, setDropoff] = useState('');
+  const [dropoffCustom, setDropoffCustom] = useState('');
   const [pax, setPax] = useState('');
   const [bags, setBags] = useState('');
 
@@ -83,7 +83,7 @@ export function TransferForm() {
     const fd = new FormData(form);
     const body = {
       pickup: pickup === OTHER ? pickupCustom.trim() : pickup,
-      dropoff: dropoff.trim(),
+      dropoff: dropoff === OTHER ? dropoffCustom.trim() : dropoff.trim(),
       date: String(fd.get('date') ?? ''),
       time: String(fd.get('time') ?? ''),
       pax,
@@ -236,24 +236,54 @@ export function TransferForm() {
           )}
         </div>
 
-        <label className="block">
-          <span className={labelClass}>{t('dropoffLabel')}</span>
-          <input
-            type="text"
-            required
-            list="transfer-destinations"
-            value={dropoff}
-            onChange={(e) => setDropoff(e.target.value)}
-            placeholder={t('dropoffPlaceholder')}
-            className={inputClass}
-            autoComplete="off"
-          />
-          <datalist id="transfer-destinations">
-            {DESTINATIONS.map((p) => (
-              <option key={p.it} value={L(p)} />
-            ))}
-          </datalist>
-        </label>
+        <div>
+          <label className="block">
+            <span className={labelClass}>{t('dropoffLabel')}</span>
+            <select
+              required
+              value={dropoff}
+              onChange={(e) => setDropoff(e.target.value)}
+              className={selectClass}
+              style={selectArrow}
+            >
+              <option value="" disabled>
+                {t('selectPlaceholder')}
+              </option>
+              <optgroup label={t('pickupGroupCities')}>
+                {DEST_CITIES.map((p) => (
+                  <option key={p.it} value={L(p)}>
+                    {L(p)}
+                  </option>
+                ))}
+              </optgroup>
+              <optgroup label={t('pickupGroupAirports')}>
+                {AIRPORTS.map((p) => (
+                  <option key={p.it} value={L(p)}>
+                    {L(p)}
+                  </option>
+                ))}
+              </optgroup>
+              <optgroup label={t('pickupGroupPorts')}>
+                {PORTS.map((p) => (
+                  <option key={p.it} value={L(p)}>
+                    {L(p)}
+                  </option>
+                ))}
+              </optgroup>
+              <option value={OTHER}>{t('pickupOther')}</option>
+            </select>
+          </label>
+          {dropoff === OTHER && (
+            <input
+              type="text"
+              required
+              value={dropoffCustom}
+              onChange={(e) => setDropoffCustom(e.target.value)}
+              placeholder={t('dropoffOtherPlaceholder')}
+              className={`${inputClass} mt-3`}
+            />
+          )}
+        </div>
       </div>
 
       {/* Data / Ora / Passeggeri / Bagagli */}

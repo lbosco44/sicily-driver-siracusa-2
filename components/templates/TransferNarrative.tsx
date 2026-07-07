@@ -69,10 +69,11 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
         </div>
       </section>
 
-      {/* 01b-2 — TRANSFER PRIVATI IN SICILIA: intro SEO (contenuto cliente) */}
+      {/* 01b-2 — TRANSFER PRIVATI IN SICILIA: intro SEO (contenuto cliente), centrata */}
       <section className="bg-canvas py-20 sm:py-28">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-[64ch]">
+          <div className="max-w-[64ch] mx-auto text-center">
+            <span aria-hidden="true" className="mx-auto mb-8 block h-px w-12 bg-accent" />
             <h2
               className="font-display text-display-sm sm:text-display-md font-light text-ink leading-[1.1] text-balance"
               style={{fontStretch: '95%'}}
@@ -167,36 +168,80 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
         </div>
       </section>
 
-      {/* 01d-2 — AEROPORTI SERVITI: blocchi aeroporto (contenuto cliente) */}
+      {/* 01d-2 — AEROPORTI SERVITI: card aeroporto con codice IATA (contenuto cliente).
+            Catania = scalo principale (card in evidenza con filetto accent + badge pieno);
+            Comiso/Palermo/Trapani = card con badge codice in outline. */}
       <section className="bg-canvas-deep py-20 sm:py-28">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
-            <div>
-              <h2
-                className="font-display text-[24px] sm:text-[28px] font-light text-ink leading-tight"
+          {/* Header di sezione con filetto */}
+          <div className="flex items-center gap-5 mb-12 sm:mb-14">
+            <h2
+              className="font-display text-display-sm font-light text-ink leading-[1.1]"
+              style={{fontStretch: '95%'}}
+            >
+              {tForm('airportEyebrow')}
+            </h2>
+            <span
+              aria-hidden="true"
+              className="hidden sm:block h-px flex-1 bg-[var(--border-strong)]"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+            {/* Catania Fontanarossa — scalo principale */}
+            <article className="relative flex flex-col overflow-hidden rounded-sm border border-[var(--border-strong)] bg-canvas p-8 sm:p-10">
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-1 bg-accent"
+              />
+              <div className="flex items-center gap-3">
+                <span
+                  className="font-display text-[14px] font-medium tracking-[0.18em] rounded px-2.5 py-1 bg-accent"
+                  style={{color: 'var(--cream-on-dark)'}}
+                >
+                  CTA
+                </span>
+                <span className="text-[11px] uppercase tracking-[0.18em] font-medium text-secondary">
+                  Catania Fontanarossa
+                </span>
+              </div>
+              <h3
+                className="mt-6 font-display text-[22px] sm:text-[26px] font-light text-ink leading-tight"
                 style={{fontStretch: '95%'}}
               >
                 {tForm('airportCatTitle')}
-              </h2>
-              <span aria-hidden="true" className="mt-4 block h-px w-10 bg-accent" />
-              <p className="mt-5 text-[16px] sm:text-[17px] leading-[1.7] text-ink-soft">
+              </h3>
+              <p className="mt-4 text-[15px] sm:text-[16px] leading-[1.7] text-ink-soft">
                 {tForm('airportCatBody')}
               </p>
-            </div>
-            <div>
-              <h2
-                className="font-display text-[24px] sm:text-[28px] font-light text-ink leading-tight"
+            </article>
+
+            {/* Comiso · Palermo · Trapani */}
+            <article className="flex flex-col rounded-sm border border-[var(--border-strong)] bg-canvas p-8 sm:p-10">
+              <div className="flex flex-wrap items-center gap-2">
+                {['CIY', 'PMO', 'TPS'].map((code) => (
+                  <span
+                    key={code}
+                    className="font-display text-[14px] font-medium tracking-[0.18em] text-ink border border-[var(--border-strong)] rounded px-2.5 py-1"
+                  >
+                    {code}
+                  </span>
+                ))}
+              </div>
+              <h3
+                className="mt-6 font-display text-[22px] sm:text-[26px] font-light text-ink leading-tight"
                 style={{fontStretch: '95%'}}
               >
                 {tForm('airportOtherTitle')}
-              </h2>
-              <span aria-hidden="true" className="mt-4 block h-px w-10 bg-accent" />
-              <p className="mt-5 text-[16px] sm:text-[17px] leading-[1.7] text-ink-soft">
+              </h3>
+              <p className="mt-4 text-[15px] sm:text-[16px] leading-[1.7] text-ink-soft">
                 {tForm('airportOtherBody')}
               </p>
-            </div>
+            </article>
           </div>
-          <p className="mt-12 sm:mt-14 text-[15px] sm:text-[16px] leading-[1.65] text-ink-soft max-w-[72ch]">
+
+          {/* Chiusura — nota accentata */}
+          <p className="mt-10 sm:mt-12 border-l-2 border-accent pl-6 font-display italic text-[16px] sm:text-[18px] leading-[1.6] text-ink max-w-[72ch]">
             {tForm('airportClosing')}
           </p>
         </div>
@@ -310,11 +355,11 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
         </div>
       </section>
 
-      {/* 05 — FAQ editorial accordion */}
-      <section className="bg-canvas-deep py-32 sm:py-40">
+      {/* 05 — FAQ editorial accordion (dimensioni compatte — cliente 07/07/2026) */}
+      <section className="bg-canvas-deep py-24 sm:py-32">
         <div className="mx-auto max-w-(--container-narrow) px-6 sm:px-10">
           <h2
-            className="font-display text-display-md font-light text-ink max-w-[18ch] mb-14 sm:mb-16"
+            className="font-display text-display-sm font-light text-ink max-w-[18ch] mb-10 sm:mb-12"
             style={{fontStretch: '95%'}}
           >
             {hub.faqH2Pre}{' '}
@@ -324,22 +369,22 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
           <ul className="divide-y divide-[var(--border-strong)]">
             {faqs.map((item, i) => (
               <li key={i}>
-                <details className="group py-2">
-                  <summary className="cursor-pointer list-none py-7 flex items-start justify-between gap-8">
+                <details className="group py-1">
+                  <summary className="cursor-pointer list-none py-5 flex items-start justify-between gap-6">
                     <h3
-                      className="font-display text-[24px] sm:text-[28px] lg:text-[32px] font-light text-ink leading-[1.2] max-w-[48ch] group-open:text-accent transition-colors"
+                      className="font-display text-[18px] sm:text-[20px] font-light text-ink leading-[1.3] max-w-[48ch] group-open:text-accent transition-colors"
                       style={{fontStretch: '95%'}}
                     >
                       {item.q}
                     </h3>
                     <span
                       aria-hidden="true"
-                      className="font-display text-3xl text-accent leading-none mt-2 transition-transform duration-300 group-open:rotate-45"
+                      className="font-display text-2xl text-accent leading-none mt-0.5 transition-transform duration-300 group-open:rotate-45"
                     >
                       +
                     </span>
                   </summary>
-                  <div className="pb-8 pr-12 text-[17px] sm:text-[18px] leading-[1.7] text-ink-soft max-w-prose">
+                  <div className="pb-6 pr-10 text-[15px] sm:text-[16px] leading-[1.7] text-ink-soft max-w-prose">
                     {item.a}
                   </div>
                 </details>
