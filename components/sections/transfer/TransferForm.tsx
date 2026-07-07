@@ -1,9 +1,10 @@
 'use client';
 
-import {useState, type FormEvent} from 'react';
+import {useState, useEffect, type FormEvent} from 'react';
 import {useTranslations, useLocale} from 'next-intl';
 import {WHATSAPP_HREF} from '@/lib/contact';
 import {trackEvent} from '@/lib/analytics';
+import {TRANSFER_PREFILL_EVENT} from './PopularDestinations';
 
 // Form richiesta transfer — stile Nexus (coerente con ContactForm).
 // Campi a testo libero (partenza/arrivo li compila l'utente, niente dropdown
@@ -16,6 +17,17 @@ export function TransferForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [roundtrip, setRoundtrip] = useState(false);
+  const [dropoff, setDropoff] = useState('');
+
+  // Precompilazione "Arrivo" dai chip "Destinazioni più richieste".
+  useEffect(() => {
+    function onPrefill(e: Event) {
+      const detail = (e as CustomEvent<{dropoff?: string}>).detail;
+      if (detail?.dropoff) setDropoff(detail.dropoff);
+    }
+    window.addEventListener(TRANSFER_PREFILL_EVENT, onPrefill);
+    return () => window.removeEventListener(TRANSFER_PREFILL_EVENT, onPrefill);
+  }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -127,6 +139,8 @@ export function TransferForm() {
             name="dropoff"
             type="text"
             required
+            value={dropoff}
+            onChange={(e) => setDropoff(e.target.value)}
             placeholder={t('dropoffPlaceholder')}
             className={inputClass}
           />

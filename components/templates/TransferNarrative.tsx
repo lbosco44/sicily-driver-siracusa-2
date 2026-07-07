@@ -7,6 +7,7 @@ import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
 import {WHATSAPP_HREF} from '@/lib/contact';
 import {TransferHero} from '@/components/sections/transfer/TransferHero';
 import {TransferForm} from '@/components/sections/transfer/TransferForm';
+import {PopularDestinations} from '@/components/sections/transfer/PopularDestinations';
 
 // TransferNarrative — pagina /transfer-aeroporti-porti-sicilia (EN /sicily-airport-port-transfers).
 // Stesso design language delle pagine NCC città (NccCityNarrative), ma:
@@ -143,6 +144,40 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
             ))}
           </ol>
         </div>
+      </section>
+
+      {/* 01e — OGNI VIAGGIO È DIVERSO: pitch servizio su misura + foto reale */}
+      <section className="bg-canvas-warm py-20 sm:py-28">
+        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-10 lg:gap-16 items-center">
+            <div>
+              <h2
+                className="font-display text-display-sm font-light text-ink leading-[1.1] text-balance"
+                style={{fontStretch: '95%'}}
+              >
+                {tForm('bespokeTitle')}
+              </h2>
+              <p className="mt-6 text-[16px] sm:text-[18px] leading-[1.7] text-ink-soft max-w-[54ch]">
+                {tForm('bespokeBody')}
+              </p>
+            </div>
+            <figure className="relative aspect-[4/3] lg:aspect-[3/2] overflow-hidden rounded-sm">
+              <Image
+                src="/images/home/driver-2.jpeg"
+                alt={tForm('bespokeImageAlt')}
+                fill
+                sizes="(max-width: 1024px) 100vw, 55vw"
+                className="object-cover"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      {/* 01f — DESTINAZIONI PIÙ RICHIESTE: chip cliccabili che precompilano il form */}
+      <section className="bg-canvas py-20 sm:py-28">
+        <PopularDestinations />
       </section>
 
       {/* 02 — COSA INCLUDE IL SERVIZIO — checklist editorial 2 colonne */}
