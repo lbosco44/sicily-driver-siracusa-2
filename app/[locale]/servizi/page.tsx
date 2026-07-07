@@ -69,7 +69,7 @@ export default async function ServiziPage({
       kicker: t('cards.card1Kicker'),
       title: t('cards.card1Title'),
       body: t('cards.card1Body'),
-      points: [t('cards.card1Point1'), t('cards.card1Point2'), t('cards.card1Point3')],
+      points: [],
       cta: t('cards.card1Cta'),
       href: '/transfer-aeroporti-porti-sicilia' as const
     },
@@ -171,6 +171,9 @@ export default async function ServiziPage({
               {t('hero.h1Pre')}{' '}
               <span className="text-accent-decorative">{t('hero.h1Accent')}</span>
             </h1>
+            <p className="mt-5 sm:mt-6 text-[16px] sm:text-[18px] leading-[1.55] text-cream-on-dark/85 max-w-[42rem]">
+              {t('hero.subhead')}
+            </p>
           </div>
         </div>
       </section>

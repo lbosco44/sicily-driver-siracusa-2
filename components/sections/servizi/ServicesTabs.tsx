@@ -137,16 +137,18 @@ export function ServicesTabs({services}: {services: readonly ServiceItem[]}) {
               <p className="text-[17px] sm:text-[18px] leading-[1.65] text-ink-soft mb-7 sm:mb-9 max-w-[58ch]">
                 {current.body}
               </p>
-              <ul className="space-y-3 text-[15px] sm:text-[16px] text-ink/75">
-                {current.points.map((p, j) => (
-                  <li key={j} className="flex gap-3 leading-[1.55]">
-                    <span aria-hidden="true" className="text-accent mt-0.5">
-                      —
-                    </span>
-                    <span>{p}</span>
-                  </li>
-                ))}
-              </ul>
+              {current.points.length > 0 && (
+                <ul className="space-y-3 text-[15px] sm:text-[16px] text-ink/75">
+                  {current.points.map((p, j) => (
+                    <li key={j} className="flex gap-3 leading-[1.55]">
+                      <span aria-hidden="true" className="text-accent mt-0.5">
+                        —
+                      </span>
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </motion.div>
         </AnimatePresence>
