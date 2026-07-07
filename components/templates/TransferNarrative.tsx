@@ -32,25 +32,28 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
       {/* 01b — ORGANIZZA UN TRANSFER: form richiesta + blocco "arrivo senza sorprese".
             Cliente 07/07/2026: la CTA "Organizza un transfer" (pagina Servizi) porta
             qui; l'utente compila partenza/arrivo a testo libero e riceve una proposta. */}
-      <section className="bg-canvas py-20 sm:py-28" id="organizza-transfer">
+      <section className="bg-canvas-deep py-20 sm:py-28" id="organizza-transfer">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-2xl mb-10 sm:mb-12">
+          <div className="max-w-2xl mx-auto text-center mb-10 sm:mb-12">
             <h2
-              className="font-display text-display-sm sm:text-display-md font-light text-ink leading-[1.1]"
+              className="font-display text-display-md sm:text-display-lg font-light text-ink leading-[1.05]"
               style={{fontStretch: '95%'}}
             >
               {tForm('sectionTitle')}
             </h2>
-            <p className="mt-4 text-[16px] sm:text-[17px] leading-[1.6] text-ink-soft max-w-[52ch]">
+            <p className="mt-5 text-[17px] sm:text-[19px] leading-[1.6] text-ink-soft max-w-[46ch] mx-auto">
               {tForm('sectionSubtitle')}
             </p>
           </div>
 
-          <div className="max-w-3xl">
+          {/* Card "booking widget" centrata e in evidenza: bianca su sfondo
+              profondo, bordo marcato + ombra ampia → galleggia e attira. */}
+          <div className="max-w-3xl mx-auto rounded-2xl border border-[var(--border-strong)] bg-canvas p-6 sm:p-10 md:p-12 shadow-[0_40px_90px_-30px_rgba(31,26,20,0.45)]">
             <TransferForm />
           </div>
 
-          <div className="mt-16 sm:mt-20 border-t border-[var(--border)] pt-12 sm:pt-14 max-w-[64ch]">
+          <div className="mt-16 sm:mt-20 max-w-[62ch] mx-auto text-center">
+            <span aria-hidden="true" className="mx-auto mb-8 block h-px w-12 bg-accent" />
             <h3
               className="font-display text-[26px] sm:text-[32px] font-light text-ink leading-[1.15]"
               style={{fontStretch: '95%'}}

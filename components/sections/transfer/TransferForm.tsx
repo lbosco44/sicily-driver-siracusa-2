@@ -77,7 +77,7 @@ export function TransferForm() {
   }
 
   const inputClass =
-    'w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[16px] sm:text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent transition-colors';
+    'w-full bg-canvas-warm border border-[var(--border-strong)] rounded-md px-4 py-3 text-[16px] sm:text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent focus:bg-canvas transition-colors';
   const labelClass =
     'text-[11px] uppercase tracking-[0.12em] font-medium text-secondary block mb-2';
 
