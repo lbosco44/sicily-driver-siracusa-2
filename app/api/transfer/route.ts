@@ -49,17 +49,18 @@ export async function POST(req: Request) {
   const returnTime = oneLine(body.returnTime || '', 20);
   const roundtrip = body.roundtrip === 'on' || body.roundtrip === 'true';
 
-  // Minimo per poter richiamare il cliente e sapere la tratta.
-  if (!name || !phone || !pickup || !dropoff) {
+  // Email obbligatoria (canale di risposta + Reply-To verso il cliente);
+  // telefono ora facoltativo. Servono anche partenza e arrivo per la tratta.
+  if (!name || !email || !isValidEmail(email) || !pickup || !dropoff) {
     return NextResponse.json({ok: false, error: 'validation'}, {status: 400});
   }
 
   const locale = body.locale === 'en' ? 'EN' : 'IT';
   const rows: [string, string][] = [
     ['Nome', name],
-    ['Telefono', phone]
+    ['Email', email]
   ];
-  if (email) rows.push(['Email', email]);
+  if (phone) rows.push(['Telefono', phone]);
   rows.push(['Partenza', pickup], ['Arrivo', dropoff]);
   if (date) rows.push(['Data', date]);
   if (time) rows.push(['Ora', time]);

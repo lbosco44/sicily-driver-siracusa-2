@@ -118,12 +118,26 @@ export function ContactForm() {
             type="tel"
             inputMode="tel"
             autoComplete="tel"
-            required
             placeholder={t('fieldPhonePlaceholder')}
             className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[16px] sm:text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent transition-colors"
           />
         </label>
       </div>
+
+      <label className="block">
+        <span className="text-[11px] uppercase tracking-[0.12em] font-medium text-secondary block mb-2">
+          {t('fieldEmailLabel')}
+        </span>
+        <input
+          name="email"
+          type="email"
+          inputMode="email"
+          autoComplete="email"
+          required
+          placeholder={t('fieldEmailPlaceholder')}
+          className="w-full bg-canvas border border-[var(--border)] rounded-md px-4 py-3 text-[16px] sm:text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent transition-colors"
+        />
+      </label>
 
       <label className="block">
         <span className="text-[11px] uppercase tracking-[0.12em] font-medium text-secondary block mb-2">

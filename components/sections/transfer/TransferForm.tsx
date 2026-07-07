@@ -386,7 +386,6 @@ export function TransferForm() {
             type="tel"
             inputMode="tel"
             autoComplete="tel"
-            required
             placeholder={t('phonePlaceholder')}
             className={inputClass}
           />
@@ -398,6 +397,7 @@ export function TransferForm() {
             type="email"
             inputMode="email"
             autoComplete="email"
+            required
             placeholder={t('emailPlaceholder')}
             className={inputClass}
           />

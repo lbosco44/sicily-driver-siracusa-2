@@ -5,7 +5,7 @@ import {Link} from '@/i18n/navigation';
 import type {CityContent} from '@/lib/cities';
 import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
 import {WHATSAPP_HREF} from '@/lib/contact';
-import {TransferHero} from '@/components/sections/transfer/TransferHero';
+import {HERO_BLUR} from '@/lib/blur';
 import {TransferForm} from '@/components/sections/transfer/TransferForm';
 import {PopularDestinations} from '@/components/sections/transfer/PopularDestinations';
 
@@ -35,37 +35,54 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
 
   return (
     <>
-      {/* 01 — HERO stile homepage: copy transfer + pill + recensioni */}
-      <TransferHero
-        title={hub.h1}
-        subhead={hub.heroSubhead}
-        image={hub.heroImage}
-        ctaLabel={tCommon('ctaWhatsApp')}
-      />
+      {/* 01 — HERO form-first: foto di sfondo scurita + H1 compatto (segnale SEO
+            della pagina) + il modulo di richiesta come protagonista.
+            Cliente 07/07/2026: la hero mostra SOLO il form (rimossi titolo lungo,
+            bottoni e badge); la vecchia sezione "Organizza un transfer" separata
+            è stata fusa qui. L'id resta invariato per il deep-link dai chip
+            "Destinazioni più richieste" (PopularDestinations → #organizza-transfer). */}
+      <section
+        id="organizza-transfer"
+        className="relative isolate overflow-hidden scroll-mt-24"
+      >
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src={hub.heroImage}
+            alt=""
+            fill
+            priority
+            fetchPriority="high"
+            sizes="100vw"
+            quality={85}
+            placeholder="blur"
+            blurDataURL={HERO_BLUR}
+            className="object-cover"
+            style={{filter: 'saturate(0.85) brightness(0.7) contrast(1.08)'}}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/45 to-black/70" />
+        </div>
 
-      {/* 01b — ORGANIZZA UN TRANSFER: form richiesta + blocco "arrivo senza sorprese".
-            Cliente 07/07/2026: la CTA "Organizza un transfer" (pagina Servizi) porta
-            qui; l'utente compila partenza/arrivo a testo libero e riceve una proposta. */}
-      <section className="bg-canvas-deep py-20 sm:py-28" id="organizza-transfer">
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-2xl mx-auto text-center mb-10 sm:mb-12">
-            <h2
-              className="font-display text-display-sm sm:text-display-md font-light text-ink leading-[1.05] text-balance"
-              style={{fontStretch: '95%'}}
+        <div className="relative mx-auto max-w-(--container-editorial) px-6 sm:px-10 py-20 sm:py-28">
+          <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-10">
+            <h1
+              className="font-display font-medium text-cream-on-dark text-balance mx-auto max-w-[20ch]"
+              style={{
+                fontSize: 'clamp(30px, 4.4vw, 60px)',
+                fontStretch: '95%',
+                letterSpacing: '-0.025em',
+                lineHeight: '1.05',
+                textShadow: '0 2px 24px rgba(0,0,0,0.35)'
+              }}
             >
-              {tForm('sectionTitle')}
-            </h2>
-            <p className="mt-5 text-[17px] sm:text-[19px] leading-[1.6] text-ink-soft max-w-[46ch] mx-auto">
-              {tForm('sectionSubtitle')}
-            </p>
+              {hub.h1}
+            </h1>
           </div>
 
-          {/* Card "booking widget" centrata e in evidenza: bianca su sfondo
-              profondo, bordo marcato + ombra ampia → galleggia e attira. */}
-          <div className="max-w-3xl mx-auto rounded-2xl border border-[var(--border-strong)] bg-canvas p-6 sm:p-10 md:p-12 shadow-[0_40px_90px_-30px_rgba(31,26,20,0.45)]">
+          {/* Card "booking widget": bianca su foto scurita, bordo marcato +
+              ombra ampia → galleggia e attira. */}
+          <div className="max-w-3xl mx-auto rounded-2xl border border-[var(--border-strong)] bg-canvas p-6 sm:p-10 md:p-12 shadow-[0_40px_90px_-30px_rgba(0,0,0,0.6)]">
             <TransferForm />
           </div>
-
         </div>
       </section>
 
