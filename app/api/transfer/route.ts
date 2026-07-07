@@ -1,5 +1,5 @@
 import {NextResponse} from 'next/server';
-import {sendLeadEmail, leadEmailHtml, oneLine, isValidEmail} from '@/lib/email';
+import {sendLeadEmail, leadEmailHtml, oneLine, clip, isValidEmail} from '@/lib/email';
 
 export const runtime = 'nodejs';
 
@@ -9,12 +9,14 @@ type Body = {
   date?: string;
   time?: string;
   pax?: string;
+  bags?: string;
   roundtrip?: string; // 'on' se richiesto anche il ritorno
   returnDate?: string;
   returnTime?: string;
   name?: string;
   phone?: string;
   email?: string;
+  note?: string;
   company?: string; // honeypot anti-spam (deve restare vuoto)
   locale?: string;
 };
@@ -41,6 +43,8 @@ export async function POST(req: Request) {
   const date = oneLine(body.date || '', 30);
   const time = oneLine(body.time || '', 20);
   const pax = oneLine(body.pax || '', 30);
+  const bags = oneLine(body.bags || '', 30);
+  const note = clip(body.note || '', 1000);
   const returnDate = oneLine(body.returnDate || '', 30);
   const returnTime = oneLine(body.returnTime || '', 20);
   const roundtrip = body.roundtrip === 'on' || body.roundtrip === 'true';
@@ -60,11 +64,13 @@ export async function POST(req: Request) {
   if (date) rows.push(['Data', date]);
   if (time) rows.push(['Ora', time]);
   if (pax) rows.push(['Passeggeri', pax]);
+  if (bags) rows.push(['Bagagli', bags]);
   if (roundtrip) {
     rows.push(['Andata e ritorno', 'Sì']);
     if (returnDate) rows.push(['Data ritorno', returnDate]);
     if (returnTime) rows.push(['Ora ritorno', returnTime]);
   }
+  if (note) rows.push(['Note', note]);
   rows.push(['Lingua sito', locale]);
 
   const result = await sendLeadEmail({

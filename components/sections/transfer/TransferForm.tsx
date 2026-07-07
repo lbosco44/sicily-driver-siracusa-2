@@ -7,17 +7,58 @@ import {trackEvent} from '@/lib/analytics';
 import {TRANSFER_PREFILL_EVENT} from './PopularDestinations';
 
 // Form richiesta transfer — stile Nexus (coerente con ContactForm).
-// Campi a testo libero (partenza/arrivo li compila l'utente, niente dropdown
-// di località). Invia a /api/transfer → email a info@ via Resend. Successo
-// inline + fallback WhatsApp per urgenze (stesso pattern del form contatti).
+// Partenza = menu (aeroporti / porti / città / altro indirizzo).
+// Arrivo = campo di ricerca con suggerimenti (datalist), scrittura libera.
+// Passeggeri e Bagagli = menu. Invia a /api/transfer → email a info@ via Resend.
+// Successo inline + fallback WhatsApp (stesso pattern del form contatti).
+
+type Place = {it: string; en: string};
+
+const AIRPORTS: Place[] = [
+  {it: 'Aeroporto di Catania', en: 'Catania Airport'},
+  {it: 'Aeroporto di Comiso', en: 'Comiso Airport'},
+  {it: 'Aeroporto di Palermo', en: 'Palermo Airport'},
+  {it: 'Aeroporto di Trapani', en: 'Trapani Airport'}
+];
+const PORTS: Place[] = [
+  {it: 'Porto di Pozzallo', en: 'Pozzallo Port'},
+  {it: 'Porto di Augusta', en: 'Augusta Port'}
+];
+const CITIES: Place[] = [
+  {it: 'Siracusa', en: 'Syracuse'},
+  {it: 'Ortigia', en: 'Ortigia'},
+  {it: 'Noto', en: 'Noto'},
+  {it: 'Taormina', en: 'Taormina'},
+  {it: 'Modica', en: 'Modica'},
+  {it: 'Ragusa Ibla', en: 'Ragusa Ibla'},
+  {it: 'Marzamemi', en: 'Marzamemi'},
+  {it: 'Catania', en: 'Catania'},
+  {it: 'Palermo', en: 'Palermo'}
+];
+// Suggerimenti per il campo "Arrivo" (ricerca): mete + aeroporti/porti.
+const DESTINATIONS: Place[] = [
+  ...CITIES,
+  {it: 'Etna', en: 'Mount Etna'},
+  ...AIRPORTS,
+  ...PORTS
+];
+const PAX_OPTIONS = ['1', '2', '3', '4', '5', '6', '7', '7+'];
+const OTHER = '__other__';
+
 export function TransferForm() {
   const t = useTranslations('TransferForm');
   const locale = useLocale();
+  const L = (p: Place) => (locale === 'en' ? p.en : p.it);
+
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [roundtrip, setRoundtrip] = useState(false);
+  const [pickup, setPickup] = useState('');
+  const [pickupCustom, setPickupCustom] = useState('');
   const [dropoff, setDropoff] = useState('');
+  const [pax, setPax] = useState('');
+  const [bags, setBags] = useState('');
 
   // Precompilazione "Arrivo" dai chip "Destinazioni più richieste".
   useEffect(() => {
@@ -39,12 +80,29 @@ export function TransferForm() {
       return;
     }
     setIsSubmitting(true);
-    const data = Object.fromEntries(new FormData(form).entries());
+    const fd = new FormData(form);
+    const body = {
+      pickup: pickup === OTHER ? pickupCustom.trim() : pickup,
+      dropoff: dropoff.trim(),
+      date: String(fd.get('date') ?? ''),
+      time: String(fd.get('time') ?? ''),
+      pax,
+      bags,
+      roundtrip: roundtrip ? 'on' : '',
+      returnDate: String(fd.get('returnDate') ?? ''),
+      returnTime: String(fd.get('returnTime') ?? ''),
+      name: String(fd.get('name') ?? ''),
+      phone: String(fd.get('phone') ?? ''),
+      email: String(fd.get('email') ?? ''),
+      note: String(fd.get('note') ?? ''),
+      company: String(fd.get('company') ?? ''),
+      locale
+    };
     try {
       const res = await fetch('/api/transfer', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({...data, roundtrip: roundtrip ? 'on' : '', locale})
+        body: JSON.stringify(body)
       });
       if (!res.ok) {
         let code = 'send';
@@ -90,6 +148,12 @@ export function TransferForm() {
 
   const inputClass =
     'w-full bg-canvas-warm border border-[var(--border-strong)] rounded-md px-4 py-3 text-[16px] sm:text-[15px] text-ink placeholder:text-ink/60 focus:outline-none focus:border-accent focus:bg-canvas transition-colors';
+  const selectClass = `${inputClass} appearance-none bg-no-repeat cursor-pointer pr-10`;
+  const selectArrow = {
+    backgroundImage:
+      "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238B9B8E' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E\")",
+    backgroundPosition: 'right 1rem center'
+  } as const;
   const labelClass =
     'text-[11px] uppercase tracking-[0.12em] font-medium text-secondary block mb-2';
 
@@ -121,34 +185,79 @@ export function TransferForm() {
         </div>
       )}
 
-      {/* Partenza / Arrivo */}
+      {/* Partenza (menu) / Arrivo (ricerca) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <label className="block">
-          <span className={labelClass}>{t('pickupLabel')}</span>
-          <input
-            name="pickup"
-            type="text"
-            required
-            placeholder={t('pickupPlaceholder')}
-            className={inputClass}
-          />
-        </label>
+        <div>
+          <label className="block">
+            <span className={labelClass}>{t('pickupLabel')}</span>
+            <select
+              required
+              value={pickup}
+              onChange={(e) => setPickup(e.target.value)}
+              className={selectClass}
+              style={selectArrow}
+            >
+              <option value="" disabled>
+                {t('selectPlaceholder')}
+              </option>
+              <optgroup label={t('pickupGroupAirports')}>
+                {AIRPORTS.map((p) => (
+                  <option key={p.it} value={L(p)}>
+                    {L(p)}
+                  </option>
+                ))}
+              </optgroup>
+              <optgroup label={t('pickupGroupPorts')}>
+                {PORTS.map((p) => (
+                  <option key={p.it} value={L(p)}>
+                    {L(p)}
+                  </option>
+                ))}
+              </optgroup>
+              <optgroup label={t('pickupGroupCities')}>
+                {CITIES.map((p) => (
+                  <option key={p.it} value={L(p)}>
+                    {L(p)}
+                  </option>
+                ))}
+              </optgroup>
+              <option value={OTHER}>{t('pickupOther')}</option>
+            </select>
+          </label>
+          {pickup === OTHER && (
+            <input
+              type="text"
+              required
+              value={pickupCustom}
+              onChange={(e) => setPickupCustom(e.target.value)}
+              placeholder={t('pickupOtherPlaceholder')}
+              className={`${inputClass} mt-3`}
+            />
+          )}
+        </div>
+
         <label className="block">
           <span className={labelClass}>{t('dropoffLabel')}</span>
           <input
-            name="dropoff"
             type="text"
             required
+            list="transfer-destinations"
             value={dropoff}
             onChange={(e) => setDropoff(e.target.value)}
             placeholder={t('dropoffPlaceholder')}
             className={inputClass}
+            autoComplete="off"
           />
+          <datalist id="transfer-destinations">
+            {DESTINATIONS.map((p) => (
+              <option key={p.it} value={L(p)} />
+            ))}
+          </datalist>
         </label>
       </div>
 
-      {/* Data / Ora / Passeggeri */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
+      {/* Data / Ora / Passeggeri / Bagagli */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
         <label className="block">
           <span className={labelClass}>{t('dateLabel')}</span>
           <input name="date" type="date" className={inputClass} />
@@ -157,15 +266,39 @@ export function TransferForm() {
           <span className={labelClass}>{t('timeLabel')}</span>
           <input name="time" type="time" className={inputClass} />
         </label>
-        <label className="block col-span-2 sm:col-span-1">
+        <label className="block">
           <span className={labelClass}>{t('paxLabel')}</span>
-          <input
-            name="pax"
-            type="text"
-            inputMode="numeric"
-            placeholder={t('paxPlaceholder')}
-            className={inputClass}
-          />
+          <select
+            required
+            value={pax}
+            onChange={(e) => setPax(e.target.value)}
+            className={selectClass}
+            style={selectArrow}
+          >
+            <option value="" disabled>
+              {t('selectPlaceholder')}
+            </option>
+            {PAX_OPTIONS.map((n) => (
+              <option key={n} value={n}>
+                {n}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="block">
+          <span className={labelClass}>{t('bagsLabel')}</span>
+          <select
+            value={bags}
+            onChange={(e) => setBags(e.target.value)}
+            className={selectClass}
+            style={selectArrow}
+          >
+            <option value="">{t('selectPlaceholder')}</option>
+            <option value={t('bagsNone')}>{t('bagsNone')}</option>
+            <option value={t('bags1')}>{t('bags1')}</option>
+            <option value={t('bags2')}>{t('bags2')}</option>
+            <option value={t('bags3')}>{t('bags3')}</option>
+          </select>
         </label>
       </div>
 
@@ -240,6 +373,17 @@ export function TransferForm() {
           />
         </label>
       </div>
+
+      {/* Note */}
+      <label className="block">
+        <span className={labelClass}>{t('noteLabel')}</span>
+        <textarea
+          name="note"
+          rows={3}
+          placeholder={t('notePlaceholder')}
+          className={`${inputClass} resize-y`}
+        />
+      </label>
 
       <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-7 pt-2">
         <button
