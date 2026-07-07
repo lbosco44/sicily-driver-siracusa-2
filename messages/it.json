@@ -695,6 +695,22 @@
     "errorRequired": "Controlla i campi obbligatori e riprova.",
     "errorSend": "Invio non riuscito. Riprova o scrivici su WhatsApp.",
     "arrivoTitle": "Il tuo arrivo senza sorprese.",
-    "arrivoBody": "Ogni transfer viene organizzato con la stessa attenzione che dedicheremmo a un nostro ospite. Prima della partenza riceverai tutte le informazioni utili, il nome del tuo autista e i dettagli del servizio. Dal momento dell'arrivo fino alla destinazione finale, penseremo noi a ogni dettaglio."
+    "arrivoBody": "Ogni transfer viene organizzato con la stessa attenzione che dedicheremmo a un nostro ospite. Prima della partenza riceverai tutte le informazioni utili, il nome del tuo autista e i dettagli del servizio. Dal momento dell'arrivo fino alla destinazione finale, penseremo noi a ogni dettaglio.",
+    "reassure1Title": "Accoglienza agli arrivi",
+    "reassure1Body": "Il tuo autista ti aspetterà direttamente agli arrivi con il tuo nome ben visibile.",
+    "reassure2Title": "Monitoraggio del volo",
+    "reassure2Body": "Controlliamo il tuo volo in tempo reale e adeguiamo automaticamente l'orario del servizio in caso di ritardi.",
+    "reassure3Title": "Assistenza bagagli",
+    "reassure3Body": "Ti accompagniamo fino al veicolo e ti aiutiamo con i bagagli per rendere l'arrivo semplice e senza stress.",
+    "reassure4Title": "Servizio su misura",
+    "reassure4Body": "Hai bisogno di modificare un orario o comunicare un imprevisto? Saremo sempre raggiungibili.",
+    "howTitle": "Come funziona",
+    "howSubtitle": "Tre semplici passaggi. Al resto pensiamo noi.",
+    "step1Title": "Invia la richiesta",
+    "step1Body": "Compila il modulo con i dettagli del tuo viaggio.",
+    "step2Title": "Ricevi la proposta",
+    "step2Body": "Ti invieremo una proposta personalizzata senza alcun impegno.",
+    "step3Title": "Conferma e rilassati",
+    "step3Body": "Una volta confermato il servizio, penseremo a tutto noi. Tu dovrai goderti la Sicilia."
   }
 }

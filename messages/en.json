@@ -695,6 +695,22 @@
     "errorRequired": "Please check the required fields and try again.",
     "errorSend": "Sending failed. Please try again or message us on WhatsApp.",
     "arrivoTitle": "Your arrival, no surprises.",
-    "arrivoBody": "Every transfer is arranged with the same care we'd give one of our own guests. Before departure you'll receive all the useful information, your driver's name and the service details. From the moment you arrive to your final destination, we take care of every detail."
+    "arrivoBody": "Every transfer is arranged with the same care we'd give one of our own guests. Before departure you'll receive all the useful information, your driver's name and the service details. From the moment you arrive to your final destination, we take care of every detail.",
+    "reassure1Title": "Welcome at arrivals",
+    "reassure1Body": "Your driver will be waiting right at arrivals with your name clearly displayed.",
+    "reassure2Title": "Flight monitoring",
+    "reassure2Body": "We track your flight in real time and automatically adjust the service time if there are delays.",
+    "reassure3Title": "Luggage assistance",
+    "reassure3Body": "We walk you to the vehicle and help with your luggage, making your arrival simple and stress-free.",
+    "reassure4Title": "Tailored service",
+    "reassure4Body": "Need to change a time or let us know about something unexpected? We're always reachable.",
+    "howTitle": "How it works",
+    "howSubtitle": "Three simple steps. We take care of the rest.",
+    "step1Title": "Send your request",
+    "step1Body": "Fill in the form with the details of your journey.",
+    "step2Title": "Receive your proposal",
+    "step2Body": "We'll send you a tailored proposal with no obligation.",
+    "step3Title": "Confirm and relax",
+    "step3Body": "Once the service is confirmed, we take care of everything. All you have to do is enjoy Sicily."
   }
 }

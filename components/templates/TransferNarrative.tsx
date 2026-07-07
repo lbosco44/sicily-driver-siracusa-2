@@ -19,6 +19,18 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
   const tCommon = await getTranslations('NccPage');
   const tForm = await getTranslations('TransferForm');
 
+  const reassure = [
+    {title: tForm('reassure1Title'), body: tForm('reassure1Body')},
+    {title: tForm('reassure2Title'), body: tForm('reassure2Body')},
+    {title: tForm('reassure3Title'), body: tForm('reassure3Body')},
+    {title: tForm('reassure4Title'), body: tForm('reassure4Body')}
+  ];
+  const steps = [
+    {title: tForm('step1Title'), body: tForm('step1Body')},
+    {title: tForm('step2Title'), body: tForm('step2Body')},
+    {title: tForm('step3Title'), body: tForm('step3Body')}
+  ];
+
   return (
     <>
       {/* 01 — HERO stile homepage: copy transfer + pill + recensioni */}
@@ -52,18 +64,84 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
             <TransferForm />
           </div>
 
-          <div className="mt-16 sm:mt-20 max-w-[62ch] mx-auto text-center">
+        </div>
+      </section>
+
+      {/* 01c — IL TUO ARRIVO SENZA SORPRESE: promessa + 4 card di rassicurazione */}
+      <section className="bg-canvas-warm py-20 sm:py-28">
+        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
+          <div className="max-w-[62ch] mx-auto text-center">
             <span aria-hidden="true" className="mx-auto mb-8 block h-px w-12 bg-accent" />
-            <h3
-              className="font-display text-[26px] sm:text-[32px] font-light text-ink leading-[1.15]"
+            <h2
+              className="font-display text-display-sm sm:text-display-md font-light text-ink leading-[1.1] text-balance"
               style={{fontStretch: '95%'}}
             >
               {tForm('arrivoTitle')}
-            </h3>
+            </h2>
             <p className="mt-5 text-[16px] sm:text-[18px] leading-[1.7] text-ink-soft">
               {tForm('arrivoBody')}
             </p>
           </div>
+
+          <div className="mt-14 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+            {reassure.map((c, i) => (
+              <article
+                key={i}
+                className="group flex flex-col rounded-sm border border-[var(--border-strong)] bg-canvas/70 p-7 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-accent hover:bg-canvas hover:shadow-[0_16px_40px_rgba(31,26,20,0.08)]"
+              >
+                <span className="font-display text-[15px] text-accent-strong tabular-nums">
+                  0{i + 1}
+                </span>
+                <span aria-hidden="true" className="mt-3 block h-px w-8 bg-accent/40" />
+                <h3
+                  className="mt-4 font-display text-[20px] sm:text-[22px] font-light text-ink leading-tight"
+                  style={{fontStretch: '95%'}}
+                >
+                  {c.title}
+                </h3>
+                <p className="mt-3 text-[15px] leading-[1.55] text-ink-soft">{c.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 01d — COME FUNZIONA: 3 step numerati */}
+      <section className="bg-canvas py-20 sm:py-28">
+        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
+          <div className="max-w-2xl mx-auto text-center mb-14 sm:mb-16">
+            <h2
+              className="font-display text-display-sm sm:text-display-md font-light text-ink leading-[1.1] text-balance"
+              style={{fontStretch: '95%'}}
+            >
+              {tForm('howTitle')}
+            </h2>
+            <p className="mt-5 text-[17px] sm:text-[19px] leading-[1.6] text-ink-soft">
+              {tForm('howSubtitle')}
+            </p>
+          </div>
+
+          <ol className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-12">
+            {steps.map((s, i) => (
+              <li key={i} className="text-center md:text-left">
+                <span
+                  aria-hidden="true"
+                  className="font-display text-[56px] sm:text-[64px] font-light text-accent/25 leading-none tabular-nums"
+                >
+                  0{i + 1}
+                </span>
+                <h3
+                  className="mt-3 font-display text-[22px] sm:text-[24px] font-light text-ink leading-tight"
+                  style={{fontStretch: '95%'}}
+                >
+                  {s.title}
+                </h3>
+                <p className="mt-3 text-[15px] sm:text-[16px] leading-[1.6] text-ink-soft max-w-[34ch] mx-auto md:mx-0">
+                  {s.body}
+                </p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
