@@ -69,6 +69,26 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
         </div>
       </section>
 
+      {/* 01b-2 — TRANSFER PRIVATI IN SICILIA: intro SEO (contenuto cliente) */}
+      <section className="bg-canvas py-20 sm:py-28">
+        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
+          <div className="max-w-[64ch]">
+            <h2
+              className="font-display text-display-sm sm:text-display-md font-light text-ink leading-[1.1] text-balance"
+              style={{fontStretch: '95%'}}
+            >
+              {tForm('introTitle')}
+            </h2>
+            <p className="mt-6 text-[16px] sm:text-[18px] leading-[1.7] text-ink-soft">
+              {tForm('introBody1')}
+            </p>
+            <p className="mt-5 text-[16px] sm:text-[18px] leading-[1.7] text-ink-soft">
+              {tForm('introBody2')}
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* 01c — IL TUO ARRIVO SENZA SORPRESE: promessa + 4 card di rassicurazione */}
       <section className="bg-canvas-warm py-20 sm:py-28">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
@@ -147,6 +167,41 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
         </div>
       </section>
 
+      {/* 01d-2 — AEROPORTI SERVITI: blocchi aeroporto (contenuto cliente) */}
+      <section className="bg-canvas-deep py-20 sm:py-28">
+        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
+            <div>
+              <h2
+                className="font-display text-[24px] sm:text-[28px] font-light text-ink leading-tight"
+                style={{fontStretch: '95%'}}
+              >
+                {tForm('airportCatTitle')}
+              </h2>
+              <span aria-hidden="true" className="mt-4 block h-px w-10 bg-accent" />
+              <p className="mt-5 text-[16px] sm:text-[17px] leading-[1.7] text-ink-soft">
+                {tForm('airportCatBody')}
+              </p>
+            </div>
+            <div>
+              <h2
+                className="font-display text-[24px] sm:text-[28px] font-light text-ink leading-tight"
+                style={{fontStretch: '95%'}}
+              >
+                {tForm('airportOtherTitle')}
+              </h2>
+              <span aria-hidden="true" className="mt-4 block h-px w-10 bg-accent" />
+              <p className="mt-5 text-[16px] sm:text-[17px] leading-[1.7] text-ink-soft">
+                {tForm('airportOtherBody')}
+              </p>
+            </div>
+          </div>
+          <p className="mt-12 sm:mt-14 text-[15px] sm:text-[16px] leading-[1.65] text-ink-soft max-w-[72ch]">
+            {tForm('airportClosing')}
+          </p>
+        </div>
+      </section>
+
       {/* 01e — OGNI VIAGGIO È DIVERSO: pitch servizio su misura + foto reale */}
       <section className="bg-canvas-warm py-20 sm:py-28">
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
@@ -176,118 +231,26 @@ export async function TransferNarrative({hub}: {hub: CityContent}) {
         </div>
       </section>
 
+      {/* 01e-2 — CHI SCEGLIE SICILY DRIVER: clientela (contenuto cliente) */}
+      <section className="bg-canvas-deep py-20 sm:py-28">
+        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
+          <div className="max-w-[64ch]">
+            <h2
+              className="font-display text-display-sm sm:text-display-md font-light text-ink leading-[1.1] text-balance"
+              style={{fontStretch: '95%'}}
+            >
+              {tForm('audienceTitle')}
+            </h2>
+            <p className="mt-6 text-[16px] sm:text-[18px] leading-[1.7] text-ink-soft">
+              {tForm('audienceBody')}
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* 01f — DESTINAZIONI PIÙ RICHIESTE: chip cliccabili che precompilano il form */}
       <section className="bg-canvas py-20 sm:py-28">
         <PopularDestinations />
-      </section>
-
-      {/* 02 — COSA INCLUDE IL SERVIZIO — checklist editorial 2 colonne */}
-      <section className="bg-canvas-warm py-20 sm:py-28">
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <h2
-            className="font-display text-display-md font-light text-ink max-w-[18ch] mb-12 sm:mb-14"
-            style={{fontStretch: '95%'}}
-          >
-            {hub.includesH2Pre}{' '}
-            <span className="italic text-accent">{hub.includesH2Accent}</span>
-          </h2>
-
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 lg:gap-x-14 gap-y-1">
-            {hub.includes.map((item, i) => (
-              <li
-                key={i}
-                className="group flex items-start gap-4 rounded-md -mx-3 px-3 py-4 transition-colors duration-200 hover:bg-canvas"
-              >
-                <span
-                  aria-hidden="true"
-                  className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent/12 text-accent transition-colors duration-200 group-hover:bg-accent group-hover:text-cream-on-dark"
-                >
-                  <svg
-                    width="13"
-                    height="13"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 13l4 4L19 7" />
-                  </svg>
-                </span>
-                <span className="text-[16px] sm:text-[17px] leading-[1.55] text-ink-soft">
-                  {item}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* 03 — LE TRATTE PIÙ RICHIESTE — boarding-pass cards (cliente 09/06/2026:
-            "non voglio una lista brutta, qualcosa di figo, ordinato, semplice,
-            adattabile a mobile"). Ogni tratta = card origine → destinazione con
-            connettore tratteggiato, stile biglietto. Grid 1col mobile / 2col desktop. */}
-      <section className="bg-canvas py-20 sm:py-28">
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-2xl mb-12 sm:mb-14">
-            <h2
-              className="font-display text-display-md font-light text-ink"
-              style={{fontStretch: '95%'}}
-            >
-              {hub.routesH2Pre}{' '}
-              <span className="italic text-accent">{hub.routesH2Accent}</span>
-            </h2>
-          </div>
-
-          <ul className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-5">
-            {hub.routes.map((r, i) => (
-              <li key={i}>
-                <div className="group flex items-center gap-3 sm:gap-4 h-full rounded-sm border border-[var(--border-strong)] bg-canvas-warm/40 px-5 py-6 sm:px-7 sm:py-7 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-accent hover:bg-canvas-warm/70 hover:shadow-[0_16px_40px_rgba(31,26,20,0.08)]">
-                  <span
-                    className="flex-1 min-w-0 font-display text-[16px] sm:text-[19px] font-light text-ink-soft leading-snug"
-                    style={{fontStretch: '95%'}}
-                  >
-                    {r.from}
-                  </span>
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 48 12"
-                    fill="none"
-                    className="shrink-0 w-9 sm:w-12 text-accent"
-                  >
-                    <line
-                      x1="0"
-                      y1="6"
-                      x2="40"
-                      y2="6"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M38 2.5 L45.5 6 L38 9.5"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span
-                    className="flex-1 min-w-0 text-right font-display text-[16px] sm:text-[19px] font-medium text-ink leading-snug"
-                    style={{fontStretch: '95%'}}
-                  >
-                    {r.to}
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ul>
-
-          <p className="mt-9 sm:mt-10 text-[15px] sm:text-[16px] leading-[1.6] text-ink-soft">
-            {hub.routesMicrocopy}
-          </p>
-        </div>
       </section>
 
       {/* 04 — LA FLOTTA — schede prodotto editorial */}
