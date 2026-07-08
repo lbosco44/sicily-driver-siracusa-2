@@ -455,9 +455,9 @@ export function getTransferRoute(
   key: TransferRouteKey,
   locale: Locale
 ): TransferRouteContent {
-  return DATA[locale][key];
+  return (DATA[locale] ?? DATA.it)[key];
 }
 
 export function getAllTransferRoutes(locale: Locale): TransferRouteContent[] {
-  return TRANSFER_ROUTE_ORDER.map((k) => DATA[locale][k]);
+  return TRANSFER_ROUTE_ORDER.map((k) => (DATA[locale] ?? DATA.it)[k]);
 }

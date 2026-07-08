@@ -1660,11 +1660,11 @@ const TOURS: Record<Locale, Record<TourKey, TourContent>> = {
 };
 
 export function getTour(key: TourKey, locale: Locale): TourContent {
-  return TOURS[locale][key];
+  return (TOURS[locale] ?? TOURS.it)[key];
 }
 
 const HUBS: Record<Locale, TourHubContent> = {it: HUB_IT, en: HUB_EN};
 
 export function getTourHub(locale: Locale): TourHubContent {
-  return HUBS[locale];
+  return HUBS[locale] ?? HUBS.it;
 }

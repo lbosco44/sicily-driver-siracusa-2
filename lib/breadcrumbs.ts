@@ -119,10 +119,10 @@ export function getBreadcrumb(
   currentName: string
 ): {name: string; url: string}[] {
   const L = locale === 'it' ? LABELS_IT : LABELS_EN;
-  // IT su root (no prefisso), EN su /en. (Audit SEO P0.1)
-  const prefix = locale === 'it' ? '/' : '/en';
+  // IT su root (no prefisso), EN su /en, FR su /fr. (Audit SEO P0.1)
+  const prefix = locale === 'it' ? '/' : `/${locale}`;
   const home = {name: L.home, url: prefix};
-  const here = {name: currentName, url: PATH[page][locale]};
+  const here = {name: currentName, url: PATH[page][locale] ?? PATH[page].it};
 
   // Pagine NCC: Home > NCC città > {città}
   if (page.startsWith('ncc-')) {
@@ -132,7 +132,7 @@ export function getBreadcrumb(
   if (page.startsWith('transfer-') && page !== 'transfer-aeroporti-porti-sicilia') {
     return [
       home,
-      {name: L.transfer, url: PATH['transfer-aeroporti-porti-sicilia'][locale]},
+      {name: L.transfer, url: PATH['transfer-aeroporti-porti-sicilia'][locale] ?? PATH['transfer-aeroporti-porti-sicilia'].it},
       here
     ];
   }
@@ -143,7 +143,7 @@ export function getBreadcrumb(
   ) {
     return [
       home,
-      {name: L.tours, url: PATH['tour-sicilia'][locale]},
+      {name: L.tours, url: PATH['tour-sicilia'][locale] ?? PATH['tour-sicilia'].it},
       here
     ];
   }

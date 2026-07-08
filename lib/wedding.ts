@@ -547,5 +547,5 @@ const WEDDING_EN: WeddingContent = {
 const WEDDING: Record<Locale, WeddingContent> = {it: WEDDING_IT, en: WEDDING_EN};
 
 export function getWedding(locale: Locale): WeddingContent {
-  return WEDDING[locale];
+  return WEDDING[locale] ?? WEDDING.it;
 }

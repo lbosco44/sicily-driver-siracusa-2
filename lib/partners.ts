@@ -285,5 +285,5 @@ const PARTNERS: Record<Locale, PartnerContent> = {
 };
 
 export function getPartners(locale: Locale): PartnerContent {
-  return PARTNERS[locale];
+  return PARTNERS[locale] ?? PARTNERS.it;
 }

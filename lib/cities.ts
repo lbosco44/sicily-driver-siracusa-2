@@ -1094,7 +1094,9 @@ const DATA: Record<Locale, Record<CityKey, CityContent>> = {
 };
 
 export function getCity(key: CityKey, locale: Locale): CityContent {
-  return DATA[locale][key];
+  // Fallback all'italiano se una lingua non ha ancora il contenuto tradotto
+  // (es. fr in attesa della traduzione dei dati città) → evita crash in build.
+  return (DATA[locale] ?? DATA.it)[key];
 }
 
 const TRANSFER: Record<Locale, CityContent> = {
@@ -1103,5 +1105,5 @@ const TRANSFER: Record<Locale, CityContent> = {
 };
 
 export function getTransferHub(locale: Locale): CityContent {
-  return TRANSFER[locale];
+  return TRANSFER[locale] ?? TRANSFER.it;
 }
