@@ -73,7 +73,7 @@ export function MobileLangMenu({label}: {label: string}) {
         <div
           role="menu"
           aria-label={label}
-          className="absolute right-0 top-full mt-2 w-48 rounded-xl border border-[var(--border-strong)] bg-canvas shadow-[0_20px_50px_-15px_rgba(31,26,20,0.4)] overflow-hidden z-50"
+          className="absolute left-0 top-full mt-2 w-48 rounded-xl border border-[var(--border-strong)] bg-canvas shadow-[0_20px_50px_-15px_rgba(31,26,20,0.4)] overflow-hidden z-50"
         >
           {LOCALES.map((l) => {
             const active = l.code === locale;
