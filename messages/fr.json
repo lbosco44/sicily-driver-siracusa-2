@@ -1,0 +1,810 @@
+{
+  "Brand": {
+    "name": "Sicily Driver Siracusa",
+    "shortName": "Sicily Driver",
+    "tagline": "La Sicile, en van de luxe, à votre rythme."
+  },
+  "Nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "transfer": "Transferts",
+    "tours": "Tours Sicile",
+    "wedding": "Mariage",
+    "partner": "Partenaires",
+    "about": "À propos",
+    "contact": "Contact",
+    "bookNow": "Contactez-nous",
+    "whatsappCta": "Écrire sur WhatsApp",
+    "callShort": "Appeler",
+    "toursList": {
+      "overview": "Explorer les tours",
+      "overviewDesc": "Aperçu des 5 expériences",
+      "barocco": "Tour du Baroque",
+      "baroccoDesc": "Noto, Modica, Ragusa Ibla",
+      "etna": "Etna Premium",
+      "etnaDesc": "Cratères Silvestri + caves",
+      "isola": "Isola delle Correnti",
+      "isolaDesc": "Pointe sud de la Sicile, Marzamemi",
+      "dolceVita": "Dolce Vita Ortigia",
+      "dolceVitaDesc": "Fiat 500 Spiaggina d'époque",
+      "sailing": "Silent Sailing",
+      "sailingDesc": "Coucher de soleil à la voile, côte d'Ortigia"
+    }
+  },
+  "WhatsApp": {
+    "label": "Écrivez-nous sur WhatsApp",
+    "shortLabel": "WhatsApp"
+  },
+  "LanguageSwitcher": {
+    "it": "IT",
+    "en": "EN",
+    "fr": "FR",
+    "ariaLabel": "Changer de langue"
+  },
+  "A11y": {
+    "skipToContent": "Aller au contenu",
+    "opensNewTab": "(ouvre dans un nouvel onglet)",
+    "currentPage": "Page actuelle",
+    "closeMenu": "Fermer"
+  },
+  "Privacy": {
+    "meta": {
+      "title": "Politique de confidentialité — Sicily Driver Siracusa",
+      "description": "Informations sur le traitement des données personnelles au titre du Règlement UE 2016/679 (RGPD). Sicily Driver Siracusa est le responsable du traitement."
+    },
+    "eyebrow": "Traitement des données",
+    "h1": "Politique de confidentialité",
+    "updated": "Dernière mise à jour : 24 mai 2026",
+    "intro": "Cette page décrit les modalités de gestion du site ncctaxisiracusa.com concernant le traitement des données personnelles des utilisateurs qui le consultent. Les présentes informations sont fournies au titre de l'art. 13 du Règlement UE 2016/679 (RGPD) et du décret législatif italien 196/2003 tel que modifié.",
+    "s1": {
+      "h": "Responsable du traitement",
+      "p": "Le responsable du traitement est Sicily Driver Siracusa (Loris Lo Russo, numéro de TVA 02150600894), dont le siège opérationnel se trouve à Siracusa. E-mail : info@ncctaxisiracusa.com — Téléphone : +39 375 641 3379."
+    },
+    "s2": {
+      "h": "Types de données traitées",
+      "p": "Nous traitons les données que vous fournissez spontanément en remplissant les formulaires de contact, de réservation de tour ou de demande de devis mariage : nom, prénom, adresse e-mail, numéro de téléphone, date du service, nombre de passagers et éventuelles notes complémentaires. Nous traitons également des données de navigation collectées automatiquement par les systèmes informatiques (adresses IP, type de navigateur, système d'exploitation, références URL, horaires) dans le seul but du fonctionnement du site et de statistiques agrégées anonymes."
+    },
+    "s3": {
+      "h": "Finalités du traitement",
+      "p": "Les données sont traitées afin de : (a) répondre aux demandes de devis ou d'informations ; (b) gérer la réservation et l'exécution du service de chauffeur privé (NCC) ; (c) satisfaire aux obligations légales (facturation, comptabilité) ; (d) améliorer le site au moyen d'analyses agrégées anonymes, uniquement après votre consentement explicite via la bannière de cookies."
+    },
+    "s4": {
+      "h": "Base juridique",
+      "p": "Le traitement repose sur : (a) l'exécution d'un contrat ou de mesures précontractuelles à votre demande (art. 6.1.b RGPD) — pour la réservation et la réponse aux demandes ; (b) le consentement explicite (art. 6.1.a RGPD) — pour les cookies d'analyse et de marketing ; (c) une obligation légale (art. 6.1.c RGPD) — pour la facturation et les obligations fiscales ; (d) l'intérêt légitime (art. 6.1.f RGPD) — pour le fonctionnement technique du site."
+    },
+    "s5": {
+      "h": "Cookies",
+      "p": "Le site utilise des cookies techniques nécessaires à son fonctionnement et des cookies facultatifs (analyse et marketing) activés uniquement après votre consentement explicite via la bannière qui apparaît lors de la première visite. Vous pouvez modifier vos préférences à tout moment depuis le lien \"Gérer les cookies\" présent en bas de chaque page. Les cookies techniques comprennent : cookie de session, préférence de langue, mémorisation du consentement lui-même."
+    },
+    "s6": {
+      "h": "Communication et conservation des données",
+      "p": "Les données ne sont ni diffusées ni vendues à des tiers. Elles peuvent être communiquées exclusivement aux personnes impliquées dans la prestation du service (ex. partenaires pour des tours conjoints — Pura Vida Beach Club, Cantina Benanti, Fratelli Burgio, Palmeri — uniquement dans la stricte mesure nécessaire à l'exécution du service demandé) et aux prestataires techniques (hébergement Vercel, e-mail). Les données sont conservées pendant la durée nécessaire aux finalités (10 ans pour les obligations fiscales, 24 mois à compter de la fin de la relation pour les communications)."
+    },
+    "s7": {
+      "h": "Vos droits",
+      "p": "Au titre des articles 15 à 22 du RGPD, vous avez le droit de : accéder à vos données, en demander la rectification ou l'effacement, en limiter le traitement, vous opposer au traitement, recevoir les données dans un format structuré (portabilité), retirer votre consentement à tout moment. Pour exercer vos droits, écrivez-nous à info@ncctaxisiracusa.com. Vous avez également le droit d'introduire une réclamation auprès de l'Autorité italienne de protection des données personnelles (www.garanteprivacy.it)."
+    },
+    "s8": {
+      "h": "Modifications des présentes informations",
+      "p": "Nous pouvons mettre à jour ces informations afin de refléter des évolutions réglementaires ou opérationnelles. La date de la dernière mise à jour est indiquée en haut de la page. Nous vous invitons à la consulter régulièrement."
+    },
+    "contact": {
+      "eyebrow": "Vous avez des questions ?",
+      "body": "Pour toute demande relative au traitement des données personnelles, écrivez-nous à",
+      "cta": "Contactez-nous"
+    }
+  },
+  "Cookie": {
+    "title": "Nous utilisons des cookies pour améliorer votre expérience.",
+    "body": "Cookies techniques nécessaires toujours actifs. Analyse et marketing uniquement avec votre consentement.",
+    "privacyLink": "Lire la politique",
+    "acceptAll": "Tout accepter",
+    "rejectAll": "Refuser",
+    "customize": "Personnaliser",
+    "alwaysOn": "Toujours actifs",
+    "closeAria": "Fermer",
+    "manageLink": "Gérer les cookies",
+    "settings": {
+      "eyebrow": "Vos préférences",
+      "title": "Choisissez ce que vous activez.",
+      "body": "Vous pouvez changer d'avis à tout moment depuis le lien \"Gérer les cookies\" en bas de chaque page.",
+      "save": "Enregistrer les préférences"
+    },
+    "categories": {
+      "necessary": {
+        "name": "Nécessaires",
+        "description": "Cookies techniques pour le fonctionnement du site (session, préférence de langue, consentement aux cookies). Sans eux, le site ne fonctionne pas. Vous ne pouvez pas les désactiver."
+      },
+      "analytics": {
+        "name": "Analyse",
+        "description": "Cookies anonymes pour comprendre comment vous utilisez le site (pages vues, appareil, durée). Ils nous aident à améliorer la navigation. Les données n'identifient pas la personne."
+      },
+      "marketing": {
+        "name": "Marketing",
+        "description": "Cookies pour mesurer les clics sur nos campagnes publicitaires. Activez-les uniquement si vous êtes arrivé ici depuis une annonce et que nous souhaitons savoir laquelle."
+      }
+    }
+  },
+  "Footer": {
+    "servicesHeading": "Services",
+    "areasHeading": "Zones desservies",
+    "contactsHeading": "Contact",
+    "officesHeading": "Sièges",
+    "rights": "Tous droits réservés",
+    "vat": "TVA",
+    "vatNumber": "02150600894",
+    "phone": "+39 375 641 3379",
+    "email": "info@ncctaxisiracusa.com"
+  },
+  "Home": {
+    "meta": {
+      "title": "NCC Siracusa · Tours Sicile avec chauffeur | Sicily Driver",
+      "description": "Service de chauffeur privé à Siracusa : transferts privés depuis Catania, Comiso et Pozzallo. Tours du Baroque, de l'Etna et d'Ortigia avec chauffeur. Vans de luxe 24h/24, réservation WhatsApp."
+    },
+    "hero": {
+      "a11yLabel": "Sicily Driver Siracusa — chauffeur privé pour la Sicile orientale",
+      "h1Punct": ".",
+      "h1Post": "Votre chauffeur en Sicile",
+      "subhead": "Transferts privés, tours exclusifs et services de chauffeur privé entre Siracusa, Noto, Catania, Taormina et toute la Sicile",
+      "scrollCue": "Faire défiler",
+      "ctaPrimary": "Contactez-nous"
+    },
+    "heroQuote": {
+      "fromLabel": "Point de départ",
+      "fromPlaceholder": "De… (ex. Aéroport de Catania)",
+      "toLabel": "Destination",
+      "toPlaceholder": "À… (ex. Siracusa)",
+      "cta": "Contactez-nous",
+      "waMessage": "Bonjour ! Je souhaiterais un devis pour un transfert de {from} à {to}.",
+      "waMessageGeneric": "Bonjour ! Je souhaiterais un devis pour un transfert en Sicile."
+    },
+    "whisper1": {
+      "eyebrow": "Comment nous travaillons",
+      "text": "Nous ne faisons pas\nde simples transferts,\nnous créons des souvenirs.\nLa Sicile ne se\ntraverse pas,\nelle se vit."
+    },
+    "esperienze": {
+      "eyebrow": "Les expériences",
+      "card1Tag": "Ortigia · 3 heures · Fiat 500 Spiaggina d'époque",
+      "card1Title": "Dolce Vita Ortigia",
+      "card1Body": "Explorez Ortigia à bord d'une Fiat 500 Spiaggina d'époque. Un parcours entre ruelles historiques, échappées sur la mer et lieux emblématiques de la ville, ponctué d'arrêts photo et d'un apéritif au coucher du soleil.",
+      "card2Tag": "Ortigia · 4 heures · en voilier privé",
+      "card2Title": "Siracusa vue depuis la mer.",
+      "card2Body": "Entre la Réserve naturelle du Plemmirio, des criques cachées et les eaux cristallines de la côte de Siracusa, vous découvrirez une Sicile que l'on ne peut voir depuis la terre. Arrêts baignade, apéritif à bord avec des produits siciliens et du Prosecco, tandis que le vent accompagne la navigation le long de l'une des plus belles côtes de la Sicile.",
+      "card3Tag": "Côte sud · journée · Pura Vida Beach Club",
+      "card3Title": "Là où finit la Sicile.",
+      "card3Body": "L'extrême sud-est de l'île, là où la mer Ionienne rencontre la Méditerranée. Déjeuner au Pura Vida, coucher de soleil sur la mer, apéritif à Marzamemi avant le retour.",
+      "card4Tag": "Etna · journée · quad et caves",
+      "card4Title": "Etna 3 000 : entre lave et vignobles.",
+      "card4Body": "Cratères, vignobles et panoramas extraordinaires. De l'excursion sur le volcan actif le plus haut d'Europe à une dégustation en cave avec déjeuner léger et vins de l'Etna. Une expérience complète entre nature, tradition et saveurs authentiques de la Sicile.",
+      "card5Tag": "Val di Noto · 6-8 heures · journée",
+      "card5Title": "Le cœur du Baroque sicilien.",
+      "card5Body": "Noto, Modica et Ragusa Ibla, trois villes classées au Patrimoine mondial de l'UNESCO où le Baroque sicilien atteint son expression la plus aboutie. Églises monumentales, palais nobles, panoramas hors du temps et le célèbre chocolat de Modica, pour un voyage au cœur de la Sicile.",
+      "cardCta": "Découvrir",
+      "customTagline": "Ce ne sont là que quelques idées. Votre expérience en Sicile peut être bien plus encore.",
+      "customCta": "Contactez-nous",
+      "swipeHint": "Faites glisser sur le côté →",
+      "swipeExit": "Faites défiler vers le bas pour continuer ↓"
+    },
+    "manifesto": {
+      "eyebrow": "Ce que nous faisons",
+      "h2": "Nous n'offrons pas de simples transferts. Nous créons des expériences.",
+      "lead": "Transferts privés, tours exclusifs et événements sur mesure entre Siracusa, Ortigia, Noto, Modica, Ragusa Ibla, Taormina, Catania et toute la Sicile.",
+      "row1Number": "01",
+      "row1Title": "Transferts privés 24h/24",
+      "row1Body": "Depuis les aéroports de Catania, Comiso, Palermo et Trapani vers Siracusa, Ortigia, Noto, Ragusa, Modica, Taormina et n'importe quelle destination en Sicile. Voyagez à bord de nos Mercedes premium avec des chauffeurs professionnels et une assistance dédiée.",
+      "row2Number": "02",
+      "row2Title": "Tours et expériences",
+      "row2Body": "Découvrez Ortigia, Noto, Modica, Ragusa Ibla, Marzamemi, Taormina, l'Etna et les lieux les plus authentiques de la Sicile. Des itinéraires privés conçus autour de vos centres d'intérêt pour vivre l'île de façon exclusive et sans hâte.",
+      "row3Number": "03",
+      "row3Title": "Mariages et événements",
+      "row3Body": "Transports dédiés pour mariages, événements d'entreprise et occasions spéciales dans toute la Sicile. Coordination des invités, flotte premium, chauffeurs professionnels et gestion complète de la logistique.",
+      "body1": "Sicily Driver Siracusa est votre partenaire pour la location avec chauffeur (NCC) dans toute la Sicile. Nous proposons des transferts privés depuis et vers tous les aéroports de l'île — Catania, Comiso, Palermo et Trapani — ainsi que des liaisons avec les ports de Pozzallo et Augusta. Voyagez dans un confort absolu à bord de nos vans de luxe — dont Mercedes Classe V, GLB Premium et Classe E — avec un service 24 heures sur 24.",
+      "body2": "Nos tours sur mesure vous mènent au Baroque de Noto, Modica et Ragusa Ibla, aux paysages lunaires de l'Etna, à l'antique Ortigia et aux terrasses de Taormina. Le service dédié est pensé pour les mariages, les événements d'entreprise et les voyages sur mesure."
+    },
+    "partnersBar": {
+      "intro": "Les excellences qui font partie de notre parcours."
+    },
+    "faq": {
+      "h2": "Les questions qu'on nous pose le plus souvent.",
+      "q1": "Combien coûte un transfert depuis l'aéroport de Catania ?",
+      "a1": "Les prix démarrent à 80 € par trajet pour notre service de location avec chauffeur (NCC) en van de luxe, variables selon le trajet et le nombre de passagers.",
+      "q2": "Puis-je réserver un tour du Baroque à la journée ?",
+      "a2": "Oui : nous proposons des tours de 4 à 8 heures avec guide en option ; l'itinéraire est personnalisable et comprend Noto, Modica, Ragusa Ibla.",
+      "q3": "Proposez-vous un service de taxi privé de nuit ?",
+      "a3": "Bien sûr : notre service de chauffeur privé est actif 24h/24, parfait aussi pour les transferts en soirée vers des restaurants, des événements ou des aéroports."
+    },
+    "interni": {
+      "eyebrow": "Les véhicules",
+      "h2": "Le luxe se remarque dans les détails.",
+      "body": "Nos Mercedes Classe V, GLB Premium et Classe E sont préparées avec la même attention que celle que nous réservons à nos clients. Eau fraîche à bord, désinfection après chaque service et Wi-Fi sur demande. Parce que le confort ne concerne pas seulement la destination, mais tout le voyage.",
+      "poggiatestaAlt": "Appuie-tête en cuir avec surpiqûres contrastées du van de luxe",
+      "comandiAlt": "Commandes du siège sur la portière en cuir du van de luxe",
+      "volanteAlt": "Volant Mercedes avec l'étoile au centre",
+      "caption": "Le voyage commence dès l'instant où vous ouvrez la portière. Même les longues heures, entre Catania et Marzamemi, passent en légèreté."
+    },
+    "mosaico": {
+      "eyebrow": "Les terres",
+      "h2": "Les lieux à ne pas manquer.",
+      "body": "Ortigia, Noto, Marzamemi, Taormina, l'Etna et bien plus encore. Des lieux extraordinaires à découvrir avec le temps et l'attention qu'ils méritent.",
+      "ortigia": "Ortigia",
+      "noto": "Noto",
+      "marzamemi": "Marzamemi",
+      "ragusa": "Ragusa Ibla",
+      "etna": "Etna",
+      "taormina": "Taormina",
+      "ortigiaAlt": "Vue des toits d'Ortigia au coucher du soleil",
+      "notoAlt": "Escalier de la Cathédrale de Noto",
+      "marzamemiAlt": "Tonnara de Marzamemi vue depuis la mer",
+      "ragusaAlt": "Coupole de la Cathédrale San Giorgio à Ragusa Ibla",
+      "etnaAlt": "Vignoble de l'Etna sur un terrain volcanique",
+      "taorminaAlt": "Théâtre grec de Taormina avec vue sur la mer"
+    },
+    "listino": {
+      "h2": "Les transferts les plus demandés.",
+      "intro": "Tarifs transparents pour les trajets principaux. Pour d'autres destinations ou des groupes plus importants, devis via WhatsApp.",
+      "passengersLabel": "Nombre de passagers",
+      "passengersValue": "{count, plural, =1 {1 passager} other {# passagers}}",
+      "passengersNoteSmall": "Tarifs du barème valables pour 1 à 4 passagers.",
+      "passengersNoteLarge": "Pour 5 à 8 passagers, nous utilisons un van plus grand : prix similaire, devis exact via WhatsApp.",
+      "popular": "La plus demandée",
+      "ctaCard": "Demander sur WhatsApp",
+      "cataniaSiracusaLabel": "Catania → Siracusa",
+      "cataniaSiracusaSubtitle": "De l'aéroport à Ortigia",
+      "paxNoteGroup": "4+ pax · par trajet",
+      "cataniaSiracusaPrice": "90 €",
+      "cataniaSiracusaPriceNote": "1 à 3 pax · par trajet",
+      "cataniaSiracusaPricePlus": "120 € à partir de 4 pax",
+      "cataniaSiracusaPriceGroup": "120 €",
+      "cataniaSiracusaPriceBase": "90 € pour 1 à 3 pax",
+      "cataniaTaorminaLabel": "Catania → Taormina",
+      "cataniaTaorminaSubtitle": "De l'aéroport à la côte ionienne",
+      "cataniaTaorminaPrice": "80 €",
+      "cataniaTaorminaPriceNote": "1 à 3 pax · par trajet",
+      "cataniaTaorminaPricePlus": "100 € à partir de 4 pax",
+      "cataniaTaorminaPriceGroup": "100 €",
+      "cataniaTaorminaPriceBase": "80 € pour 1 à 3 pax",
+      "cataniaNotoLabel": "Catania → Noto",
+      "cataniaNotoSubtitle": "De l'aéroport au Baroque",
+      "cataniaNotoPrice": "100 €",
+      "cataniaNotoPriceNote": "1 à 3 pax · par trajet",
+      "cataniaNotoPricePlus": "130 € à partir de 4 pax",
+      "cataniaNotoPriceGroup": "130 €",
+      "cataniaNotoPriceBase": "100 € pour 1 à 3 pax",
+      "pozzalloSiracusaLabel": "Pozzallo → Siracusa",
+      "pozzalloSiracusaSubtitle": "Du ferry depuis Malte à Ortigia",
+      "pozzalloSiracusaPrice": "150 €",
+      "pozzalloSiracusaPriceNote": "1 à 3 pax · par trajet",
+      "pozzalloSiracusaPricePlus": "195 € à partir de 4 pax",
+      "pozzalloSiracusaPriceGroup": "195 €",
+      "pozzalloSiracusaPriceBase": "150 € pour 1 à 3 pax",
+      "feature1": "Durée",
+      "cataniaSiracusaDuration": "50 min",
+      "cataniaTaorminaDuration": "1 h",
+      "cataniaNotoDuration": "1 h 20",
+      "pozzalloSiracusaDuration": "1 h",
+      "feature2": "Van de luxe avec chauffeur",
+      "cataniaSiracusaExtra1": "Suivi du vol inclus",
+      "cataniaSiracusaExtra2": "Sièges enfants gratuits",
+      "cataniaTaorminaExtra1": "Suivi du vol inclus",
+      "cataniaTaorminaExtra2": "Arrêts panoramiques sur demande",
+      "cataniaNotoExtra1": "Attente à l'aéroport incluse",
+      "cataniaNotoExtra2": "Suivi du vol inclus",
+      "pozzalloSiracusaExtra1": "Attente au port incluse",
+      "pozzalloSiracusaExtra2": "Coordination avec le ferry",
+      "disclaimer": "Le reste, nous vous le disons via WhatsApp, en cinq minutes. Prix confirmés au devis, jamais de surprise au retour.",
+      "cta": "Devis personnalisé",
+      "cataniaSiracusaNote": "50 minutes, van de luxe, suivi du vol, sièges enfants gratuits.",
+      "cataniaTaorminaNote": "Une heure le long de la côte ionienne, agréable même en soirée.",
+      "cataniaNotoNote": "Une heure vingt, attente à l'aéroport comprise.",
+      "pozzalloSiracusaNote": "Une heure, pour ceux qui débarquent du ferry depuis Malte."
+    },
+    "dietro": {
+      "eyebrow": "Qui conduit",
+      "h2": "La Sicile est notre maison. La partager est notre métier.",
+      "body1": "Sicily Driver Siracusa est née de l'amour pour cette terre et du désir de la montrer comme il se doit. Chaque année, nous accompagnons des voyageurs venus du monde entier entre Siracusa, Ortigia, Noto, Marzamemi, Modica, Ragusa Ibla, Catania, Taormina, Palermo et l'Etna, en proposant des transferts privés, des tours exclusifs et des expériences sur mesure.",
+      "body2": "Nous parlons couramment l'italien et l'anglais et nous connaissons la Sicile au-delà des guides touristiques. Nous savons quels lieux méritent une halte, quels restaurants nous recommandons à nos amis et quelles routes offrent les plus beaux panoramas.",
+      "body3": "Nous vous attendons si votre vol a du retard, nous adaptons chaque itinéraire à vos besoins et nous sommes toujours disponibles quand vous en avez besoin. Parce qu'un bon chauffeur vous conduit à destination. Un grand chauffeur vous fait vivre la Sicile.",
+      "cta": "L'histoire en entier",
+      "alt": "Van de luxe garé dans une rue du Val di Noto au coucher du soleil"
+    },
+    "testimonianze": {
+      "eyebrow": "Ceux qui sont déjà montés à bord",
+      "h2Pre": "Les mots les plus importants sont",
+      "h2Accent": "ceux de ceux qui nous ont choisis",
+      "items": [
+        {
+          "quote": "We used Sicily Driver Syracuse this week for all of our travel needs and were blown away by Alberto's punctuality and hospitality. He always arrived earlier than he said he would for pickups, in a pristinely clean vehicle, and was extremely helpful. He was very patient when we were late getting back to the car one day and was also patient with our teething infant. Whether you are doing tours or simply need transfers, I would definitely recommend them for all of your needs.",
+          "author": "Evan Long",
+          "place": "Mai 2026"
+        },
+        {
+          "quote": "Excellent service and good price, very helpful and easy to communicate and arrange a driver. Highly recommend and would use them again. The van was very nice and new and clean and driver was kind and explain some facts about Sicily on the way.",
+          "author": "Selina Mok",
+          "place": "Mai 2026"
+        },
+        {
+          "quote": "Vincenzo was prompt, courteous, and professional. The vehicles are spotless, and he speaks impeccable English. We plan to be in Syracuse again and will definitely hire Sicily Driver Siracusa.",
+          "author": "Jenni Wilson",
+          "place": "Février 2026"
+        },
+        {
+          "quote": "I use Vincenzo's services regularly and am very satisfied. He's very punctual, professional, and great company! The vehicle was very comfortable, clean, and had all the necessary options. Top-notch! I recommend him without hesitation!",
+          "author": "Diane Paumier",
+          "place": "Avril 2026"
+        },
+        {
+          "quote": "Oggi ho fatto un tranfer da Fontane Bianche ad Ortigia ed è andato tutto bene: macchina pulita, elegante e con tutti i comfort. L'autista mi ha fatto trovare anche una bottiglietta d'acqua a bordo.",
+          "author": "Gaia Conforto",
+          "place": "Mai 2025"
+        },
+        {
+          "quote": "We booked Vincenzo on a short notice to drive guests back from our wedding venue to their accommodations. He was very helpful and had great communication, I recommend his services!",
+          "author": "Raphaël Bismut",
+          "place": "Septembre 2025"
+        },
+        {
+          "quote": "NCC di prima classe. Ho avuto bisogno di un trasfert per l'aeroporto e ho contattato questo NCC referenziato da un mio collega. Che dire: massima pulizia, cortesia e confort. Macchina super spaziosa. Li richiamerò sicuramente per i prossimi viaggi. CONSIGLIATISSIMO.",
+          "author": "Alberto Scamacca",
+          "place": "Mai 2025"
+        },
+        {
+          "quote": "We had a great experience with this driver — reliable, punctual, and very professional. We arranged the ride a day in advance, and he responded immediately. The car was in excellent condition, the price was fair, and he speaks good English, which made communication easy and pleasant. Highly recommended!",
+          "author": "Marina Karaklic",
+          "place": "Mai 2025"
+        },
+        {
+          "quote": "Vincenzo went out of his way to accommodate us. He went above and beyond and was reliable. He made us feel comfortable, and we wish he was our driver all the time. Excellent experience overall.",
+          "author": "Nick C.",
+          "place": "Juin 2025"
+        },
+        {
+          "quote": "Mia moglie ed io abbiamo fatto il Tour del Barocco visitando Noto, Modica e Ragusa. È stato bellissimo e l'autista è stato molto gentile! L'auto era pulitissima.",
+          "author": "Giulia Magnano",
+          "place": "Mai 2025"
+        },
+        {
+          "quote": "If you need a ride to and from the airport or a day tour, do yourself a favor and contact Vincenzo. He is punctual, his car is clean, he is a great driver, communicative on WhatsApp and will go out of his way to make you happy! He is reasonably priced and you'll be very comfortable in his Mercedes. He speaks English and is so personable that you'll be able to communicate no matter what language. You will be so happy you followed this advice!",
+          "author": "Jenny Samaan",
+          "place": "Mai 2025"
+        },
+        {
+          "quote": "Ho apprezzato molto il servizio. Vincenzo è un ottimo autista e sono rimasto colpito dalla pulizia dell'auto. Lo userò sicuramente di nuovo.",
+          "author": "Giovanni Napolitano",
+          "place": "Mai 2025"
+        },
+        {
+          "quote": "Vincenzo was amazing. Very attentive and informative. Planning on continuing to use Vincenzo throughout our trip for tours and for a ride back to the airport. Thank you again Vincenzo!",
+          "author": "Jason Ostby",
+          "place": "Mai 2025"
+        },
+        {
+          "quote": "Esperienza positiva: lo richiamerò. Mi ha lasciato il suo numero e mi servirà per tutto il soggiorno.",
+          "author": "Emilio Di Maggio",
+          "place": "Mai 2025"
+        },
+        {
+          "quote": "The driver was punctual and professional and our transfers to the hotel was super easy. Thank you Enzo!",
+          "author": "Anne-Marie Napolitano",
+          "place": "Mai 2025"
+        }
+      ],
+      "googleAria": "Voir nos avis Google ({rating} sur 5)"
+    },
+    "ctaFinale": {
+      "eyebrow": "À votre arrivée",
+      "h2": "Montons à bord.",
+      "h2Line1": "Montons",
+      "h2Line2": "à bord",
+      "body": "WhatsApp est le canal le plus rapide. Nous vous répondons en moins d'une heure, 24 heures sur 24, même en hiver.",
+      "ctaWhatsApp": "Ouvrir WhatsApp",
+      "ctaForm": "Demander un devis",
+      "emailPre": "Ou écrivez à",
+      "imageAlt": "Chauffeur en costume à côté du van de luxe Mercedes Classe V, porte coulissante ouverte, prêt à vous accueillir à bord"
+    }
+  },
+  "NccPage": {
+    "fleetTablePax": "Passagers",
+    "fleetTableLuggage": "Bagages",
+    "fleetTableComfort": "Confort",
+    "fleetTableIdeal": "Idéal pour",
+    "ctaWhatsApp": "Contactez-nous",
+    "ctaCall": "Appeler · +39 375 641 3379",
+    "ctaQuote": "Demander un devis",
+    "ctaEmailPre": "Ou écrivez-nous à",
+    "ctaDiscoverTour": "Découvrir le tour",
+    "routeDuration": "Durée",
+    "routeQuoteCta": "Contactez-nous",
+    "routePriceFootnote": "Prix fixe, confirmé avant le départ.",
+    "routeIncludesPre": "Ce que comprend",
+    "routeIncludesAccent": "le trajet",
+    "routeFaqPre": "Questions sur ce",
+    "routeFaqAccent": "trajet",
+    "routeOthersPre": "Autres trajets",
+    "routeOthersAccent": "demandés",
+    "routeAllRoutes": "Tous les trajets"
+  },
+  "Servizi": {
+    "meta": {
+      "title": "Services NCC Sicile · Transferts, Tours, Mariages | Sicily Driver",
+      "description": "Les services de Sicily Driver Siracusa : transferts aéroport, tours privés, mariages et événements, business. Van de luxe avec chauffeur bilingue, 24h/24 en Sicile orientale."
+    },
+    "hero": {
+      "eyebrow": "Tout ce que nous faisons",
+      "h1Pre": "Le bon voyage commence",
+      "h1Accent": "ici",
+      "subhead": "Transferts privés, tours exclusifs, services pour mariages, événements et voyages d'affaires entre Siracusa, Noto, Taormina, Catania et toute la Sicile."
+    },
+    "intro": {
+      "body": "Chez Sicily Driver Siracusa, nous vous accompagnons en Sicile de quatre façons, toujours avec la même flotte de vans de luxe et les mêmes chauffeurs : transferts aéroport point à point, tours privés à la journée, service mariages et événements, solutions business pour les entreprises et les invités VIP."
+    },
+    "cards": {
+      "eyebrow": "Nos services",
+      "h2Pre": "Comment voulez-vous vivre",
+      "h2Accent": "la Sicile ?",
+      "card1Number": "01",
+      "card1Kicker": "Transferts privés",
+      "card1Title": "Bienvenue en Sicile",
+      "card1Body": "Dès l'instant où vous atterrissez, tout est déjà organisé. Votre chauffeur vous attendra directement aux arrivées avec votre nom bien visible, suivra votre vol en temps réel et vous accompagnera jusqu'au véhicule, en s'occupant aussi de vos bagages. Nous organisons des transferts privés depuis et vers les aéroports de Catania, Comiso, Palermo et Trapani et les ports de Pozzallo et Augusta, reliant Siracusa, Ortigia, Noto, Taormina, Modica, Ragusa Ibla et les principales destinations de la Sicile.",
+      "card1Point1": "Suivi des vols en temps réel",
+      "card1Point2": "Attente gratuite jusqu'à 60 minutes",
+      "card1Point3": "Sièges enfants sur demande",
+      "card1Cta": "Organiser un transfert",
+      "card2Number": "02",
+      "card2Kicker": "Tours privés",
+      "card2Title": "Tours privés en Sicile",
+      "card2Body": "Baroque, Etna, Ortigia + Taormina. Tours personnalisés sur demande. 6 à 9 heures avec arrêts sur mesure.",
+      "card2Point1": "Van de luxe avec chauffeur bilingue",
+      "card2Point2": "Arrêts photo et gastronomiques",
+      "card2Point3": "Eau et flexibilité inclus",
+      "card2Cta": "Explorer les tours",
+      "card3Number": "03",
+      "card3Kicker": "Mariages et événements",
+      "card3Title": "Mariages et événements",
+      "card3Body": "Une flotte dédiée pour le jour du oui. Classe V pour les invités, Classe E pour les mariés.",
+      "card3Point1": "Coordination de plusieurs véhicules",
+      "card3Point2": "Attente prolongée et flexibilité horaire",
+      "card3Point3": "Chauffeur en tenue sur demande",
+      "card3Cta": "Parlons du grand jour",
+      "card4Number": "04",
+      "card4Kicker": "Business",
+      "card4Title": "Business et entreprise",
+      "card4Body": "Transferts d'entreprise, congrès, invités VIP. Facturation régulière et électronique.",
+      "card4Point1": "Discrétion absolue",
+      "card4Point2": "Paiement différé pour les entreprises",
+      "card4Point3": "Chauffeur en veste pour les occasions formelles",
+      "card4Cta": "Demander une proposition",
+      "subhead": "Quelle que soit la raison de votre voyage"
+    },
+    "fleet": {
+      "eyebrow": "La flotte",
+      "h2Pre": "La",
+      "h2Accent": "flotte",
+      "lead": "Mercedes, BMW, Audi, VW : vans de luxe attribués selon la taille du groupe. Cuir, climatisation, vitres teintées, Wi-Fi sur demande.",
+      "card1Capacity": "6–8",
+      "card1Pax": "passagers",
+      "card1Type": "Van de luxe",
+      "card1Detail": "Pour les groupes et les familles. Grands bagages à bord, porte coulissante, places toujours confortables même sur les longs trajets.",
+      "card1Brands": "Mercedes Classe V, VW Multivan ou équivalents",
+      "card1Price": "À partir de 80 € par trajet",
+      "card2Capacity": "4–5",
+      "card2Pax": "passagers",
+      "card2Type": "SUV premium",
+      "card2Detail": "Position de conduite haute, panoramique pour les tours. Grand coffre, idéal pour ceux qui voyagent avec des valises encombrantes.",
+      "card2Brands": "Mercedes GLB, BMW X5, Audi Q7 ou équivalents",
+      "card2Price": "À partir de 90 € par trajet",
+      "card3Capacity": "1–3",
+      "card3Pax": "passagers",
+      "card3Type": "Berline executive",
+      "card3Detail": "Conduite basse et silencieuse, séparations intérieures. Pensée pour le business, les invités VIP, les transferts confidentiels.",
+      "card3Brands": "Mercedes Classe E, BMW Série 5, Audi A6 ou équivalents",
+      "card3Price": "À partir de 100 € par trajet",
+      "card1Model": "Classe V — le cheval de bataille de la flotte",
+      "card1Comfort": "Cuir, climatisation, vitres teintées, Wi-Fi sur demande",
+      "card2Model": "GLB Premium — le SUV familial",
+      "card2Comfort": "Position haute, panoramique, idéal pour les tours",
+      "card3Model": "Classe E — la berline executive",
+      "card3Comfort": "Conduite basse et silencieuse, séparations intérieures"
+    },
+    "areas": {
+      "eyebrow": "Où nous opérons",
+      "h2Pre": "Toute",
+      "h2Accent": "la Sicile",
+      "lead": "Nous opérons dans toutes les villes de l'île, des chefs-lieux aux plus petits villages. Ci-dessous, les destinations les plus demandées avec une page dédiée.",
+      "cities": "Catania (et Fontanarossa), Taormina et Isola Bella, Ragusa Ibla, Modica, Comiso (et aéroport), Augusta, Pozzallo (port de croisière), Avola, Pachino, Portopalo, tout le Val di Noto.",
+      "airports": "Aéroports : Catania Fontanarossa, Comiso, Palermo Falcone Borsellino, Trapani Birgi.",
+      "bases": "Sièges physiques : Siracusa · Noto · Marzamemi",
+      "cta": "Voir les pages NCC par ville"
+    },
+    "faq": {
+      "eyebrow": "Questions",
+      "h2Pre": "Les questions",
+      "h2Accent": "fréquentes",
+      "q1": "Quel délai faut-il pour réserver ?",
+      "a1": "Pour les transferts aéroport, un message WhatsApp même 2 heures à l'avance suffit. Pour les tours et les mariages, nous recommandons 7 à 15 jours d'anticipation afin de garantir la flotte adaptée.",
+      "q2": "Couvrez-vous toute la Sicile ou seulement l'est ?",
+      "a2": "Nous opérons principalement en Sicile orientale (provinces de Siracusa, Catania, Ragusa, sud de Messina). Pour la Sicile centrale ou occidentale, nous organisons avec un préavis plus long.",
+      "q3": "Faites-vous uniquement des transferts ou aussi des mises à disposition à l'heure ?",
+      "a3": "Les deux : transferts point à point et mises à disposition à l'heure (demi-journée, journée entière) avec voiture et chauffeur à disposition.",
+      "q4": "Peut-on payer par virement anticipé ?",
+      "a4": "Oui, c'est le mode privilégié pour les mariages, les événements, le business et les tours réservés à l'avance. Espèces et carte acceptées à bord pour les transferts."
+    },
+    "ctaFinale": {
+      "eyebrow": "Pour commencer",
+      "h2": "Par où commençons-nous ?",
+      "subhead": "Trois façons de nous dire quel service il vous faut."
+    }
+  },
+  "ChiSiamo": {
+    "meta": {
+      "title": "À propos · L'histoire de Sicily Driver Siracusa | NCC Sicile",
+      "description": "L'histoire de Sicily Driver Siracusa : service de chauffeur privé de qualité en Sicile orientale. Trois sièges (Siracusa, Noto, Marzamemi), une flotte de vans de luxe soignée, des chauffeurs bilingues."
+    },
+    "hero": {
+      "eyebrow": "L'histoire",
+      "h1Pre": "Sicily Driver",
+      "h1Accent": "une histoire sicilienne",
+      "subhead": "Trois sièges, une flotte de vans de luxe soignée comme si elle était à la maison, des chauffeurs qui parlent italien et anglais — le vrai anglais, pas celui de Google Translate."
+    },
+    "story": {
+      "eyebrow": "Qui nous sommes",
+      "h2Pre": "Une entreprise",
+      "h2Accent": "jeune et dynamique",
+      "body1": "Sicily Driver Siracusa est une entreprise jeune et dynamique, née de la passion pour les services de chauffeur privé (NCC) et de transfert de haute qualité. Depuis Siracusa, nous avons commencé en accompagnant touristes, mariés, clients d'hôtel et familles sur les routes de la Sicile orientale.",
+      "body2": "Grâce à notre parc automobile sélectionné et à notre souci du détail, nous garantissons ponctualité et courtoisie à chaque trajet. Des vans de luxe, dont Mercedes Classe V, GLB Premium et Classe E, contrôles mécaniques hebdomadaires, désinfection à chaque service.",
+      "body3": "Choisir Sicily Driver Siracusa, c'est faire confiance à un partenaire dévoué : des transferts aéroport aux services de chauffeur privé pour événements, jusqu'aux excursions et tours privés. Pas de brochure, pas de promesses d'« excellence ». Cela se voit au voyage."
+    },
+    "beliefs": {
+      "eyebrow": "Ce en quoi nous croyons",
+      "h2Pre": "Trois",
+      "h2Accent": "convictions",
+      "item1Title": "Des prix sans surprise",
+      "item1Body": "De Catania à Marzamemi, tarif convenu avant le départ. Pas de supplément caché, pas de « tarif de nuit » mystérieux.",
+      "item2Title": "Des vans entretenus chaque semaine",
+      "item2Body": "Classe V, GLB Premium, Classe E. Contrôles mécaniques hebdomadaires, désinfection à chaque service. Eau fraîche à bord, toujours.",
+      "item3Title": "De vrais chauffeurs bilingues",
+      "item3Body": "Nos chauffeurs parlent couramment l'italien et l'anglais. Ils connaissent les routes, les horaires des messes à Modica et l'endroit où l'on mange vraiment bien à Ortigia."
+    },
+    "bases": {
+      "eyebrow": "Les sièges",
+      "h2Pre": "Où nous",
+      "h2Accent": "trouver",
+      "base1Name": "Siracusa",
+      "base1Address": "Via della Maestranza, 28",
+      "base1Note": "Siège principal, bureau opérationnel",
+      "base2Name": "Noto",
+      "base2Address": "Via Alcide De Gasperi, 15",
+      "base2Note": "Base opérationnelle pour les tours du Val di Noto",
+      "base3Name": "Marzamemi",
+      "base3Address": "Via Marzamemi, 23",
+      "base3Note": "Point d'appui pour la côte sud-est"
+    },
+    "ctaFinale": {
+      "eyebrow": "Prochaine étape",
+      "h2": "On monte à bord ensemble ?",
+      "subhead": "Trois façons de nous dire où venir vous chercher."
+    }
+  },
+  "Contatti": {
+    "meta": {
+      "title": "Contact · Sicily Driver Siracusa | WhatsApp, e-mail",
+      "description": "Contactez Sicily Driver Siracusa : WhatsApp 24h/24, e-mail info@ncctaxisiracusa.com. Sièges à Siracusa, Noto, Marzamemi."
+    },
+    "hero": {
+      "eyebrow": "Parlons",
+      "h1Pre": "Sicily Driver",
+      "h1Accent": "vous répond",
+      "subhead": "En italien ou en anglais, sur WhatsApp, par téléphone ou par e-mail. Nous répondons en moins d'une heure, 24 heures sur 24."
+    },
+    "ways": {
+      "eyebrow": "Deux canaux directs",
+      "h2Pre": "Rapide",
+      "h2Accent": "ou détaillé",
+      "card1Label": "WhatsApp",
+      "card1Value": "+39 375 641 3379",
+      "card1Note": "Réponse la plus rapide. Date, trajet et passagers.",
+      "card1CtaLabel": "Ouvrir le chat",
+      "card2Label": "Téléphone",
+      "card2Value": "+39 375 641 3379",
+      "card2Note": "Pour les urgences, les voyages imminents, les confirmations de dernière minute.",
+      "card2CtaLabel": "Appeler maintenant",
+      "card3Label": "E-mail",
+      "card3Value": "info@ncctaxisiracusa.com",
+      "card3Note": "Demandes détaillées, mariages, business, facturation.",
+      "card3CtaLabel": "Écrire un e-mail",
+      "pec": "PEC : izzo.v@pec.it"
+    },
+    "form": {
+      "eyebrow": "Écrivez-nous",
+      "h2Pre": "Parlez-nous",
+      "h2Accent": "de votre voyage",
+      "subhead": "Transferts privés, tours exclusifs et services pour événements entre Siracusa, Noto, Taormina, Catania et toute la Sicile. Écrivez-nous dans votre langue. Nous serons ravis de vous aider.",
+      "fieldNameLabel": "Nom",
+      "fieldNamePlaceholder": "Jean Dupont",
+      "fieldPhoneLabel": "Téléphone",
+      "fieldPhonePlaceholder": "+33 ...",
+      "fieldEmailLabel": "E-mail",
+      "fieldEmailPlaceholder": "Votre e-mail",
+      "fieldTypeLabel": "Type de demande",
+      "fieldTypePlaceholder": "Sélectionner…",
+      "fieldTypeOption1": "Transfert aéroport / port",
+      "fieldTypeOption2": "Tour privé",
+      "fieldTypeOption3": "Mariage et événements",
+      "fieldTypeOption4": "Business / Entreprise",
+      "fieldTypeOption5": "Autre",
+      "fieldMessageLabel": "Message",
+      "fieldMessagePlaceholder": "Quand, d'où, vers où, combien de personnes, éventuels besoins particuliers...",
+      "submit": "Demander un devis",
+      "submitting": "Envoi en cours",
+      "submitNote": "Nous répondons sous 24 à 36 heures.",
+      "successTitle": "Merci, nous avons bien reçu votre demande.",
+      "successBody": "Nous vous répondons sous 24 à 36 heures.",
+      "errorRequired": "Vérifiez les champs obligatoires et réessayez.",
+      "errorSend": "Échec de l'envoi. Réessayez ou écrivez-nous sur WhatsApp."
+    },
+    "bases": {
+      "eyebrow": "Les sièges",
+      "h2Pre": "Où nous",
+      "h2Accent": "sommes",
+      "base1Name": "Siracusa",
+      "base1Address": "Via della Maestranza, 28",
+      "base2Name": "Noto",
+      "base2Address": "Via Alcide De Gasperi, 15",
+      "base3Name": "Marzamemi",
+      "base3Address": "Via Marzamemi, 23"
+    },
+    "times": {
+      "eyebrow": "Délais de réponse",
+      "h2Pre": "Quand nous",
+      "h2Accent": "répondons",
+      "body": "WhatsApp : en moins d'1 heure, 24 heures sur 24, y compris nuits et jours fériés. E-mail : sous 24 heures.",
+      "businessNote": "Pour les mariages et événements, un devis détaillé est nécessaire : la première réponse arrive en moins d'une heure avec un premier dimensionnement, le devis complet sous 24 heures."
+    },
+    "faq": {
+      "h2": "Questions rapides.",
+      "q1": "En combien de temps répondez-vous sur WhatsApp ?",
+      "a1": "En moins d'1 heure dans la journée, avant le lendemain matin si vous écrivez en pleine nuit. Pour les vols et transferts urgents, écrivez-nous sur WhatsApp : c'est le canal le plus rapide.",
+      "q2": "Puis-je réserver pour le jour même ?",
+      "a2": "Oui, si nous sommes disponibles. Pour un transfert aéroport le jour même, écrivez-nous sur WhatsApp : c'est le moyen le plus rapide d'obtenir une confirmation.",
+      "q3": "Demandez-vous un acompte au moment de la réservation ?",
+      "a3": "Pour les tours standard, généralement non : vous payez à la fin du service, par carte ou en espèces. Pour les mariages et les grands groupes, nous demandons un acompte de 30 % confirmé par virement.",
+      "q4": "Que se passe-t-il si je dois annuler ?",
+      "a4": "Annulation gratuite jusqu'à 24 heures avant le service. De 24 à 4 heures avant, un débit de 30 %. Moins de 4 heures avant, le débit intégral. Pour les urgences comme les vols annulés ou les imprévus, nous restons toujours flexibles."
+    }
+  },
+  "TransferForm": {
+    "sectionTitle": "Organiser un transfert",
+    "sectionSubtitle": "Remplissez le formulaire et vous recevrez une proposition personnalisée pour votre voyage en Sicile.",
+    "pickupLabel": "Départ",
+    "selectPlaceholder": "Sélectionner…",
+    "pickupGroupAirports": "Aéroports",
+    "pickupGroupPorts": "Ports",
+    "pickupGroupCities": "Villes et centres",
+    "pickupOther": "Autre adresse…",
+    "pickupOtherPlaceholder": "Saisissez l'adresse de départ",
+    "dropoffLabel": "Arrivée",
+    "dropoffPlaceholder": "Rechercher une destination…",
+    "dropoffOtherPlaceholder": "Saisissez l'adresse d'arrivée",
+    "dateLabel": "Date",
+    "timeLabel": "Heure",
+    "paxLabel": "Passagers",
+    "bagsLabel": "Bagages",
+    "bagsNone": "Aucun",
+    "bags1": "1 bagage",
+    "bags2": "2 bagages",
+    "bags3": "3+ bagages",
+    "noteLabel": "Notes",
+    "notePlaceholder": "Siège enfant, arrêts, besoins particuliers…",
+    "returnToggle": "Aller-retour",
+    "returnDateLabel": "Date de retour",
+    "returnTimeLabel": "Heure de retour",
+    "nameLabel": "Nom",
+    "namePlaceholder": "Votre nom",
+    "phoneLabel": "Téléphone",
+    "phonePlaceholder": "Votre numéro",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "Votre e-mail",
+    "submit": "Envoyer la demande",
+    "submitting": "Envoi…",
+    "submitNote": "Nous vous répondons sous 24 heures avec une proposition sur mesure.",
+    "successTitle": "Demande envoyée !",
+    "successBody": "Merci, nous avons bien reçu votre demande de transfert. Nous vous répondons dans les plus brefs délais avec une proposition personnalisée. Pour toute urgence, écrivez-nous sur WhatsApp.",
+    "errorRequired": "Vérifiez les champs obligatoires et réessayez.",
+    "errorSend": "Échec de l'envoi. Réessayez ou écrivez-nous sur WhatsApp.",
+    "arrivoTitle": "Votre arrivée sans surprise.",
+    "arrivoBody": "Chaque transfert est organisé avec la même attention que nous accorderions à l'un de nos hôtes. Avant le départ, vous recevrez toutes les informations utiles, le nom de votre chauffeur et les détails du service. De votre arrivée jusqu'à la destination finale, nous nous occupons de chaque détail.",
+    "reassure1Title": "Accueil aux arrivées",
+    "reassure1Body": "Votre chauffeur vous attendra directement aux arrivées avec votre nom bien visible.",
+    "reassure2Title": "Suivi du vol",
+    "reassure2Body": "Nous suivons votre vol en temps réel et adaptons automatiquement l'horaire du service en cas de retard.",
+    "reassure3Title": "Assistance bagages",
+    "reassure3Body": "Nous vous accompagnons jusqu'au véhicule et vous aidons avec vos bagages pour rendre votre arrivée simple et sans stress.",
+    "reassure4Title": "Service sur mesure",
+    "reassure4Body": "Besoin de modifier un horaire ou de nous signaler un imprévu ? Nous restons toujours joignables.",
+    "howTitle": "Comment ça marche",
+    "howSubtitle": "Trois étapes simples. Nous nous occupons du reste.",
+    "step1Title": "Envoyez votre demande",
+    "step1Body": "Remplissez le formulaire avec les détails de votre voyage.",
+    "step2Title": "Recevez la proposition",
+    "step2Body": "Nous vous enverrons une proposition personnalisée sans aucun engagement.",
+    "step3Title": "Confirmez et détendez-vous",
+    "step3Body": "Une fois le service confirmé, nous nous occupons de tout. Vous n'avez plus qu'à profiter de la Sicile.",
+    "bespokeTitle": "Chaque voyage est différent. Notre service devrait l'être aussi.",
+    "bespokeBody": "Que vous veniez en Sicile pour des vacances, un mariage, un événement ou un voyage d'affaires, nous organisons chaque transfert en fonction de vos horaires, de vos besoins et de votre destination. Il n'existe pas d'itinéraires standard. Il n'existe que le voyage que vous avez en tête.",
+    "bespokeImageAlt": "Chauffeur en veste à côté du van de luxe, porte ouverte, sur une route du Val di Noto au coucher du soleil",
+    "destTitle": "Destinations les plus demandées",
+    "destSubtitle": "Touchez une destination : le formulaire ci-dessus se remplit tout seul.",
+    "faqs": [
+      {
+        "q": "Combien coûte un transfert privé en Sicile ?",
+        "a": "Le coût d'un transfert dépend du trajet, du nombre de passagers et d'éventuelles demandes particulières. Envoyez-nous les détails de votre voyage via le formulaire et nous vous répondrons rapidement avec une proposition personnalisée, claire et sans surprise."
+      },
+      {
+        "q": "Comment reconnaître mon chauffeur à l'arrivée ?",
+        "a": "Votre chauffeur vous attendra directement dans la zone des arrivées avec votre nom bien visible. Vous recevrez également toutes les informations utiles avant le service, afin de trouver facilement le point de rencontre."
+      },
+      {
+        "q": "Que se passe-t-il si mon vol est en retard ?",
+        "a": "Nous suivons votre vol en temps réel. En cas de retard, nous mettons automatiquement à jour l'horaire du service, sans que vous ayez à nous prévenir."
+      },
+      {
+        "q": "Combien de temps le chauffeur attend-il après l'atterrissage ?",
+        "a": "Le chauffeur attendra le temps nécessaire pour vous permettre de récupérer vos bagages et de rejoindre la zone des arrivées. Si des situations particulières venaient à se présenter, notre équipe restera à votre disposition."
+      },
+      {
+        "q": "Effectuez-vous aussi des transferts de nuit ?",
+        "a": "Oui. Nous organisons des transferts privés 24 heures sur 24, 7 jours sur 7, y compris les arrivées nocturnes, les départs à l'aube et les jours fériés."
+      },
+      {
+        "q": "Puis-je demander un siège pour enfant ?",
+        "a": "Bien sûr. Nous mettons à disposition des sièges et des rehausseurs sur demande. Nous vous demandons simplement de nous le signaler lors de la réservation."
+      },
+      {
+        "q": "Acceptez-vous les paiements par carte de crédit ?",
+        "a": "Oui. Nous acceptons les principaux modes de paiement. Nous vous communiquerons les options disponibles au moment de la confirmation du service."
+      },
+      {
+        "q": "Effectuez-vous des transferts depuis et vers les hôtels, resorts et villas privées ?",
+        "a": "Oui. Nous organisons des transferts privés depuis les aéroports, les ports, les hôtels, les resorts, les villas privées, les B&B et tout autre hébergement dans toute la Sicile."
+      },
+      {
+        "q": "Puis-je aussi réserver le transfert de retour ?",
+        "a": "Oui. De nombreux clients réservent ensemble l'aller et le retour, afin d'organiser tout le voyage à l'avance."
+      },
+      {
+        "q": "Quelles destinations desservez-vous ?",
+        "a": "Nous opérons dans toute la Sicile. Nous organisons régulièrement des transferts vers Siracusa, Ortigia, Noto, Taormina, Modica, Ragusa Ibla, Marzamemi, Catania, Palermo, l'Etna et bien d'autres destinations."
+      },
+      {
+        "q": "Puis-je réserver un transfert avec un ou plusieurs arrêts ?",
+        "a": "Oui. Si vous souhaitez vous arrêter en chemin pour visiter un lieu, déjeuner ou faire une pause, nous organiserons un itinéraire personnalisé selon vos besoins."
+      },
+      {
+        "q": "Combien de temps à l'avance dois-je réserver ?",
+        "a": "Nous recommandons de réserver le plus tôt possible, surtout pendant la saison estivale. Lorsque c'est possible, nous pouvons néanmoins traiter aussi les demandes de dernière minute."
+      },
+      {
+        "q": "Vos transferts sont-ils partagés avec d'autres passagers ?",
+        "a": "Non. Tous nos services sont privés. Le véhicule sera réservé exclusivement à vous et à vos accompagnateurs."
+      },
+      {
+        "q": "Organisez-vous des transferts pour des groupes ?",
+        "a": "Oui. Grâce à notre réseau de partenaires, nous pouvons organiser des transferts pour les voyageurs seuls, les familles, les groupes et les petits événements, en utilisant le véhicule le mieux adapté au nombre de passagers."
+      },
+      {
+        "q": "Pourquoi choisir un transfert privé plutôt qu'un taxi ?",
+        "a": "Un transfert privé vous permet de connaître le coût du service avant le départ, d'éviter les attentes et de voyager avec un chauffeur dédié. Votre chauffeur suivra votre vol, vous accueillera aux arrivées et vous conduira directement à destination, pour une expérience plus confortable, ponctuelle et personnalisée."
+      }
+    ],
+    "introTitle": "Transferts privés en Sicile",
+    "introBody1": "La Sicile est l'une des destinations les plus fascinantes de la Méditerranée, mais se déplacer entre aéroports, villes et lieux touristiques demande souvent beaucoup de temps et des correspondances pas toujours directes. C'est pourquoi Sicily Driver propose un service de transferts privés dans toute la Sicile, pensé pour ceux qui souhaitent voyager confortablement, ponctuellement et sans stress.",
+    "introBody2": "Nous organisons des transferts depuis et vers les aéroports de Catania, Comiso, Palermo et Trapani, ainsi que les ports de Pozzallo et Augusta, reliant les principales destinations de l'île comme Siracusa, Ortigia, Noto, Taormina, Modica, Ragusa Ibla, Marzamemi et l'Etna.",
+    "airportEyebrow": "Aéroports desservis",
+    "airportCatTitle": "Transferts depuis l'aéroport de Catania",
+    "airportCatBody": "L'aéroport de Catania Fontanarossa est la principale porte d'accès à la Sicile orientale. Chaque jour, nous organisons des transferts privés depuis l'aéroport vers Siracusa, Ortigia, Noto, Taormina, Modica, Ragusa Ibla, Marzamemi et toutes les principales destinations de la côte orientale.",
+    "airportOtherTitle": "Transferts depuis Comiso, Palermo et Trapani",
+    "airportOtherBody": "Même si l'aéroport de Catania est la principale plateforme de la Sicile orientale, nous organisons quotidiennement des transferts privés depuis les aéroports de Comiso, Palermo et Trapani, offrant des liaisons directes vers les hôtels, les villas privées, les resorts, les ports de plaisance et les principales villes de l'île.",
+    "airportClosing": "Chaque itinéraire est planifié en fonction des horaires d'arrivée et des besoins du client, garantissant ponctualité, confort et un maximum de flexibilité.",
+    "audienceTitle": "Qui choisit Sicily Driver",
+    "audienceBody": "Chaque année, nous accompagnons des couples, des familles, des groupes d'amis, des professionnels, des wedding planners, des tour-opérateurs et des voyageurs venus du monde entier. Nous organisons des transferts privés pour des vacances, des mariages, des événements exclusifs, des réunions d'entreprise, des croisières et des tours personnalisés dans toute la Sicile."
+  }
+}

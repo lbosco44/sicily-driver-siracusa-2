@@ -12,7 +12,7 @@ export function LanguageSwitcher({className}: {className?: string}) {
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
 
-  const switchLocale = (next: 'it' | 'en') => {
+  const switchLocale = (next: 'it' | 'en' | 'fr') => {
     if (next === locale || isPending) return;
     startTransition(() => {
       router.replace(pathname, {locale: next});
@@ -56,6 +56,22 @@ export function LanguageSwitcher({className}: {className?: string}) {
         )}
       >
         {t('en')}
+      </button>
+      <span aria-hidden="true" className="text-ink/30">
+        /
+      </span>
+      <button
+        type="button"
+        onClick={() => switchLocale('fr')}
+        aria-current={locale === 'fr' ? 'true' : undefined}
+        className={cn(
+          'px-2.5 py-2 -my-2 transition-opacity duration-200 cursor-pointer',
+          locale === 'fr'
+            ? 'text-primary opacity-100'
+            : 'text-ink/70 hover:opacity-100 hover:text-primary'
+        )}
+      >
+        {t('fr')}
       </button>
     </div>
   );
