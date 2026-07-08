@@ -120,17 +120,31 @@ export default async function ServiziPage({
       {/* 01 — HERO ridotta */}
       <section className="hero-stage relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
+          {/* Mobile: immagine verticale dedicata (van al Maniace, cliente 2026-07-08).
+              Solo <640px; priority perché è l'LCP su mobile. */}
           <Image
-            src="/images/servizi/hero-maniace.png"
+            src="/images/servizi/hero-maniace-mobile.png"
             alt=""
             fill
             priority
             fetchPriority="high"
+            sizes="100vw"
+            quality={80}
+            placeholder="blur"
+            blurDataURL={HERO_BLUR}
+            className="object-cover sm:hidden"
+            style={{filter: 'saturate(0.85) brightness(0.78) contrast(1.08)'}}
+          />
+          {/* Desktop: immagine orizzontale (≥640px). */}
+          <Image
+            src="/images/servizi/hero-maniace.png"
+            alt=""
+            fill
             sizes={HERO_SIZES}
             quality={80}
             placeholder="blur"
             blurDataURL={HERO_BLUR}
-            className="object-cover"
+            className="object-cover hidden sm:block"
             style={{filter: 'saturate(0.85) brightness(0.78) contrast(1.08)'}}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/75" />
