@@ -35,13 +35,15 @@ export function MobileMenu({
   toursList,
   bookLabel,
   languageLabel,
-  closeLabel
+  closeLabel,
+  openLabel
 }: {
   links: MobileMenuLink[];
   toursList: ToursListLabels;
   bookLabel: string;
   languageLabel: string;
   closeLabel: string;
+  openLabel: string;
 }) {
   const [open, setOpen] = useState(false);
   const [tourExpanded, setTourExpanded] = useState(false);
@@ -59,7 +61,7 @@ export function MobileMenu({
       {/* Hamburger toggle — solo mobile */}
       <button
         type="button"
-        aria-label="Apri menu"
+        aria-label={openLabel}
         aria-expanded={open}
         onClick={() => setOpen(true)}
         className="md:hidden inline-flex flex-col items-center justify-center w-11 h-11 -mr-2 text-ink hover:text-primary transition-colors"

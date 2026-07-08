@@ -45,7 +45,8 @@
     "skipToContent": "Aller au contenu",
     "opensNewTab": "(ouvre dans un nouvel onglet)",
     "currentPage": "Page actuelle",
-    "closeMenu": "Fermer"
+    "closeMenu": "Fermer",
+    "openMenu": "Ouvrir le menu"
   },
   "Privacy": {
     "meta": {

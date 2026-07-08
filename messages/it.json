@@ -45,7 +45,8 @@
     "skipToContent": "Vai al contenuto",
     "opensNewTab": "(apre in nuova scheda)",
     "currentPage": "Pagina corrente",
-    "closeMenu": "Chiudi"
+    "closeMenu": "Chiudi",
+    "openMenu": "Apri menu"
   },
   "Privacy": {
     "meta": {
