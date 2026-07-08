@@ -3,7 +3,6 @@ import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import type {TransferRouteContent} from '@/lib/transferRoutes';
 import {AnimatedHeading} from '@/components/ui/AnimatedHeading';
-import {WHATSAPP_HREF} from '@/lib/contact';
 import {TransferHero} from '@/components/sections/transfer/TransferHero';
 
 // TransferRouteNarrative — pagina figlia SEO per singola tratta transfer
@@ -64,25 +63,13 @@ export async function TransferRouteNarrative({
                 </div>
               </dl>
 
-              <a
-                href={WHATSAPP_HREF}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/contatti"
                 className="group mt-8 flex items-center justify-center gap-3 rounded-full bg-accent px-7 py-4 text-[13px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
                 style={{color: 'var(--cream-on-dark)'}}
               >
-                <svg
-                  aria-hidden="true"
-                  width="17"
-                  height="17"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="shrink-0"
-                >
-                  <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.045z" />
-                </svg>
                 {tCommon('routeQuoteCta')}
-              </a>
+              </Link>
               <p className="mt-4 text-center text-[13px] text-ink-soft">
                 {tCommon('routePriceFootnote')}
               </p>
@@ -265,26 +252,18 @@ export async function TransferRouteNarrative({
           </p>
 
           <div className="mt-12 sm:mt-14 flex flex-col sm:flex-row gap-4 sm:gap-5">
-            <a
-              href={WHATSAPP_HREF}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contatti"
               className="group inline-flex items-center justify-center gap-3 rounded-full bg-accent px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium transition-all duration-200 hover:bg-accent-hover"
               style={{color: 'var(--cream-on-dark)'}}
             >
-              {tCommon('ctaWhatsApp')}
+              {tCommon('ctaQuote')}
               <span
                 aria-hidden="true"
                 className="transition-transform duration-300 group-hover:translate-x-1.5"
               >
                 →
               </span>
-            </a>
-            <Link
-              href="/contatti"
-              className="inline-flex items-center justify-center gap-3 rounded-full border border-cream-on-dark/35 px-9 py-5 text-[14px] uppercase tracking-[0.08em] font-medium text-cream-on-dark hover:bg-cream-on-dark/10 transition-colors"
-            >
-              {tCommon('ctaQuote')}
             </Link>
           </div>
 

@@ -107,7 +107,6 @@ export async function Navbar() {
             links={links}
             toursList={navLabels.toursList}
             bookLabel={t('bookNow')}
-            whatsappLabel={t('whatsappCta')}
             languageLabel={tLang('ariaLabel')}
             closeLabel={tA11y('closeMenu')}
           />

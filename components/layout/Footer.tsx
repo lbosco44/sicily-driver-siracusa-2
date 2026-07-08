@@ -2,7 +2,6 @@ import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/navigation';
 import {LanguageSwitcher} from './LanguageSwitcher';
 import {CookieSettingsLink} from './CookieSettingsLink';
-import {WHATSAPP_HREF} from '@/lib/contact';
 
 export async function Footer() {
   const t = await getTranslations('Footer');
@@ -103,11 +102,6 @@ export async function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/wedding" className="hover:text-accent transition-colors">
-                  Wedding &amp; eventi
-                </Link>
-              </li>
-              <li>
                 <Link href="/chi-siamo" className="hover:text-accent transition-colors">
                   {tNav('about')}
                 </Link>
@@ -159,14 +153,9 @@ export async function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href={WHATSAPP_HREF}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-accent transition-colors"
-                >
-                  WhatsApp
-                </a>
+                <Link href="/contatti" className="hover:text-accent transition-colors">
+                  {tNav('contact')}
+                </Link>
               </li>
               <li>
                 <a

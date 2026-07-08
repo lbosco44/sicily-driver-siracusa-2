@@ -42,29 +42,36 @@ export function escapeHtml(value: string): string {
     .replace(/'/g, '&#39;');
 }
 
-// Tabella HTML semplice e robusta per i client email (stili inline).
+// HTML email responsive per i client mobile: layout a blocchi (label sopra,
+// valore sotto a tutta larghezza) invece della tabella a 2 colonne che, con
+// testi lunghi, forzava lo scroll orizzontale su telefono. `word-break` fa
+// andare a capo anche parole/URL lunghissimi; il meta viewport fa renderizzare
+// alla larghezza del dispositivo. Stili inline (obbligo nei client email).
 export function leadEmailHtml(title: string, rows: [string, string][]): string {
   const body = rows
     .map(
       ([k, v]) =>
-        `<tr>` +
-        `<td style="padding:8px 12px;font:600 13px/1.4 Arial,sans-serif;color:#556356;vertical-align:top;white-space:nowrap">${escapeHtml(
+        `<tr><td style="padding:10px 0;border-bottom:1px solid #e5e0d5">` +
+        `<div style="font:600 11px/1.4 Arial,sans-serif;color:#8b8a85;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 3px">${escapeHtml(
           k
-        )}</td>` +
-        `<td style="padding:8px 12px;font:400 15px/1.5 Arial,sans-serif;color:#1a1a1a">${escapeHtml(
+        )}</div>` +
+        `<div style="font:400 15px/1.5 Arial,sans-serif;color:#1a1a1a;word-break:break-word;overflow-wrap:anywhere">${escapeHtml(
           v
-        ).replace(/\n/g, '<br>')}</td>` +
-        `</tr>`
+        ).replace(/\n/g, '<br>')}</div>` +
+        `</td></tr>`
     )
     .join('');
   return (
-    `<div style="max-width:560px;margin:0 auto;font-family:Arial,sans-serif">` +
+    `<!DOCTYPE html><html lang="it"><head><meta charset="utf-8">` +
+    `<meta name="viewport" content="width=device-width,initial-scale=1">` +
+    `</head><body style="margin:0;padding:0;background:#f7f5f0">` +
+    `<div style="max-width:560px;margin:0 auto;padding:24px 20px;font-family:Arial,sans-serif;box-sizing:border-box">` +
     `<h2 style="font:600 18px/1.3 Arial,sans-serif;color:#A5532F;margin:0 0 16px">${escapeHtml(
       title
     )}</h2>` +
-    `<table style="border-collapse:collapse;width:100%;border:1px solid #e5e0d5">${body}</table>` +
+    `<table role="presentation" width="100%" style="border-collapse:collapse;width:100%;table-layout:fixed">${body}</table>` +
     `<p style="margin:16px 0 0;font:400 12px/1.5 Arial,sans-serif;color:#8b8a85">Inviata automaticamente dal sito ncctaxisiracusa.com</p>` +
-    `</div>`
+    `</div></body></html>`
   );
 }
 

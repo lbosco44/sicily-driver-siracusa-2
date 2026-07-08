@@ -89,7 +89,7 @@ export default async function ServiziPage({
       body: t('cards.card3Body'),
       points: [t('cards.card3Point1'), t('cards.card3Point2'), t('cards.card3Point3')],
       cta: t('cards.card3Cta'),
-      href: '/wedding' as const
+      href: '/contatti' as const
     },
     {
       key: '4',
@@ -99,33 +99,6 @@ export default async function ServiziPage({
       points: [t('cards.card4Point1'), t('cards.card4Point2'), t('cards.card4Point3')],
       cta: t('cards.card4Cta'),
       href: '/contatti' as const
-    }
-  ];
-
-  const fleet = [
-    {
-      capacity: t('fleet.card1Capacity'),
-      pax: t('fleet.card1Pax'),
-      type: t('fleet.card1Type'),
-      detail: t('fleet.card1Detail'),
-      brands: t('fleet.card1Brands'),
-      price: t('fleet.card1Price')
-    },
-    {
-      capacity: t('fleet.card2Capacity'),
-      pax: t('fleet.card2Pax'),
-      type: t('fleet.card2Type'),
-      detail: t('fleet.card2Detail'),
-      brands: t('fleet.card2Brands'),
-      price: t('fleet.card2Price')
-    },
-    {
-      capacity: t('fleet.card3Capacity'),
-      pax: t('fleet.card3Pax'),
-      type: t('fleet.card3Type'),
-      detail: t('fleet.card3Detail'),
-      brands: t('fleet.card3Brands'),
-      price: t('fleet.card3Price')
     }
   ];
 
@@ -208,61 +181,7 @@ export default async function ServiziPage({
         </div>
       </section>
 
-      {/* 04 — LA FLOTTA: design MINIMAL (iterazione 3)
-            Cliente 28/05/2026: la versione precedente era "incasinata,
-            troppi pesi di font, sizes, caps, grassetti diversi".
-            Riprogettato MINIMAL: 1 sola gerarchia font, no decorazioni
-            (no numeri giganti, no caps brand stamp, no italic price),
-            solo info essenziale per colonna: tipo, passeggeri, prezzo.
-            Brand mention spostato nel lead generale al top → niente
-            piu' ripetizione 3 volte. */}
-      <section className="bg-canvas py-20 sm:py-24">
-        <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
-          <div className="max-w-2xl mb-12 sm:mb-14">
-            <h2
-              className="font-display text-display-sm sm:text-display-md font-light text-ink leading-[1.1]"
-              style={{fontStretch: '95%'}}
-            >
-              {t('fleet.h2Pre')}{' '}
-              <span className="italic text-accent">{t('fleet.h2Accent')}</span>
-            </h2>
-            <p className="mt-5 text-[16px] sm:text-[17px] leading-[1.55] text-ink-soft max-w-[58ch]">
-              {t('fleet.lead')}
-            </p>
-          </div>
-
-          {/* 3 colonne minimal: stesso peso font (light), 3 size hierarchy
-              solo (title 28px / pax 17px / price 17px), niente bold uppercase
-              brand, niente italic decorativo. Divider sottili tra colonne. */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-y-0 md:divide-x md:divide-[var(--border)]">
-            {fleet.map((f, i) => (
-              <article
-                key={i}
-                className={`${
-                  i === 0
-                    ? 'md:pr-10 lg:pr-14'
-                    : i === fleet.length - 1
-                      ? 'md:pl-10 lg:pl-14'
-                      : 'md:px-10 lg:px-14'
-                }`}
-              >
-                <h3
-                  className="font-display text-[24px] sm:text-[28px] font-light text-ink leading-[1.15] mb-4"
-                  style={{fontStretch: '95%'}}
-                >
-                  {f.type}
-                </h3>
-                <p className="text-[16px] sm:text-[17px] text-ink-soft leading-[1.55]">
-                  {f.capacity} {f.pax}
-                </p>
-                <p className="text-[16px] sm:text-[17px] text-accent-strong leading-[1.55] mt-1">
-                  {f.price}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 04 — LA FLOTTA: sezione rimossa su richiesta cliente (08/07/2026). */}
 
       {/* 05 — TUTTA LA SICILIA (riprogettata 28/05/2026 + 2nd iter)
             Cliente: 1) il framing "Le città che conosciamo" sembrava

@@ -5,7 +5,6 @@ import {useTranslations} from 'next-intl';
 import {Link} from '@/i18n/navigation';
 import {motion, useReducedMotion} from 'motion/react';
 import {Check, Users} from 'lucide-react';
-import {WHATSAPP_HREF} from '@/lib/contact';
 
 // Listino — rielaborato 27/05/2026 da "prose lista" a "pricing cards".
 // Ispirato a 21st.dev/community/brijr/pricing-section/pricing-four,
@@ -201,10 +200,8 @@ export function ListinoProse() {
                 </ul>
 
                 {/* CTA */}
-                <a
-                  href={WHATSAPP_HREF}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/contatti"
                   className={`block w-full text-center px-5 py-3 rounded-full text-[12px] uppercase tracking-[0.18em] font-medium transition-colors ${
                     r.popular
                       ? 'bg-accent text-cream-on-dark hover:bg-accent-hover'
@@ -212,7 +209,7 @@ export function ListinoProse() {
                   }`}
                 >
                   {t('ctaCard')}
-                </a>
+                </Link>
               </motion.article>
             );
           })}

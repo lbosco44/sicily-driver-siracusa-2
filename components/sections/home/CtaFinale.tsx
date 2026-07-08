@@ -4,7 +4,6 @@ import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {motion, useReducedMotion} from 'motion/react';
 import {Link} from '@/i18n/navigation';
-import {WHATSAPP_HREF} from '@/lib/contact';
 
 // CtaFinale — rielaborato 27/05/2026.
 // Vecchio: sezione blu deep full-bleed con headline + 2 CTA.
@@ -113,10 +112,8 @@ export function CtaFinale() {
             {/* 2 CTAs stack vertical. Cap padding/font ingranditi: cliente
                 vuole che riempiano lo spazio nero. */}
             <div className="flex flex-col items-center gap-2.5 sm:gap-3 mt-5 sm:mt-7 lg:mt-8 w-full">
-              <a
-                href={WHATSAPP_HREF}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/contatti"
                 className="group inline-flex items-center gap-2 sm:gap-2.5 rounded-full bg-accent hover:bg-accent-hover transition-all duration-200 whitespace-nowrap"
                 style={{
                   color: 'var(--cream-on-dark)',
@@ -127,27 +124,13 @@ export function CtaFinale() {
                   fontWeight: 500
                 }}
               >
-                {t('ctaWhatsApp')}
+                {t('ctaForm')}
                 <span
                   aria-hidden="true"
                   className="transition-transform duration-300 group-hover:translate-x-1"
                 >
                   →
                 </span>
-              </a>
-
-              <Link
-                href="/contatti"
-                className="inline-flex items-center rounded-full border border-cream-on-dark/50 hover:border-cream-on-dark/80 hover:bg-cream-on-dark/8 transition-colors whitespace-nowrap"
-                style={{
-                  color: 'var(--cream-on-dark)',
-                  padding: 'clamp(8px, 0.9vw, 15px) clamp(16px, 1.8vw, 28px)',
-                  fontSize: 'clamp(11px, 0.9vw, 14px)',
-                  letterSpacing: '0.12em',
-                  fontWeight: 500
-                }}
-              >
-                {t('ctaForm')}
               </Link>
             </div>
           </motion.div>
