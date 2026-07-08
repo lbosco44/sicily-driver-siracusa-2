@@ -15,7 +15,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   const tour = getTour('dolce-vita-siracusa', locale as Locale);
-  const path = locale === 'it' ? '/tour/dolce-vita-siracusa' : '/en/tour/dolce-vita-siracusa';
+  const path =
+    locale === 'fr'
+      ? '/fr/tour/dolce-vita-siracusa'
+      : locale === 'en'
+        ? '/en/tour/dolce-vita-siracusa'
+        : '/tour/dolce-vita-siracusa';
   return {
     title: tour.metaTitle,
     description: tour.metaDescription,
@@ -24,13 +29,14 @@ export async function generateMetadata({
       languages: {
         it: '/tour/dolce-vita-siracusa',
         en: '/en/tour/dolce-vita-siracusa',
+        fr: '/fr/tour/dolce-vita-siracusa',
         'x-default': '/tour/dolce-vita-siracusa'
       }
     },
     openGraph: {
       title: tour.metaTitle,
       description: tour.metaDescription,
-      locale: locale === 'it' ? 'it_IT' : 'en_US',
+      locale: locale === 'fr' ? 'fr_FR' : locale === 'en' ? 'en_US' : 'it_IT',
       type: 'website',
       url: `https://ncctaxisiracusa.com${path}`,
       siteName: 'Sicily Driver Siracusa',

@@ -279,9 +279,119 @@ const PARTNER_EN: PartnerContent = {
   ctaButton: 'Email info@ncctaxisiracusa.com'
 };
 
+// ============================================================
+// FR
+// ============================================================
+
+const PARTNER_FR: PartnerContent = {
+  metaTitle:
+    'Partenaires Sélectionnés — Sicily Driver : Pura Vida, Burgio, Benanti, Palmeri',
+  metaDescription:
+    'Les partenaires sélectionnés de Sicily Driver Siracusa : Pura Vida Beach Club, Fratelli Burgio, Cantina Benanti, Cantina Palmeri. Pas des sponsors, des lieux que nous fréquentons depuis des années.',
+
+  heroEyebrow: 'Partenaires',
+  h1Pre: 'Les excellences qui font partie de',
+  h1Accent: 'notre parcours.',
+  heroSubhead:
+    'Ce ne sont pas des sponsors. Ce sont les lieux et les personnes que nous emmenons nous-mêmes dans nos tours parce que nous les croyons les meilleurs.',
+
+  wallLogos: WALL_LOGOS,
+
+  partners: [
+    {
+      eyebrow: 'Portopalo di Capo Passero · Beach club',
+      name: 'Pura Vida Beach Club',
+      body: 'Pura Vida est le beach club qui regarde l’Isola delle Correnti du bon côté — celui où, au coucher du soleil, les deux mers se rencontrent. Cuisine sicilienne servie sur la plage, transats en bois clair, accès à une mer basse et cristalline. Nous travaillons avec eux parce qu’ils savent ce que signifie laisser en paix un client qui veut simplement contempler la mer pendant trois heures.',
+      whereYouFindThem: 'Où les retrouver dans nos tours',
+      tourHref: '/tour/isola-delle-correnti',
+      tourName: 'Isola delle Correnti',
+      logo: '/images/loghi-partner/pura-vita-ink.svg',
+      logoW: 202,
+      logoH: 239
+    },
+    {
+      eyebrow: 'Ortigia · Épicerie fine sicilienne',
+      name: 'Fratelli Burgio',
+      body: 'L’épicerie Fratelli Burgio à Ortigia est une de ces boutiques qui, une fois la porte franchie, vous plonge dans un catalogue de produits siciliens dont vous ignoriez l’existence. Charcuteries locales, fromages de bergers des environs de Ragusa, olives préparées de cinq façons différentes, pain frais. Les planches servies à bord du Silent Sailing naissent ici. Nous travaillons avec eux parce que chaque produit porte le nom d’un producteur, pas une étiquette industrielle.',
+      whereYouFindThem: 'Où les retrouver dans nos tours',
+      tourHref: '/tour/silent-sailing',
+      tourName: 'Silent Sailing',
+      logo: '/images/loghi-partner/fratelli-burgio-ink.png',
+      logoW: 2734,
+      logoH: 634
+    },
+    {
+      eyebrow: 'Etna · Domaine historique',
+      name: 'Cantina Benanti',
+      body: 'Cantina Benanti est l’une des voix historiques de la renaissance de l’Etna comme terroir de haute qualité. Ils produisent sur le versant sud-est, travaillant le Nerello Mascalese et le Carricante sur des sols volcaniques entre 600 et 900 mètres. La dégustation que nous proposons dans l’Etna Premium Escape commence toujours par leurs blancs et se termine par un rouge qui raconte vingt ans d’élevage sicilien.',
+      whereYouFindThem: 'Où les retrouver dans nos tours',
+      tourHref: '/tour/etna-premium',
+      tourName: 'Etna Premium Escape',
+      logo: '/images/loghi-partner/cantine-benanti-ink.png',
+      logoW: 200,
+      logoH: 202
+    },
+    {
+      eyebrow: 'Etna · Vins de terroir',
+      name: 'Cantina Palmeri',
+      body: 'Cantina Palmeri se trouve sur le versant sud-est de l’Etna, moins touristique que les domaines historiques du nord mais avec une qualité qui grandit d’année en année. Une petite affaire familiale, des vins qui parlent d’une zone précise et d’une manière précise de vinifier. Quand nous proposons l’Etna Premium avec eux, c’est parce qu’il nous tient à cœur de vous faire découvrir l’autre Etna, celle que l’on connaît moins.',
+      whereYouFindThem: 'Où les retrouver dans nos tours',
+      tourHref: '/tour/etna-premium',
+      tourName: 'Etna Premium Escape',
+      logo: '/images/loghi-partner/palmeri2-ink.png',
+      logoW: 1500,
+      logoH: 687
+    },
+    {
+      eyebrow: 'Etna nord · Domaine familial',
+      name: 'Gambino Vini',
+      body: 'Gambino se trouve sur le versant nord de l’Etna, à Linguaglossa, avec les vignes en terrasses de la contrada Petto Dragone autour de 800 mètres. C’est un domaine familial qui travaille les cépages de l’île comme il se doit : Nerello Mascalese et Nerello Cappuccio pour les rouges, Carricante et Catarratto pour les blancs, sur des sols volcaniques qui donnent des vins nerveux et minéraux. La salle de dégustation regarde le volcan d’un côté et la mer de l’autre. Nous vous emmenons ici dans l’Etna Premium parce qu’ici le vin se boit face à la montagne, pas dans une salle anonyme.',
+      whereYouFindThem: 'Où les retrouver dans nos tours',
+      tourHref: '/tour/etna-premium',
+      tourName: 'Etna Premium Escape',
+      logo: '/images/loghi-partner/gambino-ink.png',
+      logoW: 460,
+      logoH: 140
+    },
+    {
+      eyebrow: 'Taormina · Granité sicilien',
+      name: 'Bam Bar',
+      body: 'Le Bam Bar, via di Giovanni à Taormina, est l’étape du vrai granité sicilien — celui servi avec la brioche col tuppo, à déguster assis parmi les décorations peintes à la main. Amande, mûre, citron, pistache : choisir est difficile, et de fait beaucoup en prennent deux parfums. C’est un endroit simple et toujours plein, de touristes comme de Taorminais. Nous l’inscrivons dans nos itinéraires parce qu’une matinée à Taormina sans granité chez Bam Bar est une matinée gâchée.',
+      whereYouFindThem: 'Où les retrouver dans nos tours',
+      tourHref: '/tour/dolce-vita-siracusa',
+      tourName: 'Ortigia + Taormina',
+      logo: '/images/loghi-partner/bambar-ink.png',
+      logoW: 1590,
+      logoH: 415
+    },
+    {
+      eyebrow: 'Syracuse · Séjour design',
+      name: 'Orty Suite',
+      body: 'Orty Suite est un loft design dans la Borgata de Syracuse, à quelques pas d’Ortigia mais loin du tumulte. Soixante-quatorze mètres carrés, des plafonds de plus de quatre mètres, un mobilier fait main par des artisans du coin : le genre d’endroit où l’on revient volontiers après une journée en vadrouille. Cour privée, tout à distance de marche — du Théâtre grec au musée Paolo Orsi. Nous le recommandons parce que celui qui nous choisit pour se déplacer mérite aussi un vrai lieu où s’arrêter, pas une chambre quelconque.',
+      whereYouFindThem: 'L’expérience à deux pas',
+      tourHref: '/tour/silent-sailing',
+      tourName: 'Silent Sailing',
+      logo: '/images/loghi-partner/ortysuite-ink.png',
+      logoW: 655,
+      logoH: 316
+    }
+  ],
+
+  fifthSlotIntro:
+    'Nous sommes en train de sélectionner un nouveau partenaire : une pâtisserie de Modica pour les tours du baroque. Mise à jour prévue avant la fin 2026.',
+
+  ctaEyebrow: 'Travaillons ensemble ?',
+  ctaH2Pre: 'Vous êtes une entreprise sicilienne et',
+  ctaH2Accent: 'vous aimeriez collaborer ?',
+  ctaBody:
+    'Nous cherchons des partenaires qui partagent notre idée : moins de marketing, plus de substance. Si vous dirigez une activité en Sicile orientale (gastronomie, vin, hôtellerie, expériences) et que vous pensez que cela vaut la peine de nous connaître, écrivez-nous.',
+  ctaButton: 'Écrivez à info@ncctaxisiracusa.com'
+};
+
 const PARTNERS: Record<Locale, PartnerContent> = {
   it: PARTNER_IT,
-  en: PARTNER_EN
+  en: PARTNER_EN,
+  fr: PARTNER_FR
 };
 
 export function getPartners(locale: Locale): PartnerContent {

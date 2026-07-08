@@ -15,7 +15,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   const tour = getTour('isola-delle-correnti', locale as Locale);
-  const path = locale === 'it' ? '/tour/isola-delle-correnti' : '/en/tour/isola-delle-correnti';
+  const path =
+    locale === 'fr'
+      ? '/fr/tour/isola-delle-correnti'
+      : locale === 'en'
+        ? '/en/tour/isola-delle-correnti'
+        : '/tour/isola-delle-correnti';
   return {
     title: tour.metaTitle,
     description: tour.metaDescription,
@@ -24,13 +29,14 @@ export async function generateMetadata({
       languages: {
         it: '/tour/isola-delle-correnti',
         en: '/en/tour/isola-delle-correnti',
+        fr: '/fr/tour/isola-delle-correnti',
         'x-default': '/tour/isola-delle-correnti'
       }
     },
     openGraph: {
       title: tour.metaTitle,
       description: tour.metaDescription,
-      locale: locale === 'it' ? 'it_IT' : 'en_US',
+      locale: locale === 'fr' ? 'fr_FR' : locale === 'en' ? 'en_US' : 'it_IT',
       type: 'website',
       url: `https://ncctaxisiracusa.com${path}`,
       siteName: 'Sicily Driver Siracusa',

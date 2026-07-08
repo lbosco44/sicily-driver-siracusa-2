@@ -15,7 +15,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   const tour = getTour('silent-sailing', locale as Locale);
-  const path = locale === 'it' ? '/tour/silent-sailing' : '/en/tour/silent-sailing';
+  const path =
+    locale === 'fr'
+      ? '/fr/tour/silent-sailing'
+      : locale === 'en'
+        ? '/en/tour/silent-sailing'
+        : '/tour/silent-sailing';
   return {
     title: tour.metaTitle,
     description: tour.metaDescription,
@@ -24,13 +29,14 @@ export async function generateMetadata({
       languages: {
         it: '/tour/silent-sailing',
         en: '/en/tour/silent-sailing',
+        fr: '/fr/tour/silent-sailing',
         'x-default': '/tour/silent-sailing'
       }
     },
     openGraph: {
       title: tour.metaTitle,
       description: tour.metaDescription,
-      locale: locale === 'it' ? 'it_IT' : 'en_US',
+      locale: locale === 'fr' ? 'fr_FR' : locale === 'en' ? 'en_US' : 'it_IT',
       type: 'website',
       url: `https://ncctaxisiracusa.com${path}`,
       siteName: 'Sicily Driver Siracusa',

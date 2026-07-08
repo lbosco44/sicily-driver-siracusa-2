@@ -16,23 +16,25 @@ export async function generateMetadata({
   const city = getCity('catania', locale as Locale);
   const itPath = '/ncc-catania';
   const enPath = '/en/driver-catania';
+  const frPath = '/fr/chauffeur-catane';
   return {
     title: city.metaTitle,
     description: city.metaDescription,
     alternates: {
-      canonical: locale === 'it' ? itPath : enPath,
+      canonical: locale === 'fr' ? frPath : locale === 'en' ? enPath : itPath,
       languages: {
         it: itPath,
         en: enPath,
+        fr: frPath,
         'x-default': itPath
       }
     },
     openGraph: {
       title: city.metaTitle,
       description: city.metaDescription,
-      locale: locale === 'it' ? 'it_IT' : 'en_US',
+      locale: locale === 'fr' ? 'fr_FR' : locale === 'en' ? 'en_US' : 'it_IT',
       type: 'website',
-      url: `https://ncctaxisiracusa.com${locale === 'it' ? itPath : enPath}`,
+      url: `https://ncctaxisiracusa.com${locale === 'fr' ? frPath : locale === 'en' ? enPath : itPath}`,
       siteName: 'Sicily Driver Siracusa',
       images: ogImage(locale, city.metaTitle)
     },

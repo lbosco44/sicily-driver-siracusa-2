@@ -46,7 +46,7 @@ const LOCATIONS = [
   }
 ];
 
-export function localBusinessSchema(locale: 'it' | 'en') {
+export function localBusinessSchema(locale: 'it' | 'en' | 'fr') {
   return {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'TaxiService'],
@@ -55,8 +55,15 @@ export function localBusinessSchema(locale: 'it' | 'en') {
     description:
       locale === 'it'
         ? 'NCC privato e tour della Sicilia orientale. Transfer aeroporti Catania, Comiso, Palermo, Trapani. Tour Barocco, Etna, Ortigia, Taormina con van di lusso (tra cui Mercedes Classe V, GLB Premium, Classe E).'
-        : 'Private NCC and private tours across eastern Sicily. Airport transfers from Catania, Comiso, Palermo, Trapani. Baroque, Etna, Ortigia, Taormina tours with luxury vans (including Mercedes V-Class, GLB Premium, E-Class).',
-    url: locale === 'it' ? `${URL_BASE}/` : `${URL_BASE}/en`,
+        : locale === 'fr'
+          ? 'Chauffeur privé (NCC) et circuits privés dans l’est de la Sicile. Transferts aéroports Catane, Comiso, Palerme, Trapani. Circuits Baroque, Etna, Ortigia, Taormine en van de luxe (dont Mercedes Classe V, GLB Premium, Classe E).'
+          : 'Private NCC and private tours across eastern Sicily. Airport transfers from Catania, Comiso, Palermo, Trapani. Baroque, Etna, Ortigia, Taormina tours with luxury vans (including Mercedes V-Class, GLB Premium, E-Class).',
+    url:
+      locale === 'it'
+        ? `${URL_BASE}/`
+        : locale === 'fr'
+          ? `${URL_BASE}/fr`
+          : `${URL_BASE}/en`,
     telephone: PHONE,
     email: EMAIL,
     address: LOCATIONS[0].address,

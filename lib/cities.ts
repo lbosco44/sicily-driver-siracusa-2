@@ -8,7 +8,7 @@
 // ============================================================
 
 export type CityKey = 'catania' | 'noto' | 'taormina' | 'ragusa';
-export type Locale = 'it' | 'en';
+export type Locale = 'it' | 'en' | 'fr';
 
 export type Route = {from: string; to: string; price?: string};
 export type Faq = {q: string; a: string};
@@ -116,6 +116,30 @@ const FLEET_EN: FleetCard[] = [
   }
 ];
 
+const FLEET_FR: FleetCard[] = [
+  {
+    model: 'Van de luxe 7 places',
+    pax: 'Jusqu’à 7 passagers',
+    luggage: '6 grandes valises + bagage à main',
+    comfort: 'Climatisation, sièges en cuir, vitres teintées',
+    ideal: 'Familles, groupes, transferts aéroport'
+  },
+  {
+    model: 'SUV premium',
+    pax: 'Jusqu’à 4 passagers',
+    luggage: '3 grandes valises',
+    comfort: 'SUV surélevé, vue dégagée',
+    ideal: 'Couples, circuits panoramiques'
+  },
+  {
+    model: 'Berline de luxe',
+    pax: 'Jusqu’à 3 passagers',
+    luggage: '2 grandes valises',
+    comfort: 'Berline executive, élégance pour le business',
+    ideal: 'Voyages d’affaires, événements, mariages'
+  }
+];
+
 const INCLUDES_IT = [
   'Seggiolini bambino su richiesta, senza costi',
   'Monitoraggio del volo in tempo reale',
@@ -132,6 +156,15 @@ const INCLUDES_EN = [
   'Cold water on board, always',
   'Direct WhatsApp with driver at pickup',
   'Tax receipt or invoice for business'
+];
+
+const INCLUDES_FR = [
+  'Sièges enfant sur demande, sans supplément',
+  'Suivi des vols en temps réel',
+  'Attente gratuite à l’aéroport jusqu’à 60 minutes',
+  'Eau fraîche à bord, toujours',
+  'WhatsApp direct avec le chauffeur au moment de la prise en charge',
+  'Reçu fiscal ou facture (pour les professionnels)'
 ];
 
 // Transfer hub — checklist dedicata (cliente 09/06/2026)
@@ -151,6 +184,15 @@ const TRANSFER_INCLUDES_EN = [
   'Child seats on request',
   'Cold water on board',
   'WhatsApp support before and during the service'
+];
+
+const TRANSFER_INCLUDES_FR = [
+  'Suivi des vols en temps réel',
+  'Attente gratuite jusqu’à 60 minutes',
+  'Prise en charge à l’aéroport, au port, à l’hôtel ou à la villa',
+  'Sièges enfant sur demande',
+  'Eau fraîche à bord',
+  'Assistance WhatsApp avant et pendant le service'
 ];
 
 // Transfer hub — flotta dedicata (cliente 09/06/2026): modelli Mercedes
@@ -200,6 +242,30 @@ const TRANSFER_FLEET_EN: FleetCard[] = [
     luggage: '2 large suitcases',
     comfort: 'Executive sedan, elegant finishes, quiet ride',
     ideal: 'For business, couples and VIP guests'
+  }
+];
+
+const TRANSFER_FLEET_FR: FleetCard[] = [
+  {
+    model: 'Mercedes Classe V',
+    pax: 'Jusqu’à 7 passagers',
+    luggage: '6 grandes valises + bagage à main',
+    comfort: 'Climatisation, sièges en cuir, vitres teintées',
+    ideal: 'Pour les familles et les groupes'
+  },
+  {
+    model: 'Mercedes GLB Premium',
+    pax: 'Jusqu’à 4 passagers',
+    luggage: '3 grandes valises',
+    comfort: 'SUV surélevé, vue panoramique, tenue de route confortable',
+    ideal: 'Pour les transferts privés et les circuits'
+  },
+  {
+    model: 'Mercedes Classe E',
+    pax: 'Jusqu’à 3 passagers',
+    luggage: '2 grandes valises',
+    comfort: 'Berline executive, finitions élégantes, conduite silencieuse',
+    ideal: 'Pour le business, les couples et les clients VIP'
   }
 ];
 
@@ -638,6 +704,93 @@ const CATANIA_EN: CityContent = {
     'Three ways to tell us where to pick you up at the airport or cruise port.'
 };
 
+const CATANIA_FR: CityContent = {
+  metaTitle: 'Transfert Aéroport de Catane · Chauffeur Privé depuis Catane | Sicily Driver',
+  metaDescription:
+    'Chauffeur privé en van de luxe depuis l’aéroport de Catane-Fontanarossa vers Syracuse dès €80, Taormine dès €120, Noto, Ragusa Ibla. Service avec chauffeur 24/7 dans toute la Sicile.',
+  h1: 'Chauffeur privé Catane – Transfert aéroport et service avec chauffeur',
+  intro:
+    'Chauffeur privé à Catane pour les transferts aéroport (CTA) et les trajets sur mesure vers Syracuse, Noto, Taormine et Raguse. Vans de luxe (dont Mercedes Classe V, GLB Premium, Classe E), chauffeurs francophones, service 24/7.',
+
+  heroImage:
+    'https://images.unsplash.com/photo-1532509774891-141d37f25ae9?w=1600&q=70&auto=format&fm=webp',
+  heroEyebrow: 'Chauffeur privé Catane · Fontanarossa · 24/7',
+  heroSubhead:
+    'Van de luxe avec chauffeur, suivi des vols en temps réel, attente gratuite de 60 minutes. De la porte des arrivées jusqu’à votre destination, en toute sérénité.',
+
+  trust: [
+    {number: 'dès €80', label: 'Catane → Syracuse en van de luxe'},
+    {number: 'Vans de luxe', label: 'dont Mercedes Classe V · GLB · Classe E'},
+    {number: '24/7', label: 'sur WhatsApp et par téléphone'}
+  ],
+
+  routesEyebrow: 'Trajets les plus demandés',
+  routesH2Pre: 'Depuis Catane,',
+  routesH2Accent: 'nous vous emmenons',
+  routes: [
+    {from: 'Aéroport de Catane', to: 'Syracuse (Ortigia)', price: 'dès €80'},
+    {from: 'Aéroport de Catane', to: 'Noto', price: 'dès €100'},
+    {from: 'Aéroport de Catane', to: 'Taormine', price: 'dès €120'},
+    {from: 'Aéroport de Catane', to: 'Ragusa Ibla', price: 'dès €150'},
+    {from: 'Aéroport de Catane', to: 'Modica', price: 'dès €140'},
+    {from: 'Aéroport de Catane', to: 'Marzamemi', price: 'dès €130'},
+    {from: 'Port de croisière de Catane', to: 'Ortigia', price: 'dès €90'}
+  ],
+  routesMicrocopy:
+    'Tarifs pour notre van de luxe (jusqu’à 7 passagers). Pour les trajets non listés, écrivez-nous sur WhatsApp — vous recevrez un devis en moins d’une heure.',
+
+  includesH2Pre: 'Ce qui est',
+  includesH2Accent: 'inclus',
+  includes: INCLUDES_FR,
+
+  fleetH2Pre: 'Notre',
+  fleetH2Accent: 'flotte',
+  fleet: FLEET_FR,
+
+  faqEyebrow: 'FAQ',
+  faqH2Pre: 'Les questions des',
+  faqH2Accent: 'voyageurs à Catane',
+  faqs: [
+    {
+      q: 'Combien coûte un transfert de l’aéroport de Catane à Syracuse ?',
+      a: 'Les tarifs commencent généralement à €80–€120 selon l’horaire, le nombre de passagers et le véhicule. Envoyez votre demande via la page Contact pour un devis précis en quelques minutes.'
+    },
+    {
+      q: 'Assurez-vous le service de nuit ?',
+      a: 'Oui, nous opérons 24/7. Pour les vols en pleine nuit ou tôt le matin, nous recommandons de réserver à l’avance.'
+    }
+  ],
+
+  nearbyToursEyebrow: 'Expériences',
+  nearbyToursH2Pre: 'Des circuits qui partent',
+  nearbyToursH2Accent: 'de Catane',
+  nearbyTours: [
+    {
+      title: 'Circuit baroque',
+      image:
+        '/images/home/barocco.webp',
+      href: '/tour-barocco'
+    },
+    {
+      title: 'Circuit Etna',
+      image:
+        '/images/home/etna.webp',
+      href: '/tour/etna-premium'
+    },
+    {
+      title: 'Ortigia + Taormine',
+      image:
+        '/images/home/dolce-vita.webp',
+      href: '/tour/dolce-vita-siracusa'
+    }
+  ],
+
+  ctaEyebrow: 'Avant tout',
+  ctaH2: 'Depuis Catane, on y va ?',
+  ctaSubhead:
+    'Trois façons de nous indiquer où venir vous chercher à l’aéroport ou au port de croisière.'
+};
+
 const NOTO_EN: CityContent = {
   metaTitle: 'Private Driver Noto · Transfers & Baroque Tour | Sicily Driver',
   metaDescription:
@@ -720,6 +873,90 @@ const NOTO_EN: CityContent = {
   ctaEyebrow: 'First things first',
   ctaH2: 'From Noto, shall we go?',
   ctaSubhead: 'Message or call — we reply within an hour, even at night.'
+};
+
+const NOTO_FR: CityContent = {
+  metaTitle: 'Chauffeur privé Noto · Transferts et circuit baroque | Sicily Driver',
+  metaDescription:
+    'Chauffeur privé à Noto pour les transferts depuis les aéroports de Catane et Comiso et les circuits baroques du Val di Noto. Van de luxe avec chauffeur, service 24/7. De Noto à Syracuse dès €60.',
+  h1: 'Chauffeur privé Noto – Transferts et circuit baroque',
+  intro:
+    'Chauffeur privé à Noto pour les transferts depuis les aéroports de Catane ou Comiso et les circuits de la vallée baroque : Noto, Modica, Ragusa Ibla et Marzamemi.',
+
+  heroImage:
+    'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=1600&q=70&auto=format&fm=webp',
+  heroEyebrow: 'Chauffeur privé Noto · Val di Noto · 24/7',
+  heroSubhead:
+    'La capitale du baroque sicilien comme point de départ. De Noto vers Syracuse, Marzamemi ou Modica en van de luxe avec chauffeur dédié.',
+
+  trust: [
+    {number: 'dès €60', label: 'Noto → Syracuse en van de luxe'},
+    {number: 'Val di Noto', label: 'tous les jours, toute l’année'},
+    {number: '24/7', label: 'sur WhatsApp et par téléphone'}
+  ],
+
+  routesEyebrow: 'Trajets les plus demandés',
+  routesH2Pre: 'Depuis Noto,',
+  routesH2Accent: 'nous vous emmenons',
+  routes: [
+    {from: 'Noto', to: 'Syracuse (Ortigia)', price: 'dès €60'},
+    {from: 'Noto', to: 'Aéroport de Catane', price: 'dès €100'},
+    {from: 'Noto', to: 'Marzamemi', price: 'dès €40'},
+    {from: 'Noto', to: 'Ragusa Ibla', price: 'dès €90'},
+    {from: 'Noto', to: 'Modica', price: 'dès €70'}
+  ],
+  routesMicrocopy:
+    'Tarifs pour notre van de luxe (jusqu’à 7 passagers). Pour les trajets non listés (Comiso, Pozzallo, port de croisière de Catane), écrivez-nous sur WhatsApp.',
+
+  includesH2Pre: 'Ce qui est',
+  includesH2Accent: 'inclus',
+  includes: INCLUDES_FR,
+
+  fleetH2Pre: 'Notre',
+  fleetH2Accent: 'flotte',
+  fleet: FLEET_FR,
+
+  faqEyebrow: 'FAQ',
+  faqH2Pre: 'Les questions des',
+  faqH2Accent: 'voyageurs à Noto',
+  faqs: [
+    {
+      q: 'Combien de temps dure un circuit baroque au départ de Noto ?',
+      a: 'En moyenne 6–8 heures, avec des étapes et des horaires personnalisables selon vos préférences.'
+    },
+    {
+      q: 'Peut-on ajouter une dégustation de vin ?',
+      a: 'Bien sûr : nous pouvons inclure des caves ou des haltes gourmandes sur demande.'
+    }
+  ],
+
+  nearbyToursEyebrow: 'Expériences',
+  nearbyToursH2Pre: 'Des circuits qui partent',
+  nearbyToursH2Accent: 'de Noto',
+  nearbyTours: [
+    {
+      title: 'Circuit baroque',
+      image:
+        '/images/home/barocco.webp',
+      href: '/tour-barocco'
+    },
+    {
+      title: 'Circuit Etna',
+      image:
+        '/images/home/etna.webp',
+      href: '/tour/etna-premium'
+    },
+    {
+      title: 'Ortigia + Taormine',
+      image:
+        '/images/home/dolce-vita.webp',
+      href: '/tour/dolce-vita-siracusa'
+    }
+  ],
+
+  ctaEyebrow: 'Avant tout',
+  ctaH2: 'Depuis Noto, on y va ?',
+  ctaSubhead: 'Écrivez-nous ou appelez-nous : nous répondons en moins d’une heure, même la nuit.'
 };
 
 const TAORMINA_EN: CityContent = {
@@ -807,6 +1044,91 @@ const TAORMINA_EN: CityContent = {
     'Airport transfer, Etna tour, cruise transfer — message us, we reply within an hour.'
 };
 
+const TAORMINA_FR: CityContent = {
+  metaTitle: 'Chauffeur privé Taormine · Transferts de luxe et circuit Etna | Sicily Driver',
+  metaDescription:
+    'Chauffeur privé Taormine avec transfert Aéroport de Catane, Syracuse et côte ionienne. Vans de luxe dont Mercedes Classe V, GLB, Classe E. Circuit Etna avec dégustation de vin. 24/7.',
+  h1: 'Chauffeur privé Taormine – Transferts de luxe et circuit Etna',
+  intro:
+    'Chauffeur privé vers et depuis Taormine avec transferts depuis l’aéroport de Catane, Syracuse et toute la côte ionienne. Ajoutez un circuit Etna avec dégustation de vin et haltes panoramiques.',
+
+  heroImage:
+    'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&q=70&auto=format&fm=webp',
+  heroEyebrow: 'Chauffeur privé Taormine · Côte ionienne · 24/7',
+  heroSubhead:
+    'Du théâtre grec à Isola Bella, de Catane-Fontanarossa aux cratères de l’Etna. Van de luxe avec chauffeur, horaires flexibles, tarif forfaitaire convenu.',
+
+  trust: [
+    {number: 'dès €120', label: 'Taormine → Aéroport de Catane'},
+    {number: 'Isola Bella', label: 'et toute la côte ionienne'},
+    {number: '24/7', label: 'sur WhatsApp et par téléphone'}
+  ],
+
+  routesEyebrow: 'Trajets les plus demandés',
+  routesH2Pre: 'Depuis Taormine,',
+  routesH2Accent: 'nous vous emmenons',
+  routes: [
+    {from: 'Taormine', to: 'Aéroport de Catane', price: 'dès €120'},
+    {from: 'Taormine', to: 'Syracuse (Ortigia)', price: 'dès €180'},
+    {from: 'Taormine', to: 'Etna (cratères Silvestri)', price: 'dès €100'},
+    {from: 'Taormine', to: 'Noto', price: 'dès €200'},
+    {from: 'Taormine', to: 'Port de croisière de Catane', price: 'dès €110'}
+  ],
+  routesMicrocopy:
+    'Tarifs pour notre van de luxe (jusqu’à 7 passagers). Combinez le transfert Taormine → Etna avec une excursion œnologique : voir la page Circuit Etna pour les détails.',
+
+  includesH2Pre: 'Ce qui est',
+  includesH2Accent: 'inclus',
+  includes: INCLUDES_FR,
+
+  fleetH2Pre: 'Notre',
+  fleetH2Accent: 'flotte',
+  fleet: FLEET_FR,
+
+  faqEyebrow: 'FAQ',
+  faqH2Pre: 'Les questions des',
+  faqH2Accent: 'voyageurs à Taormine',
+  faqs: [
+    {
+      q: 'Assurez-vous le transfert Taormine ⇄ Aéroport de Catane ?',
+      a: 'Oui, avec suivi des vols et horaires flexibles. Le chauffeur vous attend à la sortie des arrivées.'
+    },
+    {
+      q: 'Peut-on combiner Etna + Taormine en une journée ?',
+      a: 'Absolument : programme type de 6–8 heures, avec des étapes personnalisées.'
+    }
+  ],
+
+  nearbyToursEyebrow: 'Expériences',
+  nearbyToursH2Pre: 'Des circuits qui partent',
+  nearbyToursH2Accent: 'de Taormine',
+  nearbyTours: [
+    {
+      title: 'Circuit Etna',
+      image:
+        '/images/home/etna.webp',
+      href: '/tour/etna-premium'
+    },
+    {
+      title: 'Ortigia + Taormine',
+      image:
+        '/images/home/dolce-vita.webp',
+      href: '/tour/dolce-vita-siracusa'
+    },
+    {
+      title: 'Circuit baroque',
+      image:
+        '/images/home/barocco.webp',
+      href: '/tour-barocco'
+    }
+  ],
+
+  ctaEyebrow: 'Avant tout',
+  ctaH2: 'Depuis Taormine, on y va ?',
+  ctaSubhead:
+    'Transfert aéroport, circuit Etna, transfert croisière — écrivez-nous, nous répondons en moins d’une heure.'
+};
+
 const RAGUSA_EN: CityContent = {
   metaTitle: 'Private Driver Ragusa · Chauffeur & Airport Transfers | Sicily Driver',
   metaDescription:
@@ -891,6 +1213,92 @@ const RAGUSA_EN: CityContent = {
   ctaH2: 'From Ragusa, shall we go?',
   ctaSubhead:
     'Comiso, Catania, Syracuse — give us date, time and passenger count. We handle the rest.'
+};
+
+const RAGUSA_FR: CityContent = {
+  metaTitle: 'Chauffeur privé Raguse · Transferts aéroport avec chauffeur | Sicily Driver',
+  metaDescription:
+    'Chauffeur privé à Raguse et Ragusa Ibla : transferts vers et depuis les aéroports de Catane et Comiso, circuits baroques, liaisons vers Syracuse et Noto. Van de luxe avec chauffeur 24/7.',
+  h1: 'Chauffeur privé Raguse – Transferts aéroport avec chauffeur',
+  intro:
+    'Chauffeur privé à Raguse et Ragusa Ibla pour les transferts vers et depuis les aéroports de Catane et Comiso, les circuits baroques et les liaisons vers Syracuse et Noto.',
+
+  heroImage:
+    'https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=1600&q=70&auto=format&fm=webp',
+  heroEyebrow: 'Chauffeur privé Ragusa Ibla · Val di Noto · 24/7',
+  heroSubhead:
+    'De la cathédrale San Giorgio aux aéroports de Comiso et Catane. Van de luxe avec chauffeur à travers Raguse, Modica, Scicli et toute la province.',
+
+  trust: [
+    {number: 'Ragusa Ibla', label: 'et Modica au cœur'},
+    {number: '2 aéroports', label: 'Comiso et Catane desservis'},
+    {number: '24/7', label: 'sur WhatsApp et par téléphone'}
+  ],
+
+  routesEyebrow: 'Trajets les plus demandés',
+  routesH2Pre: 'Depuis Raguse,',
+  routesH2Accent: 'nous vous emmenons',
+  routes: [
+    {from: 'Raguse', to: 'Aéroport de Comiso', price: 'dès €40'},
+    {from: 'Raguse', to: 'Aéroport de Catane', price: 'dès €150'},
+    {from: 'Raguse', to: 'Syracuse (Ortigia)', price: 'dès €120'},
+    {from: 'Raguse', to: 'Modica', price: 'dès €40'},
+    {from: 'Raguse', to: 'Noto', price: 'dès €90'},
+    {from: 'Raguse', to: 'Marzamemi', price: 'dès €110'}
+  ],
+  routesMicrocopy:
+    'Tarifs pour notre van de luxe (jusqu’à 7 passagers). Comiso est l’aéroport le plus proche (40 min), Catane demande 1h30 mais propose plus de vols.',
+
+  includesH2Pre: 'Ce qui est',
+  includesH2Accent: 'inclus',
+  includes: INCLUDES_FR,
+
+  fleetH2Pre: 'Notre',
+  fleetH2Accent: 'flotte',
+  fleet: FLEET_FR,
+
+  faqEyebrow: 'FAQ',
+  faqH2Pre: 'Les questions des',
+  faqH2Accent: 'voyageurs à Raguse',
+  faqs: [
+    {
+      q: 'Proposez-vous des sièges enfant ?',
+      a: 'Oui, sur demande au moment de la réservation, sans supplément.'
+    },
+    {
+      q: 'Combien de temps à l’avance faut-il réserver ?',
+      a: 'Nous conseillons 12–24 heures à l’avance ; pour les demandes urgentes, nous faisons toujours de notre mieux pour nous adapter.'
+    }
+  ],
+
+  nearbyToursEyebrow: 'Expériences',
+  nearbyToursH2Pre: 'Des circuits qui partent',
+  nearbyToursH2Accent: 'de Raguse',
+  nearbyTours: [
+    {
+      title: 'Circuit baroque',
+      image:
+        '/images/home/barocco.webp',
+      href: '/tour-barocco'
+    },
+    {
+      title: 'Ortigia + Taormine',
+      image:
+        '/images/home/dolce-vita.webp',
+      href: '/tour/dolce-vita-siracusa'
+    },
+    {
+      title: 'Circuit Etna',
+      image:
+        '/images/home/etna.webp',
+      href: '/tour/etna-premium'
+    }
+  ],
+
+  ctaEyebrow: 'Avant tout',
+  ctaH2: 'Depuis Raguse, on y va ?',
+  ctaSubhead:
+    'Comiso, Catane, Syracuse — indiquez-nous la date, l’heure et le nombre de passagers. Nous nous occupons du reste.'
 };
 
 // ============================================================
@@ -1084,13 +1492,105 @@ const TRANSFER_EN: CityContent = {
     'Tell us the date, time, route and number of passengers. We’ll reply with a quote within the hour.'
 };
 
+const TRANSFER_FR: CityContent = {
+  metaTitle: 'Transferts en Sicile · Chauffeur privé 24/7 | Sicily Driver',
+  metaDescription:
+    'Transferts privés dans toute la Sicile : aéroports de Catane et Comiso, ports, hôtels et villes. Van de luxe avec chauffeur, tarifs forfaitaires, suivi des vols. Service 24/7.',
+  h1: 'Les destinations les plus prisées de Sicile',
+  intro:
+    'Transferts privés vers et depuis les aéroports, les ports, les hôtels et chaque destination de la Sicile orientale. Vans de luxe et voitures premium avec chauffeurs professionnels, tarifs forfaitaires et service 24/7.',
+
+  heroImage: '/images/ncc/catania.webp',
+  heroEyebrow: 'Transferts privés · dans toute la Sicile · 24/7',
+  heroSubhead:
+    'De votre arrivée à l’aéroport ou au port jusqu’à votre destination finale. Chauffeurs professionnels, vans et voitures premium, suivi des vols et assistance directe sur WhatsApp.',
+
+  trust: [
+    {number: 'dès €80', label: 'Aéroport de Catane → Syracuse'},
+    {number: 'Tarifs fixes', label: 'convenus avant le départ'},
+    {number: '24/7', label: 'sur WhatsApp et par téléphone'}
+  ],
+
+  routesEyebrow: 'Dans toute la Sicile',
+  routesH2Pre: 'Les trajets',
+  routesH2Accent: 'les plus demandés',
+  routes: [
+    {from: 'Aéroport de Catane', to: 'Syracuse / Ortigia'},
+    {from: 'Aéroport de Catane', to: 'Noto'},
+    {from: 'Aéroport de Catane', to: 'Taormine'},
+    {from: 'Aéroport de Catane', to: 'Modica / Ragusa Ibla'},
+    {from: 'Aéroport de Comiso', to: 'Raguse / Modica / Noto'},
+    {from: 'Port de Pozzallo', to: 'Syracuse / Ortigia'},
+    {from: 'Palermo', to: 'Syracuse / Taormine / Noto'},
+    {from: 'Trapani', to: 'Palermo / Agrigento / Sicile orientale'}
+  ],
+  routesMicrocopy:
+    'Ce sont les trajets qu’on nous demande le plus. Nous opérons dans toute la Sicile : pour toute autre destination, écrivez-nous sur WhatsApp, nous vous répondrons avec un devis en moins d’une heure.',
+
+  includesH2Pre: 'Ce qui est',
+  includesH2Accent: 'inclus',
+  includes: TRANSFER_INCLUDES_FR,
+
+  fleetH2Pre: 'Voyagez confortablement,',
+  fleetH2Accent: 'dès la première minute',
+  fleet: TRANSFER_FLEET_FR,
+
+  faqEyebrow: 'FAQ',
+  faqH2Pre: 'Questions',
+  faqH2Accent: 'fréquentes',
+  faqs: [
+    {
+      q: 'Combien coûte un transfert de Catane à Syracuse ?',
+      a: 'Cela dépend de l’horaire, du nombre de passagers et du véhicule demandé. Écrivez-nous sur WhatsApp et vous recevrez un devis clair avant la réservation.'
+    },
+    {
+      q: 'Le service est-il disponible la nuit ?',
+      a: 'Oui, nous organisons des transferts 24 heures sur 24, y compris pour les vols de nuit ou les départs tôt le matin.'
+    },
+    {
+      q: 'Puis-je réserver un transfert avec plusieurs étapes ?',
+      a: 'Oui, nous pouvons organiser des étapes intermédiaires, des prises en charge dans les hôtels, les villas, les ports, les restaurants ou les lieux d’événements.'
+    }
+  ],
+
+  nearbyToursEyebrow: 'Expériences',
+  nearbyToursH2Pre: 'Pas seulement des transferts :',
+  nearbyToursH2Accent: 'nos circuits',
+  nearbyTours: [
+    {
+      title: 'Circuit baroque',
+      image:
+        '/images/home/barocco.webp',
+      href: '/tour-barocco'
+    },
+    {
+      title: 'Circuit Etna',
+      image:
+        '/images/home/etna.webp',
+      href: '/tour/etna-premium'
+    },
+    {
+      title: 'Ortigia + Taormine',
+      image:
+        '/images/home/dolce-vita.webp',
+      href: '/tour/dolce-vita-siracusa'
+    }
+  ],
+
+  ctaEyebrow: 'Avant tout',
+  ctaH2: 'Où venons-nous vous chercher ?',
+  ctaSubhead:
+    'Indiquez-nous la date, l’heure, le trajet et le nombre de passagers. Nous vous répondrons avec un devis en moins d’une heure.'
+};
+
 // ============================================================
 // Lookup
 // ============================================================
 
 const DATA: Record<Locale, Record<CityKey, CityContent>> = {
   it: {catania: CATANIA_IT, noto: NOTO_IT, taormina: TAORMINA_IT, ragusa: RAGUSA_IT},
-  en: {catania: CATANIA_EN, noto: NOTO_EN, taormina: TAORMINA_EN, ragusa: RAGUSA_EN}
+  en: {catania: CATANIA_EN, noto: NOTO_EN, taormina: TAORMINA_EN, ragusa: RAGUSA_EN},
+  fr: {catania: CATANIA_FR, noto: NOTO_FR, taormina: TAORMINA_FR, ragusa: RAGUSA_FR}
 };
 
 export function getCity(key: CityKey, locale: Locale): CityContent {
@@ -1101,7 +1601,8 @@ export function getCity(key: CityKey, locale: Locale): CityContent {
 
 const TRANSFER: Record<Locale, CityContent> = {
   it: TRANSFER_IT,
-  en: TRANSFER_EN
+  en: TRANSFER_EN,
+  fr: TRANSFER_FR
 };
 
 export function getTransferHub(locale: Locale): CityContent {

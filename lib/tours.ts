@@ -413,6 +413,127 @@ const HUB_EN: TourHubContent = {
     'Send us tour type, date and party size: we reply with a quote within an hour.'
 };
 
+const HUB_FR: TourHubContent = {
+  metaTitle:
+    'Tours Sicile avec Chauffeur · Itinéraires sur Mesure | Sicily Driver',
+  metaDescription:
+    'Tours en Sicile avec chauffeur dédié : Baroque, Etna, Ortigia, Isola delle Correnti, Silent Sailing. Vans de luxe, chauffeurs professionnels, itinéraires personnalisables. 5 expériences + tour sur mesure.',
+
+  heroImage: HERO_HUB,
+  heroEyebrow: 'Tours Sicile · avec chauffeur privé',
+  h1Pre: 'Tours Sicile avec',
+  h1Accent: 'Chauffeur Privé',
+  heroSubhead: 'Cinq expériences testées et des tours sur mesure, dans toute la Sicile orientale.',
+
+  introH2Pre: 'Cinq façons',
+  introH2Accent: 'de voir la Sicile',
+  introBody:
+    'Découvrez la Sicile avec un chauffeur dédié : itinéraires sur mesure, vans de luxe et chauffeurs professionnels. Départs de Syracuse, Catane, Noto, Raguse, Taormine. Service actif 24h/24 et 7j/7.',
+
+  itinerariesEyebrow: 'Les expériences',
+  itinerariesH2Pre: 'Les',
+  itinerariesH2Accent: 'itinéraires',
+  itineraries: [
+    {
+      number: '01',
+      title: 'Dolce Vita Syracuse',
+      duration: '3 heures',
+      price: 'dès 280 €',
+      body: 'Ortigia en Fiat 500 Spiaggina d’époque. Cathédrale, Fontaine Aréthuse, front de mer, apéritif au coucher du soleil.',
+      image: HERO_DOLCE_VITA,
+      href: '/tour/dolce-vita-siracusa'
+    },
+    {
+      number: '02',
+      title: 'Silent Sailing',
+      duration: '4 heures',
+      price: 'dès 380 €',
+      body: 'Voile privée au départ d’Ortigia. Arrêts baignade dans les plus belles baies, plateau Fratelli Burgio à bord.',
+      image: HERO_SAILING,
+      href: '/tour/silent-sailing'
+    },
+    {
+      number: '03',
+      title: 'Isola delle Correnti',
+      duration: 'journée',
+      price: 'dès 420 €',
+      body: 'L’extrémité sud de la Sicile. Pura Vida Beach Club au soleil, sunset experience, apéritif à Marzamemi.',
+      image: HERO_ISOLA,
+      href: '/tour/isola-delle-correnti'
+    },
+    {
+      number: '04',
+      title: 'Etna Premium Escape',
+      duration: 'journée',
+      price: 'dès 580 €',
+      body: 'Cratères Silvestri à 1 900 m en quad, dégustation en cave (Benanti ou Palmeri), déjeuner vue volcan.',
+      image: HERO_ETNA,
+      href: '/tour/etna-premium'
+    },
+    {
+      number: '05',
+      title: 'Tour Baroque',
+      duration: '6–8 heures',
+      price: 'dès 380 €',
+      body: 'Noto, Modica, Ragusa Ibla. Trois villes du patrimoine mondial de l’UNESCO en une journée.',
+      image: HERO_BAROCCO,
+      href: '/tour-barocco'
+    },
+    {
+      number: '06',
+      title: 'Tour sur mesure',
+      duration: 'à votre choix',
+      price: 'sur devis',
+      body: 'Une autre idée en tête ? Nous venons vous chercher et vous emmenons où vous le souhaitez. Familles, petits groupes, destinations hors des sentiers battus.',
+      image: HERO_BAROCCO,
+      href: '/contatti'
+    }
+  ],
+
+  storyEyebrow: 'Ce qui se passe quand vous réservez',
+  storyH2Pre: 'Une',
+  storyH2Accent: 'journée type',
+  storyParagraphs: [
+    'Nous venons vous chercher à 8h à votre hôtel. Le chauffeur se présente, vous tend une bouteille d’eau, vous demande si vous voulez vous arrêter pour un café avant de partir. La plupart du temps, c’est oui.',
+    'Nous quittons Syracuse quand la lumière est encore basse, et arrivons à Noto lorsque la cathédrale est dorée. À partir de là, la journée est à vous : trois arrêts, un déjeuner que nous vous conseillons si vous le souhaitez, le temps de marcher sans hâte.',
+    'Retour à Syracuse quand vous le décidez — l’agenda du chauffeur n’a pas de réveil. Rien que la route devant vous.'
+  ],
+
+  includedEyebrow: 'Toujours avec nous',
+  includedH2Pre: 'Ce qui est',
+  includedH2Accent: 'toujours inclus',
+  included: [
+    'Vans de luxe dont Mercedes Classe V, GLB Premium ou Classe E, selon le nombre de passagers',
+    'Chauffeur bilingue italien-anglais',
+    'Arrêts photo sur demande, toujours',
+    'Eau à bord, gazeuse aussi si vous préférez',
+    'Flexibilité horaire : on part quand vous voulez, on rentre quand vous voulez'
+  ],
+
+  faqEyebrow: 'Questions',
+  faqH2Pre: 'Les questions',
+  faqH2Accent: 'qu’on nous pose',
+  faqs: [
+    {
+      q: 'Peut-on personnaliser les arrêts ?',
+      a: 'Oui, chaque tour est modulable : spots photo, temps libre, dégustations et visites guidées sur demande.'
+    },
+    {
+      q: 'Combien de temps dure un tour type ?',
+      a: 'De 6 à 9 heures selon l’itinéraire. Pour des parcours plus longs, nous pouvons étendre à la journée entière.'
+    },
+    {
+      q: 'Des sièges enfant sont-ils disponibles ?',
+      a: 'Bien sûr, il suffit de les demander à la réservation. Inclus sans frais supplémentaires.'
+    }
+  ],
+
+  ctaEyebrow: 'Prêt ?',
+  ctaH2: 'Prêt à voir la Sicile avec un chauffeur qui la connaît ?',
+  ctaSubhead:
+    'Indiquez-nous le type de tour, la date et le nombre de passagers : nous répondons avec un devis en moins d’une heure.'
+};
+
 // ============================================================
 // TOUR DETAILS — shared "included" baseline
 // ============================================================
@@ -668,6 +789,122 @@ const BAROCCO_EN: TourContent = {
   ctaEyebrow: 'Ready to go?',
   ctaH2: 'See you in Noto.',
   ctaSubhead: 'Send us the date and party size: we tailor the day together.'
+};
+
+const BAROCCO_FR: TourContent = {
+  metaTitle:
+    'Tour Baroque : Noto, Modica & Raguse en une Journée — Sicily Driver',
+  metaDescription:
+    'Tour du baroque sicilien en une journée : Noto (Cathédrale de San Nicolò), Modica (chocolat et San Pietro), Ragusa Ibla (Cathédrale de San Giorgio). Van de luxe avec chauffeur. Dès 380 €.',
+
+  heroImage: HERO_BAROCCO,
+  heroEyebrow: 'Tour Baroque · 6–8 heures · au départ de Syracuse',
+  h1: 'Tour Baroque : Noto, Modica & Raguse en une Journée',
+  heroSubhead:
+    'Trois villes du patrimoine mondial de l’UNESCO. Six à huit heures. Un van de luxe qui vous attend là où il faut.',
+
+  introH2Pre: 'Ce que',
+  introH2Accent: 'vous vivrez',
+  introBody: [
+    'Vivez l’émotion du Tour du Baroque en Sicile : une expérience inoubliable entre les villes de Noto, Modica et Raguse. Découvrez la majesté des façades baroques, les palais historiques et les églises emblématiques d’une culture artistique sans égale.',
+    'Au départ de Syracuse, nous vous accompagnons à travers les merveilles de Noto et sa Cathédrale de San Nicolò, puis vers la charmante Modica, patrie du précieux chocolat artisanal et de l’église de San Pietro, jusqu’à la célèbre Ragusa Ibla et sa magnifique Cathédrale de San Giorgio. Chaque étape est pensée pour vous offrir confort, histoire et goût authentique.',
+    'Ce tour privé NCC garantit la ponctualité et le professionnalisme de nos chauffeurs, un parc automobile de luxe (vans dont Mercedes Classe V, GLB Premium, Classe E), un itinéraire personnalisable et une assistance 24h/24 et 7j/7.'
+  ],
+
+  numbersEyebrow: 'Le tour, en chiffres',
+  numbersH2Pre: 'En',
+  numbersH2Accent: 'quatre chiffres',
+  numbers: [
+    {value: '6–8h', label: 'Durée'},
+    {value: 'jusqu’à 7', label: 'Personnes max'},
+    {value: 'IT / EN', label: 'Langues chauffeur'},
+    {value: 'dès 380 €', label: 'Prix de départ'}
+  ],
+
+  stagesEyebrow: 'Étape par étape',
+  stagesH2Pre: 'Les villes',
+  stagesH2Accent: 'que nous traversons',
+  stages: [
+    {
+      number: '01',
+      title: 'Noto',
+      duration: '1h 30min',
+      body: 'Nous arrivons à Noto quand la pierre calcaire est encore chaude de la nuit. L’escalier de la Cathédrale de San Nicolò est le premier souffle : 1693, tremblement de terre du Val di Noto, une ville entière reconstruite à partir de rien. Vous parcourez le Corso Vittorio Emanuele en vingt minutes, vous vous arrêtez là où votre regard vous appelle. Le chauffeur vous montre les palais qu’aucun guide ne mentionne.',
+      image:
+        '/images/tour-barocco/stage-1-noto.png'
+    },
+    {
+      number: '02',
+      title: 'Modica',
+      duration: '2h (déjeuner inclus)',
+      body: 'À Modica, l’église de San Pietro est un théâtre de sculptures du XVIIe siècle donnant sur la rue. Mais la vraie raison de notre arrêt, c’est le chocolat, travaillé à froid selon une recette que les Espagnols apportèrent ici depuis les Mayas. Une tablette à savourer en marchant, une boutique que le chauffeur connaît par son nom — une heure suffit.',
+      image:
+        '/images/tour-barocco/stage-2-modica.jpeg'
+    },
+    {
+      number: '03',
+      title: 'Ragusa Ibla',
+      duration: '1h 30min',
+      body: 'Ragusa Ibla est la vieille ville, celle qui, après le tremblement de terre, se reconstruisit sur place, tandis que Ragusa Superiore naissait sur le plateau. La Cathédrale de San Giorgio se dresse au sommet d’une place qui se contemple toute seule. Ici, nous vous laissons le temps de déjeuner tranquillement, si vous le souhaitez. Nous connaissons deux ou trois adresses où les ingrédients viennent des producteurs alentour.',
+      image:
+        '/images/tour-barocco/stage-3-ragusa.jpeg'
+    },
+    {
+      number: '04',
+      title: 'Scicli ou Marzamemi (en option)',
+      duration: '1h',
+      body: 'Si la journée est longue et qu’il reste de la lumière, nous pouvons ajouter Scicli — une autre capitale du baroque, moins touristique — ou descendre à Marzamemi pour un apéritif face à la mer avant de rentrer à Syracuse.',
+      image:
+        '/images/tour-barocco/stage-4-valle.jpeg'
+    }
+  ],
+
+  includedH2Pre: 'Ce qui est',
+  includedH2Accent: 'inclus, ce qui ne l’est pas',
+  included: [
+    'Van de luxe avec chauffeur',
+    'Arrêts photo libres à Noto, Modica, Raguse',
+    'Eau à bord',
+    'Flexibilité sur la durée (6–8h)',
+    'Conseils sur où déjeuner et quoi voir'
+  ],
+  excluded: [
+    'Déjeuner (nous vous conseillons où vous arrêter, vous le réglez)',
+    'Entrées à des sites spécifiques si souhaité (intérieurs de cathédrales, palais historiques payants)',
+    'Pourboires au chauffeur (facultatifs)'
+  ],
+  includedLabel: 'Inclus',
+  excludedLabel: 'Non inclus',
+
+  faqEyebrow: 'Questions',
+  faqH2Pre: 'Les questions',
+  faqH2Accent: 'les plus fréquentes',
+  faqs: [
+    {
+      q: 'Combien de temps dure le Tour Baroque ?',
+      a: '6–8 heures, selon les arrêts que vous souhaitez. Départ typique à 8h30 de Syracuse, retour avant 17h30.'
+    },
+    {
+      q: 'Combien de personnes au maximum ?',
+      a: 'Jusqu’à 7 dans notre van de luxe. Pour les groupes plus grands, nous pouvons organiser 2 véhicules avec deux chauffeurs.'
+    },
+    {
+      q: 'Puis-je ajouter une dégustation de chocolat à Modica ?',
+      a: 'Oui, nous l’organisons dans l’une des boutiques historiques du Corso Umberto. Coût à part, à préciser lors du devis.'
+    },
+    {
+      q: 'Peut-on faire le tour au départ de Catane ou de Taormine ?',
+      a: 'Oui. Depuis Catane, comptez environ 30 min de transfert en plus, depuis Taormine 1h 30min. Le prix varie en conséquence.'
+    },
+    {
+      q: 'Que se passe-t-il s’il pleut ?',
+      a: 'Le baroque sicilien est tout aussi beau sous la lumière d’une journée grise, et les centres historiques se visitent malgré tout. Seulement en cas de pluie intense et prolongée, nous pouvons reprogrammer sans pénalité.'
+    }
+  ],
+
+  ctaEyebrow: 'Prêt à partir ?',
+  ctaH2: 'Rendez-vous à Noto.',
+  ctaSubhead: 'Indiquez-nous la date et le nombre de passagers : nous composons la journée ensemble.'
 };
 
 // ============================================================
@@ -928,6 +1165,133 @@ const ETNA_EN: TourContent = {
     'Tell us when and how many: we organise the climb for the right day.'
 };
 
+const ETNA_FR: TourContent = {
+  metaTitle:
+    'Tour Etna Premium · Quad et Caves Benanti | Sicily Driver',
+  metaDescription:
+    'Tour Etna au départ de Syracuse : cratères Silvestri à 1 900 m en quad, dégustation en cave (Benanti, Palmeri), déjeuner avec vue. Van de luxe avec chauffeur, journée entière.',
+
+  heroImage: HERO_ETNA,
+  heroEyebrow: 'Etna · journée entière',
+  h1: 'Etna Premium Escape',
+  heroSubhead:
+    'Les cratères Silvestri à 1 900 m d’altitude. Deux caves qui nous connaissent. Une journée avec vue sur le volcan.',
+
+  introH2Pre: 'Ce que',
+  introH2Accent: 'vous vivrez',
+  introBody: [
+    'L’Etna est un monde à part. Nous venons vous chercher à Syracuse, Catane ou Taormine et vous emmenons à 1 900 mètres d’altitude, là où les cratères Silvestri racontent la dernière éruption de 1892.',
+    'De là, nous redescendons le long des vignes qui poussent sur la lave — le « terroir » le plus extrême d’Europe — pour nous arrêter dans l’une des caves historiques de l’Etna, Benanti ou Palmeri.',
+    'Tour Etna avec chauffeur privé, quad en altitude, dégustation de vins de terroir, déjeuner au refuge de la cave. Une seule journée, de l’aube au coucher du soleil.'
+  ],
+
+  numbersEyebrow: 'Le tour, en chiffres',
+  numbersH2Pre: 'En',
+  numbersH2Accent: 'quatre chiffres',
+  numbers: [
+    {value: 'journée', label: 'Durée'},
+    {value: 'jusqu’à 7', label: 'Personnes max'},
+    {value: 'IT / EN', label: 'Langues chauffeur'},
+    {value: 'dès 580 €', label: 'Prix (quad et dégustation inclus)'}
+  ],
+
+  partnersEyebrow: 'Partenaires de ce tour',
+  partnersH2: 'Les lieux que nous avons choisis',
+  partners: [
+    {
+      name: 'Cantina Benanti',
+      description:
+        'L’une des caves historiques de l’Etna. Vins de Nerello Mascalese et Carricante cultivés sur sol volcanique.'
+    },
+    {
+      name: 'Cantina Palmeri',
+      description:
+        'Etna sud-oriental, vins de terroir moins connus mais avec une histoire de famille précise.'
+    }
+  ],
+
+  stagesEyebrow: 'Étape par étape',
+  stagesH2Pre: 'Comment',
+  stagesH2Accent: 'on monte',
+  stages: [
+    {
+      number: '01',
+      title: 'Rendez-vous et montée',
+      duration: '40 min',
+      body: 'Départ à 7h30 de Syracuse (ou 8h30 de Catane, 9h00 de Taormine). Nous montons vers Zafferana Etnea, à travers la forêt de pins séculaires. La température chute de 15 degrés en 40 minutes — prévoyez une veste même en été. Arrivée au Rifugio Sapienza, 1 900 m d’altitude.',
+      image:
+        '/images/tour-etna/stage-1-zafferana.jpeg'
+    },
+    {
+      number: '02',
+      title: 'Quad sur les cratères Silvestri',
+      duration: '1h',
+      body: 'Les quads partent de l’esplanade du refuge. Une heure de parcours sur le sable volcanique noir, autour des cônes des cratères Silvestri — ceux formés lors de l’éruption de 1892, encore parfaitement conservés. Le chauffeur-guide vous accompagne sur le véhicule de tête, aucune expérience requise.',
+      image:
+        '/images/tour-etna/stage-2-crateri.png'
+    },
+    {
+      number: '03',
+      title: 'Déjeuner et cave',
+      duration: '2h',
+      body: 'Nous redescendons vers l’une des caves partenaires. Déjeuner sicilien au refuge de la cave : charcuterie, fromages locaux, pasta alla Norma, desserts maison. La dégustation de 4 à 5 vins est guidée par un sommelier de la cave, en italien ou en anglais.',
+      image:
+        '/images/tour-etna/stage-3-cantina.jpeg'
+    },
+    {
+      number: '04',
+      title: 'Retour panoramique',
+      duration: '1h 30min',
+      body: 'Retour par la route panoramique de l’Etna sud. Si la lumière s’y prête, court arrêt à Catane pour un café sur la Piazza Duomo. Retour à Syracuse avant 19h.',
+      image:
+        '/images/tour-etna/stage-4-tramonto.jpeg'
+    }
+  ],
+
+  includedH2Pre: 'Ce qui est',
+  includedH2Accent: 'inclus, ce qui ne l’est pas',
+  included: [
+    'Van de luxe avec chauffeur',
+    'Quad sur les cratères Silvestri (1h, guide inclus)',
+    'Déjeuner sicilien en cave (4 plats)',
+    'Dégustation de 4 à 5 vins avec sommelier',
+    'Eau à bord'
+  ],
+  excluded: [
+    'Téléphérique/télésiège pour l’altitude 3 000 m (en option, coût à part)',
+    'Pourboires facultatifs au chauffeur et à la cave'
+  ],
+  includedLabel: 'Inclus',
+  excludedLabel: 'Non inclus',
+
+  faqEyebrow: 'Questions',
+  faqH2Pre: 'Les questions',
+  faqH2Accent: 'les plus fréquentes',
+  faqs: [
+    {
+      q: 'Monte-t-on jusqu’au sommet de l’Etna ?',
+      a: 'Avec notre programme standard, nous atteignons 1 900 m d’altitude (cratères Silvestri). Pour l’altitude 3 000 m (Torre del Filosofo / cratères sommitaux), il faut téléphérique + jeep + guide alpin, coût à part à convenir lors du devis.'
+    },
+    {
+      q: 'Le quad est-il obligatoire ?',
+      a: 'Non, en alternative nous proposons une excursion à pied guidée sur les cratères (1h 30min, terrain facile). Même prix.'
+    },
+    {
+      q: 'Que porter ?',
+      a: 'Chaussures fermées confortables (pas de tongs), pull/sweat même en été (à 1 900 m il fait frais), coupe-vent, lunettes de soleil.'
+    },
+    {
+      q: 'Les enfants sont-ils admis ?',
+      a: 'Oui, à partir de 6 ans. Pour le quad, l’accompagnement d’un adulte est nécessaire. La cave propose un menu enfant sur demande.'
+    }
+  ],
+
+  ctaEyebrow: 'Prêt ?',
+  ctaH2: 'Nous vous attendons à l’hôtel.',
+  ctaSubhead:
+    'Dites-nous quand et combien vous êtes : nous organisons la montée pour le bon jour.'
+};
+
 // ============================================================
 // ISOLA DELLE CORRENTI — URL nuova, contenuto [NEW]
 // ============================================================
@@ -1168,6 +1532,124 @@ const ISOLA_EN: TourContent = {
     'Tell us the date and party size: we handle the rest, from the sunbed booking to the sunset.'
 };
 
+const ISOLA_FR: TourContent = {
+  metaTitle:
+    'Isola delle Correnti & Pura Vida · Sud Sicile | Sicily Driver',
+  metaDescription:
+    'Excursion à la journée à l’Isola delle Correnti (l’extrémité sud de la Sicile) avec le Pura Vida Beach Club et Marzamemi au coucher du soleil. Van de luxe avec chauffeur, pause déjeuner, sunset experience.',
+
+  heroImage: HERO_ISOLA,
+  heroEyebrow: 'Sicile sud · journée entière',
+  h1: 'Isola delle Correnti',
+  heroSubhead:
+    'Là où la Sicile finit et où deux mers commencent. Pura Vida Beach Club au coucher du soleil, apéritif à Marzamemi.',
+
+  introH2Pre: 'Ce que',
+  introH2Accent: 'vous vivrez',
+  introBody: [
+    'L’Isola delle Correnti est l’extrémité sud-orientale de la Sicile. Ici, la mer Ionienne rencontre la Méditerranée, et les jours de vent on distingue deux couleurs d’eau différentes qui se frôlent. Une fine bande de terre vous mène à pied jusqu’à l’îlot.',
+    'Tour avec chauffeur privé au départ de Syracuse, pause déjeuner au Pura Vida Beach Club de Portopalo, sunset experience face à la mer et apéritif à Marzamemi avant le retour.',
+    'Une journée qui raconte la Sicile que ne voient pas ceux qui restent dans les villes.'
+  ],
+
+  numbersEyebrow: 'Le tour, en chiffres',
+  numbersH2Pre: 'En',
+  numbersH2Accent: 'quatre chiffres',
+  numbers: [
+    {value: 'journée', label: 'Durée'},
+    {value: 'jusqu’à 7', label: 'Personnes max'},
+    {value: 'IT / EN', label: 'Langues chauffeur'},
+    {value: 'dès 420 €', label: 'Prix de départ'}
+  ],
+
+  partnersEyebrow: 'Partenaires de ce tour',
+  partnersH2: 'Les lieux que nous avons choisis',
+  partners: [
+    {
+      name: 'Pura Vida Beach Club',
+      description:
+        'Portopalo di Capo Passero. Beach club donnant sur l’Isola delle Correnti. Place au soleil ou à l’ombre, déjeuner sicilien sur la plage, accès à la mer.'
+    }
+  ],
+
+  stagesEyebrow: 'Étape par étape',
+  stagesH2Pre: 'Comment',
+  stagesH2Accent: 'la journée se déroule',
+  stages: [
+    {
+      number: '01',
+      title: 'De Syracuse à Portopalo',
+      duration: '1h',
+      body: 'Départ en fin de matinée, nous descendons le long de la côte sud. Nous passons devant Avola, Pachino, nous traversons les vignes de Nero d’Avola. Le chauffeur vous raconte comment cette région a changé ces vingt dernières années — d’une campagne oubliée à l’une des zones gastronomiques les plus intéressantes de l’île.',
+      image: ISOLA_STAGE_1
+    },
+    {
+      number: '02',
+      title: 'Pura Vida Beach Club',
+      duration: '3–4h',
+      body: 'Arrivée au Pura Vida, transats au soleil réservés pour vous, déjeuner sur la plage (poisson du jour, antipasti siciliens, vin blanc de terroir). Mer basse et cristalline, trois à quatre heures de détente sans programme imposé. Qui le souhaite emprunte la bande de sable qui mène à pied jusqu’à l’îlot.',
+      image: ISOLA_STAGE_2
+    },
+    {
+      number: '03',
+      title: 'Sunset experience',
+      duration: '1h',
+      body: 'En fin d’après-midi, nous nous déplaçons sur le côté de l’Isola delle Correnti qui regarde vers l’ouest. Le soleil se couche entre les deux mers — l’un des points les plus spectaculaires de Sicile pour photographier le coucher de soleil. Prosecco et plateaux servis par le Pura Vida.',
+      image: ISOLA_STAGE_3
+    },
+    {
+      number: '04',
+      title: 'Apéritif à Marzamemi',
+      duration: '1h',
+      body: 'Retour via Marzamemi, le village de pêcheurs avec sa place donnant sur la tonnara. Apéritif dans les établissements de la Piazza Regina Margherita avant de rentrer à Syracuse. Arrivée prévue vers 21h.',
+      image: ISOLA_STAGE_4
+    }
+  ],
+
+  includedH2Pre: 'Ce qui est',
+  includedH2Accent: 'inclus, ce qui ne l’est pas',
+  included: [
+    'Van de luxe avec chauffeur',
+    'Place réservée au Pura Vida Beach Club (transats + parasols)',
+    'Déjeuner sur la plage au Pura Vida',
+    'Sunset experience au Pura Vida avec prosecco et plateau',
+    'Eau à bord'
+  ],
+  excluded: [
+    'Apéritif à Marzamemi (à votre charge)',
+    'Éventuels extras au beach club (massages, excursions en bateau)'
+  ],
+  includedLabel: 'Inclus',
+  excludedLabel: 'Non inclus',
+
+  faqEyebrow: 'Questions',
+  faqH2Pre: 'Les questions',
+  faqH2Accent: 'les plus fréquentes',
+  faqs: [
+    {
+      q: 'Quelle est la meilleure période ?',
+      a: 'De mai à octobre pour profiter de la mer. De novembre à mars, l’expérience est plus atmosphérique (couchers de soleil spectaculaires) mais sans baignade.'
+    },
+    {
+      q: 'Peut-on modifier l’ordre des étapes ?',
+      a: 'Oui. Certains clients préfèrent commencer par Marzamemi le matin et terminer par le coucher de soleil au Pura Vida. Nous décidons lors du devis.'
+    },
+    {
+      q: 'Et les enfants ?',
+      a: 'Oui. Le Pura Vida dispose d’une zone réservée aux familles et la mer basse est idéale.'
+    },
+    {
+      q: 'Peut-on le faire en une demi-journée ?',
+      a: 'Oui, version courte 5h (uniquement déjeuner + Isola delle Correnti, sans Marzamemi). Dès 280 €.'
+    }
+  ],
+
+  ctaEyebrow: 'Quand partons-nous ?',
+  ctaH2: 'Le Pura Vida vous attend.',
+  ctaSubhead:
+    'Dites-moi la date et le nombre de passagers : je m’occupe du reste, de la réservation des transats au coucher du soleil.'
+};
+
 // ============================================================
 // DOLCE VITA SIRACUSA — URL nuova, [NEW], TOUR ICONA (Fiat 500 Spiaggina)
 // ============================================================
@@ -1384,6 +1866,113 @@ const DOLCE_VITA_EN: TourContent = {
   ctaEyebrow: 'When?',
   ctaH2: 'Ortigia is waiting in a Spiaggina.',
   ctaSubhead: 'Pick the day and the sunset hour: the 500 is ready.'
+};
+
+const DOLCE_VITA_FR: TourContent = {
+  metaTitle:
+    'Dolce Vita Syracuse · Ortigia en Fiat 500 | Sicily Driver',
+  metaDescription:
+    'Tour d’Ortigia en Fiat 500 Spiaggina d’époque : 3 heures entre la Cathédrale, la Fontaine Aréthuse, le front de mer et l’apéritif final face à la mer. La Dolce Vita sicilienne, pour couples et amis.',
+
+  heroImage: HERO_DOLCE_VITA,
+  heroEyebrow: 'Ortigia · 3 heures · Fiat 500 d’époque',
+  h1: 'Dolce Vita Syracuse',
+  heroSubhead:
+    'Ortigia en Fiat 500 Spiaggina. Trois heures. Une seule vitesse : celle de la promenade.',
+
+  introH2Pre: 'Ce que',
+  introH2Accent: 'vous vivrez',
+  introBody: [
+    'Une Fiat 500 Spiaggina de 1968, restaurée, qui vous attend à Ortigia. Trois heures autour de l’île : la Cathédrale, jadis temple grec puis cathédrale, la Fontaine Aréthuse avec ses papyrus encore vivants, le front de mer qui le matin n’appartient qu’aux pêcheurs, l’apéritif final face à la mer.',
+    'Aucun itinéraire rigide — la voiture s’arrête là où vous voulez, les photos nous les prenons si vous le souhaitez. Pour couples, amis, petites familles.',
+    'La voiture est conduite par l’un de nos chauffeurs, vous êtes passager de la Méditerranée.'
+  ],
+
+  numbersEyebrow: 'Le tour, en chiffres',
+  numbersH2Pre: 'En',
+  numbersH2Accent: 'quatre chiffres',
+  numbers: [
+    {value: '3 heures', label: 'Durée'},
+    {value: 'max 2 (4 serrés)', label: 'Personnes — Fiat 500 d’époque'},
+    {value: 'IT / EN', label: 'Langues chauffeur'},
+    {value: 'dès 280 €', label: 'Prix (voiture + chauffeur + apéritif)'}
+  ],
+
+  stagesEyebrow: 'Étape par étape',
+  stagesH2Pre: 'En trois',
+  stagesH2Accent: 'arrêts et un apéritif',
+  stages: [
+    {
+      number: '01',
+      title: 'Départ du parking Talete',
+      duration: '15 min',
+      body: 'Nous nous retrouvons au parking Talete, à l’entrée d’Ortigia. La 500 vous attend là, capote déjà baissée si le temps le permet. Photo de départ, bref briefing sur ce que nous allons voir, et c’est parti.',
+      image: HERO_DOLCE_VITA
+    },
+    {
+      number: '02',
+      title: 'Front de mer de Levante et Castello Maniace',
+      duration: '45 min',
+      body: 'Nous empruntons la Via XX Settembre, longeons le petit port et arrivons au Castello Maniace, à l’extrémité sud d’Ortigia. Arrêt photo sur le belvédère — l’un des points les plus photographiés de l’île sur Instagram.',
+      image: DOLCE_STAGE_CASTELLO
+    },
+    {
+      number: '03',
+      title: 'Cathédrale, Fontaine Aréthuse, front de mer de Ponente',
+      duration: '1h',
+      body: 'Nous remontons vers la Piazza Duomo, où la cathédrale est encore un temple dorique enchâssé. Court arrêt pour marcher sur la place, puis la Fontaine Aréthuse avec ses papyrus — l’unique colonie de papyrus spontanés d’Europe. On termine sur le front de mer de Ponente au coucher du soleil.',
+      image: DOLCE_STAGE_DUOMO
+    },
+    {
+      number: '04',
+      title: 'Apéritif final',
+      duration: '1h',
+      body: 'Apéritif dans l’un des établissements du Lungomare Alfeo ou de la Riva di Levante, vue sur la mer. Spritz ou vin blanc sicilien, plateau de fromages et de charcuterie locaux. Photos finales avec la 500 dans le bon angle. Restitution 2h après le départ.',
+      image: DOLCE_STAGE_APERITIVO
+    }
+  ],
+
+  includedH2Pre: 'Ce qui est',
+  includedH2Accent: 'inclus, ce qui ne l’est pas',
+  included: [
+    'Fiat 500 Spiaggina d’époque avec chauffeur',
+    'Trois heures de tour d’Ortigia',
+    'Apéritif face à la mer (Spritz/vin + plateau)',
+    'Service photo du chauffeur (téléphone du client)',
+    'Eau à bord'
+  ],
+  excluded: [
+    'Entrées à des sites spécifiques (intérieur de la cathédrale payant, musée du papyrus)',
+    'Dîner après l’apéritif'
+  ],
+  includedLabel: 'Inclus',
+  excludedLabel: 'Non inclus',
+
+  faqEyebrow: 'Questions',
+  faqH2Pre: 'Les questions',
+  faqH2Accent: 'les plus fréquentes',
+  faqs: [
+    {
+      q: 'De quelle 500 s’agit-il exactement ?',
+      a: 'Fiat 500 Spiaggina de 1968 — la version « torpedo » sans portes arrière, capote en toile, restaurée avec minutie. L’une des 6 voitures d’époque de la flotte.'
+    },
+    {
+      q: 'Peut-on le faire le soir ?',
+      a: 'Oui. La version « blue hour » démarre une heure avant le coucher du soleil et se termine par le dîner (dîner à part). Même prix que le tour de jour.'
+    },
+    {
+      q: 'Et s’il pleut ?',
+      a: 'Nous reprogrammons sans pénalité — la 500 Spiaggina a une capote, mais tout le sens du tour est la capote baissée. Nous décidons la veille selon les prévisions.'
+    },
+    {
+      q: 'Et les enfants ?',
+      a: 'Uniquement à partir de 10 ans pour des raisons d’espace et de sécurité. Pour les familles plus petites, nous conseillons l’Isola delle Correnti.'
+    }
+  ],
+
+  ctaEyebrow: 'Quand ?',
+  ctaH2: 'Ortigia vous attend en Spiaggina.',
+  ctaSubhead: 'Choisissez le jour et l’heure du coucher de soleil : la 500 est prête.'
 };
 
 // ============================================================
@@ -1634,6 +2223,128 @@ const SAILING_EN: TourContent = {
   ctaSubhead: 'Tell me date and party size: I book the right boat.'
 };
 
+const SAILING_FR: TourContent = {
+  metaTitle:
+    'Silent Sailing · Voile Privée au Départ d’Ortigia | Sicily Driver',
+  metaDescription:
+    'Tour en voile privée au départ d’Ortigia : 4 heures le long de la côte de Syracuse, arrêts baignade dans les plus belles baies, plateau Fratelli Burgio à bord, prosecco. Max 8 personnes.',
+
+  heroImage: HERO_SAILING,
+  heroEyebrow: 'Ortigia · 4 heures · voile privée',
+  h1: 'Silent Sailing',
+  heroSubhead:
+    'Quatre heures en voile privée le long de la côte d’Ortigia. Arrêts baignade, prosecco, plateau Fratelli Burgio à bord.',
+
+  introH2Pre: 'Ce que',
+  introH2Accent: 'vous vivrez',
+  introBody: [
+    'Le voilier ne court pas, ne fait pas de bruit. Il se laisse porter par le vent. Quatre heures en voile privée au départ d’Ortigia : le long de la côte sud de Syracuse, deux ou trois baies isolées où se baigner loin du tourisme de masse.',
+    'Plateau de produits typiques de la gastronomie Fratelli Burgio servi à bord, prosecco frais. Skipper professionnel inclus.',
+    'Max 8 personnes — parfait pour les petits groupes, les couples, les familles.'
+  ],
+
+  numbersEyebrow: 'Le tour, en chiffres',
+  numbersH2Pre: 'En',
+  numbersH2Accent: 'quatre chiffres',
+  numbers: [
+    {value: '4 heures', label: 'Durée'},
+    {value: 'max 8', label: 'Personnes'},
+    {value: 'IT / EN', label: 'Langues skipper'},
+    {value: 'dès 380 €', label: 'Par bateau (non par personne)'}
+  ],
+
+  partnersEyebrow: 'Partenaires de ce tour',
+  partnersH2: 'Les lieux que nous avons choisis',
+  partners: [
+    {
+      name: 'Fratelli Burgio',
+      description:
+        'Gastronomie sicilienne de haute sélection. Le plateau à bord comprend charcuterie, fromages, conserves, desserts. Tout du terroir.'
+    }
+  ],
+
+  stagesEyebrow: 'Étape par étape',
+  stagesH2Pre: 'Comment',
+  stagesH2Accent: 'nous naviguons',
+  stages: [
+    {
+      number: '01',
+      title: 'Embarquement à Ortigia',
+      duration: '20 min',
+      body: 'Embarquement au petit port d’Ortigia, près de la Fontaine Aréthuse. Briefing de sécurité du skipper (10 minutes), prosecco de bienvenue, et c’est parti. Les voiles se hissent une fois hors du port.',
+      image:
+        'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1200&q=70&auto=format&fm=webp'
+    },
+    {
+      number: '02',
+      title: 'Navigation le long de la côte sud',
+      duration: '1h 30min',
+      body: 'Nous remontons vers le sud le long de la côte, où les criques se cachent entre des promontoires bas. Plus de moteur une fois hors du port — seulement le vent, le bruit de la voile qui se gonfle, quelques mouettes. Le skipper vous raconte comment lire le vent, si cela vous intéresse.',
+      image:
+        '/images/tour-etna/stage-3-cantina.jpeg'
+    },
+    {
+      number: '03',
+      title: 'Arrêt baignade',
+      duration: '1h 30min',
+      body: 'Mouillage dans l’une des plus belles baies (le choix dépend du vent du jour — Fontane Bianche, Cala Mosche, ou une crique cachée près de Marzamemi). Baignade dans des eaux cristallines. À bord arrive le plateau Fratelli Burgio : charcuterie, fromages locaux, pain frais, conserves.',
+      image:
+        'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=70&auto=format&fm=webp'
+    },
+    {
+      number: '04',
+      title: 'Retour au coucher du soleil',
+      duration: '40 min',
+      body: 'Retour le long de la côte, arrêt final possible pour le coucher du soleil si la lumière est prometteuse. Débarquement à Ortigia.',
+      image:
+        'https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=1200&q=70&auto=format&fm=webp'
+    }
+  ],
+
+  includedH2Pre: 'Ce qui est',
+  includedH2Accent: 'inclus, ce qui ne l’est pas',
+  included: [
+    'Voilier privé avec skipper',
+    '4 heures de navigation',
+    'Prosecco de bienvenue et à bord',
+    'Plateau Fratelli Burgio',
+    'Eau et boissons',
+    'Gilets de sauvetage, échelle de bain, serviette'
+  ],
+  excluded: [
+    'Transfert vers/depuis le port (si vous n’êtes pas déjà à Ortigia, ajouté séparément)',
+    'Éventuels extras alcoolisés'
+  ],
+  includedLabel: 'Inclus',
+  excludedLabel: 'Non inclus',
+
+  faqEyebrow: 'Questions',
+  faqH2Pre: 'Les questions',
+  faqH2Accent: 'les plus fréquentes',
+  faqs: [
+    {
+      q: 'Faut-il une expérience nautique ?',
+      a: 'Non. Le skipper est professionnel, le bateau est géré par lui. Vous êtes invité. Si vous voulez apprendre quelque chose sur les voiles, il vous l’explique.'
+    },
+    {
+      q: 'Et s’il n’y a pas de vent ?',
+      a: 'Le bateau a aussi un moteur. Par une journée sans vent, nous naviguons au moteur, mais nous faisons des arrêts plus longs dans les baies.'
+    },
+    {
+      q: 'Et les enfants ?',
+      a: 'Oui, à tout âge. Gilets de sauvetage pour enfants à bord. Pour les tout-petits (moins de 4 ans), nous conseillons une matinée calme, mer plate.'
+    },
+    {
+      q: 'Et si la mer est agitée ?',
+      a: 'Si les prévisions annoncent une mer de force 3 ou plus, nous reprogrammons sans pénalité. Les conditions s’évaluent la veille au soir.'
+    }
+  ],
+
+  ctaEyebrow: 'Prêt à embarquer ?',
+  ctaH2: 'Quatre heures de silence, à la voile.',
+  ctaSubhead: 'Dites-moi la date et le nombre de passagers : je réserve le bon bateau.'
+};
+
 // Silenzia unused warning per costanti baseline incluso/escluso
 void INCLUDED_BASE_IT;
 void INCLUDED_BASE_EN;
@@ -1656,6 +2367,13 @@ const TOURS: Record<Locale, Record<TourKey, TourContent>> = {
     'isola-delle-correnti': ISOLA_EN,
     'dolce-vita-siracusa': DOLCE_VITA_EN,
     'silent-sailing': SAILING_EN
+  },
+  fr: {
+    barocco: BAROCCO_FR,
+    'etna-premium': ETNA_FR,
+    'isola-delle-correnti': ISOLA_FR,
+    'dolce-vita-siracusa': DOLCE_VITA_FR,
+    'silent-sailing': SAILING_FR
   }
 };
 
@@ -1663,7 +2381,7 @@ export function getTour(key: TourKey, locale: Locale): TourContent {
   return (TOURS[locale] ?? TOURS.it)[key];
 }
 
-const HUBS: Record<Locale, TourHubContent> = {it: HUB_IT, en: HUB_EN};
+const HUBS: Record<Locale, TourHubContent> = {it: HUB_IT, en: HUB_EN, fr: HUB_FR};
 
 export function getTourHub(locale: Locale): TourHubContent {
   return HUBS[locale] ?? HUBS.it;

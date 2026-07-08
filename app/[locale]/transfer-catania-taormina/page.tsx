@@ -11,6 +11,7 @@ import {routing} from '@/i18n/routing';
 const KEY = 'catania-taormina' as const;
 const IT_PATH = '/transfer-catania-taormina';
 const EN_PATH = '/en/catania-taormina-transfer';
+const FR_PATH = '/fr/transfert-catane-taormine';
 
 export async function generateMetadata({
   params
@@ -23,15 +24,15 @@ export async function generateMetadata({
     title: route.metaTitle,
     description: route.metaDescription,
     alternates: {
-      canonical: locale === 'it' ? IT_PATH : EN_PATH,
-      languages: {it: IT_PATH, en: EN_PATH, 'x-default': IT_PATH}
+      canonical: locale === 'fr' ? FR_PATH : locale === 'en' ? EN_PATH : IT_PATH,
+      languages: {it: IT_PATH, en: EN_PATH, fr: FR_PATH, 'x-default': IT_PATH}
     },
     openGraph: {
       title: route.metaTitle,
       description: route.metaDescription,
-      locale: locale === 'it' ? 'it_IT' : 'en_US',
+      locale: locale === 'fr' ? 'fr_FR' : locale === 'en' ? 'en_US' : 'it_IT',
       type: 'website',
-      url: `https://ncctaxisiracusa.com${locale === 'it' ? IT_PATH : EN_PATH}`,
+      url: `https://ncctaxisiracusa.com${locale === 'fr' ? FR_PATH : locale === 'en' ? EN_PATH : IT_PATH}`,
       siteName: 'Sicily Driver Siracusa',
       images: ogImage(locale, route.metaTitle)
     },

@@ -446,9 +446,204 @@ const ROUTES_EN: Record<TransferRouteKey, TransferRouteContent> = {
   }
 };
 
+// ============================================================
+// FR
+// ============================================================
+
+const ROUTES_FR: Record<TransferRouteKey, TransferRouteContent> = {
+  'catania-siracusa': {
+    key: 'catania-siracusa',
+    slugIt: '/transfer-catania-siracusa',
+    slugEn: '/catania-syracuse-transfer',
+    metaTitle: 'Transfert Aéroport de Catane → Syracuse dès €90 | Sicily Driver',
+    metaDescription:
+      'Transfert privé Aéroport de Catane → Syracuse et Ortigia en van de luxe. Dès €90 par trajet, environ 50 minutes, chauffeur aux arrivées, suivi du vol. 24/7.',
+    from: 'Aéroport de Catane',
+    to: 'Syracuse / Ortigia',
+    h1: 'Transfert Aéroport de Catane → Syracuse',
+    heroSubhead:
+      'De l’aéroport de Catane-Fontanarossa à Syracuse et Ortigia en van de luxe, en environ 50 minutes. Chauffeur qui vous attend aux arrivées, suivi du vol et tarif fixe convenu.',
+    heroImage: '/images/home/hero.jpeg',
+    priceFrom: 'dès €90',
+    priceBaseNote: '1–3 passagers · par trajet',
+    priceGroup: '€120',
+    priceGroupNote: 'à partir de 4 passagers · par trajet',
+    duration: 'Environ 50 minutes',
+    intro:
+      'Vous atterrissez à Catane et vous êtes à Ortigia en moins d’une heure. Notre chauffeur vous attend à la sortie des arrivées et vous conduit directement à votre hôtel, B&B ou appartement à Syracuse, sans changement et sans file d’attente pour les taxis. Van de luxe jusqu’à 7 passagers, idéal même avec beaucoup de bagages, avec sièges enfant et climatisation. C’est le trajet qu’on nous demande le plus souvent : tarif fixe, sans compteur, sans surprises.',
+    includes: [
+      'Chauffeur à la sortie des arrivées avec panonceau nominatif',
+      'Suivi du vol en temps réel',
+      'Attente gratuite jusqu’à 60 minutes après l’atterrissage',
+      'Sièges enfant gratuits sur demande',
+      'Eau fraîche à bord',
+      'Paiement en espèces, par carte ou par virement'
+    ],
+    faqs: [
+      {
+        q: 'Combien de temps dure le transfert de Catane à Syracuse ?',
+        a: 'Environ 50 minutes, selon le trafic. Le chauffeur suit votre vol et vous attend même en cas de retard, sans frais supplémentaires.'
+      },
+      {
+        q: 'Combien coûte le transfert Catane → Syracuse ?',
+        a: 'Dès €90 par trajet pour 1–3 passagers, €120 à partir de 4 passagers. Tarif fixe convenu avant le départ, sans surprises au retour.'
+      },
+      {
+        q: 'Où le chauffeur m’attend-il à l’aéroport ?',
+        a: 'À la sortie des arrivées, avec un panonceau à votre nom. Si le vol est en retard, l’attente reste gratuite jusqu’à 60 minutes après l’atterrissage.'
+      }
+    ],
+    ctaH2: 'Prêts pour Syracuse ?',
+    ctaSubhead:
+      'Envoyez-nous la date, l’heure du vol et le nombre de passagers : nous confirmons votre transfert Catane → Syracuse en quelques minutes.'
+  },
+
+  'catania-noto': {
+    key: 'catania-noto',
+    slugIt: '/transfer-catania-noto',
+    slugEn: '/catania-noto-transfer',
+    metaTitle: 'Transfert Aéroport de Catane → Noto dès €100 | Sicily Driver',
+    metaDescription:
+      'Transfert privé Aéroport de Catane → Noto en van de luxe. Dès €100 par trajet, environ 1h20, attente à l’aéroport incluse, suivi du vol. 24/7.',
+    from: 'Aéroport de Catane',
+    to: 'Noto',
+    h1: 'Transfert Aéroport de Catane → Noto',
+    heroSubhead:
+      'De l’aéroport de Catane au cœur baroque de Noto en van de luxe, en environ 1 heure et 20 minutes. Attente à l’aéroport incluse, suivi du vol et tarif fixe.',
+    heroImage: '/images/ncc/noto.webp',
+    priceFrom: 'dès €100',
+    priceBaseNote: '1–3 passagers · par trajet',
+    priceGroup: '€130',
+    priceGroupNote: 'à partir de 4 passagers · par trajet',
+    duration: 'Environ 1 heure et 20 minutes',
+    intro:
+      'De Catane Fontanarossa jusqu’à Noto, capitale du baroque sicilien et joyau classé au patrimoine mondial de l’UNESCO. Nous venons vous chercher aux arrivées et vous conduisons directement dans le centre historique, à votre hôtel ou à votre villa, en van de luxe avec chauffeur. Un trajet confortable pour commencer vos vacances dans le Val di Noto sans vous soucier de la conduite ni du stationnement : tarif fixe, attente à l’aéroport incluse, souplesse sur les horaires.',
+    includes: [
+      'Attente gratuite à l’aéroport incluse',
+      'Suivi du vol en temps réel',
+      'Chauffeur à la sortie des arrivées avec panonceau nominatif',
+      'Sièges enfant gratuits sur demande',
+      'Eau fraîche à bord',
+      'Paiement en espèces, par carte ou par virement'
+    ],
+    faqs: [
+      {
+        q: 'Combien de temps dure le transfert de Catane à Noto ?',
+        a: 'Environ 1 heure et 20 minutes. Le chauffeur suit votre vol et vous attend aux arrivées, même en cas de retard.'
+      },
+      {
+        q: 'Combien coûte le transfert Catane → Noto ?',
+        a: 'Dès €100 par trajet pour 1–3 passagers, €130 à partir de 4 passagers. Tarif fixe convenu avant le départ.'
+      },
+      {
+        q: 'Pouvez-vous aussi nous emmener à Marzamemi ou dans les villas autour de Noto ?',
+        a: 'Oui. Nous pouvons continuer vers Marzamemi, Avola ou les villas et resorts du Val di Noto : envoyez-nous l’adresse et nous vous indiquons le prix exact.'
+      }
+    ],
+    ctaH2: 'Prêts pour Noto ?',
+    ctaSubhead:
+      'Indiquez-nous la date, l’heure du vol et le nombre de passagers : nous confirmons votre transfert Catane → Noto en quelques minutes.'
+  },
+
+  'catania-taormina': {
+    key: 'catania-taormina',
+    slugIt: '/transfer-catania-taormina',
+    slugEn: '/catania-taormina-transfer',
+    metaTitle: 'Transfert Aéroport de Catane → Taormine dès €80 | Sicily Driver',
+    metaDescription:
+      'Transfert privé Aéroport de Catane → Taormine en van de luxe. Dès €80 par trajet, environ 1 heure sur la côte ionienne, suivi du vol, arrêts panoramiques. 24/7.',
+    from: 'Aéroport de Catane',
+    to: 'Taormine',
+    h1: 'Transfert Aéroport de Catane → Taormine',
+    heroSubhead:
+      'De l’aéroport de Catane à Taormine, le long de la côte ionienne, en van de luxe et environ 1 heure. Suivi du vol, arrêts panoramiques sur demande et tarif fixe.',
+    heroImage: '/images/ncc/taormina.webp',
+    priceFrom: 'dès €80',
+    priceBaseNote: '1–3 passagers · par trajet',
+    priceGroup: '€100',
+    priceGroupNote: 'à partir de 4 passagers · par trajet',
+    duration: 'Environ 1 heure',
+    intro:
+      'De Catane Fontanarossa à Taormine, la perle de la côte ionienne, en un peu plus d’une heure. Notre chauffeur vous accueille aux arrivées et vous conduit jusqu’à votre hôtel — même dans les recoins les plus difficiles du centre piéton, où une voiture privée fait toute la différence. Van de luxe climatisé, idéal après un long vol, avec la possibilité d’un arrêt panoramique sur l’Etna ou sur la baie d’Isola Bella en chemin.',
+    includes: [
+      'Chauffeur à la sortie des arrivées avec panonceau nominatif',
+      'Suivi du vol en temps réel',
+      'Arrêts panoramiques sur demande',
+      'Attente gratuite jusqu’à 60 minutes après l’atterrissage',
+      'Sièges enfant gratuits sur demande',
+      'Paiement en espèces, par carte ou par virement'
+    ],
+    faqs: [
+      {
+        q: 'Combien de temps dure le transfert de Catane à Taormine ?',
+        a: 'Environ 1 heure, le long de la côte ionienne. Confortable même en soirée, avec le chauffeur qui suit votre vol et vous attend aux arrivées.'
+      },
+      {
+        q: 'Combien coûte le transfert Catane → Taormine ?',
+        a: 'Dès €80 par trajet pour 1–3 passagers, €100 à partir de 4 passagers. Tarif fixe convenu avant le départ.'
+      },
+      {
+        q: 'Peut-on ajouter un arrêt à l’Etna en chemin ?',
+        a: 'Oui, nous pouvons inclure un arrêt panoramique ou transformer le transfert en une demi-journée avec une halte sur l’Etna : écrivez-nous et nous organisons l’itinéraire.'
+      }
+    ],
+    ctaH2: 'Prêts pour Taormine ?',
+    ctaSubhead:
+      'Envoyez-nous la date, l’heure du vol et le nombre de passagers : nous confirmons votre transfert Catane → Taormine en quelques minutes.'
+  },
+
+  'pozzallo-siracusa': {
+    key: 'pozzallo-siracusa',
+    slugIt: '/transfer-pozzallo-siracusa',
+    slugEn: '/pozzallo-syracuse-transfer',
+    metaTitle: 'Transfert Port de Pozzallo → Syracuse dès €150 | Sicily Driver',
+    metaDescription:
+      'Transfert privé Port de Pozzallo (ferry depuis Malte) → Syracuse et Ortigia en van de luxe. Dès €150 par trajet, environ 1 heure, attente au port incluse. 24/7.',
+    from: 'Port de Pozzallo',
+    to: 'Syracuse / Ortigia',
+    h1: 'Transfert Port de Pozzallo → Syracuse',
+    heroSubhead:
+      'Du port de Pozzallo (ferry depuis Malte) à Syracuse et Ortigia en van de luxe, en environ 1 heure. Attente au port incluse et coordination avec l’horaire du ferry.',
+    heroImage: '/images/home/hero.jpeg',
+    priceFrom: 'dès €150',
+    priceBaseNote: '1–3 passagers · par trajet',
+    priceGroup: '€195',
+    priceGroupNote: 'à partir de 4 passagers · par trajet',
+    duration: 'Environ 1 heure',
+    intro:
+      'Vous débarquez à Pozzallo du ferry en provenance de Malte et vous êtes à Ortigia en environ une heure. Nous coordonnons la prise en charge avec l’heure d’arrivée du ferry et le chauffeur vous attend au port, prêt à partir dès que vous descendez. Van de luxe avec de la place pour les bagages, parfait après une traversée : pas de files d’attente, pas de changement, directement à votre hébergement à Syracuse avec un tarif fixe convenu à l’avance.',
+    includes: [
+      'Attente au port incluse',
+      'Coordination avec l’horaire du ferry depuis Malte',
+      'Chauffeur qui vous attend au débarquement',
+      'Sièges enfant gratuits sur demande',
+      'Eau fraîche à bord',
+      'Paiement en espèces, par carte ou par virement'
+    ],
+    faqs: [
+      {
+        q: 'Combien de temps dure le transfert de Pozzallo à Syracuse ?',
+        a: 'Environ 1 heure. Nous coordonnons les horaires avec le ferry depuis Malte, afin que le chauffeur soit déjà au port lorsque vous débarquez.'
+      },
+      {
+        q: 'Combien coûte le transfert Pozzallo → Syracuse ?',
+        a: 'Dès €150 par trajet pour 1–3 passagers, €195 à partir de 4 passagers. Tarif fixe convenu avant le départ.'
+      },
+      {
+        q: 'Et si le ferry est en retard ?',
+        a: 'Aucun problème : nous surveillons l’arrivée et l’attente au port est incluse. Vous n’avez qu’à débarquer — nous nous occupons du reste.'
+      }
+    ],
+    ctaH2: 'Vous débarquez à Pozzallo ?',
+    ctaSubhead:
+      'Indiquez-nous l’heure du ferry et combien vous êtes : nous vous attendons au port et vous conduisons à Syracuse sans attente.'
+  }
+};
+
 const DATA: Record<Locale, Record<TransferRouteKey, TransferRouteContent>> = {
   it: ROUTES_IT,
-  en: ROUTES_EN
+  en: ROUTES_EN,
+  fr: ROUTES_FR
 };
 
 export function getTransferRoute(

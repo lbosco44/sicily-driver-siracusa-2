@@ -17,19 +17,20 @@ export async function generateMetadata({
   const tour = getTour('barocco', locale as Locale);
   const itPath = '/tour-barocco';
   const enPath = '/en/baroque-tour';
+  const frPath = '/fr/tour-baroque';
   return {
     title: tour.metaTitle,
     description: tour.metaDescription,
     alternates: {
-      canonical: locale === 'it' ? itPath : enPath,
-      languages: {it: itPath, en: enPath, 'x-default': itPath}
+      canonical: locale === 'fr' ? frPath : locale === 'en' ? enPath : itPath,
+      languages: {it: itPath, en: enPath, fr: frPath, 'x-default': itPath}
     },
     openGraph: {
       title: tour.metaTitle,
       description: tour.metaDescription,
-      locale: locale === 'it' ? 'it_IT' : 'en_US',
+      locale: locale === 'fr' ? 'fr_FR' : locale === 'en' ? 'en_US' : 'it_IT',
       type: 'website',
-      url: `https://ncctaxisiracusa.com${locale === 'it' ? itPath : enPath}`,
+      url: `https://ncctaxisiracusa.com${locale === 'fr' ? frPath : locale === 'en' ? enPath : itPath}`,
       siteName: 'Sicily Driver Siracusa',
       images: ogImage(locale, tour.metaTitle)
     },

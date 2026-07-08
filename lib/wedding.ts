@@ -544,7 +544,217 @@ const WEDDING_EN: WeddingContent = {
     'If you have a date and a few guests in mind, message us: first reply within an hour.'
 };
 
-const WEDDING: Record<Locale, WeddingContent> = {it: WEDDING_IT, en: WEDDING_EN};
+const WEDDING_FR: WeddingContent = {
+  metaTitle:
+    'Mariage en Sicile — Voitures Anciennes, Navette Invités, Conseil Villages | Sicily Driver',
+  metaDescription:
+    'Service mariage en Sicile orientale : 6 voitures anciennes entièrement révisées, navette invités en van de luxe, conseil sur les villages où se marier (Noto, Marzamemi, Scicli, Val di Noto).',
+
+  heroImage: HERO_WEDDING,
+  heroEyebrow: 'Mariage · Sicile orientale',
+  h1Pre: 'Pour le jour',
+  h1Accent: 'dont vous vous souviendrez',
+  heroSubhead:
+    'Six voitures anciennes, navette invités, et les lieux que nous connaissons comme chez nous. Trois choses, faites avec soin.',
+  ctaHero: 'Parlons de ce jour',
+
+  storyEyebrow: 'Comment nous vous accompagnons',
+  storyH2: 'Comment nous vous accompagnons',
+  beforeTitle: 'Avant la cérémonie',
+  beforeBody:
+    'Nous venons vous chercher à la villa ou à l’hôtel où vous vous préparez. La mariée dans la voiture ancienne choisie, le marié dans un transfert dédié, les invités dans la navette qui part de l’hôtel. Nous coordonnons les horaires pour arriver à la cérémonie avec la juste marge — ni trop tôt, ni en retard.',
+  duringTitle: 'Pendant',
+  duringBody:
+    'Après la cérémonie, les photos de couple avec la voiture ancienne dans les lieux que nous choisissons ensemble : une crique près de Marzamemi, une place baroque de Noto au coucher du soleil, un belvédère sur l’Etna. Pendant que vous êtes avec le photographe, les invités sont transférés vers le lieu de la réception.',
+  afterTitle: 'Après',
+  afterBody:
+    'En fin de soirée, navette pour tous les invités vers leurs hôtels de séjour. Personne n’a à se soucier de conduire. Voitures également disponibles le lendemain, si le voyage de noces démarre de Sicile.',
+
+  carsEyebrow: 'Les 6 voitures anciennes',
+  carsH2: 'Les 6 voitures anciennes',
+  carsIntro:
+    'Six voitures anciennes, toutes révisées et entretenues avec un soin maniaque. Chaque détail fonctionne, chaque chrome brille comme au jour de leur sortie d’usine.',
+  cars: [
+    {
+      model: 'Fiat 500 Spiaggina',
+      year: '1968',
+      character: 'Pour une arrivée cinématographique sur la place.',
+      image: CAR_FIAT500
+    },
+    {
+      model: 'Mercedes-Benz 280SL Pagoda',
+      year: '1969',
+      character: 'Pour ceux qui veulent la saveur des années 60.',
+      image: CAR_PAGODA
+    },
+    {
+      model: 'Alfa Romeo Giulia Spider',
+      year: '1967',
+      character: 'Pour un été italien décapotable.',
+      image: CAR_SPIDER
+    },
+    {
+      model: 'Volkswagen Coccinelle Cabriolet',
+      year: '1971',
+      character: 'Pour un mariage plus détendu.',
+      image: CAR_BEETLE
+    },
+    {
+      model: 'Lancia Aurelia B24',
+      year: '1956',
+      character: 'Pour les amoureux du classique.',
+      image: CAR_LANCIA
+    },
+    {
+      model: 'Mercedes-Benz Pullman',
+      year: '1972',
+      character: 'Pour les arrivées importantes, jusqu’à 6 personnes.',
+      image: CAR_PULLMAN
+    }
+  ],
+  carsTodoNote: 'Modèles et années à confirmer avec le client.',
+
+  shuttleEyebrow: 'Pour les invités',
+  shuttleH2: 'Navette invités — vos invités à leur place',
+  shuttleBody:
+    'La logistique du mariage est le détail qui fait la différence pour les invités. Nous coordonnons un van de luxe (jusqu’à 7 personnes) ou plusieurs véhicules en parallèle pour les transferts des invités : prise en charge hôtel/aéroports, transfert vers les lieux de la cérémonie et de la réception, retour en fin de soirée. Un seul numéro WhatsApp de référence par chauffeur, vous vous occupez du reste.',
+  shuttleIncludesLabel: 'Ce que le service comprend',
+  shuttleIncludes: [
+    'Prises en charge multiples depuis différents hôtels',
+    'Coordination des horaires avec le wedding planner',
+    'Chauffeur dédié pour chaque véhicule',
+    'Groupe WhatsApp pour la gestion en direct',
+    'Retour en fin de soirée garanti'
+  ],
+
+  venuesEyebrow: 'Où se marier',
+  venuesH2: 'Où se marier',
+  venuesIntro:
+    'Ce ne sont pas des affiliations commerciales. Ce sont les lieux que nous recommandons nous-mêmes aux mariés qui nous le demandent, parce que nous connaissons ceux qui s’y sont mariés avant et avons vu comment cela s’est passé.',
+  venues: [
+    {
+      name: 'Noto',
+      tagline: 'Pour ceux qui veulent le baroque',
+      description:
+        'Cathédrale de San Nicolò pour la cérémonie, palais historiques (Villadorata, Nicolaci) pour la réception. Distance moyenne de notre base : 30 min.'
+    },
+    {
+      name: 'Marzamemi',
+      tagline: 'Pour ceux qui veulent la mer',
+      description:
+        'Piazza Regina Margherita avec la tonnara, réceptions dans les lieux historiques du village. À 50 min de Syracuse.'
+    },
+    {
+      name: 'Scicli',
+      tagline: 'Pour ceux qui cherchent moins de tourisme',
+      description:
+        'Capitale du baroque moins fréquentée que Noto. Palais historiques disponibles pour cérémonies civiles et réceptions.'
+    },
+    {
+      name: 'Ragusa Ibla',
+      tagline: 'Pour les amoureux des villes de pierre',
+      description:
+        'Giardini Iblei avec vue, église de San Giorgio pour la cérémonie.'
+    },
+    {
+      name: 'Masserie del Val di Noto',
+      tagline: 'Pour ceux qui veulent campagne et élégance',
+      description:
+        'Plusieurs masseries historiques restaurées accueillent cérémonie et réception sous le même toit.'
+    },
+    {
+      name: 'Castello di Donnafugata',
+      tagline: 'Pour ceux qui veulent un décor de cinéma',
+      description:
+        'Près de Raguse, lieu historique avec parc. Uniquement pour les événements haut de gamme.'
+    }
+  ],
+
+  galleryEyebrow: 'Des mariages que nous avons accompagnés',
+  galleryH2: 'Des mariages que nous avons accompagnés',
+  galleryCaption:
+    'Toutes les photos sont de vrais mariages, publiées avec le consentement des mariés.',
+  galleryPlaceholderNote:
+    'Galerie à remplacer par de vraies photos fournies par le client.',
+
+  faqEyebrow: 'Questions',
+  faqH2Pre: 'Les questions',
+  faqH2Accent: 'que vous nous posez',
+  faqs: [
+    {
+      q: 'Combien de temps à l’avance faut-il réserver ?',
+      a: 'Idéalement 4–6 mois avant pour garantir la voiture ancienne choisie. Pour la seule navette invités, 2 mois suffisent. En haute saison (mai-septembre) nous recommandons une réservation 6 mois ou plus à l’avance.'
+    },
+    {
+      q: 'Les décorations de la voiture sont-elles incluses ?',
+      a: 'Le nœud/la cocarde standard, oui. Pour des décorations florales personnalisées, nous nous coordonnons avec votre fleuriste ou vous suggérons quelqu’un de confiance. Coût à part.'
+    },
+    {
+      q: 'Quelle distance couvrons-nous dans le service mariage ?',
+      a: 'Toute la Sicile orientale. Pour des cérémonies dans des zones plus éloignées (Palerme, Trapani) un devis dédié est nécessaire.'
+    },
+    {
+      q: 'Pouvons-nous avoir plusieurs voitures anciennes en même temps ?',
+      a: 'Oui, jusqu’à 6 — nous avons les 6 disponibles en parallèle si aucun autre événement n’est prévu le même jour. À vérifier lors du devis.'
+    },
+    {
+      q: 'Gestion des imprévus le jour du mariage ?',
+      a: 'Chaque chauffeur dispose d’un véhicule de secours joignable en 30 minutes. Les voitures anciennes ont un remplacement moderne prêt en cas (rare) de problème mécanique de dernière minute.'
+    },
+    {
+      q: 'Voiture blanche ou en couleur ?',
+      a: 'Trois des 6 voitures sont blanches, les autres conservent leur couleur d’origine (rouge, bleu, crème). On choisit selon le style du mariage.'
+    }
+  ],
+
+  formEyebrow: 'Devis mariage',
+  formH2Pre: 'Recevez un devis',
+  formH2Accent: 'sous 24h',
+  formSubhead:
+    'Sept informations pour construire le devis. Nous vous répondons avec un plan dimensionné sous 24 heures.',
+  formFields: {
+    dateLabel: 'Date de l’événement',
+    datePlaceholder: 'jj/mm/aaaa',
+    ceremonyLabel: 'Lieu de la cérémonie',
+    ceremonyPlaceholder: 'Église / villa / plage, ville',
+    receptionLabel: 'Lieu de la réception',
+    receptionPlaceholder: 'Villa, domaine, restaurant',
+    carsCountLabel: 'Nombre de voitures anciennes nécessaires',
+    carsCountOption1: '1 voiture',
+    carsCountOption2: '2 voitures',
+    carsCountOption3: '3 ou plus',
+    guestsLabel: 'Nombre d’invités à transporter',
+    guestsPlaceholder: 'Ex. 15 invités via l’aéroport',
+    notesLabel: 'Notes spéciales / besoins particuliers',
+    notesPlaceholder: 'Décorations, horaires, transfert de nuit…',
+    nameLabel: 'Nom',
+    namePlaceholder: 'Marié(e) ou wedding planner',
+    phoneLabel: 'Téléphone',
+    phonePlaceholder: '+33 …',
+    emailLabel: 'E-mail',
+    emailPlaceholder: 'votre@email.fr',
+    submit: 'Recevez un devis sous 24h',
+    submitting: 'Envoi',
+    submitNote:
+      'Demande reçue. Nous vous contactons sous 24h avec le devis personnalisé.',
+    successTitle: 'Demande reçue.',
+    successBody:
+      'Nous vous contactons sous 24h avec le devis personnalisé. Pour toute urgence, écrivez-nous directement sur WhatsApp.',
+    errorRequired: 'Vérifiez les champs obligatoires et réessayez.',
+    errorSend: 'Échec de l’envoi. Réessayez ou écrivez-nous sur WhatsApp.'
+  },
+
+  ctaEyebrow: 'Vous préférez écrire directement ?',
+  ctaH2: 'Parlons-en sur WhatsApp.',
+  ctaSubhead:
+    'Si vous avez une date et quelques invités en tête, écrivez-nous : première réponse sous une heure.'
+};
+
+const WEDDING: Record<Locale, WeddingContent> = {
+  it: WEDDING_IT,
+  en: WEDDING_EN,
+  fr: WEDDING_FR
+};
 
 export function getWedding(locale: Locale): WeddingContent {
   return WEDDING[locale] ?? WEDDING.it;

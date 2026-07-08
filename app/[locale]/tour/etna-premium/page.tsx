@@ -15,7 +15,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   const tour = getTour('etna-premium', locale as Locale);
-  const path = locale === 'it' ? '/tour/etna-premium' : '/en/tour/etna-premium';
+  const path =
+    locale === 'fr'
+      ? '/fr/tour/etna-premium'
+      : locale === 'en'
+        ? '/en/tour/etna-premium'
+        : '/tour/etna-premium';
   return {
     title: tour.metaTitle,
     description: tour.metaDescription,
@@ -24,13 +29,14 @@ export async function generateMetadata({
       languages: {
         it: '/tour/etna-premium',
         en: '/en/tour/etna-premium',
+        fr: '/fr/tour/etna-premium',
         'x-default': '/tour/etna-premium'
       }
     },
     openGraph: {
       title: tour.metaTitle,
       description: tour.metaDescription,
-      locale: locale === 'it' ? 'it_IT' : 'en_US',
+      locale: locale === 'fr' ? 'fr_FR' : locale === 'en' ? 'en_US' : 'it_IT',
       type: 'website',
       url: `https://ncctaxisiracusa.com${path}`,
       siteName: 'Sicily Driver Siracusa',
