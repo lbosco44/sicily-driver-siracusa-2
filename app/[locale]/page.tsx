@@ -46,7 +46,9 @@ export async function generateMetadata({
           alt:
             locale === 'it'
               ? 'Sicily Driver Siracusa — NCC e tour privati in Sicilia orientale'
-              : 'Sicily Driver Syracuse — Private NCC and tours across eastern Sicily'
+              : locale === 'fr'
+                ? 'Sicily Driver Siracusa — Chauffeur privé et circuits en Sicile orientale'
+                : 'Sicily Driver Syracuse — Private NCC and tours across eastern Sicily'
         }
       ]
     },
