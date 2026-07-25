@@ -50,9 +50,13 @@ export function MobileLangMenu({label}: {label: string}) {
 
   return (
     <div ref={ref} className="relative">
+      {/* WCAG 2.5.3 "Label in Name" (audit Lighthouse 25/07/2026): il nome
+          accessibile DEVE contenere il testo visibile del pulsante, che qui è
+          il codice lingua ("IT"). Con il solo aria-label generico chi usa il
+          controllo vocale diceva "clicca IT" e il comando non funzionava. */}
       <button
         type="button"
-        aria-label={label}
+        aria-label={`${locale.toUpperCase()} — ${label}`}
         aria-haspopup="menu"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
