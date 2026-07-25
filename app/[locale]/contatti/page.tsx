@@ -126,7 +126,11 @@ export default async function ContattiPage({
         <div className="mx-auto max-w-(--container-editorial) px-6 sm:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20">
             <div className="lg:sticky lg:top-28 lg:self-start">
-              <h2
+              {/* h1 della pagina (SEO audit 25/07/2026): era un h2, quindi
+                  /contatti, /en/contact e /fr/contact risultavano senza alcun
+                  h1. Gli stili inline sotto vincono sul CSS globale degli h1:
+                  la resa visiva resta identica a prima. */}
+              <h1
                 className="font-display font-light text-ink max-w-[15ch] text-balance mb-7"
                 style={{
                   fontStretch: '95%',
@@ -137,7 +141,7 @@ export default async function ContattiPage({
               >
                 {t('form.h2Pre')}{' '}
                 <span className="italic text-accent">{t('form.h2Accent')}</span>
-              </h2>
+              </h1>
               <p className="text-[17px] leading-[1.7] text-ink-soft max-w-[44ch]">
                 {t('form.subhead')}
               </p>

@@ -68,6 +68,13 @@ const nextConfig: NextConfig = {
       {source: '/contact.php', destination: '/en/contact', permanent: true},
       {source: '/sicily-tours.php', destination: '/en/sicily-tours', permanent: true},
 
+      // --- Flotta rimossa (Audit SEO 25/07/2026) ---
+      // La pagina Flotta non esiste più nel sito nuovo (contenuto assorbito in
+      // Servizi). Le due vecchie URL restavano 404: le mandiamo a Servizi nella
+      // rispettiva lingua invece di disperdere l'equity residua.
+      {source: '/flotta.php', destination: '/servizi', permanent: true},
+      {source: '/flotta-en.php', destination: '/en/services', permanent: true},
+
       // --- Root / ---
       // Con localePrefix 'as-needed' + localeDetection false (i18n/routing.ts),
       // la root / serve direttamente l'italiano (default) come contenuto
