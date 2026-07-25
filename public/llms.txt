@@ -1,0 +1,54 @@
+# Sicily Driver Siracusa
+
+> Licensed private driver service (NCC) based in Syracuse, Sicily, Italy. Airport
+> and port transfers, full-day private tours and wedding transport across eastern
+> Sicily, with English-, French- and Italian-speaking drivers and luxury vans.
+> Operating 24/7. Rated 4.9/5 from 32 reviews. VAT IT02150600894.
+
+Sicily Driver Siracusa is run by Vincenzo Izzo. Bookings are agreed at a flat rate
+before departure, with no surcharges added afterwards. Airport pickups include
+flight tracking, a name sign at the arrivals exit and up to 60 minutes of free
+waiting after landing. Payment by cash, credit card or bank transfer.
+
+Bases: Syracuse (Via della Maestranza 28), Noto (Via Alcide De Gasperi 15),
+Marzamemi (Via Marzamemi 23).
+Areas served: Syracuse, Ortigia, Noto, Avola, Marzamemi, Catania, Taormina,
+Ragusa, Modica, Val di Noto and eastern Sicily (roughly a 150 km radius).
+Vehicles: Mercedes V-Class, GLB Premium and E-Class.
+Contact: info@ncctaxisiracusa.com · WhatsApp +39 375 641 3379
+
+Site languages: English (/en), Italian (site root), French (/fr). The pages below
+link to the English version; swap the prefix for the other languages.
+
+## Airport and port transfers
+
+- [Transfers overview](https://ncctaxisiracusa.com/en/sicily-airport-port-transfers): all routes from the airports of Catania, Comiso, Palermo and Trapani and the port of Pozzallo.
+- [Catania Airport to Syracuse](https://ncctaxisiracusa.com/en/catania-syracuse-transfer): about 50 minutes. From €90 per trip for 1–3 passengers, €120 from 4 passengers.
+- [Catania Airport to Noto](https://ncctaxisiracusa.com/en/catania-noto-transfer): direct transfer to Noto and the Val di Noto.
+- [Catania Airport to Taormina](https://ncctaxisiracusa.com/en/catania-taormina-transfer): transfer along the Ionian coast.
+- [Pozzallo Port to Syracuse](https://ncctaxisiracusa.com/en/pozzallo-syracuse-transfer): connection from the Malta ferry terminal.
+
+## Private tours
+
+- [Sicily tours overview](https://ncctaxisiracusa.com/en/sicily-tours): all full-day and half-day private tours with a dedicated driver.
+- [Baroque Tour](https://ncctaxisiracusa.com/en/baroque-tour): full day across Noto, Modica and Ragusa Ibla, the UNESCO late-Baroque towns of the Val di Noto.
+- [Etna Premium](https://ncctaxisiracusa.com/en/tour/etna-premium): Mount Etna day tour including the Silvestri craters at about 1,900 m, with quad option and tasting.
+- [Isola delle Correnti](https://ncctaxisiracusa.com/en/tour/isola-delle-correnti): day tour to the southernmost point of Sicily, where the Ionian and Mediterranean seas meet.
+- [Dolce Vita Ortigia](https://ncctaxisiracusa.com/en/tour/dolce-vita-siracusa): three-hour Ortigia tour in a vintage Fiat 500 Spiaggina.
+- [Silent Sailing](https://ncctaxisiracusa.com/en/tour/silent-sailing): private sailing trip from Ortigia along the Syracuse coast.
+
+## Cities and local service
+
+- [Private driver Syracuse](https://ncctaxisiracusa.com/en): home page, service overview.
+- [Private driver Noto](https://ncctaxisiracusa.com/en/driver-noto)
+- [Private driver Catania](https://ncctaxisiracusa.com/en/driver-catania)
+- [Private driver Taormina](https://ncctaxisiracusa.com/en/driver-taormina)
+- [Private driver Ragusa](https://ncctaxisiracusa.com/en/driver-ragusa)
+
+## Company
+
+- [Services](https://ncctaxisiracusa.com/en/services): transfers, tours, weddings and business travel.
+- [About](https://ncctaxisiracusa.com/en/about): who runs the service and how it works.
+- [Weddings](https://ncctaxisiracusa.com/en/weddings): wedding transport with vintage cars in eastern Sicily.
+- [Partners](https://ncctaxisiracusa.com/en/partners): selected local partners.
+- [Contact](https://ncctaxisiracusa.com/en/contact): booking form, email and WhatsApp.
