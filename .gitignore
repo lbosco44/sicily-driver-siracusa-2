@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.claude/settings.local.json
+.claude/launch.json
+
+# --- Riservato: mai su repo pubblico (viaggia via canale privato) ---
+company-profile/
+Modifiche Sito NEW.docx
+CUTOVER-CHECKLIST.pdf
+

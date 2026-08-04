@@ -3,7 +3,16 @@
     "allow": [
       "WebFetch(domain:ncctaxisiracusa.com)",
       "Bash(pnpm tsc *)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(pnpm build)",
+      "Bash(pnpm build:*)",
+      "Bash(vercel --prod)",
+      "Bash(vercel --prod:*)",
+      "Bash(vercel ls)",
+      "Bash(vercel ls:*)",
+      "Bash(vercel inspect:*)"
     ]
   }
 }
